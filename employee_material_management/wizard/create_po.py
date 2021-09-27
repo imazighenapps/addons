@@ -27,7 +27,6 @@ class CreatePo(models.TransientModel):
                                 "order_id"     : po_id.id,
                                 'date_planned' : fields.Date.today(),
                                 'state'        : 'draft',
-                                'origin'       :  self.env['material.request'].search([('id','=',self.env.context.get('active_id'))]).name,      
                                 })
                 line.request_line_id.state = 'done'                
             
