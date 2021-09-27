@@ -12,7 +12,7 @@
     'author': 'Imazighen',
     'website': '',
     'support': 'imazighenapps@gmail.com',
-    'images': ['static/description/index.jpeg'],
+    'images': ['static/description/c_image.png'],
  
     'category': 'Human Resources',
     'depends': ['hr','stock','purchase'],
