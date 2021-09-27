@@ -7,7 +7,7 @@
     'price': 15.0,
     'currency': 'EUR',
     'license': 'OPL-1',
-    'summary': """This module allow your employees to request material requisitions""",
+    'summary': """This module allow your employees to request material acquisition""",
     'description': """  """,
     'author': 'Imazighen',
     'website': '',
