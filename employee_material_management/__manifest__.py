@@ -6,7 +6,7 @@
     'version': '1.3.3',
     'price': 15.0,
     'currency': 'EUR',
-    'license': 'Other proprietary',
+    'license': 'OPL-1',
     'summary': """This module allow your employees to request material requisitions""",
     'description': """  """,
     'author': 'Imazighen',
