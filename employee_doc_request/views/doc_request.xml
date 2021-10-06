@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="doc_request_form_view" model="ir.ui.view">
+            <field name="name">doc.request.form.view</field>
+            <field name="model">doc.request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="employee_request_confirm" groups='employee_doc_request.group_doc_request_employee' type="object" string="Confirm" states="draft" class="btn-primary"/>
+                        <button name="dep_request_confirm" groups='employee_doc_request.group_doc_request_employee' type="object" invisible="context.get('emp_invisible')" string="Done" states="dept_confirm" class="btn-primary"/>
+                        <button name="action_received" groups='employee_doc_request.group_doc_request_employee' invisible="not(context.get('emp_invisible'))" type="object" string="Received" states="done" class="btn-primary"/>
+                        <button name="dep_request_rejected" groups='employee_doc_request.group_doc_request_employee' type="object" class="btn-secondary" string="Reject" invisible="context.get('emp_invisible')" states="dept_confirm" />
+                        <field name="state" widget="statusbar" string="confirm" statusbar_visible="draft,dept_confirm,ir_approve,approved,stock,receive"/>
+                    </header>
+                    <sheet>
+               
+                        <div class="oe_title">
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="name"/><br/>
+                                </h1>
+                            </div>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="document_type_id"  options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="employee_id" readonly="1"/>
+                                <field name="department_id" readonly="1" />
+                                <field name="receiving_mode" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="request_date" readonly="1"/>
+                                <field name="received_date" readonly="1"/>
+                                <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                            </group>
+                            <group>
+                                <field name="emp_request_to" attrs="{'readonly': [('state', '!=', 'draft')]}"/>      
+                                <field name="dep_request_to" attrs="{'readonly': [('state', '!=', 'draft')]}"/>      
+                                <field name="priority" widget="priority" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Requested document as attachment" attrs="{'invisible': [('receiving_mode', '!=', 'attachment')]}">
+                                <field name="file" nolabel="1" filename="filename"/>
+                                <field name="filename" invisible="1"/>
+                            </group>
+                            <group string="Rejected reason" attrs="{'invisible': [('rejected_date', '=', False)]}">
+                                 <field name="rejected_reason" nolabel="1" readonly="1"/>   
+                                 <field name="rejected_date"  readonly="1"/>   
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <record id="doc_request_tree_view" model="ir.ui.view">
+            <field name="name">doc.request.tree.view</field>
+            <field name="model">doc.request</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="department_id"/>
+                    <field name="request_date"/>
+                    <field name="priority"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="my_doc_request_action">
+            <field name="name">My Document Request</field>
+            <field name="res_model">doc.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'emp_invisible':True}</field>
+
+        </record>
+
+        <record model="ir.actions.act_window" id="to_made_doc_request_action">
+            <field name="name">Document request to be made</field>
+            <field name="res_model">doc.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('dep_request_to.manager_id.user_id', '=', uid),('state','=','dept_confirm')]</field>
+            <field name="context">{'create': False, }</field>
+            
+        </record>
+
+
+    </data>
+</odoo>
