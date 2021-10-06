@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="doc_request_root" name="Documents request" groups=""  web_icon=""/>
+        <menuitem id="my_doc_request_menu" name="My Documents request" parent="doc_request_root" action="my_doc_request_action" sequence="10"/>
+        <menuitem id="to_made_doc_request_menu" name="Document request to be made" groups="group_doc_head_department" parent="doc_request_root" action="to_made_doc_request_action" sequence="20"/>
+        <menuitem id="doc_type_menu" name="Documents type" parent="doc_request_root" groups="group_doc_manager" action="doc_type_action" sequence="90"/>
+    </data>
+</odoo>        
