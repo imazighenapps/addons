@@ -13,7 +13,7 @@
     'version': '1.0',
 
     'depends': ['base'],
-    'images': ['static/description/index.png'],
+    'images': ['static/description/index.jpg'],
     'data': [
         'security/security_groups.xml',
         'security/ir.model.access.csv',
