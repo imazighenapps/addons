@@ -10,10 +10,9 @@
     'currency': 'EUR',
     'price': 29.0,
     'category': 'Tools',
-    'version': '1.0',
-
+    'author': "Imazighen",
     'depends': ['base'],
-    'images': ['static/description/index.png'],
+    'images': ['static/description/index.jpg'],
     'data': [
         'security/security_groups.xml',
         'security/ir.model.access.csv',
