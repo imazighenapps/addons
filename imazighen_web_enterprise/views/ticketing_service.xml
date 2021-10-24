@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="ticketing_service_tree_view">
+      <field name="name">ticketing.service.tree.view</field>
+      <field name="model">ticketing.service</field>
+      <field name="arch" type="xml">
+        <tree string="Services" editable="top">
+            <field name="name"/>
+            <field name="class_ids" widget="many2many_tags"/>
+            <field name="max_place_allowed"/>
+
+        </tree>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="ticketing_service_action_window">
+      <field name="name">Services</field>
+      <field name="res_model">ticketing.service</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+
+  </data>
+</odoo>

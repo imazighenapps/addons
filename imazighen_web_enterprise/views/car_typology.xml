@@ -1,0 +1,82 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="car_typology_tree_view">
+      <field name="name">car_typology.tree.view</field>
+      <field name="model">car.typology</field>
+      <field name="arch" type="xml">
+        <tree string="Typologie des voitures">
+            <field name="type"/>
+            <field name="class_ids"/>
+            <field name="start_nb_place"/>
+            <field name="end_nb_place"/>
+            <field name="description" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="car_typology_form_view">
+      <field name="name">car_typology.form.view</field>
+      <field name="model">car.typology</field>
+      <field name="arch" type="xml">
+        <form string="Typologie de voiture">
+           <sheet>
+                  <group>
+                    <group>
+                        <field name="type"/>
+                        <field name="class_ids"/>
+                    </group>
+                    <group>
+                      <field name="start_nb_place"/>
+                      <field name="end_nb_place"/>
+                      <field name="description"/>
+                    </group>
+                    <group>
+                    
+                    </group>
+                  </group>
+                  <notebook>
+                     <page string="Diagramme">
+                          <group>
+                            <field name="diagram" widget="image" nolabel="1"/>
+                          </group>  
+                    </page>
+                    <page string="Places">
+                       <field name="seat_ids">
+                          <tree editable="bottom" >
+                              <field name="number" style="text-align: left;"/>
+                          </tree>
+                          <form>
+                            <group>
+                              <group>
+                                <field name="number" />
+                              </group>
+                              <group></group>  
+                            </group>  
+                          </form>
+                       </field>
+                       <style>
+                     .o_list_number_th{
+                       text-align: left !important;
+                     }
+                  </style>
+                    </page>
+                 
+                  </notebook>
+                  
+              
+           
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="car_typology_action_window">
+      <field name="name">Typologie de voiture</field>
+      <field name="res_model">car.typology</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

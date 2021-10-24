@@ -1,0 +1,203 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="res_train_tree_view">
+      <field name="name">res.train.tree.view</field>
+      <field name="model">res.train</field>
+      <field name="arch" type="xml">
+        <tree string="Trains">
+            <field name="name"/>
+            <field name="start_station_id"/>
+            <field name="end_station_id"/>
+            <field name="departure_time" widget="float_time" />
+            <field name="arrival_time" widget="float_time"/>
+            <field name="amount_distance"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="res_train_form_view">
+      <field name="name">res.train.form.view</field>
+      <field name="model">res.train</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+               <field name="state" widget="statusbar" clickable = "True"/>
+          </header>
+          <sheet>
+           <div name="button_box" class="oe_button_box"> 
+              <button type="obect" class="oe_stat_button" name="" icon='fa-route' style="pointer-events:none;">                 
+                <div class="o_stat_info">
+                   <span>Gare de départ</span> 
+                    <field name="start_station_id" string=' ' class="o_stat_value" widget="statinfo"/>   
+                  </div>
+              </button>
+              <button type="obect" class="oe_stat_button" name="" icon='fa-route' style="pointer-events:none;">                 
+                <div class="o_stat_info">
+                   <span>Gare d'arrivée</span> 
+                    <field name="end_station_id" string=' ' class="o_stat_value" widget="statinfo"/>   
+                  </div>
+              </button>
+              <button type="obect" class="oe_stat_button" name="" icon='fa-route' style="pointer-events:none;">                 
+                <div class="o_stat_info">
+                   <span>Parcours</span> 
+                    <field name="amount_distance" string='KM' class="o_stat_value" widget="statinfo"/>   
+                  </div>
+              </button>
+              <button type="obect" class="oe_stat_button" name="" icon='fa-route' style="pointer-events:none;">                 
+                <div class="o_stat_info">
+                   <span>Durée</span> 
+                    <field name="duration" string=' ' class="o_stat_value" widget="float_time"/>   
+                  </div>
+              </button>
+           </div>
+            <div class="row">
+              <div class="col-8">
+                <h1>
+                  <field name="name" default_focus="1" placeholder="Numéro de train"/>
+                </h1>  
+              </div>
+              <div class="col-4"> 
+                <h1>   
+                  <field name="code" default_focus="1" placeholder="Code"/>
+                </h1>
+              </div>            
+            </div>
+          <group>
+            <group>
+                <field name="train_type_id"/>
+                <field name="traffic_mode_id"/>
+                <field name="service_id"/>
+                <field name="nb_class" invisible="1"/>
+                <!-- &gt; -->
+                <field name="class_ids" widget="many2many_tags" attrs="{'invisible':[('nb_class', '=', 1)]}"/>
+                <field name="meaning"/>
+                <field name="nature"/>
+                <field name="calendar_id"/>
+                <field name="station_ids"  invisible="1" widget="many2many_tags"/>
+                
+            </group>
+            <group>  
+                <field name="departure_time" widget="float_time"/>
+                <field name="arrival_time" widget="float_time"/>
+                <field name="Start_up_dates"/>
+                <field name="sub_reservation"/>
+                <field name="max_place_allowed"/>
+            </group>     
+          </group>
+          <field name="just_compute_seat_line_ids" invisible="1"/>
+          <notebook>
+            <page string="Relations">
+              <field name="relation_line_ids">
+                <tree editable="bottom">
+                    <field name="relation_id"/>
+                    <field name="direction"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </tree>
+              </field>
+            </page>
+            <page string="Gares">
+              <field name="station_line_ids">
+                  <tree editable="bottom">
+                      <field name="station_id"/>
+                      <field name="arrival_time" widget="float_time"/>
+                      <field name="departure_time" widget="float_time"/>
+                      <field name="next_day"/>
+                  </tree>
+                </field>
+            </page>
+            <page string="Types de voitures" attrs="{'invisible':[('sub_reservation', '=', False)]}">
+                  <field name="train_car_line_ids">
+                  <tree editable="bottom">
+                        <field name="car_typology_id"/>
+                        <field name="description"/>
+                  </tree>
+                  <form> 
+                      <group>
+                   
+                        <group>
+                          <field name="description"/>
+                        </group>
+                      </group>
+                  </form>
+
+                  </field>
+            </page>
+            <page string="Places" attrs="{'invisible':[('sub_reservation', '=', False)]}">
+                  <field name="seat_line_ids">
+                    <tree editable="bottom">
+                          <field name="number" style="text-align: left !important;"/>
+                    </tree>
+                    <form> 
+                        <group>
+                          <group>
+                            <field name="number"/>
+                          </group>
+                        </group>
+                        <notebook>
+                          <page string="Lignes des réservations">
+                              <field name="reservation_seat_line_ids">
+                                <tree>
+                                  <field name="reservation_date_time_from" />
+                                  <field name="reservation_date_time_to" />
+                                  <field name="state"/>
+                                  <field name="user_id"/>
+                                </tree>
+                                <form>
+                                <field name="state" widget="statusbar"/>
+                                    <group>
+                                      <group>
+                                         <field name="reservation_date_time_from" />
+                                      </group>
+                                      <group>
+                                        <field name="reservation_date_time_to" />
+                                      </group>
+                                    </group>
+                                </form>
+                              </field>
+                          </page>
+                        </notebook>
+                    </form>
+                  </field>
+                  <style>
+                     .o_list_number_th{
+                       text-align: left !important;
+                     }
+                  </style>
+            </page>
+          </notebook>
+        </sheet>         
+        </form>
+      </field>
+    </record>
+ 
+    <record id="res_train_search" model="ir.ui.view">
+        <field name="name">res.train.search</field>
+        <field name="model">res.train</field>
+        <field name="arch" type="xml">
+            <search string="Train search">
+                <filter string="Trains en circulation" name="tarin_active" domain="[('state', '=', 'active')]"/>
+                <filter string="Trains supprimé de la circulation" name="tarin_active" domain="[('state', '=', 'disable')]"/>
+                <separator/>
+                <field name="name"/>
+                <field name="code"/>
+                <group expand="1" string="Regrouper par">
+                    <filter string="Type de train" name='train_type_id' context="{'group_by':'train_type_id'}"/>
+                    <filter string="Mode de circulation" name='traffic_mode_id' context="{'group_by':'traffic_mode_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="res_train_action_window">
+        <field name="name">Trains</field>
+        <field name="res_model">res.train</field>
+        <field name="view_mode">tree,form</field>
+       
+    </record>
+
+  </data>
+</odoo>
+
