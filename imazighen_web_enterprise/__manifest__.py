@@ -6,9 +6,11 @@
     "category": "Theme/Backend",
     "version": "14.0.1.0.0",
     'author': 'Imazighen',
+    'support': 'imazighenapps@gmail.com',
     'currency': 'EUR',
     'price': 49.0,
     'depends': ['web'],
+    
     
     'description': """This module provide Enterprise design and responsiveness.
         """,
