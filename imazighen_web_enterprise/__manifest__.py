@@ -22,5 +22,5 @@
     'assets': {
        
     },
-    'license': 'OEEL-1',
+    'license': 'OPL-1',
 }
