@@ -6,6 +6,7 @@
     "category": "Theme/Backend",
     "version": "15.0.1.0.0",
     'author': 'Imazighen',
+    'support': 'imazighenapps@gmail.com',
     'currency': 'EUR',
     'price': 49,
     'depends': ['web'],
