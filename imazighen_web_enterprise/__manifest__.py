@@ -8,7 +8,7 @@
     'author': 'Imazighen',
     'support': 'imazighenapps@gmail.com',
     'currency': 'EUR',
-    'price': 49.0,
+    'price': 44.0,
     'depends': ['web'],
     
     
