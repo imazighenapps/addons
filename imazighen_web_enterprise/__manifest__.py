@@ -8,7 +8,7 @@
     'author': 'Imazighen',
     'support': 'imazighenapps@gmail.com',
     'currency': 'EUR',
-    'price': 49,
+    'price': 44,
     'depends': ['web'],
     
     'description': """This module provide Enterprise design and responsiveness.
