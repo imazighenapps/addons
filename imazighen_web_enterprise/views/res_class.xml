@@ -1,0 +1,24 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="res_class_tree_view">
+      <field name="name">res.class.tree.view</field>
+      <field name="model">res.class</field>
+      <field name="arch" type="xml">
+        <tree string="Classes" editable="top">
+            <field name="name"/>
+            <field name="is_default"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="res_class_action_window">
+      <field name="name">Classes</field>
+      <field name="res_model">res.class</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+
+  </data>
+</odoo>
