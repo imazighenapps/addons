@@ -7,7 +7,7 @@
     "version": "14.0.1.0.0",
     'author': 'Imazighen',
     'currency': 'EUR',
-    'price': 75.0,
+    'price': 49.0,
     'depends': ['web'],
     
     'description': """This module provide Enterprise design and responsiveness.
