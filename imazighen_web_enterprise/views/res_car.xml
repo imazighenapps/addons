@@ -1,0 +1,48 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="res_car_tree_view">
+      <field name="name">res_car.tree.view</field>
+      <field name="model">res.car</field>
+      <field name="arch" type="xml">
+        <tree string="Voitures">
+            <field name="name"/>
+            <field name="car_typology_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="res_car_form_view">
+      <field name="name">res_car.form.view</field>
+      <field name="model">res.car</field>
+      <field name="arch" type="xml">
+        <form string="Voitures">
+           <sheet>
+                  <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="car_typology_id"/>
+                        </group>
+
+                        
+                    </group>
+                        
+           
+            
+                
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="res_car_action_window">
+      <field name="name">Voitures</field>
+      <field name="res_model">res.car</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

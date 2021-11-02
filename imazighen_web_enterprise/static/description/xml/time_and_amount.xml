@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ticketing_sale_pos.TimeAndAmount">
+            <div class="form-group row">       
+                <div class="form-group col-md-11 ">
+                    <div class="input-group mb-2 input_style">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Date de validité</div>
+                        </div>
+                        <input id="date" type="date" readonly="readonly" class="form-control dateselect"/>
+                    </div>    
+                </div>
+                <div class="form-group col-md-11">
+                    <div class="input-group mb-2 input_style">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Heure</div>
+                        </div>
+
+                        <input type="time" id="timeselect" class="form-control timeselect"/>
+                       
+                    </div>    
+                </div>
+                <div class="form-group col-md-11">
+                    <div class="input-group mb-2 input_style">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Total passagers</div>
+                        </div>
+                        <input id="total_passengers" type="number" value ="0" readonly="readonly" class="form-control"/>
+                    
+                    </div>    
+                </div>
+
+                <div class="form-group col-md-11 input-group-lg">
+                    <div class="input-group mb-2 input_style">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text important_val_less_price">Prix</div>
+                        </div>
+                        <input id ="amount_total" type="number" readonly="readonly" step="00.01" value='0.00' class="form-control important_val"/>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text important_val_less">DZ</div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="form-group col-md-11 input-group-lg">
+                    <div class="input-group mb-2 input_style_green">
+                        <div class="input-group-prepend ">
+                            <div class="input-group-text green_background important_val_less">Reçu</div>
+                        </div>
+                        <input id ="amount_given" type="number" step="00.01" value='0.00' class="form-control important_val green_color"/>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text important_val_less">DZ</div>
+                        </div>
+                    </div>    
+                </div>
+
+                <div class="form-group col-md-11 input-group-lg">
+                    <div class="input-group mb-2 input_style_red">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text red_background important_val_less">Reste</div>
+                        </div>
+                        <input id="rest" type="number" step="00.01" value="0.00" readonly="readonly" class="form-control important_val red_color"/>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text important_val_less">DZ</div>
+                        </div>
+                    </div>    
+                </div>
+                
+                <div id="qr_code">
+                    <!-- <h1>SF</h1> -->
+                
+                </div>
+            </div>
+         
+  
+</t>
+</templates>   
