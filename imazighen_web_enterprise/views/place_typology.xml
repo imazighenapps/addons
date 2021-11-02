@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="place_typology_tree_view">
+      <field name="name">place_typology.tree.view</field>
+      <field name="model">place.typology</field>
+      <field name="arch" type="xml">
+        <tree string="Typologie de places">
+            <field name="car_typology_id"/>
+            <field name="description" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="place_typology_form_view">
+      <field name="name">place_typology.form.view</field>
+      <field name="model">place.typology</field>
+      <field name="arch" type="xml">
+        <form string="Typologie de places">
+          <sheet>
+          <group>
+            <group>
+                <field name="car_typology_id"/>
+            </group>
+            <group>
+                
+            </group>
+          </group>
+
+            <field name="description" placeholder="Description"/>
+            
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="place_typology_action_window">
+      <field name="name">Typologie de places</field>
+      <field name="res_model">place.typology</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

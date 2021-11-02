@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ticketing_sale_pos.index">
+
+
+
+        <div class="content">
+            <div>
+                <t t-call="ticketing_sale_pos.PosMenuHedear"/> 
+            </div>
+            <div class="leftpane">
+               <t t-call="ticketing_sale_pos.StationsAndTrains"/>
+                <t t-call="ticketing_sale_pos.PricingTemplate"/> 
+                <div id="place_taken">
+        
+                </div>
+            </div>
+
+            <div class="rightpane">
+                <t t-call="ticketing_sale_pos.TimeAndAmount"/>
+        
+            </div>
+        </div>  
+        
+        <div id="Bottom">
+            <t t-call="ticketing_sale_pos.BottomBtn"/>
+        </div>  
+         <t t-call="ticketing_sale_pos.reservation_diagram"/>
+
+
+</t>
+</templates>

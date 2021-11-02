@@ -1,0 +1,48 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="res_seat_tree_view">
+      <field name="name">res_seat.tree.view</field>
+      <field name="model">res.seat</field>
+      <field name="arch" type="xml">
+        <tree string="Typologie de places">
+            <field name="number"/>
+          
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="res_seat_form_view">
+      <field name="name">res_seat.form.view</field>
+      <field name="model">res.seat</field>
+      <field name="arch" type="xml">
+        <form string="Typologie de places">
+          <sheet>
+          <group>
+              <group>
+                  <field name="number"/>
+              </group>
+              <group>
+                  
+              </group>
+          </group>    
+          <!-- <notebook>
+            <page string="Ligne de réservation">
+              <field name="line_ids"/>
+            </page>
+          </notebook> -->
+
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="res_seat_action_window">
+      <field name="name">Typologie de places</field>
+      <field name="res_model">res.seat</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>
