@@ -8,7 +8,7 @@
     'website': "",
     'license': 'OPL-1',
     'currency': 'EUR',
-    'price': 29.0,
+    'price': 14.0,
     'category': 'Tools',
     'author': "Imazighen",
     'depends': ['base'],
