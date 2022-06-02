@@ -3,7 +3,7 @@
 {
     'name': 'Employee Documents Request Management',
     'version': '1.0.0',
-    'price': 29.0,
+    'price': 9.0,
     'currency': 'EUR',
     'license': 'OPL-1',
     'summary': """This module allow your employees to request their documents and manage all this""",
