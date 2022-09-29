@@ -1,0 +1,23 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="station_class_tree_view">
+      <field name="name">station.class.tree.view</field>
+      <field name="model">station.class</field>
+      <field name="arch" type="xml">
+        <tree string="Classe de gare" editable="top">
+            <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="station_class_action_window">
+      <field name="name">Classe de Gare</field>
+      <field name="res_model">station.class</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+
+  </data>
+</odoo>

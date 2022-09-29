@@ -1,0 +1,55 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="rail_network_tree_view">
+      <field name="name">rail.network.tree.view</field>
+      <field name="model">rail.network</field>
+      <field name="arch" type="xml">
+        <tree string="Réseau ferroviaire">
+            <field name="name"/>
+            <field name="company_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="rail_network_form_view">
+      <field name="name">rail.network.form.view</field>
+      <field name="model">rail.network</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <group>
+                  <field name="name"/>
+                  <field name="company_id"/>
+              </group>
+              <group>
+                <button name="get_data" string="Rafraîchir" type="object" class="oe_inline fa fa-arrow-right oe_link"/>
+                <!-- <button name="generate_reverse_network" string="Générer le reseau  inverses" type="object" class="oe_inline fa fa-arrow-right oe_link"/> -->
+              </group>
+            </group>
+            <notebook>
+              <page string="Gares">
+                <field name="station_ids" readonly="1"/>
+              </page>
+              <page string="Graphe">
+                <field name="graph"/>
+              </page>
+              <page string="calendrier info">
+                <field name="calendar_data"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="rail_network_action_window">
+      <field name="name">Réseau ferroviaire</field>
+      <field name="res_model">rail.network</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

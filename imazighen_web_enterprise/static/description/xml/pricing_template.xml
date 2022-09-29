@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ticketing_sale_pos.PricingTemplate">
+    <div class="form-group row">  
+        <div class="form-group col-md-3 text-left" id="category">
+            <label class="radio">Ordinaire
+                <input type="radio" checked="checked" name="gridRadios" id="ordinary" class="tariff_category_profile_sale"/>
+                <span class="checkround"></span>
+            </label>
+            <label class="radio">Réduit
+                <input type="radio" name="gridRadios" id="reduced" class="tariff_category_profile_sale to_compute"/>
+                <span class="checkround"></span>
+            </label>
+            <label class="radio">Gratuit
+                <input type="radio" name="gridRadios" id="free" class="tariff_category_profile_sale to_compute"/>
+                <span class="checkround"></span>
+            </label>
+            <label class="radio">Groupe
+                <input type="radio" name="gridRadios" id="group" class="tariff_category_profile_sale to_compute" />
+                <span class="checkround"></span>
+            </label>
+            
+           
+        </div>
+
+        <div class="form-group col-md-9">
+                <table class="table">
+                    <tr>
+                        <td width="50%"> 
+                            <div class="input-group mb-3 input_style">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Type de vente </div>
+                                </div>
+                                <select id="SaleType" class="form-control tariff_category_profile_sale to_compute">
+                                   <option id="ticket_ordinary">Billet ordinaire</option>
+                                   <option id="need_confirmed_reservation">Billet avec réservation à confirmer</option>
+                                   <option id="additional_taxes">Taxes supplémentaires</option>
+                                </select>
+                            </div>
+                        </td>    
+                        <td width="22%" >
+                           
+                        </td>
+                        <td width="20%"> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group mb-3 input_style">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Parcours</div>
+                                </div>
+                                <select id="SaleDetail" class="form-control tariff_category_profile_sale to_compute">
+                                    <option id="one_way_ticket" >Aller simple</option>
+                                    <option id="round_trip" >Aller/Retour</option>
+                                </select>
+                            </div>  
+                        </td>
+                        <td id="seats_names"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group mb-3 input_style">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Catégorie tarifaire</div>
+                                </div>
+                                <select id="TariffCategory" class="form-control tariff_category_profile_sale to_compute">
+                                    
+                                    <option selected="selected" t-att-id="datas['default_travelers_profile'][0].id" t-att-category="datas['default_travelers_profile'][0].category"><t t-esc="datas['default_travelers_profile'][0].name"/></option>
+                                    <t t-foreach="datas['travelers_profile']" t-as="traveler_profile">
+                                        <t t-if="traveler_profile.category=='ordinary'">
+                                            <option t-att-id="traveler_profile.id" t-att-category="traveler_profile.category"><t t-esc="traveler_profile.name"/></option>
+                                        </t>
+                                        <t t-if="traveler_profile.category!='ordinary'">
+                                            <option t-att-id="traveler_profile.id" t-att-category="traveler_profile.category" disabled="disabled"><t t-esc="traveler_profile.name"/></option>
+                                        </t>
+
+                                    </t>
+                                </select>
+                             
+
+                            </div>    
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 input_style">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Nombre</div>
+                                </div>
+                                <input type="number" id="number" name="number" value="1" min="1" class="to_compute form-control tariff_category_profile_sale"/> 
+                            </div>    
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 input_style">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Réduction</div>
+                                </div>
+                                <input id="discount_traveler_profile" type="text" class="to_compute form-control tariff_category_profile_sale" readonly="readonly" t-att-value="datas['default_travelers_profile'][0].discount"/>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">%</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>    
+                            <div class="input-group mb-3 input_style">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Avec</div>
+                                </div>
+                                <select id="TariffCategoryWith" class="to_compute form-control tariff_category_profile_sale">
+                                    <option id="0" selected="selected">Sélectionner...</option>
+                                     <t t-foreach="datas['default_travelers_profile_with']" t-as="traveler_profile_with">
+                                        <option t-att-id="traveler_profile_with.id"><t t-esc="traveler_profile_with.name"/></option>
+                                     </t>
+                                   
+                                   
+                                </select>
+                            </div>    
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 input_style"> 
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Nombre</div>
+                                </div>
+                              
+                                <input type="number" id="NumberWith" name="number_with" min="0" max="100" value="0" class="to_compute form-control tariff_category_profile_sale"/>
+                               
+                            </div> 
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 input_style">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Réduction</div>
+                                </div>
+                                <input id="discount_traveler_profile_with" type="text" class="to_compute form-control tariff_category_profile_sale" value="0" readonly="readonly"/>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">%</div>
+                                </div>
+                            </div>    
+                        </td>
+                    </tr>
+
+                </table> 
+               
+                <style>
+                select option:disabled {
+                    color: #a4a7a9;
+                   
+                    }
+                </style>
+        </div>
+    </div>
+</t>           
+</templates>

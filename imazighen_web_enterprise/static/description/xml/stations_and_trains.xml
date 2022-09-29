@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ticketing_sale_pos.StationsAndTrains">
+       <form class="form-group " action="">
+            <div class="form-group row">
+                
+                <div class="form-group col-md-3 ">
+                    <div class="input-group mb-2 input_style">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">De:</div>
+                        </div>
+
+                        <select id="StartStation" class="form-control stations">
+                            <t t-foreach="datas['departur_stations']" t-as="station">
+                                <option t-att-id="station.id"><t t-esc="station.name"/></option>
+                            </t>
+                        </select>
+                    </div>    
+                </div>
+
+                <div class="form-group col-md-3 ">
+                    <div class="input-group mb-2 input_style">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">A:</div>
+                        </div>
+                        <select id="EndStation" class="form-control stations ">
+                        <option id="nothing" value="nothing">Sélectionner...</option>
+                            <t t-foreach="datas['stations']" t-as="station">
+                                <option t-att-id="station.id"><t t-esc="station.name"/></option>
+                            </t>
+                        </select>
+                    </div>    
+                </div>
+
+                <div class="form-group col-md-2 ">
+                    <div class="input-group mb-2 input_style">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Classe:</div>
+                        </div>
+                        <select id="input_train_class" class="form-control to_compute">
+                            <t t-foreach="datas['classes']" t-as="class">
+                                <option t-att-id="class.id"><t t-esc="class.name"/></option>
+                            </t>
+
+                        </select>
+                    </div>    
+                </div>
+
+                <div class="form-group col-md-3 ">
+                    <div class="input-group mb-2 input_style">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Distance:</div>
+                        </div>
+                        <input id="global_distance" readonly="readonly" type="text" class="form-control to_compute"/>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">KM</div>
+                        </div>
+                        
+                    </div>    
+                </div>
+            </div>
+           <div class="my_notebook"> 
+                <ul class="nav nav-tabs table_train_header" id="myTab" role="tablist" >
+                    <li class="nav-item">
+                        <a class="nav-link active" id="timetable-tab" data-toggle="tab" href="#timetable" role="tab" aria-controls="timetable" aria-selected="true">Horaire</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="trains-tab" data-toggle="tab" href="#trains" role="tab" aria-controls="trains" aria-selected="true">Trains</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="stop-station-tab" data-toggle="tab" href="#stop-station" role="tab" aria-controls="stop-station" aria-selected="false">Gares d'arrêt</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="timetable" role="tabpanel" aria-labelledby="timetable-tab">
+                        <table class="table table-hover table-bordered table-fixed" id="my-tab-timetable">
+                            <thead>
+                                <tr>
+                                    <th scope="col" width='9%' class="table_header" >Train</th>
+                                    <!-- <th scope="col" width='7%' class="place" >Places</th> -->
+                                    <th scope="col" width='16%' class="table_header" >Heure de départ</th>
+                                    <th scope="col" width='16%' class="table_header" >Heure d'arrivée</th>
+                                    <th scope="col" width='7%' class="table_header" >Durée</th>
+                                    <th scope="col" width='18%' class="table_header" >Correspondance</th>
+                                    <th scope="col" width='16%' class="table_header" >Terminus</th>
+                                    <th scope="col" width='11%' class="table_header" >Classe</th>
+                                    <th scope="col"  width='7%' class="table_header" >Distance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                            </tbody>
+                            
+                        </table>
+                    </div>
+
+                    <div class="tab-pane" id="trains" role="tabpanel" aria-labelledby="trains-tab">
+                        <table class="table table-hover table-bordered table-fixed to_compute" id="table-trains">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="table_header" width='6%' >Train</th>
+                                    <!-- <th scope="col" class="place" width='6%' >place</th> -->
+                                    <th scope="col" class="table_header" width='10%' >Heure de départ</th>
+                                    <th scope="col"  class="table_header" width='10%' >Heure d'arrivée</th>
+                                    <th scope="col" class="table_header" width='6%' >Durée</th>
+                                    <th scope="col" class="table_header" width='12%' >Service</th>
+                                    <th scope="col" class="table_header" width='12%' >Type</th>
+                                    <th scope="col" class="table_header" width='15%' >Correspondance</th>
+                                    <th scope="col" class="table_header" width='15%' >Terminus</th>
+                                    <th scope="col"  class="table_header" width='7%' >Classe</th>
+                                    <th scope="col" class="table_header"  width='7%'>Distance</th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="to_compute">
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="tab-pane" id="stop-station" role="tabpanel" aria-labelledby="stop-station-tab">
+                        <table class="table table-hover table-bordered text-left table-fixed" id="my-tab-stations">
+                            <thead>
+                                <tr class="text-left" >
+                                 
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>    
+
+<script>
+ $(function () {
+    $('#myTab li:first-child a').tab('show')
+  })
+
+<!-- $('#myTab a').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+}) -->
+
+
+</script>
+         
+    </form>
+  
+        
+       
+</t>
+</templates>

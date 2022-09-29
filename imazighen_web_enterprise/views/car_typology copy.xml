@@ -1,0 +1,44 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="car_typology_tree_view">
+      <field name="name">car_typology.tree.view</field>
+      <field name="model">car.typology</field>
+      <field name="arch" type="xml">
+        <tree string="Typologie des places">
+            <field name="type"/>
+            <field name="description" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="car_typology_form_view">
+      <field name="name">car_typology.form.view</field>
+      <field name="model">car.typology</field>
+      <field name="arch" type="xml">
+        <form string="Typologie de voiture">
+          <sheet>
+          <group>
+            <group>
+                <field name="type"/>
+            </group>
+            <group>
+                
+            </group>
+          </group>
+            <field name="description" placeholder="Description"/>
+          
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="car_typology_action_window">
+      <field name="name">Typologie de voiture</field>
+      <field name="res_model">car.typology</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+
+    <menuitem id="root_server_menu" name="Servers management" groups="group_user" web_icon="server_manage_info,static/description/icon.png"/>
+  
+    <menuitem id="physical_machines" name="Physical Machines" action="res_server_physical_machines_action" groups="group_user" parent="root_server_menu" sequence="10"/>
+    <menuitem id="virtual_machines" name="Virtual Machines" action="res_server_virtual_machines_action" groups="group_user" parent="root_server_menu" sequence="20"/>
+   
+    <menuitem id="machine_config" name="Configuration" groups="group_manager" parent="root_server_menu" sequence="90"/>
+    <menuitem id="machine_service" groups="group_manager" name="Services" action="res_service_action" parent="machine_config" sequence="10"/>
+
+
+</data>
+</odoo>
