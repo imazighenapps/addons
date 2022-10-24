@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="res_server_view_kanban">
+            <field name="name">res.server.view.kanban</field>
+            <field name="model">res.server</field>
+            <field name="arch" type="xml">
+                <kanban  default_group_by="state" class="o_kanban_small_column" >
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                        <strong>
+                                            <field name="name"/>
+                                        </strong>
+                                    </div>
+                                    <strong>P : <field name="public_ip"/></strong>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left text-muted">
+                                        <p> L : <field name="locale_ip"/></p>           
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="state" widget="label_selection" options="{'classes': {'draft': 'default', 'out_of_order': 'danger', 'in_service': 'success' ,'under_maintenance':'warning'}}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <record id="res_server_view_form" model="ir.ui.view">
+        <field name="name">res.server.view.form</field>
+        <field name="model">res.server</field>
+        <field name="arch" type="xml">
+            <form string="Serveur">
+                <header>
+                   <field name="state" widget="statusbar" clickable="True"/>
+                </header>
+            <sheet>
+            <div class="oe_button_box" name="button_box">
+                <button class="oe_stat_button" type="object" attrs="{'invisible': [('count_childs', '=', 0)]}" name="do_show_childs" icon="fa-sitemap">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value"><field name="count_childs" /></span>
+                            <span class="o_stat_text"> VM</span>
+                            <!-- <field name="sale_order_count" invisible="1"/> -->
+                        </div>
+                </button>
+            </div>            
+            
+                <div class="oe_title">
+                    <label class="oe_edit_only" for="name" string="Nom de serveur"/>
+                    <h1><field name="name" placeholder="Nom de serveur"/></h1>   
+                </div>
+             
+                <group>
+                    <group string="Adresse">
+                        <field name="public_ip" />
+                        <field name="vpn_ip" />
+                        <field name="locale_ip" />
+
+                    </group>
+                    <group>
+                        <field name="server_type" invisible="1"/>
+                        <field name="parent_id" attrs="{'invisible': [('server_type', '=','physical_machines')]}"/>
+                        <field name="authorized_users_ids"  options="{'no_create_edit': True}"  widget="many2many_tags"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string='Server users' autofocus="autofocus">
+                        <field name="server_users_ids" mode="kanban">
+                            <kanban>                     
+                                <templates>                  
+                                    <t t-name="kanban-box">   
+                                        <div class="oe_kanban_global_click">
+                                            <div class="oe_kanban_content">
+                                                <div>
+                                                    <strong class="o_kanban_record_title"><field name="service_id"/></strong>
+                                                </div>
+                                            </div>     
+                                            <div class="oe_kanban_details">
+                                                <field name="name"/> 
+                                            </div>
+                                        </div>     
+                                    </t>
+                                </templates>
+                            </kanban>
+                            <form string="Utilisateurs de serveur">
+                                <sheet>
+                                    <group>
+                                        <group>
+                                            <field name="service_id" widget='selection' />     
+                                            <field name="name" />
+                                        </group>
+                                        <group>
+                                            <field name="port" /> 
+                                            <field name="password_length" />
+                                            <div>
+                                                <button name="generate_random_password" string="" type="object" class="oe_edit_only" icon="fa-refresh"/> 
+                                            </div>
+                                            <field name="password" />
+                                            
+                                        </group>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                    </page>
+                    <page string="Services">
+                       <field name="service_ids">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="port"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <group>
+                                        <field name="name"/>
+                                    </group>
+                                    <group>
+                                       <field name="port"/>
+                                    </group>
+                                </group>        
+                            </form>
+                       </field>
+                    </page>
+                 
+                </notebook>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="res_server_view_tree" model="ir.ui.view">
+        <field name="name">res.server.view.tree</field>
+        <field name="model">res.server</field>
+        <field name="arch" type="xml">
+            <tree string="Serveur">
+                <field name="name"/>
+                <field name="public_ip"/>
+                <field name="vpn_ip"/>
+            </tree>
+        </field>
+    </record>
+   
+
+
+    <record id="res_server_physical_machines_action" model="ir.actions.act_window">
+        <field name="name">Physical Machines</field>
+        <field name="res_model">res.server</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('server_type','=','physical_machines')]</field>
+        <field name="context">{'default_server_type':'physical_machines'}</field>
+    </record> 
+
+    <record id="res_server_virtual_machines_action" model="ir.actions.act_window">
+        <field name="name">Virtual Machines</field>
+        <field name="res_model">res.server</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('server_type','=','virtual_machines')]</field>
+        <field name="context">{'default_server_type':'virtual_machines'}</field>
+    </record> 
+
+   
+
+    </data>
+</odoo>
+
