@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     <record id="view_account_invoice_filter_inherit" model="ir.ui.view">
+      <field name="name">view.account.invoice.filter.inherit</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+      <field name="arch" type="xml">
+          <search position="inside">
+              <searchpanel>
+                <field name="company_id" groups="base.group_multi_company" icon="fa-building" enable_counters="1"/>
+                <field name="state" enable_counters="1" icon="fa-filter" select="multi"/>
+                <field name="payment_state" enable_counters="1" icon="fa-filter" select="multi"/>
+                <field name="partner_id" enable_counters="1" select="multi" icon="fa-users"/>
+              </searchpanel>
+          </search>
+      </field>
+     </record>
+
+  </data>
+</odoo>
