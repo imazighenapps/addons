@@ -8,7 +8,7 @@
     'license': 'OPL-1',
     'summary': """Display the wizard form view on hovering a row in the tree view""",
     'description': """  """,
-    'author': 'Imazighen',
+    'author': 'Farid SLIMANI',
     'website': '',
     'support': 'imazighenapps@gmail.com',
     'images': ['static/description/index.gif'],
