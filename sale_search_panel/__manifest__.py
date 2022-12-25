@@ -7,7 +7,7 @@
     'currency': 'EUR',
     'images': ['static/description/img.PNG'],
     "category": "sale",
-    "website": "imazighenapps@gmail.com",
+    "website": "",
     "author": "Farid SLIMANI",
     "license": "LGPL-3",
     "installable": True,
