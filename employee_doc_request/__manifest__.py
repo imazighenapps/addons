@@ -8,7 +8,7 @@
     'license': 'OPL-1',
     'summary': """This module allow your employees to request their documents and manage all this""",
     'description': """  """,
-    'author': 'Imazighen',
+    'author': 'Farid SLIMANI',
     'website': '',
     'support': 'imazighenapps@gmail.com',
     'images': ['static/description/index.jpeg'],
