@@ -10,7 +10,7 @@
     'currency': 'EUR',
     'price': 14.0,
     'category': 'Tools',
-    'author': "Imazighen",
+    'author': "Farid SLIMANI",
     'depends': ['base'],
     'images': ['static/description/index.jpg'],
     'data': [
