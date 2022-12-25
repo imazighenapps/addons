@@ -8,7 +8,7 @@
         
     """,
 
-    'author': "Imazighen",
+    'author': "Farid SLIMANI",
     'website': "",
     'license': 'OPL-1',
     'currency': 'EUR',
