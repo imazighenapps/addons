@@ -9,7 +9,7 @@
     'license': 'OPL-1',
     'summary': """This module allow your employees to request material acquisition""",
     'description': """  """,
-    'author': 'Imazighen',
+    'author': 'Farid SLIMANI',
     'website': '',
     'support': 'imazighenapps@gmail.com',
     'images': ['static/description/c_image.png'],
