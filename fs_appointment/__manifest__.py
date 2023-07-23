@@ -11,6 +11,7 @@
     'currency': 'EUR',
     'price': 22.0,
     'sequence': 5,
+    'images': ['static/description/appointment.jpg'],
     'depends': ['base','hr','contacts'],
 
  
