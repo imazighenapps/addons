@@ -1,0 +1,57 @@
+<!-- service_view.xml -->
+<odoo>
+    <data>
+
+        <!-- Service Tree View -->
+        <record model="ir.ui.view" id="view_service_tree">
+            <field name="name">service.tree</field>
+            <field name="model">appointment.service</field>
+            <field name="arch" type="xml">
+                <tree string="Services">
+                    <field name="company_id" invisible="1"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="product_id" />
+                    <field name="duration"  widget="float_time"/>
+                    <field name="cost"/>
+                    <field name="resource_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Service Form View -->
+        <record model="ir.ui.view" id="view_service_form">
+            <field name="name">service.form</field>
+            <field name="model">appointment.service</field>
+            <field name="arch" type="xml">
+                <form string="Service">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="product_id"/>
+                                <field name="duration"  widget="float_time"/>
+                                <field name="company_id" invisible="1"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="calendar_id"/>
+                                <field name="cost"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="resource_ids" string="Resources">
+                                <field name="resource_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Service Action -->
+        <record model="ir.actions.act_window" id="action_service">
+            <field name="name">Services</field>
+            <field name="res_model">appointment.service</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+      
+    </data>
+</odoo>
