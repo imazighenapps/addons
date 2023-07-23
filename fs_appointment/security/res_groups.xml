@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_appointment" model="ir.module.category">
+        <field name="name">Appointment</field>
+        <field name="description"></field>
+    </record>
+
+    <record id="group_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_category_appointment"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="group_admin" model="res.groups">
+        <field name="name">Admin</field>
+        <field name="category_id" ref="module_category_appointment"/>
+        <field name="implied_ids" eval="[(4, ref('fs_appointment.group_user'))]"/>
+    </record>
+</odoo>
