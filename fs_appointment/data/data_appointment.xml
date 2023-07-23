@@ -1,0 +1,79 @@
+<!-- demo_data.xml -->
+<odoo>
+    <data>
+
+        <!-- Customers -->
+        <record model="res.partner" id="customer_1">
+            <field name="name">John Doe</field>
+            <field name="email">john@example.com</field>
+            <field name="phone">1234567890</field>
+            <field name="appointment_ids" eval="[(4, ref('appointment_1')), (4, ref('appointment_4'))]"/>
+        </record>
+
+        <record model="res.partner" id="customer_2">
+            <field name="name">Jane Smith</field>
+            <field name="email">jane@example.com</field>
+            <field name="phone">9876543210</field>
+            <field name="appointment_ids" eval="[(4, ref('appointment_2')), (4, ref('appointment_3'))]"/>
+        </record>
+
+        <!-- Employees -->
+        <record model="hr.employee" id="employee_1">
+            <field name="name">Peter Parker</field>
+            <field name="appointment_ids" eval="[(4, ref('appointment_1')), (4, ref('appointment_2'))]"/>
+        </record>
+
+        <record model="hr.employee" id="employee_2">
+            <field name="name">Mary Jane</field>
+            <field name="appointment_ids" eval="[(4, ref('appointment_3')), (4, ref('appointment_4'))]"/>
+        </record>
+
+        <!-- Appointments -->
+        <record model="appointment.appointment" id="appointment_1">
+            <field name="name">Appointment 1</field>
+            <field name="appointment_date">2023-07-15</field>
+            <field name="start_time">9.0</field>
+            <field name="end_time">10.0</field>
+            <field name="details">Routine check-up</field>
+            <field name="status">confirmed</field>
+            <field name="customer_id" ref="customer_1"/>
+            <field name="employee_ids" eval="[(4, ref('employee_1'))]"/>
+        </record>
+
+        <record model="appointment.appointment" id="appointment_2">
+            <field name="name">Appointment 2</field>
+            <field name="appointment_date">2023-07-16</field>
+            <field name="start_time">14.0</field>
+            <field name="end_time">15.0</field>
+            <field name="details">Follow-up treatment</field>
+            <field name="status">confirmed</field>
+            <field name="customer_id" ref="customer_2"/>
+            <field name="employee_ids" eval="[(4, ref('employee_1'))]"/>
+        </record>
+
+        <record model="appointment.appointment" id="appointment_3">
+            <field name="name">Appointment 3</field>
+            <field name="appointment_date">2023-07-17</field>
+            <field name="start_time">11.0</field>
+            <field name="end_time">12.0</field>
+            <field name="details">Dental cleaning</field>
+            <field name="status">confirmed</field>
+            <field name="customer_id" ref="customer_2"/>
+            <field name="employee_ids" eval="[(4, ref('employee_2'))]"/>
+        </record>
+
+        <record model="appointment.appointment" id="appointment_4">
+            <field name="name">Appointment 4</field>
+            <field name="appointment_date">2023-07-18</field>
+            <field name="start_time">16.0</field>
+            <field name="end_time">17.0</field>
+            <field name="details">Orthopedic consultation</field>
+            <field name="status">confirmed</field>
+            <field name="customer_id" ref="customer_1"/>
+            <field name="employee_ids" eval="[(4, ref('employee_2'))]"/>
+        </record>
+
+        <!-- Add more appointments here -->
+
+    </data>
+</odoo>

@@ -1,0 +1,16 @@
+
+<odoo>
+<data>
+
+    <menuitem id="menu_appointment" name="Appointments"  sequence="30" web_icon="fs_appointment,static/description/icon.png"/>
+        <menuitem id="menu_appointment_list" name="Appointments" parent="menu_appointment" action="action_appointment" sequence="10"/>
+        <menuitem id="menu_service_list" name="Services" parent="menu_appointment" action="action_service" sequence="20"/>
+        <menuitem id="menu_calendar_list" name="Calendars" parent="menu_appointment" action="action_calendar" sequence="30"/>
+        <menuitem id="menu_holiday_list" name="Holidays" parent="menu_appointment" action="action_holiday" sequence="40"/>
+        <menuitem id="menu_notification_list" name="Notifications" parent="menu_appointment" action="action_notification" sequence="50"/>
+       
+
+</data> 
+
+</odoo>
+
