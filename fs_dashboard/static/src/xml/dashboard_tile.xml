@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="fs_dashboard.tile" >
+
+        <div class="card" t-att-id="id" t-att-style="tile_color" >
+            <div class="card-statistic-3 p-4">
+                <div class="card-icon card-icon-large"><i class="fa fa-money fa-6x"></i></div>
+                <div class="mb-4">
+                    <h5 class="card-title mb-0"><strong t-att-style="text_color +'!important'" t-esc="name"/></h5>
+                </div>
+                <div class="row align-items-center mb-2 d-flex">
+                    <div class="col-8">
+                        <h2 class="d-flex align-items-center mb-0">
+                            <strong t-att-style="text_color +'!important'"  t-esc="value"/>
+                        </h2>
+                    </div>
+                </div>
+              
+                <div class="dropdown" style="position: absolute;top: 0px;right: 0px;z-index: 1000">
+                    <button class="btn btn-lg btn-text-light btn-icon o-no-caret me-n2 dropdown-toggle dropright" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                        <i class="fa fa-ellipsis-v"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li id="update_item" class="dropdown-item" t-on-click="updateItem"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</li>
+                        <li class="dropdown-item"><i class="fa fa-trash" aria-hidden="true"></i> Remove</li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+          
+        </div>
+    </t>
+</templates>      

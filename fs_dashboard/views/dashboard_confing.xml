@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     
+      <record id="dashboard_config_view_tree" model="ir.ui.view">
+        <field name="name">dashboard.config.view.tree</field>
+        <field name="model">dashboard.config</field>
+        <field name="arch" type="xml">
+            <tree>
+                 <field name="name"/>
+                 <field name="active"/>
+                 <field name="nemu_name"/>
+            </tree>
+        </field>
+      </record>
+
+      <record id="dashboard_config_view_form" model="ir.ui.view">
+        <field name="name">dashboard.config.view.form</field>
+        <field name="model">dashboard.config</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="active"/>
+                            <field name="menu_id"/>
+                            <field name="action_id"/>
+
+                        </group>
+                        <group>
+                            <field name="nemu_name"/>
+                            <field name="menu_sequence"/>
+                            <field name="menu_parent"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+      </record>
+
+      <record id="dashboard_config_action" model="ir.actions.act_window">
+        <field name="name">Dashboard Manager</field>
+        <field name="res_model">dashboard.config</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+  </data>
+</odoo>

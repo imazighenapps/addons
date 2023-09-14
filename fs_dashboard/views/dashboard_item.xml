@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     
+      <record id="dashboard_item_view_tree" model="ir.ui.view">
+        <field name="name">dashboard.item.view.tree</field>
+        <field name="model">dashboard.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                 <field name="name"/>
+            </tree>
+        </field>
+      </record>
+
+      <record id="dashboard_item_view_form" model="ir.ui.view">
+        <field name="name">dashboard.item.view.form</field>
+        <field name="model">dashboard.item</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="dashboard_id"/>
+                            <field name="item_type"/>
+                            <field name="model_id"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="domain" widget="domain" options="{'model': 'model_name'}"/>
+                        </group>
+                        <group name="tile_property" attrs="{'invisible' : [('item_type','!=','tile')]}">
+                            <field name="count_type"  attrs="{'invisible' : [('item_type','!=','tile')]}" />
+
+                            <field name="count_field" attrs="{'invisible' : ['|','|','|',('model_id','=', False),
+                                                                ('item_type','!=','tile'),('count_type','==','count'),('count_type','==',False)],
+                                                        'required' : [('model_id','!=', False),('count_type','!=','count'),('count_type','!=',False),('item_type','==','tile')]}"/>
+                            
+                            <label for="tile_color_from" string="Color tile" attrs="{'invisible' : [('item_type','!=','tile')]}"/>
+                            <div attrs="{'invisible' : [('item_type','!=','tile')]}" >
+                                <field style='width:35px !important' class="oe_inline" name="tile_color_from" widget="color" attrs="{'invisible' : [('item_type','!=','tile')]}"/>
+                                To
+                                <field style='width:35px !important' class="oe_inline" name="tile_color_to" widget="color" attrs="{'invisible' : [('item_type','!=','tile')]}"/>
+                            </div>
+                            <field name="text_color" widget="color" attrs="{'invisible' : [('item_type','!=','tile')]}"/>    
+                            <field name="fa_icon" attrs="{'invisible' : [('item_type','!=','tile')]}"/> 
+                        </group>
+                        <group name="shart_property" attrs="{'invisible' : [('item_type','=','tile')]}" >
+                            <field  name="measure_id"/>
+                            <field  name="group_by_field" attrs="{'required' : [('item_type','!=','tile')]}" />
+                             </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+      </record>
+
+      <record id="dashboard_item_action" model="ir.actions.act_window">
+        <field name="name">Dashboard Items</field>
+        <field name="res_model">dashboard.item</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+  </data>
+</odoo>
