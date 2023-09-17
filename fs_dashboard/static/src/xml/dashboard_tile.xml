@@ -4,7 +4,7 @@
 
         <div class="card" t-att-id="id" t-att-style="tile_color" >
             <div class="card-statistic-3 p-4">
-                <div class="card-icon card-icon-large"><i class="fa fa-money fa-6x"></i></div>
+                <div class="card-icon card-icon-large"><i t-att-class="icon +' fa-6x'"></i></div>
                 <div class="mb-4">
                     <h5 class="card-title mb-0"><strong t-att-style="text_color +'!important'" t-esc="name"/></h5>
                 </div>
@@ -16,7 +16,7 @@
                     </div>
                 </div>
               
-                <div class="dropdown" style="position: absolute;top: 0px;right: 0px;z-index: 1000">
+                <!-- <div class="dropdown" style="position: absolute;top: 0px;right: 0px;z-index: 1000">
                     <button class="btn btn-lg btn-text-light btn-icon o-no-caret me-n2 dropdown-toggle dropright" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
                         <i class="fa fa-ellipsis-v"></i>
                     </button>
@@ -25,7 +25,7 @@
                         <li class="dropdown-item"><i class="fa fa-trash" aria-hidden="true"></i> Remove</li>
                         
                     </ul>
-                </div>
+                </div> -->
 
             </div>
           

@@ -9,10 +9,21 @@ _logger = logging.getLogger(__name__)
 import xml.etree.ElementTree as ET
 
 
+
+
+
+
+
+
 class main(http.Controller):
+
+  
+
+
 
     @http.route('/get/data', auth='user', type='json')
     def get_query_result(self, **kw):
+
         dashboard_obj = request.env['dashboard.config'].search([('id', '=', kw.get('dashboard_id'))])
         data = {
             'tiles': self.get_tiles_data(dashboard_obj),
@@ -50,9 +61,9 @@ class main(http.Controller):
                     'id': item.id,
                     'name': item.name,
                     'value': value,
-                    'icon': item.fa_icon,
+                    'icon': 'fa '+item.fa_icon,
                     'tile_color': background_color,
-                    'text_color': text_color,
+                    'text_color': text_color.replace(';',''),
                     'icon_color': 'color: #1f6abb',
                 })
         return data

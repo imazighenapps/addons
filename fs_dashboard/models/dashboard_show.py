@@ -15,7 +15,7 @@ class DashboardShow(models.Model):
     name = fields.Char(string="Name")
 
 
-    @api.model
-    def get_dashboard_data(self, sections=None):
-        return [1,2,3,4]
+    # @api.model
+    # def get_dashboard_data(self, sections=None):
+    #     return [1,2,3,4]
     

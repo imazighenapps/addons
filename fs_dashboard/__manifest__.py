@@ -7,7 +7,7 @@
     "author": "Farid SLIMANI",
     "license": "LGPL-3",
     "installable": True,
-    'images': ['static/description/img/dash.jpg'],
+    'images': ['static/img/dashboard.png'],
     "depends": ["base",],
     "data": [
              'security/ir.model.access.csv',
