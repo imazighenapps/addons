@@ -1,8 +1,8 @@
 {
     "name": "Invoice Search Panel",
     "summary": "The module add the search panel in Invoice",
-    "version": "15.0",
-    'price': 10.0,
+    "version": "16.0",
+    'price': 1.0,
     'support': 'imazighenapps@gmail.com',
     'currency': 'EUR',
     'images': ['static/description/img.PNG'],
