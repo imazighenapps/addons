@@ -1,6 +1,6 @@
 {
     "name": "FS Dashboard Access rights",
-    "summary": "namic Dashboards Access Rights ",
+    "summary": "Dinamic Dashboards Access Rights ",
     "version": "16.0.1.0.0",
     "category": "tools",
     "website": "",
@@ -9,7 +9,7 @@
     'currency': 'EUR',
     'price': 20.0,
     "installable": True,
-    'images': ['static/img/dashboard.png'],
+    'images': ['static/description/dashboard.png'],
     "depends": ["fs_dashboard",],
     "data": [
             'security/ir.model.access.csv',
