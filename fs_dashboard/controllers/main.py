@@ -2,29 +2,21 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import http
-from odoo.http import content_disposition, request
-import json
+from odoo.http import  request
 import logging
 _logger = logging.getLogger(__name__)
-import xml.etree.ElementTree as ET
 
 
 
-
-
-
-
-
-class main(http.Controller):
-
-  
+class Main(http.Controller):
 
 
 
     @http.route('/get/data', auth='user', type='json')
     def get_query_result(self, **kw):
 
-        dashboard_obj = request.env['dashboard.config'].search([('id', '=', kw.get('dashboard_id'))])
+        dashboard_obj = request.env['dashboard.config'].sudo().search([('id', '=', kw.get('dashboard_id'))])
+        
         data = {
             'tiles': self.get_tiles_data(dashboard_obj),
             'sharts': self.get_shart_data(dashboard_obj),
@@ -38,7 +30,7 @@ class main(http.Controller):
         for item in dashboard_obj.items_ids:
             if item.item_type == 'tile':
                 value = 0
-                records = request.env[item.model_id.model].search(eval(item.domain) if item.domain else [])
+                records = request.env[item.model_id.model].sudo().search(eval(item.domain) if item.domain else [])
                 count_field = item.count_field.name
 
                 if item.count_type == 'count':
@@ -71,7 +63,7 @@ class main(http.Controller):
     def get_shart_data(self, dashboard_obj):
         data = []
         for item in dashboard_obj.items_ids:
-            record = request.env[item.model_id.model].search(eval(item.domain) if item.domain else [])
+            record = request.env[item.model_id.model].sudo().search(eval(item.domain) if item.domain else [])
             res = {}
             if item.item_type != 'tile':
                 for r in record:

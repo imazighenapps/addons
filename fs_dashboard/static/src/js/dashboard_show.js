@@ -27,7 +27,6 @@ class FsDashboard extends Component {
 
     onWillStart(() => Promise.all([loadJsFiles(), loadCssFiles()]));
         onMounted(() => {   
-          console.log('onMounted');
           var self=this; 
           var grid;
     

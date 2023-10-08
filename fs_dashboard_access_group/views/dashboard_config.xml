@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     
+     
+
+      <record id="dashboard_config_view_form_inherit" model="ir.ui.view">
+        <field name="name">dashboard.config.view.form.inherit</field>
+        <field name="model">dashboard.config</field>
+        <field name="inherit_id" ref="fs_dashboard.dashboard_config_view_form"/>
+        <field name="arch" type="xml">
+          <data>
+              <xpath expr="//field[@name='action_id']" position="after">
+                  <field name="group_id" options="{'no_create': True,'no_create_edit': True}" />
+              </xpath>
+            </data>
+        </field>
+      </record>
+
+   
+
+  </data>
+</odoo>

@@ -9,6 +9,8 @@
     "installable": True,
     'images': ['static/img/dashboard.png'],
     "depends": ["base",],
+    'uninstall_hook': "uninstall_hook",
+    
     "data": [
              'security/ir.model.access.csv',
              'views/dashboard_show.xml',

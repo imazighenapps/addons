@@ -52,8 +52,11 @@ class DashboardConfig(models.Model):
         if 'name' in vals:
             self.menu_id.name = vals['name']
             self.action_id.name = vals['name']
-            
         return super().write(vals)    
+
+
+
+   
 
     def unlink(self):
         self.menu_id.unlink()
