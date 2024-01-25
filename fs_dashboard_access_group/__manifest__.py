@@ -11,9 +11,8 @@
     "installable": True,
     'images': ['static/description/dashboard.png'],
     "depends": ["fs_dashboard",],
-    "data": [
+    "data": ['security/res_groups.xml',
             'security/ir.model.access.csv',
-            'security/res_groups.xml',
             'views/dashboard_config.xml',  
             'views/dashboard_item.xml',  
             
