@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem name="Dashboards" id="dashboard_root" web_icon="fs_dashboard,static/description/icon.png"/>
+        <menuitem name="Cofiguration" id="dashboard_config_root" parent="dashboard_root" sequence="90"/>
+            <menuitem name="Dashboard" id="dashboard_config" parent="dashboard_config_root"  action="dashboard_config_action"/>
+            <menuitem name="Dashboard Items" id="dashboard_items" parent="dashboard_config_root"  action="dashboard_item_action"/>
+
+        
+    
+    </data>
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     
+      <record id="dashboard_item_view_tree" model="ir.ui.view">
+        <field name="name">dashboard.item.view.tree</field>
+        <field name="model">dashboard.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="dashboard_id"/>
+                <field name="item_type"/>
+                <field name="model_id"/>
+            </tree>
+        </field>
+      </record>
+
+      <record id="dashboard_item_view_form" model="ir.ui.view">
+        <field name="name">dashboard.item.view.form</field>
+        <field name="model">dashboard.item</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="dashboard_id"/>
+                            <field name="item_type"/>
+                            <field name="model_id"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="domain" widget="domain" options="{'model': 'model_name'}"/>
+                        </group>
+                        <group name="tile_property" invisible="item_type != 'tile'">
+                            <field name="count_type"/>
+                            <field name="count_field" invisible="model_id == False or item_type != 'tile' or count_type in('count',False)" 
+                                                      required="model_id != False and count_type not in ('count',False) and item_type == 'tile'"  
+                                                        />
+                            <label for="tile_color_from" string="Color tile" invisible ="item_type != 'tile'" />
+                            <div invisible ="item_type != 'tile'">
+                                <field style='width:35px !important' class="oe_inline" name="tile_color_from" widget="color"/>
+                                To
+                                <field style='width:35px !important' class="oe_inline" name="tile_color_to" widget="color"/>
+                            </div>
+
+                            <field name="text_color" widget="color" invisible ="item_type != 'tile'"/>    
+                            <field name="fa_icon" invisible ="item_type != 'tile'"/> 
+                        </group> 
+                        <group name="shart_property" invisible ="item_type == 'tile'">
+                            <field  name="measure_id"/>
+                            <field  name="group_by_field"/>
+                            <field  name="show_date_group" invisible="1" force_save="1"/>
+                            <field  name="date_group" invisible="show_date_group==False" required="show_date_group==True"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+      </record>
+
+      <record id="dashboard_item_action" model="ir.actions.act_window">
+        <field name="name">Dashboard Items</field>
+        <field name="res_model">dashboard.item</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+  </data>
+</odoo>

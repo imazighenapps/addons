@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="Dashboard" owl="1">
+        <div class="dashboard-main p-4 pt-2" style="overflow-x: hidden;max-height: 100%;" t-ref="dashboard-main">
+            <div class="row">
+                <t t-foreach="state.data['tiles']" t-as="tile" t-key="tile_index">
+                    <KpiCard id="tile.id" name="tile.name" value="tile.value" icon="tile.icon"  
+                        domain="tile.domain" model="tile.model"
+                        tile_color="tile.tile_color" text_color="tile.text_color"  
+                        icon_color = "tile.icon_color"/>
+                </t>
+           </div>
+       
+            <div class="row ">             
+                <t t-foreach="state.data['sharts']" t-as="shart" t-key="shart_index">
+                    <ChartRenderer type="shart.type" title="shart.title" labels="shart.data.labels" datasets="shart.data.datasets" global_domain="shart.global_domain" domains="shart.domains" model="shart.model"/>
+                </t>
+                
+            </div>
+        </div>
+    </t>
+</templates>      

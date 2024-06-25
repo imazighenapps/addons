@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     
+     
+
+      <record id="dashboard_item_view_form_inherit" model="ir.ui.view">
+        <field name="name">dashboard.item.view.form.inherit</field>
+        <field name="model">dashboard.item</field>
+        <field name="inherit_id" ref="fs_dashboard.dashboard_item_view_form"/>
+        <field name="arch" type="xml">
+          <data>
+              <xpath expr="//field[@name='model_id']" position="after">
+                  <field name="user_ids" widget="many2many_tags" options="{'no_create': True,'no_create_edit': True}" />
+              </xpath>
+            </data>
+        </field>
+      </record>
+
+   
+
+  </data>
+</odoo>

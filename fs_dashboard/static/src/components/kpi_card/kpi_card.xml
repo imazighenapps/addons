@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="KpiCard" owl="1">
+    
+        <div class="tile col-lg col-md p-2 border " t-att-style="props.tile_color+';max-width: 260px; min-width: 260px; margin:3px' " t-att-id="props.id"  >
+          <div class="row" style="min-height:80px !important" >
+                <div class="col-8">
+                    <h2 class="text-center"><strong class=" w-100" t-att-style="props.text_color +'!important'"  t-esc="props.value"/></h2>
+                    <h5 class="text-center w-100"><strong class="w-100" t-att-style="props.text_color +'!important'" t-esc="props.name"/></h5>   
+                </div>
+                <div class="col-3" >
+                    <i t-att-class="props.icon +' fa-2x  w-100'"></i> 
+                </div>
+          </div>
+        </div>   
+   
+
+    </t>
+</templates>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    
+    <t t-name="DashboardFilter" t-inherit="fs_dashboard.Dashboard" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@class='row'][1]" position="before">
+               <div class="row border p-2">
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                     
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        <h1 class="text-primary fw-bold">Period</h1>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4 ">
+                        <select t-on-change ="(ev) => this.do_filter(ev)" class="form-select">
+                            <option value="0">Toutes les périodes</option>
+                            <option value="today">Aujourd'hui</option>
+                            <option value="this_week">Cette semaine</option>
+                            <option value="this_month">Ce mois-ci</option>
+                            <option value="this_year">Cette année</option>
+                            <option value="yesterday">Hier</option>
+                            <option value="last_week">La semaine dernière</option>
+                            <option value="last_month">Le mois dernier</option>
+                            <option value="last_two_months">Les deux derniers mois</option>
+                            <option value="last_three_months">Les trois derniers mois</option>
+                            <option value="last_year">L'année dernière</option>
+                        </select>
+                    </div>
+               </div> 
+        </xpath>
+
+
+        <xpath expr="//KpiCard" position="attributes">
+            <attribute name="percentage">tile.percentage</attribute>
+            <attribute name="objective">tile.objective</attribute>
+        </xpath>
+ 
+
+    </t>
+
+</templates>      

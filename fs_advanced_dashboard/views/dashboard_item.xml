@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="dashboard_item_view_form_inherit" model="ir.ui.view">
+            <field name="name">dashboard.item.view.form.inherit</field>
+            <field name="model">dashboard.item</field>
+            <field name="inherit_id" ref="fs_dashboard.dashboard_item_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='item_type']" position="after">
+                    <field name="objective" invisible="item_type != 'tile'"/>
+                </xpath>
+            </field>
+        </record>
+  </data>
+</odoo>
