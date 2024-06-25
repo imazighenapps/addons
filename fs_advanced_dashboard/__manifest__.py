@@ -10,7 +10,6 @@
     'price': 40.0,
     'images': ['static/description/template1.PNG'],
     "installable": True,
-    'images': [],
     "depends": ["base","fs_dashboard"],
 
     
