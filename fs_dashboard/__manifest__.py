@@ -7,7 +7,7 @@
     "author": "Farid SLIMANI",
     "license": "LGPL-3",
     "installable": True,
-    'images': ['static/img/dashboard.png'],
+    'images': ['static/description/template1.PNG'],
     "depends": ["web","base_setup"],
     'uninstall_hook': "uninstall_hook",
     
