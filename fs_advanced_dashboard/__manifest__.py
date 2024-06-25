@@ -8,7 +8,7 @@
     "license": "LGPL-3",
     'currency': 'EUR',
     'price': 40.0,
-    'images': ['static/description/template1.PNG'],
+    'images': ['static/description/template1.png'],
     "installable": True,
     'images': [],
     "depends": ["base","fs_dashboard"],
