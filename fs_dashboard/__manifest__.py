@@ -6,6 +6,8 @@
     "website": "",
     "author": "Farid SLIMANI",
     "license": "LGPL-3",
+    'currency': 'EUR',
+    'price': 10.0,
     "installable": True,
     'images': ['static/description/template1.PNG'],
     "depends": ["web","base_setup"],
