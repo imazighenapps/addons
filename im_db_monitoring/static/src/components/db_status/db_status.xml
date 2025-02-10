@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="DbStatus" owl="1">
+        <div class="container-fluid mt-4 px-1">
+            <div class="row justify-content-start">
+                <!-- Section Version -->
+                <div class="col-2 mb-3">
+                    <div class="tile p-4 rounded shadow-lg" style="background: linear-gradient(135deg, #ff7a8b, #ffb6b9), url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); background-blend-mode: overlay;">
+                        <div class="tile-header text-center mb-2">
+                            <h5 class="font-weight-bold text-dark">Version</h5>
+                        </div>
+                        <div class="tile-body text-center text-muted">
+                            <h6><span t-esc="state.val.postgres_version" /></h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Db Size -->
+                <div class="col-2 mb-3">
+                    <div class="tile p-4 rounded shadow-lg" style="background: linear-gradient(135deg, #61c0bf, #56b3a0), url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); background-blend-mode: overlay;">
+                        <div class="tile-header text-center mb-2">
+                            <h5 class="font-weight-bold text-dark">DB Size</h5>
+                        </div>
+                        <div class="tile-body text-center text-muted">
+                            <h6><span t-esc="state.val.db_size" /> Mo</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Table Count -->
+                <div class="col-2 mb-3">
+                    <div class="tile p-4 rounded shadow-lg" style="background: linear-gradient(135deg, #94b3ff, #7c9bff), url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); background-blend-mode: overlay;">
+                        <div class="tile-header text-center mb-2">
+                            <h5 class="font-weight-bold text-dark">Table Count</h5>
+                        </div>
+                        <div class="tile-body text-center text-muted">
+                            <h6><span t-esc="state.val.table_count" /></h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section View Count -->
+                <div class="col-2 mb-3">
+                    <div class="tile p-4 rounded shadow-lg" style="background: linear-gradient(135deg, #fbc2eb, #a6a1e3), url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); background-blend-mode: overlay;">
+                        <div class="tile-header text-center mb-2">
+                            <h5 class="font-weight-bold text-dark">View Count</h5>
+                        </div>
+                        <div class="tile-body text-center text-muted">
+                            <h6><span t-esc="state.val.view_count" /></h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Active Connections -->
+                <div class="col-2 mb-3">
+                    <div class="tile p-4 rounded shadow-lg" style="background: linear-gradient(135deg, #ff9a8b, #f6c9b2), url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); background-blend-mode: overlay;">
+                        <div class="tile-header text-center mb-2">
+                            <h5 class="font-weight-bold text-dark">Active Connections</h5>
+                        </div>
+                        <div class="tile-body text-center text-muted">
+                            <h6><span t-esc="state.val.active_connections" /></h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Pending Locks -->
+                <div class="col-2 mb-3">
+                    <div class="tile p-4 rounded shadow-lg" style="background: linear-gradient(135deg, #fae1e1, #f6a1a1), url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); background-blend-mode: overlay;">
+                        <div class="tile-header text-center mb-2">
+                            <h5 class="font-weight-bold text-dark">Pending Locks</h5>
+                        </div>
+                        <div class="tile-body text-center text-muted">
+                            <h6><span t-esc="state.val.pending_locks" /></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <!-- Tree view for DB Query Statistics History -->
+        <record id="view_db_query_statistics_tree" model="ir.ui.view">
+            <field name="name">db.query.statistics.history.tree</field>
+            <field name="model">db.query.statistics.history</field>
+            <field name="arch" type="xml">
+                <list string="Database Query Statistics History">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="total_commits"/>
+                    <field name="total_rollbacks"/>
+                    <field name="total_rows_read"/>
+                    <field name="total_rows_modified"/>
+                    <field name="total_blocks_accessed"/>
+                </list>
+            </field>
+        </record>
+
+         <record id="action_db_query_statistics_history" model="ir.actions.act_window">
+            <field name="name">Query Statistics History</field>
+            <field name="res_model">db.query.statistics.history</field>
+            <field name="view_mode">list</field>
+            <field name="domain">[("status","=","valid")]</field>
+        </record>
+    </data>
+</odoo>

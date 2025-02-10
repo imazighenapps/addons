@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="TuplesOut" owl="1">
+        <div class="border-3 border-white m-1 shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="p-0 col d-flex align-items-center justify-content-center" title="Query Statistics" filter_name="draft_rfqs">
+                <a href="#" class="btn btn-primary w-100 h-30 border-0 rounded-0 text-capitalize fw-normal"> 
+                    Tuples Out 
+                </a>
+            </div>
+            <div class="chart-container p-1" style="position: relative; height:333px;">
+                <canvas class="chart" t-ref="tuples-out"/>
+            </div>    
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <!-- Tree view for DB Tuples Fetched and Returned History -->
+        <record id="view_db_tuples_fetched_returned_tree" model="ir.ui.view">
+            <field name="name">db.tuples.fetched.returned.history.tree</field>
+            <field name="model">db.tuples.fetched.returned.history</field>
+            <field name="arch" type="xml">
+                <list string="Database Tuples Fetched and Returned History">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="fetched"/>
+                    <field name="returned"/>
+                </list>
+            </field>
+        </record>
+
+           <!-- Action for Tuples Fetched and Returned History -->
+        <record id="action_db_tuples_fetched_returned_history" model="ir.actions.act_window">
+            <field name="name">Tuples Fetched and Returned History</field>
+            <field name="res_model">db.tuples.fetched.returned.history</field>
+            <field name="view_mode">list</field>
+            <field name="domain">[("status","=","valid")]</field>
+        </record>
+   
+    </data>
+</odoo>

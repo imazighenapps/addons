@@ -1,0 +1,18 @@
+<odoo>
+<data>
+    <menuitem id="server_monitoring_root" name="Data Base monitoring"  web_icon="im_db_monitoring,static/description/icon.png" groups="im_db_monitoring.group_db_monitoring_user" sequence="99"/>
+        <menuitem id="menu_db_monitoring_dashboard" name="Dashboard" parent="server_monitoring_root" action="db_monitoring_action_client" sequence="10"/>
+
+        <menuitem id="menu_db_history" name="General Status History" parent="server_monitoring_root" sequence="20"/>
+            <!-- Menu for DB Monitoring -->
+            <menuitem id="menu_db_monitoring_history" name="History" parent="menu_db_history" sequence="10"/>
+            <!-- Menu Items for Each View -->
+            <menuitem id="menu_db_general_status" name="General Status History" parent="menu_db_history" action="action_db_general_status_history" sequence="10"/>
+            <menuitem id="menu_db_query_statistics" name="Query Statistics History" parent="menu_db_history" action="action_db_query_statistics_history" sequence="20"/>
+            <menuitem id="menu_db_tuples" name="Tuples History" parent="menu_db_history" action="action_db_tuples_history" sequence="30"/>
+            <menuitem id="menu_db_tuples_fetched_returned" name="Tuples Fetched and Returned History" parent="menu_db_history" action="action_db_tuples_fetched_returned_history" sequence="40"/>
+            <menuitem id="menu_db_block_io" name="Block I/O History" parent="menu_db_history" action="action_db_block_io_history" sequence="50"/>
+            <menuitem id="menu_db_table_size" name="Table Size History" parent="menu_db_history" action="action_db_table_size_history" sequence="60"/>
+
+</data>
+</odoo>

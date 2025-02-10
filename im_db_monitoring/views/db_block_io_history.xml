@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <!-- Tree view for DB Block I/O History -->
+        <record id="view_db_block_io_history_tree" model="ir.ui.view">
+            <field name="name">db.block.io.history.tree</field>
+            <field name="model">db.block.io.history</field>
+            <field name="arch" type="xml">
+                <list string="Database Block I/O History">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="reads"/>
+                    <field name="hits"/>
+                </list>
+            </field>
+        </record>
+
+          <!-- Action for Block I/O History -->
+        <record id="action_db_block_io_history" model="ir.actions.act_window">
+            <field name="name">Block I/O History</field>
+            <field name="res_model">db.block.io.history</field>
+            <field name="view_mode">list</field>
+            <field name="domain">[("status","=","valid")]</field>
+        </record>
+    </data>
+</odoo>

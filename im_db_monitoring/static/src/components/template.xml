@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="DbMonitoring" owl="1">
+    <div class="content row p-1" style="overflow: auto; height:100%">
+        <div>
+            <DbStatus/>
+        </div>
+        <div>
+            <QueryStatistics/>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <TuplesIn/>
+            </div>
+            <div class="col-4">
+                <TuplesOut/>
+            </div>
+            <div class="col-4">
+                <BlockIo/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <TableSizes/>
+            </div>
+        </div>
+
+
+
+    </div>
+    </t>
+</templates>        

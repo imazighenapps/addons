@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <!-- Tree view for DB Table Size History -->
+        <record id="view_db_table_size_history_tree" model="ir.ui.view">
+            <field name="name">db.table.size.history.tree</field>
+            <field name="model">db.table.size.history</field>
+            <field name="arch" type="xml">
+                <list string="Database Table Size History">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="table_name"/>
+                    <field name="total_size"/>
+                    <field name="total_size_bytes"/>
+                </list>
+            </field>
+        </record>
+
+          <!-- Action for Table Size History -->
+        <record id="action_db_table_size_history" model="ir.actions.act_window">
+            <field name="name">Table Size History</field>
+            <field name="res_model">db.table.size.history</field>
+            <field name="view_mode">list</field>
+            <field name="domain">[("status","=","valid")]</field>
+        </record>
+    </data>
+</odoo>

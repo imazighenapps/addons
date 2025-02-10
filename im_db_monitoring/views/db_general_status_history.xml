@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <!-- Tree view for DB General Status History -->
+        <record id="view_db_general_status_tree" model="ir.ui.view">
+            <field name="name">db.general.status.history.tree</field>
+            <field name="model">db.general.status.history</field>
+            <field name="arch" type="xml">
+                <list string="Database General Status History">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="table_count"/>
+                    <field name="db_size"/>
+                    <field name="postgres_version"/>
+                    <field name="view_count"/>
+                    <field name="active_connections"/>
+                    <field name="pending_locks"/>
+                </list>
+            </field>
+        </record>
+
+           <!-- Action for General Status History -->
+        <record id="action_db_general_status_history" model="ir.actions.act_window">
+            <field name="name">General Status History</field>
+            <field name="res_model">db.general.status.history</field>
+            <field name="view_mode">list</field>
+            <field name="domain">[("status","=","valid")]</field>
+        </record>
+
+    </data>
+</odoo>

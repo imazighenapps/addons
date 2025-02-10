@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <!-- Tree view for DB Tuples History -->
+        <record id="view_db_tuples_history_tree" model="ir.ui.view">
+            <field name="name">db.tuples.history.tree</field>
+            <field name="model">db.tuples.history</field>
+            <field name="arch" type="xml">
+                <list string="Database Tuples History">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="inserts"/>
+                    <field name="updates"/>
+                    <field name="deletes"/>
+                </list>
+            </field>
+        </record>
+
+               <!-- Action for Tuples History -->
+        <record id="action_db_tuples_history" model="ir.actions.act_window">
+            <field name="name">Tuples History</field>
+            <field name="res_model">db.tuples.history</field>
+            <field name="view_mode">list</field>
+            <field name="domain">[("status","=","valid")]</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="TableSizes" owl="1">
+        <div class="border-3 border-white m-1 shadow-lg p-1 mb-5 bg-white rounded">
+            <div class="p-0 col d-flex align-items-center justify-content-center" title="Année en cours" filter_name="draft_rfqs">
+                <a href="#" class="btn btn-primary w-100 h-30 border-0 rounded-0 text-capitalize fw-normal"> 
+                   Table Sizes
+                </a>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 60%;">Table name</th>
+                            <th scope="col" style="width: 40%;">Total Size</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="state.val" t-as="val" t-key="val[0]">
+                            <tr>
+                                <td t-esc="val[0]"></td>
+                                <td t-esc="val[1]"></td>
+                            </tr>
+                        </t>    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </t>
+</templates>
