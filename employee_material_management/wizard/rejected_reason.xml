@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="rejected_reason_form_view" model="ir.ui.view">
+            <field name="name">rejected.reason.form.view</field>
+            <field name="model">rejected.reason</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                        </group>    
+                    </sheet>
+                     <footer>
+                        <button name="do_reject" type="object" string="Reject" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>   
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>        

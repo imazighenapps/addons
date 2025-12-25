@@ -1,0 +1,45 @@
+<!-- notification_view.xml -->
+<odoo>
+    <data>
+
+        <!-- Notification Tree View -->
+        <record model="ir.ui.view" id="view_notification_tree">
+            <field name="name">notification.tree</field>
+            <field name="model">appointment.notification</field>
+            <field name="arch" type="xml">
+                <tree string="Notifications">
+                    <field name="name"/>
+                    <field name="method"/>
+                    <field name="time"/>
+                    <field name="appointment_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Notification Form View -->
+        <record model="ir.ui.view" id="view_notification_form">
+            <field name="name">notification.form</field>
+            <field name="model">appointment.notification</field>
+            <field name="arch" type="xml">
+                <form string="Notification">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="method"/>
+                            <field name="time"/>
+                            <field name="appointment_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Notification Action -->
+        <record model="ir.actions.act_window" id="action_notification">
+            <field name="name">Notifications</field>
+            <field name="res_model">appointment.notification</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
