@@ -1,0 +1,90 @@
+<!-- appointment_view.xml -->
+<odoo>
+    <data>
+
+        <!-- Appointment List View -->
+        <record model="ir.ui.view" id="view_appointment_tree">
+            <field name="name">appointment.tree</field>
+            <field name="model">appointment.appointment</field>
+            <field name="arch" type="xml">
+                <tree string="Appointments">
+                    <field name="name"/>
+                    <field name="appointment_date"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Appointment Form View -->
+        <record model="ir.ui.view" id="view_appointment_form">
+            <field name="name">appointment.form</field>
+            <field name="model">appointment.appointment</field>
+            <field name="arch" type="xml">
+                <form string="Appointment" >
+                    <header>
+                        <button string="Confirm" type="object"  name="action_confirm" attrs="{'invisible': [('status','not in',['draft'])]}" class="oe_highlight" />
+                        <button string="Start" type="object" name="action_start" attrs="{'invisible': [('status','not in',['confirmed'])]}" class="oe_highlight"/>
+                        <button string="Complete" type="object" name="action_complete" class="oe_highlight" attrs="{'invisible': [('status','!=','started')]}"/>
+                          <button string="Cancel" type="object" name="action_cancel" class="btn-danger" attrs="{'invisible': [('status','in',['started','completed','cancelled'])]}"/>
+                        <field name="status" widget="statusbar"/>
+
+                    </header>
+                     <sheet>
+                        
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="customer_id"/>
+                                <field name="service_id"/>
+                                <field name="start_date_time" invisible="1"/>
+                                <field name="end_date_time" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="appointment_date"/>
+                                <field name="start_time" widget="float_time" class="oe_inline"/>
+                                <field name="end_time" widget="float_time" class="oe_inline"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Details">
+                                <field name="details" widget="html"/>
+                            </page>
+                            <page string="Employees">
+                                <field name="employee_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_appointment_calendar" model="ir.ui.view">
+            <field name="name">appointment.calendar.view</field>
+            <field name="model">appointment.appointment</field>
+            <field name="arch" type="xml">
+                <calendar string="Appointments" color="status" quick_add="False" mode="month" date_start="start_date_time" date_stop="end_date_time">
+                    <field name="name"/>
+                    <field name="customer_id" string="Customer"/>
+                    <field name="start_time" widget="float_time" />
+                    <field name="end_time" widget="float_time" />
+                    <field name="status" filters="1" invisible="1"/>
+
+                    <field name="start_date_time" invisible="1"/>
+                    <field name="end_date_time" invisible="1"/>
+
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Appointment Action -->
+        <record model="ir.actions.act_window" id="action_appointment">
+            <field name="name">Appointments</field>
+            <field name="res_model">appointment.appointment</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+        
+    </data>
+</odoo>

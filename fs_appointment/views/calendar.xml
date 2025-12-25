@@ -1,0 +1,67 @@
+<!-- calendar_view.xml -->
+<odoo>
+    <data>
+
+        <!-- Calendar Tree View -->
+        <record model="ir.ui.view" id="view_calendar_tree">
+            <field name="name">calendar.tree</field>
+            <field name="model">appointment.calendar</field>
+            <field name="arch" type="xml">
+                <tree string="Calendars">
+                    <field name="name"/>
+                    <field name="opening_hour"  widget="float_time"/>
+                    <field name="closing_hour"  widget="float_time"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Calendar Form View -->
+        <record model="ir.ui.view" id="view_calendar_form">
+            <field name="name">calendar.form</field>
+            <field name="model">appointment.calendar</field>
+            <field name="arch" type="xml">
+                <form string="Calendar">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="opening_hour"  widget="float_time"/>
+                                <field name="closing_hour"  widget="float_time"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="days_of_week " string="Days of week">
+                                <group>
+                                    <group>
+                                        <field name="monday"/>       
+                                         
+                                        <field name="wednesday"/>       
+                                             
+                                        <field name="friday"/>       
+                                             
+                                        <field name="sunday"/>       
+                                    </group>
+                                    <group>
+                                        <field name="tuesday"/>    
+                                        <field name="thursday"/>   
+                                        <field name="saturday"/>  
+                                    </group>
+                                </group>
+
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Calendar Action -->
+        <record model="ir.actions.act_window" id="action_calendar">
+            <field name="name">Calendars</field>
+            <field name="res_model">appointment.calendar</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+      
+    </data>
+</odoo>
