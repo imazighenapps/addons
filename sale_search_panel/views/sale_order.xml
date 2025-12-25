@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     <record id="view_sales_order_filter_inherit" model="ir.ui.view">
+      <field name="name">view.sales.order.filter.inherit</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+      <field name="arch" type="xml">
+          <search position="inside">
+              <searchpanel>
+              <field name="invoice_status" enable_counters="1"/>
+              <field name="state" enable_counters="1"/>
+              <field name="partner_id" enable_counters="1"/>
+              </searchpanel>
+          </search>
+      </field>
+     </record>
+
+  </data>
+</odoo>

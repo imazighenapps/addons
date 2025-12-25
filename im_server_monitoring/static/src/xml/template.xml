@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="im_server_monitoring.index">
+    <div class="content">
+        <div class="" style="padding:50px">
+            <div class="nav flex-column nav-pills float-left" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                    <div><strong>CPU</strong></div>
+                    <span id="cpu_usage_info">0%</span>
+                </a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                    <div><strong>RAM</strong></div>
+                    <span id="ram_info">0.00/0.00 GB(0.00%)</span>
+                </a>
+            </div>
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <div class="row">
+                    <div class="col-11">
+                        <canvas id="cpu_usage" max-width="300" max-height="300"></canvas>
+                    </div>
+                </div>
+                </div>
+
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <div class="row">
+                        <div class="col-11">
+                            <canvas id="ram_usage" max-width="300" max-height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </t>
+</templates>        
