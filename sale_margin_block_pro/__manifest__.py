@@ -33,7 +33,7 @@ Designed for SMEs and sales-driven companies.
         "views/res_config_settings_view.xml"
     ],
     "images": [
-        # "static/description/banner.png"
+        "static/description/banner.png"
     ],
     "installable": True,
     "application": False,
