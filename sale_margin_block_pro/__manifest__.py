@@ -1,6 +1,6 @@
 {
     "name": "Sales Margin Block PRO",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.1",
     "category": "Sales",
     "summary": "Block sale orders with low or negative margins using advanced rules",
     "description": """
