@@ -23,6 +23,7 @@ Designed for SMEs and sales-driven companies.
     "currency": "EUR",
     "depends": [
         "sale",
+        "sale_management",
         "product"
     ],
     "data": [
