@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_forecast_config_form" model="ir.ui.view">
+        <field name="name">forecast.config.form</field>
+        <field name="model">forecast.config</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <header>
+                    <button name="action_test_configuration" string="Test Configuration" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Configuration Name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="algorithm" widget="radio"/>
+                            <field name="forecast_horizon"/>
+                            <field name="confidence_level"/>
+                            <field name="min_history_days"/>
+                        </group>
+                        <group>
+                            <field name="enable_seasonality"/>
+                            <field name="enable_holidays"/>
+                            <field name="retrain_frequency"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group string="Alert Thresholds">
+                        <field name="stockout_threshold_days"/>
+                        <field name="overstock_ratio"/>
+                    </group>
+                    <group string="Statistics">
+                        <field name="total_predictions"/>
+                        <field name="average_accuracy"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_forecast_config_tree" model="ir.ui.view">
+        <field name="name">forecast.config.tree</field>
+        <field name="model">forecast.config</field>
+        <field name="arch" type="xml">
+            <list create="false">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="algorithm"/>
+                <field name="forecast_horizon"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_forecast_config" model="ir.actions.act_window">
+        <field name="name">Forecast Configuration</field>
+        <field name="res_model">forecast.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

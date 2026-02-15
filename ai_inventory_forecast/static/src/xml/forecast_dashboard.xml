@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ai_inventory_forecast.Dashboard">
+        <div class="o_forecast_dashboard">
+            <!-- Header -->
+            <div class="o_forecast_dashboard_header">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="o_forecast_title">
+                        <i class="fa fa-line-chart me-2"/>
+                        Tableau de Bord IA - Prévision des Stocks
+                    </h1>
+                    <div class="o_forecast_actions">
+                        <button class="btn btn-primary me-2" t-on-click="() => this.openGenerateWizard()">
+                            <i class="fa fa-magic me-1"/>
+                            Générer Prévisions
+                        </button>
+                        <button class="btn btn-secondary" t-on-click="() => this.onRefresh()">
+                            <i class="fa fa-refresh me-1"/>
+                            Actualiser
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div t-if="state.loading" class="text-center py-5">
+                <i class="fa fa-spinner fa-spin fa-3x text-primary"/>
+                <p class="mt-3">Chargement des données...</p>
+            </div>
+
+            <!-- Main Content -->
+            <div t-else="" class="o_forecast_dashboard_content">
+                
+                <!-- KPI Cards -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="o_forecast_kpi_card bg-primary-subtle" t-on-click="() => this.openPredictions()">
+                            <div class="o_kpi_icon">
+                                <i class="fa fa-calendar-check-o fa-2x text-primary"/>
+                            </div>
+                            <div class="o_kpi_content">
+                                <div class="o_kpi_value">
+                                    <t t-esc="state.kpis.totalPredictions"/>
+                                </div>
+                                <div class="o_kpi_label">Prévisions Actives</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="o_forecast_kpi_card bg-warning-subtle" t-on-click="() => this.openAlerts()">
+                            <div class="o_kpi_icon">
+                                <i class="fa fa-bell fa-2x text-warning"/>
+                            </div>
+                            <div class="o_kpi_content">
+                                <div class="o_kpi_value">
+                                    <t t-esc="state.kpis.activeAlerts"/>
+                                    <span t-if="state.kpis.criticalAlerts > 0" class="badge bg-danger ms-2">
+                                        <t t-esc="state.kpis.criticalAlerts"/> critique(s)
+                                    </span>
+                                </div>
+                                <div class="o_kpi_label">Alertes Actives</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="o_forecast_kpi_card bg-success-subtle">
+                            <div class="o_kpi_icon">
+                                <i class="fa fa-check-circle fa-2x text-success"/>
+                            </div>
+                            <div class="o_kpi_content">
+                                <div class="o_kpi_value">
+                                    <t t-esc="state.kpis.avgAccuracy"/>%
+                                </div>
+                                <div class="o_kpi_label">Précision Moyenne</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="o_forecast_kpi_card bg-info-subtle">
+                            <div class="o_kpi_icon">
+                                <i class="fa fa-eur fa-2x text-info"/>
+                            </div>
+                            <div class="o_kpi_content">
+                                <div class="o_kpi_value">
+                                    <t t-esc="Math.round(state.kpis.estimatedSavings).toLocaleString('fr-FR')"/>€
+                                </div>
+                                <div class="o_kpi_label">Économies Estimées</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary KPIs -->
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body p-3">
+                                <div class="row text-center">
+                                    <div class="col">
+                                        <h4 class="text-primary mb-0">
+                                            <t t-esc="state.kpis.productsForecasted"/>
+                                        </h4>
+                                        <small class="text-muted">Produits Suivis</small>
+                                    </div>
+                                    <div class="col border-start">
+                                        <h4 class="text-success mb-0">92%</h4>
+                                        <small class="text-muted">Taux de Service</small>
+                                    </div>
+                                    <div class="col border-start">
+                                        <h4 class="text-info mb-0">-35%</h4>
+                                        <small class="text-muted">Ruptures de Stock</small>
+                                    </div>
+                                    <div class="col border-start">
+                                        <h4 class="text-warning mb-0">-22%</h4>
+                                        <small class="text-muted">Surstock</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row 1 -->
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-white">
+                                <h5 class="mb-0">
+                                    <i class="fa fa-line-chart me-2"/>
+                                    Prévisions de Demande
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="o_forecast_chart_container">
+                                    <canvas t-ref="predictionChart" style="height: 300px;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-white">
+                                <h5 class="mb-0">
+                                    <i class="fa fa-bell me-2"/>
+                                    Répartition des Alertes
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="o_forecast_chart_container">
+                                    <canvas t-ref="alertChart" style="height: 300px;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row 2 -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-white">
+                                <h5 class="mb-0">
+                                    <i class="fa fa-bar-chart me-2"/>
+                                    Tendances de Demande
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="o_forecast_chart_container">
+                                    <canvas t-ref="trendChart" style="height: 250px;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-white">
+                                <h5 class="mb-0">
+                                    <i class="fa fa-check-circle me-2"/>
+                                    Évolution de la Précision
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="o_forecast_chart_container">
+                                    <canvas t-ref="accuracyChart" style="height: 250px;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Products Table -->
+                <div class="row mb-4">
+                    <div class="col-md-7">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-white">
+                                <h5 class="mb-0">
+                                    <i class="fa fa-star me-2"/>
+                                    Top 10 Produits - Demande Prévue
+                                </h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Produit</th>
+                                                <th class="text-end">Demande Prédite</th>
+                                                <th class="text-center">Tendance</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-if="state.topProducts.length === 0">
+                                                <tr>
+                                                    <td colspan="4" class="text-center text-muted py-4">
+                                                        Aucune donnée disponible
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                            <t t-else="">
+                                                <tr t-foreach="state.topProducts" t-as="product" t-key="product.id">
+                                                    <td>
+                                                        <strong t-esc="product_index + 1"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="product.product_id[1]"/>
+                                                    </td>
+                                                    <td class="text-end">
+                                                        <strong t-esc="Math.round(product.predicted_demand).toLocaleString('fr-FR')"/>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span t-if="product.trend === 'increasing'" class="badge bg-success">
+                                                            <i class="fa fa-arrow-up"/> Croissant
+                                                        </span>
+                                                        <span t-elif="product.trend === 'decreasing'" class="badge bg-danger">
+                                                            <i class="fa fa-arrow-down"/> Décroissant
+                                                        </span>
+                                                        <span t-else="" class="badge bg-secondary">
+                                                            <i class="fa fa-minus"/> Stable
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Alerts -->
+                    <div class="col-md-5">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-white">
+                                <h5 class="mb-0">
+                                    <i class="fa fa-exclamation-triangle me-2"/>
+                                    Alertes Récentes
+                                </h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <t t-if="state.recentAlerts.length === 0">
+                                        <div class="list-group-item text-center text-muted py-4">
+                                            Aucune alerte active
+                                        </div>
+                                    </t>
+                                    <t t-else="">
+                                        <div t-foreach="state.recentAlerts" t-as="alert" t-key="alert.id" 
+                                             class="list-group-item list-group-item-action">
+                                            <div class="d-flex w-100 justify-content-between align-items-start">
+                                                <div class="flex-grow-1">
+                                                    <h6 class="mb-1">
+                                                        <t t-esc="alert.product_id[1]"/>
+                                                    </h6>
+                                                    <p class="mb-1 small text-muted">
+                                                        <t t-esc="alert.message"/>
+                                                    </p>
+                                                    <small class="text-muted">
+                                                        <i class="fa fa-clock-o me-1"/>
+                                                        <t t-esc="new Date(alert.date_detection).toLocaleString('fr-FR')"/>
+                                                    </small>
+                                                </div>
+                                                <div class="ms-2">
+                                                    <span t-att-class="'badge ' + (alert.severity === 'critical' ? 'bg-danger' : 
+                                                                                   alert.severity === 'high' ? 'bg-warning' : 
+                                                                                   alert.severity === 'medium' ? 'bg-info' : 'bg-secondary')">
+                                                        <t t-esc="this.getSeverityLabel(alert.severity)"/>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white text-center">
+                                <a href="#" class="btn btn-sm btn-outline-primary" t-on-click.prevent="() => this.openAlerts()">
+                                    Voir toutes les alertes
+                                    <i class="fa fa-arrow-right ms-1"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Banner -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-info">
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-info-circle fa-2x me-3"/>
+                                <div>
+                                    <h5 class="alert-heading mb-1">Prévision Intelligente par IA</h5>
+                                    <p class="mb-0">
+                                        Les prévisions sont générées automatiquement chaque jour à 2h du matin. 
+                                        Les alertes sont vérifiées toutes les heures. 
+                                        Consultez le menu <strong>Configuration</strong> pour ajuster les paramètres.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <style>
+            
+                .o_forecast_dashboard {
+                    padding: 24px;
+                    background-color: #f8f9fa;
+                    min-height: calc(100vh - 50px);
+                }
+
+                .o_forecast_dashboard_header {
+                    margin-bottom: 24px;
+                }
+
+                .o_forecast_title {
+                    font-size: 28px;
+                    font-weight: 600;
+                    color: #2c3e50;
+                    margin: 0;
+                }
+
+                .o_forecast_actions {
+                    display: flex;
+                    gap: 8px;
+                }
+
+                /* KPI Cards */
+                .o_forecast_kpi_card {
+                    background: white;
+                    border-radius: 12px;
+                    padding: 24px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+                    border: 2px solid transparent;
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    height: 100%;
+                }
+
+                .o_forecast_kpi_card:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+                    border-color: var(--bs-primary);
+                }
+
+                .o_kpi_icon {
+                    flex-shrink: 0;
+                }
+
+                .o_kpi_content {
+                    flex-grow: 1;
+                }
+
+                .o_kpi_value {
+                    font-size: 32px;
+                    font-weight: 700;
+                    color: #2c3e50;
+                    line-height: 1.2;
+                    margin-bottom: 4px;
+                }
+
+                .o_kpi_label {
+                    font-size: 14px;
+                    color: #6c757d;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+
+                /* Chart Containers */
+                .o_forecast_chart_container {
+                    position: relative;
+                    width: 100%;
+                    min-height: 250px;
+                }
+
+                .o_forecast_chart_container canvas {
+                    max-height: 350px;
+                }
+
+                /* Cards */
+                .card {
+                    border: none;
+                    border-radius: 12px;
+                    margin-bottom: 20px;
+                }
+
+                .card-header {
+                    border-bottom: 1px solid #e9ecef;
+                    border-radius: 12px 12px 0 0 !important;
+                    padding: 16px 20px;
+                }
+
+                .card-header h5 {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #2c3e50;
+                }
+
+                .card-body {
+                    padding: 20px;
+                }
+
+                /* Table Styles */
+                .table-hover tbody tr:hover {
+                    background-color: #f8f9fa;
+                    cursor: pointer;
+                }
+
+                .table thead th {
+                    font-weight: 600;
+                    font-size: 13px;
+                    color: #6c757d;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    border-bottom: 2px solid #dee2e6;
+                }
+
+                /* List Group (Alerts) */
+                .list-group-item {
+                    border-left: none;
+                    border-right: none;
+                    padding: 16px 20px;
+                    transition: background-color 0.2s ease;
+                }
+
+                .list-group-item:hover {
+                    background-color: #f8f9fa;
+                }
+
+                .list-group-item:first-child {
+                    border-top: none;
+                }
+
+                .list-group-item:last-child {
+                    border-bottom: none;
+                }
+
+                /* Badges */
+                .badge {
+                    padding: 6px 12px;
+                    font-weight: 500;
+                    font-size: 12px;
+                    border-radius: 6px;
+                }
+
+                /* Alert Box */
+                .alert-info {
+                    background-color: #e7f3ff;
+                    border: 1px solid #b3d9ff;
+                    border-radius: 8px;
+                    padding: 20px;
+                }
+
+                .alert-info .alert-heading {
+                    color: #0056b3;
+                    font-weight: 600;
+                }
+
+                /* Responsive Adjustments */
+                @media (max-width: 768px) {
+                    .o_forecast_dashboard {
+                        padding: 16px;
+                    }
+                    
+                    .o_forecast_title {
+                        font-size: 22px;
+                    }
+                    
+                    .o_forecast_kpi_card {
+                        margin-bottom: 16px;
+                    }
+                    
+                    .o_kpi_value {
+                        font-size: 24px;
+                    }
+                    
+                    .o_forecast_dashboard_header .d-flex {
+                        flex-direction: column;
+                        gap: 16px;
+                    }
+                    
+                    .o_forecast_actions {
+                        width: 100%;
+                    }
+                    
+                    .o_forecast_actions button {
+                        flex: 1;
+                    }
+                }
+
+                /* Loading State */
+                .o_forecast_dashboard .fa-spinner {
+                    animation: spin 1s linear infinite;
+                }
+
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+
+                /* Color Theme */
+                .bg-primary-subtle {
+                    background-color: #e7f3ff !important;
+                }
+
+                .bg-success-subtle {
+                    background-color: #d1f2eb !important;
+                }
+
+                .bg-warning-subtle {
+                    background-color: #fff3cd !important;
+                }
+
+                .bg-info-subtle {
+                    background-color: #d1ecf1 !important;
+                }
+
+                .bg-danger-subtle {
+                    background-color: #f8d7da !important;
+                }
+
+                /* Button Styles */
+                .btn {
+                    border-radius: 8px;
+                    padding: 8px 16px;
+                    font-weight: 500;
+                    transition: all 0.2s ease;
+                }
+
+                .btn:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+                }
+
+                .btn-primary {
+                    background-color: #0d6efd;
+                    border-color: #0d6efd;
+                }
+
+                .btn-secondary {
+                    background-color: #6c757d;
+                    border-color: #6c757d;
+                }
+
+                .btn-outline-primary {
+                    color: #0d6efd;
+                    border-color: #0d6efd;
+                }
+
+                .btn-outline-primary:hover {
+                    background-color: #0d6efd;
+                    color: white;
+                }
+
+                /* Card Footer */
+                .card-footer {
+                    border-top: 1px solid #e9ecef;
+                    border-radius: 0 0 12px 12px !important;
+                    padding: 12px 20px;
+                }
+
+                /* Trend Indicators */
+                .fa-arrow-up {
+                    color: #198754;
+                }
+
+                .fa-arrow-down {
+                    color: #dc3545;
+                }
+
+                .fa-minus {
+                    color: #6c757d;
+                }
+
+                /* Shadow Effects */
+                .shadow-sm {
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+                }
+
+                /* Icons */
+                .fa-2x {
+                    font-size: 2em;
+                }
+
+                .fa-3x {
+                    font-size: 3em;
+                }
+
+        
+        </style>
+    </t>
+</templates>
