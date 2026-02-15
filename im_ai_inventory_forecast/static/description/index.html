@@ -1,4 +1,4 @@
-
+<meta charset="UTF-8">
 <section class="oe_container">
     <div class="oe_row oe_spaced">
         <div class="oe_span12">
@@ -256,14 +256,6 @@
                 <pre style="background: white; padding: 15px; border-radius: 5px; overflow-x: auto;">
 # Install Python dependencies
 pip3 install prophet pmdarima statsmodels scikit-learn
-
-# Download Chart.js
-cd static/lib/chart.js/
-wget https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js -O chart.min.js
-
-# Copy to Odoo addons
-cp -r ai_inventory_forecast /opt/odoo/addons/
-systemctl restart odoo
 
 # Activate in Apps menu
                 </pre>
