@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_product_form_inherit" model="ir.ui.view">
+        <field name="name">product.product.form.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_view_forecasts" type="object" class="oe_stat_button" icon="fa-line-chart">
+                    <field name="forecast_count" widget="statinfo" string="Forecasts"/>
+                </button>
+                <button name="action_view_alerts" type="object" class="oe_stat_button" icon="fa-warning" invisible="alert_count == 0">
+                    <field name="alert_count" widget="statinfo" string="Alerts"/>
+                </button>
+                <button name="action_generate_forecast" type="object" string="Generate Forecast" class="btn-primary"/>
+            </div>
+            <xpath expr="//group[@name='inventory']" position="after">
+                <group string="AI Forecasting" name="ai_forecast">
+                    <field name="next_predicted_demand" readonly="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

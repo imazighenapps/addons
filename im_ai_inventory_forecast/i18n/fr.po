@@ -1,0 +1,699 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * im_ai_inventory_forecast
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-12 09:00:00+0000\n"
+"PO-Revision-Date: 2026-02-12 09:00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.actions.act_window,name:im_ai_inventory_forecast.action_forecast_config
+#: model:ir.ui.menu,name:im_ai_inventory_forecast.menu_forecast_config
+msgid "Forecast Configuration"
+msgstr "Configuration des Prévisions"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.actions.act_window,name:im_ai_inventory_forecast.action_forecast_prediction
+#: model:ir.ui.menu,name:im_ai_inventory_forecast.menu_forecast_predictions
+msgid "Predictions"
+msgstr "Prévisions"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.actions.act_window,name:im_ai_inventory_forecast.action_forecast_alert
+#: model:ir.ui.menu,name:im_ai_inventory_forecast.menu_forecast_alerts
+msgid "Alerts"
+msgstr "Alertes"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.actions.act_window,name:im_ai_inventory_forecast.action_forecast_reorder
+#: model:ir.ui.menu,name:im_ai_inventory_forecast.menu_forecast_reorder
+msgid "Reorder Rules"
+msgstr "Règles de Réapprovisionnement"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.actions.client,name:im_ai_inventory_forecast.action_forecast_dashboard
+#: model:ir.ui.menu,name:im_ai_inventory_forecast.menu_forecast_dashboard
+msgid "AI Forecast Dashboard"
+msgstr "Tableau de Bord IA"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.menu,name:im_ai_inventory_forecast.menu_ai_forecast_root
+msgid "AI Forecasting"
+msgstr "Prévisions IA"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_config__name
+msgid "Configuration Name"
+msgstr "Nom de la Configuration"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_config__algorithm
+msgid "Algorithm"
+msgstr "Algorithme"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_config__forecast_horizon
+msgid "Forecast Horizon (days)"
+msgstr "Horizon de Prévision (jours)"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_config__confidence_level
+msgid "Confidence Level"
+msgstr "Niveau de Confiance"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_config__min_history_days
+msgid "Minimum History (days)"
+msgstr "Historique Minimum (jours)"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_config__enable_seasonality
+msgid "Detect Seasonality"
+msgstr "Détecter la Saisonnalité"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_config__enable_holidays
+msgid "Include Holidays"
+msgstr "Inclure les Jours Fériés"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_config__retrain_frequency
+msgid "Retrain Frequency"
+msgstr "Fréquence de Réentraînement"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_config_algorithm_prophet
+msgid "Prophet (Facebook)"
+msgstr "Prophet (Facebook)"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_config_algorithm_arima
+msgid "ARIMA"
+msgstr "ARIMA"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_config_algorithm_ensemble
+msgid "Ensemble Method"
+msgstr "Méthode Ensemble"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_config_retrain_daily
+msgid "Daily"
+msgstr "Quotidien"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_config_retrain_weekly
+msgid "Weekly"
+msgstr "Hebdomadaire"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_config_retrain_monthly
+msgid "Monthly"
+msgstr "Mensuel"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__product_id
+msgid "Product"
+msgstr "Produit"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__warehouse_id
+msgid "Warehouse"
+msgstr "Entrepôt"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__date
+msgid "Forecast Date"
+msgstr "Date de Prévision"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__predicted_demand
+msgid "Predicted Demand"
+msgstr "Demande Prédite"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__confidence_lower
+msgid "Lower Bound"
+msgstr "Borne Inférieure"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__confidence_upper
+msgid "Upper Bound"
+msgstr "Borne Supérieure"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__confidence_interval
+msgid "Confidence %"
+msgstr "Confiance %"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__accuracy_score
+msgid "Accuracy (MAPE)"
+msgstr "Précision (MAPE)"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__is_anomaly
+msgid "Anomaly Detected"
+msgstr "Anomalie Détectée"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__trend
+msgid "Trend"
+msgstr "Tendance"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_prediction_trend_increasing
+msgid "Increasing"
+msgstr "Croissant"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_prediction_trend_decreasing
+msgid "Decreasing"
+msgstr "Décroissant"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_prediction_trend_stable
+msgid "Stable"
+msgstr "Stable"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__seasonality_detected
+msgid "Seasonality"
+msgstr "Saisonnalité"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__actual_demand
+msgid "Actual Demand"
+msgstr "Demande Réelle"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__error_percentage
+msgid "Error %"
+msgstr "Erreur %"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_prediction__current_stock
+msgid "Current Stock"
+msgstr "Stock Actuel"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_alert__alert_type
+msgid "Alert Type"
+msgstr "Type d'Alerte"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_alert_type_stockout
+msgid "Stockout Risk"
+msgstr "Risque de Rupture"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_alert_type_overstock
+msgid "Overstock"
+msgstr "Surstock"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_alert_type_anomaly
+msgid "Demand Anomaly"
+msgstr "Anomalie de Demande"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_alert_type_trend
+msgid "Trend Change"
+msgstr "Changement de Tendance"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_alert__severity
+msgid "Severity"
+msgstr "Sévérité"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_alert_severity_low
+msgid "Low"
+msgstr "Bas"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_alert_severity_medium
+msgid "Medium"
+msgstr "Moyen"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_alert_severity_high
+msgid "High"
+msgstr "Élevé"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_alert_severity_critical
+msgid "Critical"
+msgstr "Critique"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_alert__message
+msgid "Message"
+msgstr "Message"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_alert__recommended_action
+msgid "Recommended Action"
+msgstr "Action Recommandée"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_alert__estimated_impact
+msgid "Estimated Impact (€)"
+msgstr "Impact Estimé (€)"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_alert__status
+msgid "Status"
+msgstr "Statut"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_alert_status_new
+msgid "New"
+msgstr "Nouveau"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_alert_status_acknowledged
+msgid "Acknowledged"
+msgstr "Reconnu"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_alert_status_resolved
+msgid "Resolved"
+msgstr "Résolu"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields.selection,name:im_ai_inventory_forecast.selection_forecast_alert_status_ignored
+msgid "Ignored"
+msgstr "Ignoré"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_alert__date_detection
+msgid "Detection Date"
+msgstr "Date de Détection"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_alert__date_expected
+msgid "Expected Date"
+msgstr "Date Prévue"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_alert__days_until_event
+msgid "Days Until Event"
+msgstr "Jours Avant Événement"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_alert__assigned_to
+msgid "Assigned To"
+msgstr "Assigné à"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_reorder__optimal_min_qty
+msgid "Optimal Min Quantity"
+msgstr "Quantité Minimale Optimale"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_reorder__optimal_max_qty
+msgid "Optimal Max Quantity"
+msgstr "Quantité Maximale Optimale"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_reorder__optimal_order_qty
+msgid "Optimal Order Quantity"
+msgstr "Quantité de Commande Optimale"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_reorder__safety_stock
+msgid "Safety Stock"
+msgstr "Stock de Sécurité"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_reorder__lead_time_days
+msgid "Lead Time (days)"
+msgstr "Délai d'Approvisionnement (jours)"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_reorder__service_level
+msgid "Service Level (%)"
+msgstr "Niveau de Service (%)"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_reorder__last_computation
+msgid "Last Computation"
+msgstr "Dernier Calcul"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_reorder__auto_apply
+msgid "Auto-Apply"
+msgstr "Application Automatique"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_reorder__avg_daily_demand
+msgid "Avg Daily Demand"
+msgstr "Demande Journalière Moyenne"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_reorder__demand_std_dev
+msgid "Demand Std Dev"
+msgstr "Écart-type Demande"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_reorder__current_min
+msgid "Current Min"
+msgstr "Min Actuel"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_reorder__current_max
+msgid "Current Max"
+msgstr "Max Actuel"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_forecast_reorder__improvement_potential
+msgid "Improvement %"
+msgstr "Amélioration %"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_product_product__forecast_count
+msgid "Forecasts"
+msgstr "Prévisions"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_product_product__alert_count
+msgid "Alerts"
+msgstr "Alertes"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,field_description:im_ai_inventory_forecast.field_product_product__next_predicted_demand
+msgid "Next 7-Day Demand"
+msgstr "Demande 7 Prochains Jours"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.view,arch_db:im_ai_inventory_forecast.view_product_product_form_inherit
+msgid "Generate Forecast"
+msgstr "Générer Prévision"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.view,arch_db:im_ai_inventory_forecast.view_product_product_form_inherit
+msgid "AI Forecasting"
+msgstr "Prévisions IA"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model,name:im_ai_inventory_forecast.model_generate_forecast_wizard
+msgid "Generate Forecast Wizard"
+msgstr "Assistant de Génération de Prévisions"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.actions.act_window,name:im_ai_inventory_forecast.action_generate_forecast_wizard
+msgid "Generate Forecasts"
+msgstr "Générer Prévisions"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.view,arch_db:im_ai_inventory_forecast.view_generate_forecast_wizard_form
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.view,arch_db:im_ai_inventory_forecast.view_generate_forecast_wizard_form
+msgid "All Products"
+msgstr "Tous les Produits"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.view,arch_db:im_ai_inventory_forecast.view_generate_forecast_wizard_form
+msgid "Products"
+msgstr "Produits"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.view,arch_db:im_ai_inventory_forecast.view_generate_forecast_wizard_form
+msgid "Warehouses"
+msgstr "Entrepôts"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.view,arch_db:im_ai_inventory_forecast.view_generate_forecast_wizard_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: im_ai_inventory_forecast
+#: code:addons/im_ai_inventory_forecast/wizards/generate_forecast_wizard.py:0
+#, python-format
+msgid "Forecasts Generated"
+msgstr "Prévisions Générées"
+
+#. module: im_ai_inventory_forecast
+#: code:addons/im_ai_inventory_forecast/wizards/generate_forecast_wizard.py:0
+#, python-format
+msgid "%d predictions created successfully!"
+msgstr "%d prévisions créées avec succès !"
+
+#. module: im_ai_inventory_forecast
+#: code:addons/im_ai_inventory_forecast/models/forecast_alert.py:0
+#, python-format
+msgid "Alert Created"
+msgstr "Alerte Créée"
+
+#. module: im_ai_inventory_forecast
+#: code:addons/im_ai_inventory_forecast/models/forecast_alert.py:0
+#, python-format
+msgid "A new alert has been created for this prediction"
+msgstr "Une nouvelle alerte a été créée pour cette prévision"
+
+#. module: im_ai_inventory_forecast
+#: code:addons/im_ai_inventory_forecast/models/forecast_reorder.py:0
+#, python-format
+msgid "Rules Applied"
+msgstr "Règles Appliquées"
+
+#. module: im_ai_inventory_forecast
+#: code:addons/im_ai_inventory_forecast/models/forecast_reorder.py:0
+#, python-format
+msgid "AI-optimized reorder rules have been applied successfully!"
+msgstr "Les règles de réapprovisionnement optimisées par IA ont été appliquées avec succès !"
+
+#. module: im_ai_inventory_forecast
+#: code:addons/im_ai_inventory_forecast/models/forecast_config.py:0
+#, python-format
+msgid "Configuration Test Successful"
+msgstr "Test de Configuration Réussi"
+
+#. module: im_ai_inventory_forecast
+#: code:addons/im_ai_inventory_forecast/models/forecast_config.py:0
+#, python-format
+msgid "All ML libraries are properly installed and ready to use!"
+msgstr "Toutes les bibliothèques ML sont correctement installées et prêtes à l'emploi !"
+
+#. module: im_ai_inventory_forecast
+#: code:addons/im_ai_inventory_forecast/models/forecast_config.py:0
+#, python-format
+msgid "Missing dependencies:\n\n"
+msgstr "Dépendances manquantes :\n\n"
+
+#. module: im_ai_inventory_forecast
+#: code:addons/im_ai_inventory_forecast/models/forecast_config.py:0
+#, python-format
+msgid "Confidence level must be between 0.80 and 0.99"
+msgstr "Le niveau de confiance doit être entre 0.80 et 0.99"
+
+#. module: im_ai_inventory_forecast
+#: code:addons/im_ai_inventory_forecast/models/forecast_config.py:0
+#, python-format
+msgid "Forecast horizon must be between 7 and 365 days"
+msgstr "L'horizon de prévision doit être entre 7 et 365 jours"
+
+#. module: im_ai_inventory_forecast
+#: code:addons/im_ai_inventory_forecast/models/forecast_config.py:0
+#, python-format
+msgid "Minimum history must be at least 30 days"
+msgstr "L'historique minimum doit être d'au moins 30 jours"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.cron,name:im_ai_inventory_forecast.ir_cron_generate_predictions
+msgid "AI Forecast: Generate Daily Predictions"
+msgstr "Prévision IA : Génération Quotidienne des Prévisions"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.cron,name:im_ai_inventory_forecast.ir_cron_check_alerts
+msgid "AI Forecast: Check Alerts"
+msgstr "Prévision IA : Vérification des Alertes"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.cron,name:im_ai_inventory_forecast.ir_cron_compute_reorder
+msgid "AI Forecast: Compute Reorder Rules"
+msgstr "Prévision IA : Calcul des Règles de Réapprovisionnement"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.cron,name:im_ai_inventory_forecast.ir_cron_cleanup
+msgid "AI Forecast: Cleanup Old Data"
+msgstr "Prévision IA : Nettoyage des Anciennes Données"
+
+#. module: im_ai_inventory_forecast
+#: model:res.groups,name:im_ai_inventory_forecast.group_forecast_user
+msgid "Forecast User"
+msgstr "Utilisateur Prévisions"
+
+#. module: im_ai_inventory_forecast
+#: model:res.groups,name:im_ai_inventory_forecast.group_forecast_manager
+msgid "Forecast Manager"
+msgstr "Gestionnaire Prévisions"
+
+#. module: im_ai_inventory_forecast
+#: model:res.groups,name:im_ai_inventory_forecast.group_forecast_admin
+msgid "Forecast Admin"
+msgstr "Administrateur Prévisions"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.view,arch_db:im_ai_inventory_forecast.view_forecast_alert_form
+msgid "Acknowledge"
+msgstr "Reconnaître"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.view,arch_db:im_ai_inventory_forecast.view_forecast_alert_form
+msgid "Resolve"
+msgstr "Résoudre"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.view,arch_db:im_ai_inventory_forecast.view_forecast_alert_form
+msgid "Ignore"
+msgstr "Ignorer"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.view,arch_db:im_ai_inventory_forecast.view_forecast_alert_form
+msgid "Create PO"
+msgstr "Créer BC"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.view,arch_db:im_ai_inventory_forecast.view_forecast_reorder_form
+msgid "Apply to Odoo Rules"
+msgstr "Appliquer aux Règles Odoo"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.ui.view,arch_db:im_ai_inventory_forecast.view_forecast_config_form
+msgid "Test Configuration"
+msgstr "Tester la Configuration"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_config__algorithm
+msgid "Machine Learning algorithm to use for forecasting"
+msgstr "Algorithme de Machine Learning à utiliser pour les prévisions"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_config__forecast_horizon
+msgid "Number of days to forecast into the future"
+msgstr "Nombre de jours à prévoir dans le futur"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_config__confidence_level
+msgid "Confidence level for prediction intervals (0.90 = 90%, 0.95 = 95%)"
+msgstr "Niveau de confiance pour les intervalles de prédiction (0.90 = 90%, 0.95 = 95%)"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_config__min_history_days
+msgid "Minimum number of historical days required to generate forecast"
+msgstr "Nombre minimum de jours historiques requis pour générer une prévision"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_config__enable_seasonality
+msgid "Automatically detect and model seasonal patterns"
+msgstr "Détecter et modéliser automatiquement les motifs saisonniers"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_config__enable_holidays
+msgid "Consider holidays and special events in forecasting"
+msgstr "Prendre en compte les jours fériés et événements spéciaux dans les prévisions"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_config__retrain_frequency
+msgid "How often to retrain the ML models"
+msgstr "Fréquence de réentraînement des modèles ML"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_prediction__predicted_demand
+msgid "Forecasted quantity for this date"
+msgstr "Quantité prévue pour cette date"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_prediction__confidence_lower
+msgid "Lower bound of 95% confidence interval"
+msgstr "Borne inférieure de l'intervalle de confiance à 95%"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_prediction__confidence_upper
+msgid "Upper bound of 95% confidence interval"
+msgstr "Borne supérieure de l'intervalle de confiance à 95%"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_prediction__is_anomaly
+msgid "This prediction contains an unusual pattern"
+msgstr "Cette prévision contient un motif inhabituel"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_prediction__actual_demand
+msgid "Actual sales/consumption on this date (for comparison)"
+msgstr "Ventes/consommation réelles à cette date (pour comparaison)"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_prediction__error_percentage
+msgid "Percentage error between predicted and actual"
+msgstr "Erreur en pourcentage entre prédit et réel"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_alert__estimated_impact
+msgid "Estimated financial impact if not addressed"
+msgstr "Impact financier estimé si non traité"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_alert__date_expected
+msgid "When the issue is expected to occur"
+msgstr "Quand le problème est attendu"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_alert__assigned_to
+msgid "User responsible for handling this alert"
+msgstr "Utilisateur responsable du traitement de cette alerte"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_reorder__optimal_min_qty
+msgid "AI-calculated minimum stock level"
+msgstr "Niveau de stock minimum calculé par IA"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_reorder__optimal_max_qty
+msgid "AI-calculated maximum stock level"
+msgstr "Niveau de stock maximum calculé par IA"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_reorder__optimal_order_qty
+msgid "Economic Order Quantity (EOQ)"
+msgstr "Quantité Économique de Commande (EOQ)"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_reorder__safety_stock
+msgid "Buffer stock for demand variability"
+msgstr "Stock tampon pour la variabilité de la demande"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_reorder__lead_time_days
+msgid "Supplier lead time in days"
+msgstr "Délai d'approvisionnement fournisseur en jours"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_reorder__service_level
+msgid "Target service level percentage"
+msgstr "Pourcentage de niveau de service cible"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_forecast_reorder__auto_apply
+msgid "Automatically apply these rules to Odoo reorder rules"
+msgstr "Appliquer automatiquement ces règles aux règles de réapprovisionnement Odoo"
+
+#. module: im_ai_inventory_forecast
+#: model:ir.model.fields,help:im_ai_inventory_forecast.field_product_product__next_predicted_demand
+msgid "Predicted demand for next 7 days"
+msgstr "Demande prédite pour les 7 prochains jours"
