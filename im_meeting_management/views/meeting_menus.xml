@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_meeting_root" name="Meetings" sequence="10" web_icon="im_meeting_management,static/description/icon.png"/>
+    
+    <menuitem id="menu_meeting_meetings" name="Meetings" parent="menu_meeting_root" sequence="10" action="action_meeting_management"/>
+    
+    <menuitem id="menu_meeting_dashboard" name="Dashboard" parent="menu_meeting_root" sequence="20" action="action_meeting_dashboard"/>
+    
+    <menuitem id="menu_meeting_config" name="Configuration" parent="menu_meeting_root" sequence="100" groups="im_meeting_management.group_meeting_manager"/>
+    
+    <menuitem id="menu_meeting_participants" name="Participants" parent="menu_meeting_config" sequence="10" action="action_meeting_participant"/>
+</odoo>
