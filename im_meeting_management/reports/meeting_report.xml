@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_meeting" model="ir.actions.report">
+        <field name="name">Meeting Summary</field>
+        <field name="model">meeting.management</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">meeting_management.report_meeting_document</field>
+        <field name="report_file">meeting_management.report_meeting_document</field>
+        <field name="binding_model_id" ref="model_meeting_management"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

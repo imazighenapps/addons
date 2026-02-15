@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_meeting_management_graph" model="ir.ui.view">
+        <field name="name">meeting.management.graph</field>
+        <field name="model">meeting.management</field>
+        <field name="arch" type="xml">
+            <graph string="Meeting Analysis" type="bar">
+                <field name="project_id" type="row"/>
+                <field name="duration_actual" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_meeting_management_pivot" model="ir.ui.view">
+        <field name="name">meeting.management.pivot</field>
+        <field name="model">meeting.management</field>
+        <field name="arch" type="xml">
+            <pivot string="Meeting Pivot">
+                <field name="create_uid" type="row"/>
+                <field name="project_id" type="col"/>
+                <field name="duration_actual" type="measure"/>
+                <field name="duration_planned" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_meeting_dashboard" model="ir.actions.act_window">
+        <field name="name">Meeting Dashboard</field>
+        <field name="res_model">meeting.management</field>
+        <field name="view_mode">kanban,graph,pivot</field>
+        <field name="context">{'search_default_my_meetings': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No meetings to analyze yet
+            </p>
+            <p>
+                Create meetings to see analytics and insights.
+            </p>
+        </field>
+    </record>
+</odoo>
