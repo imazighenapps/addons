@@ -1,336 +1,105 @@
-<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meeting Management - Odoo 18</title>
+</head>
+<body style="margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:#2c3e50;background:#ffffff;">
 
-    <meta charset="UTF-8">
+<!-- BANNER -->
+<div style="background:linear-gradient(135deg,#1e3c72 0%,#2a5298 100%);color:white;padding:80px 20px;text-align:center;">
+<div style="max-width:1200px;margin:0 auto;padding:0 20px;">
+<div style="display:inline-block;background:rgba(255,255,255,0.2);padding:8px 20px;border-radius:20px;font-size:14px;margin-bottom:30px;">📅 Odoo 18 Ready</div>
+<h1 style="font-size:48px;font-weight:700;margin-bottom:20px;text-shadow:2px 2px 4px rgba(0,0,0,0.2);">📋 Meeting Management System</h1>
+<p style="font-size:24px;margin-bottom:30px;opacity:0.95;">Track, Analyze & Optimize Your Meeting Time</p>
 
-       <div class="banner" style=" background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;">
-        <div class="container">
-            <div class="version" style="display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            margin-bottom: 30px;">📅 Odoo 19 Ready</div>
-            <h1 style="    font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">📋 Meeting Management System</h1>
-            <p class="subtitle" style="font-size: 24px;
-            margin-bottom: 30px;
-            opacity: 0.95;">Track, Analyze & Optimize Your Meeting Time</p>
-            
-            <div class="badge-container" style="  display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;">
-                <div class="badge" style="  background: rgba(255,255,255,0.15);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            backdrop-filter: blur(10px);">✓ Project Integration</div>
-                <div class="badge" style="  background: rgba(255,255,255,0.15);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            backdrop-filter: blur(10px);>✓ Time Tracking</div>
-                <div class="badge" style="  background: rgba(255,255,255,0.15);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            backdrop-filter: blur(10px);>✓ Automated Workflows</div>
-                <div class="badge"style="  background: rgba(255,255,255,0.15);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            backdrop-filter: blur(10px);>✓ Analytics Dashboard</div>
-            </div>
-        </div>
-    </div>
+<div style="display:flex;justify-content:center;gap:15px;margin-top:30px;flex-wrap:wrap;">
+<div style="background:rgba(255,255,255,0.15);padding:10px 20px;border-radius:25px;font-size:14px;">✓ Project Integration</div>
+<div style="background:rgba(255,255,255,0.15);padding:10px 20px;border-radius:25px;font-size:14px;">✓ Time Tracking</div>
+<div style="background:rgba(255,255,255,0.15);padding:10px 20px;border-radius:25px;font-size:14px;">✓ Automated Workflows</div>
+<div style="background:rgba(255,255,255,0.15);padding:10px 20px;border-radius:25px;font-size:14px;">✓ Analytics Dashboard</div>
+</div>
+</div>
+</div>
 
-    <div class="section">
-        <div class="container">
-            <h2 class="section-title">⚡ Core Features</h2>
-            <div class="features">
-                <div class="feature-card">
-                    <span class="feature-icon">📝</span>
-                    <h3 class="feature-title">Complete Meeting Management</h3>
-                    <p class="feature-description">Create, track, and manage meetings with full details: dates, participants, projects, and clients.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <span class="feature-icon">⏱️</span>
-                    <h3 class="feature-title">Duration Tracking</h3>
-                    <p class="feature-description">Automatic planned vs actual duration calculation. Track participant time contributions individually.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <span class="feature-icon">🔄</span>
-                    <h3 class="feature-title">Workflow Automation</h3>
-                    <p class="feature-description">Automatic status updates via cron jobs. Smart transitions from Draft → Planned → Done → Validated.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <span class="feature-icon">📊</span>
-                    <h3 class="feature-title">Interactive Dashboard</h3>
-                    <p class="feature-description">Kanban view by status, Graph analysis by project, Pivot tables with multiple dimensions.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <span class="feature-icon">👥</span>
-                    <h3 class="feature-title">Participant Management</h3>
-                    <p class="feature-description">Define roles (Organizer/Participant), track individual durations, add notes per participant.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <span class="feature-icon">📄</span>
-                    <h3 class="feature-title">PDF Reports</h3>
-                    <p class="feature-description">Professional meeting summaries with participant details, durations, and project information.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- SECTION FEATURES -->
+<div style="padding:80px 0;">
+<div style="max-width:1200px;margin:0 auto;padding:0 20px;">
+<h2 style="text-align:center;font-size:36px;font-weight:700;margin-bottom:60px;">⚡ Core Features</h2>
 
-    <div class="section workflow">
-        <div class="container">
-            <h2 class="section-title">🔄 Meeting Workflow</h2>
-            <div class="workflow-steps">
-                <div class="workflow-step">
-                    <div class="workflow-circle">📝</div>
-                    <div class="workflow-label">Draft</div>
-                    <p style="color: #6c757d; margin-top: 10px;">Create meeting with details</p>
-                </div>
-                <div class="workflow-step">
-                    <div class="workflow-circle">📅</div>
-                    <div class="workflow-label">Planned</div>
-                    <p style="color: #6c757d; margin-top: 10px;">Add participants & schedule</p>
-                </div>
-                <div class="workflow-step">
-                    <div class="workflow-circle">✅</div>
-                    <div class="workflow-label">Done</div>
-                    <p style="color: #6c757d; margin-top: 10px;">Auto-updated after end time</p>
-                </div>
-                <div class="workflow-step">
-                    <div class="workflow-circle">🎯</div>
-                    <div class="workflow-label">Validated</div>
-                    <p style="color: #6c757d; margin-top: 10px;">Manager approval</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;margin-top:40px;">
 
-    <div class="section benefits">
-        <div class="container">
-            <h2 class="section-title">💡 Key Benefits</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">⏰</div>
-                    <h3 class="benefit-title">Save Time</h3>
-                    <p class="benefit-description">Automate meeting tracking and reduce administrative overhead by 40%</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📈</div>
-                    <h3 class="benefit-title">Improve Efficiency</h3>
-                    <p class="benefit-description">Analyze time spent per project and optimize resource allocation</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎯</div>
-                    <h3 class="benefit-title">Better Accountability</h3>
-                    <p class="benefit-description">Track who attended, their roles, and actual time contributions</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📊</div>
-                    <h3 class="benefit-title">Data-Driven Decisions</h3>
-                    <p class="benefit-description">Use analytics to identify meeting patterns and improve processes</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<div style="background:#f8f9fa;padding:40px 30px;border-radius:12px;border-top:4px solid #1e3c72;">
+<div style="font-size:48px;margin-bottom:20px;">📝</div>
+<h3 style="font-size:22px;font-weight:600;margin-bottom:15px;">Complete Meeting Management</h3>
+<p style="color:#5a6c7d;line-height:1.8;">Create, track, and manage meetings with full details: dates, participants, projects, and clients.</p>
+</div>
 
-    <div class="section screenshot-section">
-        <div class="container">
-            <h2 class="section-title">🖼️ Interface Preview</h2>
-            <div class="screenshot-grid">
-                <div class="screenshot-item">
-                    <div class="screenshot-placeholder">📋</div>
-                    <div class="screenshot-caption">Meeting Form with Smart Buttons</div>
-                </div>
-                <div class="screenshot-item">
-                    <div class="screenshot-placeholder">📊</div>
-                    <div class="screenshot-caption">Kanban Dashboard by Status</div>
-                </div>
-                <div class="screenshot-item">
-                    <div class="screenshot-placeholder">📈</div>
-                    <div class="screenshot-caption">Graph Analysis by Project</div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div style="background:#f8f9fa;padding:40px 30px;border-radius:12px;border-top:4px solid #1e3c72;">
+<div style="font-size:48px;margin-bottom:20px;">⏱️</div>
+<h3 style="font-size:22px;font-weight:600;margin-bottom:15px;">Duration Tracking</h3>
+<p style="color:#5a6c7d;line-height:1.8;">Automatic planned vs actual duration calculation. Track participant time contributions individually.</p>
+</div>
 
-    <div class="section use-cases">
-        <div class="container">
-            <h2 class="section-title">🎯 Perfect For</h2>
-            <div class="use-case-cards">
-                <div class="use-case-card">
-                    <h3>Project Teams</h3>
-                    <ul>
-                        <li>Track meeting time per project</li>
-                        <li>Link meetings to tasks</li>
-                        <li>Monitor team collaboration</li>
-                        <li>Analyze project overhead</li>
-                    </ul>
-                </div>
-                <div class="use-case-card">
-                    <h3>Consulting Firms</h3>
-                    <ul>
-                        <li>Bill client meeting time</li>
-                        <li>Track consultant availability</li>
-                        <li>Generate meeting reports</li>
-                        <li>Improve client relationships</li>
-                    </ul>
-                </div>
-                <div class="use-case-card">
-                    <h3>Management Teams</h3>
-                    <ul>
-                        <li>Validate meeting outcomes</li>
-                        <li>Monitor meeting efficiency</li>
-                        <li>Access control by role</li>
-                        <li>Executive dashboards</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<div style="background:#f8f9fa;padding:40px 30px;border-radius:12px;border-top:4px solid #1e3c72;">
+<div style="font-size:48px;margin-bottom:20px;">🔄</div>
+<h3 style="font-size:22px;font-weight:600;margin-bottom:15px;">Workflow Automation</h3>
+<p style="color:#5a6c7d;line-height:1.8;">Automatic status updates via cron jobs. Smart transitions from Draft → Planned → Done → Validated.</p>
+</div>
 
-    <div class="section technical">
-        <div class="container">
-            <h2 class="section-title">🔧 Technical Features</h2>
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <h3>Models & ORM</h3>
-                    <ul>
-                        <li>meeting.management model</li>
-                        <li>meeting.participant model</li>
-                        <li>Mail thread integration</li>
-                        <li>Activity mixin support</li>
-                        <li>Computed stored fields</li>
-                    </ul>
-                </div>
-                <div class="tech-card">
-                    <h3>Security</h3>
-                    <ul>
-                        <li>User & Manager groups</li>
-                        <li>Record-level rules</li>
-                        <li>Own meetings access</li>
-                        <li>Participant-based visibility</li>
-                        <li>Validation permissions</li>
-                    </ul>
-                </div>
-                <div class="tech-card">
-                    <h3>Automation</h3>
-                    <ul>
-                        <li>Hourly cron job</li>
-                        <li>Auto status updates</li>
-                        <li>Planned → Done transition</li>
-                        <li>Email notifications</li>
-                        <li>Activity tracking</li>
-                    </ul>
-                </div>
-                <div class="tech-card">
-                    <h3>Views</h3>
-                    <ul>
-                        <li>Tree, Form, Kanban</li>
-                        <li>Calendar view</li>
-                        <li>Graph & Pivot</li>
-                        <li>Smart buttons</li>
-                        <li>Statusbar widget</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<div style="background:#f8f9fa;padding:40px 30px;border-radius:12px;border-top:4px solid #1e3c72;">
+<div style="font-size:48px;margin-bottom:20px;">📊</div>
+<h3 style="font-size:22px;font-weight:600;margin-bottom:15px;">Interactive Dashboard</h3>
+<p style="color:#5a6c7d;line-height:1.8;">Kanban view by status, Graph analysis by project, Pivot tables with multiple dimensions.</p>
+</div>
 
-    <div class="section comparison">
-        <div class="container">
-            <h2 class="section-title">📊 Why Choose Our Module?</h2>
-            <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th style="text-align: center;">Our Module</th>
-                            <th style="text-align: center;">Basic Calendar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="feature-name">Project Integration</td>
-                            <td style="text-align: center;"><span class="checkmark">✓</span></td>
-                            <td style="text-align: center;"><span class="crossmark">✗</span></td>
-                        </tr>
-                        <tr>
-                            <td class="feature-name">Participant Time Tracking</td>
-                            <td style="text-align: center;"><span class="checkmark">✓</span></td>
-                            <td style="text-align: center;"><span class="crossmark">✗</span></td>
-                        </tr>
-                        <tr>
-                            <td class="feature-name">Automated Workflows</td>
-                            <td style="text-align: center;"><span class="checkmark">✓</span></td>
-                            <td style="text-align: center;"><span class="crossmark">✗</span></td>
-                        </tr>
-                        <tr>
-                            <td class="feature-name">Analytics Dashboard</td>
-                            <td style="text-align: center;"><span class="checkmark">✓</span></td>
-                            <td style="text-align: center;"><span class="crossmark">✗</span></td>
-                        </tr>
-                        <tr>
-                            <td class="feature-name">PDF Reports</td>
-                            <td style="text-align: center;"><span class="checkmark">✓</span></td>
-                            <td style="text-align: center;"><span class="crossmark">✗</span></td>
-                        </tr>
-                        <tr>
-                            <td class="feature-name">Manager Validation</td>
-                            <td style="text-align: center;"><span class="checkmark">✓</span></td>
-                            <td style="text-align: center;"><span class="crossmark">✗</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+<div style="background:#f8f9fa;padding:40px 30px;border-radius:12px;border-top:4px solid #1e3c72;">
+<div style="font-size:48px;margin-bottom:20px;">👥</div>
+<h3 style="font-size:22px;font-weight:600;margin-bottom:15px;">Participant Management</h3>
+<p style="color:#5a6c7d;line-height:1.8;">Define roles (Organizer/Participant), track individual durations, add notes per participant.</p>
+</div>
 
-    <div class="section pricing">
-        <div class="container">
-            <h2 class="section-title">💰 Simple Pricing</h2>
-            <div class="price-card">
-                <h3>Professional License</h3>
-                <div class="price">49€</div>
-                <p class="price-label">One-time payment • Lifetime updates</p>
-                
-                <ul class="price-features">
-                    <li>Complete meeting management</li>
-                    <li>Unlimited meetings & participants</li>
-                    <li>All workflow features</li>
-                    <li>Dashboard & analytics</li>
-                    <li>PDF reports included</li>
-                    <li>Cron automation</li>
-                    <li>Full source code</li>
-                    <li>Community support</li>
-                </ul>
-                
-                <a href="#" class="cta-button">Buy Now on Odoo Apps</a>
-            </div>
-        </div>
-    </div>
+<div style="background:#f8f9fa;padding:40px 30px;border-radius:12px;border-top:4px solid #1e3c72;">
+<div style="font-size:48px;margin-bottom:20px;">📄</div>
+<h3 style="font-size:22px;font-weight:600;margin-bottom:15px;">PDF Reports</h3>
+<p style="color:#5a6c7d;line-height:1.8;">Professional meeting summaries with participant details, durations, and project information.</p>
+</div>
 
-    <footer>
-        <div class="container">
-            <p style="font-size: 18px; margin-bottom: 20px;">Streamline Your Meeting Management Today</p>
-            <p style="opacity: 0.8;">Compatible with Odoo 18/19 Community & Enterprise Editions</p>
-            <p style="margin-top: 30px; opacity: 0.6;">© 2026 AI Inventory Forecasting. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-</html>
+</div>
+</div>
+</div>
+
+<!-- PRICING SECTION -->
+<div style="padding:80px 0;background:white;text-align:center;">
+<div style="max-width:1200px;margin:0 auto;padding:0 20px;">
+<h2 style="font-size:36px;font-weight:700;margin-bottom:60px;">💰 Simple Pricing</h2>
+
+<div style="background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);max-width:500px;margin:0 auto;padding:50px;border-radius:12px;box-shadow:0 5px 30px rgba(0,0,0,0.1);border:3px solid #1e3c72;">
+<h3>Professional License</h3>
+<div style="font-size:64px;font-weight:700;color:#1e3c72;margin:20px 0;">49€</div>
+<p style="font-size:18px;color:#6c757d;margin-bottom:30px;">One-time payment • Lifetime updates</p>
+
+<ul style="text-align:left;margin:30px 0;padding:0;list-style:none;">
+<li style="padding:12px 0;border-bottom:1px solid #dee2e6;">✓ Complete meeting management</li>
+<li style="padding:12px 0;border-bottom:1px solid #dee2e6;">✓ Unlimited meetings & participants</li>
+<li style="padding:12px 0;border-bottom:1px solid #dee2e6;">✓ All workflow features</li>
+<li style="padding:12px 0;border-bottom:1px solid #dee2e6;">✓ Dashboard & analytics</li>
+<li style="padding:12px 0;border-bottom:1px solid #dee2e6;">✓ PDF reports included</li>
+<li style="padding:12px 0;border-bottom:1px solid #dee2e6;">✓ Cron automation</li>
+<li style="padding:12px 0;border-bottom:1px solid #dee2e6;">✓ Full source code</li>
+<li style="padding:12px 0;">✓ Community support</li>
+</ul>
+
+<a href="#" style="display:inline-block;background:linear-gradient(135deg,#1e3c72 0%,#2a5298 100%);color:white;padding:18px 50px;border-radius:50px;text-decoration:none;font-size:18px;font-weight:600;box-shadow:0 5px 20px rgba(30,60,114,0.4);">Buy Now on Odoo Apps</a>
+
+</div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#2c3e50;color:white;padding:40px 20px;text-align:center;">
+<div style="max-width:1200px;margin:0 auto;">
+<p style="font-size:18px;margin-bottom:20px;">Streamline Your Meeting Management Today</p>
+<p style="opacity:0.8;">Compatible with Odoo 18/19 Community & Enterprise Editions</p>
+<p style="margin-top:30px;opacity:0.6;">© 2026 AI Inventory Forecasting. All rights reserved.</p>
+</div>
+</footer>
+
