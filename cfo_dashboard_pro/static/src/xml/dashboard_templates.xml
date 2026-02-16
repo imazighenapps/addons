@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="cfo_dashboard_pro.DashboardCockpit">
+        <div class="o_cfo_dashboard h-100">
+            <div class="container-fluid h-100 p-4">
+                <!-- Header with refresh button -->
+                <div class="row mb-4">
+                    <div class="col-md-9">
+                        <h1 class="mt-0 mb-2">
+                            <i class="fa fa-dashboard"/> Executive Financial Cockpit
+                        </h1>
+                        <p class="text-muted mb-0">Real-time financial insights and analytics</p>
+                    </div>
+                    <div class="col-md-3 text-end">
+                        <button class="btn btn-primary" t-on-click="refreshDashboard" t-if="!state.loading">
+                            <i class="fa fa-refresh"/> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Loading State -->
+                <t t-if="state.loading">
+                    <div class="text-center p-5 mt-5">
+                        <i class="fa fa-spinner fa-spin fa-3x text-primary mb-3"/>
+                        <h4 class="text-muted">Loading financial data...</h4>
+                        <p class="text-muted">Please wait while we compute your KPIs</p>
+                    </div>
+                </t>
+                
+                <!-- Error State -->
+                <t t-elif="state.error">
+                    <div class="alert alert-danger mt-4">
+                        <h4><i class="fa fa-exclamation-triangle"/> Error Loading Dashboard</h4>
+                        <p t-esc="state.error"/>
+                        <button class="btn btn-outline-danger mt-2" t-on-click="refreshDashboard">
+                            <i class="fa fa-refresh"/> Try Again
+                        </button>
+                    </div>
+                </t>
+                
+                <!-- Dashboard Content -->
+                <t t-else="">
+                    <!-- Profitability Metrics -->
+                    <div class="mb-4">
+                        <h4 class="mb-3">
+                            <i class="fa fa-line-chart text-primary"/> Profitability Metrics
+                        </h4>
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <h6 class="text-muted text-uppercase mb-0" style="font-size: 0.75rem;">Revenue YTD</h6>
+                                            <i class="fa fa-arrow-up text-success"/>
+                                        </div>
+                                        <h3 class="mb-0 mt-2" t-esc="formatCurrency(state.kpis.revenue_ytd)"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <h6 class="text-muted text-uppercase mb-0" style="font-size: 0.75rem;">Gross Margin</h6>
+                                            <i class="fa fa-bar-chart text-info"/>
+                                        </div>
+                                        <h3 class="mb-0 mt-2" t-esc="formatCurrency(state.kpis.gross_margin)"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <h6 class="text-muted text-uppercase mb-0" style="font-size: 0.75rem;">EBITDA</h6>
+                                            <i class="fa fa-money text-success"/>
+                                        </div>
+                                        <h3 class="mb-0 mt-2" t-esc="formatCurrency(state.kpis.ebitda)"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <h6 class="text-muted text-uppercase mb-0" style="font-size: 0.75rem;">Operating Margin</h6>
+                                            <i class="fa fa-percent text-warning"/>
+                                        </div>
+                                        <h3 class="mb-0 mt-2" t-esc="formatPercent(state.kpis.operating_margin_pct)"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Liquidity Metrics -->
+                    <div class="mb-4">
+                        <h4 class="mb-3">
+                            <i class="fa fa-money text-success"/> Liquidity &amp; Cash Flow
+                        </h4>
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm h-100 border-start border-success border-4">
+                                    <div class="card-body">
+                                        <h6 class="text-muted text-uppercase mb-2" style="font-size: 0.75rem;">Cash Available</h6>
+                                        <h3 class="mb-1" t-esc="formatCurrency(state.kpis.cash_available)"/>
+                                        <small class="text-muted">Current position</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body">
+                                        <h6 class="text-muted text-uppercase mb-2" style="font-size: 0.75rem;">Cash Forecast 90d</h6>
+                                        <h3 class="mb-1" t-esc="formatCurrency(state.kpis.cash_forecast_90d)"/>
+                                        <small class="text-muted">Projected in 3 months</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body">
+                                        <h6 class="text-muted text-uppercase mb-2" style="font-size: 0.75rem;">Monthly Burn Rate</h6>
+                                        <h3 class="mb-1" t-esc="formatCurrency(state.kpis.burn_rate)"/>
+                                        <small class="text-muted">Average monthly</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm h-100 border-start border-danger border-4">
+                                    <div class="card-body">
+                                        <h6 class="text-muted text-uppercase mb-2" style="font-size: 0.75rem;">Runway</h6>
+                                        <h3 class="mb-1">
+                                            <t t-esc="formatNumber(state.kpis.runway_months, 0)"/> months
+                                        </h3>
+                                        <small class="text-muted">At current burn rate</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risk Indicators -->
+                    <div class="mb-4">
+                        <h4 class="mb-3">
+                            <i class="fa fa-exclamation-triangle text-warning"/> Risk Indicators
+                        </h4>
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body">
+                                        <h6 class="text-muted text-uppercase mb-2" style="font-size: 0.75rem;">DSO (Days)</h6>
+                                        <h3 class="mb-1" t-esc="formatNumber(state.kpis.dso, 0)"/>
+                                        <small class="text-muted">Sales outstanding</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body">
+                                        <h6 class="text-muted text-uppercase mb-2" style="font-size: 0.75rem;">DPO (Days)</h6>
+                                        <h3 class="mb-1" t-esc="formatNumber(state.kpis.dpo, 0)"/>
+                                        <small class="text-muted">Payable outstanding</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body">
+                                        <h6 class="text-muted text-uppercase mb-2" style="font-size: 0.75rem;">Overdue Rate</h6>
+                                        <h3 class="mb-1" t-esc="formatPercent(state.kpis.overdue_rate)"/>
+                                        <small class="text-muted">Invoices overdue</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="card-body">
+                                        <h6 class="text-muted text-uppercase mb-2" style="font-size: 0.75rem;">Customer Concentration</h6>
+                                        <h3 class="mb-1" t-esc="formatPercent(state.kpis.customer_concentration_risk)"/>
+                                        <small class="text-muted">Top customer % of revenue</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="mt-4 pt-3 border-top">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <small class="text-muted">
+                                    <i class="fa fa-clock-o"/> Last updated: <t t-esc="new Date().toLocaleString()"/>
+                                </small>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <small class="text-muted">
+                                    Powered by CFO Dashboard Pro
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cfo_cashflow_tree" model="ir.ui.view">
+        <field name="name">cfo.cashflow.projection.tree</field>
+        <field name="model">cfo.cashflow.projection</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="projection_date"/>
+                <field name="scenario"/>
+                <field name="expected_inflows" sum="Total Inflows"/>
+                <field name="expected_outflows" sum="Total Outflows"/>
+                <field name="net_flow" sum="Net Flow"/>
+                <field name="projected_balance"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_cfo_cashflow" model="ir.actions.act_window">
+        <field name="name">Cash Flow Forecast</field>
+        <field name="res_model">cfo.cashflow.projection</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="context">{'search_default_realistic': 1}</field>
+    </record>
+</odoo>
