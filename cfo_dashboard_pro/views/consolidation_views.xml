@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_cfo_consolidation" model="ir.actions.act_window">
+        <field name="name">Multi-Company Consolidation</field>
+        <field name="res_model">cfo.consolidation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    
+    <record id="view_cfo_alert_tree" model="ir.ui.view">
+        <field name="name">cfo.alert.tree</field>
+        <field name="model">cfo.alert</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="severity=='critical'" decoration-warning="severity=='warning'">
+                <field name="alert_date"/>
+                <field name="name"/>
+                <field name="alert_type"/>
+                <field name="severity"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_cfo_alerts" model="ir.actions.act_window">
+        <field name="name">Financial Alerts</field>
+        <field name="res_model">cfo.alert</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_new': 1}</field>
+    </record>
+</odoo>
