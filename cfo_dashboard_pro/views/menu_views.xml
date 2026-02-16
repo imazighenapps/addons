@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_cfo_dashboard_root"
+              name="CFO Dashboard"
+              sequence="5"
+              web_icon="cfo_dashboard_pro,static/description/icon.png"/>
+
+    <menuitem id="menu_cfo_dashboard_main"
+              name="Executive Cockpit"
+              parent="menu_cfo_dashboard_root"
+              action="action_cfo_dashboard_main"
+              sequence="1"/>
+
+    <menuitem id="menu_cfo_cashflow"
+              name="Cash Flow Forecast"
+              parent="menu_cfo_dashboard_root"
+              action="action_cfo_cashflow"
+              sequence="2"/>
+
+    <menuitem id="menu_cfo_profitability"
+              name="Profitability Analysis"
+              parent="menu_cfo_dashboard_root"
+              action="action_cfo_profitability"
+              sequence="3"/>
+
+    <menuitem id="menu_cfo_risk"
+              name="Risk Analysis"
+              parent="menu_cfo_dashboard_root"
+              action="action_cfo_risk"
+              sequence="4"/>
+
+    <menuitem id="menu_cfo_consolidation"
+              name="Consolidation"
+              parent="menu_cfo_dashboard_root"
+              action="action_cfo_consolidation"
+              sequence="5"/>
+
+    <menuitem id="menu_cfo_alerts"
+              name="Alerts"
+              parent="menu_cfo_dashboard_root"
+              action="action_cfo_alerts"
+              sequence="6"/>
+
+    <menuitem id="menu_cfo_config"
+              name="Configuration"
+              parent="menu_cfo_dashboard_root"
+              action="action_cfo_config"
+              sequence="99"
+              groups="group_cfo_dashboard_manager"/>
+</odoo>

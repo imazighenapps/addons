@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cfo_config_form" model="ir.ui.view">
+        <field name="name">cfo.dashboard.config.form</field>
+        <field name="model">cfo.dashboard.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="General">
+                            <field name="name"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Cash Flow">
+                            <field name="cashflow_projection_days"/>
+                            <field name="payment_delay_calculation_method"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Alerts">
+                            <field name="burn_rate_alert_threshold"/>
+                            <field name="dso_alert_threshold"/>
+                            <field name="margin_alert_threshold"/>
+                        </group>
+                        <group string="Risk">
+                            <field name="risk_high_threshold"/>
+                            <field name="risk_medium_threshold"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cfo_config" model="ir.actions.act_window">
+        <field name="name">Configuration</field>
+        <field name="res_model">cfo.dashboard.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
