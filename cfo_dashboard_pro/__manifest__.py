@@ -8,7 +8,7 @@
 Smart Financial Dashboard - CFO Pack Pro
 =========================================
 
-Transform your financial data into strategic insights with AI-powered forecasting.
+Transform your financial data into strategic insights.
 
 **Key Features:**
 
