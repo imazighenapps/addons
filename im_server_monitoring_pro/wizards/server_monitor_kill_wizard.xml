@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Wizard kill process -->
+    <record id="view_server_monitor_kill_wizard_form" model="ir.ui.view">
+        <field name="name">server.monitor.kill.wizard.form</field>
+        <field name="model">server.monitor.kill.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Kill a Process">
+                <sheet>
+                    <div class="alert alert-danger" role="alert">
+                        <field name="warning_message" nolabel="1" readonly="1"/>
+                    </div>
+                    <group string="Target Process">
+                        <field name="pid" readonly="1"/>
+                        <field name="process_name" readonly="1"/>
+                        <field name="process_user" readonly="1"/>
+                        <field name="cpu_percent" readonly="1"/>
+                        <field name="memory_mb" readonly="1"/>
+                    </group>
+                    <group string="Options">
+                        <field name="force_kill"/>
+                        <field name="confirmation"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_kill" type="object"
+                            string="⛔ Kill the process"
+                            class="btn-danger"
+                            invisible = "confirmation ==  False"/>
+                    <button special="cancel" string="Cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Wizard kill action -->
+    <record id="action_server_monitor_kill_wizard" model="ir.actions.act_window">
+        <field name="name">Kill the Process</field>
+        <field name="res_model">server.monitor.kill.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_server_monitor_process"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="group_ids" eval="[(4, ref('im_server_monitoring_pro.group_server_monitor_admin'))]"/>
+    </record>
+
+</odoo>

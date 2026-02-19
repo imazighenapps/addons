@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Alerts list view -->
+    <record id="view_server_monitor_alert_list" model="ir.ui.view">
+        <field name="name">server.monitor.alert.list</field>
+        <field name="model">server.monitor.alert</field>
+        <field name="arch" type="xml">
+            <list string="Alerts"
+                  decoration-danger="severity == 'critical' and state == 'open'"
+                  decoration-warning="severity == 'warning' and state == 'open'"
+                  decoration-muted="state in ('resolved',)">
+                <field name="create_date" string="Date"/>
+                <field name="metric_type" string="Metric"/>
+                <field name="severity" widget="badge"
+                       decoration-danger="severity == 'critical'"
+                       decoration-warning="severity == 'warning'"
+                       decoration-info="severity == 'info'"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'resolved'"
+                       decoration-warning="state == 'acknowledged'"
+                       decoration-danger="state == 'open'"/>
+                <field name="value" string="Value"/>
+                <field name="threshold" string="Threshold"/>
+                <field name="message"/>
+                <field name="acknowledged_by" optional="show"/>
+                <button name="action_acknowledge" type="object"
+                        string="Acknowledge" icon="fa-check"
+                        invisible="state !=  'open'"
+                        class="btn-sm btn-warning"/>
+                <button name="action_resolve" type="object"
+                        string="Resolve" icon="fa-check-circle"
+                        invisible="state == 'resolved'"
+                        class="btn-sm btn-success"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Alert form view -->
+    <record id="view_server_monitor_alert_form" model="ir.ui.view">
+        <field name="name">server.monitor.alert.form</field>
+        <field name="model">server.monitor.alert</field>
+        <field name="arch" type="xml">
+            <form string="Alert">
+                <header>
+                    <button name="action_acknowledge" type="object"
+                            string="✓ Acknowledge"
+                            class="btn-warning"
+                            invisible="state != 'open'"/>
+                    <button name="action_resolve" type="object"
+                            string="✓ Mark as Resolved"
+                            class="btn-success"
+                            invisible="state == 'resolved'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="open,acknowledged,resolved"/>
+                </header>
+                <sheet>
+                    <group col="2">
+                        <field name="metric_type"/>
+                        <field name="severity"/>
+                        <field name="value"/>
+                        <field name="threshold"/>
+                        <field name="email_sent"/>
+                    </group>
+                    <group string="Message">
+                        <field name="message" nolabel="1"/>
+                    </group>
+                    <group string="Resolution" invisible="state == 'open'">
+                        <field name="acknowledged_by" readonly="1"/>
+                        <field name="acknowledged_date" readonly="1"/>
+                        <field name="resolved_date" readonly="1"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Alerts filters -->
+    <record id="view_server_monitor_alert_search" model="ir.ui.view">
+        <field name="name">server.monitor.alert.search</field>
+        <field name="model">server.monitor.alert</field>
+        <field name="arch" type="xml">
+            <search string="Alerts">
+                <filter string="Open" name="open" domain="[('state','=','open')]"/>
+                <filter string="Critical" name="critical" domain="[('severity','=','critical')]"/>
+                <filter string="Warnings" name="warning" domain="[('severity','=','warning')]"/>
+                <filter string="Resolved" name="resolved" domain="[('state','=','resolved')]"/>
+                <separator/>
+                <filter string="CPU" name="cpu" domain="[('metric_type','=','cpu')]"/>
+                <filter string="RAM" name="ram" domain="[('metric_type','=','ram')]"/>
+                <filter string="Disk" name="disk" domain="[('metric_type','=','disk')]"/>
+                <filter string="Network" name="network" domain="[('metric_type','=','network')]"/>
+                <separator/>
+                <group>
+                    <filter string="Severity" name="group_severity" context="{'group_by': 'severity'}"/>
+                    <filter string="Metric" name="group_metric" context="{'group_by': 'metric_type'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Alerts action -->
+    <record id="action_server_monitor_alerts" model="ir.actions.act_window">
+        <field name="name">Alerts</field>
+        <field name="res_model">server.monitor.alert</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_server_monitor_alert_search"/>
+        <field name="context">{'search_default_open': 1}</field>
+        <field name="domain">[]</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Metrics history list view -->
+    <record id="view_server_monitor_history_list" model="ir.ui.view">
+        <field name="name">server.monitor.history.list</field>
+        <field name="model">server.monitor.history</field>
+        <field name="arch" type="xml">
+            <list string="Metrics History" decoration-danger="cpu_percent &gt;= 90 or ram_percent &gt;= 90 or disk_percent &gt;= 95"
+                  decoration-warning="cpu_percent &gt;= 70 or ram_percent &gt;= 75 or disk_percent &gt;= 80">
+                <field name="timestamp"/>
+                <field name="cpu_percent" string="CPU (%)"/>
+                <field name="ram_percent" string="RAM (%)"/>
+                <field name="ram_used_gb" string="Used RAM (GB)" optional="show"/>
+                <field name="disk_percent" string="Disk (%)"/>
+                <field name="disk_free_gb" string="Free Disk (GB)" optional="show"/>
+                <field name="swap_percent" string="Swap (%)" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Metrics history form view -->
+    <record id="view_server_monitor_history_form" model="ir.ui.view">
+        <field name="name">server.monitor.history.form</field>
+        <field name="model">server.monitor.history</field>
+        <field name="arch" type="xml">
+            <form string="Metrics Details">
+                <sheet>
+                    <group string="General Information">
+                        <field name="timestamp"/>
+                        <field name="config_id"/>
+                    </group>
+                    <notebook>
+                        <page string="CPU">
+                            <group col="2">
+                                <field name="cpu_percent"/>
+                                <field name="cpu_freq_current"/>
+                                <field name="cpu_freq_max"/>
+                                <field name="cpu_count_physical"/>
+                                <field name="cpu_count_logical"/>
+                            </group>
+                        </page>
+                        <page string="RAM">
+                            <group col="2">
+                                <field name="ram_percent"/>
+                                <field name="ram_total_gb"/>
+                                <field name="ram_used_gb"/>
+                                <field name="swap_percent"/>
+                                <field name="swap_used"/>
+                            </group>
+                        </page>
+                        <page string="Disk">
+                            <group col="2">
+                                <field name="disk_percent"/>
+                                <field name="disk_total_gb"/>
+                                <field name="disk_used_gb"/>
+                                <field name="disk_free_gb"/>
+                            </group>
+                        </page>
+                        <page string="Network">
+                            <field name="network_ids">
+                                <list>
+                                    <field name="interface"/>
+                                    <field name="speed_send_mbps" string="Upload (MB/s)"/>
+                                    <field name="speed_recv_mbps" string="Download (MB/s)"/>
+                                    <field name="bytes_sent_mb" string="Sent (MB)"/>
+                                    <field name="bytes_recv_mb" string="Received (MB)"/>
+                                    <field name="errors_in"/>
+                                    <field name="errors_out"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Metrics history graph view -->
+    <record id="view_server_monitor_history_graph" model="ir.ui.view">
+        <field name="name">server.monitor.history.graph</field>
+        <field name="model">server.monitor.history</field>
+        <field name="arch" type="xml">
+            <graph string="Metrics History" type="line">
+                <field name="timestamp"/>
+                <field name="cpu_percent" type="measure"/>
+                <field name="ram_percent" type="measure"/>
+                <field name="disk_percent" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Metrics history action -->
+    <record id="action_server_monitor_history" model="ir.actions.act_window">
+        <field name="name">Metrics History</field>
+        <field name="res_model">server.monitor.history</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="context">{'search_default_group_by_day': 1}</field>
+    </record>
+
+    <!-- Network history action -->
+    <record id="action_server_monitor_network" model="ir.actions.act_window">
+        <field name="name">Network History</field>
+        <field name="res_model">server.monitor.network</field>
+        <field name="view_mode">list,graph</field>
+    </record>
+
+    <!-- Network list view -->
+    <record id="view_server_monitor_network_list" model="ir.ui.view">
+        <field name="name">server.monitor.network.list</field>
+        <field name="model">server.monitor.network</field>
+        <field name="arch" type="xml">
+            <list string="Network History" decoration-warning="speed_send_mbps &gt;= 50 or speed_recv_mbps &gt;= 50">
+                <field name="timestamp"/>
+                <field name="interface"/>
+                <field name="speed_send_mbps" string="Upload (MB/s)"/>
+                <field name="speed_recv_mbps" string="Download (MB/s)"/>
+                <field name="bytes_sent_mb" string="Sent (MB)"/>
+                <field name="bytes_recv_mb" string="Received (MB)"/>
+                <field name="errors_in"/>
+                <field name="errors_out"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Network graph view -->
+    <record id="view_server_monitor_network_graph" model="ir.ui.view">
+        <field name="name">server.monitor.network.graph</field>
+        <field name="model">server.monitor.network</field>
+        <field name="arch" type="xml">
+            <graph string="Network Throughput" type="line">
+                <field name="timestamp"/>
+                <field name="speed_send_mbps" type="measure"/>
+                <field name="speed_recv_mbps" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+</odoo>

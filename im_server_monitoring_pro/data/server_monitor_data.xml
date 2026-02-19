@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Default configuration -->
+        <record id="server_monitor_config_default" model="server.monitor.config">
+            <field name="name">Main Configuration</field>
+            <field name="active">True</field>
+            <field name="cpu_warning_threshold">70.0</field>
+            <field name="cpu_critical_threshold">90.0</field>
+            <field name="ram_warning_threshold">75.0</field>
+            <field name="ram_critical_threshold">90.0</field>
+            <field name="disk_warning_threshold">80.0</field>
+            <field name="disk_critical_threshold">95.0</field>
+            <field name="network_warning_threshold">50.0</field>
+            <field name="network_critical_threshold">90.0</field>
+            <field name="enable_email_alerts">True</field>
+            <field name="enable_odoo_notifications">True</field>
+            <field name="collection_interval">60</field>
+            <field name="history_retention_days">30</field>
+        </record>
+
+    </data>
+</odoo>
