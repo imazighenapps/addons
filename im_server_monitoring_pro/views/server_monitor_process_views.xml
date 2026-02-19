@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Process list view -->
+    <record id="view_server_monitor_process_list" model="ir.ui.view">
+        <field name="name">server.monitor.process.list</field>
+        <field name="model">server.monitor.process</field>
+        <field name="arch" type="xml">
+            <list string="Running Processes"
+                  decoration-danger="cpu_percent &gt;= 80"
+                  decoration-warning="cpu_percent &gt;= 50 and cpu_percent &lt; 80">
+                <field name="pid"/>
+                <field name="name"/>
+                <field name="username"/>
+                <field name="status"/>
+                <field name="cpu_percent" string="CPU (%)"/>
+                <field name="memory_percent" string="Memory (%)"/>
+                <field name="memory_mb" string="Memory (MB)"/>
+                <field name="num_threads" string="Threads"/>
+                <field name="is_system_process" string="System" widget="boolean_toggle"/>
+                <button name="action_server_monitor_kill_wizard" type="object"
+                        string="⛔ Kill"
+                        class="btn-sm btn-danger"
+                        groups="im_server_monitoring_pro.group_server_monitor_admin"
+                        />
+            </list>
+        </field>
+    </record>
+
+    <!-- Process form view -->
+    <record id="view_server_monitor_process_form" model="ir.ui.view">
+        <field name="name">server.monitor.process.form</field>
+        <field name="model">server.monitor.process</field>
+        <field name="arch" type="xml">
+            <form string="Process">
+                <header>
+                    <field name="is_system_process" invisible="1"/>
+
+                    <button name="action_server_monitor_kill_wizard" type="object"
+                            string="⛔ Kill this process"
+                            class="btn-danger"
+                            groups="im_server_monitoring_pro.group_server_monitor_admin"
+                            invisible = "is_system_process == True"/>
+                </header>
+                <sheet>
+                    <group col="2">
+                        <field name="pid"/>
+                        <field name="name"/>
+                        <field name="username"/>
+                        <field name="status"/>
+                        <field name="cpu_percent"/>
+                        <field name="memory_percent"/>
+                        <field name="memory_mb"/>
+                        <field name="num_threads"/>
+                        <field name="is_system_process"/>
+                        <field name="snapshot_date"/>
+                    </group>
+                    <group string="Command Line">
+                        <field name="cmdline" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Process search view -->
+    <record id="view_server_monitor_process_search" model="ir.ui.view">
+        <field name="name">server.monitor.process.search</field>
+        <field name="model">server.monitor.process</field>
+        <field name="arch" type="xml">
+            <search string="Processes">
+                <field name="name" string="Process Name"/>
+                <field name="username"/>
+                <field name="pid"/>
+                <filter string="CPU > 50%" name="high_cpu" domain="[('cpu_percent','>',50)]"/>
+                <filter string="Memory > 100MB" name="high_mem" domain="[('memory_mb','>',100)]"/>
+                
+            </search>
+        </field>
+    </record>
+
+    <!-- Process action -->
+    <record id="action_server_monitor_processes" model="ir.actions.act_window">
+        <field name="name">Running Processes</field>
+        <field name="res_model">server.monitor.process</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_server_monitor_process_search"/>
+        <field name="context">{'search_default_not_system': 1}</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+<t t-name="server_monitor.Dashboard">
+
+    <div class="sm-dashboard" style="overflow: auto; height: 100%;">
+        <!-- Initial loading -->
+        <div t-if="state.loading and !state.data" class="sm-loading">
+            <div class="sm-spinner"></div>
+            <p>Loading monitoring data...</p>
+        </div>
+
+        <!-- Error -->
+        <div t-if="state.error" class="alert alert-danger m-3">
+            <strong>Error:</strong> <t t-esc="state.error"/>
+            <button class="btn btn-sm btn-outline-danger ms-2" t-on-click="loadData">Retry</button>
+        </div>
+
+        <!-- Main dashboard -->
+        <div t-if="state.data" class="sm-content">
+
+            <!-- Header -->
+            <div class="sm-header">
+                <div class="sm-header-left">
+                    <h2>🖥️ Server Monitor Pro</h2>
+                    <small class="text-muted">
+                        <t t-esc="state.data.realtime.hostname"/> •
+                        <t t-esc="state.data.realtime.platform"/> •
+                        Uptime: <t t-esc="formatUptime(state.data.realtime)"/>
+                    </small>
+                </div>
+                <div class="sm-header-right">
+                    <span class="sm-last-refresh">
+                        🔄 Last update: <t t-esc="state.lastRefresh"/>
+                    </span>
+                    <button class="btn btn-sm btn-outline-primary" t-on-click="loadData"
+                            t-att-disabled="state.loading">
+                        <t t-if="state.loading">⏳</t>
+                        <t t-else="">↻</t>
+                        Refresh
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main gauges -->
+            <div class="sm-gauges-row">
+                <GaugeWidget
+                    label="CPU"
+                    value="state.data.realtime.cpu_percent"
+                    max="100"
+                    unit="'%'"
+                    status="state.data.cpu_status"
+                    subtitle="state.data.realtime.cpu_count_logical + ' Logical cores'"
+                />
+                <GaugeWidget
+                    label="RAM"
+                    value="state.data.realtime.ram_percent"
+                    max="100"
+                    unit="'%'"
+                    status="state.data.ram_status"
+                    subtitle="formatGB(state.data.realtime.ram_used_gb) + ' / ' + formatGB(state.data.realtime.ram_total_gb)"
+                />
+                <GaugeWidget
+                    label="Disk"
+                    value="state.data.realtime.disk_percent"
+                    max="100"
+                    unit="'%'"
+                    status="state.data.disk_status"
+                    subtitle="formatGB(state.data.realtime.disk_used_gb) + ' / ' + formatGB(state.data.realtime.disk_total_gb)"
+                />
+            </div>
+
+            <!-- Active alerts -->
+            <div t-if="state.data.alerts.length" class="sm-alerts-bar">
+                <div class="sm-alerts-title">
+                    🔔 <strong><t t-esc="state.data.alerts.length"/> active alert(s)</strong>
+                </div>
+                <div class="sm-alerts-list">
+                    <div t-foreach="state.data.alerts" t-as="alert" t-key="alert.id"
+                        class="sm-alert-item"
+                        t-att-class="'sm-alert-' + alert.severity">
+                        <span t-esc="alert.severity === 'critical' ? '🔴' : '🟡'"/>
+                        <span class="ms-2"><t t-esc="alert.message"/></span>
+                        <button class="btn btn-sm btn-outline-secondary ms-2"
+                                t-on-click="() => this.acknowledgeAlert(alert.id)">
+                            ✓
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="sm-tabs">
+                <button t-att-class="'sm-tab ' + (state.activeTab === 'overview' ? 'active' : '')"
+                        t-on-click="() => this.changeTab('overview')">📊 Overview</button>
+                <button t-att-class="'sm-tab ' + (state.activeTab === 'network' ? 'active' : '')"
+                        t-on-click="() => this.changeTab('network')">🌐 Network</button>
+                <button t-att-class="'sm-tab ' + (state.activeTab === 'disk' ? 'active' : '')"
+                        t-on-click="() => this.changeTab('disk')">💾 Storage</button>
+                <button t-att-class="'sm-tab ' + (state.activeTab === 'processes' ? 'active' : '')"
+                        t-on-click="() => this.changeTab('processes')">⚙️ Processes</button>
+            </div>
+
+            <!-- Tab content -->
+
+            <!-- OVERVIEW -->
+            <div t-if="state.activeTab === 'overview'" class="sm-tab-content">
+
+                <!-- Historical chart -->
+                <div class="sm-chart-card">
+                    <div class="sm-chart-header">
+                        <h4>📈 Metrics history</h4>
+                        <div class="sm-period-buttons">
+                            <button t-att-class="'btn btn-sm ' + (state.historyPeriod === '24h' ? 'btn-primary' : 'btn-outline-primary')"
+                                    t-on-click="() => this.changeHistoryPeriod('24h')">24h</button>
+                            <button t-att-class="'btn btn-sm ' + (state.historyPeriod === '7d' ? 'btn-primary' : 'btn-outline-primary')"
+                                    t-on-click="() => this.changeHistoryPeriod('7d')">7d</button>
+                            <button t-att-class="'btn btn-sm ' + (state.historyPeriod === '30d' ? 'btn-primary' : 'btn-outline-primary')"
+                                    t-on-click="() => this.changeHistoryPeriod('30d')">30d</button>
+                        </div>
+                    </div>
+                    <div class="sm-chart-body">
+                        <canvas t-ref="historyChart"/>
+                    </div>
+                </div>
+
+                <!-- CPU per core -->
+                <div class="sm-chart-card">
+                    <div class="sm-chart-header">
+                        <h4>🔲 CPU per core</h4>
+                    </div>
+                    <div class="sm-chart-body sm-chart-small">
+                        <canvas t-ref="cpuCoresChart"/>
+                    </div>
+                </div>
+
+                <!-- System stats -->
+                <div class="sm-stats-grid">
+                    <div class="sm-stat-card">
+                        <div class="sm-stat-icon">💾</div>
+                        <div class="sm-stat-label">Available RAM</div>
+                        <div class="sm-stat-value">
+                            <t t-esc="formatGB(state.data.realtime.ram_available_gb)"/>
+                        </div>
+                    </div>
+                    <div class="sm-stat-card">
+                        <div class="sm-stat-icon">🗂️</div>
+                        <div class="sm-stat-label">Free disk</div>
+                        <div class="sm-stat-value">
+                            <t t-esc="formatGB(state.data.realtime.disk_free_gb)"/>
+                        </div>
+                    </div>
+                    <div class="sm-stat-card">
+                        <div class="sm-stat-icon">⏱️</div>
+                        <div class="sm-stat-label">Uptime</div>
+                        <div class="sm-stat-value">
+                            <t t-esc="formatUptime(state.data.realtime)"/>
+                        </div>
+                    </div>
+                    <div class="sm-stat-card">
+                        <div class="sm-stat-icon">🖥️</div>
+                        <div class="sm-stat-label">System</div>
+                        <div class="sm-stat-value" style="font-size: 0.9rem;">
+                            <t t-esc="state.data.realtime.platform"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NETWORK -->
+            <div t-if="state.activeTab === 'network'" class="sm-tab-content">
+                <div class="sm-chart-card">
+                    <div class="sm-chart-header">
+                        <h4>🌐 Network throughput per interface</h4>
+                    </div>
+                    <div class="sm-chart-body">
+                        <canvas t-ref="networkChart"/>
+                    </div>
+                </div>
+
+                <div class="sm-table-card">
+                    <h4>📡 Network interfaces</h4>
+                    <table class="table table-striped table-hover sm-table">
+                        <thead>
+                            <tr>
+                                <th>Interface</th>
+                                <th>Upload (MB/s)</th>
+                                <th>Download (MB/s)</th>
+                                <th>Total sent (MB)</th>
+                                <th>Total received (MB)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="state.data.net_interfaces" t-as="iface" t-key="iface.interface">
+                                <td><strong><t t-esc="iface.interface"/></strong></td>
+                                <td class="text-danger"><t t-esc="(iface.speed_send || 0).toFixed(2)"/></td>
+                                <td class="text-primary"><t t-esc="(iface.speed_recv || 0).toFixed(2)"/></td>
+                                <td><t t-esc="(iface.bytes_sent / 1024**2).toFixed(1)"/></td>
+                                <td><t t-esc="(iface.bytes_recv / 1024**2).toFixed(1)"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- STORAGE -->
+            <div t-if="state.activeTab === 'disk'" class="sm-tab-content">
+                <div class="sm-table-card">
+                    <h4>💾 Disk partitions</h4>
+                    <div t-foreach="state.data.disk_partitions" t-as="part" t-key="part.mountpoint"
+                        class="sm-disk-partition">
+                        <div class="sm-disk-header">
+                            <span class="sm-disk-device"><t t-esc="part.device"/></span>
+                            <span class="sm-disk-mount text-muted"><t t-esc="part.mountpoint"/></span>
+                            <span t-att-class="'sm-disk-status badge ' + (part.percent >= 95 ? 'bg-danger' : part.percent >= 80 ? 'bg-warning text-dark' : 'bg-success')">
+                                <t t-esc="part.percent.toFixed(1)"/>%
+                            </span>
+                        </div>
+                        <div class="progress sm-disk-progress">
+                            <div class="progress-bar"
+                                t-att-class="part.percent >= 95 ? 'bg-danger' : part.percent >= 80 ? 'bg-warning' : 'bg-success'"
+                                t-att-style="'width: ' + part.percent + '%'"/>
+                        </div>
+                        <div class="sm-disk-info">
+                            <span>Used: <strong><t t-esc="part.used_gb.toFixed(1)"/> GB</strong></span>
+                            <span>Free: <strong><t t-esc="part.free_gb.toFixed(1)"/> GB</strong></span>
+                            <span>Total: <strong><t t-esc="part.total_gb.toFixed(1)"/> GB</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROCESSES -->
+            <div t-if="state.activeTab === 'processes'" class="sm-tab-content">
+                <!-- Kill confirmation modal -->
+                <div t-if="state.killConfirm" class="sm-kill-modal">
+                    <div class="sm-kill-modal-content">
+                        <h5>⛔ Confirm termination</h5>
+                        <p>Terminate process <strong><t t-esc="state.killConfirm.name"/></strong> (PID: <t t-esc="state.killConfirm.pid"/>)?</p>
+                        <div class="alert alert-warning">This action will be recorded in the audit logs.</div>
+                        <div class="d-flex gap-2 justify-content-end">
+                            <button class="btn btn-secondary" t-on-click="cancelKill">Cancel</button>
+                            <button class="btn btn-danger" t-on-click="executeKill">⛔ Terminate</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sm-table-card">
+                    <h4>⚙️ Top processes (by CPU)</h4>
+                    <table class="table table-striped table-hover table-sm sm-table">
+                        <thead>
+                            <tr>
+                                <th>PID</th>
+                                <th>Name</th>
+                                <th>User</th>
+                                <th>CPU %</th>
+                                <th>Memory %</th>
+                                <th>Memory (MB)</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="state.data.top_processes" t-as="proc" t-key="proc.pid">
+                                <td><code><t t-esc="proc.pid"/></code></td>
+                                <td><strong><t t-esc="proc.name"/></strong></td>
+                                <td><small class="text-muted"><t t-esc="proc.username || '—'"/></small></td>
+                                <td t-att-class="(proc.cpu_percent || 0) >= 80 ? 'text-danger fw-bold' : (proc.cpu_percent || 0) >= 50 ? 'text-warning fw-bold' : ''">
+                                    <t t-esc="(proc.cpu_percent || 0).toFixed(1)"/>%
+                                </td>
+                                <td><t t-esc="(proc.memory_percent || 0).toFixed(1)"/>%</td>
+                                <td><t t-esc="(proc.memory_mb || 0).toFixed(0)"/> MB</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-danger"
+                                            t-on-click="() => this.confirmKill(proc.pid, proc.name)"
+                                            title="Terminate this process">⛔</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</t>
+</templates>

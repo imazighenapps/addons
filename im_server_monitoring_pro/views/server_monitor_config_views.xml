@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Config form view with dashboard button -->
+    <record id="view_server_monitor_config_dashboard" model="ir.ui.view">
+        <field name="name">server.monitor.config.dashboard</field>
+        <field name="model">server.monitor.config</field>
+        <field name="arch" type="xml">
+            <form string="Server Monitoring">
+                <header>
+                    <button name="action_open_dashboard" type="object"
+                            string="📊 Open Dashboard"
+                            class="btn-primary"/>
+                    <button name="action_collect_now" type="object"
+                            string="🔄 Collect Now"
+                            class="btn-secondary"/>
+                    <button name="action_cleanup_history" type="object"
+                            string="🗑️ Clean History"
+                            class="btn-secondary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+
+                    <!-- Real-time status -->
+                    <group string="📊 Real-time Status" col="3">
+                        <group>
+                            <div class="o_field_widget p-4">
+                                <div class="h4">CPU</div>
+                                <field name="current_cpu_percent"
+                                    widget="progressbar"
+                                    options="{'current_value': 'current_cpu_percent', 'max_value': 100, 'editable': false}"/>
+                            </div>
+                        </group>
+                        <group>    
+                            <div class="o_field_widget p-4">
+                                <div class="h4">RAM</div>
+                                <field name="current_ram_percent"
+                                    widget="progressbar"
+                                    options="{'current_value': 'current_ram_percent', 'max_value': 100, 'editable': false}"/>
+                            </div>
+                        </group>
+                        <group>
+                            <div class="o_field_widget p-4">
+                                <div class="h4">Disk</div>
+                                <field name="current_disk_percent"
+                                    widget="progressbar"
+                                    options="{'current_value': 'current_disk_percent', 'max_value': 100, 'editable': false}"/>
+                            </div>
+                        </group>
+                    </group>
+
+                    <group string="Information">
+                        <field name="last_collection" readonly="1"/>
+                        <field name="collection_interval"/>
+                        <field name="history_retention_days"/>
+                    </group>
+
+                    <notebook>
+                        <page string="⚙️ Alert Thresholds">
+                            <group string="CPU" col="2">
+                                <field name="cpu_warning_threshold"/>
+                                <field name="cpu_critical_threshold"/>
+                            </group>
+                            <group string="RAM" col="2">
+                                <field name="ram_warning_threshold"/>
+                                <field name="ram_critical_threshold"/>
+                            </group>
+                            <group string="Disk" col="2">
+                                <field name="disk_warning_threshold"/>
+                                <field name="disk_critical_threshold"/>
+                            </group>
+                            <group string="Network" col="2">
+                                <field name="network_warning_threshold"/>
+                                <field name="network_critical_threshold"/>
+                            </group>
+                        </page>
+                        <page string="🔔 Notifications">
+                            <group string="Email" col="2">
+                                <field name="enable_email_alerts"/>
+                                <field name="alert_email_ids"
+                                       widget="many2many_tags"
+                                       invisible="enable_email_alerts == False"/>
+                            </group>
+                            <group string="Odoo Notifications" col="2">
+                                <field name="enable_odoo_notifications"/>
+                                <field name="alert_user_ids"
+                                       widget="many2many_tags"
+                                       invisible="enable_odoo_notifications == False"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+                
+            </form>
+        </field>
+    </record>
+
+    <!-- Configuration Action -->
+    <record id="action_server_monitor_config" model="ir.actions.act_window">
+        <field name="name">Configuration</field>
+        <field name="res_model">server.monitor.config</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_server_monitor_config_dashboard"/>
+        <field name="target">current</field>
+        <field name="context">{'create': False}</field>
+    </record>
+
+</odoo>
