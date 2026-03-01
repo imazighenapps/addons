@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sentinelle_health_monitor/views/sentinelle_metric_views.xml -->
+<odoo>
+    <data>
+
+        <!-- LIST VIEW -->
+        <record id="view_sentinelle_metric_list" model="ir.ui.view">
+            <field name="name">sentinelle.metric.list</field>
+            <field name="model">sentinelle.metric</field>
+            <field name="arch" type="xml">
+                <list string="Metrics"
+                      decoration-danger="severity == 'critical'"
+                      decoration-warning="severity == 'warning' or exceeded_threshold"
+                      default_order="create_date desc">
+                    <field name="create_date" string="Timestamp" widget="datetime"/>
+                    <field name="name" string="Metric"/>
+                    <field name="metric_type" string="Type"/>
+                    <field name="value" string="Value" digits="[12,2]"/>
+                    <field name="unit"/>
+                    <field name="threshold_value" string="Threshold" optional="show"/>
+                    <field name="exceeded_threshold" widget="boolean" string="Exceeded" optional="show"/>
+                    <field name="severity" widget="badge"
+                           decoration-danger="severity == 'critical'"
+                           decoration-warning="severity == 'warning'"
+                           decoration-info="severity == 'info'"/>
+                    <field name="model_name" optional="show"/>
+                    <field name="record_count" optional="hide"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- GRAPH VIEW (bar chart of metric values over time) -->
+        <record id="view_sentinelle_metric_graph" model="ir.ui.view">
+            <field name="name">sentinelle.metric.graph</field>
+            <field name="model">sentinelle.metric</field>
+            <field name="arch" type="xml">
+                <graph string="Metrics" type="bar" sample="1">
+                    <field name="metric_type" type="row"/>
+                    <field name="value" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- PIVOT VIEW -->
+        <record id="view_sentinelle_metric_pivot" model="ir.ui.view">
+            <field name="name">sentinelle.metric.pivot</field>
+            <field name="model">sentinelle.metric</field>
+            <field name="arch" type="xml">
+                <pivot string="Metrics" sample="1">
+                    <field name="metric_type" type="row"/>
+                    <field name="severity" type="col"/>
+                    <field name="value" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- FORM VIEW -->
+        <record id="view_sentinelle_metric_form" model="ir.ui.view">
+            <field name="name">sentinelle.metric.form</field>
+            <field name="model">sentinelle.metric</field>
+            <field name="arch" type="xml">
+                <form string="Metric" create="false" edit="false">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name" readonly="1"/></h1>
+                        </div>
+                        <group>
+                            <group string="Measurement">
+                                <field name="metric_type" readonly="1"/>
+                                <field name="value" readonly="1"/>
+                                <field name="unit" readonly="1"/>
+                                <field name="threshold_value" readonly="1"/>
+                                <field name="exceeded_threshold" readonly="1"/>
+                                <field name="severity" widget="badge" readonly="1"/>
+                            </group>
+                            <group string="Context">
+                                <field name="model_name" readonly="1"/>
+                                <field name="record_count" readonly="1"/>
+                                <field name="endpoint" readonly="1"/>
+                                <field name="cron_id" readonly="1"/>
+                                <field name="create_date" string="Recorded At" readonly="1"/>
+                            </group>
+                        </group>
+                        <group string="SQL Details" invisible ="sql_query_preview == False">
+                            <field name="sql_query_preview" readonly="1" widget="code"/>
+                        </group>
+                        <group string="Extra Data" invisible ="extra_data == False">
+                            <field name="extra_data" readonly="1" widget="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- SEARCH VIEW -->
+        <record id="view_sentinelle_metric_search" model="ir.ui.view">
+            <field name="name">sentinelle.metric.search</field>
+            <field name="model">sentinelle.metric</field>
+            <field name="arch" type="xml">
+                <search string="Search Metrics">
+                    <field name="name"/>
+                    <field name="model_name"/>
+                    <field name="endpoint"/>
+
+                    <filter name="exceeded" string="Threshold Exceeded"
+                            domain="[('exceeded_threshold', '=', True)]"/>
+                    <filter name="critical" string="Critical"
+                            domain="[('severity', '=', 'critical')]"/>
+                    <filter name="warning" string="Warning"
+                            domain="[('severity', '=', 'warning')]"/>
+                    <separator/>
+                    <filter name="orm" string="ORM" domain="[('metric_type', 'like', 'orm_')]"/>
+                    <filter name="sql" string="SQL" domain="[('metric_type', 'like', 'sql_')]"/>
+                    <filter name="api" string="API" domain="[('metric_type', '=', 'api_response')]"/>
+                    <filter name="sys" string="System" domain="[('metric_type', 'like', 'sys_')]"/>
+                    <filter name="cron" string="Cron" domain="[('metric_type', 'like', 'cron_')]"/>
+                    <separator/>
+                    <filter name="today" string="Today"
+                            domain="[('create_date', '>=', context_today().strftime('%Y-%m-%d 00:00:00'))]"/>
+
+                    <group >
+                        <filter name="group_type" string="Metric Type" context="{'group_by': 'metric_type'}"/>
+                        <filter name="group_model" string="Model" context="{'group_by': 'model_name'}"/>
+                        <filter name="group_severity" string="Severity" context="{'group_by': 'severity'}"/>
+                        <filter name="group_date" string="Hour" context="{'group_by': 'create_date:hour'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_sentinelle_metric" model="ir.actions.act_window">
+            <field name="name">Metrics</field>
+            <field name="res_model">sentinelle.metric</field>
+            <field name="view_mode">list,graph,pivot,form</field>
+            <field name="context">{'search_default_exceeded': 0}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No metrics recorded yet. Cron jobs will populate this shortly.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sentinelle_health_monitor/views/sentinelle_dashboard_views.xml -->
+<!--
+    Main dashboard: shows health status at a glance.
+    Uses the standard Odoo pivot + graph views embedded in a kanban-style
+    dashboard action. The JS file enhances this with live counters.
+-->
+<odoo>
+    <data>
+
+        <!-- ── Dashboard Action (client action that renders the dashboard view) ── -->
+        <record id="action_sentinelle_dashboard" model="ir.actions.client">
+            <field name="name">Health Dashboard</field>
+            <field name="tag">sentinelle_dashboard</field>
+        </record>
+
+        <!-- ── Fallback: Alert list used as the default dashboard view ─────────
+             If the JS component is not loaded (e.g. no assets), this action
+             opens the alert list filtered to open alerts as the dashboard.
+        ─────────────────────────────────────────────────────────────────────── -->
+        <record id="action_sentinelle_dashboard_fallback" model="ir.actions.act_window">
+            <field name="name">Alert Dashboard</field>
+            <field name="res_model">sentinelle.alert</field>
+            <field name="view_mode">kanban,list,form</field>
+            <field name="context">{'search_default_open': 1}</field>
+            <field name="domain">[('state', '=', 'open')]</field>
+        </record>
+
+    </data>
+</odoo>

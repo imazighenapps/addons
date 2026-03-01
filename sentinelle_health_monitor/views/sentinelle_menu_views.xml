@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sentinelle_health_monitor/views/sentinelle_menu_views.xml -->
+<odoo>
+    <data>
+
+        <!-- ══════════════════════════════════════════════════════════
+             MAIN TOP-LEVEL MENU
+        ════════════════════════════════════════════════════════════ -->
+        <menuitem
+            id="menu_sentinelle_root"
+            name="Sentinelle"
+            sequence="90"
+            web_icon="sentinelle_health_monitor,static/description/icon.png"
+            groups="sentinelle_health_monitor.group_sentinelle_user"/>
+
+        <!-- ── Dashboard ─────────────────────────────────────────── -->
+     
+
+        <menuitem
+            id="menu_sentinelle_dashboard1"
+            name="Dashboard"
+            parent="menu_sentinelle_root"
+            action="action_sentinelle_dashboard"
+            sequence="10"
+            groups="sentinelle_health_monitor.group_sentinelle_user"/>
+
+        <!-- ── Alerts ─────────────────────────────────────────────── -->
+
+        <menuitem
+            id="menu_sentinelle_alerts_root"
+            name="Alerts"
+            parent="menu_sentinelle_root"
+            sequence="20"
+            groups="sentinelle_health_monitor.group_sentinelle_user"/>
+            
+        <menuitem
+                id="menu_sentinelle_dashboard"
+                name="Alerts Dashboard"
+                parent="menu_sentinelle_alerts_root"
+                action="action_sentinelle_dashboard_fallback"
+                sequence="10"
+                groups="sentinelle_health_monitor.group_sentinelle_user"/>
+
+        <menuitem
+            id="menu_sentinelle_alerts"
+            name="Alerts"
+            parent="menu_sentinelle_alerts_root"
+            action="action_sentinelle_alert"
+            sequence="20"
+            groups="sentinelle_health_monitor.group_sentinelle_user"/>
+            
+            
+
+        <!-- ── Metrics ───────────────────────────────────────────── -->
+        <menuitem
+            id="menu_sentinelle_metrics"
+            name="Metrics"
+            parent="menu_sentinelle_root"
+            action="action_sentinelle_metric"
+            sequence="30"
+            groups="sentinelle_health_monitor.group_sentinelle_user"/>
+
+        <!-- ── Configuration (Admin Only) ────────────────────────── -->
+        <menuitem
+            id="menu_sentinelle_config_root"
+            name="Configuration"
+            parent="menu_sentinelle_root"
+            sequence="90"
+            groups="sentinelle_health_monitor.group_sentinelle_admin"/>
+
+        <menuitem
+            id="menu_sentinelle_config"
+            name="Settings"
+            parent="menu_sentinelle_config_root"
+            action="action_sentinelle_config"
+            sequence="10"
+            groups="sentinelle_health_monitor.group_sentinelle_admin"/>
+
+        <menuitem
+            id="menu_sentinelle_api_endpoints"
+            name="API Endpoints"
+            parent="menu_sentinelle_config_root"
+            action="action_sentinelle_api_endpoint"
+            sequence="20"
+            groups="sentinelle_health_monitor.group_sentinelle_admin"/>
+
+    </data>
+</odoo>

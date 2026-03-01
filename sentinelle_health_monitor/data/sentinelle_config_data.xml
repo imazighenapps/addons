@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sentinelle_health_monitor/data/sentinelle_config_data.xml -->
+<!-- Creates the default configuration record on module install.
+     noupdate="1" prevents Odoo from overwriting admin-customised values on upgrade.
+-->
+<odoo>
+    <data noupdate="1">
+
+        <record id="sentinelle_default_config" model="sentinelle.config">
+            <field name="name">Default Configuration</field>
+            <field name="active">True</field>
+            <field name="monitoring_enabled">True</field>
+
+            <!-- ORM Thresholds -->
+            <field name="orm_create_threshold_ms">500</field>
+            <field name="orm_write_threshold_ms">500</field>
+            <field name="orm_search_threshold_ms">300</field>
+
+            <!-- SQL Thresholds -->
+            <field name="sql_slow_query_threshold_ms">1000</field>
+            <field name="sql_max_queries_per_request">100</field>
+
+            <!-- API Monitor -->
+            <field name="api_response_threshold_ms">3000</field>
+            <field name="api_failure_threshold">5</field>
+
+            <!-- Log Analysis -->
+            <field name="log_error_count_threshold">10</field>
+            <field name="log_analysis_window_hours">1</field>
+
+            <!-- Cron Monitor -->
+            <field name="cron_delay_threshold_minutes">30</field>
+            <field name="cron_failure_threshold">3</field>
+
+            <!-- System Resources -->
+            <field name="cpu_usage_threshold_pct">85.0</field>
+            <field name="ram_usage_threshold_pct">85.0</field>
+            <field name="disk_usage_threshold_pct">90.0</field>
+
+            <!-- Notifications -->
+            <field name="notify_email">True</field>
+            <field name="notify_email_addresses">admin@example.com</field>
+            <field name="notify_slack">False</field>
+            <field name="notify_odoo_channel">False</field>
+
+            <!-- Cooldown & Retention -->
+            <field name="alert_cooldown_minutes">60</field>
+            <field name="metric_retention_days">30</field>
+            <field name="alert_retention_days">90</field>
+
+            <!-- Custom thresholds placeholder -->
+            <field name="custom_thresholds">{}</field>
+        </record>
+
+    </data>
+</odoo>

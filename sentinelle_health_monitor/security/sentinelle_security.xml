@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Category for grouping in Settings > Users & Companies -->
+        <record id="module_category_sentinelle" model="ir.module.category">
+            <field name="name">Sentinelle Health Monitor</field>
+            <field name="description">Access to the Sentinelle monitoring dashboard and configuration.</field>
+            <field name="sequence">90</field>
+        </record>
+        <record id="sentinelle_privilege" model="res.groups.privilege">
+            <field name="name">Sentinelle Health Monitor</field>
+            <field name="category_id" ref="module_category_sentinelle"/>
+            <field name="sequence">50</field>
+        </record>
+
+
+        <!-- User group: read-only access to the dashboard and alert list -->
+        <record id="group_sentinelle_user" model="res.groups">
+            <field name="name">Viewer</field>
+            <field name="privilege_id" ref="sentinelle_privilege"/>
+            <field name="comment">
+                Can view the Sentinelle dashboard, metrics, and alerts.
+                Cannot modify configuration or acknowledge alerts.
+            </field>
+        </record>
+
+        <!-- Admin group: full access including configuration -->
+        <record id="group_sentinelle_admin" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="privilege_id" ref="sentinelle_privilege"/>    
+            <field name="implied_ids" eval="[(4, ref('group_sentinelle_user'))]"/>
+            <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+            <field name="comment">
+                Full access to Sentinelle: configure thresholds, manage alerts,
+                manage API endpoints, and view all metrics.
+            </field>
+        </record>
+
+        <!-- Record Rule: Sentinelle Users can only see their own alerts' chatter -->
+        <!-- All alerts are readable by both groups (ACL handles this) -->
+
+    </data>
+</odoo>
