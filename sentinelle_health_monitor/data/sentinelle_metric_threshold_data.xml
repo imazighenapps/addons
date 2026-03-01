@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sentinelle_health_monitor/data/sentinelle_metric_threshold_data.xml -->
+<!-- Demo API endpoint: Odoo's own website as a connectivity check.
+     Admins can add/remove endpoints from the Sentinelle menu.
+     noupdate="1" prevents overwrite on upgrade.
+-->
+<odoo>
+    <data noupdate="1">
+
+        <!-- Example: monitor Odoo.com connectivity (useful as baseline) -->
+        <record id="sentinelle_api_endpoint_odoo" model="sentinelle.api.endpoint">
+            <field name="name">Odoo.com Connectivity Check</field>
+            <field name="url">https://www.odoo.com</field>
+            <field name="method">HEAD</field>
+            <field name="active">False</field>
+            <field name="timeout_seconds">10</field>
+            <field name="expected_status_code">200</field>
+        </record>
+
+        <!-- Example: monitor a generic health endpoint -->
+        <record id="sentinelle_api_endpoint_example" model="sentinelle.api.endpoint">
+            <field name="name">Example: Your External API</field>
+            <field name="url">https://httpbin.org/status/200</field>
+            <field name="method">GET</field>
+            <field name="active">False</field>
+            <field name="timeout_seconds">10</field>
+            <field name="expected_status_code">200</field>
+        </record>
+
+    </data>
+</odoo>

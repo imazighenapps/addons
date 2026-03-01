@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sentinelle_health_monitor/data/sentinelle_cron_data.xml -->
+<!-- Defines all scheduled actions used by Sentinelle.
+     All crons default to inactive=False so they start running immediately after install.
+     Adjust intervals in Settings > Technical > Automation > Scheduled Actions.
+-->
+<odoo>
+    <data noupdate="1">
+
+        <!-- ── ORM Benchmark ─────────────────────────────────── -->
+        <record id="cron_sentinelle_orm" model="ir.cron">
+            <field name="name">Sentinelle: ORM Performance Benchmark</field>
+            <field name="model_id" ref="model_sentinelle_orm_monitor"/>
+            <field name="state">code</field>
+            <field name="code">model.run_orm_benchmark()</field>
+            <field name="interval_number">15</field>
+            <field name="interval_type">minutes</field>
+            <field name="active">True</field>
+            <field name="priority">5</field>
+        </record>
+
+        <!-- ── SQL Analysis ──────────────────────────────────── -->
+        <record id="cron_sentinelle_sql" model="ir.cron">
+            <field name="name">Sentinelle: SQL Performance Analysis</field>
+            <field name="model_id" ref="model_sentinelle_sql_monitor"/>
+            <field name="state">code</field>
+            <field name="code">model.run_sql_analysis()</field>
+            <field name="interval_number">30</field>
+            <field name="interval_type">minutes</field>
+            <field name="active">True</field>
+            <field name="priority">5</field>
+        </record>
+
+        <!-- ── API Probes ────────────────────────────────────── -->
+        <record id="cron_sentinelle_api" model="ir.cron">
+            <field name="name">Sentinelle: External API Probes</field>
+            <field name="model_id" ref="model_sentinelle_api_monitor"/>
+            <field name="state">code</field>
+            <field name="code">model.run_api_probes()</field>
+            <field name="interval_number">10</field>
+            <field name="interval_type">minutes</field>
+            <field name="active">True</field>
+            <field name="priority">5</field>
+        </record>
+
+        <!-- ── Log Analysis ──────────────────────────────────── -->
+        <record id="cron_sentinelle_logs" model="ir.cron">
+            <field name="name">Sentinelle: Log Error Frequency Analysis</field>
+            <field name="model_id" ref="model_sentinelle_log_monitor"/>
+            <field name="state">code</field>
+            <field name="code">model.run_log_analysis()</field>
+            <field name="interval_number">20</field>
+            <field name="interval_type">minutes</field>
+            <field name="active">True</field>
+            <field name="priority">5</field>
+        </record>
+
+        <!-- ── Cron Health ───────────────────────────────────── -->
+        <record id="cron_sentinelle_crons" model="ir.cron">
+            <field name="name">Sentinelle: Cron Job Health Check</field>
+            <field name="model_id" ref="model_sentinelle_cron_monitor"/>
+            <field name="state">code</field>
+            <field name="code">model.run_cron_analysis()</field>
+            <field name="interval_number">15</field>
+            <field name="interval_type">minutes</field>
+            <field name="active">True</field>
+            <field name="priority">5</field>
+        </record>
+
+        <!-- ── System Resources ──────────────────────────────── -->
+        <record id="cron_sentinelle_system" model="ir.cron">
+            <field name="name">Sentinelle: System Resource Monitor</field>
+            <field name="model_id" ref="model_sentinelle_system_monitor"/>
+            <field name="state">code</field>
+            <field name="code">model.run_system_checks()</field>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="active">True</field>
+            <field name="priority">5</field>
+        </record>
+
+        <!-- ── Daily Digest ──────────────────────────────────── -->
+        <record id="cron_sentinelle_digest" model="ir.cron">
+            <field name="name">Sentinelle: Daily Alert Digest</field>
+            <field name="model_id" ref="model_sentinelle_notification"/>
+            <field name="state">code</field>
+            <field name="code">model.send_daily_digest()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active">True</field>
+            <field name="priority">10</field>
+        </record>
+
+        <!-- ── Metric Purge ──────────────────────────────────── -->
+        <record id="cron_sentinelle_purge_metrics" model="ir.cron">
+            <field name="name">Sentinelle: Purge Old Metrics</field>
+            <field name="model_id" ref="model_sentinelle_metric"/>
+            <field name="state">code</field>
+            <field name="code">model.purge_old_metrics()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active">True</field>
+            <field name="priority">10</field>
+        </record>
+
+        <!-- ── Alert Purge ───────────────────────────────────── -->
+        <record id="cron_sentinelle_purge_alerts" model="ir.cron">
+            <field name="name">Sentinelle: Purge Old Alerts</field>
+            <field name="model_id" ref="model_sentinelle_alert"/>
+            <field name="state">code</field>
+            <field name="code">model.purge_old_alerts()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active">True</field>
+            <field name="priority">10</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- sentinelle_health_monitor/static/src/components/dashboard/sentinelle_dashboard.xml -->
+<!-- CORRECTED & IMPROVED VERSION — Odoo 19 / OWL -->
+<templates xml:space="preserve">
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     GLOBAL STYLES (injected in <style> for self-contained)
+════════════════════════════════════════════════════════════════════════ -->
+<t t-name="sentinelle_health_monitor.Styles">
+<style>
+</style>
+</t>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     KpiCard
+════════════════════════════════════════════════════════════════════════ -->
+<t t-name="sentinelle_health_monitor.KpiCard">
+    <div t-attf-class="snt-kpi-card snt-kpi-#{props.variant}"
+         t-on-click="handleClick"
+         t-att-title="props.subtitle">
+        <div class="snt-kpi-icon"><t t-esc="props.icon"/></div>
+        <div class="snt-kpi-body">
+            <div class="snt-kpi-value">
+                <t t-esc="props.value"/>
+                <span class="snt-kpi-unit" t-if="props.unit"><t t-esc="props.unit"/></span>
+            </div>
+            <div class="snt-kpi-label"><t t-esc="props.label"/></div>
+        </div>
+    </div>
+</t>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     GaugeWidget
+════════════════════════════════════════════════════════════════════════ -->
+<t t-name="sentinelle_health_monitor.GaugeWidget">
+    <div class="snt-gauge-wrapper">
+        <svg viewBox="0 0 120 75" class="snt-gauge-svg">
+            <path t-att-d="arcData.bg" fill="none" stroke="#1e3a5f" stroke-width="9" stroke-linecap="round"/>
+           
+            <path t-att-d="arcData.fill" fill="none" t-att-stroke="color"
+                  stroke-width="9" stroke-linecap="round"/>
+            <text x="60" y="68" text-anchor="middle" class="snt-gauge-num" t-att-fill="color">
+                <t t-esc="props.value.toFixed(0)"/>%
+            </text>
+        </svg>
+        <div class="snt-gauge-label"><t t-esc="props.label"/></div>
+        <t t-if="props.sublabel">
+            <div class="snt-gauge-sublabel"><t t-esc="props.sublabel"/></div>
+        </t>
+        <div t-attf-class="snt-gauge-status snt-gauge-#{statusLabel.toLowerCase()}">
+            <t t-esc="statusLabel"/>
+        </div>
+    </div>
+</t>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     AlertRow
+════════════════════════════════════════════════════════════════════════ -->
+<t t-name="sentinelle_health_monitor.AlertRow">
+    <tr t-attf-class="snt-alert-row snt-alert-row-#{props.alert.severity}" t-on-click="handleOpen">
+        <td class="snt-col-sev">
+            <span t-attf-class="snt-badge #{sevConfig.cls}">
+                <t t-esc="sevConfig.icon"/>&#160;<t t-esc="sevConfig.label"/>
+            </span>
+        </td>
+        <td class="snt-col-name">
+            <div class="snt-alert-name"><t t-esc="props.alert.name"/></div>
+            <div class="snt-alert-meta"><t t-esc="props.alert.alert_type"/></div>
+        </td>
+        <td class="snt-col-val">
+            <span class="snt-mono snt-muted" style="font-size:13px">
+                <t t-esc="props.alert.metric_value != null ? props.alert.metric_value.toFixed(1) : '—'"/>
+            </span>
+            <span class="snt-muted" style="font-size:11px;margin-left:3px">
+                <t t-esc="props.alert.unit || ''"/>
+            </span>
+        </td>
+        <td class="snt-col-time"><span class="snt-time-ago"><t t-esc="timeAgo"/></span></td>
+        <td class="snt-col-action">
+            <button t-if="props.alert.state === 'open'" class="snt-btn-ack"
+                    t-on-click="handleAck" title="Acknowledge">✓ Ack</button>
+            <span t-else="" class="snt-badge snt-badge-ack"><t t-esc="props.alert.state"/></span>
+        </td>
+    </tr>
+</t>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     MAIN DASHBOARD
+════════════════════════════════════════════════════════════════════════ -->
+<t t-name="sentinelle_health_monitor.Dashboard">
+<div class="snt-dashboard">
+    <!-- ─── HEADER ──────────────────────────────────────────────────────── -->
+    <div class="snt-header">
+        <div class="snt-header-left">
+            <div class="snt-logo">
+                <div class="snt-logo-icon">🛡</div>
+                <div>
+                    <h1 class="snt-title">Sentinelle</h1>
+                    <p class="snt-subtitle">Health Monitor</p>
+                </div>
+            </div>
+            <div t-if="!state.loading and !state.error"
+                 t-attf-class="snt-health-badge #{healthStatus.cls}">
+                <span t-attf-class="snt-pulse-dot #{healthStatus.pulse ? 'is-pulsing' : ''}"/>
+                &#160;<t t-esc="healthStatus.label"/>
+            </div>
+        </div>
+        <div class="snt-header-right">
+            <span class="snt-refresh-time" t-if="state.lastRefresh">
+                🕐&#160;<t t-esc="state.lastRefresh"/>
+            </span>
+            <button class="snt-btn-secondary"
+                    t-on-click="() => this.openAlerts([['severity','=','critical'],['state','=','open']])">
+                <span t-if="state.kpis.open_critical > 0"
+                      style="color:#f87171;font-weight:700">
+                    ● <t t-esc="state.kpis.open_critical"/> Critical
+                </span>
+                <span t-else="" style="color:#64748b">● No critical</span>
+            </button>
+            <button class="snt-btn-primary" t-on-click="onRefresh" t-att-disabled="state.loading">
+                <t t-if="state.loading">
+                    <span class="snt-spinner" style="display:inline-block;width:14px;height:14px;margin-right:6px;vertical-align:middle"/>
+                    Loading…
+                </t>
+                <t t-else="">↻ Refresh</t>
+            </button>
+        </div>
+    </div>
+
+    <!-- ─── ERROR ───────────────────────────────────────────────────────── -->
+    <div class="snt-error-banner" t-if="state.error">⚠ <t t-esc="state.error"/></div>
+
+    <!-- ─── LOADING ─────────────────────────────────────────────────────── -->
+    <div class="snt-loading" t-if="state.loading and !state.error">
+        <span class="snt-spinner"/>
+        Loading data…
+    </div>
+
+    <!-- ─── TABS ─────────────────────────────────────────────────────────── -->
+    <div class="snt-tabs" t-if="!state.loading">
+        <button t-attf-class="snt-tab #{state.activeTab==='overview'?'snt-tab-active':''}"
+                t-on-click="()=>this.setTab('overview')">📊 Overview</button>
+        <button t-attf-class="snt-tab #{state.activeTab==='performance'?'snt-tab-active':''}"
+                t-on-click="()=>this.setTab('performance')">⚡ Performance</button>
+        <button t-attf-class="snt-tab #{state.activeTab==='system'?'snt-tab-active':''}"
+                t-on-click="()=>this.setTab('system')">🖥 System</button>
+        <button t-attf-class="snt-tab #{state.activeTab==='logs'?'snt-tab-active':''}"
+                t-on-click="()=>this.setTab('logs')">📋 Logs &amp; Crons</button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         TAB: OVERVIEW
+    ═══════════════════════════════════════════════════════════════════ -->
+    <div t-if="!state.loading and state.activeTab==='overview'" class="snt-content">
+        <!-- KPI cards row 1 — Alerts -->
+        <div class="snt-kpi-row">
+            <KpiCard
+                label="'Critical Alerts'"
+                value="state.kpis.open_critical"
+                icon="'🔴'"
+                variant="state.kpis.open_critical > 0 ? 'critical' : 'success'"
+                subtitle="'Open critical alerts — click to view'"
+                onClick="()=>this.openAlerts([['severity','=','critical'],['state','=','open']])"
+            />
+            <KpiCard
+                label="'Warnings'"
+                value="state.kpis.open_warning"
+                icon="'🟡'"
+                variant="state.kpis.open_warning > 0 ? 'warning' : 'neutral'"
+                onClick="()=>this.openAlerts([['severity','=','warning'],['state','=','open']])"
+            />
+            <KpiCard
+                label="'Total Open'"
+                value="state.kpis.total_open"
+                icon="'🔔'"
+                variant="'neutral'"
+                onClick="()=>this.openAlerts([['state','=','open']])"
+            />
+            <KpiCard
+                label="'Today\'s Alerts'"
+                value="state.kpis.alerts_today"
+                icon="'📅'"
+                variant="'info'"
+            />
+            <KpiCard
+                label="'Resolved Today'"
+                value="state.kpis.resolved_today"
+                icon="'✅'"
+                variant="'success'"
+            />
+            <KpiCard
+                label="'Exceeded Thresholds (1h)'"
+                value="state.kpis.metrics_exceeded"
+                icon="'📈'"
+                variant="state.kpis.metrics_exceeded > 0 ? 'warning' : 'success'"
+                subtitle="'Metrics exceeding thresholds in the last hour'"
+                onClick="()=>this.openMetrics([['exceeded_threshold','=',true]])"
+            />
+        </div>
+
+        <!-- KPI cards row 2 — Technical -->
+        <div class="snt-kpi-row">
+            <KpiCard
+                label="'Slow SQL Queries'"
+                value="state.kpis.slow_sql_count"
+                icon="'🐢'"
+                variant="state.kpis.slow_sql_count > 0 ? 'warning' : 'success'"
+                onClick="()=>this.openMetrics([['metric_type','=','sql_slow'],['exceeded_threshold','=',true]])"
+            />
+            <KpiCard
+                label="'API Failures (1h)'"
+                value="state.kpis.api_failures"
+                icon="'🌐'"
+                variant="state.kpis.api_failures > 0 ? 'critical' : 'success'"
+                onClick="()=>this.openAlerts([['alert_type','=','api_failure']])"
+            />
+            <KpiCard
+                label="'Log Errors (1h)'"
+                value="state.kpis.log_errors_1h"
+                icon="'📝'"
+                variant="state.kpis.log_errors_1h > 10 ? 'critical' : state.kpis.log_errors_1h > 0 ? 'warning' : 'success'"
+            />
+            <KpiCard
+                label="'Delayed Crons'"
+                value="state.kpis.delayed_crons"
+                icon="'⏰'"
+                variant="state.kpis.delayed_crons > 0 ? 'warning' : 'success'"
+                subtitle="'Crons exceeding the configured delay threshold'"
+            />
+            <KpiCard
+                label="'Failing Crons'"
+                value="state.kpis.failing_crons"
+                icon="'❌'"
+                variant="state.kpis.failing_crons > 0 ? 'critical' : 'success'"
+            />
+            <KpiCard
+                label="'Resolution Rate'"
+                value="resolutionRate"
+                unit="'%'"
+                icon="'📊'"
+                variant="resolutionRate >= 80 ? 'success' : resolutionRate >= 50 ? 'warning' : 'critical'"
+            />
+        </div>
+
+        <!-- Charts row -->
+        <div class="snt-grid-1-2">
+            <!-- Donut alert distribution -->
+            <div class="snt-card">
+                <div class="snt-card-hdr">
+                    <h3>Alert Distribution</h3>
+                    <span class="snt-badge snt-badge-blue">By Type · 24h</span>
+                </div>
+                <div class="snt-card-body snt-chart-wrap snt-chart-md">
+                    <canvas t-ref="canvasAlertType"/>
+                    <div class="snt-chart-empty" t-if="!state.alertsByType.length">
+                        No alerts — system healthy 🎉
+                    </div>
+                </div>
+            </div>
+
+            <!-- Line: 24h trend stacked -->
+            <div class="snt-card">
+                <div class="snt-card-hdr">
+                    <h3>Alert Trend — Last 24 Hours</h3>
+                    <span class="snt-badge snt-badge-purple">Hourly</span>
+                </div>
+                <div class="snt-card-body snt-chart-wrap snt-chart-md">
+                    <canvas t-ref="canvasAlertTrend"/>
+                    <div class="snt-chart-empty" t-if="!state.alertTrend.length">
+                        No trend data yet
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent alerts table -->
+        <div class="snt-card">
+            <div class="snt-card-hdr">
+                <h3>🔔 Recent Alerts (Open / Acknowledged)</h3>
+                <button class="snt-btn-link"
+                        t-on-click="()=>this.openAlerts([['state','=','open']])">
+                    View all →
+                </button>
+            </div>
+            <div t-if="!state.recentAlerts.length" class="snt-empty">
+                <span>🟢</span>
+                <p>No open alerts — your instance is healthy!</p>
+            </div>
+            <table t-else="" class="snt-table">
+                <thead>
+                    <tr>
+                        <th>Severity</th>
+                        <th>Alert</th>
+                        <th>Value</th>
+                        <th>Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="state.recentAlerts" t-as="a" t-key="a.id">
+                        <AlertRow
+                            alert="a"
+                            onAcknowledge="(id)=>this.acknowledgeAlert(id)"
+                            onOpen="(id)=>this.openAlertDetail(id)"
+                        />
+                    </t>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         TAB: PERFORMANCE
+    ═══════════════════════════════════════════════════════════════════ -->
+    <div t-if="!state.loading and state.activeTab==='performance'" class="snt-content">
+
+        <!-- ORM averages summary pills -->
+        <div class="snt-card">
+            <div class="snt-card-hdr">
+                <h3>⚡ ORM Performance (1h Averages)</h3>
+                <button class="snt-btn-link"
+                        t-on-click="()=>this.openMetrics([['metric_type','in',['orm_create','orm_write','orm_search']]])">
+                    Details →
+                </button>
+            </div>
+            <div class="snt-orm-summary">
+                <div class="snt-orm-pill">
+                    <span class="snt-orm-pill-dot" style="background:#10b981"/>
+                    <span class="snt-orm-pill-label">Create (moy.)</span>
+                    <span class="snt-orm-pill-val"><t t-esc="ormSummary.create"/></span>
+                </div>
+                <div class="snt-orm-pill">
+                    <span class="snt-orm-pill-dot" style="background:#6366f1"/>
+                    <span class="snt-orm-pill-label">Write (moy.)</span>
+                    <span class="snt-orm-pill-val"><t t-esc="ormSummary.write"/></span>
+                </div>
+                <div class="snt-orm-pill">
+                    <span class="snt-orm-pill-dot" style="background:#f59e0b"/>
+                    <span class="snt-orm-pill-label">Search (moy.)</span>
+                    <span class="snt-orm-pill-val"><t t-esc="ormSummary.search"/></span>
+                </div>
+            </div>
+            <!-- ORM chart (last 30 points) -->
+            <div class="snt-card-body snt-chart-wrap snt-chart-lg">
+                <canvas t-ref="canvasOrm"/>
+                <div class="snt-chart-empty"
+                     t-if="!state.ormCreate.length and !state.ormWrite.length and !state.ormSearch.length">
+                    No ORM data — wait for the next benchmark cron.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slow SQL -->
+        <div class="snt-card">
+            <div class="snt-card-hdr">
+                <h3>🐢 Slow SQL Queries (24h · Top 10)</h3>
+                <button class="snt-btn-link"
+                        t-on-click="()=>this.openMetrics([['metric_type','=','sql_slow']])">
+                    View all →
+                </button>
+            </div>
+            <div t-if="!state.topSlowQueries.length" class="snt-empty">
+                <span>⚡</span>
+                <p>No slow queries — excellent performance!</p>
+            </div>
+            <table t-else="" class="snt-table">
+                <thead>
+                    <tr>
+                        <th style="width:55%">Query Preview</th>
+                        <th>Duration (ms)</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="state.topSlowQueries" t-as="q" t-key="q_index">
+                        <tr>
+                            <!-- CORRECTION : sql_query_preview (not q.name) -->
+                            <td>
+                                <code class="snt-sql">
+                                    <t t-esc="q.sql_query_preview || q.name || '—'"/>
+                                </code>
+                            </td>
+                            <td>
+                                <span t-attf-class="snt-pill #{q.value > 2000 ? 'pill-red' : q.value > 500 ? 'pill-amber' : 'pill-green'}">
+                                    <t t-esc="q.value.toFixed(0)"/>&#160;ms
+                                </span>
+                            </td>
+                            <td>
+                                <span t-attf-class="snt-badge #{q.value > 2000 ? 'snt-sev-critical' : q.value > 500 ? 'snt-sev-warning' : 'snt-sev-ok'}">
+                                    <t t-if="q.value > 2000">Critical</t>
+                                    <t t-elif="q.value > 500">Slow</t>
+                                    <t t-else="">Normal</t>
+                                </span>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- API Endpoints (from metric_history.api) -->
+        <div class="snt-card">
+            <div class="snt-card-hdr">
+                <h3>🌐 External API Calls (Last 20)</h3>
+                <span class="snt-badge snt-badge-blue">Response time</span>
+            </div>
+            <div t-if="!state.apiEndpoints.length" class="snt-empty">
+                <span>🌐</span>
+                <p>No API calls recorded.</p>
+            </div>
+            <table t-else="" class="snt-table">
+                <thead>
+                    <tr>
+                        <th>Name / Endpoint</th>
+                        <th>Response (ms)</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="state.apiEndpoints" t-as="ep" t-key="ep_index">
+                        <tr>
+                            <td>
+                                <div class="snt-alert-name"><t t-esc="ep.name || '—'"/></div>
+                                <div class="snt-alert-meta"><t t-esc="ep.endpoint || ''"/></div>
+                            </td>
+                            <td>
+                                <span t-attf-class="snt-pill #{ep.value > 3000 ? 'pill-red' : ep.value > 1000 ? 'pill-amber' : 'pill-green'}">
+                                    <t t-esc="ep.value.toFixed(0)"/>&#160;ms
+                                </span>
+                            </td>
+                            <td>
+                                <span class="snt-dot dot-ok" t-if="ep.value &lt; 1000"/>
+                                <span class="snt-dot dot-warn" t-elif="ep.value &lt; 3000"/>
+                                <span class="snt-dot dot-crit" t-else=""/>
+                                <t t-if="ep.value > 3000">Degraded</t>
+                                <t t-elif="ep.value > 1000">Slow</t>
+                                <t t-else="">OK</t>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         TAB: SYSTEM
+    ═══════════════════════════════════════════════════════════════════ -->
+    <div t-if="!state.loading and state.activeTab==='system'" class="snt-content">
+
+        <!-- Gauges CPU / RAM / Disk -->
+        <div class="snt-card">
+            <div class="snt-card-hdr">
+                <h3>🖥 System Resources</h3>
+                <span class="snt-badge snt-badge-blue">Dernière lecture</span>
+            </div>
+            <div class="snt-gauges-row">
+                <GaugeWidget
+                    value="state.resources.cpu_pct"
+                    label="'CPU'"
+                    sublabel="'CPU usage'"
+                    thresholdWarning="75"
+                    thresholdCritical="90"
+                />
+                <GaugeWidget
+                    value="state.resources.ram_pct"
+                    label="'RAM'"
+                    sublabel="state.resources.ram_used_gb ? (state.resources.ram_used_gb.toFixed(1) + ' / ' + state.resources.ram_total_gb.toFixed(1) + ' GB') : ''"
+                    thresholdWarning="75"
+                    thresholdCritical="90"
+                />
+
+                <GaugeWidget
+                    value="state.resources.disk_pct"
+                    label="'Disque'"
+                    sublabel="state.resources.disk_free_gb ? (state.resources.disk_free_gb.toFixed(1) + ' GB free') : ''"
+                    thresholdWarning="80"
+                    thresholdCritical="95"
+                />
+            </div>
+        </div>
+
+        <!-- Detailed progress bars -->
+        <div class="snt-res-cards">
+            <t t-foreach="[
+                {key:'cpu_pct',  icon:'⚙',  label:'CPU',   thr:85},
+                {key:'ram_pct',  icon:'💾',  label:'RAM',   thr:85},
+                {key:'disk_pct', icon:'💿',  label:'Disk',thr:90}
+            ]" t-as="res" t-key="res.key">
+                <div class="snt-res-card">
+                    <span class="snt-res-icon"><t t-esc="res.icon"/></span>
+                    <div class="snt-res-body">
+                        <div class="snt-res-top">
+                            <span class="snt-res-label"><t t-esc="res.label"/></span>
+                            <span t-attf-class="snt-res-val #{state.resources[res.key] > res.thr ? 'snt-text-crit' : state.resources[res.key] > res.thr * 0.85 ? 'snt-text-warn' : 'snt-text-ok'}">
+                                <t t-esc="state.resources[res.key].toFixed(1)"/>%
+                            </span>
+                        </div>
+                        <div class="snt-bar-track">
+                            <div t-attf-class="snt-bar-fill #{state.resources[res.key] > res.thr ? 'bar-crit' : state.resources[res.key] > res.thr * 0.85 ? 'bar-warn' : 'bar-ok'}"
+                                 t-att-style="'width:' + Math.min(state.resources[res.key], 100) + '%'"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+
+        <!-- DB Info + Table sizes -->
+        <div class="snt-card">
+            <div class="snt-card-hdr">
+                <h3>🗄 PostgreSQL Database</h3>
+                <span class="snt-badge snt-badge-purple">Storage</span>
+            </div>
+            <!-- DB size summary -->
+            <div class="snt-db-info">
+                <div class="snt-db-stat">
+                    <span class="snt-db-stat-val">
+                        <t t-esc="state.resources.db_size_mb ? (state.resources.db_size_mb / 1024 > 1 ? (state.resources.db_size_mb / 1024).toFixed(2) + ' GB' : state.resources.db_size_mb.toFixed(0) + ' MB') : '—'"/>
+                    </span>
+                    <span class="snt-db-stat-lbl">Total DB size</span>
+                </div>
+                <div class="snt-db-divider"/>
+                <div class="snt-db-stat">
+                    <span class="snt-db-stat-val">
+                        <t t-esc="state.resources.table_sizes ? state.resources.table_sizes.length : 0"/>
+                    </span>
+                    <span class="snt-db-stat-lbl">Tables analyzed</span>
+                </div>
+                <div class="snt-db-divider"/>
+                <div class="snt-db-stat">
+                    <span class="snt-db-stat-val snt-text-ok">
+                        <t t-esc="state.resources.disk_free_gb ? state.resources.disk_free_gb.toFixed(1) + ' GB' : '—'"/>
+                    </span>
+                    <span class="snt-db-stat-lbl">Free disk space</span>
+                </div>
+            </div>
+            <!-- Top tables by size -->
+            <div t-if="state.resources.table_sizes and state.resources.table_sizes.length">
+                <table class="snt-table">
+                    <thead>
+                        <tr>
+                            <th>Table</th>
+                            <th>Size</th>
+                            <th style="width:40%">Share</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="state.resources.table_sizes" t-as="tbl" t-key="tbl.table_name">
+                            <tr>
+                                <td><code class="snt-code"><t t-esc="tbl.table_name"/></code></td>
+                                <td>
+                                    <span class="snt-pill pill-blue">
+                                        <t t-esc="tbl.total_size"/>
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="snt-cron-bar-wrap">
+                                        <div class="snt-cron-bar">
+                                            <div class="snt-cron-fill"
+                                                 style="background:linear-gradient(90deg,#1e40af,#3b82f6)"
+                                                 t-att-style="'width:' + Math.min(100, state.resources.db_size_mb ? (tbl.size_mb / state.resources.db_size_mb * 100) : 0) + '%;background:linear-gradient(90deg,#1e40af,#3b82f6)'"/>
+                                        </div>
+                                        <span class="snt-muted" style="font-size:11px;font-family:var(--snt-mono);min-width:45px;text-align:right">
+                                            <t t-esc="state.resources.db_size_mb ? (tbl.size_mb / state.resources.db_size_mb * 100).toFixed(1) : 0"/>%
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+            <div t-else="" class="snt-empty">
+                <p>Table size data not available.</p>
+            </div>
+        </div>
+
+        <!-- Resource summary table -->
+        <div class="snt-card">
+            <div class="snt-card-hdr"><h3>📊 Resource Dashboard</h3></div>
+            <table class="snt-table">
+                <thead>
+                    <tr><th>Metric</th><th>Value</th><th>Threshold</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="[
+                        {key:'cpu_pct',  label:'CPU Usage',   thr:85},
+                        {key:'ram_pct',  label:'RAM Usage',   thr:85},
+                        {key:'disk_pct', label:'Disk Usage',thr:90}
+                    ]" t-as="row" t-key="row.key">
+                        <tr>
+                            <td><strong><t t-esc="row.label"/></strong></td>
+                            <td>
+                                <span t-attf-class="snt-pill #{state.resources[row.key] > row.thr ? 'pill-red' : state.resources[row.key] > row.thr * 0.85 ? 'pill-amber' : 'pill-green'}">
+                                    <t t-esc="state.resources[row.key].toFixed(1)"/>%
+                                </span>
+                            </td>
+                            <td class="snt-muted"><t t-esc="row.thr"/>%</td>
+                            <td>
+                                <span t-attf-class="snt-badge #{state.resources[row.key] > row.thr ? 'snt-sev-critical' : 'snt-sev-ok'}">
+                                    <t t-if="state.resources[row.key] > row.thr">⚠ High</t>
+                                    <t t-else="">✓ Normal</t>
+                                </span>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         TAB: LOGS & CRONS
+    ═══════════════════════════════════════════════════════════════════ -->
+    <div t-if="!state.loading and state.activeTab==='logs'" class="snt-content">
+
+        <!-- Quick cron stats -->
+        <div class="snt-kpi-row">
+            <KpiCard
+                label="'Total Active Crons'"
+                value="state.kpis.total_crons"
+                icon="'⚙'"
+                variant="'neutral'"
+            />
+            <KpiCard
+                label="'Healthy Crons'"
+                value="cronSummary.healthy"
+                icon="'✅'"
+                variant="cronSummary.healthy === state.kpis.total_crons ? 'success' : 'neutral'"
+            />
+            <KpiCard
+                label="'Delayed Crons'"
+                value="cronSummary.delayed"
+                icon="'⏰'"
+                variant="cronSummary.delayed > 0 ? 'warning' : 'success'"
+            />
+            <KpiCard
+                label="'Failing Crons'"
+                value="cronSummary.failing"
+                icon="'❌'"
+                variant="cronSummary.failing > 0 ? 'critical' : 'success'"
+            />
+            <KpiCard
+                label="'Cron Alerts 24h'"
+                value="state.kpis.cron_alerts_24h"
+                icon="'📊'"
+                variant="state.kpis.cron_alerts_24h > 0 ? 'warning' : 'neutral'"
+            />
+        </div>
+
+        <!-- Top log errors -->
+        <div class="snt-card">
+            <div class="snt-card-hdr">
+                <h3>🚨 Top Error Sources (Last Hour)</h3>
+                <span class="snt-badge snt-sev-critical">ir.logging</span>
+            </div>
+            <div t-if="!state.topErrors.length" class="snt-empty">
+                <span>✅</span>
+                <p>No error spike in the last hour.</p>
+            </div>
+            <table t-else="" class="snt-table">
+                <thead>
+                    <tr>
+                        <th>Model / Source</th>
+                        <th>Occurrences</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="state.topErrors" t-as="err" t-key="err_index">
+                        <tr>
+                            <td>
+                                <code class="snt-code"><t t-esc="err.model_name || '—'"/></code>
+                            </td>
+                            <td>
+                                <span t-attf-class="snt-pill #{err.value > 50 ? 'pill-red' : err.value > 10 ? 'pill-amber' : 'pill-green'}">
+                                    <t t-esc="err.value"/>×
+                                </span>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Cron jobs -->
+        <div class="snt-card">
+            <div class="snt-card-hdr">
+                <h3>⏰ Cron Health (Scheduled Actions)</h3>
+                <span class="snt-badge snt-badge-purple">
+                    <t t-esc="state.cronStatus.length"/> active crons
+                </span>
+            </div>
+            <div t-if="!state.cronStatus.length" class="snt-empty">
+                <p>Cron data will appear after the next scan.</p>
+            </div>
+            <table t-else="" class="snt-table">
+                <thead>
+                    <tr>
+                        <th>Job Name</th>
+                        <th>Next Call</th>
+                        <th>Interval</th>
+                        <th>Delay</th>
+                        <th>Failures</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="state.cronStatus" t-as="c" t-key="c.id">
+                        <!-- CORRECTION : c.delay_minutes (not c.delay_min) -->
+                        <tr t-attf-class="#{c.status === 'critical' ? 'snt-cron-critical' : c.status === 'warning' ? 'snt-cron-warning' : ''}">
+                            <td><strong><t t-esc="c.name"/></strong></td>
+                            <td class="snt-muted" style="font-family:var(--snt-mono);font-size:12px">
+                                <t t-esc="c.nextcall || '—'"/>
+                            </td>
+                            <td class="snt-muted" style="font-size:12px">
+                                <t t-esc="c.interval_number"/>&#160;<t t-esc="c.interval_type"/>
+                            </td>
+                            <td>
+                                <span t-if="c.delay_minutes > 0"
+                                      t-attf-class="#{c.delay_minutes > 60 ? 'snt-text-crit' : c.delay_minutes > 30 ? 'snt-text-warn' : 'snt-text-ok'}"
+                                      style="font-family:var(--snt-mono);font-size:13px">
+                                    +<t t-esc="c.delay_minutes.toFixed(0)"/>m
+                                </span>
+                                <span t-else="" class="snt-text-ok" style="font-size:12px">On time</span>
+                            </td>
+                            <td>
+                                <span t-attf-class="#{c.failure_count > 3 ? 'snt-text-crit' : c.failure_count > 0 ? 'snt-text-warn' : 'snt-muted'}"
+                                      style="font-family:var(--snt-mono)">
+                                    <t t-esc="c.failure_count || 0"/>
+                                </span>
+                            </td>
+                            <td>
+                                <!-- CORRECTION : JS syntax (||) not Python (or) -->
+                                <span class="snt-dot dot-crit" t-if="c.status === 'critical'"/>
+                                <span class="snt-dot dot-warn" t-elif="c.status === 'warning'"/>
+                                <span class="snt-dot dot-ok"   t-else=""/>
+                                <t t-if="c.status === 'critical'">Critical</t>
+                                <t t-elif="c.status === 'warning'">Delayed</t>
+                                <t t-else="">Healthy</t>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Daily global stats -->
+        <div class="snt-card">
+            <div class="snt-card-hdr"><h3>📊 Today's Statistics</h3></div>
+            <div class="snt-stats-grid">
+                <div class="snt-stat">
+                    <div t-attf-class="snt-stat-val #{resolutionRate >= 80 ? 'snt-text-ok' : resolutionRate >= 50 ? 'snt-text-warn' : 'snt-text-crit'}">
+                        <t t-esc="resolutionRate"/>%
+                    </div>
+                    <div class="snt-stat-lbl">Resolution Rate</div>
+                </div>
+                <div class="snt-stat">
+                    <div class="snt-stat-val"><t t-esc="state.kpis.alerts_today || 0"/></div>
+                    <div class="snt-stat-lbl">Today's Alerts</div>
+                </div>
+                <div class="snt-stat">
+                    <div class="snt-stat-val snt-text-ok"><t t-esc="state.kpis.resolved_today || 0"/></div>
+                    <div class="snt-stat-lbl">Resolved</div>
+                </div>
+                <div class="snt-stat">
+                    <div t-attf-class="snt-stat-val #{state.kpis.total_open > 10 ? 'snt-text-crit' : state.kpis.total_open > 0 ? 'snt-text-warn' : 'snt-text-ok'}">
+                        <t t-esc="state.kpis.total_open || 0"/>
+                    </div>
+                    <div class="snt-stat-lbl">Still Open</div>
+                </div>
+                <div class="snt-stat">
+                    <div class="snt-stat-val"><t t-esc="state.kpis.metrics_exceeded || 0"/></div>
+                    <div class="snt-stat-lbl">Exceeded Thresholds (1h)</div>
+                </div>
+                <div class="snt-stat">
+                    <div t-attf-class="snt-stat-val #{state.kpis.log_errors_1h > 10 ? 'snt-text-crit' : state.kpis.log_errors_1h > 0 ? 'snt-text-warn' : 'snt-text-ok'}">
+                        <t t-esc="state.kpis.log_errors_1h || 0"/>
+                    </div>
+                    <div class="snt-stat-lbl">Log Errors (1h)</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div><!-- end .snt-dashboard -->
+</t>
+
+</templates>
