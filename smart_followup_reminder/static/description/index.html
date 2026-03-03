@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+
+<!-- ======================================================
+     HERO BANNER
+====================================================== -->
+<section class="container-fluid bg-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-3">
+                    🔔 Smart Follow-up Reminder
+                </h1>
+                <p class="lead mb-4">
+                    Stop losing deals because of forgotten follow-ups. Automatically track
+                    unanswered quotations, notify your sales team at the right time, and
+                    escalate overdue quotes to managers — all without lifting a finger.
+                </p>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge bg-white text-primary fs-6 px-3 py-2">Odoo CE/EE</span>
+                    <span class="badge bg-white text-primary fs-6 px-3 py-2">Sales / CRM</span>
+                    <span class="badge bg-white text-primary fs-6 px-3 py-2">LGPL-3</span>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center mt-4 mt-lg-0">
+                <div class="display-1">🔔</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+     THE PROBLEM
+====================================================== -->
+<section class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="alert alert-warning d-flex align-items-start gap-3 p-4" role="alert">
+                <span class="fs-3">⚠️</span>
+                <div>
+                    <h5 class="alert-heading mb-1">The #1 reason deals go cold?</h5>
+                    <p class="mb-0">
+                        A salesperson sends a quote and… forgets to follow up. The prospect
+                        moves on. Research shows that <strong>80% of sales require 5+ follow-ups</strong>,
+                        yet most reps give up after just one. <strong>Smart Follow-up Reminder</strong>
+                        automates this entire process inside your existing Odoo Sales workflow.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+     KEY FEATURES — 6 CARDS
+====================================================== -->
+<section class="container pb-5">
+    <h2 class="text-center fw-bold mb-2">Everything your team needs to follow up faster</h2>
+    <p class="text-center text-muted mb-5">Six powerful features, zero extra tools required.</p>
+
+    <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="fs-2 mb-3">⚙️</div>
+                    <h5 class="card-title fw-bold">Per-Team Configuration</h5>
+                    <p class="card-text text-muted">
+                        Define custom delay thresholds for each sales team — 1st reminder,
+                        2nd reminder, and manager escalation. Set a minimum order amount
+                        to avoid reminders on small deals.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="fs-2 mb-3">🤖</div>
+                    <h5 class="card-title fw-bold">Daily Automation at 8 AM</h5>
+                    <p class="card-text text-muted">
+                        A scheduled cron runs every morning and automatically flags overdue
+                        quotes. It creates Odoo <strong>mail.activity</strong> tasks for
+                        salespeople and sends internal notifications for escalated quotes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="fs-2 mb-3">📧</div>
+                    <h5 class="card-title fw-bold">1-Click Follow-up Wizard</h5>
+                    <p class="card-text text-muted">
+                        Hit "Send Follow-up" on any overdue quotation to open a pre-filled
+                        email wizard. The subject and body are automatically rendered from
+                        your custom email template. Send in seconds.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="fs-2 mb-3">📊</div>
+                    <h5 class="card-title fw-bold">Color-Coded Status Badges</h5>
+                    <p class="card-text text-muted">
+                        Every quotation list now shows a follow-up status badge:
+                        <strong class="text-success">OK</strong>,
+                        <strong class="text-info">Pending</strong>,
+                        <strong class="text-warning">Overdue</strong>, or
+                        <strong class="text-danger">Escalated</strong>.
+                        The status bar is also visible on the form view.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="fs-2 mb-3">🚨</div>
+                    <h5 class="card-title fw-bold">Manager Escalation</h5>
+                    <p class="card-text text-muted">
+                        When a quote reaches the escalation threshold, the sales team
+                        manager automatically receives an Odoo internal notification with
+                        the quote name, customer, and days without reply.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="fs-2 mb-3">📋</div>
+                    <h5 class="card-title fw-bold">Kanban Board</h5>
+                    <p class="card-text text-muted">
+                        A dedicated Kanban view groups all quotes to follow up by status.
+                        Each card shows the customer name, deal amount, days without reply
+                        (red badge if &gt;7 days), and a quick action follow-up button.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ======================================================
+     HOW IT WORKS — 3 STEPS
+====================================================== -->
+<section class="container-fluid bg-light py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Up and running in 3 steps</h2>
+        <div class="row g-4 justify-content-center">
+
+            <div class="col-md-4 text-center">
+                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                     style="width:56px;height:56px;font-size:1.4rem;font-weight:700">1</div>
+                <h5 class="fw-bold">Configure</h5>
+                <p class="text-muted">
+                    Go to <strong>Sales › Follow-ups › Configuration</strong> and create
+                    one rule per sales team. Set your delay thresholds and choose your
+                    email template.
+                </p>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                     style="width:56px;height:56px;font-size:1.4rem;font-weight:700">2</div>
+                <h5 class="fw-bold">Monitor</h5>
+                <p class="text-muted">
+                    The daily cron runs automatically at 8 AM. Salespeople see activities
+                    appear in their inbox. Navigate to <strong>Sales › Follow-ups › Quotes to Follow Up</strong>
+                    for the full pipeline view.
+                </p>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                     style="width:56px;height:56px;font-size:1.4rem;font-weight:700">3</div>
+                <h5 class="fw-bold">Act</h5>
+                <p class="text-muted">
+                    Click <strong>Send Follow-up</strong> on any overdue quote. The wizard
+                    pre-fills everything. One click to send — follow-up count and date
+                    are automatically recorded.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+     TECHNICAL HIGHLIGHTS
+====================================================== -->
+<section class="container py-5">
+    <h2 class="fw-bold mb-4">Technical highlights</h2>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex gap-2">
+                    <span class="text-success fw-bold">✓</span>
+                    Computed fields <code>days_without_reply</code> and <code>followup_status</code> stored on <code>sale.order</code>
+                </li>
+                <li class="list-group-item d-flex gap-2">
+                    <span class="text-success fw-bold">✓</span>
+                    Inbound reply detection via <code>mail.message</code> author check
+                </li>
+                <li class="list-group-item d-flex gap-2">
+                    <span class="text-success fw-bold">✓</span>
+                    <code>mail.activity</code> auto-created — no duplicate activities per order
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex gap-2">
+                    <span class="text-success fw-bold">✓</span>
+                    Cron frequency and time fully adjustable in Settings › Technical
+                </li>
+                <li class="list-group-item d-flex gap-2">
+                    <span class="text-success fw-bold">✓</span>
+                    Security: salesman can read/write their team config, manager has full access
+                </li>
+                <li class="list-group-item d-flex gap-2">
+                    <span class="text-success fw-bold">✓</span>
+                    All strings translated with <code>_()</code> — fully i18n-ready
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+     FOOTER / SUPPORT
+====================================================== -->
+<section class="container-fluid bg-dark text-white py-4">
+    <div class="container text-center">
+        <p class="mb-1">
+            <strong>Smart Follow-up Reminder</strong>
+        </p>
+        <p class="mb-0 text-white-50">
+            Questions or issues? Contact us at
+            <a href="mailto:imazighenapps@gmail.com" class="text-white">imazighenapps@gmail.com</a>
+        </p>
+    </div>
+</section>
+
+</body>
+</html>

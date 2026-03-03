@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="smart_followup_reminder_followup_wizard_view_form" model="ir.ui.view">
+        <field name="name">followup.wizard.form</field>
+        <field name="model">followup.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Send Follow-up Reminder">
+                <group>
+                    <group>
+                        <field name="order_id" readonly="1"/>
+                        <field name="partner_id" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="template_id"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="subject"/>
+                </group>
+                <group>
+                    <field name="body_html" widget="html"/>
+                </group>
+                <footer>
+                    <button name="action_send" string="Send Follow-up" type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

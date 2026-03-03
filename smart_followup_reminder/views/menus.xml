@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="smart_followup_reminder_menu_root"
+              name="Follow-ups"
+              parent="sale.sale_menu_root"
+              sequence="20"/>
+
+    <menuitem id="smart_followup_reminder_menu_quotes"
+              name="Quotes to Follow Up"
+              parent="smart_followup_reminder_menu_root"
+              action="smart_followup_reminder_action_quotes_to_followup"
+              sequence="10"/>
+
+    <menuitem id="smart_followup_reminder_menu_config"
+              name="Configuration"
+              parent="smart_followup_reminder_menu_root"
+              action="smart_followup_reminder_action_followup_config"
+              sequence="20"
+              groups="sales_team.group_sale_manager"/>
+</odoo>
