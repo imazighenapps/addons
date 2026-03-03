@@ -22,7 +22,7 @@ Key Features:
     """,
     'author': 'Farid SLIMANI',
     'website': 'imazighenapps@gmail.com',
-    'license': 'LGPL-3',
+    'license': 'OPL-1',
     'depends': ['sale_management', 'mail', 'sales_team'],
     'data': [
         'security/ir.model.access.csv',
