@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Extend sale order form -->
+    <record id="smart_followup_reminder_sale_order_view_form" model="ir.ui.view">
+        <field name="name">sale.order.form.followup</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_send_followup"
+                        string="Send Follow-up"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-bell"
+                        invisible ="followup_status not in  ['pending','overdue','escalated']">
+                    <field name="followup_count" widget="statinfo" string="Follow-ups"/>
+                </button>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <field name="followup_status" widget="statusbar"
+                       statusbar_visible="ok,pending,overdue,escalated"
+                       invisible ="state != 'sent'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Extend sale order list -->
+    <record id="smart_followup_reminder_sale_order_view_list" model="ir.ui.view">
+        <field name="name">sale.order.list.followup</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field name="followup_status" optional="show"
+                       decoration-danger="followup_status == 'escalated'"
+                       decoration-warning="followup_status == 'overdue'"
+                       decoration-info="followup_status == 'pending'"
+                       widget="badge"/>
+                <field name="days_without_reply" optional="show" string="Days w/o Reply"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Action: Quotes to follow up -->
+    <record id="smart_followup_reminder_action_quotes_to_followup" model="ir.actions.act_window">
+        <field name="name">Quotes to Follow Up</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="domain">[('followup_status','in',['pending','overdue','escalated']),('state','=','sent')]</field>
+        <field name="context">{'search_default_my_sale': 1}</field>
+    </record>
+</odoo>

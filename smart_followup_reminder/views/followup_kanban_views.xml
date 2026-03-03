@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="smart_followup_reminder_sale_order_kanban_followup" model="ir.ui.view">
+        <field name="name">sale.order.kanban.followup</field>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="followup_status" class="o_kanban_small_column">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="amount_total"/>
+                <field name="currency_id"/>
+                <field name="days_without_reply"/>
+                <field name="followup_status"/>
+                <field name="user_id"/>
+                <field name="followup_count"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="partner_id"/>
+                                    </strong>
+                                    <small class="o_kanban_record_subtitle text-muted">
+                                        <field name="name"/>
+                                    </small>
+                                </div>
+                                <div class="o_kanban_record_top_right">
+                                    <t t-if="record.days_without_reply.value > 7">
+                                        <span class="badge text-bg-danger">
+                                            <t t-esc="record.days_without_reply.value"/> days
+                                        </span>
+                                    </t>
+                                    <t t-else="">
+                                        <span class="badge text-bg-secondary">
+                                            <t t-esc="record.days_without_reply.value"/> days
+                                        </span>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <strong>
+                                        <field name="amount_total" widget="monetary"/>
+                                    </strong>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <button name="action_send_followup" type="object"
+                                            class="btn btn-sm btn-primary">
+                                        🔔 Follow-up
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>
