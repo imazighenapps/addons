@@ -1,18 +1,5 @@
 # -*- coding: utf-8 -*-
-# sentinelle_health_monitor/controllers/main.py
-"""
-HTTP controllers for the Sentinelle Health Monitor dashboard.
-/sentinelle/dashboard/data     -- Full JSON payload for the OWL dashboard.
-/sentinelle/alert/<id>/acknowledge -- Quick-acknowledge.
 
-CORRECTIONS vs version initiale :
-- _apply() JS attendait d.alert_trend → on garde alert_trend (pas alert_trend_24h)
-- _apply() JS attendait d.cron_stats  → on garde cron_stats (pas cron_status)
-- metric_history.sql_slow expose sql_query_preview correctement
-- metric_history.log_errors expose model_name + value (attendus par l'XML)
-- Suppression du log _logger.warning() de debug en production (_system_stats)
-- Import fields as F dupliqué supprimé dans _kpis
-"""
 import json
 import logging
 from datetime import timedelta
@@ -282,21 +269,29 @@ class SentinelleDashboardController(http.Controller):
 
         try:
             cr.execute("""
-                SELECT tablename AS table_name,
-                       pg_total_relation_size(schemaname||'.'||tablename) / 1048576.0 AS size_mb,
-                       pg_size_pretty(pg_total_relation_size(schemaname||'.'||tablename)) AS total_size
-                FROM pg_tables
-                WHERE schemaname NOT IN ('pg_catalog','information_schema')
-                ORDER BY size_mb DESC LIMIT 15
-            """)
-            s['table_sizes'] = [{
-                'table_name': r['table_name'],
-                'size_mb':    _sf(r['size_mb']),
-                'total_size': r['total_size'],
-            } for r in cr.dictfetchall()]
-        except Exception:
-            s['table_sizes'] = []
+                    SELECT
+                        c.relname AS table_name,
+                        pg_total_relation_size(c.oid) / 1048576.0 AS size_mb,
+                        pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size
+                    FROM pg_class c
+                    JOIN pg_namespace n ON n.oid = c.relnamespace
+                    WHERE c.relkind = 'r'
+                    AND n.nspname NOT IN ('pg_catalog','information_schema')
+                    ORDER BY size_mb DESC
+                    LIMIT 15
+                """)
 
+            s['table_sizes'] = [{
+                    'table_name': r['table_name'],
+                    'size_mb': _sf(r['size_mb']),
+                    'total_size': r['total_size'],
+                } for r in cr.dictfetchall()]
+
+        except Exception as e:
+                cr.rollback()
+                _logger.warning("Sentinelle table size query failed: %s", e)
+                s['table_sizes'] = []
+                
         return s
 
     # ──────────────────────────────────────────────────────────────────────────

@@ -31,7 +31,7 @@ Designed for Odoo CE & EE.
     'author': 'Farid SLIMANI',
     'website': 'imazighenapps@gmail.com',
     'license': 'OPL-1',
-        'price': 99.00,
+        'price': 229.00,
         'currency': 'EUR',
 
     'depends': [
