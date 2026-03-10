@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+
+<!--
+    NexaDesk — Home Launcher
+    Template: nexadesk.HomeLauncher
+
+    OWL 2 event handler rules applied throughout:
+      ✓  t-on-click="dismiss"                     method reference
+      ✓  t-on-click.prevent="(ev) => this.openApp(ev, item)"   explicit this
+      ✗  t-on-click="(ev) => openApp(ev, item)"   BANNED — no this = crash
+-->
+<t t-name="nexadesk.HomeLauncher">
+    <div class="fsl_screen" t-ref="wrap">
+        <canvas class="fsl_stars" t-ref="sky"/>
+        <!-- ── Header ─────────────────────────────────────────── -->
+        <header class="fsl_header">
+            <div class="fsl_header_left">
+                <div class="fsl_logo">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <circle cx="16" cy="16" r="15"
+                                stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                        <circle cx="16" cy="16" r="6"
+                                fill="rgba(255,255,255,0.9)"/>
+                        <circle cx="16" cy="5"  r="2.5" fill="rgba(255,255,255,0.6)"/>
+                        <circle cx="16" cy="27" r="2.5" fill="rgba(255,255,255,0.6)"/>
+                        <circle cx="5"  cy="16" r="2.5" fill="rgba(255,255,255,0.6)"/>
+                        <circle cx="27" cy="16" r="2.5" fill="rgba(255,255,255,0.6)"/>
+                    </svg>
+                </div>
+                <span class="fsl_brand">Nexadesk</span>
+            </div>
+
+            <div class="fsl_header_center">
+                <div class="fsl_searchbar">
+                    <svg viewBox="0 0 20 20" fill="none" class="fsl_searchbar_ico">
+                        <path d="M9 17A8 8 0 109 1a8 8 0 000 16z"
+                              stroke="currentColor" stroke-width="1.8"/>
+                        <path d="M15 15l3.5 3.5"
+                              stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <input
+                        t-ref="query"
+                        class="fsl_searchbar_field"
+                        placeholder="Type to search apps and menus…"
+                        autocomplete="off"
+                        spellcheck="false"
+                        t-on-input="onQueryInput"
+                        t-on-blur="onQueryBlur"
+                        t-on-compositionstart="onCompositionBegin"
+                    />
+                </div>
+            </div>
+        </header>
+
+        <!-- ── Body ───────────────────────────────────────────── -->
+        <main class="fsl_body">
+            <!-- All apps -->
+            <section class="fsl_section">
+                <div class="fsl_row" t-ref="grid">
+                    <t t-foreach="apps" t-as="item" t-key="item.id">
+                        <t t-call="nexadesk.AppTile">
+                            <t t-set="item" t-value="item"/>
+                            <t t-set="pos"  t-value="item_index"/>
+                        </t>
+                    </t>
+                </div>
+
+                <div class="fsl_noresult" t-if="apps.length === 0">
+                    <span class="fsl_noresult_icon">◎</span>
+                    <p>Nothing found</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</t>
+
+
+<!--
+    NexaDesk — Single app tile
+    Template: nexadesk.AppTile
+    Context vars: item (app object), pos (grid index)
+-->
+<t t-name="nexadesk.AppTile">
+    <a  class="fsl_tile"
+        t-att-class="{ fsl_tile_active: cursor === pos }"
+        t-att-href="item.href"
+        t-att-data-id="item.id"
+        t-att-title="item.label"
+        t-on-click.prevent="(ev) => this.openApp(ev, item)">
+
+        <!-- Icon -->
+        <div class="fsl_tile_icon">
+            <img t-if="item.webIconData"
+                 t-attf-src="{{item.webIconData}}"
+                 t-att-alt="item.label"/>
+            <div t-elif="item.webIcon and item.webIcon.backgroundColor"
+                 class="fsl_tile_icon_custom"
+                 t-att-style="'background:' + item.webIcon.backgroundColor">
+                <i t-att-class="item.webIcon.iconClass"
+                   t-att-style="'color:' + item.webIcon.color"/>
+            </div>
+            <div t-else="" class="fsl_tile_icon_letter">
+                <span t-esc="item.label[0]"/>
+            </div>
+        </div>
+
+        <span class="fsl_tile_name" t-esc="item.label"/>
+        <div class="fsl_tile_glow"/>
+    </a>
+</t>
+
+
+<!--
+    NexaDesk — Navbar button (injected via t-inherit)
+-->
+<t t-name="nexadesk.NavbarBtn"
+   t-inherit="web.NavBar"
+   t-inherit-mode="extension">
+    <xpath expr="//nav" position="inside">
+        <button t-if="homeLauncher"
+                class="fsl_navbar_btn"
+                t-on-click="toggleHomeLauncher"
+                title="Home">
+
+            <svg viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="15" stroke="rgba(255,255,255)" stroke-width="1"/>
+                <circle cx="16" cy="16" r="6"   fill="rgba(255,255,255)"/>
+                <circle cx="16" cy="5"  r="2.5" fill="rgba(255,255,255)"/>
+                <circle cx="16" cy="27" r="2.5" fill="rgba(255,255,255)"/>
+                <circle cx="5"  cy="16" r="2.5" fill="rgba(255,255,255)"/>
+                <circle cx="27" cy="16" r="2.5" fill="rgba(255,255,255)"/>
+            </svg>
+        </button>
+    </xpath>
+</t>
+</templates>
