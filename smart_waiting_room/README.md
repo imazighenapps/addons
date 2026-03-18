@@ -141,8 +141,7 @@ smart_waiting_room/
 
 ## 📞 Support
 
-- **Website:** https://www.smartdentalsuite.com
-- **Email:** contact@smartdentalsuite.com
+- **Email:** imazighenapps@gmail.com
 - **License:** OPL-1 (Odoo Proprietary License)
 
 ---
