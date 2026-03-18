@@ -1,6 +1,6 @@
 # Smart Waiting Room — Odoo 19 Module
 
-**Version:** 19.0.1.0.0 | **License:** OPL-1 | **Price:** €149
+**Version:** 19.0.1.0.0 | **License:** OPL-1 
 
 A professional, universal intelligent queue management solution for Odoo 19.
 
