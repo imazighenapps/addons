@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- User Manual URL action -->
+    <record id="action_open_manual" model="ir.actions.act_url">
+        <field name="name">User Manual</field>
+        <field name="url">/waiting-room/manual</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Main App Menu                                                       -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <menuitem id="menu_waiting_room_root"
+              name="Waiting Room"
+              web_icon="smart_waiting_room,static/img/icon.png"
+              sequence="50"
+              groups="smart_waiting_room.group_waiting_room_receptionist"/>
+
+    <!-- Live Queue -->
+    <menuitem id="menu_waiting_room_queue"
+              name="Live Queue"
+              parent="menu_waiting_room_root"
+              sequence="10"/>
+
+    <menuitem id="menu_queue_kanban"
+              name="Queue Board"
+              parent="menu_waiting_room_queue"
+              action="action_queue_line"
+              sequence="10"
+              groups="smart_waiting_room.group_waiting_room_receptionist"/>
+
+    <menuitem id="menu_queue_history"
+              name="Visit History"
+              parent="menu_waiting_room_queue"
+              action="action_queue_history"
+              sequence="20"
+              groups="smart_waiting_room.group_waiting_room_receptionist"/>
+
+    <!-- Rooms -->
+    <menuitem id="menu_waiting_room_rooms"
+              name="Rooms"
+              parent="menu_waiting_room_root"
+              sequence="20"
+              groups="smart_waiting_room.group_waiting_room_manager"/>
+
+    <menuitem id="menu_room_list"
+              name="Waiting Rooms"
+              parent="menu_waiting_room_rooms"
+              action="action_waiting_room"
+              sequence="10"/>
+
+    <menuitem id="menu_department_list"
+              name="Departments / Services"
+              parent="menu_waiting_room_rooms"
+              action="action_department"
+              sequence="20"/>
+
+    <!-- Configuration -->
+    <menuitem id="menu_waiting_room_config"
+              name="Configuration"
+              parent="menu_waiting_room_root"
+              sequence="100"
+              groups="smart_waiting_room.group_waiting_room_manager"/>
+
+    <menuitem id="menu_config_settings"
+              name="Settings"
+              parent="menu_waiting_room_config"
+              action="base_setup.action_general_configuration"
+              sequence="10"/>
+
+    <menuitem id="menu_user_manual"
+              name="User Manual"
+              parent="menu_waiting_room_config"
+              sequence="20"
+              action="action_open_manual"/>
+
+</odoo>

@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_waiting_room_manager,Waiting Room Manager,model_waiting_room,smart_waiting_room.group_waiting_room_manager,1,1,1,1
+access_waiting_room_receptionist,Waiting Room Receptionist,model_waiting_room,smart_waiting_room.group_waiting_room_receptionist,1,1,1,0
+access_waiting_room_user,Waiting Room User,model_waiting_room,base.group_user,1,0,0,0
+access_queue_line_manager,Queue Line Manager,model_waiting_room_line,smart_waiting_room.group_waiting_room_manager,1,1,1,1
+access_queue_line_receptionist,Queue Line Receptionist,model_waiting_room_line,smart_waiting_room.group_waiting_room_receptionist,1,1,1,0
+access_queue_line_user,Queue Line User,model_waiting_room_line,base.group_user,1,0,0,0
+access_department_manager,Department Manager,model_waiting_room_department,smart_waiting_room.group_waiting_room_manager,1,1,1,1
+access_department_receptionist,Department Receptionist,model_waiting_room_department,smart_waiting_room.group_waiting_room_receptionist,1,0,0,0
+access_department_user,Department User,model_waiting_room_department,base.group_user,1,0,0,0
+access_bulk_action_user,Bulk Action User,model_waiting_room_bulk_action,base.group_user,1,1,1,1

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_department_form" model="ir.ui.view">
+        <field name="name">waiting.room.department.form</field>
+        <field name="model">waiting.room.department</field>
+        <field name="arch" type="xml">
+            <form string="Department / Service">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-users">
+                            <field name="queue_count" widget="statinfo" string="In Queue"/>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-clock-o">
+                            <field name="waiting_count" widget="statinfo" string="Waiting"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Department Name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="sequence"/>
+                            <field name="icon" placeholder="fa-stethoscope"/>
+                            <field name="display_color" widget="color"/>
+                            <field name="responsible_user_id"/>
+                        </group>
+                        <group>
+                            <field name="avg_service_duration"/>
+                            <field name="auto_call_next"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_department_list" model="ir.ui.view">
+        <field name="name">waiting.room.department.list</field>
+        <field name="model">waiting.room.department</field>
+        <field name="arch" type="xml">
+            <list string="Departments" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="icon"/>
+                <field name="avg_service_duration"/>
+                <field name="auto_call_next"/>
+                <field name="queue_count"/>
+                <field name="waiting_count"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_department" model="ir.actions.act_window">
+        <field name="name">Departments / Services</field>
+        <field name="res_model">waiting.room.department</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Settings — Odoo 18 native pattern                                   -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_res_config_settings_inherited" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.waiting.room</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+
+                <app data-string="Smart Waiting Room"
+                     string="Smart Waiting Room"
+                     name="smart_waiting_room"
+                     groups="smart_waiting_room.group_waiting_room_manager">
+
+                    <!-- ── Queue Behaviour ─────────────────────────────── -->
+                    <block title="Queue Behaviour" name="wr_queue_behaviour">
+
+                        <setting id="wr_audio"
+                                 string="Audio Announcements"
+                                 help="Play audio call announcements on TV display screens (uses browser Text-to-Speech).">
+                            <field name="waiting_room_audio_enabled"/>
+                        </setting>
+
+                        <setting id="wr_estimated_time"
+                                 string="Show Estimated Wait Time"
+                                 help="Display the estimated waiting time to visitors on the kiosk and TV screen.">
+                            <field name="waiting_room_show_estimated_time"/>
+                        </setting>
+
+                        <setting id="wr_auto_no_show"
+                                 string="Auto No-Show"
+                                 help="Automatically mark a called visitor as No-Show if they do not respond within the delay.">
+                            <field name="waiting_room_auto_no_show_minutes"/>
+                            <div class="content-group">
+                                <div class="row mt8">
+                                    <label for="waiting_room_auto_no_show_minutes"
+                                           string="Auto No-Show After (minutes)"
+                                           class="col-lg-4 o_light_label"/>
+                                    <field name="waiting_room_auto_no_show_minutes"/>
+                                </div>
+                            </div>
+                        </setting>
+
+                        <setting id="wr_late_threshold"
+                                 string="Overdue Threshold"
+                                 help="Visitors waiting longer than this delay are highlighted as overdue in the queue board.">
+                            <div class="content-group">
+                                <div class="row mt8">
+                                    <label for="waiting_room_late_threshold"
+                                           string="Overdue After (minutes)"
+                                           class="col-lg-4 o_light_label"/>
+                                    <field name="waiting_room_late_threshold"/>
+                                </div>
+                            </div>
+                        </setting>
+
+                    </block>
+
+                    <!-- ── Display Screen ──────────────────────────────── -->
+                    <block title="Display Screen" name="wr_display_screen">
+
+                        <setting id="wr_display_rooms"
+                                 string="Manage Rooms"
+                                 help="Create and configure waiting rooms, TV display URLs and kiosk URLs.">
+                            <div class="mt8">
+                                <button name="%(smart_waiting_room.action_waiting_room)d"
+                                        icon="oi-arrow-right"
+                                        type="action"
+                                        string="Waiting Rooms"
+                                        class="btn-link"/>
+                            </div>
+                        </setting>
+
+                        <setting id="wr_display_depts"
+                                 string="Departments / Services"
+                                 help="Define the departments or services visitors can be directed to.">
+                            <div class="mt8">
+                                <button name="%(smart_waiting_room.action_department)d"
+                                        icon="oi-arrow-right"
+                                        type="action"
+                                        string="Departments"
+                                        class="btn-link"/>
+                            </div>
+                        </setting>
+
+                    </block>
+
+                </app>
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

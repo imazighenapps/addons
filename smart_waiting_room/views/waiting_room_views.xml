@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Waiting Room Form View                                              -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_waiting_room_form" model="ir.ui.view">
+        <field name="name">waiting.room.form</field>
+        <field name="model">waiting.room</field>
+        <field name="arch" type="xml">
+            <form string="Waiting Room">
+                <header>
+                    <!-- is_open is Boolean — statusbar widget is for Selection only -->
+                    <!-- Use simple toggle buttons instead                           -->
+                    <button name="action_toggle_open" type="object"
+                            string="Close Room"
+                            class="btn-warning"
+                            invisible="not is_open"/>
+                    <button name="action_toggle_open" type="object"
+                            string="Open Room"
+                            class="btn-success"
+                            invisible="is_open"/>
+                    <button name="action_open_display" type="object"
+                            string="📺 TV Display"
+                            class="btn-primary"/>
+                    <button name="action_open_kiosk" type="object"
+                            string="🖥 Kiosk"
+                            class="btn-secondary"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_queue" type="object"
+                                class="oe_stat_button" icon="fa-users">
+                            <field name="line_count" widget="statinfo"
+                                   string="In Queue"/>
+                        </button>
+                        <button name="action_view_queue" type="object"
+                                class="oe_stat_button" icon="fa-clock-o">
+                            <field name="waiting_count" widget="statinfo"
+                                   string="Waiting"/>
+                        </button>
+                        <button name="action_view_queue" type="object"
+                                class="oe_stat_button" icon="fa-check-circle">
+                            <field name="done_today_count" widget="statinfo"
+                                   string="Done Today"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon"
+                            text="Closed"
+                            bg_color="bg-danger"
+                            invisible="is_open"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Room Name"/>
+                        </h1>
+                        <h4>
+                            <field name="code" placeholder="Room Code"/>
+                        </h4>
+                    </div>
+                    <group>
+                        <group string="General">
+                            <field name="company_id"
+                                   groups="base.group_multi_company"/>
+                            <field name="location"/>
+                            <field name="capacity"/>
+                            <field name="is_open" string="Room is Open"/>
+                            <field name="department_ids"
+                                   widget="many2many_tags"/>
+                        </group>
+                        <group string="Status">
+                            <field name="avg_wait_time"
+                                   string="Avg Wait Time (min)"/>
+                            <field name="in_service_count"/>
+                            <field name="display_url" widget="url"
+                                   string="Display URL"/>
+                            <field name="kiosk_url" widget="url"
+                                   string="Kiosk URL"/>
+                            <field name="display_token"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Display Settings" name="display">
+                            <group>
+                                <group string="Messages">
+                                    <field name="welcome_message"/>
+                                    <field name="footer_message"/>
+                                    <field name="ticker_messages"
+                                           placeholder="Message 1 | Message 2 | Message 3"
+                                           help="Separate multiple messages with |"/>
+                                </group>
+                                <group string="Options">
+                                    <field name="show_estimated_time"/>
+                                    <field name="show_visitor_name"/>
+                                    <field name="show_weather"/>
+                                    <field name="audio_enabled"/>
+                                    <field name="show_visitor_name"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Waiting Room List View                                              -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_waiting_room_list" model="ir.ui.view">
+        <field name="name">waiting.room.list</field>
+        <field name="model">waiting.room</field>
+        <field name="arch" type="xml">
+            <list string="Waiting Rooms"
+                  decoration-danger="not is_open"
+                  decoration-success="is_open">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="location"/>
+                <field name="department_ids" widget="many2many_tags"/>
+                <field name="is_open" string="Open"/>
+                <field name="waiting_count"/>
+                <field name="in_service_count"/>
+                <field name="done_today_count"/>
+                <field name="avg_wait_time" string="Avg Wait (min)"/>
+                <button name="action_open_display" type="object"
+                        icon="fa-tv" title="Open Display Screen"/>
+                <button name="action_open_kiosk" type="object"
+                        icon="fa-tablet" title="Open Kiosk"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Waiting Room Kanban View                                            -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_waiting_room_kanban" model="ir.ui.view">
+        <field name="name">waiting.room.kanban</field>
+        <field name="model">waiting.room</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_dashboard">
+                <field name="name"/>
+                <field name="is_open"/>
+                <field name="waiting_count"/>
+                <field name="in_service_count"/>
+                <field name="done_today_count"/>
+                <field name="avg_wait_time"/>
+                <field name="display_url"/>
+                <field name="color"/>
+                <templates>
+                    <t t-name="card">
+                        <div t-attf-class="wr_kanban_card #{record.is_open.raw_value ? 'is_open' : 'is_closed'}">
+                            <div class="wr_kanban_header">
+                                <span class="wr_room_name">
+                                    <t t-esc="record.name.value"/>
+                                </span>
+                                <span t-attf-class="wr_status_badge #{record.is_open.raw_value ? 'open' : 'closed'}">
+                                    <t t-if="record.is_open.raw_value">● OPEN</t>
+                                    <t t-else="">● CLOSED</t>
+                                </span>
+                            </div>
+                            <div class="wr_kanban_stats">
+                                <div class="wr_stat">
+                                    <span class="wr_stat_value">
+                                        <t t-esc="record.waiting_count.value"/>
+                                    </span>
+                                    <span class="wr_stat_label">Waiting</span>
+                                </div>
+                                <div class="wr_stat">
+                                    <span class="wr_stat_value wr_in_service">
+                                        <t t-esc="record.in_service_count.value"/>
+                                    </span>
+                                    <span class="wr_stat_label">In Service</span>
+                                </div>
+                                <div class="wr_stat">
+                                    <span class="wr_stat_value wr_done">
+                                        <t t-esc="record.done_today_count.value"/>
+                                    </span>
+                                    <span class="wr_stat_label">Done Today</span>
+                                </div>
+                            </div>
+                            <div class="wr_kanban_footer">
+                                <span class="wr_avg_wait">
+                                    ⏱ Avg: <t t-esc="record.avg_wait_time.value"/> min
+                                </span>
+                                <a t-att-href="record.display_url.value"
+                                   target="_blank"
+                                   class="wr_tv_btn">📺 Display</a>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Action                                                              -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <record id="action_waiting_room" model="ir.actions.act_window">
+        <field name="name">Waiting Rooms</field>
+        <field name="res_model">waiting.room</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first waiting room!
+            </p>
+            <p>
+                Set up a waiting room to start managing your queue.
+                Share the TV Display link with your screen and the Kiosk link
+                for self check-in.
+            </p>
+        </field>
+    </record>
+
+</odoo>
