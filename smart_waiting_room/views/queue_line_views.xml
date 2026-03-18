@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Queue Line Form View                                                -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_queue_line_form" model="ir.ui.view">
+        <field name="name">waiting.room.line.form</field>
+        <field name="model">waiting.room.line</field>
+        <field name="arch" type="xml">
+            <form string="Queue Entry">
+                <header>
+                    <!-- Odoo 19: use invisible= (domain expression), not attrs= -->
+                    <button name="action_call" type="object"
+                            string="📢 Call"
+                            class="btn-primary"
+                            invisible="state not in ['waiting', 'called']"/>
+                    <button name="action_recall" type="object"
+                            string="🔁 Re-call"
+                            class="btn-secondary"
+                            invisible="state != 'called'"/>
+                    <button name="action_start_service" type="object"
+                            string="▶ Start Service"
+                            class="btn-success"
+                            invisible="state != 'called'"/>
+                    <button name="action_done" type="object"
+                            string="✔ Done"
+                            class="btn-success"
+                            invisible="state != 'in_service'"/>
+                    <button name="action_no_show" type="object"
+                            string="✗ No Show"
+                            class="btn-warning"
+                            invisible="state not in ['waiting', 'called']"/>
+                    <button name="action_cancel" type="object"
+                            string="Cancel"
+                            invisible="state in ['done', 'cancelled', 'no_show']"/>
+                    <button name="action_requeue" type="object"
+                            string="↩ Re-queue"
+                            class="btn-info"
+                            invisible="state not in ['no_show', 'cancelled']"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="waiting,called,in_service,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <div class="o_field_widget o_stat_info me-3">
+                            <span class="o_stat_value">
+                                <field name="token_display"/>
+                            </span>
+                            <span class="o_stat_text">Token</span>
+                        </div>
+                        <div class="o_field_widget o_stat_info me-3"
+                             invisible="not is_late or state not in ['waiting','called']">
+                            <span class="o_stat_value text-danger">⚠ OVERDUE</span>
+                            <span class="o_stat_text">Waiting too long</span>
+                        </div>
+                    </div>
+                    <div class="oe_title">
+                        <label class="o_form_label" for="partner_id"
+                               string="Contact (optional)"/>
+                        <div>
+                            <field name="partner_id"
+                                   placeholder="Search existing contact…"
+                                   options="{'no_create_edit': False}"
+                                   style="margin-bottom:8px"/>
+                        </div>
+                        <label class="o_form_label" for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Full Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Visit Info">
+                            <field name="room_id"/>
+                            <field name="department_id"/>
+                            <field name="visitor_type"/>
+                            <field name="priority" widget="priority"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                        </group>
+                        <group string="Timing">
+                            <field name="check_in_time"/>
+                            <field name="call_time"/>
+                            <field name="service_start_time"/>
+                            <field name="done_time"/>
+                            <field name="wait_duration" string="Waited (min)"/>
+                            <field name="service_duration" string="Service (min)"/>
+                            <field name="estimated_wait"
+                                   string="Est. Remaining (min)"/>
+                            <field name="call_count"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes"
+                               placeholder="Notes / reason for visit..."/>
+                    </group>
+                    <group string="Satisfaction"
+                           invisible="state != 'done'">
+                        <field name="rating"/>
+                        <field name="feedback"/>
+                    </group>
+                    <field name="is_late" invisible="1"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Queue Line List View                                                -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_queue_line_list" model="ir.ui.view">
+        <field name="name">waiting.room.line.list</field>
+        <field name="model">waiting.room.line</field>
+        <field name="arch" type="xml">
+            <list string="Queue"
+                  decoration-danger="is_late and state in ['waiting','called']"
+                  decoration-warning="priority in ['2','3']"
+                  decoration-success="state == 'in_service'"
+                  decoration-muted="state in ['done','cancelled','no_show']"
+                  editable="top">
+                <field name="token_display" string="Token" readonly="1"/>
+                <field name="priority" widget="priority"/>
+                <field name="name" string="Visitor"/>
+                <field name="partner_id" string="Contact" optional="show"/>
+                <field name="visitor_type"/>
+                <field name="room_id"/>
+                <field name="department_id"/>
+                <field name="state" widget="badge"
+                       decoration-warning="state == 'waiting'"
+                       decoration-info="state == 'called'"
+                       decoration-success="state == 'in_service'"
+                       decoration-muted="state in ['done','cancelled','no_show']"/>
+                <field name="check_in_time"/>
+                <field name="wait_duration" string="Wait (min)"/>
+                <field name="estimated_wait" string="Est. Wait (min)"/>
+                <field name="is_late" column_invisible="1"/>
+                <field name="phone"/>
+                <button name="action_call" type="object"
+                        icon="fa-bullhorn" title="Call"
+                        invisible="state not in ['waiting', 'called']"/>
+                <button name="action_start_service" type="object"
+                        icon="fa-play" title="Start Service"
+                        invisible="state != 'called'"/>
+                <button name="action_done" type="object"
+                        icon="fa-check" title="Done"
+                        invisible="state != 'in_service'"/>
+                <button name="action_no_show" type="object"
+                        icon="fa-user-times" title="No Show"
+                        invisible="state not in ['waiting', 'called']"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Queue Line Kanban View                                              -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_queue_line_kanban" model="ir.ui.view">
+        <field name="name">waiting.room.line.kanban</field>
+        <field name="model">waiting.room.line</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state"
+                    group_create="false"
+                    quick_create="true"
+                    quick_create_view="smart_waiting_room.view_queue_line_quick_create">
+                <field name="token_display"/>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="priority"/>
+                <field name="department_id"/>
+                <field name="wait_duration"/>
+                <field name="estimated_wait"/>
+                <field name="is_late"/>
+                <field name="visitor_type"/>
+                <field name="color"/>
+                <templates>
+                    <t t-name="card">
+                        <div t-attf-class="wr_queue_card priority_#{record.priority.raw_value} #{record.is_late.raw_value ? 'is_late' : ''}">
+                            <div class="wr_card_header">
+                                <span class="wr_token_badge">
+                                    <t t-esc="record.token_display.value"/>
+                                </span>
+                                <t t-if="record.priority.raw_value == '3'">
+                                    <span class="wr_vip_badge">VIP</span>
+                                </t>
+                                <t t-if="record.priority.raw_value == '2'">
+                                    <span class="wr_urgent_badge">URGENT</span>
+                                </t>
+                                <t t-if="record.is_late.raw_value">
+                                    <span class="wr_late_badge">⚠ OVERDUE</span>
+                                </t>
+                            </div>
+                            <div class="wr_card_name">
+                                <t t-esc="record.name.value"/>
+                            </div>
+                            <t t-if="record.department_id.value">
+                                <div class="wr_card_dept">
+                                    <i class="fa fa-tag"/>
+                                    <t t-esc="record.department_id.value"/>
+                                </div>
+                            </t>
+                            <div class="wr_card_time">
+                                <i class="fa fa-clock-o"/>
+                                <t t-esc="record.wait_duration.value"/> min
+                                <t t-if="record.state.raw_value == 'waiting'">
+                                    | est. <t t-esc="record.estimated_wait.value"/> min
+                                </t>
+                            </div>
+                            <div class="wr_card_actions">
+                                <t t-if="record.state.raw_value == 'waiting'">
+                                    <button name="action_call" type="object"
+                                            class="btn btn-sm btn-primary">📢 Call</button>
+                                </t>
+                                <t t-if="record.state.raw_value == 'called'">
+                                    <button name="action_start_service" type="object"
+                                            class="btn btn-sm btn-success">▶ Start</button>
+                                    <button name="action_recall" type="object"
+                                            class="btn btn-sm btn-secondary">🔁</button>
+                                </t>
+                                <t t-if="record.state.raw_value == 'in_service'">
+                                    <button name="action_done" type="object"
+                                            class="btn btn-sm btn-success">✔ Done</button>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Quick Create Form                                                   -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_queue_line_quick_create" model="ir.ui.view">
+        <field name="name">waiting.room.line.quick.create</field>
+        <field name="model">waiting.room.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="partner_id"
+                           placeholder="Search contact… (optional)"
+                           options="{'no_create_edit': False}"/>
+                    <field name="name" placeholder="Visitor Name"
+                           autofocus="autofocus"/>
+                    <field name="room_id"/>
+                    <field name="department_id"/>
+                    <field name="visitor_type"/>
+                    <field name="priority" widget="priority"/>
+                    <field name="phone"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Queue Line Search View                                              -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_queue_line_search" model="ir.ui.view">
+        <field name="name">waiting.room.line.search</field>
+        <field name="model">waiting.room.line</field>
+        <field name="arch" type="xml">
+            <search string="Search Queue">
+                <field name="name" string="Visitor Name"/>
+                <field name="token_display" string="Token"/>
+                <field name="partner_id" string="Contact"/>
+                <field name="room_id"/>
+                <field name="department_id"/>
+                <filter string="Waiting" name="waiting"
+                        domain="[('state','=','waiting')]"/>
+                <filter string="Called" name="called"
+                        domain="[('state','=','called')]"/>
+                <filter string="In Service" name="in_service"
+                        domain="[('state','=','in_service')]"/>
+                <filter string="Done Today" name="done_today"
+                        domain="[('state','=','done'),
+                                 ('done_time','&gt;=',
+                                  (datetime.datetime.now().replace(hour=0,minute=0,second=0)).strftime('%Y-%m-%d %H:%M:%S'))]"/>
+                <separator/>
+                <filter string="Active Queue" name="active_queue"
+                        domain="[('state','in',['waiting','called','in_service'])]"/>
+                <filter string="VIP" name="vip"
+                        domain="[('priority','=','3')]"/>
+                <filter string="Urgent" name="urgent"
+                        domain="[('priority','=','2')]"/>
+                <separator/>
+                <group>
+                    <filter string="Room" name="group_room"
+                            context="{'group_by':'room_id'}"/>
+                    <filter string="Department" name="group_dept"
+                            context="{'group_by':'department_id'}"/>
+                    <filter string="Status" name="group_state"
+                            context="{'group_by':'state'}"/>
+                    <filter string="Priority" name="group_priority"
+                            context="{'group_by':'priority'}"/>
+                    <filter string="Check-in Date" name="group_date"
+                            context="{'group_by':'check_in_time:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Actions                                                             -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <record id="action_queue_line" model="ir.actions.act_window">
+        <field name="name">Queue</field>
+        <field name="res_model">waiting.room.line</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[('state','in',['waiting','called','in_service'])]</field>
+        <field name="context">{'search_default_active_queue': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No visitors in queue right now!
+            </p>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Visit History List View                                             -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_queue_history_list" model="ir.ui.view">
+        <field name="name">waiting.room.line.history.list</field>
+        <field name="model">waiting.room.line</field>
+        <field name="arch" type="xml">
+            <list string="Visit History"
+                  decoration-success="state == 'done'"
+                  decoration-warning="state == 'no_show'"
+                  decoration-muted="state == 'cancelled'"
+                  default_order="check_in_time desc">
+                <field name="check_in_time" string="Date"/>
+                <field name="token_display" string="Token"/>
+                <field name="name" string="Visitor"/>
+                <field name="partner_id" string="Contact" optional="show"/>
+                <field name="room_id"/>
+                <field name="department_id"/>
+                <field name="visitor_type"/>
+                <field name="priority" widget="priority"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'done'"
+                       decoration-warning="state == 'no_show'"
+                       decoration-muted="state == 'cancelled'"/>
+                <field name="wait_duration" string="Wait (min)"/>
+                <field name="service_duration" string="Service (min)"/>
+                <field name="call_count" string="Calls"/>
+                <field name="rating" string="Rating"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_queue_history" model="ir.actions.act_window">
+        <field name="name">Visit History</field>
+        <field name="res_model">waiting.room.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('state','in',['done','no_show','cancelled'])]</field>
+        <field name="context">{'active_test': False}</field>
+        <field name="views" eval="[(ref('view_queue_history_list'), 'list'), (False, 'form')]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No visit history yet!
+            </p>
+            <p>
+                Completed, no-show and cancelled visits will appear here.
+            </p>
+        </field>
+    </record>
+
+</odoo>

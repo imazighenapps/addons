@@ -1,0 +1,106 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Smart Waiting Room — Backend Odoo CSS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Kanban Room Cards ───────────────────────────────────────────────────── */
+.o_kanban_view .wr_kanban_card {
+    padding: 18px;
+    border-radius: 10px;
+    border: 2px solid #e5e7eb;
+    transition: all 0.2s ease;
+}
+.o_kanban_view .wr_kanban_card.is_open  { border-top: 3px solid #10b981; }
+.o_kanban_view .wr_kanban_card.is_closed { border-top: 3px solid #ef4444; opacity: 0.8; }
+.o_kanban_view .wr_kanban_card:hover {
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+}
+.wr_kanban_header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 14px;
+}
+.wr_room_name { font-size: 1rem; font-weight: 700; color: #1a1a2e; }
+.wr_status_badge {
+    font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em;
+    padding: 3px 8px; border-radius: 20px;
+}
+.wr_status_badge.open   { background: #d1fae5; color: #065f46; }
+.wr_status_badge.closed { background: #fee2e2; color: #991b1b; }
+
+.wr_kanban_stats {
+    display: flex; gap: 10px; margin-bottom: 14px;
+}
+.wr_stat {
+    flex: 1; text-align: center; padding: 10px 6px;
+    background: #f9fafb; border-radius: 8px; border: 1px solid #f3f4f6;
+}
+.wr_stat_value {
+    display: block; font-size: 1.5rem; font-weight: 800;
+    color: #111827; line-height: 1;
+}
+.wr_stat_value.wr_in_service { color: #7c3aed; }
+.wr_stat_value.wr_done       { color: #059669; }
+.wr_stat_label {
+    display: block; font-size: 0.58rem; text-transform: uppercase;
+    letter-spacing: 0.07em; color: #9ca3af; margin-top: 4px;
+}
+.wr_kanban_footer {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 10px; border-top: 1px solid #f3f4f6;
+}
+.wr_avg_wait { font-size: 0.75rem; color: #6b7280; }
+.wr_tv_btn {
+    font-size: 0.72rem; padding: 5px 12px; border-radius: 6px;
+    background: #7c3aed; color: #fff; text-decoration: none;
+    font-weight: 600; transition: background 0.15s;
+}
+.wr_tv_btn:hover { background: #6d28d9; color: #fff; }
+
+/* ── Queue Kanban Cards ──────────────────────────────────────────────────── */
+.wr_queue_card {
+    padding: 14px; border-radius: 10px;
+    background: #fff; border: 1.5px solid #e5e7eb;
+    transition: all 0.18s;
+}
+.wr_queue_card.priority_3 { border-color: #fbbf24; background: #fffdf0; }
+.wr_queue_card.priority_2 { border-color: #f87171; background: #fff5f5; }
+.wr_queue_card.priority_1 { border-color: #fb923c; background: #fff8f5; }
+.wr_queue_card.is_late    { box-shadow: 0 0 0 3px rgba(239,68,68,0.25); }
+
+.wr_card_header {
+    display: flex; align-items: center; gap: 6px;
+    margin-bottom: 8px; flex-wrap: wrap;
+}
+.wr_token_badge {
+    font-size: 0.95rem; font-weight: 800; letter-spacing: 0.04em;
+    background: #f3f4f6; padding: 3px 9px; border-radius: 5px;
+    color: #1a1a2e;
+}
+.wr_vip_badge    { font-size: 0.58rem; font-weight: 700; background: #fef3c7; color: #78350f; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.08em; }
+.wr_urgent_badge { font-size: 0.58rem; font-weight: 700; background: #fee2e2; color: #991b1b; padding: 2px 7px; border-radius: 4px; letter-spacing: 0.08em; animation: urgent-pulse-bg 1s ease infinite; }
+.wr_late_badge   { font-size: 0.58rem; font-weight: 700; background: #fde8d8; color: #9a3412; padding: 2px 7px; border-radius: 4px; margin-left: auto; }
+
+@keyframes urgent-pulse-bg { 0%,100%{opacity:1} 50%{opacity:0.6} }
+
+.wr_card_name { font-size: 0.92rem; font-weight: 700; color: #111827; margin-bottom: 3px; }
+.wr_card_dept { font-size: 0.72rem; color: #6b7280; margin-bottom: 6px; }
+.wr_card_time { font-size: 0.72rem; color: #9ca3af; margin-bottom: 10px; }
+.wr_card_actions { display: flex; gap: 5px; flex-wrap: wrap; }
+
+/* ── Form view token display ─────────────────────────────────────────────── */
+.wr_token_display_big {
+    font-size: 2.5rem; font-weight: 900;
+    color: #7c3aed; letter-spacing: 0.04em;
+    text-align: center;
+    padding: 12px 24px;
+    background: #f5f3ff;
+    border-radius: 10px;
+    border: 2px dashed #c4b5fd;
+    display: inline-block;
+}
+
+/* ── Status badges in list ───────────────────────────────────────────────── */
+.o_field_badge.wr_badge_waiting    .badge { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+.o_field_badge.wr_badge_called     .badge { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+.o_field_badge.wr_badge_in_service .badge { background: #d1fae5; color: #065f46; border: 1px solid #6ee7b7; }
+.o_field_badge.wr_badge_done       .badge { background: #f3f4f6; color: #6b7280; }

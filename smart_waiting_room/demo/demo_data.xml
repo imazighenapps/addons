@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     DEPARTMENTS / SERVICES
+══════════════════════════════════════════════════════════════════ -->
+
+<record id="demo_dept_dentist" model="waiting.room.department">
+    <field name="name">Dentist</field>
+    <field name="code">DEN</field>
+    <field name="icon">fa-tooth</field>
+    <field name="display_color">#3d9bff</field>
+    <field name="avg_service_duration">25</field>
+    <field name="sequence">10</field>
+    <field name="auto_call_next" eval="False"/>
+</record>
+
+<record id="demo_dept_hygienist" model="waiting.room.department">
+    <field name="name">Hygienist</field>
+    <field name="code">HYG</field>
+    <field name="icon">fa-smile-o</field>
+    <field name="display_color">#00e676</field>
+    <field name="avg_service_duration">45</field>
+    <field name="sequence">20</field>
+</record>
+
+<record id="demo_dept_xray" model="waiting.room.department">
+    <field name="name">X-Ray</field>
+    <field name="code">XRY</field>
+    <field name="icon">fa-flash</field>
+    <field name="display_color">#ffab00</field>
+    <field name="avg_service_duration">15</field>
+    <field name="sequence">30</field>
+</record>
+
+<record id="demo_dept_reception" model="waiting.room.department">
+    <field name="name">Reception</field>
+    <field name="code">REC</field>
+    <field name="icon">fa-info-circle</field>
+    <field name="display_color">#c77dff</field>
+    <field name="avg_service_duration">8</field>
+    <field name="sequence">40</field>
+</record>
+
+<record id="demo_dept_specialist" model="waiting.room.department">
+    <field name="name">Specialist</field>
+    <field name="code">SPC</field>
+    <field name="icon">fa-user-md</field>
+    <field name="display_color">#ff6b6b</field>
+    <field name="avg_service_duration">35</field>
+    <field name="sequence">50</field>
+</record>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     WAITING ROOM — Main Clinic
+══════════════════════════════════════════════════════════════════ -->
+
+<record id="demo_room_main" model="waiting.room">
+    <field name="name">Smart Dental Clinic</field>
+    <field name="code">MAIN</field>
+    <field name="location">Ground Floor — Main Entrance</field>
+    <field name="is_open" eval="True"/>
+    <field name="capacity">30</field>
+    <field name="display_token">DEMO12345678</field>
+    <field name="welcome_message">Welcome to Smart Dental Clinic — please check in at reception</field>
+    <field name="footer_message">Thank you for choosing Smart Dental Clinic.</field>
+    <field name="ticker_messages">Thank you for your patience. | Please remain seated until your token is called. | Watch the screen for your token number. | For emergencies, please inform reception immediately. | We appreciate your patience and understanding.</field>
+    <field name="show_estimated_time" eval="True"/>
+    <field name="audio_enabled" eval="True"/>
+    <field name="primary_color">#05080f</field>
+    <field name="accent_color">#3d9bff</field>
+    <field name="department_ids" eval="[
+        (4, ref('demo_dept_dentist')),
+        (4, ref('demo_dept_hygienist')),
+        (4, ref('demo_dept_xray')),
+        (4, ref('demo_dept_reception')),
+        (4, ref('demo_dept_specialist')),
+    ]"/>
+</record>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     WAITING ROOM — Specialist Suite
+══════════════════════════════════════════════════════════════════ -->
+
+<record id="demo_room_vip" model="waiting.room">
+    <field name="name">Specialist Suite</field>
+    <field name="code">VIP</field>
+    <field name="location">First Floor — Suite 101</field>
+    <field name="is_open" eval="True"/>
+    <field name="capacity">10</field>
+    <field name="display_token">VIP87654321</field>
+    <field name="welcome_message">Welcome to the Specialist Suite — please take a seat</field>
+    <field name="footer_message">Your appointment will begin shortly.</field>
+    <field name="ticker_messages">Your comfort is our priority. | Please inform us if you have any special requirements. | Thank you for your patience.</field>
+    <field name="show_estimated_time" eval="True"/>
+    <field name="audio_enabled" eval="True"/>
+    <field name="department_ids" eval="[
+        (4, ref('demo_dept_specialist')),
+    ]"/>
+</record>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     QUEUE ENTRIES — Main Clinic
+     Mix of states, priorities and departments for realistic demo
+══════════════════════════════════════════════════════════════════ -->
+
+<!-- IN SERVICE right now -->
+<record id="demo_q01" model="waiting.room.line">
+    <field name="name">Sarah Mitchell</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_dentist"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">3</field>
+    <field name="state">in_service</field>
+    <field name="phone">+1 555 010 0101</field>
+    <field name="notes">Annual checkup — VIP patient</field>
+</record>
+
+<!-- CALLED — waiting to come to desk -->
+<record id="demo_q02" model="waiting.room.line">
+    <field name="name">James Okafor</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_hygienist"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">2</field>
+    <field name="state">called</field>
+    <field name="phone">+1 555 020 0202</field>
+    <field name="notes">Urgent — severe tooth pain</field>
+</record>
+
+<!-- WAITING — all priorities -->
+<record id="demo_q03" model="waiting.room.line">
+    <field name="name">Emily Chen</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_dentist"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">1</field>
+    <field name="state">waiting</field>
+    <field name="phone">+1 555 030 0303</field>
+</record>
+
+<record id="demo_q04" model="waiting.room.line">
+    <field name="name">Mohammed Al-Rashidi</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_xray"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">0</field>
+    <field name="state">waiting</field>
+    <field name="phone">+1 555 040 0404</field>
+</record>
+
+<record id="demo_q05" model="waiting.room.line">
+    <field name="name">Sophie Dubois</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_hygienist"/>
+    <field name="visitor_type">walk_in</field>
+    <field name="priority">0</field>
+    <field name="state">waiting</field>
+</record>
+
+<record id="demo_q06" model="waiting.room.line">
+    <field name="name">Carlos Mendoza</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_dentist"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">1</field>
+    <field name="state">waiting</field>
+    <field name="phone">+1 555 060 0606</field>
+    <field name="notes">Root canal follow-up</field>
+</record>
+
+<record id="demo_q07" model="waiting.room.line">
+    <field name="name">Priya Sharma</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_xray"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">0</field>
+    <field name="state">waiting</field>
+</record>
+
+<record id="demo_q08" model="waiting.room.line">
+    <field name="name">Lucas Weber</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_reception"/>
+    <field name="visitor_type">walk_in</field>
+    <field name="priority">0</field>
+    <field name="state">waiting</field>
+    <field name="notes">Needs to reschedule appointment</field>
+</record>
+
+<record id="demo_q09" model="waiting.room.line">
+    <field name="name">Aisha Nkrumah</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_dentist"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">2</field>
+    <field name="state">waiting</field>
+    <field name="phone">+1 555 090 0909</field>
+    <field name="notes">Broken crown — urgent</field>
+</record>
+
+<record id="demo_q10" model="waiting.room.line">
+    <field name="name">Thomas Kowalski</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_hygienist"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">0</field>
+    <field name="state">waiting</field>
+</record>
+
+<record id="demo_q11" model="waiting.room.line">
+    <field name="name">Fatima Al-Zahra</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_dentist"/>
+    <field name="visitor_type">walk_in</field>
+    <field name="priority">0</field>
+    <field name="state">waiting</field>
+</record>
+
+<record id="demo_q12" model="waiting.room.line">
+    <field name="name">Oliver Thompson</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_xray"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">0</field>
+    <field name="state">waiting</field>
+</record>
+
+<!-- DONE — history entries for stats -->
+<record id="demo_q_d1" model="waiting.room.line">
+    <field name="name">Marie Leclerc</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_dentist"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">0</field>
+    <field name="state">done</field>
+    <field name="rating">5</field>
+    <field name="feedback">Excellent service, very professional team!</field>
+</record>
+
+<record id="demo_q_d2" model="waiting.room.line">
+    <field name="name">David Osei</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_hygienist"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">0</field>
+    <field name="state">done</field>
+    <field name="rating">4</field>
+</record>
+
+<record id="demo_q_d3" model="waiting.room.line">
+    <field name="name">Anna Petrov</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_dentist"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">1</field>
+    <field name="state">done</field>
+    <field name="rating">5</field>
+</record>
+
+<record id="demo_q_d4" model="waiting.room.line">
+    <field name="name">Robert Kimani</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_xray"/>
+    <field name="visitor_type">walk_in</field>
+    <field name="priority">0</field>
+    <field name="state">done</field>
+</record>
+
+<record id="demo_q_ns1" model="waiting.room.line">
+    <field name="name">Unknown Walker</field>
+    <field name="room_id" ref="demo_room_main"/>
+    <field name="department_id" ref="demo_dept_reception"/>
+    <field name="visitor_type">walk_in</field>
+    <field name="priority">0</field>
+    <field name="state">no_show</field>
+</record>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SPECIALIST SUITE QUEUE
+══════════════════════════════════════════════════════════════════ -->
+
+<record id="demo_vip_q1" model="waiting.room.line">
+    <field name="name">Dr. Hassan Al-Qasim</field>
+    <field name="room_id" ref="demo_room_vip"/>
+    <field name="department_id" ref="demo_dept_specialist"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">3</field>
+    <field name="state">in_service</field>
+</record>
+
+<record id="demo_vip_q2" model="waiting.room.line">
+    <field name="name">Victoria Harrington</field>
+    <field name="room_id" ref="demo_room_vip"/>
+    <field name="department_id" ref="demo_dept_specialist"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">3</field>
+    <field name="state">waiting</field>
+</record>
+
+<record id="demo_vip_q3" model="waiting.room.line">
+    <field name="name">Marco De Luca</field>
+    <field name="room_id" ref="demo_room_vip"/>
+    <field name="department_id" ref="demo_dept_specialist"/>
+    <field name="visitor_type">appointment</field>
+    <field name="priority">1</field>
+    <field name="state">waiting</field>
+</record>
+
+</data>
+</odoo>

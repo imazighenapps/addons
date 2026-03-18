@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Default Departments -->
+        <record id="dept_general" model="waiting.room.department">
+            <field name="name">General</field>
+            <field name="code">GEN</field>
+            <field name="icon">fa-user</field>
+            <field name="display_color">#00d4ff</field>
+            <field name="avg_service_duration">10</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="dept_doctor" model="waiting.room.department">
+            <field name="name">Doctor</field>
+            <field name="code">DOC</field>
+            <field name="icon">fa-stethoscope</field>
+            <field name="display_color">#6c5ce7</field>
+            <field name="avg_service_duration">20</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="dept_pharmacy" model="waiting.room.department">
+            <field name="name">Pharmacy</field>
+            <field name="code">PHA</field>
+            <field name="icon">fa-medkit</field>
+            <field name="display_color">#00b894</field>
+            <field name="avg_service_duration">5</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="dept_radiology" model="waiting.room.department">
+            <field name="name">Radiology</field>
+            <field name="code">RAD</field>
+            <field name="icon">fa-heartbeat</field>
+            <field name="display_color">#fd79a8</field>
+            <field name="avg_service_duration">30</field>
+            <field name="sequence">40</field>
+        </record>
+
+        <!-- Scheduled Actions -->
+        <record id="action_auto_no_show" model="ir.actions.server">
+            <field name="name">Auto No-Show: Mark stale called entries</field>
+            <field name="model_id" ref="model_waiting_room_line"/>
+            <field name="state">code</field>
+            <field name="code">model._auto_no_show()</field>
+        </record>
+
+        <record id="cron_auto_no_show" model="ir.cron">
+            <field name="name">Smart Waiting Room: Auto No-Show</field>
+            <field name="model_id" ref="model_waiting_room_line"/>
+            <field name="state">code</field>
+            <field name="code">model._auto_no_show()</field>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="cron_daily_reset" model="ir.cron">
+            <field name="name">Smart Waiting Room: Daily Archive</field>
+            <field name="model_id" ref="model_waiting_room_line"/>
+            <field name="state">code</field>
+            <field name="code">model._daily_reset()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="active" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

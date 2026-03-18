@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_report_queue_daily" model="ir.actions.report">
+        <field name="name">Daily Queue Report</field>
+        <field name="model">waiting.room</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smart_waiting_room.report_queue_daily_template</field>
+        <field name="report_file">smart_waiting_room.report_queue_daily_template</field>
+        <field name="binding_model_id" ref="model_waiting_room"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

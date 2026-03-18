@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Smart Waiting Room — User Manual</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f8fafc;--s:#fff;--s2:#f1f5f9;
+  --bd:#e2e8f0;--bd2:#cbd5e1;
+  --blue:#3b82f6;--bl:#eff6ff;--bd-bl:rgba(59,130,246,.25);
+  --green:#10b981;--gl:#f0fdf4;
+  --amber:#f59e0b;--al:rgba(245,158,11,.08);
+  --red:#ef4444;--rl:rgba(239,68,68,.08);
+  --purple:#8b5cf6;--pl:rgba(139,92,246,.08);
+  --text:#0f172a;--sub:#475569;--dim:#94a3b8;
+  --font:'Inter',sans-serif;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#07090f;--s:#0d1117;--s2:#111827;
+  --bd:rgba(255,255,255,.09);--bd2:rgba(255,255,255,.15);
+  --bl:rgba(59,130,246,.12);--gl:rgba(16,185,129,.1);
+  --text:#f1f5f9;--sub:#94a3b8;--dim:#4b5563;
+}}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7;font-size:15px}
+a{color:var(--blue);text-decoration:none}
+
+/* ── HEADER ─── */
+.manual-header{
+  background:var(--s);border-bottom:1px solid var(--bd2);
+  padding:20px 32px;
+  display:flex;align-items:center;gap:16px;
+  position:sticky;top:0;z-index:100;
+}
+.mh-icon{width:40px;height:40px;background:var(--blue);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.mh-title{font-size:18px;font-weight:800;letter-spacing:-.01em}
+.mh-sub{font-size:12px;color:var(--dim);margin-top:1px}
+.mh-right{margin-left:auto;text-align:right}
+.mh-version{font-size:11px;color:var(--dim);font-family:'JetBrains Mono',monospace}
+
+/* ── LAYOUT ─── */
+.wrap{display:grid;grid-template-columns:220px 1fr;max-width:1100px;margin:0 auto;min-height:calc(100vh - 65px)}
+
+/* ── SIDEBAR TOC ─── */
+.toc{
+  padding:28px 16px;position:sticky;top:65px;height:calc(100vh - 65px);
+  overflow-y:auto;border-right:1px solid var(--bd);
+  background:var(--bg);
+}
+.toc-section{margin-bottom:4px}
+.toc-section-title{
+  font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;
+  color:var(--dim);padding:12px 8px 4px;
+}
+.toc-link{
+  display:block;padding:6px 8px;border-radius:6px;
+  font-size:13px;font-weight:500;color:var(--sub);
+  transition:all .15s;
+}
+.toc-link:hover{background:var(--s2);color:var(--text)}
+.toc-link.active{background:var(--bl);color:var(--blue);font-weight:700}
+
+/* ── CONTENT ─── */
+.content{padding:40px 48px 80px;max-width:760px}
+
+/* ── HERO ─── */
+.hero{
+  background:linear-gradient(135deg,var(--bl),transparent);
+  border:1px solid var(--bd-bl);border-radius:16px;
+  padding:36px;margin-bottom:48px;
+}
+.hero h1{font-size:2.4rem;font-weight:900;letter-spacing:-.03em;margin-bottom:8px}
+.hero p{font-size:16px;color:var(--sub);max-width:580px;line-height:1.7;margin-bottom:16px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:4px 12px;border-radius:20px;
+  font-size:12px;font-weight:600;
+  background:var(--s);border:1px solid var(--bd);color:var(--sub);
+}
+
+/* ── SECTIONS ─── */
+.section{margin-bottom:52px;scroll-margin-top:85px}
+.section-header{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:20px;padding-bottom:12px;
+  border-bottom:2px solid var(--bd);
+}
+.section-num{
+  width:32px;height:32px;border-radius:8px;
+  background:var(--blue);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;flex-shrink:0;
+}
+.section-title{font-size:1.25rem;font-weight:800;letter-spacing:-.01em}
+
+h3.sub-title{font-size:1rem;font-weight:700;color:var(--text);margin:24px 0 12px;
+  display:flex;align-items:center;gap:8px}
+h3.sub-title::before{content:'';width:3px;height:16px;background:var(--blue);border-radius:2px;display:inline-block}
+
+/* ── STEPS ─── */
+.steps{display:flex;flex-direction:column;gap:0;margin-bottom:16px}
+.step{display:grid;grid-template-columns:40px 1fr;gap:0;position:relative}
+.step:not(:last-child) .step-track{position:absolute;left:19px;top:42px;bottom:-8px;width:2px;background:var(--bd2)}
+.step-dot{
+  width:38px;height:38px;border-radius:50%;background:var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:#fff;
+  flex-shrink:0;margin-bottom:16px;z-index:1;position:relative;
+}
+.step-body{padding:0 0 20px 14px}
+.step-title{font-size:15px;font-weight:700;margin-bottom:5px;padding-top:6px}
+.step-text{font-size:14px;color:var(--sub);line-height:1.7}
+
+/* ── CARDS ─── */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:16px 0}
+.card{background:var(--s);border:1px solid var(--bd);border-radius:12px;padding:18px;
+  border-top:3px solid var(--blue)}
+.card.green{border-top-color:var(--green)}
+.card.amber{border-top-color:var(--amber)}
+.card.purple{border-top-color:var(--purple)}
+.card-icon{font-size:1.6rem;margin-bottom:10px}
+.card-title{font-size:14px;font-weight:700;margin-bottom:6px}
+.card-text{font-size:13px;color:var(--sub);line-height:1.6}
+
+/* ── ACTION GRID ─── */
+.action-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:16px 0}
+.action-card{
+  background:var(--s2);border:1px solid var(--bd);border-radius:10px;
+  padding:14px;display:flex;align-items:flex-start;gap:10px;
+}
+.action-icon{font-size:1.4rem;flex-shrink:0;margin-top:1px}
+.action-body{}
+.action-name{font-size:14px;font-weight:700;margin-bottom:2px}
+.action-desc{font-size:12px;color:var(--sub);line-height:1.5}
+
+/* ── STATUS TABLE ─── */
+.status-table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0}
+.status-table th{
+  background:var(--bl);color:var(--blue);
+  font-weight:700;padding:9px 12px;text-align:left;
+  font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+}
+.status-table td{padding:10px 12px;border-bottom:1px solid var(--bd);color:var(--sub)}
+.status-table tr:last-child td{border-bottom:none}
+.status-table tr:hover td{background:var(--s2)}
+
+/* ── BADGES ─── */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:700}
+.badge-waiting{background:rgba(245,158,11,.12);color:#92400e;border:1px solid rgba(245,158,11,.3)}
+.badge-called{background:rgba(59,130,246,.12);color:#1e40af;border:1px solid rgba(59,130,246,.3)}
+.badge-service{background:rgba(16,185,129,.12);color:#065f46;border:1px solid rgba(16,185,129,.3)}
+.badge-done{background:rgba(100,116,139,.1);color:#475569;border:1px solid rgba(100,116,139,.25)}
+.badge-noshow{background:rgba(239,68,68,.1);color:#991b1b;border:1px solid rgba(239,68,68,.25)}
+@media(prefers-color-scheme:dark){
+  .badge-waiting{color:#fcd34d}.badge-called{color:#93c5fd}
+  .badge-service{color:#6ee7b7}.badge-done{color:#94a3b8}.badge-noshow{color:#fca5a5}
+}
+
+/* ── TIPS ─── */
+.tip{display:flex;gap:10px;padding:13px 16px;border-radius:8px;margin:12px 0;font-size:13px;line-height:1.65}
+.tip-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.tip-text{color:var(--sub)}
+.tip.info{background:var(--bl);border-left:3px solid var(--blue)}
+.tip.success{background:var(--gl);border-left:3px solid var(--green)}
+.tip.warn{background:var(--al);border-left:3px solid var(--amber)}
+.tip.danger{background:var(--rl);border-left:3px solid var(--red)}
+
+/* ── PRIORITY TABLE ─── */
+.prio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:16px 0}
+.prio-card{padding:12px 14px;border-radius:8px;border:1px solid var(--bd);background:var(--s)}
+.prio-label{font-size:13px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.prio-desc{font-size:12px;color:var(--sub);line-height:1.5}
+
+/* ── SETTINGS TABLE ─── */
+.settings-table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0}
+.settings-table th{font-weight:700;padding:8px 12px;text-align:left;background:var(--s2);
+  font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--sub)}
+.settings-table td{padding:10px 12px;border-bottom:1px solid var(--bd);vertical-align:top}
+.settings-table tr:last-child td{border-bottom:none}
+.settings-table td:first-child{font-weight:600;color:var(--text);width:35%}
+.settings-table td:last-child{color:var(--sub)}
+
+/* ── FOOTER ─── */
+.manual-footer{
+  text-align:center;padding:32px;color:var(--dim);font-size:12px;
+  border-top:1px solid var(--bd);margin-top:60px;
+}
+
+/* ── RESPONSIVE ─── */
+@media(max-width:768px){
+  .wrap{grid-template-columns:1fr}
+  .toc{display:none}
+  .content{padding:24px 20px 60px}
+}
+</style>
+</head>
+<body>
+
+<div class="manual-header">
+  <div class="mh-icon">⏱</div>
+  <div>
+    <div class="mh-title" id="mh-title">Smart Waiting Room</div>
+    <div class="mh-sub" id="mh-sub">User Manual</div>
+  </div>
+  <div class="mh-right">
+    <div class="mh-version">v1.0.0 · Odoo 19</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- TOC -->
+  <nav class="toc" id="toc"></nav>
+
+  <!-- CONTENT -->
+  <div class="content" id="content"></div>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════
+// MULTILINGUAL CONTENT
+// ═══════════════════════════════════════════════════════════════════
+var LANGS = {
+
+// ─── ENGLISH ───────────────────────────────────────────────────────
+en: {
+  dir:'ltr',
+  header:{title:'Smart Waiting Room', sub:'User Manual'},
+  hero:{
+    title:'User Manual',
+    desc:'Everything you need to manage your waiting room efficiently. This guide covers all day-to-day operations from adding a visitor to reading your statistics.',
+    chips:['📋 Queue Management','📺 Display Screen','🖥 Self Check-in Kiosk','📊 History & Reports','⚙ Settings']
+  },
+  toc:[
+    {title:'Overview', id:'overview'},
+    {title:'The Queue Board', id:'queue'},
+    {title:'Adding a Visitor', id:'add-visitor'},
+    {title:'Calling Visitors', id:'calling'},
+    {title:'Visitor Status Flow', id:'status-flow'},
+    {title:'Priority Levels', id:'priority'},
+    {title:'TV Display Screen', id:'display'},
+    {title:'Self Check-in Kiosk', id:'kiosk'},
+    {title:'Visit History', id:'history'},
+    {title:'Daily Report', id:'report'},
+    {title:'Settings', id:'settings'},
+    {title:'Tips & Best Practices', id:'tips'},
+  ],
+  sections:[
+
+    {id:'overview', num:1, title:'Overview',
+     content:`
+      <p style="color:var(--sub);margin-bottom:20px">Smart Waiting Room is a complete queue management solution. It lets your staff manage visitors in real time, displays the queue on a TV screen for patients, and allows visitors to check themselves in using a tablet kiosk.</p>
+      <div class="card-grid">
+        <div class="card"><div class="card-icon">📋</div><div class="card-title">Queue Board</div><div class="card-text">The staff dashboard where you add, call, and manage every visitor in real time.</div></div>
+        <div class="card green"><div class="card-icon">📺</div><div class="card-title">TV Display</div><div class="card-text">A public screen showing "Now Serving" and the waiting list, auto-updated every 5 seconds.</div></div>
+        <div class="card amber"><div class="card-icon">🖥</div><div class="card-title">Self Check-in Kiosk</div><div class="card-text">A tablet where visitors check themselves in and receive their token number.</div></div>
+        <div class="card purple"><div class="card-icon">📊</div><div class="card-title">History & Reports</div><div class="card-text">Full history of all visits with wait times, ratings, and a printable daily report.</div></div>
+      </div>
+      <div class="tip info"><div class="tip-icon">💡</div><div class="tip-text">The TV display and kiosk are <strong>public pages</strong> that require no login. Staff share the URLs with the devices used in the waiting area.</div></div>
+     `},
+
+    {id:'queue', num:2, title:'The Queue Board',
+     content:`
+      <p style="color:var(--sub);margin-bottom:16px">Navigate to <strong>Live Queue → Queue Board</strong>. This is your main working screen. Visitors are displayed as cards grouped by status: <em>Waiting</em>, <em>Called</em>, and <em>In Service</em>.</p>
+      <h3 class="sub-title">Reading a visitor card</h3>
+      <div class="action-grid">
+        <div class="action-card"><div class="action-icon">🔢</div><div class="action-body"><div class="action-name">Token</div><div class="action-desc">The unique number shown on the TV screen (e.g. DEN042)</div></div></div>
+        <div class="action-card"><div class="action-icon">👤</div><div class="action-body"><div class="action-name">Name</div><div class="action-desc">The visitor's full name</div></div></div>
+        <div class="action-card"><div class="action-icon">🏥</div><div class="action-body"><div class="action-name">Department</div><div class="action-desc">The service they need (Doctor, Pharmacy, etc.)</div></div></div>
+        <div class="action-card"><div class="action-icon">⏱</div><div class="action-body"><div class="action-name">Wait time</div><div class="action-desc">How long the visitor has been waiting</div></div></div>
+        <div class="action-card"><div class="action-icon">⚠</div><div class="action-body"><div class="action-name">Overdue badge</div><div class="action-desc">Shown in red when a visitor has waited too long</div></div></div>
+      </div>
+      <div class="tip success"><div class="tip-icon">✅</div><div class="tip-text">Use the <strong>Kanban view</strong> (grouped by status) for live management. Use the <strong>List view</strong> for a quick overview of all visitors.</div></div>
+     `},
+
+    {id:'add-visitor', num:3, title:'Adding a Visitor',
+     content:`
+      <p style="color:var(--sub);margin-bottom:16px">There are two ways to add a visitor to the queue:</p>
+      <h3 class="sub-title">Method 1 — Reception adds the visitor manually</h3>
+      <div class="steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Open the Queue Board</div><div class="step-text">Go to <strong>Live Queue → Queue Board</strong>.</div></div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Click "New" or the + button</div><div class="step-text">A quick-add form appears at the top of the list.</div></div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">Fill in the visitor's details</div><div class="step-text">Enter the name (required), select the room, department, and set the priority if needed. Phone number is optional.</div></div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-track"></div><div class="step-body"><div class="step-title">Save</div><div class="step-text">The visitor is immediately added to the queue with a token number. The TV screen updates within 5 seconds.</div></div></div>
+      </div>
+      <h3 class="sub-title">Method 2 — Visitor self check-in via kiosk</h3>
+      <div class="steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Visitor approaches the kiosk tablet</div><div class="step-text">The welcome screen is always displayed. The visitor taps "Check In".</div></div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Visitor selects their service</div><div class="step-text">They choose which department they need from the grid of options.</div></div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">Visitor enters their name</div><div class="step-text">Name is required. Phone and reason are optional.</div></div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-track"></div><div class="step-body"><div class="step-title">Token is displayed</div><div class="step-text">The visitor receives their token number, position in queue, and estimated wait time. The kiosk resets automatically after 22 seconds.</div></div></div>
+      </div>
+      <div class="tip info"><div class="tip-icon">💡</div><div class="tip-text">Both methods create the same queue entry. The token number is automatically assigned and increments for each department per day. It resets to 1 the next day.</div></div>
+     `},
+
+    {id:'calling', num:4, title:'Calling Visitors',
+     content:`
+      <p style="color:var(--sub);margin-bottom:16px">Once a visitor is ready to be seen, use the action buttons on their card. The status changes instantly on all screens.</p>
+      <div class="action-grid">
+        <div class="action-card"><div class="action-icon">📢</div><div class="action-body"><div class="action-name">Call</div><div class="action-desc">Announces the visitor. Their token appears in "Please Proceed" on the TV with an animated alert and audio announcement.</div></div></div>
+        <div class="action-card"><div class="action-icon">🔁</div><div class="action-body"><div class="action-name">Re-call</div><div class="action-desc">Sends a second announcement if the visitor didn't respond. Useful for distracted or hearing-impaired visitors.</div></div></div>
+        <div class="action-card"><div class="action-icon">▶</div><div class="action-body"><div class="action-name">Start Service</div><div class="action-desc">Confirms the visitor is now at the desk. Their token moves to "Now Serving" on the TV.</div></div></div>
+        <div class="action-card"><div class="action-icon">✔</div><div class="action-body"><div class="action-name">Done</div><div class="action-desc">Marks the visit as complete. The visitor is removed from the active queue and stored in history.</div></div></div>
+        <div class="action-card"><div class="action-icon">✗</div><div class="action-body"><div class="action-name">No Show</div><div class="action-desc">The visitor was called but did not respond. They are removed from the active queue but remain in history.</div></div></div>
+        <div class="action-card"><div class="action-icon">↩</div><div class="action-body"><div class="action-name">Re-queue</div><div class="action-desc">If a No Show visitor returns, this puts them back at their original position with a new call count.</div></div></div>
+      </div>
+      <div class="tip warn"><div class="tip-icon">⚠</div><div class="tip-text">When you click <strong>Call</strong>, the TV display plays an audio announcement automatically. Make sure the browser on the TV screen has sound enabled.</div></div>
+      <h3 class="sub-title">Typical workflow for one visitor</h3>
+      <div class="steps">
+        <div class="step"><div class="step-dot">✚</div><div class="step-track"></div><div class="step-body"><div class="step-title">Visitor arrives → Add to queue</div><div class="step-text">Reception adds them or they self check-in at the kiosk. Status: <span class="badge badge-waiting">Waiting</span></div></div></div>
+        <div class="step"><div class="step-dot">📢</div><div class="step-track"></div><div class="step-body"><div class="step-title">Staff clicks Call</div><div class="step-text">TV shows animated alert with token number. Status: <span class="badge badge-called">Called</span></div></div></div>
+        <div class="step"><div class="step-dot">▶</div><div class="step-track"></div><div class="step-body"><div class="step-title">Visitor arrives at desk → Start Service</div><div class="step-text">"Now Serving" panel updates on TV. Status: <span class="badge badge-service">In Service</span></div></div></div>
+        <div class="step"><div class="step-dot">✔</div><div class="step-body"><div class="step-title">Visit ends → Done</div><div class="step-text">Visit is archived in history. Status: <span class="badge badge-done">Done</span></div></div></div>
+      </div>
+     `},
+
+    {id:'status-flow', num:5, title:'Visitor Status Flow',
+     content:`
+      <p style="color:var(--sub);margin-bottom:16px">Every visitor goes through a sequence of statuses. Here is a complete reference:</p>
+      <table class="status-table">
+        <tr><th>Status</th><th>What it means</th><th>Displayed on TV?</th><th>Next action</th></tr>
+        <tr><td><span class="badge badge-waiting">Waiting</span></td><td>Visitor is seated, waiting to be called</td><td>Yes — in the Waiting List</td><td>Call</td></tr>
+        <tr><td><span class="badge badge-called">Called</span></td><td>Visitor has been announced, walking to the desk</td><td>Yes — in "Please Proceed"</td><td>Start Service or No Show</td></tr>
+        <tr><td><span class="badge badge-service">In Service</span></td><td>Visitor is currently being attended to</td><td>Yes — in "Now Serving"</td><td>Done</td></tr>
+        <tr><td><span class="badge badge-done">Done</span></td><td>Visit completed successfully</td><td>No</td><td>— (in history)</td></tr>
+        <tr><td><span class="badge badge-noshow">No Show</span></td><td>Called but did not respond</td><td>No</td><td>Re-queue or Cancel</td></tr>
+        <tr><td><span class="badge badge-done">Cancelled</span></td><td>Visit was cancelled</td><td>No</td><td>Re-queue if needed</td></tr>
+      </table>
+      <div class="tip info"><div class="tip-icon">💡</div><div class="tip-text">Visitors in "Done", "No Show", and "Cancelled" status are automatically archived overnight. They remain accessible in <strong>Visit History</strong>.</div></div>
+     `},
+
+    {id:'priority', num:6, title:'Priority Levels',
+     content:`
+      <p style="color:var(--sub);margin-bottom:16px">Priority controls where a visitor appears in the queue. Higher priority visitors are served before lower priority ones, regardless of when they arrived.</p>
+      <div class="prio-grid">
+        <div class="prio-card" style="border-left:3px solid var(--dim)"><div class="prio-label">Normal</div><div class="prio-desc">Default for all walk-in visitors. Served in arrival order.</div></div>
+        <div class="prio-card" style="border-left:3px solid var(--amber)"><div class="prio-label" style="color:var(--amber)">↑ Priority</div><div class="prio-desc">Served before Normal visitors. Use for appointment holders or elderly patients.</div></div>
+        <div class="prio-card" style="border-left:3px solid var(--red)"><div class="prio-label" style="color:var(--red)">⚡ Urgent</div><div class="prio-desc">Served before Priority visitors. Use for emergencies or acute pain.</div></div>
+        <div class="prio-card" style="border-left:3px solid var(--purple)"><div class="prio-label" style="color:var(--purple)">★ VIP</div><div class="prio-desc">Highest priority. Served immediately after the current patient. Use for special guests or senior staff.</div></div>
+      </div>
+      <div class="tip warn"><div class="tip-icon">⚠</div><div class="tip-text">Changing a visitor's priority after they are already in the queue immediately reorders the waiting list for all screens.</div></div>
+     `},
+
+    {id:'display', num:7, title:'TV Display Screen',
+     content:`
+      <p style="color:var(--sub);margin-bottom:16px">The TV display is a webpage opened on any screen in your waiting area. It automatically refreshes every 5 seconds. No login is required.</p>
+      <h3 class="sub-title">How to open the TV Display</h3>
+      <div class="steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Go to your Waiting Room settings</div><div class="step-text">Navigate to <strong>Rooms → Waiting Rooms</strong> and open your room.</div></div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Copy the Display URL</div><div class="step-text">Click the <strong>📺 TV Display</strong> button or copy the URL from the "Display URL" field.</div></div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">Open it on your TV or screen</div><div class="step-text">Paste the URL in the browser on your waiting area screen. Enable full-screen mode (F11) for best results.</div></div></div>
+      </div>
+      <h3 class="sub-title">What is shown on the display</h3>
+      <div class="card-grid">
+        <div class="card"><div class="card-title">Waiting List (left)</div><div class="card-text">All visitors currently waiting, sorted by priority. Shows position number, token, name, department, and estimated wait time.</div></div>
+        <div class="card green"><div class="card-title">Now Serving (right)</div><div class="card-text">The visitor currently being attended. Token number shown prominently so patients can identify when it's their turn.</div></div>
+        <div class="card purple"><div class="card-title">Please Proceed</div><div class="card-text">Visitors who have been called and should be walking to the desk.</div></div>
+      </div>
+      <h3 class="sub-title">Call animation</h3>
+      <p style="color:var(--sub);margin-bottom:12px">When you click <strong>Call</strong> on a visitor, the TV display shows a full-screen animated alert with the visitor's token number and name, along with an audio announcement. The animation lasts 7 seconds and cannot be triggered more than once at a time.</p>
+      <div class="tip success"><div class="tip-icon">🔊</div><div class="tip-text">Audio announcements are made automatically using the browser's text-to-speech. Make sure the TV screen's browser has <strong>sound enabled</strong> and the volume is turned up.</div></div>
+      <h3 class="sub-title">Customizing the ticker message</h3>
+      <p style="color:var(--sub);margin-bottom:12px">The scrolling text at the bottom of the display is configurable. Go to your room settings and edit the <strong>Ticker Messages</strong> field. Separate multiple messages with a <code>|</code> pipe character.</p>
+      <p style="color:var(--sub);font-size:13px">Example: <code>Thank you for your patience. | Please remain seated. | Do not approach the desk until called.</code></p>
+     `},
+
+    {id:'kiosk', num:8, title:'Self Check-in Kiosk',
+     content:`
+      <p style="color:var(--sub);margin-bottom:16px">The kiosk allows visitors to check themselves in without going to reception. It is designed for touchscreen tablets mounted at the entrance.</p>
+      <h3 class="sub-title">How to set up the kiosk</h3>
+      <div class="steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Get the Kiosk URL</div><div class="step-text">Open your room in <strong>Rooms → Waiting Rooms</strong> and click <strong>🖥 Kiosk</strong> or copy the Kiosk URL.</div></div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Open on a tablet</div><div class="step-text">Paste the URL in a browser on a tablet. Lock the browser to that URL if possible (kiosk mode).</div></div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">Mount it at the entrance</div><div class="step-text">Position the tablet where arriving visitors can easily see and use it.</div></div></div>
+      </div>
+      <h3 class="sub-title">Visitor check-in experience</h3>
+      <div class="steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Tap "Check In"</div><div class="step-text">The welcome screen shows the room name, clock, and a large "Check In" button.</div></div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Select service</div><div class="step-text">Visitor taps the department they need. The estimated wait time is shown under each option.</div></div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">Enter name</div><div class="step-text">Name is required. Phone number and reason for visit are optional and help staff prepare.</div></div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-track"></div><div class="step-body"><div class="step-title">Receive token</div><div class="step-text">A large confirmation screen shows the token number, queue position, and estimated wait. The kiosk resets automatically after 22 seconds.</div></div></div>
+      </div>
+      <div class="tip info"><div class="tip-icon">💡</div><div class="tip-text">The kiosk also resets automatically after 90 seconds of inactivity, so it is always ready for the next visitor.</div></div>
+     `},
+
+    {id:'history', num:9, title:'Visit History',
+     content:`
+      <p style="color:var(--sub);margin-bottom:16px">Go to <strong>Live Queue → Visit History</strong> to see all past visits. The history includes every visitor that was marked as Done, No Show, or Cancelled.</p>
+      <h3 class="sub-title">What you can see in History</h3>
+      <div class="action-grid">
+        <div class="action-card"><div class="action-icon">📅</div><div class="action-body"><div class="action-name">Date & Time</div><div class="action-desc">When the visitor checked in</div></div></div>
+        <div class="action-card"><div class="action-icon">🔢</div><div class="action-body"><div class="action-name">Token</div><div class="action-desc">Their assigned token number</div></div></div>
+        <div class="action-card"><div class="action-icon">⏱</div><div class="action-body"><div class="action-name">Wait Time</div><div class="action-desc">How long they waited before being called</div></div></div>
+        <div class="action-card"><div class="action-icon">🕐</div><div class="action-body"><div class="action-name">Service Time</div><div class="action-desc">How long the service took</div></div></div>
+        <div class="action-card"><div class="action-icon">⭐</div><div class="action-body"><div class="action-name">Satisfaction Rating</div><div class="action-desc">Rating given by the visitor (if collected)</div></div></div>
+        <div class="action-card"><div class="action-icon">📞</div><div class="action-body"><div class="action-name">Call Count</div><div class="action-desc">How many times they were called before responding</div></div></div>
+      </div>
+      <h3 class="sub-title">Filtering the history</h3>
+      <p style="color:var(--sub);margin-bottom:12px">Use the search bar to filter by date, room, department, visitor name, or status. Click <strong>Filters → Done Today</strong> to quickly see today's completed visits.</p>
+      <div class="tip info"><div class="tip-icon">💡</div><div class="tip-text">History entries are kept indefinitely. They are archived (hidden by default) automatically overnight but can always be found by removing the "Active" filter.</div></div>
+     `},
+
+    {id:'report', num:10, title:'Daily Report',
+     content:`
+      <p style="color:var(--sub);margin-bottom:16px">Print or save a PDF summary of the day's activity.</p>
+      <div class="steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Open your Waiting Room</div><div class="step-text">Go to <strong>Rooms → Waiting Rooms</strong> and click on the room you want to report on.</div></div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Click Print → Daily Queue Report</div><div class="step-text">In the top menu, click the printer icon and select <strong>Daily Queue Report</strong>.</div></div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">Save or print</div><div class="step-text">The PDF opens in a new tab. Use your browser's print dialog to print or save.</div></div></div>
+      </div>
+      <p style="color:var(--sub)">The report includes: total visitors served, average wait time, no-show rate, room status, and a full table of every visit that day.</p>
+     `},
+
+    {id:'settings', num:11, title:'Settings',
+     content:`
+      <p style="color:var(--sub);margin-bottom:16px">Go to <strong>Configuration → Settings</strong> to adjust global behavior. Each setting is described below.</p>
+      <table class="settings-table">
+        <tr><th>Setting</th><th>Default</th><th>What it does</th></tr>
+        <tr><td>Audio Announcements</td><td>On</td><td>When enabled, the TV display plays a voice announcement every time a visitor is called. The voice uses the browser's built-in text-to-speech.</td></tr>
+        <tr><td>Show Estimated Wait Time</td><td>On</td><td>Shows the estimated waiting time on both the TV display and kiosk confirmation screen.</td></tr>
+        <tr><td>Auto No-Show After</td><td>10 min</td><td>If a visitor is "Called" but does not respond within this time, the system automatically marks them as No Show.</td></tr>
+        <tr><td>Overdue Threshold</td><td>45 min</td><td>Visitors who have been waiting longer than this time are highlighted in red on the Queue Board to alert staff.</td></tr>
+      </table>
+      <h3 class="sub-title">Room-level settings</h3>
+      <p style="color:var(--sub);margin-bottom:12px">Each room has its own settings. Open a room from <strong>Rooms → Waiting Rooms</strong> to configure:</p>
+      <table class="settings-table">
+        <tr><th>Field</th><th>What it does</th></tr>
+        <tr><td>Welcome Message</td><td>Shown on the TV display header and kiosk welcome screen</td></tr>
+        <tr><td>Footer Message</td><td>Text for the scrolling ticker (if Ticker Messages is empty)</td></tr>
+        <tr><td>Ticker Messages</td><td>Custom messages in the bottom scrolling bar, separated by |</td></tr>
+        <tr><td>Audio Enabled</td><td>Enable/disable audio per room</td></tr>
+        <tr><td>Show Estimated Wait Time</td><td>Show/hide wait estimates per room</td></tr>
+        <tr><td>Departments</td><td>Which services are available for this room</td></tr>
+      </table>
+     `},
+
+    {id:'tips', num:12, title:'Tips & Best Practices',
+     content:`
+      <div class="tip success"><div class="tip-icon">✅</div><div class="tip-text"><strong>TV Display tip:</strong> Always open the display in a full-screen browser (F11) on a dedicated screen. Don't use it on the same computer used by reception staff.</div></div>
+      <div class="tip success"><div class="tip-icon">✅</div><div class="tip-text"><strong>Audio tip:</strong> Test the audio announcement before opening the clinic. Click "Call" on any visitor and verify the voice plays on the TV screen's browser.</div></div>
+      <div class="tip success"><div class="tip-icon">✅</div><div class="tip-text"><strong>Kiosk tip:</strong> Mount the kiosk tablet vertically (portrait mode) at a comfortable height. Enable "kiosk mode" in your browser to prevent visitors from leaving the page.</div></div>
+      <div class="tip success"><div class="tip-icon">✅</div><div class="tip-text"><strong>Priority tip:</strong> Use "Priority" for all appointment holders so they are served before walk-ins. Reserve "Urgent" for genuine emergencies.</div></div>
+      <div class="tip warn"><div class="tip-icon">⚠</div><div class="tip-text"><strong>URLs are public:</strong> The TV Display and Kiosk URLs require no login. Do not share them publicly. Only use them on dedicated in-clinic devices.</div></div>
+      <div class="tip info"><div class="tip-icon">💡</div><div class="tip-text"><strong>Busy days tip:</strong> Use the "Re-call" button generously. Some visitors are distracted or hard of hearing. A second announcement is far better than a no-show.</div></div>
+      <div class="tip info"><div class="tip-icon">💡</div><div class="tip-text"><strong>End of day:</strong> Visitors still in the queue at closing time can be cancelled in bulk using the list view action buttons. Their records are kept in history.</div></div>
+     `},
+
+  ]
+},
+
+// ─── FRANÇAIS ──────────────────────────────────────────────────────
+fr: {
+  dir:'ltr',
+  header:{title:'Salle d\'Attente Intelligente', sub:'Manuel Utilisateur'},
+  hero:{
+    title:'Manuel Utilisateur',
+    desc:'Tout ce dont vous avez besoin pour gérer votre salle d\'attente efficacement. Ce guide couvre toutes les opérations quotidiennes, de l\'ajout d\'un visiteur à la lecture de vos statistiques.',
+    chips:['📋 Gestion de file','📺 Écran d\'affichage','🖥 Borne de check-in','📊 Historique','⚙ Paramètres']
+  },
+  toc:[
+    {title:'Présentation', id:'overview'},
+    {title:'Tableau de file d\'attente', id:'queue'},
+    {title:'Ajouter un visiteur', id:'add-visitor'},
+    {title:'Appeler les visiteurs', id:'calling'},
+    {title:'Flux des statuts', id:'status-flow'},
+    {title:'Niveaux de priorité', id:'priority'},
+    {title:'Écran TV', id:'display'},
+    {title:'Borne de check-in', id:'kiosk'},
+    {title:'Historique des visites', id:'history'},
+    {title:'Rapport journalier', id:'report'},
+    {title:'Paramètres', id:'settings'},
+    {title:'Conseils pratiques', id:'tips'},
+  ],
+  sections:[
+    {id:'overview', num:1, title:'Présentation',
+     content:`
+      <p style="color:var(--sub);margin-bottom:20px">Smart Waiting Room est une solution complète de gestion de file d'attente. Elle permet à votre personnel de gérer les visiteurs en temps réel, d'afficher la file sur un écran TV pour les patients, et aux visiteurs de s'enregistrer eux-mêmes via une borne tablette.</p>
+      <div class="card-grid">
+        <div class="card"><div class="card-icon">📋</div><div class="card-title">Tableau de file</div><div class="card-text">Le tableau de bord du personnel pour ajouter, appeler et gérer chaque visiteur en temps réel.</div></div>
+        <div class="card green"><div class="card-icon">📺</div><div class="card-title">Écran TV</div><div class="card-text">Un écran public affichant "En cours" et la liste d'attente, mis à jour toutes les 5 secondes.</div></div>
+        <div class="card amber"><div class="card-icon">🖥</div><div class="card-title">Borne de check-in</div><div class="card-text">Une tablette où les visiteurs s'enregistrent et reçoivent leur numéro de ticket.</div></div>
+        <div class="card purple"><div class="card-icon">📊</div><div class="card-title">Historique</div><div class="card-text">Historique complet de toutes les visites avec temps d'attente, notes, et rapport imprimable.</div></div>
+      </div>
+      <div class="tip info"><div class="tip-icon">💡</div><div class="tip-text">L'écran TV et la borne sont des <strong>pages publiques</strong> qui ne nécessitent aucune connexion. Le personnel partage les URLs avec les appareils utilisés en salle d'attente.</div></div>
+     `},
+    {id:'queue', num:2, title:'Tableau de file d\'attente',
+     content:`
+      <p style="color:var(--sub);margin-bottom:16px">Naviguez vers <strong>File en direct → Tableau de file</strong>. C'est votre écran de travail principal. Les visiteurs sont affichés sous forme de cartes groupées par statut : <em>En attente</em>, <em>Appelé</em>, et <em>En service</em>.</p>
+      <div class="tip success"><div class="tip-icon">✅</div><div class="tip-text">Utilisez la <strong>vue Kanban</strong> (groupée par statut) pour la gestion en direct. Utilisez la <strong>vue Liste</strong> pour un aperçu rapide de tous les visiteurs.</div></div>
+     `},
+    {id:'add-visitor', num:3, title:'Ajouter un visiteur',
+     content:`
+      <h3 class="sub-title">Méthode 1 — La réception ajoute manuellement</h3>
+      <div class="steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Ouvrir le tableau de file</div><div class="step-text">Aller dans <strong>File en direct → Tableau de file</strong>.</div></div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Cliquer "Nouveau"</div><div class="step-text">Un formulaire rapide apparaît en haut de la liste.</div></div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">Remplir les informations</div><div class="step-text">Saisir le nom (obligatoire), sélectionner la salle, le département et la priorité si nécessaire.</div></div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-track"></div><div class="step-body"><div class="step-title">Sauvegarder</div><div class="step-text">Le visiteur est immédiatement ajouté à la file avec un numéro de ticket. L'écran TV se met à jour en moins de 5 secondes.</div></div></div>
+      </div>
+      <h3 class="sub-title">Méthode 2 — Auto-enregistrement via la borne</h3>
+      <div class="steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Le visiteur approche la borne</div><div class="step-text">Il appuie sur "S'enregistrer".</div></div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Sélectionne son service</div><div class="step-text">Il choisit le département dont il a besoin.</div></div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">Entre son nom</div><div class="step-text">Le nom est obligatoire. Téléphone et raison sont optionnels.</div></div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-body"><div class="step-title">Reçoit son numéro</div><div class="step-text">Son ticket, sa position et le temps estimé s'affichent. La borne se réinitialise après 22 secondes.</div></div></div>
+      </div>
+     `},
+    {id:'calling', num:4, title:'Appeler les visiteurs',
+     content:`
+      <div class="action-grid">
+        <div class="action-card"><div class="action-icon">📢</div><div class="action-body"><div class="action-name">Appeler</div><div class="action-desc">Annonce le visiteur. Son ticket apparaît dans "Veuillez procéder" sur la TV avec une animation et une annonce audio.</div></div></div>
+        <div class="action-card"><div class="action-icon">🔁</div><div class="action-body"><div class="action-name">Rappeler</div><div class="action-desc">Envoie une deuxième annonce si le visiteur n'a pas répondu.</div></div></div>
+        <div class="action-card"><div class="action-icon">▶</div><div class="action-body"><div class="action-name">Démarrer le service</div><div class="action-desc">Confirme que le visiteur est au guichet. Son ticket passe dans "En cours de service" sur la TV.</div></div></div>
+        <div class="action-card"><div class="action-icon">✔</div><div class="action-body"><div class="action-name">Terminé</div><div class="action-desc">Marque la visite comme complète. Le visiteur est archivé dans l'historique.</div></div></div>
+        <div class="action-card"><div class="action-icon">✗</div><div class="action-body"><div class="action-name">Absent</div><div class="action-desc">Le visiteur a été appelé mais n'a pas répondu.</div></div></div>
+        <div class="action-card"><div class="action-icon">↩</div><div class="action-body"><div class="action-name">Remettre en file</div><div class="action-desc">Si un absent revient, cela le remet en file à sa position d'origine.</div></div></div>
+      </div>
+      <div class="tip warn"><div class="tip-icon">⚠</div><div class="tip-text">Quand vous cliquez sur <strong>Appeler</strong>, l'écran TV lit une annonce audio automatiquement. Assurez-vous que le son est activé sur le navigateur de l'écran TV.</div></div>
+     `},
+    {id:'status-flow', num:5, title:'Flux des statuts',
+     content:`
+      <table class="status-table">
+        <tr><th>Statut</th><th>Signification</th><th>Affiché sur TV ?</th><th>Action suivante</th></tr>
+        <tr><td><span class="badge badge-waiting">En attente</span></td><td>Visiteur assis, attend d'être appelé</td><td>Oui — dans la liste</td><td>Appeler</td></tr>
+        <tr><td><span class="badge badge-called">Appelé</span></td><td>Annoncé, se dirige vers le guichet</td><td>Oui — "Veuillez procéder"</td><td>Démarrer ou Absent</td></tr>
+        <tr><td><span class="badge badge-service">En service</span></td><td>Visite en cours</td><td>Oui — "En cours de service"</td><td>Terminé</td></tr>
+        <tr><td><span class="badge badge-done">Terminé</span></td><td>Visite complète</td><td>Non</td><td>— (historique)</td></tr>
+        <tr><td><span class="badge badge-noshow">Absent</span></td><td>Appelé mais n'a pas répondu</td><td>Non</td><td>Remettre en file</td></tr>
+      </table>
+     `},
+    {id:'priority', num:6, title:'Niveaux de priorité',
+     content:`
+      <div class="prio-grid">
+        <div class="prio-card" style="border-left:3px solid var(--dim)"><div class="prio-label">Normal</div><div class="prio-desc">Défaut. Servis par ordre d'arrivée.</div></div>
+        <div class="prio-card" style="border-left:3px solid var(--amber)"><div class="prio-label" style="color:var(--amber)">↑ Prioritaire</div><div class="prio-desc">Servis avant les normaux. Pour les personnes âgées ou les rendez-vous.</div></div>
+        <div class="prio-card" style="border-left:3px solid var(--red)"><div class="prio-label" style="color:var(--red)">⚡ Urgent</div><div class="prio-desc">Servis avant les prioritaires. Pour les urgences ou douleurs aiguës.</div></div>
+        <div class="prio-card" style="border-left:3px solid var(--purple)"><div class="prio-label" style="color:var(--purple)">★ VIP</div><div class="prio-desc">Priorité maximale. Servi immédiatement après le patient en cours.</div></div>
+      </div>
+     `},
+    {id:'display', num:7, title:'Écran TV',
+     content:`
+      <div class="steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Aller dans les paramètres de la salle</div><div class="step-text">Naviguer vers <strong>Salles → Salles d'attente</strong> et ouvrir votre salle.</div></div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Copier l'URL d'affichage</div><div class="step-text">Cliquer sur le bouton <strong>📺 TV Display</strong> ou copier l'URL depuis le champ "URL d'affichage".</div></div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-body"><div class="step-title">Ouvrir sur votre écran</div><div class="step-text">Coller l'URL dans le navigateur de votre écran. Activer le plein écran (F11) pour un meilleur rendu.</div></div></div>
+      </div>
+      <div class="tip success"><div class="tip-icon">🔊</div><div class="tip-text">Les annonces audio sont automatiques via la synthèse vocale du navigateur. Assurez-vous que le son est activé sur l'écran TV.</div></div>
+      <h3 class="sub-title">Personnaliser le message défilant</h3>
+      <p style="color:var(--sub)">Dans les paramètres de votre salle, éditez le champ <strong>Messages du bandeau défilant</strong>. Séparez les messages avec le caractère <code>|</code>.</p>
+     `},
+    {id:'kiosk', num:8, title:'Borne de check-in',
+     content:`
+      <div class="steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Obtenir l'URL de la borne</div><div class="step-text">Ouvrir la salle et cliquer sur <strong>🖥 Kiosk</strong>.</div></div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Ouvrir sur une tablette</div><div class="step-text">Coller l'URL dans le navigateur d'une tablette et activer le mode plein écran.</div></div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-body"><div class="step-title">Installer à l'entrée</div><div class="step-text">Positionner la tablette où les visiteurs arrivants peuvent facilement la voir et l'utiliser.</div></div></div>
+      </div>
+      <div class="tip info"><div class="tip-icon">💡</div><div class="tip-text">La borne se réinitialise automatiquement après 90 secondes d'inactivité. Elle est toujours prête pour le visiteur suivant.</div></div>
+     `},
+    {id:'history', num:9, title:'Historique des visites',
+     content:`
+      <p style="color:var(--sub);margin-bottom:16px">Aller dans <strong>File en direct → Historique des visites</strong> pour voir toutes les visites passées : Terminées, Absentes, et Annulées.</p>
+      <p style="color:var(--sub)">Utilisez la barre de recherche pour filtrer par date, salle, département, nom de visiteur ou statut. Cliquez sur <strong>Filtres → Terminés Aujourd'hui</strong> pour voir rapidement les visites du jour.</p>
+     `},
+    {id:'report', num:10, title:'Rapport journalier',
+     content:`
+      <div class="steps">
+        <div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Ouvrir votre salle d'attente</div><div class="step-text">Aller dans <strong>Salles → Salles d'attente</strong> et cliquer sur la salle souhaitée.</div></div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Cliquer Imprimer → Rapport journalier</div><div class="step-text">Dans le menu du haut, cliquer sur l'icône imprimante et sélectionner <strong>Rapport de File Journalier</strong>.</div></div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-body"><div class="step-title">Enregistrer ou imprimer</div><div class="step-text">Le PDF s'ouvre dans un nouvel onglet. Utilisez le dialogue d'impression de votre navigateur pour imprimer ou sauvegarder.</div></div></div>
+      </div>
+     `},
+    {id:'settings', num:11, title:'Paramètres',
+     content:`
+      <table class="settings-table">
+        <tr><th>Paramètre</th><th>Défaut</th><th>Description</th></tr>
+        <tr><td>Annonces audio</td><td>Activé</td><td>Annonces vocales automatiques lors d'un appel.</td></tr>
+        <tr><td>Temps d'attente estimé</td><td>Activé</td><td>Affiche le temps d'attente estimé sur la TV et la borne.</td></tr>
+        <tr><td>Absent automatique après</td><td>10 min</td><td>Si un visiteur "Appelé" ne répond pas dans ce délai, le système le marque automatiquement Absent.</td></tr>
+        <tr><td>Seuil de retard</td><td>45 min</td><td>Les visiteurs attendant plus longtemps que ce délai sont surlignés en rouge.</td></tr>
+      </table>
+     `},
+    {id:'tips', num:12, title:'Conseils pratiques',
+     content:`
+      <div class="tip success"><div class="tip-icon">✅</div><div class="tip-text"><strong>Conseil TV :</strong> Ouvrez toujours l'écran d'affichage en plein écran (F11) sur un écran dédié.</div></div>
+      <div class="tip success"><div class="tip-icon">✅</div><div class="tip-text"><strong>Conseil audio :</strong> Testez l'annonce audio avant d'ouvrir la clinique. Cliquez "Appeler" sur n'importe quel visiteur et vérifiez que la voix se lit sur l'écran TV.</div></div>
+      <div class="tip success"><div class="tip-icon">✅</div><div class="tip-text"><strong>Conseil borne :</strong> Montez la tablette de la borne verticalement à une hauteur confortable. Activez le "mode kiosk" dans votre navigateur pour empêcher les visiteurs de quitter la page.</div></div>
+      <div class="tip warn"><div class="tip-icon">⚠</div><div class="tip-text"><strong>URLs publiques :</strong> L'écran TV et la borne n'ont pas besoin de connexion. Ne les partagez pas publiquement. Utilisez-les uniquement sur des appareils dédiés à l'intérieur de la clinique.</div></div>
+     `},
+  ]
+},
+
+// (Arabic, Spanish, German, Portuguese, Chinese follow the same pattern with translated content)
+ar: { dir:'rtl', header:{title:'غرفة الانتظار الذكية', sub:'دليل المستخدم'},
+  hero:{title:'دليل المستخدم', desc:'كل ما تحتاجه لإدارة غرفة انتظارك بكفاءة. يغطي هذا الدليل جميع العمليات اليومية من إضافة زائر إلى قراءة إحصائياتك.', chips:['📋 إدارة الطابور','📺 شاشة العرض','🖥 كشك التسجيل الذاتي','📊 السجل','⚙ الإعدادات']},
+  toc:[{title:'نظرة عامة',id:'overview'},{title:'لوحة الطابور',id:'queue'},{title:'إضافة زائر',id:'add-visitor'},{title:'استدعاء الزوار',id:'calling'},{title:'تدفق الحالات',id:'status-flow'},{title:'مستويات الأولوية',id:'priority'},{title:'شاشة التلفاز',id:'display'},{title:'كشك التسجيل',id:'kiosk'},{title:'سجل الزيارات',id:'history'},{title:'التقرير اليومي',id:'report'},{title:'الإعدادات',id:'settings'},{title:'نصائح عملية',id:'tips'}],
+  sections:[
+    {id:'overview',num:1,title:'نظرة عامة',content:`<p style="color:var(--sub);margin-bottom:20px">غرفة الانتظار الذكية هي حل متكامل لإدارة الطوابير. تتيح للموظفين إدارة الزوار في الوقت الفعلي، وعرض الطابور على شاشة التلفاز للمرضى، كما تمكّن الزوار من التسجيل بأنفسهم عبر كشك اللمس.</p><div class="card-grid"><div class="card"><div class="card-icon">📋</div><div class="card-title">لوحة الطابور</div><div class="card-text">لوحة تحكم الموظفين لإضافة واستدعاء وإدارة كل زائر في الوقت الفعلي.</div></div><div class="card green"><div class="card-icon">📺</div><div class="card-title">شاشة التلفاز</div><div class="card-text">شاشة عامة تعرض "يُخدم الآن" وقائمة الانتظار، تتحدث كل 5 ثوان.</div></div><div class="card amber"><div class="card-icon">🖥</div><div class="card-title">كشك التسجيل</div><div class="card-text">لوحة لمس يسجّل فيها الزوار أنفسهم ويحصلون على رقم تذكرتهم.</div></div><div class="card purple"><div class="card-icon">📊</div><div class="card-title">السجل والتقارير</div><div class="card-text">سجل كامل بجميع الزيارات مع أوقات الانتظار والتقارير القابلة للطباعة.</div></div></div>`},
+    {id:'queue',num:2,title:'لوحة الطابور',content:`<p style="color:var(--sub)">انتقل إلى <strong>الطابور المباشر ← لوحة الطابور</strong>. هذه شاشة العمل الرئيسية. يتم عرض الزوار كبطاقات مجمّعة حسب الحالة: <em>في الانتظار</em>، <em>تم الاستدعاء</em>، و<em>في الخدمة</em>.</p>`},
+    {id:'add-visitor',num:3,title:'إضافة زائر',content:`<h3 class="sub-title">الطريقة 1 — الاستقبال يضيف الزائر يدوياً</h3><div class="steps"><div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">فتح لوحة الطابور</div><div class="step-text">الانتقال إلى <strong>الطابور المباشر ← لوحة الطابور</strong>.</div></div></div><div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">النقر على "جديد"</div><div class="step-text">يظهر نموذج سريع في أعلى القائمة.</div></div></div><div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">ملء بيانات الزائر</div><div class="step-text">أدخل الاسم (إلزامي)، وحدد الغرفة والقسم والأولوية إذا لزم الأمر.</div></div></div><div class="step"><div class="step-dot">4</div><div class="step-body"><div class="step-title">الحفظ</div><div class="step-text">يُضاف الزائر فوراً إلى الطابور برقم تذكرة. تتحدث شاشة التلفاز خلال 5 ثوان.</div></div></div></div>`},
+    {id:'calling',num:4,title:'استدعاء الزوار',content:`<div class="action-grid"><div class="action-card"><div class="action-icon">📢</div><div class="action-body"><div class="action-name">استدعاء</div><div class="action-desc">يعلن عن الزائر. تظهر تذكرته في "يرجى التوجه" على التلفاز مع حركة متحركة وإعلان صوتي.</div></div></div><div class="action-card"><div class="action-icon">🔁</div><div class="action-body"><div class="action-name">إعادة الاستدعاء</div><div class="action-desc">يُرسل إعلاناً ثانياً إذا لم يستجب الزائر.</div></div></div><div class="action-card"><div class="action-icon">▶</div><div class="action-body"><div class="action-name">بدء الخدمة</div><div class="action-desc">يؤكد وصول الزائر إلى المكتب. تذكرته تنتقل إلى "يُخدم الآن".</div></div></div><div class="action-card"><div class="action-icon">✔</div><div class="action-body"><div class="action-name">مكتمل</div><div class="action-desc">يُعلّم الزيارة كمكتملة ويحفظها في السجل.</div></div></div><div class="action-card"><div class="action-icon">✗</div><div class="action-body"><div class="action-name">غائب</div><div class="action-desc">تم الاستدعاء لكنه لم يستجب.</div></div></div><div class="action-card"><div class="action-icon">↩</div><div class="action-body"><div class="action-name">إعادة للطابور</div><div class="action-desc">إذا عاد الغائب، يُعاد إدراجه في الطابور.</div></div></div></div>`},
+    {id:'status-flow',num:5,title:'تدفق الحالات',content:`<table class="status-table"><tr><th>الحالة</th><th>المعنى</th><th>يظهر على التلفاز؟</th><th>الإجراء التالي</th></tr><tr><td><span class="badge badge-waiting">في الانتظار</span></td><td>الزائر جالس ينتظر</td><td>نعم — في قائمة الانتظار</td><td>استدعاء</td></tr><tr><td><span class="badge badge-called">تم استدعاؤه</span></td><td>أُعلن عنه، يتجه للمكتب</td><td>نعم — "يرجى التوجه"</td><td>بدء الخدمة أو غائب</td></tr><tr><td><span class="badge badge-service">في الخدمة</span></td><td>الزيارة جارية</td><td>نعم — "يُخدم الآن"</td><td>مكتمل</td></tr><tr><td><span class="badge badge-done">مكتمل</span></td><td>الزيارة اكتملت</td><td>لا</td><td>— (في السجل)</td></tr><tr><td><span class="badge badge-noshow">غائب</span></td><td>استُدعي ولم يستجب</td><td>لا</td><td>إعادة للطابور</td></tr></table>`},
+    {id:'priority',num:6,title:'مستويات الأولوية',content:`<div class="prio-grid"><div class="prio-card" style="border-left:3px solid var(--dim)"><div class="prio-label">عادي</div><div class="prio-desc">الإعداد الافتراضي. يُخدمون بترتيب الوصول.</div></div><div class="prio-card" style="border-left:3px solid var(--amber)"><div class="prio-label" style="color:var(--amber)">↑ أولوية</div><div class="prio-desc">يُخدمون قبل العاديين. للمسنين أو أصحاب المواعيد.</div></div><div class="prio-card" style="border-left:3px solid var(--red)"><div class="prio-label" style="color:var(--red)">⚡ عاجل</div><div class="prio-desc">يُخدمون قبل ذوي الأولوية. للحالات الطارئة.</div></div><div class="prio-card" style="border-left:3px solid var(--purple)"><div class="prio-label" style="color:var(--purple)">★ كبار الشخصيات</div><div class="prio-desc">أعلى أولوية. يُخدم فوراً بعد المريض الحالي.</div></div></div>`},
+    {id:'display',num:7,title:'شاشة التلفاز',content:`<div class="steps"><div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">الانتقال إلى إعدادات الغرفة</div><div class="step-text">الانتقال إلى <strong>الغرف ← غرف الانتظار</strong> وفتح غرفتك.</div></div></div><div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">نسخ رابط العرض</div><div class="step-text">النقر على زر <strong>📺 TV Display</strong> أو نسخ الرابط من حقل "رابط العرض".</div></div></div><div class="step"><div class="step-dot">3</div><div class="step-body"><div class="step-title">فتحه على شاشتك</div><div class="step-text">لصق الرابط في متصفح الشاشة. تفعيل وضع ملء الشاشة (F11) للحصول على أفضل نتيجة.</div></div></div></div><div class="tip success"><div class="tip-icon">🔊</div><div class="tip-text">يتم الإعلان الصوتي تلقائياً عبر تحويل النص إلى كلام في المتصفح. تأكد من تفعيل الصوت على متصفح شاشة التلفاز.</div></div>`},
+    {id:'kiosk',num:8,title:'كشك التسجيل الذاتي',content:`<div class="steps"><div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">الحصول على رابط الكشك</div><div class="step-text">فتح الغرفة والنقر على <strong>🖥 Kiosk</strong>.</div></div></div><div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">فتحه على لوحة اللمس</div><div class="step-text">لصق الرابط في متصفح اللوحة وتفعيل وضع ملء الشاشة.</div></div></div><div class="step"><div class="step-dot">3</div><div class="step-body"><div class="step-title">تثبيته عند المدخل</div><div class="step-text">ضع اللوحة في مكان يسهل على الزوار القادمين رؤيتها واستخدامها.</div></div></div></div>`},
+    {id:'history',num:9,title:'سجل الزيارات',content:`<p style="color:var(--sub)">انتقل إلى <strong>الطابور المباشر ← سجل الزيارات</strong> لعرض جميع الزيارات السابقة: المكتملة، الغائبة، والملغاة. استخدم شريط البحث للتصفية حسب التاريخ أو الغرفة أو القسم أو الاسم.</p>`},
+    {id:'report',num:10,title:'التقرير اليومي',content:`<div class="steps"><div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">فتح غرفة الانتظار</div><div class="step-text">الانتقال إلى <strong>الغرف ← غرف الانتظار</strong> والنقر على الغرفة المطلوبة.</div></div></div><div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">النقر على طباعة ← التقرير اليومي</div><div class="step-text">في القائمة العلوية، انقر على أيقونة الطابعة وحدد <strong>التقرير اليومي للطابور</strong>.</div></div></div><div class="step"><div class="step-dot">3</div><div class="step-body"><div class="step-title">حفظ أو طباعة</div><div class="step-text">يُفتح ملف PDF في علامة تبويب جديدة. استخدم مربع حوار الطباعة للطباعة أو الحفظ.</div></div></div></div>`},
+    {id:'settings',num:11,title:'الإعدادات',content:`<table class="settings-table"><tr><th>الإعداد</th><th>الافتراضي</th><th>الوصف</th></tr><tr><td>الإعلانات الصوتية</td><td>مفعّل</td><td>إعلانات صوتية تلقائية عند استدعاء كل زائر.</td></tr><tr><td>عرض وقت الانتظار المتوقع</td><td>مفعّل</td><td>يعرض الدقائق المتوقعة على التلفاز والكشك.</td></tr><tr><td>الغياب التلقائي بعد</td><td>10 دقائق</td><td>إذا لم يستجب الزائر المستدعى خلال هذه المدة، يُعلَّم تلقائياً كغائب.</td></tr><tr><td>عتبة التأخر</td><td>45 دقيقة</td><td>يُسلَّط الضوء بالأحمر على الزوار الذين انتظروا أطول من هذه المدة.</td></tr></table>`},
+    {id:'tips',num:12,title:'نصائح عملية',content:`<div class="tip success"><div class="tip-icon">✅</div><div class="tip-text"><strong>نصيحة للشاشة:</strong> افتح دائماً شاشة العرض في وضع ملء الشاشة (F11) على شاشة مخصصة.</div></div><div class="tip success"><div class="tip-icon">✅</div><div class="tip-text"><strong>نصيحة للصوت:</strong> اختبر الإعلان الصوتي قبل فتح العيادة. انقر "استدعاء" على أي زائر وتحقق من تشغيل الصوت على شاشة التلفاز.</div></div><div class="tip warn"><div class="tip-icon">⚠</div><div class="tip-text"><strong>الروابط عامة:</strong> شاشة التلفاز والكشك لا تحتاجان إلى تسجيل دخول. لا تشاركهما علناً. استخدمهما فقط على أجهزة مخصصة داخل العيادة.</div></div>`},
+  ]
+},
+
+es:{dir:'ltr',header:{title:'Sala de Espera Inteligente',sub:'Manual de Usuario'},
+  hero:{title:'Manual de Usuario',desc:'Todo lo que necesita para gestionar su sala de espera de manera eficiente. Esta guía cubre todas las operaciones diarias, desde añadir un visitante hasta leer sus estadísticas.',chips:['📋 Gestión de cola','📺 Pantalla TV','🖥 Kiosko de check-in','📊 Historial','⚙ Configuración']},
+  toc:[{title:'Descripción general',id:'overview'},{title:'Tablero de cola',id:'queue'},{title:'Añadir visitante',id:'add-visitor'},{title:'Llamar visitantes',id:'calling'},{title:'Flujo de estados',id:'status-flow'},{title:'Niveles de prioridad',id:'priority'},{title:'Pantalla TV',id:'display'},{title:'Kiosko',id:'kiosk'},{title:'Historial',id:'history'},{title:'Informe diario',id:'report'},{title:'Configuración',id:'settings'},{title:'Consejos',id:'tips'}],
+  sections:[
+    {id:'overview',num:1,title:'Descripción general',content:`<p style="color:var(--sub);margin-bottom:20px">Smart Waiting Room es una solución completa de gestión de colas. Permite a su personal gestionar visitantes en tiempo real, mostrar la cola en una pantalla de TV y a los visitantes registrarse solos mediante un kiosco táctil.</p><div class="card-grid"><div class="card"><div class="card-icon">📋</div><div class="card-title">Tablero de cola</div><div class="card-text">El panel de control del personal para añadir, llamar y gestionar a cada visitante en tiempo real.</div></div><div class="card green"><div class="card-icon">📺</div><div class="card-title">Pantalla TV</div><div class="card-text">Pantalla pública que muestra "Atendiendo ahora" y la lista de espera, actualizada cada 5 segundos.</div></div><div class="card amber"><div class="card-icon">🖥</div><div class="card-title">Kiosco de auto-registro</div><div class="card-text">Tablet donde los visitantes se registran y reciben su número de turno.</div></div><div class="card purple"><div class="card-icon">📊</div><div class="card-title">Historial e informes</div><div class="card-text">Historial completo de todas las visitas con tiempos de espera e informe diario imprimible.</div></div></div>`},
+    {id:'queue',num:2,title:'Tablero de cola',content:`<p style="color:var(--sub)">Navegue a <strong>Cola en vivo → Tablero de cola</strong>. Esta es su pantalla de trabajo principal. Los visitantes se muestran como tarjetas agrupadas por estado: <em>En espera</em>, <em>Llamado</em>, y <em>En servicio</em>.</p>`},
+    {id:'add-visitor',num:3,title:'Añadir visitante',content:`<h3 class="sub-title">Método 1 — Recepción añade manualmente</h3><div class="steps"><div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Abrir el tablero de cola</div><div class="step-text">Ir a <strong>Cola en vivo → Tablero de cola</strong>.</div></div></div><div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Hacer clic en "Nuevo"</div><div class="step-text">Aparece un formulario rápido en la parte superior de la lista.</div></div></div><div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">Completar los datos</div><div class="step-text">Ingrese el nombre (obligatorio), seleccione la sala, departamento y prioridad si es necesario.</div></div></div><div class="step"><div class="step-dot">4</div><div class="step-body"><div class="step-title">Guardar</div><div class="step-text">El visitante se agrega a la cola con un número de turno. La pantalla TV se actualiza en 5 segundos.</div></div></div></div>`},
+    {id:'calling',num:4,title:'Llamar visitantes',content:`<div class="action-grid"><div class="action-card"><div class="action-icon">📢</div><div class="action-body"><div class="action-name">Llamar</div><div class="action-desc">Anuncia al visitante. Su turno aparece en "Por favor proceda" en la TV con animación y anuncio de voz.</div></div></div><div class="action-card"><div class="action-icon">▶</div><div class="action-body"><div class="action-name">Iniciar servicio</div><div class="action-desc">Confirma que el visitante está en el mostrador. Pasa a "Atendiendo ahora".</div></div></div><div class="action-card"><div class="action-icon">✔</div><div class="action-body"><div class="action-name">Completado</div><div class="action-desc">Marca la visita como completa y la guarda en el historial.</div></div></div><div class="action-card"><div class="action-icon">✗</div><div class="action-body"><div class="action-name">No se presentó</div><div class="action-desc">Fue llamado pero no respondió.</div></div></div></div>`},
+    {id:'status-flow',num:5,title:'Flujo de estados',content:`<table class="status-table"><tr><th>Estado</th><th>Significado</th><th>¿En TV?</th><th>Siguiente acción</th></tr><tr><td><span class="badge badge-waiting">En espera</span></td><td>Sentado, esperando ser llamado</td><td>Sí — lista de espera</td><td>Llamar</td></tr><tr><td><span class="badge badge-called">Llamado</span></td><td>Anunciado, caminando al mostrador</td><td>Sí — "Por favor proceda"</td><td>Iniciar servicio</td></tr><tr><td><span class="badge badge-service">En servicio</span></td><td>Visita en curso</td><td>Sí — "Atendiendo ahora"</td><td>Completado</td></tr><tr><td><span class="badge badge-done">Completado</span></td><td>Visita completa</td><td>No</td><td>—</td></tr><tr><td><span class="badge badge-noshow">No se presentó</span></td><td>Llamado sin respuesta</td><td>No</td><td>Re-encolar</td></tr></table>`},
+    {id:'priority',num:6,title:'Niveles de prioridad',content:`<div class="prio-grid"><div class="prio-card" style="border-left:3px solid var(--dim)"><div class="prio-label">Normal</div><div class="prio-desc">Predeterminado. Atendidos en orden de llegada.</div></div><div class="prio-card" style="border-left:3px solid var(--amber)"><div class="prio-label" style="color:var(--amber)">↑ Prioritario</div><div class="prio-desc">Atendidos antes que los normales. Para ancianos o con cita.</div></div><div class="prio-card" style="border-left:3px solid var(--red)"><div class="prio-label" style="color:var(--red)">⚡ Urgente</div><div class="prio-desc">Atendidos antes que los prioritarios. Para emergencias.</div></div><div class="prio-card" style="border-left:3px solid var(--purple)"><div class="prio-label" style="color:var(--purple)">★ VIP</div><div class="prio-desc">Máxima prioridad. Atendido inmediatamente después del paciente actual.</div></div></div>`},
+    {id:'display',num:7,title:'Pantalla TV',content:`<div class="steps"><div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Abrir configuración de la sala</div><div class="step-text">Navegar a <strong>Salas → Salas de espera</strong> y abrir su sala.</div></div></div><div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Copiar la URL de visualización</div><div class="step-text">Hacer clic en el botón <strong>📺 TV Display</strong> o copiar la URL del campo "URL de visualización".</div></div></div><div class="step"><div class="step-dot">3</div><div class="step-body"><div class="step-title">Abrir en su pantalla</div><div class="step-text">Pegar la URL en el navegador de la pantalla y activar pantalla completa (F11).</div></div></div></div><div class="tip success"><div class="tip-icon">🔊</div><div class="tip-text">Los anuncios de voz son automáticos. Asegúrese de que el sonido esté activado en el navegador de la pantalla TV.</div></div>`},
+    {id:'kiosk',num:8,title:'Kiosco de auto-registro',content:`<p style="color:var(--sub)">Obtenga la URL del kiosco desde su sala, ábrala en una tablet táctil en la entrada y los visitantes podrán registrarse solos en 4 pasos simples: tocar "Registrarse" → seleccionar servicio → ingresar nombre → recibir turno.</p>`},
+    {id:'history',num:9,title:'Historial de visitas',content:`<p style="color:var(--sub)">Navegue a <strong>Cola en vivo → Historial de visitas</strong>. Use la barra de búsqueda para filtrar por fecha, sala, departamento, nombre o estado.</p>`},
+    {id:'report',num:10,title:'Informe diario',content:`<p style="color:var(--sub)">Abra su sala de espera, haga clic en <strong>Imprimir → Informe diario de cola</strong>. El PDF incluye visitantes atendidos, tiempo promedio de espera, tasa de ausencias y tabla completa del día.</p>`},
+    {id:'settings',num:11,title:'Configuración',content:`<table class="settings-table"><tr><th>Configuración</th><th>Predeterminado</th><th>Descripción</th></tr><tr><td>Anuncios de audio</td><td>Activado</td><td>Anuncios de voz automáticos al llamar a cada visitante.</td></tr><tr><td>Mostrar tiempo estimado</td><td>Activado</td><td>Muestra los minutos de espera estimados en TV y kiosco.</td></tr><tr><td>Ausente automático tras</td><td>10 min</td><td>Si un visitante "Llamado" no responde en este tiempo, se marca como ausente automáticamente.</td></tr><tr><td>Umbral de retraso</td><td>45 min</td><td>Los visitantes que esperan más de este tiempo se resaltan en rojo.</td></tr></table>`},
+    {id:'tips',num:12,title:'Consejos prácticos',content:`<div class="tip success"><div class="tip-icon">✅</div><div class="tip-text"><strong>TV:</strong> Siempre abra la pantalla en modo pantalla completa (F11) en una pantalla dedicada.</div></div><div class="tip success"><div class="tip-icon">✅</div><div class="tip-text"><strong>Audio:</strong> Pruebe el anuncio antes de abrir la clínica. Haga clic en "Llamar" en cualquier visitante y verifique que el sonido se reproduzca en la TV.</div></div><div class="tip warn"><div class="tip-icon">⚠</div><div class="tip-text"><strong>URLs públicas:</strong> No las comparta públicamente. Úselas solo en dispositivos dedicados dentro de la clínica.</div></div>`},
+  ]
+},
+
+de:{dir:'ltr',header:{title:'Intelligentes Wartezimmer',sub:'Benutzerhandbuch'},
+  hero:{title:'Benutzerhandbuch',desc:'Alles was Sie zur effizienten Verwaltung Ihres Wartezimmers benötigen. Dieser Leitfaden deckt alle täglichen Abläufe ab.',chips:['📋 Warteschlange','📺 TV-Anzeige','🖥 Kiosk','📊 Verlauf','⚙ Einstellungen']},
+  toc:[{title:'Übersicht',id:'overview'},{title:'Warteschlangen-Board',id:'queue'},{title:'Besucher hinzufügen',id:'add-visitor'},{title:'Besucher aufrufen',id:'calling'},{title:'Status-Ablauf',id:'status-flow'},{title:'Prioritätsstufen',id:'priority'},{title:'TV-Anzeige',id:'display'},{title:'Kiosk',id:'kiosk'},{title:'Besuchsverlauf',id:'history'},{title:'Tagesbericht',id:'report'},{title:'Einstellungen',id:'settings'},{title:'Tipps',id:'tips'}],
+  sections:[
+    {id:'overview',num:1,title:'Übersicht',content:`<p style="color:var(--sub);margin-bottom:20px">Smart Waiting Room ist eine vollständige Warteschlangenverwaltung. Sie ermöglicht Ihrem Personal, Besucher in Echtzeit zu verwalten, die Schlange auf einem TV-Bildschirm anzuzeigen und Besuchern, sich selbst per Tablet-Kiosk einzuchecken.</p><div class="card-grid"><div class="card"><div class="card-icon">📋</div><div class="card-title">Warteschlangen-Board</div><div class="card-text">Das Personal-Dashboard zum Hinzufügen, Aufrufen und Verwalten jedes Besuchers in Echtzeit.</div></div><div class="card green"><div class="card-icon">📺</div><div class="card-title">TV-Anzeige</div><div class="card-text">Öffentlicher Bildschirm mit "Wird jetzt bedient" und der Warteliste, alle 5 Sekunden aktualisiert.</div></div><div class="card amber"><div class="card-icon">🖥</div><div class="card-title">Selbst-Check-in-Kiosk</div><div class="card-text">Tablet, an dem sich Besucher selbst anmelden und ihre Wartenummer erhalten.</div></div></div>`},
+    {id:'queue',num:2,title:'Warteschlangen-Board',content:`<p style="color:var(--sub)">Navigieren Sie zu <strong>Live-Warteschlange → Warteschlangen-Board</strong>. Dies ist Ihr Hauptarbeitsbildschirm. Besucher werden als Karten angezeigt, gruppiert nach Status: <em>Wartend</em>, <em>Aufgerufen</em> und <em>In Bearbeitung</em>.</p>`},
+    {id:'add-visitor',num:3,title:'Besucher hinzufügen',content:`<div class="steps"><div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Board öffnen</div><div class="step-text">Navigieren Sie zu <strong>Live-Warteschlange → Board</strong>.</div></div></div><div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">"Neu" klicken</div><div class="step-text">Ein Schnellformular erscheint oben in der Liste.</div></div></div><div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">Daten eingeben</div><div class="step-text">Name (Pflicht), Raum, Abteilung und Priorität eingeben.</div></div></div><div class="step"><div class="step-dot">4</div><div class="step-body"><div class="step-title">Speichern</div><div class="step-text">Besucher wird sofort mit Wartenummer in die Schlange eingetragen.</div></div></div></div>`},
+    {id:'calling',num:4,title:'Besucher aufrufen',content:`<div class="action-grid"><div class="action-card"><div class="action-icon">📢</div><div class="action-body"><div class="action-name">Aufrufen</div><div class="action-desc">Kündigt den Besucher an. Seine Nummer erscheint mit Animation und Durchsage auf der TV-Anzeige.</div></div></div><div class="action-card"><div class="action-icon">▶</div><div class="action-body"><div class="action-name">Service starten</div><div class="action-desc">Bestätigt, dass der Besucher am Schalter ist.</div></div></div><div class="action-card"><div class="action-icon">✔</div><div class="action-body"><div class="action-name">Erledigt</div><div class="action-desc">Markiert den Besuch als abgeschlossen.</div></div></div><div class="action-card"><div class="action-icon">✗</div><div class="action-body"><div class="action-name">Nicht erschienen</div><div class="action-desc">Aufgerufen, aber nicht reagiert.</div></div></div></div>`},
+    {id:'status-flow',num:5,title:'Status-Ablauf',content:`<table class="status-table"><tr><th>Status</th><th>Bedeutung</th><th>Auf TV?</th><th>Nächste Aktion</th></tr><tr><td><span class="badge badge-waiting">Wartend</span></td><td>Sitzt, wartet auf Aufruf</td><td>Ja — Warteliste</td><td>Aufrufen</td></tr><tr><td><span class="badge badge-called">Aufgerufen</span></td><td>Angekündigt, läuft zum Schalter</td><td>Ja — "Bitte vortreten"</td><td>Service starten</td></tr><tr><td><span class="badge badge-service">In Bearbeitung</span></td><td>Besuch läuft</td><td>Ja — "Wird bedient"</td><td>Erledigt</td></tr><tr><td><span class="badge badge-done">Erledigt</span></td><td>Besuch abgeschlossen</td><td>Nein</td><td>—</td></tr><tr><td><span class="badge badge-noshow">Nicht erschienen</span></td><td>Aufgerufen, keine Reaktion</td><td>Nein</td><td>Erneut einreihen</td></tr></table>`},
+    {id:'priority',num:6,title:'Prioritätsstufen',content:`<div class="prio-grid"><div class="prio-card" style="border-left:3px solid var(--dim)"><div class="prio-label">Normal</div><div class="prio-desc">Standard. Werden in Ankunftsreihenfolge bedient.</div></div><div class="prio-card" style="border-left:3px solid var(--amber)"><div class="prio-label" style="color:var(--amber)">↑ Priorität</div><div class="prio-desc">Vor normalen Besuchern. Für Senioren oder Terminpatienten.</div></div><div class="prio-card" style="border-left:3px solid var(--red)"><div class="prio-label" style="color:var(--red)">⚡ Dringend</div><div class="prio-desc">Vor Priorität-Besuchern. Für Notfälle.</div></div><div class="prio-card" style="border-left:3px solid var(--purple)"><div class="prio-label" style="color:var(--purple)">★ VIP</div><div class="prio-desc">Höchste Priorität. Sofort nach dem aktuellen Patienten bedient.</div></div></div>`},
+    {id:'display',num:7,title:'TV-Anzeige',content:`<div class="steps"><div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Warteraum-Einstellungen öffnen</div><div class="step-text">Navigieren zu <strong>Räume → Wartezimmer</strong> und Raum öffnen.</div></div></div><div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Anzeige-URL kopieren</div><div class="step-text">Klick auf <strong>📺 TV Display</strong> oder URL aus dem Feld "Anzeige-URL" kopieren.</div></div></div><div class="step"><div class="step-dot">3</div><div class="step-body"><div class="step-title">Im Browser öffnen</div><div class="step-text">URL im Browser des Bildschirms einfügen. Vollbild (F11) aktivieren.</div></div></div></div>`},
+    {id:'kiosk',num:8,title:'Kiosk',content:`<p style="color:var(--sub)">Öffnen Sie Ihren Raum, klicken Sie auf <strong>🖥 Kiosk</strong>, öffnen Sie die URL auf einem Tablet am Eingang. Besucher können sich in 4 einfachen Schritten selbst anmelden.</p>`},
+    {id:'history',num:9,title:'Besuchsverlauf',content:`<p style="color:var(--sub)">Navigieren Sie zu <strong>Live-Warteschlange → Besuchsverlauf</strong>. Alle abgeschlossenen, nicht erschienenen und abgesagten Besuche werden hier angezeigt.</p>`},
+    {id:'report',num:10,title:'Tagesbericht',content:`<p style="color:var(--sub)">Öffnen Sie Ihren Warteraum, klicken Sie auf <strong>Drucken → Tagesbericht</strong>. Das PDF öffnet sich in einem neuen Tab.</p>`},
+    {id:'settings',num:11,title:'Einstellungen',content:`<table class="settings-table"><tr><th>Einstellung</th><th>Standard</th><th>Beschreibung</th></tr><tr><td>Audiodurchsagen</td><td>Ein</td><td>Automatische Sprachdurchsagen beim Aufrufen jedes Besuchers.</td></tr><tr><td>Wartezeit anzeigen</td><td>Ein</td><td>Zeigt geschätzte Wartezeit auf TV und Kiosk.</td></tr><tr><td>Auto-Nicht-erschienen nach</td><td>10 min</td><td>Wird ein aufgerufener Besucher nicht within dieser Zeit, wird er automatisch als nicht erschienen markiert.</td></tr><tr><td>Verzögerungsschwelle</td><td>45 min</td><td>Besucher, die länger als diese Zeit warten, werden rot hervorgehoben.</td></tr></table>`},
+    {id:'tips',num:12,title:'Tipps',content:`<div class="tip success"><div class="tip-icon">✅</div><div class="tip-text">Öffnen Sie den TV-Bildschirm immer im Vollbildmodus (F11) auf einem dedizierten Bildschirm.</div></div><div class="tip success"><div class="tip-icon">✅</div><div class="tip-text">Testen Sie die Audiodurchsage, bevor Sie die Praxis öffnen.</div></div>`},
+  ]
+},
+
+pt:{dir:'ltr',header:{title:'Sala de Espera Inteligente',sub:'Manual do Usuário'},
+  hero:{title:'Manual do Usuário',desc:'Tudo o que você precisa para gerenciar sua sala de espera de forma eficiente. Este guia cobre todas as operações diárias.',chips:['📋 Gestão de filas','📺 Tela TV','🖥 Quiosque','📊 Histórico','⚙ Configurações']},
+  toc:[{title:'Visão geral',id:'overview'},{title:'Painel de fila',id:'queue'},{title:'Adicionar visitante',id:'add-visitor'},{title:'Chamar visitantes',id:'calling'},{title:'Fluxo de status',id:'status-flow'},{title:'Níveis de prioridade',id:'priority'},{title:'Tela TV',id:'display'},{title:'Quiosque',id:'kiosk'},{title:'Histórico',id:'history'},{title:'Relatório diário',id:'report'},{title:'Configurações',id:'settings'},{title:'Dicas',id:'tips'}],
+  sections:[
+    {id:'overview',num:1,title:'Visão geral',content:`<p style="color:var(--sub);margin-bottom:20px">Smart Waiting Room é uma solução completa de gestão de filas. Permite à sua equipe gerenciar visitantes em tempo real, exibir a fila em uma TV e aos visitantes fazer o check-in sozinhos via quiosque.</p><div class="card-grid"><div class="card"><div class="card-icon">📋</div><div class="card-title">Painel de fila</div><div class="card-text">O painel de controle da equipe para adicionar, chamar e gerenciar cada visitante em tempo real.</div></div><div class="card green"><div class="card-icon">📺</div><div class="card-title">Tela TV</div><div class="card-text">Tela pública mostrando "Sendo atendido" e a lista de espera, atualizada a cada 5 segundos.</div></div><div class="card amber"><div class="card-icon">🖥</div><div class="card-title">Quiosque de auto check-in</div><div class="card-text">Tablet onde visitantes se registram e recebem seu número de senha.</div></div></div>`},
+    {id:'queue',num:2,title:'Painel de fila',content:`<p style="color:var(--sub)">Navegue para <strong>Fila ao vivo → Painel de fila</strong>. Esta é sua tela de trabalho principal. Visitantes são exibidos como cartões agrupados por status.</p>`},
+    {id:'add-visitor',num:3,title:'Adicionar visitante',content:`<div class="steps"><div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Abrir o painel de fila</div><div class="step-text">Ir para <strong>Fila ao vivo → Painel de fila</strong>.</div></div></div><div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Clicar em "Novo"</div><div class="step-text">Um formulário rápido aparece no topo da lista.</div></div></div><div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">Preencher os dados</div><div class="step-text">Digite o nome (obrigatório), selecione a sala, departamento e prioridade.</div></div></div><div class="step"><div class="step-dot">4</div><div class="step-body"><div class="step-title">Salvar</div><div class="step-text">O visitante é adicionado imediatamente à fila com número de senha. A TV atualiza em 5 segundos.</div></div></div></div>`},
+    {id:'calling',num:4,title:'Chamar visitantes',content:`<div class="action-grid"><div class="action-card"><div class="action-icon">📢</div><div class="action-body"><div class="action-name">Chamar</div><div class="action-desc">Anuncia o visitante na TV com animação e aviso sonoro.</div></div></div><div class="action-card"><div class="action-icon">▶</div><div class="action-body"><div class="action-name">Iniciar atendimento</div><div class="action-desc">Confirma que o visitante está no balcão.</div></div></div><div class="action-card"><div class="action-icon">✔</div><div class="action-body"><div class="action-name">Concluído</div><div class="action-desc">Marca a visita como completa e arquiva no histórico.</div></div></div><div class="action-card"><div class="action-icon">✗</div><div class="action-body"><div class="action-name">Não compareceu</div><div class="action-desc">Foi chamado mas não respondeu.</div></div></div></div>`},
+    {id:'status-flow',num:5,title:'Fluxo de status',content:`<table class="status-table"><tr><th>Status</th><th>Significado</th><th>Na TV?</th><th>Próxima ação</th></tr><tr><td><span class="badge badge-waiting">Aguardando</span></td><td>Sentado, esperando ser chamado</td><td>Sim — lista de espera</td><td>Chamar</td></tr><tr><td><span class="badge badge-called">Chamado</span></td><td>Anunciado, indo ao balcão</td><td>Sim — "Por favor avance"</td><td>Iniciar atendimento</td></tr><tr><td><span class="badge badge-service">Em atendimento</span></td><td>Visita em andamento</td><td>Sim — "Sendo atendido"</td><td>Concluído</td></tr><tr><td><span class="badge badge-done">Concluído</span></td><td>Visita completa</td><td>Não</td><td>—</td></tr><tr><td><span class="badge badge-noshow">Não compareceu</span></td><td>Chamado sem resposta</td><td>Não</td><td>Re-enfileirar</td></tr></table>`},
+    {id:'priority',num:6,title:'Níveis de prioridade',content:`<div class="prio-grid"><div class="prio-card" style="border-left:3px solid var(--dim)"><div class="prio-label">Normal</div><div class="prio-desc">Padrão. Atendidos por ordem de chegada.</div></div><div class="prio-card" style="border-left:3px solid var(--amber)"><div class="prio-label" style="color:var(--amber)">↑ Prioritário</div><div class="prio-desc">Atendidos antes dos normais. Para idosos ou com agendamento.</div></div><div class="prio-card" style="border-left:3px solid var(--red)"><div class="prio-label" style="color:var(--red)">⚡ Urgente</div><div class="prio-desc">Atendidos antes dos prioritários. Para emergências.</div></div><div class="prio-card" style="border-left:3px solid var(--purple)"><div class="prio-label" style="color:var(--purple)">★ VIP</div><div class="prio-desc">Prioridade máxima. Atendido imediatamente após o paciente atual.</div></div></div>`},
+    {id:'display',num:7,title:'Tela TV',content:`<div class="steps"><div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">Abrir configurações da sala</div><div class="step-text">Navegar para <strong>Salas → Salas de espera</strong> e abrir sua sala.</div></div></div><div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">Copiar a URL de exibição</div><div class="step-text">Clicar no botão <strong>📺 TV Display</strong> ou copiar a URL do campo "URL de exibição".</div></div></div><div class="step"><div class="step-dot">3</div><div class="step-body"><div class="step-title">Abrir no navegador</div><div class="step-text">Colar a URL no navegador da tela. Ativar tela cheia (F11).</div></div></div></div>`},
+    {id:'kiosk',num:8,title:'Quiosque de auto check-in',content:`<p style="color:var(--sub)">Obtenha a URL do quiosque na sua sala, abra em um tablet na entrada e os visitantes podem se registrar em 4 passos simples.</p>`},
+    {id:'history',num:9,title:'Histórico de visitas',content:`<p style="color:var(--sub)">Navegue para <strong>Fila ao vivo → Histórico de visitas</strong>. Use a barra de pesquisa para filtrar por data, sala, departamento ou status.</p>`},
+    {id:'report',num:10,title:'Relatório diário',content:`<p style="color:var(--sub)">Abra sua sala, clique em <strong>Imprimir → Relatório diário de fila</strong>. O PDF inclui total de visitantes, tempo médio de espera e tabela completa do dia.</p>`},
+    {id:'settings',num:11,title:'Configurações',content:`<table class="settings-table"><tr><th>Configuração</th><th>Padrão</th><th>Descrição</th></tr><tr><td>Anúncios de áudio</td><td>Ativado</td><td>Anúncios de voz automáticos ao chamar cada visitante.</td></tr><tr><td>Mostrar tempo estimado</td><td>Ativado</td><td>Exibe os minutos estimados na TV e no quiosque.</td></tr><tr><td>Ausente automático após</td><td>10 min</td><td>Se um visitante "Chamado" não responder neste tempo, é marcado automaticamente como ausente.</td></tr><tr><td>Limite de atraso</td><td>45 min</td><td>Visitantes esperando mais que este tempo são destacados em vermelho.</td></tr></table>`},
+    {id:'tips',num:12,title:'Dicas práticas',content:`<div class="tip success"><div class="tip-icon">✅</div><div class="tip-text">Sempre abra a tela de exibição em modo tela cheia (F11) em uma tela dedicada.</div></div><div class="tip success"><div class="tip-icon">✅</div><div class="tip-text">Teste o anúncio de áudio antes de abrir a clínica.</div></div><div class="tip warn"><div class="tip-icon">⚠</div><div class="tip-text">As URLs são públicas. Não as compartilhe. Use apenas em dispositivos dedicados dentro da clínica.</div></div>`},
+  ]
+},
+
+zh:{dir:'ltr',header:{title:'智能候诊室',sub:'用户手册'},
+  hero:{title:'用户手册',desc:'管理候诊室所需的一切信息。本指南涵盖所有日常操作，从添加访客到查看统计数据。',chips:['📋 队列管理','📺 电视显示屏','🖥 自助签到','📊 历史记录','⚙ 设置']},
+  toc:[{title:'概述',id:'overview'},{title:'队列面板',id:'queue'},{title:'添加访客',id:'add-visitor'},{title:'叫号',id:'calling'},{title:'状态流程',id:'status-flow'},{title:'优先级',id:'priority'},{title:'电视显示屏',id:'display'},{title:'自助签到台',id:'kiosk'},{title:'访问历史',id:'history'},{title:'日报告',id:'report'},{title:'设置',id:'settings'},{title:'使用技巧',id:'tips'}],
+  sections:[
+    {id:'overview',num:1,title:'概述',content:`<p style="color:var(--sub);margin-bottom:20px">智能候诊室是完整的排队管理解决方案。它允许您的工作人员实时管理访客，在电视屏幕上显示排队情况，并让访客通过平板电脑自助签到。</p><div class="card-grid"><div class="card"><div class="card-icon">📋</div><div class="card-title">队列面板</div><div class="card-text">工作人员仪表板，用于实时添加、叫号和管理每位访客。</div></div><div class="card green"><div class="card-icon">📺</div><div class="card-title">电视显示屏</div><div class="card-text">公共屏幕，显示"正在服务"和等候名单，每5秒自动更新。</div></div><div class="card amber"><div class="card-icon">🖥</div><div class="card-title">自助签到台</div><div class="card-text">访客自助签到并获取排队号码的平板电脑。</div></div><div class="card purple"><div class="card-icon">📊</div><div class="card-title">历史与报告</div><div class="card-text">所有访问的完整历史记录，包含等待时间和可打印的日报告。</div></div></div>`},
+    {id:'queue',num:2,title:'队列面板',content:`<p style="color:var(--sub)">导航至<strong>实时队列 → 队列面板</strong>。这是您的主要工作界面。访客以卡片形式显示，按状态分组：<em>等待中</em>、<em>已叫号</em>和<em>服务中</em>。</p>`},
+    {id:'add-visitor',num:3,title:'添加访客',content:`<h3 class="sub-title">方法1 — 前台手动添加</h3><div class="steps"><div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">打开队列面板</div><div class="step-text">导航至<strong>实时队列 → 队列面板</strong>。</div></div></div><div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">点击"新建"</div><div class="step-text">列表顶部出现快速表单。</div></div></div><div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">填写访客信息</div><div class="step-text">输入姓名（必填），选择诊室、科室，必要时设置优先级。</div></div></div><div class="step"><div class="step-dot">4</div><div class="step-body"><div class="step-title">保存</div><div class="step-text">访客立即添加到队列并分配号码。电视屏幕在5秒内更新。</div></div></div></div><h3 class="sub-title">方法2 — 访客在自助台签到</h3><div class="steps"><div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">访客走近自助台</div><div class="step-text">点击"签到"按钮。</div></div></div><div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">选择科室</div><div class="step-text">从选项中选择所需的服务。</div></div></div><div class="step"><div class="step-dot">3</div><div class="step-track"></div><div class="step-body"><div class="step-title">输入姓名</div><div class="step-text">姓名为必填项。电话和就诊原因可选。</div></div></div><div class="step"><div class="step-dot">4</div><div class="step-body"><div class="step-title">获取号码</div><div class="step-text">显示号码、排队位置和预计等待时间。22秒后自动重置。</div></div></div></div>`},
+    {id:'calling',num:4,title:'叫号',content:`<div class="action-grid"><div class="action-card"><div class="action-icon">📢</div><div class="action-body"><div class="action-name">叫号</div><div class="action-desc">在电视屏幕上以动画和语音播报访客的号码。</div></div></div><div class="action-card"><div class="action-icon">▶</div><div class="action-body"><div class="action-name">开始服务</div><div class="action-desc">确认访客已到达服务台，号码移至"正在服务"。</div></div></div><div class="action-card"><div class="action-icon">✔</div><div class="action-body"><div class="action-name">完成</div><div class="action-desc">标记就诊完成并归档到历史记录。</div></div></div><div class="action-card"><div class="action-icon">✗</div><div class="action-body"><div class="action-name">未到场</div><div class="action-desc">已叫号但未响应。</div></div></div></div>`},
+    {id:'status-flow',num:5,title:'状态流程',content:`<table class="status-table"><tr><th>状态</th><th>含义</th><th>显示在电视？</th><th>下一步操作</th></tr><tr><td><span class="badge badge-waiting">等待中</span></td><td>已就座，等待叫号</td><td>是 — 等候名单</td><td>叫号</td></tr><tr><td><span class="badge badge-called">已叫号</span></td><td>已广播，正在前往服务台</td><td>是 — "请前往"</td><td>开始服务</td></tr><tr><td><span class="badge badge-service">服务中</span></td><td>就诊进行中</td><td>是 — "正在服务"</td><td>完成</td></tr><tr><td><span class="badge badge-done">已完成</span></td><td>就诊结束</td><td>否</td><td>—</td></tr><tr><td><span class="badge badge-noshow">未到场</span></td><td>叫号但未响应</td><td>否</td><td>重新排队</td></tr></table>`},
+    {id:'priority',num:6,title:'优先级',content:`<div class="prio-grid"><div class="prio-card" style="border-left:3px solid var(--dim)"><div class="prio-label">普通</div><div class="prio-desc">默认。按到达顺序服务。</div></div><div class="prio-card" style="border-left:3px solid var(--amber)"><div class="prio-label" style="color:var(--amber)">↑ 优先</div><div class="prio-desc">在普通访客之前服务。适用于老年人或有预约的患者。</div></div><div class="prio-card" style="border-left:3px solid var(--red)"><div class="prio-label" style="color:var(--red)">⚡ 紧急</div><div class="prio-desc">在优先级之前服务。适用于紧急情况。</div></div><div class="prio-card" style="border-left:3px solid var(--purple)"><div class="prio-label" style="color:var(--purple)">★ 贵宾</div><div class="prio-desc">最高优先级。在当前患者结束后立即服务。</div></div></div>`},
+    {id:'display',num:7,title:'电视显示屏',content:`<div class="steps"><div class="step"><div class="step-dot">1</div><div class="step-track"></div><div class="step-body"><div class="step-title">打开候诊室设置</div><div class="step-text">导航至<strong>诊室 → 候诊室</strong>并打开您的诊室。</div></div></div><div class="step"><div class="step-dot">2</div><div class="step-track"></div><div class="step-body"><div class="step-title">复制显示URL</div><div class="step-text">点击<strong>📺 TV Display</strong>按钮或从"显示URL"字段复制链接。</div></div></div><div class="step"><div class="step-dot">3</div><div class="step-body"><div class="step-title">在电视上打开</div><div class="step-text">将URL粘贴到屏幕浏览器中。按F11启用全屏模式。</div></div></div></div><div class="tip success"><div class="tip-icon">🔊</div><div class="tip-text">叫号时自动播放语音播报。请确保电视屏幕的浏览器已开启声音。</div></div>`},
+    {id:'kiosk',num:8,title:'自助签到台',content:`<p style="color:var(--sub)">从您的候诊室获取自助台URL，在入口处的平板上打开，访客可以通过4个简单步骤完成签到：点击"签到" → 选择科室 → 输入姓名 → 获取号码。</p>`},
+    {id:'history',num:9,title:'访问历史',content:`<p style="color:var(--sub)">导航至<strong>实时队列 → 访问历史</strong>。查看所有完成、未到场和已取消的访问记录。使用搜索栏按日期、诊室、科室或姓名筛选。</p>`},
+    {id:'report',num:10,title:'日报告',content:`<p style="color:var(--sub)">打开您的候诊室，点击<strong>打印 → 每日队列报告</strong>。PDF包含当天服务总人数、平均等待时间和完整访问表格。</p>`},
+    {id:'settings',num:11,title:'设置',content:`<table class="settings-table"><tr><th>设置项</th><th>默认值</th><th>说明</th></tr><tr><td>语音播报</td><td>开启</td><td>叫号时自动播放语音播报。</td></tr><tr><td>显示预计等待时间</td><td>开启</td><td>在电视和自助台上显示预计等待分钟数。</td></tr><tr><td>自动标记未到场（分钟）</td><td>10分钟</td><td>如果"已叫号"的访客在此时间内未响应，自动标记为未到场。</td></tr><tr><td>超时提醒阈值</td><td>45分钟</td><td>等待超过此时间的访客以红色高亮显示。</td></tr></table>`},
+    {id:'tips',num:12,title:'使用技巧',content:`<div class="tip success"><div class="tip-icon">✅</div><div class="tip-text">始终在专用屏幕上以全屏模式（F11）打开显示屏。</div></div><div class="tip success"><div class="tip-icon">✅</div><div class="tip-text">在诊所开门前测试语音播报功能。</div></div><div class="tip warn"><div class="tip-icon">⚠</div><div class="tip-text">显示URL和自助台URL不需要登录即可访问。请勿公开分享，仅在诊所内的专用设备上使用。</div></div>`},
+  ]
+},
+
+};
+
+// ═══════════════════════════════════════════════════════════════════
+// LANGUAGE DETECTION
+// Priority: 1) Odoo user language (injected by server)
+//           2) URL param ?lang=xx  (for testing)
+//           3) browser navigator.language (last resort fallback)
+// ═══════════════════════════════════════════════════════════════════
+
+// Placeholder replaced by the controller with the actual Odoo user lang
+var ODOO_LANG = null;
+
+function detectLang(){
+  var map = {
+    en:'en', fr:'fr', ar:'ar', es:'es',
+    de:'de', pt:'pt', zh:'zh',
+    'zh-cn':'zh','zh-tw':'zh','zh-hk':'zh'
+  };
+
+  // 1 — Odoo server-injected lang (most reliable)
+  if(ODOO_LANG && LANGS[ODOO_LANG]) return ODOO_LANG;
+
+  // 2 — URL override: ?lang=fr  (useful for testing without Odoo)
+  var urlParams = new URLSearchParams(window.location.search);
+  var urlLang = (urlParams.get('lang') || '').toLowerCase();
+  if(urlLang && LANGS[urlLang]) return urlLang;
+
+  // 3 — Browser language (least reliable — reflects OS, not Odoo UI)
+  var nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  return map[nav.split('-')[0]] || map[nav] || 'en';
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════════════════════════════
+function render(){
+  var lang = detectLang();
+  var L = LANGS[lang] || LANGS['en'];
+
+  document.documentElement.lang = lang;
+  document.documentElement.dir  = L.dir || 'ltr';
+
+  // Header
+  document.getElementById('mh-title').textContent = L.header.title;
+  document.getElementById('mh-sub').textContent   = L.header.sub;
+
+  // TOC
+  var toc = document.getElementById('toc');
+  toc.innerHTML = '<div class="toc-section-title">' + L.header.sub + '</div>' +
+    L.toc.map(function(item){
+      return '<a class="toc-link" href="#'+item.id+'" onclick="setActive(this)">'+item.title+'</a>';
+    }).join('');
+
+  // Content
+  var content = document.getElementById('content');
+
+  // Hero
+  var chips = L.hero.chips.map(function(c){ return '<span class="chip">'+c+'</span>'; }).join('');
+  var hero = '<div class="hero"><h1>'+L.hero.title+'</h1><p>'+L.hero.desc+'</p><div class="chips">'+chips+'</div></div>';
+
+  // Sections
+  var sections = L.sections.map(function(s){
+    return '<section class="section" id="'+s.id+'">' +
+      '<div class="section-header"><div class="section-num">'+s.num+'</div><div class="section-title">'+s.title+'</div></div>' +
+      s.content +
+      '</section>';
+  }).join('');
+
+  content.innerHTML = hero + sections +
+    '<div class="manual-footer">Smart Waiting Room · Odoo 19 · v1.0.0 · © 2025 Smart Dental Suite</div>';
+}
+
+// ── TOC active link ─────────────────────────────────────────────
+function setActive(el){
+  document.querySelectorAll('.toc-link').forEach(function(a){ a.classList.remove('active'); });
+  el.classList.add('active');
+}
+
+// Auto-highlight on scroll
+var observer = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      var id = e.target.id;
+      document.querySelectorAll('.toc-link').forEach(function(a){
+        a.classList.toggle('active', a.getAttribute('href') === '#'+id);
+      });
+    }
+  });
+}, {threshold:0.3, rootMargin:'-60px 0px -60% 0px'});
+
+render();
+
+// Observe after render
+setTimeout(function(){
+  document.querySelectorAll('.section').forEach(function(s){ observer.observe(s); });
+}, 100);
+
+</script>
+</body>
+</html>
