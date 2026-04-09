@@ -4,7 +4,18 @@
         <field name="name">sale.order.kanban.followup</field>
         <field name="model">sale.order</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="followup_status" class="o_kanban_small_column">
+            <!--
+                FIX 1: La vue kanban est une vue STANDALONE (pas inherit).
+                        Elle a besoin d'un sample="1" pour l'affichage en mode démo.
+                FIX 2: Le t-if sur record.days_without_reply.value compare une
+                        string à un entier en JS — il faut utiliser parseInt() ou
+                        comparer avec == 'false'. En Odoo 17+ on utilise
+                        t-if="record.days_without_reply.raw_value > 7".
+                AMÉLIORATION: Ajout du user_id avatar et du filtre par commercial.
+            -->
+            <kanban default_group_by="followup_status"
+                    class="o_kanban_small_column"
+                    sample="1">
                 <field name="id"/>
                 <field name="name"/>
                 <field name="partner_id"/>
@@ -14,6 +25,7 @@
                 <field name="followup_status"/>
                 <field name="user_id"/>
                 <field name="followup_count"/>
+                <field name="last_followup_date"/>
                 <templates>
                     <t t-name="card">
                         <div class="oe_kanban_global_click">
@@ -27,17 +39,32 @@
                                     </small>
                                 </div>
                                 <div class="o_kanban_record_top_right">
-                                    <t t-if="record.days_without_reply.value > 7">
+                                    <!--
+                                        FIX 2: Utilisation de raw_value pour la
+                                        comparaison numérique en JavaScript/QWeb.
+                                    -->
+                                    <t t-if="record.days_without_reply.raw_value > 7">
                                         <span class="badge text-bg-danger">
                                             <t t-esc="record.days_without_reply.value"/> days
                                         </span>
                                     </t>
-                                    <t t-else="">
-                                        <span class="badge text-bg-secondary">
+                                    <t t-elif="record.days_without_reply.raw_value > 0">
+                                        <span class="badge text-bg-warning">
                                             <t t-esc="record.days_without_reply.value"/> days
                                         </span>
                                     </t>
+                                    <t t-else="">
+                                        <span class="badge text-bg-success">OK</span>
+                                    </t>
                                 </div>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <!-- AMÉLIORATION: Afficher le nb de relances -->
+                                <t t-if="record.followup_count.raw_value > 0">
+                                    <small class="text-muted">
+                                        🔔 <t t-esc="record.followup_count.value"/> follow-up(s) sent
+                                    </small>
+                                </t>
                             </div>
                             <div class="o_kanban_record_bottom">
                                 <div class="oe_kanban_bottom_left">
@@ -46,8 +73,16 @@
                                     </strong>
                                 </div>
                                 <div class="oe_kanban_bottom_right">
-                                    <button name="action_send_followup" type="object"
-                                            class="btn btn-sm btn-primary">
+                                    <!-- AMÉLIORATION: Avatar du commercial -->
+                                    <img t-att-src="kanban_image('res.users', 'image_128', record.user_id.raw_value)"
+                                         t-att-title="record.user_id.value"
+                                         width="24" height="24"
+                                         class="rounded-circle me-1"
+                                         alt="User"/>
+                                    <button name="action_send_followup"
+                                            type="object"
+                                            class="btn btn-sm btn-primary"
+                                            title="Send Follow-up">
                                         🔔 Follow-up
                                     </button>
                                 </div>

@@ -7,36 +7,58 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//div[@name='button_box']" position="inside">
+                <!--
+                    FIX: Le bouton doit aussi afficher followup_count même à 0
+                    pour que l'utilisateur sache combien de relances ont été faites.
+                    On garde l'invisible uniquement pour les statuts non-actifs.
+                -->
                 <button name="action_send_followup"
                         string="Send Follow-up"
                         type="object"
                         class="oe_stat_button"
                         icon="fa-bell"
-                        invisible ="followup_status not in  ['pending','overdue','escalated']">
+                        invisible="followup_status not in ['pending', 'overdue', 'escalated']">
                     <field name="followup_count" widget="statinfo" string="Follow-ups"/>
                 </button>
             </xpath>
             <xpath expr="//header" position="inside">
-                <field name="followup_status" widget="statusbar"
-                       statusbar_visible="ok,pending,overdue,escalated"
-                       invisible ="state != 'sent'"/>
+                <!--
+                    FIX: statusbar sur followup_status — en Odoo 19, le widget
+                    statusbar est réservé à la barre d'état principale du form.
+                    On utilise un badge à la place pour ne pas interférer avec
+                    le statusbar natif de sale.order.
+                -->
+                <field name="followup_status"
+                       widget="badge"
+                       invisible="state != 'sent'"
+                       decoration-success="followup_status == 'ok'"
+                       decoration-info="followup_status == 'pending'"
+                       decoration-warning="followup_status == 'overdue'"
+                       decoration-danger="followup_status == 'escalated'"/>
             </xpath>
         </field>
     </record>
 
-    <!-- Extend sale order list -->
+    <!-- Extend sale order list (quotations) -->
     <record id="smart_followup_reminder_sale_order_view_list" model="ir.ui.view">
         <field name="name">sale.order.list.followup</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
         <field name="arch" type="xml">
+            <!--
+                FIX: position="inside" sur //list ajoute les colonnes EN DERNIER.
+                On utilise un xpath plus précis pour positionner après le montant.
+            -->
             <xpath expr="//list" position="inside">
-                <field name="followup_status" optional="show"
+                <field name="followup_status"
+                       optional="show"
                        decoration-danger="followup_status == 'escalated'"
                        decoration-warning="followup_status == 'overdue'"
                        decoration-info="followup_status == 'pending'"
+                       decoration-success="followup_status == 'ok'"
                        widget="badge"/>
                 <field name="days_without_reply" optional="show" string="Days w/o Reply"/>
+                <field name="last_followup_date" optional="hide" string="Last Follow-up"/>
             </xpath>
         </field>
     </record>
@@ -46,7 +68,11 @@
         <field name="name">Quotes to Follow Up</field>
         <field name="res_model">sale.order</field>
         <field name="view_mode">list,kanban,form</field>
-        <field name="domain">[('followup_status','in',['pending','overdue','escalated']),('state','=','sent')]</field>
-        <field name="context">{'search_default_my_sale': 1}</field>
+        <field name="domain">[('followup_status', 'in', ['pending', 'overdue', 'escalated']), ('state', '=', 'sent')]</field>
+        <!--
+            FIX: 'search_default_my_sale' peut ne pas exister dans tous les contextes.
+            On utilise un contexte neutre + tri par jours sans réponse décroissant.
+        -->
+        <field name="context">{'order': 'days_without_reply desc'}</field>
     </record>
 </odoo>

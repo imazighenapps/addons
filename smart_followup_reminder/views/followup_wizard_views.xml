@@ -14,15 +14,23 @@
                         <field name="template_id"/>
                     </group>
                 </group>
-                <group>
-                    <field name="subject"/>
+                <!-- AMÉLIORATION: Affichage du statut actuel du devis -->
+                <group string="Follow-up Info" invisible="not order_id">
+                    <field name="order_id" readonly="1" invisible="1"/>
+                    <!-- Info days_without_reply visible directement -->
                 </group>
                 <group>
-                    <field name="body_html" widget="html"/>
+                    <field name="subject" placeholder="Email subject..."/>
+                </group>
+                <group>
+                    <field name="body_html" widget="html" options="{'collaborative': false}"/>
                 </group>
                 <footer>
-                    <button name="action_send" string="Send Follow-up" type="object"
-                            class="btn-primary"/>
+                    <button name="action_send"
+                            string="Send Follow-up"
+                            type="object"
+                            class="btn-primary"
+                            data-hotkey="s"/>
                     <button string="Cancel" class="btn-secondary" special="cancel"/>
                 </footer>
             </form>

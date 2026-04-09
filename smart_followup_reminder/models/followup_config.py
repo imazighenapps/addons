@@ -9,6 +9,8 @@ class FollowupConfig(models.Model):
     _name = 'followup.config'
     _description = 'Follow-up Configuration'
     _rec_name = 'name'
+    # FIX: Ajout d'un ordre par défaut pour un affichage cohérent
+    _order = 'team_id, name'
 
     name = fields.Char(string='Configuration Name', required=True)
     team_id = fields.Many2one(
@@ -36,6 +38,36 @@ class FollowupConfig(models.Model):
     )
     active = fields.Boolean(string='Active', default=True)
 
+    # FIX CRITIQUE: _() ne peut pas être appelé au niveau de la classe (hors méthode).
+    # En Odoo, les messages de contrainte SQL doivent être des chaînes brutes
+    # ou utiliser une lambda. Utilisation d'une chaîne statique ici (bonne pratique).
     _sql_constraints = [
-        ('unique_team', 'UNIQUE(team_id)', _('A configuration already exists for this sales team.'))
+        (
+            'unique_team',
+            'UNIQUE(team_id)',
+            'A configuration already exists for this sales team.'
+        )
     ]
+
+    @api.constrains('delay_1', 'delay_2', 'delay_3')
+    def _check_delays(self):
+        """FIX/AMÉLIORATION: Valider la cohérence des délais."""
+        for rec in self:
+            if rec.delay_1 <= 0 or rec.delay_2 <= 0 or rec.delay_3 <= 0:
+                raise models.ValidationError(
+                    _('All delay values must be strictly positive.')
+                )
+            if not (rec.delay_1 < rec.delay_2 < rec.delay_3):
+                raise models.ValidationError(
+                    _('Delays must be in increasing order: '
+                      '1st Reminder < 2nd Reminder < Manager Escalation.')
+                )
+
+    @api.constrains('min_amount')
+    def _check_min_amount(self):
+        """AMÉLIORATION: Empêcher un montant minimum négatif."""
+        for rec in self:
+            if rec.min_amount < 0:
+                raise models.ValidationError(
+                    _('Minimum amount cannot be negative.')
+                )
