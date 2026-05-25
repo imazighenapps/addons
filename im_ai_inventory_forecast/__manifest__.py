@@ -22,7 +22,7 @@ Features:
     'author': 'Farid SLIMANI',
     'website': 'imazighenapps@gmail.com',
     'license': 'OPL-1',
-    'price': 249.00,
+    'price': 49.00,
     'currency': 'EUR',
     
     'depends': [
