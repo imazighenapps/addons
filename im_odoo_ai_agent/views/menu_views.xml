@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <menuitem id="menu_ai_agent_root"
+              name="AI Agent"
+              sequence="90"
+              web_icon="im_odoo_ai_agent,static/description/icon.png"/>
+
+    
+    <menuitem id="menu_ai_chat"
+              name="💬 AI Assistant"
+              parent="menu_ai_agent_root"
+              action="action_ai_chat"
+              sequence="10"/>
+
+    
+    <menuitem id="menu_ai_chat_sessions"
+              name="📋 History"
+              parent="menu_ai_agent_root"
+              action="action_ai_chat_sessions"
+              sequence="20"/>
+
+    
+    <menuitem id="menu_ai_agent_config"
+              name="⚙️ AI Configuration"
+              parent="menu_ai_agent_root"
+              action="action_ai_agent_config"
+              sequence="30"
+              groups="im_odoo_ai_agent.group_ai_agent_manager"/>
+</odoo>

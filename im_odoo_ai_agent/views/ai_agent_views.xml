@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="view_ai_agent_config_form" model="ir.ui.view">
+        <field name="name">ai.agent.config.form</field>
+        <field name="model">ai.agent.config</field>
+        <field name="arch" type="xml">
+            <form string="AI Agent Configuration">
+                <header>
+                    <button name="action_load_model" type="object"
+                            string="🚀 Load / Connect"
+                            class="btn-primary"
+                            invisible="status == 'ready'"/>
+                    <button name="action_unload_model" type="object"
+                            string="⏹ Unload"
+                            class="btn-secondary"
+                            invisible="status != 'ready'"/>
+                    <field name="status" widget="statusbar"
+                           statusbar_visible="not_loaded,loading,ready,error"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+
+                    
+                    <group string="AI Backend">
+                        <field name="backend" widget="radio"/>
+                        <field name="language"/>
+                    </group>
+
+                    
+                    <group string="GPT4All – Local Model" invisible="backend != 'gpt4all'">
+                        <group>
+                            <field name="model_name"
+                                   placeholder="Meta-Llama-3-8B-Instruct.Q4_0.gguf"/>
+                            <field name="model_path"
+                                   placeholder="/root/.local/share/nomic.ai/GPT4All/"/>
+                            <field name="device"/>
+                            <field name="n_threads"/>
+                            <field name="n_ctx"/>
+                        </group>
+                        <group string="Generation">
+                            <field name="max_tokens"/>
+                            <field name="temperature"/>
+                            <field name="top_p"/>
+                        </group>
+                    </group>
+
+                    
+                    <group string="Ollama – Local Server" invisible="backend != 'ollama'">
+                        <group>
+                            <field name="ollama_url"
+                                   placeholder="http://localhost:11434"/>
+                            <field name="ollama_model"
+                                   placeholder="llama3, mistral, phi3, gemma2…"/>
+                        </group>
+                        <group string="Generation">
+                            <field name="max_tokens"/>
+                            <field name="temperature"/>
+                            <field name="top_p"/>
+                        </group>
+                    </group>
+
+                    <div class="alert alert-info" invisible="backend != 'ollama'" role="alert">
+                        <strong>💡 Ollama Prerequisites:</strong>
+                        Install Ollama from <a href="https://ollama.com" target="_blank">ollama.com</a>,
+                        run <code>ollama serve</code>, then download your model with
+                        <code>ollama pull llama3</code> (or the name of your choice).
+                        Then click <strong>Load / Connect</strong> to verify the connection.
+                    </div>
+
+                    <div class="alert alert-info" invisible="backend != 'gpt4all'" role="alert">
+                        <strong>💡 GPT4All Prerequisites:</strong>
+                        Install the library with <code>pip install gpt4all</code>.
+                        Download a .gguf model from
+                        <a href="https://gpt4all.io" target="_blank">gpt4all.io</a>
+                        and enter its path above.
+                    </div>
+
+                    
+                    <group string="Cloud API – API Key Required"
+                           invisible="backend not in ('openai', 'anthropic', 'gemini', 'openai_compat')">
+                        <group>
+                            <field name="api_key" password="True"
+                                   placeholder="sk-… / sk-ant-… / AIza…"/>
+                            <field name="api_model"
+                                   placeholder="gpt-4o-mini / claude-haiku-4-5-20251001 / gemini-2.0-flash"/>
+                            <field name="api_base_url"
+                                   placeholder="https://api.mistral.ai/v1  (empty = official OpenAI)"
+                                   invisible="backend != 'openai_compat'"/>
+                        </group>
+                        <group string="Generation">
+                            <field name="max_tokens"/>
+                            <field name="temperature"/>
+                            <field name="top_p"/>
+                        </group>
+                    </group>
+
+                    <div class="alert alert-success"
+                         invisible="backend not in ('openai', 'anthropic', 'gemini', 'openai_compat')"
+                         role="alert">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <strong>☁️ Cloud API Backend</strong> – No local installation required.
+                                Get your API key from:
+                                <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI</a> ·
+                                <a href="https://console.anthropic.com/" target="_blank">Anthropic</a> ·
+                                <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>
+                            </div>
+                            <button name="action_test_api_connection" type="object"
+                                    string="🧪 Test Connection"
+                                    class="btn btn-sm btn-outline-success ms-3"/>
+                        </div>
+                    </div>
+
+                    <notebook>
+                        <page string="System Prompt">
+                            <field name="system_prompt" widget="text"
+                                   placeholder="Instructions for the AI agent…"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    
+    <record id="view_ai_agent_config_tree" model="ir.ui.view">
+        <field name="name">ai.agent.config.list</field>
+        <field name="model">ai.agent.config</field>
+        <field name="arch" type="xml">
+            <list string="AI Configurations">
+                <field name="name"/>
+                <field name="backend" widget="badge"
+                       decoration-info="backend == 'ollama'"
+                       decoration-success="backend == 'gpt4all'"
+                       decoration-primary="backend in ('openai', 'anthropic', 'gemini', 'openai_compat')"/>
+                <field name="api_model"    optional="show"/>
+                <field name="ollama_model" optional="show"/>
+                <field name="model_name"   optional="show"/>
+                <field name="language"/>
+                <field name="status" widget="badge"
+                       decoration-success="status == 'ready'"
+                       decoration-warning="status == 'loading'"
+                       decoration-danger="status == 'error'"
+                       decoration-muted="status == 'not_loaded'"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    
+    <record id="action_ai_agent_config" model="ir.actions.act_window">
+        <field name="name">AI Agent Configuration</field>
+        <field name="res_model">ai.agent.config</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Configure your local AI Agent
+            </p>
+            <p>
+                Choose between <strong>GPT4All</strong> (in-memory .gguf model)
+                and <strong>Ollama</strong> (local HTTP server, recommended).
+            </p>
+        </field>
+    </record>
+</odoo>

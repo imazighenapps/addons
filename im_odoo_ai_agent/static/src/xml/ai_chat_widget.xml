@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+
+<t t-name="ai_agent.ChatMessage">
+    <div t-attf-class="ai-message ai-message--{{ props.message.role }} {{ props.message.is_error ? 'ai-message--error' : '' }} {{ props.message.is_typing ? 'ai-message--typing' : '' }}">
+
+        
+        <div class="ai-message__avatar">
+            <t t-if="props.message.role === 'assistant'">
+                <div class="ai-avatar ai-avatar--bot">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+                        <circle cx="17" cy="8" r="1" fill="currentColor"/>
+                        <circle cx="7" cy="8" r="1" fill="currentColor"/>
+                        <path d="M9 20h6" stroke-linecap="round"/>
+                        <path d="M12 20v2"/>
+                    </svg>
+                </div>
+            </t>
+            <t t-else="">
+                <div class="ai-avatar ai-avatar--user">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+            </t>
+        </div>
+
+        
+        <div class="ai-message__bubble">
+
+            
+            <t t-if="props.message.role === 'assistant' and props.message.is_streaming and props.message.steps and props.message.steps.length > 0">
+                <div class="ai-steps-block">
+                    <div class="ai-steps-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="ai-steps-icon ai-steps-icon--spin">
+                            <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+                        </svg>
+                        <span>Thinking...</span>
+                    </div>
+                    <div class="ai-step-current" t-esc="props.message.steps[props.message.steps.length - 1]"/>
+                    <t t-if="props.message.is_thinking">
+                        <div class="ai-step-item ai-step-thinking">
+                            <span class="ai-thinking-dots"><span/><span/><span/></span>
+                        </div>
+                    </t>
+                </div>
+            </t>
+
+            
+            <t t-if="props.message.is_typing &amp;&amp; !props.message.is_streaming">
+                <div class="ai-typing-indicator">
+                    <span/><span/><span/>
+                </div>
+            </t>
+            <t t-elif="props.message.content or props.message.is_streaming">
+                <div class="ai-message__content" t-raw="formattedContent"/>
+                
+                <t t-if="props.message.is_streaming and props.message.content">
+                    <span class="ai-stream-cursor"/>
+                </t>
+            </t>
+
+            <div class="ai-message__meta">
+                <span t-if="props.message.role === 'assistant'" class="ai-message__sender">AI Agent</span>
+                <span t-if="formattedTime" class="ai-message__time" t-esc="formattedTime"/>
+                <span t-if="props.message.role === 'assistant' and responseTimeLabel"
+                      class="ai-message__time"
+                      t-esc="responseTimeLabel"/>
+            </div>
+
+        </div>
+    </div>
+</t>
+
+<t t-name="ai_agent.ChatInterface">
+    <div class="ai-chat-root">
+
+        
+        <aside t-attf-class="ai-sidebar {{ state.showSidebar ? 'ai-sidebar--open' : 'ai-sidebar--closed' }}">
+            <div class="ai-sidebar__header">
+                <div class="ai-sidebar__logo">
+                    <svg class="ai-logo-icon" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="8" fill="url(#grad1)"/>
+                        <defs>
+                            <linearGradient id="grad1" x1="0" y1="0" x2="32" y2="32">
+                                <stop offset="0%" stop-color="#6366f1"/>
+                                <stop offset="100%" stop-color="#8b5cf6"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="16" cy="12" r="5" fill="white" opacity="0.9"/>
+                        <circle cx="11" cy="11" r="1.5" fill="#6366f1"/>
+                        <circle cx="21" cy="11" r="1.5" fill="#6366f1"/>
+                        <path d="M10 22c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+                    </svg>
+                    <span class="ai-sidebar__title">AI Agent</span>
+                </div>
+            </div>
+
+            <button class="ai-new-chat-btn" t-on-click="onNewChat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M12 5v14M5 12h14" stroke-linecap="round"/>
+                </svg>
+                New conversation
+            </button>
+
+            <div class="ai-sessions-list">
+                <div class="ai-sessions-group-label">Recent Conversations</div>
+                <t t-foreach="state.sessions" t-as="session" t-key="session.id">
+                    <div t-attf-class="ai-session-item {{ session.id === state.currentSessionId ? 'ai-session-item--active' : '' }}"
+                         t-on-click="() => this.onSessionClick(session.id)">
+                        <svg class="ai-session-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        <span class="ai-session-title" t-esc="session.title"/>
+                        <button class="ai-session-delete"
+                                t-on-click="(e) => this.onDeleteSession(session.id, e)"
+                                title="Delete">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </t>
+            </div>
+
+            <div class="ai-sidebar__footer">
+                <div t-attf-class="ai-model-status ai-model-status--{{ state.modelStatus }}">
+                    <span class="ai-model-status__dot"/>
+                    <span class="ai-model-status__label" t-esc="statusLabel"/>
+                </div>
+                <t t-if="state.modelStatus === 'not_loaded'">
+                    <button class="ai-load-model-btn" t-on-click="() => this._loadModel()">
+                        Load model
+                    </button>
+                </t>
+                <t t-if="state.lastResponseTime > 0">
+                    <div class="ai-response-time">
+                        ⚡ Last: <t t-esc="state.lastResponseTime"/>s
+                    </div>
+                </t>
+            </div>
+        </aside>
+
+        
+        <main class="ai-main">
+
+            <header class="ai-chat-header">
+                <button class="ai-toggle-sidebar" t-on-click="toggleSidebar" title="Toggle sidebar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                <div class="ai-chat-header__info">
+                    <h2 class="ai-chat-header__title">
+                        <t t-if="currentSession"><t t-esc="currentSession.title"/></t>
+                        <t t-else="">Odoo AI Assistant</t>
+                    </h2>
+                    <span class="ai-chat-header__subtitle"
+                          t-esc="state.modelName ? ('Model: ' + state.modelName) : 'Ask your question to the AI agent'"/>
+                </div>
+                <div class="ai-chat-header__actions">
+                    <button class="ai-header-btn" t-on-click="onNewChat" title="New conversation">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <div class="ai-messages-container">
+
+                <t t-if="state.messages.length === 0">
+                    <div class="ai-welcome">
+                        <div class="ai-welcome__icon">
+                            <svg viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="32" fill="url(#welcomeGrad)"/>
+                                <defs>
+                                    <linearGradient id="welcomeGrad" x1="0" y1="0" x2="64" y2="64">
+                                        <stop offset="0%" stop-color="#6366f1"/>
+                                        <stop offset="100%" stop-color="#8b5cf6"/>
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="32" cy="24" r="10" fill="white" opacity="0.95"/>
+                                <circle cx="24" cy="22" r="2.5" fill="#6366f1"/>
+                                <circle cx="40" cy="22" r="2.5" fill="#6366f1"/>
+                                <path d="M25 44c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.95"/>
+                            </svg>
+                        </div>
+                        <h1 class="ai-welcome__title">Hello! I am your AI Agent</h1>
+                        <p class="ai-welcome__subtitle">
+                            I can analyze your Odoo data and answer all your questions
+                            about sales, invoices, stock, HR, projects, and much more.
+                        </p>
+                        <t t-if="state.suggestions.length > 0 and state.showSuggestions">
+                            <div class="ai-suggestions">
+                                <div class="ai-suggestions__label">💡 Frequently Asked Questions</div>
+                                <div class="ai-suggestions__grid">
+                                    <t t-foreach="state.suggestions" t-as="sugg" t-key="sugg">
+                                        <button class="ai-suggestion-chip"
+                                                t-on-click="() => this.onSuggestionClick(sugg)"
+                                                t-esc="sugg"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+
+                
+                <t t-foreach="state.messages" t-as="msg" t-key="msg.id">
+                    <t t-if="msg and msg.role">
+                        <ChatMessage message="msg"/>
+                    </t>
+                </t>
+
+                <div t-ref="messagesEnd" class="ai-scroll-anchor"/>
+            </div>
+
+            <div class="ai-input-area">
+                <t t-if="state.modelStatus === 'not_loaded' or state.modelStatus === 'not_installed'">
+                    <div class="ai-input-warning">
+                        <t t-if="state.modelStatus === 'not_installed'">
+                            ⚠️ GPT4All is not installed. Run: <code>pip install gpt4all</code>
+                        </t>
+                        <t t-elif="state.backend === 'ollama'">
+                            ⚠️ Ollama is not connected.
+                            <button class="ai-inline-btn" t-on-click="() => this._loadModel()">Connect now</button>
+                            · Make sure <code>ollama serve</code> is running.
+                        </t>
+                        <t t-else="">
+                            ⚠️ The AI model is not loaded yet.
+                            <button class="ai-inline-btn" t-on-click="() => this._loadModel()">Load now</button>
+                        </t>
+                    </div>
+                </t>
+
+                <div class="ai-input-box">
+                    <textarea
+                        t-ref="chatInput"
+                        class="ai-textarea"
+                        placeholder="Ask your question... (e.g. Unpaid invoices this month)"
+                        rows="1"
+                        t-att-disabled="state.isLoading"
+                        t-att-value="state.inputText"
+                        t-on-input="onInputChange"
+                        t-on-keydown="onInputKeydown"
+                    />
+                    <button
+                        class="ai-send-btn"
+                        t-att-disabled="!canSend"
+                        t-on-click="() => this.sendMessage()"
+                        title="Send (Enter)">
+                        <t t-if="state.isLoading">
+                            <div class="ai-spinner"/>
+                        </t>
+                        <t t-else="">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </t>
+                    </button>
+                </div>
+                <div class="ai-input-hint">
+                    Press <kbd>Entrée</kbd> to send · <kbd>Maj+Entrée</kbd> for a new line
+                </div>
+            </div>
+        </main>
+    </div>
+</t>
+
+</templates>
