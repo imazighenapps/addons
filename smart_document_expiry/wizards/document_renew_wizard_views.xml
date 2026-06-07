@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_document_renew_wizard_form" model="ir.ui.view">
+        <field name="name">document.renew.wizard.form</field>
+        <field name="model">document.renew.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Renew Document">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>🔄 Renew Document</h1>
+                    </div>
+                    <group string="Previous Document">
+                        <field name="document_id" readonly="1"/>
+                        <field name="entity_type" readonly="1" invisible="1"/>
+                        <field name="person_id"  readonly="1" invisible="entity_type != 'person'"/>
+                        <field name="partner_id"   readonly="1" invisible="entity_type != 'vendor'"/>
+                        <field name="vehicle_id"   readonly="1" invisible="entity_type != 'vehicle'"/>
+                        <field name="equipment_id" readonly="1" invisible="entity_type != 'equipment'"/>
+                    </group>
+                    <group string="New Document Details">
+                        <group>
+                            <field name="name" placeholder="e.g. Work Permit 2025"/>
+                            <field name="reference" placeholder="Official document number"/>
+                            <field name="document_type_id"/>
+                        </group>
+                        <group>
+                            <field name="issue_date"/>
+                            <field name="expiry_date" required="1"/>
+                            <field name="responsible_id"/>
+                        </group>
+                    </group>
+                    <group string="Attachments">
+                        <field name="attachment_ids" widget="many2many_binary" colspan="2"/>
+                    </group>
+                    <group string="Renewal Notes">
+                        <field name="notes" nolabel="1" colspan="2"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_confirm_renewal"
+                            string="✅ Confirm Renewal"
+                            type="object"
+                            class="btn-primary"
+                            data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ── Root Menu ─────────────────────────────────────── -->
+    <menuitem id="menu_document_expiry_root"
+              name="Document Expiry"
+              web_icon="smart_document_expiry,static/description/icon.png"
+              sequence="75"/>
+
+    <!-- ── Dashboard ──────────────────────────────────────── -->
+    <menuitem id="menu_document_expiry_dashboard"
+              name="Dashboard"
+              parent="menu_document_expiry_root"
+              action="action_document_expiry_dashboard"
+              sequence="1"/>
+
+    <!-- ── Documents ──────────────────────────────────────── -->
+    <menuitem id="menu_document_expiry_docs"
+              name="Documents"
+              parent="menu_document_expiry_root"
+              sequence="10"/>
+
+    <menuitem id="menu_document_expiry_all"
+              name="All Documents"
+              parent="menu_document_expiry_docs"
+              action="action_document_expiry"
+              sequence="1"/>
+
+    <menuitem id="menu_document_expiry_expired"
+              name="🔴 Expired"
+              parent="menu_document_expiry_docs"
+              action="action_document_expiry_expired"
+              sequence="2"/>
+
+    <menuitem id="menu_document_expiry_soon"
+              name="🟠 Expiring Soon"
+              parent="menu_document_expiry_docs"
+              action="action_document_expiry_soon"
+              sequence="3"/>
+
+    <!-- ── Entities ───────────────────────────────────────── -->
+    <menuitem id="menu_document_expiry_entities"
+              name="Entities"
+              parent="menu_document_expiry_root"
+              sequence="20"/>
+
+    <menuitem id="menu_document_persons"
+              name="👤 Persons"
+              parent="menu_document_expiry_entities"
+              action="action_document_person"
+              sequence="1"/>
+
+    <menuitem id="menu_document_partners"
+              name="🏢 Vendors / Partners"
+              parent="menu_document_expiry_entities"
+              action="action_document_partner"
+              sequence="2"/>
+
+    <menuitem id="menu_document_vehicles"
+              name="🚗 Vehicles"
+              parent="menu_document_expiry_entities"
+              action="action_document_vehicle"
+              sequence="3"/>
+
+    <menuitem id="menu_document_equipment"
+              name="⚙️ Equipment"
+              parent="menu_document_expiry_entities"
+              action="action_document_equipment"
+              sequence="4"/>
+
+    <!-- ── Reporting ──────────────────────────────────────── -->
+    <menuitem id="menu_document_expiry_reporting"
+              name="Reporting"
+              parent="menu_document_expiry_root"
+              sequence="30"/>
+
+    <menuitem id="menu_document_expiry_analytics"
+              name="Analytics"
+              parent="menu_document_expiry_reporting"
+              action="action_document_expiry_analytics"
+              sequence="1"/>
+
+    <!-- <menuitem id="menu_document_expiry_report"
+              name="Compliance Report (PDF)"
+              parent="menu_document_expiry_reporting"
+              action="action_document_expiry_compliance_report"
+              sequence="2"/> -->
+
+    <!-- ── Configuration ──────────────────────────────────── -->
+    <menuitem id="menu_document_expiry_config"
+              name="Configuration"
+              parent="menu_document_expiry_root"
+              sequence="90"
+              groups="smart_document_expiry.group_document_manager"/>
+
+    <menuitem id="menu_document_expiry_types"
+              name="Document Types"
+              parent="menu_document_expiry_config"
+              action="action_document_type"
+              sequence="1"/>
+
+</odoo>

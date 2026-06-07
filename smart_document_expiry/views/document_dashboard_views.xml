@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Dashboard action (client action for JS widget) -->
+    <record id="action_document_expiry_dashboard" model="ir.actions.client">
+        <field name="name">Document Expiry Dashboard</field>
+        <field name="tag">document_expiry_dashboard</field>
+    </record>
+
+    <!-- Pivot view for compliance reporting -->
+    <record id="view_document_expiry_pivot" model="ir.ui.view">
+        <field name="name">document.expiry.pivot</field>
+        <field name="model">document.expiry</field>
+        <field name="arch" type="xml">
+            <pivot string="Document Compliance">
+                <field name="entity_type" type="row"/>
+                <field name="document_type_id" type="row"/>
+                <field name="state" type="col"/>
+                <field name="days_until_expiry" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph view -->
+    <record id="view_document_expiry_graph" model="ir.ui.view">
+        <field name="name">document.expiry.graph</field>
+        <field name="model">document.expiry</field>
+        <field name="arch" type="xml">
+            <graph string="Documents by Status" type="bar">
+                <field name="entity_type"/>
+                <field name="state" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_document_expiry_analytics" model="ir.actions.act_window">
+        <field name="name">Analytics</field>
+        <field name="res_model">document.expiry</field>
+        <field name="view_mode">graph,pivot</field>
+    </record>
+
+</odoo>

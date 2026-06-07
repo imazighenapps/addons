@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<div class="bg-white text-dark" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<div class="bg-dark text-white py-5 px-4">
+  <div class="container" style="max-width:900px;">
+
+    <!-- Badges -->
+    <div class="mb-4 d-flex flex-wrap gap-2">
+      <span class="badge rounded-pill bg-secondary border border-secondary text-light px-3 py-2">Odoo 18</span>
+      <span class="badge rounded-pill bg-secondary border border-secondary text-light px-3 py-2">100% Standalone</span>
+      <span class="badge rounded-pill bg-secondary border border-secondary text-light px-3 py-2">OPL-1 License</span>
+      <span class="badge rounded-pill bg-secondary border border-secondary text-light px-3 py-2">No Extra Dependencies</span>
+    </div>
+
+    <h1 class="fw-bold mb-3" style="font-size:38px;line-height:1.1;">Smart Document Expiry Tracker</h1>
+    <p class="text-secondary mb-4" style="font-size:17px;max-width:600px;line-height:1.65;">
+      Automatically track, alert, and manage every expiring document across your organization -
+      work permits, vehicle registrations, vendor licenses, equipment certifications, and more.
+      Never be caught off-guard by a lapsed document again.
+    </p>
+
+    <!-- Stats -->
+    <div class="d-inline-block border border-secondary rounded-3 overflow-hidden mb-3" style="background:#1e293b;">
+      <div class="row g-0 text-center">
+        <div class="col px-4 py-3">
+          <div class="fw-bold text-info" style="font-size:32px;">5</div>
+          <div class="text-secondary text-uppercase" style="font-size:11px;letter-spacing:.06em;">Entity Types</div>
+        </div>
+        <div class="col-auto border-start border-secondary"></div>
+        <div class="col px-4 py-3">
+          <div class="fw-bold text-info" style="font-size:32px;">14</div>
+          <div class="text-secondary text-uppercase" style="font-size:11px;letter-spacing:.06em;">Doc Types</div>
+        </div>
+        <div class="col-auto border-start border-secondary"></div>
+        <div class="col px-4 py-3">
+          <div class="fw-bold text-info" style="font-size:32px;">0</div>
+          <div class="text-secondary text-uppercase" style="font-size:11px;letter-spacing:.06em;">Extra Deps</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-secondary mt-2 mb-0" style="font-size:12px;">Version 18.0.2.1.0 &nbsp;&middot;&nbsp; Odoo 18 Community &amp; Enterprise</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     DASHBOARD SCREENSHOT
+═══════════════════════════════════════ -->
+<div class="bg-light py-5 px-4">
+  <div class="container" style="max-width:900px;">
+
+    <div class="text-center mb-4">
+      <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-2 text-uppercase" style="font-size:11px;letter-spacing:.1em;">Dashboard</span>
+      <h2 class="fw-bold mb-2">Real-time Compliance at a Glance</h2>
+      <p class="text-secondary mx-auto" style="max-width:520px;font-size:15px;">Animated compliance ring, color-coded KPI cards, entity breakdown bars, and a tabbed expiry table - all in one screen.</p>
+    </div>
+
+    <!-- Browser frame -->
+    <div class="rounded-3 overflow-hidden border border-light-subtle shadow">
+      <div class="bg-light border-bottom border-light-subtle px-3 py-2 d-flex align-items-center gap-2">
+        <span class="rounded-circle d-inline-block" style="width:12px;height:12px;background:#fc5456;"></span>
+        <span class="rounded-circle d-inline-block" style="width:12px;height:12px;background:#febc2e;"></span>
+        <span class="rounded-circle d-inline-block" style="width:12px;height:12px;background:#28c840;"></span>
+        <span class="text-secondary ms-2" style="font-size:12px;">Document Expiry - Dashboard</span>
+      </div>
+      <img src="screen_dashboard.png" class="img img-responsive w-100 d-block" alt="Dashboard Screenshot"/>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FEATURES GRID
+═══════════════════════════════════════ -->
+<div class="bg-white py-5 px-4">
+  <div class="container" style="max-width:900px;">
+
+    <div class="text-center mb-5">
+      <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-2 text-uppercase" style="font-size:11px;letter-spacing:.1em;">Features</span>
+      <h2 class="fw-bold mb-2">Everything You Need, Nothing You Don't</h2>
+      <p class="text-secondary mx-auto" style="max-width:500px;font-size:15px;">Powerful document compliance management that works out of the box - no extra modules required.</p>
+    </div>
+
+    <div class="row g-3">
+
+      <div class="col-md-4">
+        <div class="card h-100 border rounded-3 p-4 shadow-sm">
+          <p class="mb-3" style="font-size:26px;">&#128101;</p>
+          <h3 class="fw-bold mb-2" style="font-size:15px;">Universal Entity Support</h3>
+          <p class="text-secondary mb-0" style="font-size:13px;line-height:1.6;">Track documents for <strong>Persons, Vendors, Vehicles, Equipment</strong>, or any custom entity - all in one unified interface.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 border rounded-3 p-4 shadow-sm">
+          <p class="mb-3" style="font-size:26px;">&#128276;</p>
+          <h3 class="fw-bold mb-2" style="font-size:15px;">3-Tier Email Alerts</h3>
+          <p class="text-secondary mb-0" style="font-size:13px;line-height:1.6;">Configurable alerts at <strong>90 → 30 → 7 days</strong> before expiry, plus escalation alerts if a document is not renewed after deadline.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 border rounded-3 p-4 shadow-sm">
+          <p class="mb-3" style="font-size:26px;">&#8635;</p>
+          <h3 class="fw-bold mb-2" style="font-size:15px;">One-Click Renewal Wizard</h3>
+          <p class="text-secondary mb-0" style="font-size:13px;line-height:1.6;">Renew any document in seconds. Creates a new record, links it to the old one, and keeps the full <strong>renewal chain</strong> traceable.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 border rounded-3 p-4 shadow-sm">
+          <p class="mb-3" style="font-size:26px;">&#128200;</p>
+          <h3 class="fw-bold mb-2" style="font-size:15px;">Compliance Score</h3>
+          <p class="text-secondary mb-0" style="font-size:13px;line-height:1.6;">Each entity displays a live <strong>compliance percentage</strong> based on valid vs. expired documents. Animated ring chart on the dashboard.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 border rounded-3 p-4 shadow-sm">
+          <p class="mb-3" style="font-size:26px;">&#128196;</p>
+          <h3 class="fw-bold mb-2" style="font-size:15px;">PDF Compliance Report</h3>
+          <p class="text-secondary mb-0" style="font-size:13px;line-height:1.6;">Printable full compliance report with color-coded rows and summary stats - available directly from the document list view.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 border rounded-3 p-4 shadow-sm">
+          <p class="mb-3" style="font-size:26px;">&#127970;</p>
+          <h3 class="fw-bold mb-2" style="font-size:15px;">Multi-Company Ready</h3>
+          <p class="text-secondary mb-0" style="font-size:13px;line-height:1.6;">Full multi-company isolation with <strong>role-based access</strong> - User and Manager groups with Odoo 19 security record rules.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     LIST + KANBAN SCREENSHOTS
+═══════════════════════════════════════ -->
+<div class="bg-light py-5 px-4">
+  <div class="container" style="max-width:900px;">
+    <div class="row g-4">
+
+      <div class="col-md-6">
+        <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-2 text-uppercase" style="font-size:11px;letter-spacing:.1em;">List View</span>
+        <h3 class="fw-bold mb-2 mt-2">Color-Coded Document Table</h3>
+        <p class="text-secondary mb-3" style="font-size:14px;">Green valid rows, orange warnings, bold red expired rows - scan your entire portfolio instantly. Inline Renew button on every row.</p>
+        <div class="rounded-3 overflow-hidden border border-light-subtle shadow-sm">
+          <div class="bg-light border-bottom border-light-subtle px-3 py-2 d-flex align-items-center gap-2">
+            <span class="rounded-circle d-inline-block" style="width:10px;height:10px;background:#fc5456;"></span>
+            <span class="rounded-circle d-inline-block" style="width:10px;height:10px;background:#febc2e;"></span>
+            <span class="rounded-circle d-inline-block" style="width:10px;height:10px;background:#28c840;"></span>
+            <span class="text-secondary ms-2" style="font-size:11px;">All Documents - List</span>
+          </div>
+          <img src="screen_list.png" class="img img-responsive w-100 d-block" alt="List View Screenshot"/>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <span class="badge rounded-pill text-bg-warning px-3 py-2 mb-2 text-uppercase" style="font-size:11px;letter-spacing:.1em;">Kanban View</span>
+        <h3 class="fw-bold mb-2 mt-2">Grouped by Status</h3>
+        <p class="text-secondary mb-3" style="font-size:14px;">Kanban cards grouped by Valid / Expiring Soon / Expired with color-coded left borders for instant visual priority.</p>
+        <div class="rounded-3 overflow-hidden border border-light-subtle shadow-sm">
+          <div class="bg-light border-bottom border-light-subtle px-3 py-2 d-flex align-items-center gap-2">
+            <span class="rounded-circle d-inline-block" style="width:10px;height:10px;background:#fc5456;"></span>
+            <span class="rounded-circle d-inline-block" style="width:10px;height:10px;background:#febc2e;"></span>
+            <span class="rounded-circle d-inline-block" style="width:10px;height:10px;background:#28c840;"></span>
+            <span class="text-secondary ms-2" style="font-size:11px;">All Documents - Kanban</span>
+          </div>
+          <img src="screen_kanban.png" class="img img-responsive w-100 d-block" alt="Kanban View Screenshot"/>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ENTITY TYPES
+═══════════════════════════════════════ -->
+<div class="bg-white py-5 px-4">
+  <div class="container" style="max-width:900px;">
+
+    <div class="text-center mb-5">
+      <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-2 text-uppercase" style="font-size:11px;letter-spacing:.1em;">Entities</span>
+      <h2 class="fw-bold mb-2">One Module. Five Entity Scopes.</h2>
+      <p class="text-secondary mx-auto" style="max-width:480px;font-size:15px;">Purpose-built profiles for each entity type - all accessible from a single unified menu.</p>
+    </div>
+
+    <div class="row g-3">
+
+      <div class="col">
+        <div class="rounded-3 p-3 h-100 border border-2" style="background:#eff6ff;border-color:#bfdbfe !important;">
+          <p class="mb-2" style="font-size:26px;">&#128100;</p>
+          <h3 class="fw-bold mb-2" style="font-size:14px;color:#1e3a8a;">Persons</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1" style="font-size:12px;color:#3b82f6;">› Work Permits</li>
+            <li class="mb-1" style="font-size:12px;color:#3b82f6;">› Visas</li>
+            <li class="mb-1" style="font-size:12px;color:#3b82f6;">› Driving Licenses</li>
+            <li class="mb-1" style="font-size:12px;color:#3b82f6;">› Medical Certificates</li>
+            <li style="font-size:12px;color:#3b82f6;">› Safety Training</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="rounded-3 p-3 h-100 border border-2" style="background:#f0fdf4;border-color:#bbf7d0 !important;">
+          <p class="mb-2" style="font-size:26px;">&#127962;</p>
+          <h3 class="fw-bold mb-2" style="font-size:14px;color:#14532d;">Vendors</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1" style="font-size:12px;color:#16a34a;">› Trade Licenses</li>
+            <li class="mb-1" style="font-size:12px;color:#16a34a;">› Insurance Certs</li>
+            <li class="mb-1" style="font-size:12px;color:#16a34a;">› Vendor Contracts</li>
+            <li class="mb-1" style="font-size:12px;color:#16a34a;">› Tax Compliance</li>
+            <li style="font-size:12px;color:#16a34a;">› ISO Certifications</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="rounded-3 p-3 h-100 border border-2" style="background:#fffbeb;border-color:#fde68a !important;">
+          <p class="mb-2" style="font-size:26px;">&#128667;</p>
+          <h3 class="fw-bold mb-2" style="font-size:14px;color:#78350f;">Vehicles</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1" style="font-size:12px;color:#d97706;">› Registrations</li>
+            <li class="mb-1" style="font-size:12px;color:#d97706;">› Vehicle Insurance</li>
+            <li class="mb-1" style="font-size:12px;color:#d97706;">› Tech Inspections</li>
+            <li class="mb-1" style="font-size:12px;color:#d97706;">› Road Tax</li>
+            <li style="font-size:12px;color:#d97706;">› Emission Certs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="rounded-3 p-3 h-100 border border-2" style="background:#fdf4ff;border-color:#e9d5ff !important;">
+          <p class="mb-2" style="font-size:26px;">&#9881;&#65039;</p>
+          <h3 class="fw-bold mb-2" style="font-size:14px;color:#581c87;">Equipment</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1" style="font-size:12px;color:#7c3aed;">› Certifications</li>
+            <li class="mb-1" style="font-size:12px;color:#7c3aed;">› Warranties</li>
+            <li class="mb-1" style="font-size:12px;color:#7c3aed;">› Calibration Certs</li>
+            <li class="mb-1" style="font-size:12px;color:#7c3aed;">› Safety Inspections</li>
+            <li style="font-size:12px;color:#7c3aed;">› Maintenance Records</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="rounded-3 p-3 h-100 border border-2 bg-light" style="border-color:#e2e8f0 !important;">
+          <p class="mb-2" style="font-size:26px;">&#128204;</p>
+          <h3 class="fw-bold mb-2" style="font-size:14px;color:#334155;">Other</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1" style="font-size:12px;color:#475569;">› ISO Certificates</li>
+            <li class="mb-1" style="font-size:12px;color:#475569;">› Site Permits</li>
+            <li class="mb-1" style="font-size:12px;color:#475569;">› Fire Safety</li>
+            <li class="mb-1" style="font-size:12px;color:#475569;">› Environmental Permits</li>
+            <li style="font-size:12px;color:#475569;">› Custom Types</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     DOCUMENT FORM
+═══════════════════════════════════════ -->
+<div class="bg-light py-5 px-4">
+  <div class="container" style="max-width:900px;">
+    <div class="row align-items-center g-5">
+
+      <div class="col-md-5">
+        <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-3 text-uppercase" style="font-size:11px;letter-spacing:.1em;">Document Form</span>
+        <h3 class="fw-bold mb-3">Every Detail, One Screen</h3>
+        <p class="text-secondary mb-4" style="font-size:14px;">Status banners, responsible users, attachment storage, renewal history, and full chatter - all on a single form page.</p>
+
+        <div class="d-flex gap-3 align-items-start mb-3">
+          <span class="badge rounded-circle bg-danger text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0" style="width:28px;height:28px;font-size:12px;">!</span>
+          <p class="mb-0" style="font-size:13px;color:#475569;"><strong class="text-dark">Live alert banners</strong> - red expired, orange expiring, green renewed</p>
+        </div>
+        <div class="d-flex gap-3 align-items-start mb-3">
+          <span class="badge rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0" style="width:28px;height:28px;font-size:14px;">&#8634;</span>
+          <p class="mb-0" style="font-size:13px;color:#475569;"><strong class="text-dark">Renewal history chain</strong> - trace every version back to its origin</p>
+        </div>
+        <div class="d-flex gap-3 align-items-start">
+          <span class="badge rounded-circle bg-success text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0" style="width:28px;height:28px;font-size:14px;">&#128206;</span>
+          <p class="mb-0" style="font-size:13px;color:#475569;"><strong class="text-dark">Attachments tab</strong> - store scanned documents directly on the record</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ALERT PIPELINE
+═══════════════════════════════════════ -->
+<div class="bg-white py-5 px-4">
+  <div class="container" style="max-width:900px;">
+    <div class="row align-items-center g-5">
+
+      <div class="col-md-6">
+        <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-3 text-uppercase" style="font-size:11px;letter-spacing:.1em;">Alert System</span>
+        <h3 class="fw-bold mb-2">Never Miss a Renewal</h3>
+        <p class="text-secondary mb-4" style="font-size:14px;">A 4-stage automated notification pipeline configured per document type - not globally - for maximum flexibility.</p>
+
+        <!-- Stage 1 -->
+        <div class="d-flex gap-3 align-items-start mb-3">
+          <span class="badge rounded-circle border border-success d-flex align-items-center justify-content-center flex-shrink-0" style="width:28px;height:28px;font-size:13px;background:#dcfce7;">&#128276;</span>
+          <div>
+            <h4 class="fw-bold mb-1" style="font-size:13px;">90 days before - First Alert</h4>
+            <p class="text-secondary mb-0" style="font-size:12px;">Early heads-up gives time to initiate renewal without urgency.</p>
+          </div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="d-flex gap-3 align-items-start mb-3">
+          <span class="badge rounded-circle border border-warning d-flex align-items-center justify-content-center flex-shrink-0" style="width:28px;height:28px;font-size:13px;background:#fef3c7;">&#128276;</span>
+          <div>
+            <h4 class="fw-bold mb-1" style="font-size:13px;">30 days before - Follow-up</h4>
+            <p class="text-secondary mb-0" style="font-size:12px;">Sent to responsible user + all CC recipients configured on the document.</p>
+          </div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="d-flex gap-3 align-items-start mb-3">
+          <span class="badge rounded-circle border border-danger d-flex align-items-center justify-content-center flex-shrink-0" style="width:28px;height:28px;font-size:13px;background:#fee2e2;">&#128276;</span>
+          <div>
+            <h4 class="fw-bold mb-1" style="font-size:13px;">7 days before - Urgent</h4>
+            <p class="text-secondary mb-0" style="font-size:12px;">Final warning. Configurable per type - critical docs can be set to 3 days.</p>
+          </div>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="d-flex gap-3 align-items-start">
+          <span class="badge rounded-circle border d-flex align-items-center justify-content-center flex-shrink-0" style="width:28px;height:28px;font-size:13px;background:#fecaca;border-color:#991b1b !important;">&#9888;&#65039;</span>
+          <div>
+            <h4 class="fw-bold mb-1" style="font-size:13px;">After expiry - Escalation</h4>
+            <p class="text-secondary mb-0" style="font-size:12px;">If not renewed N days after expiry, escalation is sent automatically.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <img src="screen_alerts.png" class="img img-responsive w-100 rounded-3 border shadow-sm" alt="Alert Configuration Screenshot"/>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     RENEWAL WIZARD
+═══════════════════════════════════════ -->
+<div class="bg-light py-5 px-4">
+  <div class="container" style="max-width:900px;">
+    <div class="row align-items-center g-5">
+
+      <div class="col-md-5">
+        <img src="screen_renewal.png" class="img img-responsive w-100 rounded-3 border shadow-sm" alt="Renewal Wizard Screenshot"/>
+      </div>
+
+      <div class="col-md-7">
+        <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-3 text-uppercase" style="font-size:11px;letter-spacing:.1em;">Renewal Workflow</span>
+        <h3 class="fw-bold mb-4">Renew in 4 Steps</h3>
+
+        <div class="d-flex gap-3 align-items-start mb-3">
+          <span class="badge rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0" style="width:28px;height:28px;font-size:13px;">1</span>
+          <p class="mb-0 pt-1" style="font-size:13px;color:#475569;">Click <strong class="text-dark">"Renew Document"</strong> on any active document form or list row.</p>
+        </div>
+        <div class="d-flex gap-3 align-items-start mb-3">
+          <span class="badge rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0" style="width:28px;height:28px;font-size:13px;">2</span>
+          <p class="mb-0 pt-1" style="font-size:13px;color:#475569;">Fill in the new issue and expiry dates, and optionally attach the renewed document file.</p>
+        </div>
+        <div class="d-flex gap-3 align-items-start mb-3">
+          <span class="badge rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0" style="width:28px;height:28px;font-size:13px;">3</span>
+          <p class="mb-0 pt-1" style="font-size:13px;color:#475569;">Confirm. The old record is automatically marked <strong class="text-dark">"Renewed"</strong> and a new active record is created.</p>
+        </div>
+        <div class="d-flex gap-3 align-items-start">
+          <span class="badge rounded-circle bg-success text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0" style="width:28px;height:28px;font-size:14px;">&#10003;</span>
+          <p class="mb-0 pt-1" style="font-size:13px;color:#475569;">Full renewal chain preserved - traceable from any document in the history tab.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     INSTALLATION
+═══════════════════════════════════════ -->
+<div class="bg-white py-5 px-4">
+  <div class="container" style="max-width:900px;">
+    <div class="row g-5">
+
+      <div class="col-md-6">
+        <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-3 text-uppercase" style="font-size:11px;letter-spacing:.1em;">Installation</span>
+        <h3 class="fw-bold mb-2">Up and Running in 5 Minutes</h3>
+        <p class="text-secondary mb-3" style="font-size:14px;">No external dependencies - copy the folder, restart, install.</p>
+
+        <div class="rounded-3 p-4 mb-3" style="background:#1e293b;font-family:monospace;font-size:12px;color:#e2e8f0;line-height:1.9;">
+          <span class="text-secondary"># 1. Copy to your addons path</span><br/>
+          <span style="color:#7dd3fc;">cp -r smart_document_expiry /opt/odoo/addons/</span><br/><br/>
+          <span class="text-secondary"># 2. Restart Odoo server</span><br/>
+          <span style="color:#7dd3fc;">sudo systemctl restart odoo</span><br/><br/>
+          <span class="text-secondary"># 3. Install from Apps menu</span><br/>
+          <span style="color:#86efac;">Apps &rarr; Update Apps List &rarr; Install</span>
+        </div>
+
+        <div class="rounded-3 px-3 py-3 border-start border-4 border-primary" style="background:#eff6ff;">
+          <p class="mb-0" style="font-size:13px;color:#1e3a8a;">
+            <strong>Dependencies:</strong> Only <code class="bg-white px-1 rounded">base</code>, <code class="bg-white px-1 rounded">mail</code>, and <code class="bg-white px-1 rounded">web</code> - always available in every Odoo instance.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-3 text-uppercase" style="font-size:11px;letter-spacing:.1em;">Configuration</span>
+        <h3 class="fw-bold mb-4">3 Areas to Configure</h3>
+
+        <div class="card border rounded-3 p-3 mb-3 shadow-sm">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span style="font-size:18px;">&#128203;</span>
+            <strong style="font-size:13px;">Document Types</strong>
+          </div>
+          <p class="text-secondary mb-0" style="font-size:12px;">Create custom types per entity, set per-type alert thresholds, toggle attachment requirement on renewal.</p>
+        </div>
+
+        <div class="card border rounded-3 p-3 mb-3 shadow-sm">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span style="font-size:18px;">&#9200;</span>
+            <strong style="font-size:13px;">Scheduled Actions</strong>
+          </div>
+          <p class="text-secondary mb-0" style="font-size:12px;">Two cron jobs auto-installed: daily alert sender at 07:00 and state refresh at 00:05. Adjust under Settings &rarr; Technical.</p>
+        </div>
+
+        <div class="card border rounded-3 p-3 shadow-sm">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span style="font-size:18px;">&#9993;&#65039;</span>
+            <strong style="font-size:13px;">Email Templates</strong>
+          </div>
+          <p class="text-secondary mb-0" style="font-size:12px;">4 customizable HTML templates. Edit via Settings &rarr; Technical &rarr; Email &rarr; Templates.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PRICING CTA
+═══════════════════════════════════════ -->
+<div class="text-center py-5 px-4" style="background:#0f172a;">
+  <div class="container" style="max-width:700px;">
+
+    <p class="text-uppercase mb-1" style="font-size:11px;letter-spacing:.1em;color:#475569;">One-time purchase &middot; OPL-1 License</p>
+    <p class="mb-4" style="font-size:13px;color:#334155;">Single production instance</p>
+
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+      <span class="badge rounded-pill border px-3 py-2" style="background:#1e293b;border-color:#334155 !important;color:#cbd5e1;font-size:12px;">&#10003; Lifetime access</span>
+      <span class="badge rounded-pill border px-3 py-2" style="background:#1e293b;border-color:#334155 !important;color:#cbd5e1;font-size:12px;">&#10003; Free bug fixes</span>
+      <span class="badge rounded-pill border px-3 py-2" style="background:#1e293b;border-color:#334155 !important;color:#cbd5e1;font-size:12px;">&#10003; Odoo 18 compatible</span>
+      <span class="badge rounded-pill border px-3 py-2" style="background:#1e293b;border-color:#334155 !important;color:#cbd5e1;font-size:12px;">&#10003; 20 demo records</span>
+      <span class="badge rounded-pill border px-3 py-2" style="background:#1e293b;border-color:#334155 !important;color:#cbd5e1;font-size:12px;">&#10003; Zero extra dependencies</span>
+      <span class="badge rounded-pill border px-3 py-2" style="background:#1e293b;border-color:#334155 !important;color:#cbd5e1;font-size:12px;">&#10003; Full source code</span>
+    </div>
+
+    <p class="mb-3">
+      <span class="btn btn-primary px-5 py-3 fw-bold" style="font-size:15px;">Buy Now on Odoo Apps</span>
+    </p>
+    <p class="mb-0" style="font-size:12px;color:#334155;">
+      Questions? <a href="mailto:imazighenapps@gmail.com" class="text-secondary text-decoration-none">imazighenapps@gmail.com</a>
+    </p>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<div class="py-3 px-4" style="background:#0a0f1e;">
+  <div class="container" style="max-width:900px;">
+    <p class="mb-0" style="font-size:12px;color:#1e293b;">Licensed under OPL-1 &middot; Odoo Community &amp; Enterprise</p>
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+<t t-name="smart_document_expiry.Dashboard">
+<div class="o_document_expiry_dashboard">
+
+    <!-- LOADING -->
+    <t t-if="state.loading">
+        <div class="ode-loading">
+            <div class="ode-loading-spinner"/>
+            <span class="ode-loading-text">Loading dashboard…</span>
+        </div>
+    </t>
+
+    <t t-if="!state.loading">
+
+        <!-- HEADER -->
+        <div class="ode-header">
+            <div class="ode-header-left">
+                <div class="ode-header-icon">
+                    <i class="fa fa-shield"/>
+                </div>
+                <div>
+                    <p class="ode-header-title">Document Expiry — Dashboard</p>
+                    <p class="ode-header-sub">Real-time compliance overview</p>
+                </div>
+            </div>
+            <div class="ode-header-right">
+                <span class="ode-header-date" t-esc="todayLabel"/>
+                <span class="ode-header-clock" t-esc="state.currentTime"/>
+                <button class="ode-btn-refresh" t-on-click="refreshData">
+                    <i class="fa fa-refresh"/> Refresh
+                </button>
+                <button class="ode-btn-refresh" t-on-click="openAllDocuments">
+                    <i class="fa fa-list"/> All Documents
+                </button>
+            </div>
+        </div>
+
+        <!-- CRITICAL BANNER -->
+        <t t-if="state.critical_count > 0">
+            <div class="ode-critical-banner">
+                <div class="ode-critical-banner-left">
+                    <div class="ode-critical-pulse"/>
+                    <i class="fa fa-exclamation-triangle"/>
+                    <strong><t t-esc="state.critical_count"/> document(s)</strong>
+                    expire within 7 days — immediate action required.
+                </div>
+                <a t-on-click="openExpiringSoon">View critical documents →</a>
+            </div>
+        </t>
+
+        <div class="ode-body">
+
+            <!-- KPI ROW -->
+            <div class="ode-kpi-row">
+
+                <div class="ode-kpi ode-kpi-valid" t-on-click="openAllDocuments">
+                    <div class="ode-kpi-icon"><i class="fa fa-check-circle"/></div>
+                    <div>
+                        <div class="ode-kpi-num" t-esc="state.valid"/>
+                        <div class="ode-kpi-lbl">Valid</div>
+                    </div>
+                </div>
+
+                <div class="ode-kpi ode-kpi-expiring" t-on-click="openExpiringSoon">
+                    <div class="ode-kpi-icon"><i class="fa fa-clock-o"/></div>
+                    <div>
+                        <div class="ode-kpi-num" t-esc="state.expiring"/>
+                        <div class="ode-kpi-lbl">Expiring Soon</div>
+                    </div>
+                </div>
+
+                <div class="ode-kpi ode-kpi-expired" t-on-click="openExpired">
+                    <div class="ode-kpi-icon"><i class="fa fa-times-circle"/></div>
+                    <div>
+                        <div class="ode-kpi-num" t-esc="state.expired"/>
+                        <div class="ode-kpi-lbl">Expired</div>
+                    </div>
+                </div>
+
+                <div class="ode-kpi ode-kpi-renewed">
+                    <div class="ode-kpi-icon"><i class="fa fa-refresh"/></div>
+                    <div>
+                        <div class="ode-kpi-num" t-esc="state.renewed"/>
+                        <div class="ode-kpi-lbl">Renewed</div>
+                    </div>
+                </div>
+
+                <div class="ode-kpi ode-kpi-total" t-on-click="openAllDocuments">
+                    <div class="ode-kpi-icon"><i class="fa fa-folder-open"/></div>
+                    <div>
+                        <div class="ode-kpi-num" t-esc="state.total"/>
+                        <div class="ode-kpi-lbl">Total Active</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- MIDDLE ROW: entity breakdown + gauge -->
+            <div class="ode-mid-row">
+
+                <!-- Entity compliance breakdown -->
+                <div class="ode-card">
+                    <div class="ode-card-header">
+                        <span class="ode-card-title">
+                            <i class="fa fa-sitemap"/> Compliance by Entity
+                        </span>
+                    </div>
+                    <div class="ode-card-body">
+                        <t t-if="state.by_entity.length === 0">
+                            <div class="ode-empty">
+                                <i class="fa fa-inbox"/>No data available.
+                            </div>
+                        </t>
+                        <div class="ode-entity-list">
+                            <t t-foreach="state.by_entity" t-as="item" t-key="item.type">
+                                <div class="ode-entity-row"
+                                     t-on-click="() => this.openEntityDocs(item.type)">
+                                    <div class="ode-entity-icon">
+                                        <i t-attf-class="fa {{entityIcon(item.type)}}"/>
+                                    </div>
+                                    <div class="ode-entity-info">
+                                        <div class="ode-entity-name" t-esc="item.label"/>
+                                        <div class="ode-entity-bar-wrap">
+                                            <div class="ode-entity-bar-valid"
+                                                 t-attf-style="width:{{entityBarWidth(item,'valid')}}%"/>
+                                            <div class="ode-entity-bar-expiring"
+                                                 t-attf-style="width:{{entityBarWidth(item,'expiring')}}%"/>
+                                            <div class="ode-entity-bar-expired"
+                                                 t-attf-style="width:{{entityBarWidth(item,'expired')}}%"/>
+                                        </div>
+                                        <div class="ode-entity-minis">
+                                            <span class="ode-mini ode-mini-v">
+                                                <t t-esc="item.valid"/> valid
+                                            </span>
+                                            <span class="ode-mini ode-mini-e">
+                                                <t t-esc="item.expiring"/> soon
+                                            </span>
+                                            <span class="ode-mini ode-mini-x">
+                                                <t t-esc="item.expired"/> exp.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="ode-entity-right">
+                                        <span class="ode-entity-total-count" t-esc="item.total"/>
+                                        <span class="ode-entity-counts">
+                                            <t t-esc="item.compliance"/>%
+                                        </span>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right column: gauge + type chart -->
+                <div class="ode-right-col">
+
+                    <div class="ode-card">
+                        <div class="ode-card-header">
+                            <span class="ode-card-title">
+                                <i class="fa fa-tachometer"/> Global Score
+                            </span>
+                        </div>
+                        <div class="ode-gauge-wrap">
+                            <svg class="ode-gauge-ring" width="140" height="140"
+                                 viewBox="0 0 120 120">
+                                <circle cx="60" cy="60" r="52"
+                                        fill="none" stroke="#e2e8f0" stroke-width="10"/>
+                                <circle cx="60" cy="60" r="52"
+                                        fill="none"
+                                        t-attf-stroke="{{ringColor}}"
+                                        stroke-width="10"
+                                        stroke-linecap="round"
+                                        t-attf-stroke-dasharray="{{ringCircumference}}"
+                                        t-attf-stroke-dashoffset="{{ringOffset}}"
+                                        transform="rotate(-90 60 60)"/>
+                                <text x="60" y="56" text-anchor="middle"
+                                      font-size="24" font-weight="800"
+                                      t-attf-fill="{{ringColor}}">
+                                    <t t-esc="state.compliance"/>%
+                                </text>
+                                <text x="60" y="72" text-anchor="middle"
+                                      font-size="9" fill="#94a3b8" font-weight="600"
+                                      letter-spacing="1">COMPLIANCE</text>
+                            </svg>
+                            <div t-attf-class="ode-gauge-lbl {{complianceLabelClass}}"
+                                 t-esc="complianceLabel"/>
+                        </div>
+                        <div class="ode-alert-stats">
+                            <div class="ode-alert-stat-row">
+                                <span>
+                                    <span class="ode-alert-dot ode-dot-green"/>
+                                    90-day alerts sent
+                                </span>
+                                <strong t-esc="state.alerts.sent_90"/>
+                            </div>
+                            <div class="ode-alert-stat-row">
+                                <span>
+                                    <span class="ode-alert-dot ode-dot-amber"/>
+                                    30-day alerts sent
+                                </span>
+                                <strong t-esc="state.alerts.sent_30"/>
+                            </div>
+                            <div class="ode-alert-stat-row">
+                                <span>
+                                    <span class="ode-alert-dot ode-dot-red"/>
+                                    7-day alerts sent
+                                </span>
+                                <strong t-esc="state.alerts.sent_7"/>
+                            </div>
+                            <div class="ode-alert-stat-row">
+                                <span>
+                                    <span class="ode-alert-dot ode-dot-dark"/>
+                                    Escalations sent
+                                </span>
+                                <strong t-esc="state.alerts.escalated"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ode-card">
+                        <div class="ode-card-header">
+                            <span class="ode-card-title">
+                                <i class="fa fa-bar-chart"/> Top Document Types
+                            </span>
+                        </div>
+                        <div class="ode-card-body">
+                            <t t-if="state.top_types.length === 0">
+                                <div class="ode-empty">
+                                    <i class="fa fa-inbox"/>No document types configured.
+                                </div>
+                            </t>
+                            <div class="ode-type-list">
+                                <t t-foreach="state.top_types" t-as="tp" t-key="tp.name">
+                                    <div class="ode-type-row">
+                                        <div class="ode-type-meta">
+                                            <span class="ode-type-name" t-esc="tp.name"/>
+                                            <span class="ode-type-cnt" t-esc="tp.count"/>
+                                        </div>
+                                        <div class="ode-type-bar-bg">
+                                            <div class="ode-type-bar-fill"
+                                                 t-attf-style="width:{{typeBarWidth(tp.count)}}%"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- TABBED TABLE -->
+            <div class="ode-card">
+                <div class="ode-tabs">
+                    <button t-attf-class="ode-tab {{state.activeTab === 'upcoming' ? 'active' : ''}}"
+                            t-on-click="setTabUpcoming">
+                        <i class="fa fa-clock-o"/>
+                        Upcoming Expirations
+                        <span class="ode-tab-count" t-esc="state.upcoming.length"/>
+                    </button>
+                    <button t-attf-class="ode-tab {{state.activeTab === 'expired' ? 'active' : ''}}"
+                            t-on-click="setTabExpired">
+                        <i class="fa fa-times-circle"/>
+                        Recently Expired
+                        <span class="ode-tab-count" t-esc="state.recently_expired.length"/>
+                    </button>
+                </div>
+
+                <!-- Tab: Upcoming -->
+                <t t-if="state.activeTab === 'upcoming'">
+                    <t t-if="state.upcoming.length === 0">
+                        <div class="ode-empty">
+                            <i class="fa fa-check-circle ode-icon-green"/>
+                            No upcoming expirations — all documents are valid!
+                        </div>
+                    </t>
+                    <t t-if="state.upcoming.length > 0">
+                        <div class="ode-table-wrap">
+                            <table class="ode-table">
+                                <thead>
+                                    <tr>
+                                        <th>Document</th>
+                                        <th>Entity</th>
+                                        <th>Responsible</th>
+                                        <th>Expiry Date</th>
+                                        <th>Time Left</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="state.upcoming" t-as="doc" t-key="doc.id">
+                                        <tr>
+                                            <td>
+                                                <div class="ode-doc-name" t-esc="doc.name"/>
+                                                <div class="ode-doc-type" t-esc="doc.doc_type"/>
+                                            </td>
+                                            <td>
+                                                <span class="ode-entity-tag">
+                                                    <i t-attf-class="fa {{entityIcon(doc.entity_type)}}"/>
+                                                    <t t-esc="doc.entity_name or entityLabel(doc.entity_type)"/>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="ode-resp-tag"
+                                                      t-esc="doc.responsible or '—'"/>
+                                            </td>
+                                            <td t-esc="doc.expiry_date"/>
+                                            <td>
+                                                <span t-attf-class="{{daysBadgeClass(doc.days)}}"
+                                                      t-esc="daysLabel(doc.days)"/>
+                                            </td>
+                                            <td>
+                                                <button class="ode-btn-open"
+                                                        t-on-click="() => this.openDocument(doc.id)">
+                                                    Open
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+
+                <!-- Tab: Recently Expired -->
+                <t t-if="state.activeTab === 'expired'">
+                    <t t-if="state.recently_expired.length === 0">
+                        <div class="ode-empty">
+                            <i class="fa fa-check-circle ode-icon-green"/>
+                            No unresolved expired documents.
+                        </div>
+                    </t>
+                    <t t-if="state.recently_expired.length > 0">
+                        <div class="ode-table-wrap">
+                            <table class="ode-table">
+                                <thead>
+                                    <tr>
+                                        <th>Document</th>
+                                        <th>Entity</th>
+                                        <th>Responsible</th>
+                                        <th>Expiry Date</th>
+                                        <th>Overdue</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="state.recently_expired" t-as="doc" t-key="doc.id">
+                                        <tr>
+                                            <td>
+                                                <div class="ode-doc-name" t-esc="doc.name"/>
+                                            </td>
+                                            <td>
+                                                <span class="ode-entity-tag">
+                                                    <i t-attf-class="fa {{entityIcon(doc.entity_type)}}"/>
+                                                    <t t-esc="doc.entity_name or entityLabel(doc.entity_type)"/>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="ode-resp-tag"
+                                                      t-esc="doc.responsible or '—'"/>
+                                            </td>
+                                            <td t-esc="doc.expiry_date"/>
+                                            <td>
+                                                <span class="ode-badge ode-badge-overdue"
+                                                      t-esc="daysOverLabel(doc.days_over)"/>
+                                            </td>
+                                            <td>
+                                                <button class="ode-btn-open"
+                                                        t-on-click="() => this.openDocument(doc.id)">
+                                                    Renew
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+
+            </div>
+
+        </div>
+    </t>
+</div>
+</t>
+
+</templates>
