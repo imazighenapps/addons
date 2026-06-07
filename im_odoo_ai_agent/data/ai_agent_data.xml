@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    
+    <record id="ai_agent_config_default" model="ai.agent.config">
+        <field name="name">AI Agent – GPT4All</field>
+        <field name="backend">gpt4all</field>
+        <field name="model_name">Meta-Llama-3-8B-Instruct.Q4_0.gguf</field>
+        <field name="device">cpu</field>
+        <field name="max_tokens">1024</field>
+        <field name="temperature">0.7</field>
+        <field name="top_p">0.9</field>
+        <field name="n_threads">4</field>
+        <field name="n_ctx">4096</field>
+        <field name="language">en</field>
+        <field name="system_prompt">You are an expert AI assistant for a company using Odoo ERP.
+You have read-only access to the company's real-time data through special tools.
+Always respond accurately, professionally, and concisely.
+When presenting numerical data, structure your response with lists or tables.
+You are courteous, professional, and get straight to the point.
+If information is not available, clearly indicate so.
+You NEVER modify Odoo data: read-only access only.</field>
+    </record>
+
+    
+    <record id="ai_agent_config_ollama" model="ai.agent.config">
+        <field name="name">AI Agent – Ollama</field>
+        <field name="backend">ollama</field>
+        <field name="active">False</field>
+        <field name="ollama_url">http://localhost:11434</field>
+        <field name="ollama_model">llama3</field>
+        <field name="max_tokens">1024</field>
+        <field name="temperature">0.7</field>
+        <field name="top_p">0.9</field>
+        <field name="language">en</field>
+        <field name="system_prompt">You are an expert AI assistant for a company using Odoo ERP.
+You have read-only access to the company's real-time data through special tools.
+Always respond accurately, professionally, and concisely.
+When presenting numerical data, structure your response with lists or tables.
+You are courteous, professional, and get straight to the point.
+If information is not available, clearly indicate so.
+You NEVER modify Odoo data: read-only access only.</field>
+    </record>
+</odoo>
