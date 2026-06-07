@@ -1,505 +1,662 @@
-
-<div style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;color:#1e293b;background:#fff;font-size:15px;line-height:1.6;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;color:#1e293b;background:#ffffff;font-size:15px;line-height:1.6;">
 
 <!-- ═══════════════════════════════════════
      HERO
 ═══════════════════════════════════════ -->
-<div style="background:#0f172a;color:#fff;padding:52px 40px 44px;">
-    <div style="max-width:900px;margin:0 auto;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#0f172a;">
+    <tr>
+        <td style="padding:52px 40px 44px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width:900px;margin:0 auto;">
+                <tr>
+                    <td>
+                        <!-- Badges -->
+                        <table cellpadding="0" cellspacing="0" style="margin-bottom:20px;">
+                            <tr>
+                                <td style="padding-right:8px;">
+                                    <span style="background:#334155;border:1px solid #475569;color:#e2e8f0;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">Odoo 19</span>
+                                </td>
+                                <td style="padding-right:8px;">
+                                    <span style="background:#334155;border:1px solid #475569;color:#e2e8f0;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">100% Standalone</span>
+                                </td>
+                                <td style="padding-right:8px;">
+                                    <span style="background:#334155;border:1px solid #475569;color:#e2e8f0;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">OPL-1 License</span>
+                                </td>
+                                <td>
+                                    <span style="background:#334155;border:1px solid #475569;color:#e2e8f0;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">No Extra Dependencies</span>
+                                </td>
+                            </tr>
+                        </table>
 
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
-            <span style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.88);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">Odoo 19</span>
-            <span style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.88);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">100% Standalone</span>
-            <span style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.88);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">OPL-1 License</span>
-            <span style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.88);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;">No Extra Dependencies</span>
-        </div>
+                        <h1 style="font-size:38px;font-weight:800;line-height:1.1;margin:0 0 18px;color:#ffffff;">
+                            Smart Document Expiry Tracker
+                        </h1>
+                        <p style="font-size:17px;color:#94a3b8;max-width:600px;margin:0 0 30px;line-height:1.65;">
+                            Automatically track, alert, and manage every expiring document across your organization —
+                            work permits, vehicle registrations, vendor licenses, equipment certifications, and more.
+                            Never be caught off-guard by a lapsed document again.
+                        </p>
 
-        <h1 style="font-size:38px;font-weight:800;line-height:1.1;margin:0 0 18px;color: #FFF;">
-            Smart Document Expiry Tracker
-        </h1>
-        <p style="font-size:17px;color:rgba(255,255,255,.75);max-width:600px;margin:0 0 30px;line-height:1.65;">
-            Automatically track, alert, and manage every expiring document across your organization —
-            work permits, vehicle registrations, vendor licenses, equipment certifications, and more.
-            Never be caught off-guard by a lapsed document again.
-        </p>
+                        <!-- Stats box -->
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td style="background:#1e293b;border:1px solid #334155;border-radius:12px;padding:0;">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="text-align:center;padding:16px 24px;">
+                                                <div style="font-size:32px;font-weight:800;color:#93c5fd;">5</div>
+                                                <div style="font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:.06em;">Entity Types</div>
+                                            </td>
+                                            <td style="width:1px;background:#334155;padding:0;"></td>
+                                            <td style="text-align:center;padding:16px 24px;">
+                                                <div style="font-size:32px;font-weight:800;color:#93c5fd;">14</div>
+                                                <div style="font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:.06em;">Doc Types</div>
+                                            </td>
+                                            <td style="width:1px;background:#334155;padding:0;"></td>
+                                            <td style="text-align:center;padding:16px 24px;">
+                                                <div style="font-size:32px;font-weight:800;color:#93c5fd;">0</div>
+                                                <div style="font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:.06em;">Extra Deps</div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
 
-        <table style="width:100%;border-collapse:collapse;">
-            <tr>
-                <td style="padding:0;vertical-align:top;">
-                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
-                    </div>
-                    <p style="font-size:12px;color:rgba(255,255,255,.4);margin:16px 0 0;">Version 19.0.2.1.0 &nbsp;·&nbsp; Odoo 19 Community &amp; Enterprise</p>
-                </td>
-                <td style="padding:0;text-align:right;vertical-align:top;width:260px;">
-                    <table style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:20px 28px;border-collapse:collapse;display:inline-table;">
-                        <tr>
-                            <td style="text-align:center;padding:6px 16px;">
-                                <div style="font-size:32px;font-weight:800;color:#93c5fd;">5</div>
-                                <div style="font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;">Entity Types</div>
-                            </td>
-                            <td style="width:1px;background:rgba(255,255,255,.12);padding:0;"></td>
-                            <td style="text-align:center;padding:6px 16px;">
-                                <div style="font-size:32px;font-weight:800;color:#93c5fd;">14</div>
-                                <div style="font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;">Doc Types</div>
-                            </td>
-                            <td style="width:1px;background:rgba(255,255,255,.12);padding:0;"></td>
-                            <td style="text-align:center;padding:6px 16px;">
-                                <div style="font-size:32px;font-weight:800;color:#93c5fd;">0</div>
-                                <div style="font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;">Extra Deps</div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
+                        <p style="font-size:12px;color:#475569;margin:16px 0 0;">Version 19.0.2.1.0 &nbsp;&middot;&nbsp; Odoo 19 Community &amp; Enterprise</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 
 <!-- ═══════════════════════════════════════
      DASHBOARD SCREENSHOT
 ═══════════════════════════════════════ -->
-<div style="background:#f8fafc;padding:56px 40px;">
-    <div style="max-width:900px;margin:0 auto;">
-
-        <div style="text-align:center;margin-bottom:36px;">
-            <span style="background:#dbeafe;color:#1d4ed8;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:inline-block;margin-bottom:12px;">Dashboard</span>
-            <h2 style="font-size:28px;font-weight:800;margin:0 0 10px;">Real-time Compliance at a Glance</h2>
-            <p style="font-size:15px;color:#64748b;max-width:520px;margin:0 auto;">Animated compliance ring, color-coded KPI cards, entity breakdown bars, and a tabbed expiry table — all in one screen.</p>
-        </div>
-
-        <!-- Browser frame -->
-        <div style="border-radius:12px;overflow:hidden;border:1px solid #e2e8f0;box-shadow:0 8px 32px rgba(0,0,0,.12);">
-            <div style="background:#f1f5f9;padding:10px 14px;display:flex;align-items:center;gap:7px;border-bottom:1px solid #e2e8f0;">
-                <span style="width:12px;height:12px;border-radius:50%;background:#fc5456;display:inline-block;"></span>
-                <span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
-                <span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block;"></span>
-                <span style="font-size:12px;color:#94a3b8;margin-left:8px;">Document Expiry — Dashboard</span>
-            </div>
-            <!-- ✏️ REPLACE: place your dashboard screenshot here -->
-            <!-- Recommended: 1280×720 px PNG saved as static/description/screen_dashboard.png -->
-            <div style="background:linear-gradient(135deg,#eef2ff 0%,#e0e7ff 100%);display:flex;flex-direction:column;justify-content:center;gap:14px;color:#94a3b8;text-align:center;">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c7d2fe" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-                <strong style="font-size:15px;color:#6366f1;">Dashboard Screenshot</strong>
-                    <img src="screen_dashboard.png" class="img img-responsive"/> 
-           </div>
-        </div>
-    </div>
-</div>
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;">
+    <tr>
+        <td style="padding:56px 40px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width:900px;margin:0 auto;">
+                <tr>
+                    <td style="text-align:center;padding-bottom:36px;">
+                        <span style="background:#dbeafe;color:#1d4ed8;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Dashboard</span>
+                        <h2 style="font-size:28px;font-weight:800;margin:12px 0 10px;">Real-time Compliance at a Glance</h2>
+                        <p style="font-size:15px;color:#64748b;max-width:520px;margin:0 auto;">Animated compliance ring, color-coded KPI cards, entity breakdown bars, and a tabbed expiry table — all in one screen.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- Browser frame -->
+                        <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:12px;border:1px solid #e2e8f0;">
+                            <tr>
+                                <td style="background:#f1f5f9;padding:10px 14px;border-bottom:1px solid #e2e8f0;border-radius:12px 12px 0 0;">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="padding-right:6px;"><span style="width:12px;height:12px;border-radius:50%;background:#fc5456;display:inline-block;font-size:0;">&nbsp;</span></td>
+                                            <td style="padding-right:6px;"><span style="width:12px;height:12px;border-radius:50%;background:#febc2e;display:inline-block;font-size:0;">&nbsp;</span></td>
+                                            <td style="padding-right:14px;"><span style="width:12px;height:12px;border-radius:50%;background:#28c840;display:inline-block;font-size:0;">&nbsp;</span></td>
+                                            <td><span style="font-size:12px;color:#94a3b8;">Document Expiry — Dashboard</span></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0;">
+                                    <img src="screen_dashboard.png" class="img img-responsive" style="width:100%;display:block;" alt="Dashboard Screenshot"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 
 <!-- ═══════════════════════════════════════
      FEATURES GRID
 ═══════════════════════════════════════ -->
-<div style="padding:64px 40px;">
-    <div style="max-width:900px;margin:0 auto;">
-
-        <div style="text-align:center;margin-bottom:48px;">
-            <span style="background:#dbeafe;color:#1d4ed8;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:inline-block;margin-bottom:12px;">Features</span>
-            <h2 style="font-size:28px;font-weight:800;margin:0 0 10px;">Everything You Need, Nothing You Don't</h2>
-            <p style="font-size:15px;color:#64748b;max-width:500px;margin:0 auto;">Powerful document compliance management that works out of the box — no extra modules required.</p>
-        </div>
-
-        <table style="width:100%;border-collapse:separate;border-spacing:14px;">
-            <tr style="vertical-align:top;">
-                <td style="width:33%;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:22px;">
-                    <div style="width:46px;height:46px;border-radius:8px;background:#dbeafe;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <h3 style="font-size:15px;font-weight:700;margin:0 0 8px;">Universal Entity Support</h3>
-                    <p style="font-size:13px;color:#64748b;margin:0;line-height:1.6;">Track documents for <strong>Persons, Vendors, Vehicles, Equipment</strong>, or any custom entity — all in one unified interface.</p>
-                </td>
-                <td style="width:33%;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:22px;">
-                    <div style="width:46px;height:46px;border-radius:8px;background:#dcfce7;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                    </div>
-                    <h3 style="font-size:15px;font-weight:700;margin:0 0 8px;">3-Tier Email Alerts</h3>
-                    <p style="font-size:13px;color:#64748b;margin:0;line-height:1.6;">Configurable alerts at <strong>90 → 30 → 7 days</strong> before expiry, plus escalation alerts if a document is not renewed after deadline.</p>
-                </td>
-                <td style="width:33%;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:22px;">
-                    <div style="width:46px;height:46px;border-radius:8px;background:#fef3c7;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3"/></svg>
-                    </div>
-                    <h3 style="font-size:15px;font-weight:700;margin:0 0 8px;">One-Click Renewal Wizard</h3>
-                    <p style="font-size:13px;color:#64748b;margin:0;line-height:1.6;">Renew any document in seconds. Creates a new record, links it to the old one, and keeps the full <strong>renewal chain</strong> traceable.</p>
-                </td>
-            </tr>
-            <tr style="vertical-align:top;">
-                <td style="width:33%;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:22px;">
-                    <div style="width:46px;height:46px;border-radius:8px;background:#f3e8ff;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    </div>
-                    <h3 style="font-size:15px;font-weight:700;margin:0 0 8px;">Compliance Score</h3>
-                    <p style="font-size:13px;color:#64748b;margin:0;line-height:1.6;">Each entity displays a live <strong>compliance percentage</strong> based on valid vs. expired documents. Animated ring chart on the dashboard.</p>
-                </td>
-                <td style="width:33%;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:22px;">
-                    <div style="width:46px;height:46px;border-radius:8px;background:#fee2e2;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <h3 style="font-size:15px;font-weight:700;margin:0 0 8px;">PDF Compliance Report</h3>
-                    <p style="font-size:13px;color:#64748b;margin:0;line-height:1.6;">Printable full compliance report with color-coded rows and summary stats — available directly from the document list view.</p>
-                </td>
-                <td style="width:33%;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:22px;">
-                    <div style="width:46px;height:46px;border-radius:8px;background:#e0f2fe;display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                    </div>
-                    <h3 style="font-size:15px;font-weight:700;margin:0 0 8px;">Multi-Company Ready</h3>
-                    <p style="font-size:13px;color:#64748b;margin:0;line-height:1.6;">Full multi-company isolation with <strong>role-based access</strong> — User and Manager groups with Odoo 19 security record rules.</p>
-                </td>
-            </tr>
-        </table>
-
-    </div>
-</div>
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;">
+    <tr>
+        <td style="padding:64px 40px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width:900px;margin:0 auto;">
+                <tr>
+                    <td style="text-align:center;padding-bottom:48px;">
+                        <span style="background:#dbeafe;color:#1d4ed8;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Features</span>
+                        <h2 style="font-size:28px;font-weight:800;margin:12px 0 10px;">Everything You Need, Nothing You Don't</h2>
+                        <p style="font-size:15px;color:#64748b;max-width:500px;margin:0 auto;">Powerful document compliance management that works out of the box — no extra modules required.</p>
+                    </td>
+                </tr>
+                <!-- Row 1 -->
+                <tr style="vertical-align:top;">
+                    <td style="width:33%;background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:22px;" width="33%">
+                        <p style="font-size:26px;margin:0 0 10px;">&#128101;</p>
+                        <h3 style="font-size:15px;font-weight:700;margin:0 0 8px;">Universal Entity Support</h3>
+                        <p style="font-size:13px;color:#64748b;margin:0;line-height:1.6;">Track documents for <strong>Persons, Vendors, Vehicles, Equipment</strong>, or any custom entity — all in one unified interface.</p>
+                    </td>
+                    <td style="width:16px;" width="16px"></td>
+                    <td style="width:33%;background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:22px;" width="33%">
+                        <p style="font-size:26px;margin:0 0 10px;">&#128276;</p>
+                        <h3 style="font-size:15px;font-weight:700;margin:0 0 8px;">3-Tier Email Alerts</h3>
+                        <p style="font-size:13px;color:#64748b;margin:0;line-height:1.6;">Configurable alerts at <strong>90 → 30 → 7 days</strong> before expiry, plus escalation alerts if a document is not renewed after deadline.</p>
+                    </td>
+                    <td style="width:16px;" width="16px"></td>
+                    <td style="width:33%;background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:22px;" width="33%">
+                        <p style="font-size:26px;margin:0 0 10px;">&#8635;</p>
+                        <h3 style="font-size:15px;font-weight:700;margin:0 0 8px;">One-Click Renewal Wizard</h3>
+                        <p style="font-size:13px;color:#64748b;margin:0;line-height:1.6;">Renew any document in seconds. Creates a new record, links it to the old one, and keeps the full <strong>renewal chain</strong> traceable.</p>
+                    </td>
+                </tr>
+                <tr><td colspan="5" style="height:14px;"></td></tr>
+                <!-- Row 2 -->
+                <tr style="vertical-align:top;">
+                    <td style="width:33%;background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:22px;" width="33%">
+                        <p style="font-size:26px;margin:0 0 10px;">&#128200;</p>
+                        <h3 style="font-size:15px;font-weight:700;margin:0 0 8px;">Compliance Score</h3>
+                        <p style="font-size:13px;color:#64748b;margin:0;line-height:1.6;">Each entity displays a live <strong>compliance percentage</strong> based on valid vs. expired documents. Animated ring chart on the dashboard.</p>
+                    </td>
+                    <td style="width:16px;" width="16px"></td>
+                    <td style="width:33%;background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:22px;" width="33%">
+                        <p style="font-size:26px;margin:0 0 10px;">&#128196;</p>
+                        <h3 style="font-size:15px;font-weight:700;margin:0 0 8px;">PDF Compliance Report</h3>
+                        <p style="font-size:13px;color:#64748b;margin:0;line-height:1.6;">Printable full compliance report with color-coded rows and summary stats — available directly from the document list view.</p>
+                    </td>
+                    <td style="width:16px;" width="16px"></td>
+                    <td style="width:33%;background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:22px;" width="33%">
+                        <p style="font-size:26px;margin:0 0 10px;">&#127970;</p>
+                        <h3 style="font-size:15px;font-weight:700;margin:0 0 8px;">Multi-Company Ready</h3>
+                        <p style="font-size:13px;color:#64748b;margin:0;line-height:1.6;">Full multi-company isolation with <strong>role-based access</strong> — User and Manager groups with Odoo 19 security record rules.</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 
 <!-- ═══════════════════════════════════════
-     VIEWS SCREENSHOTS (List + Kanban)
+     LIST + KANBAN SCREENSHOTS
 ═══════════════════════════════════════ -->
-<div style="background:#f8fafc;padding:56px 40px;">
-    <div style="max-width:900px;margin:0 auto;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;">
+    <tr>
+        <td style="padding:56px 40px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width:900px;margin:0 auto;">
+                <tr style="vertical-align:top;">
 
-        <table style="width:100%;border-collapse:collapse;">
-            <tr style="vertical-align:top;">
+                    <td style="width:48%;" width="48%">
+                        <span style="background:#dbeafe;color:#1d4ed8;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">List View</span>
+                        <h3 style="font-size:20px;font-weight:800;margin:10px 0 10px;">Color-Coded Document Table</h3>
+                        <p style="font-size:14px;color:#64748b;margin:0 0 18px;">Green valid rows, orange warnings, bold red expired rows — scan your entire portfolio instantly. Inline Renew button on every row.</p>
+                        <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:10px;border:1px solid #e2e8f0;">
+                            <tr>
+                                <td style="background:#f1f5f9;padding:8px 12px;border-bottom:1px solid #e2e8f0;border-radius:10px 10px 0 0;">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="padding-right:5px;"><span style="width:10px;height:10px;border-radius:50%;background:#fc5456;display:inline-block;font-size:0;">&nbsp;</span></td>
+                                            <td style="padding-right:5px;"><span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block;font-size:0;">&nbsp;</span></td>
+                                            <td style="padding-right:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;font-size:0;">&nbsp;</span></td>
+                                            <td><span style="font-size:11px;color:#94a3b8;">All Documents — List</span></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="screen_list.png" class="img img-responsive" style="width:100%;display:block;" alt="List View Screenshot"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
 
-                <td style="width:50%;padding-right:20px;">
-                    <span style="background:#dbeafe;color:#1d4ed8;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:inline-block;margin-bottom:10px;">List View</span>
-                    <h3 style="font-size:20px;font-weight:800;margin:0 0 10px;">Color-Coded Document Table</h3>
-                    <p style="font-size:14px;color:#64748b;margin:0 0 18px;">Green valid rows, orange warnings, bold red expired rows — scan your entire portfolio instantly. Inline Renew button on every row.</p>
-                    <div style="border-radius:10px;overflow:hidden;border:1px solid #e2e8f0;">
-                        <div style="background:#f1f5f9;padding:8px 12px;display:flex;align-items:center;gap:6px;border-bottom:1px solid #e2e8f0;">
-                            <span style="width:10px;height:10px;border-radius:50%;background:#fc5456;display:inline-block;"></span>
-                            <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
-                            <span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;"></span>
-                            <span style="font-size:11px;color:#94a3b8;margin-left:6px;">All Documents — List</span>
-                        </div>
-                        <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#86efac;text-align:center;padding:16px;">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#86efac" stroke-width="1.5"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-                            <strong style="font-size:13px;color:#16a34a;">List View Screenshot</strong>
-                            <img src="screen_list.png" class="img img-responsive" style="width: 100%;"/>                         </div>
-                    </div>
-                </td>
+                    <td style="width:4%;" width="4%"></td>
 
-                <td style="width:50%;padding-left:20px;">
-                    <span style="background:#fef3c7;color:#d97706;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:inline-block;margin-bottom:10px;">Kanban View</span>
-                    <h3 style="font-size:20px;font-weight:800;margin:0 0 10px;">Grouped by Status</h3>
-                    <p style="font-size:14px;color:#64748b;margin:0 0 18px;">Kanban cards grouped by Valid / Expiring Soon / Expired with color-coded left borders for instant visual priority.</p>
-                    <div style="border-radius:10px;overflow:hidden;border:1px solid #e2e8f0;">
-                        <div style="background:#f1f5f9;padding:8px 12px;display:flex;align-items:center;gap:6px;border-bottom:1px solid #e2e8f0;">
-                            <span style="width:10px;height:10px;border-radius:50%;background:#fc5456;display:inline-block;"></span>
-                            <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
-                            <span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;"></span>
-                            <span style="font-size:11px;color:#94a3b8;margin-left:6px;">All Documents — Kanban</span>
-                        </div>
-                       
-                        <div style="background:linear-gradient(135deg,#fffbeb,#fef3c7);height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#fbbf24;text-align:center;padding:16px;">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-                            <strong style="font-size:13px;color:#d97706;">Kanban View Screenshot</strong>
-                                <img src="screen_kanban.png" style="width: 100%;" class="img img-responsive"/>                 
-                        </div>
-                    </div>
-                </td>
+                    <td style="width:48%;" width="48%">
+                        <span style="background:#fef3c7;color:#d97706;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Kanban View</span>
+                        <h3 style="font-size:20px;font-weight:800;margin:10px 0 10px;">Grouped by Status</h3>
+                        <p style="font-size:14px;color:#64748b;margin:0 0 18px;">Kanban cards grouped by Valid / Expiring Soon / Expired with color-coded left borders for instant visual priority.</p>
+                        <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:10px;border:1px solid #e2e8f0;">
+                            <tr>
+                                <td style="background:#f1f5f9;padding:8px 12px;border-bottom:1px solid #e2e8f0;border-radius:10px 10px 0 0;">
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td style="padding-right:5px;"><span style="width:10px;height:10px;border-radius:50%;background:#fc5456;display:inline-block;font-size:0;">&nbsp;</span></td>
+                                            <td style="padding-right:5px;"><span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block;font-size:0;">&nbsp;</span></td>
+                                            <td style="padding-right:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;font-size:0;">&nbsp;</span></td>
+                                            <td><span style="font-size:11px;color:#94a3b8;">All Documents — Kanban</span></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="screen_kanban.png" class="img img-responsive" style="width:100%;display:block;" alt="Kanban View Screenshot"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
 
-            </tr>
-        </table>
-    </div>
-</div>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 
 <!-- ═══════════════════════════════════════
      ENTITY TYPES
 ═══════════════════════════════════════ -->
-<div style="padding:64px 40px;">
-    <div style="max-width:900px;margin:0 auto;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;">
+    <tr>
+        <td style="padding:64px 40px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width:900px;margin:0 auto;">
+                <tr>
+                    <td style="text-align:center;padding-bottom:44px;">
+                        <span style="background:#dbeafe;color:#1d4ed8;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Entities</span>
+                        <h2 style="font-size:28px;font-weight:800;margin:12px 0 10px;">One Module. Five Entity Scopes.</h2>
+                        <p style="font-size:15px;color:#64748b;max-width:480px;margin:0 auto;">Purpose-built profiles for each entity type — all accessible from a single unified menu.</p>
+                    </td>
+                </tr>
+                <tr style="vertical-align:top;">
 
-        <div style="text-align:center;margin-bottom:44px;">
-            <span style="background:#dbeafe;color:#1d4ed8;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:inline-block;margin-bottom:12px;">Entities</span>
-            <h2 style="font-size:28px;font-weight:800;margin:0 0 10px;">One Module. Five Entity Scopes.</h2>
-            <p style="font-size:15px;color:#64748b;max-width:480px;margin:0 auto;">Purpose-built profiles for each entity type — all accessible from a single unified menu.</p>
-        </div>
+                    <td style="background:#eff6ff;border:2px solid #bfdbfe;border-radius:10px;padding:22px;" width="18%">
+                        <p style="font-size:28px;margin:0 0 10px;">&#128100;</p>
+                        <h3 style="font-size:14px;font-weight:700;margin:0 0 10px;color:#1e3a8a;">Persons</h3>
+                        <table cellpadding="2" cellspacing="0">
+                            <tr><td style="font-size:12px;color:#3b82f6;">› Work Permits</td></tr>
+                            <tr><td style="font-size:12px;color:#3b82f6;">› Visas</td></tr>
+                            <tr><td style="font-size:12px;color:#3b82f6;">› Driving Licenses</td></tr>
+                            <tr><td style="font-size:12px;color:#3b82f6;">› Medical Certificates</td></tr>
+                            <tr><td style="font-size:12px;color:#3b82f6;">› Safety Training</td></tr>
+                        </table>
+                    </td>
+                    <td width="10px"></td>
 
-        <table style="width:100%;border-collapse:separate;border-spacing:10px;">
-            <tr style="vertical-align:top;">
+                    <td style="background:#f0fdf4;border:2px solid #bbf7d0;border-radius:10px;padding:22px;" width="18%">
+                        <p style="font-size:28px;margin:0 0 10px;">&#127962;</p>
+                        <h3 style="font-size:14px;font-weight:700;margin:0 0 10px;color:#14532d;">Vendors</h3>
+                        <table cellpadding="2" cellspacing="0">
+                            <tr><td style="font-size:12px;color:#16a34a;">› Trade Licenses</td></tr>
+                            <tr><td style="font-size:12px;color:#16a34a;">› Insurance Certs</td></tr>
+                            <tr><td style="font-size:12px;color:#16a34a;">› Vendor Contracts</td></tr>
+                            <tr><td style="font-size:12px;color:#16a34a;">› Tax Compliance</td></tr>
+                            <tr><td style="font-size:12px;color:#16a34a;">› ISO Certifications</td></tr>
+                        </table>
+                    </td>
+                    <td width="10px"></td>
 
-                <td style="background:#eff6ff;border:2px solid #bfdbfe;border-radius:10px;padding:22px;">
-                    <div style="font-size:28px;margin-bottom:10px;">👤</div>
-                    <h3 style="font-size:14px;font-weight:700;margin:0 0 10px;color:#1e3a8a;">Persons</h3>
-                    <ul style="list-style:none;padding:0;margin:0;">
-                        <li style="font-size:12px;color:#3b82f6;padding:2px 0;">› Work Permits</li>
-                        <li style="font-size:12px;color:#3b82f6;padding:2px 0;">› Visas</li>
-                        <li style="font-size:12px;color:#3b82f6;padding:2px 0;">› Driving Licenses</li>
-                        <li style="font-size:12px;color:#3b82f6;padding:2px 0;">› Medical Certificates</li>
-                        <li style="font-size:12px;color:#3b82f6;padding:2px 0;">› Safety Training</li>
-                    </ul>
-                </td>
+                    <td style="background:#fffbeb;border:2px solid #fde68a;border-radius:10px;padding:22px;" width="18%">
+                        <p style="font-size:28px;margin:0 0 10px;">&#128667;</p>
+                        <h3 style="font-size:14px;font-weight:700;margin:0 0 10px;color:#78350f;">Vehicles</h3>
+                        <table cellpadding="2" cellspacing="0">
+                            <tr><td style="font-size:12px;color:#d97706;">› Registrations</td></tr>
+                            <tr><td style="font-size:12px;color:#d97706;">› Vehicle Insurance</td></tr>
+                            <tr><td style="font-size:12px;color:#d97706;">› Tech Inspections</td></tr>
+                            <tr><td style="font-size:12px;color:#d97706;">› Road Tax</td></tr>
+                            <tr><td style="font-size:12px;color:#d97706;">› Emission Certs</td></tr>
+                        </table>
+                    </td>
+                    <td width="10px"></td>
 
-                <td style="background:#f0fdf4;border:2px solid #bbf7d0;border-radius:10px;padding:22px;">
-                    <div style="font-size:28px;margin-bottom:10px;">🏢</div>
-                    <h3 style="font-size:14px;font-weight:700;margin:0 0 10px;color:#14532d;">Vendors</h3>
-                    <ul style="list-style:none;padding:0;margin:0;">
-                        <li style="font-size:12px;color:#16a34a;padding:2px 0;">› Trade Licenses</li>
-                        <li style="font-size:12px;color:#16a34a;padding:2px 0;">› Insurance Certificates</li>
-                        <li style="font-size:12px;color:#16a34a;padding:2px 0;">› Vendor Contracts</li>
-                        <li style="font-size:12px;color:#16a34a;padding:2px 0;">› Tax Compliance</li>
-                        <li style="font-size:12px;color:#16a34a;padding:2px 0;">› ISO Certifications</li>
-                    </ul>
-                </td>
+                    <td style="background:#fdf4ff;border:2px solid #e9d5ff;border-radius:10px;padding:22px;" width="18%">
+                        <p style="font-size:28px;margin:0 0 10px;">&#9881;&#65039;</p>
+                        <h3 style="font-size:14px;font-weight:700;margin:0 0 10px;color:#581c87;">Equipment</h3>
+                        <table cellpadding="2" cellspacing="0">
+                            <tr><td style="font-size:12px;color:#7c3aed;">› Certifications</td></tr>
+                            <tr><td style="font-size:12px;color:#7c3aed;">› Warranties</td></tr>
+                            <tr><td style="font-size:12px;color:#7c3aed;">› Calibration Certs</td></tr>
+                            <tr><td style="font-size:12px;color:#7c3aed;">› Safety Inspections</td></tr>
+                            <tr><td style="font-size:12px;color:#7c3aed;">› Maintenance Records</td></tr>
+                        </table>
+                    </td>
+                    <td width="10px"></td>
 
-                <td style="background:#fffbeb;border:2px solid #fde68a;border-radius:10px;padding:22px;">
-                    <div style="font-size:28px;margin-bottom:10px;">🚛</div>
-                    <h3 style="font-size:14px;font-weight:700;margin:0 0 10px;color:#78350f;">Vehicles</h3>
-                    <ul style="list-style:none;padding:0;margin:0;">
-                        <li style="font-size:12px;color:#d97706;padding:2px 0;">› Registrations</li>
-                        <li style="font-size:12px;color:#d97706;padding:2px 0;">› Vehicle Insurance</li>
-                        <li style="font-size:12px;color:#d97706;padding:2px 0;">› Technical Inspections</li>
-                        <li style="font-size:12px;color:#d97706;padding:2px 0;">› Road Tax</li>
-                        <li style="font-size:12px;color:#d97706;padding:2px 0;">› Emission Certificates</li>
-                    </ul>
-                </td>
+                    <td style="background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;padding:22px;" width="18%">
+                        <p style="font-size:28px;margin:0 0 10px;">&#128204;</p>
+                        <h3 style="font-size:14px;font-weight:700;margin:0 0 10px;color:#334155;">Other</h3>
+                        <table cellpadding="2" cellspacing="0">
+                            <tr><td style="font-size:12px;color:#475569;">› ISO Certificates</td></tr>
+                            <tr><td style="font-size:12px;color:#475569;">› Site Permits</td></tr>
+                            <tr><td style="font-size:12px;color:#475569;">› Fire Safety</td></tr>
+                            <tr><td style="font-size:12px;color:#475569;">› Environmental Permits</td></tr>
+                            <tr><td style="font-size:12px;color:#475569;">› Custom Types</td></tr>
+                        </table>
+                    </td>
 
-                <td style="background:#fdf4ff;border:2px solid #e9d5ff;border-radius:10px;padding:22px;">
-                    <div style="font-size:28px;margin-bottom:10px;">⚙️</div>
-                    <h3 style="font-size:14px;font-weight:700;margin:0 0 10px;color:#581c87;">Equipment</h3>
-                    <ul style="list-style:none;padding:0;margin:0;">
-                        <li style="font-size:12px;color:#7c3aed;padding:2px 0;">› Certifications</li>
-                        <li style="font-size:12px;color:#7c3aed;padding:2px 0;">› Warranties</li>
-                        <li style="font-size:12px;color:#7c3aed;padding:2px 0;">› Calibration Certs</li>
-                        <li style="font-size:12px;color:#7c3aed;padding:2px 0;">› Safety Inspections</li>
-                        <li style="font-size:12px;color:#7c3aed;padding:2px 0;">› Maintenance Records</li>
-                    </ul>
-                </td>
-
-                <td style="background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;padding:22px;">
-                    <div style="font-size:28px;margin-bottom:10px;">📌</div>
-                    <h3 style="font-size:14px;font-weight:700;margin:0 0 10px;color:#334155;">Other</h3>
-                    <ul style="list-style:none;padding:0;margin:0;">
-                        <li style="font-size:12px;color:#475569;padding:2px 0;">› ISO Certificates</li>
-                        <li style="font-size:12px;color:#475569;padding:2px 0;">› Site Permits</li>
-                        <li style="font-size:12px;color:#475569;padding:2px 0;">› Fire Safety</li>
-                        <li style="font-size:12px;color:#475569;padding:2px 0;">› Environmental Permits</li>
-                        <li style="font-size:12px;color:#475569;padding:2px 0;">› Custom Types</li>
-                    </ul>
-                </td>
-
-            </tr>
-        </table>
-    </div>
-</div>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 
 <!-- ═══════════════════════════════════════
-     FORM VIEW SCREENSHOT
+     DOCUMENT FORM
 ═══════════════════════════════════════ -->
-<div style="background:#f8fafc;padding:56px 40px;">
-    <div style="max-width:900px;margin:0 auto;">
-        <table style="width:100%;border-collapse:collapse;">
-            <tr style="vertical-align:middle;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;">
+    <tr>
+        <td style="padding:56px 40px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width:900px;margin:0 auto;">
+                <tr style="vertical-align:middle;">
 
-                <td style="width:42%;padding-right:36px;">
-                    <span style="background:#dbeafe;color:#1d4ed8;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:inline-block;margin-bottom:10px;">Document Form</span>
-                    <h3 style="font-size:22px;font-weight:800;margin:0 0 12px;">Every Detail, One Screen</h3>
-                    <p style="font-size:14px;color:#64748b;margin:0 0 20px;">Status banners, responsible users, attachment storage, renewal history, and full chatter — all on a single form page.</p>
+                    <td style="width:42%;padding-right:36px;" width="42%">
+                        <span style="background:#dbeafe;color:#1d4ed8;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Document Form</span>
+                        <h3 style="font-size:22px;font-weight:800;margin:10px 0 12px;">Every Detail, One Screen</h3>
+                        <p style="font-size:14px;color:#64748b;margin:0 0 20px;">Status banners, responsible users, attachment storage, renewal history, and full chatter — all on a single form page.</p>
 
-                    <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;">
-                        <span style="background:#fee2e2;color:#dc2626;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;font-weight:700;min-width:28px;text-align:center;">!</span>
-                        <div style="font-size:13px;color:#475569;"><strong style="color:#1e293b;">Live alert banners</strong> — red expired, orange expiring, green renewed</div>
-                    </div>
-                    <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;">
-                        <span style="background:#dbeafe;color:#1d4ed8;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;min-width:28px;text-align:center;">↺</span>
-                        <div style="font-size:13px;color:#475569;"><strong style="color:#1e293b;">Renewal history chain</strong> — trace every version back to its origin</div>
-                    </div>
-                    <div style="display:flex;gap:12px;align-items:flex-start;">
-                        <span style="background:#dcfce7;color:#16a34a;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;min-width:28px;text-align:center;">📎</span>
-                        <div style="font-size:13px;color:#475569;"><strong style="color:#1e293b;">Attachments tab</strong> — store scanned documents directly on the record</div>
-                    </div>
-                </td>
+                        <table cellpadding="0" cellspacing="0" style="margin-bottom:14px;">
+                            <tr style="vertical-align:top;">
+                                <td style="padding-right:12px;">
+                                    <span style="background:#fee2e2;color:#dc2626;border-radius:50%;width:28px;height:28px;font-size:12px;font-weight:700;display:inline-block;text-align:center;line-height:28px;">!</span>
+                                </td>
+                                <td style="font-size:13px;color:#475569;"><strong style="color:#1e293b;">Live alert banners</strong> — red expired, orange expiring, green renewed</td>
+                            </tr>
+                        </table>
+                        <table cellpadding="0" cellspacing="0" style="margin-bottom:14px;">
+                            <tr style="vertical-align:top;">
+                                <td style="padding-right:12px;">
+                                    <span style="background:#dbeafe;color:#1d4ed8;border-radius:50%;width:28px;height:28px;font-size:14px;display:inline-block;text-align:center;line-height:28px;">&#8634;</span>
+                                </td>
+                                <td style="font-size:13px;color:#475569;"><strong style="color:#1e293b;">Renewal history chain</strong> — trace every version back to its origin</td>
+                            </tr>
+                        </table>
+                        <table cellpadding="0" cellspacing="0">
+                            <tr style="vertical-align:top;">
+                                <td style="padding-right:12px;">
+                                    <span style="background:#dcfce7;color:#16a34a;border-radius:50%;width:28px;height:28px;font-size:14px;display:inline-block;text-align:center;line-height:28px;">&#128206;</span>
+                                </td>
+                                <td style="font-size:13px;color:#475569;"><strong style="color:#1e293b;">Attachments tab</strong> — store scanned documents directly on the record</td>
+                            </tr>
+                        </table>
+                    </td>
 
-                <td style="width:30%;">
-                    
-                </td>
+                    <td style="width:58%;" width="58%">
+                        <img src="screen_form.png" class="img img-responsive" style="width:100%;display:block;border-radius:10px;border:1px solid #e2e8f0;" alt="Document Form Screenshot"/>
+                    </td>
 
-            </tr>
-        </table>
-    </div>
-</div>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 
 <!-- ═══════════════════════════════════════
      ALERT PIPELINE
 ═══════════════════════════════════════ -->
-<div style="padding:64px 40px;">
-    <div style="max-width:900px;margin:0 auto;">
-        <table style="width:100%;border-collapse:collapse;">
-            <tr style="vertical-align:top;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;">
+    <tr>
+        <td style="padding:64px 40px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width:900px;margin:0 auto;">
+                <tr style="vertical-align:top;">
 
-                <td style="width:50%;padding-right:40px;">
-                    <span style="background:#dbeafe;color:#1d4ed8;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:inline-block;margin-bottom:10px;">Alert System</span>
-                    <h3 style="font-size:22px;font-weight:800;margin:0 0 12px;">Never Miss a Renewal</h3>
-                    <p style="font-size:14px;color:#64748b;margin:0 0 28px;">A 4-stage automated notification pipeline configured per document type — not globally — for maximum flexibility.</p>
+                    <td style="width:50%;padding-right:40px;" width="50%">
+                        <span style="background:#dbeafe;color:#1d4ed8;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Alert System</span>
+                        <h3 style="font-size:22px;font-weight:800;margin:10px 0 12px;">Never Miss a Renewal</h3>
+                        <p style="font-size:14px;color:#64748b;margin:0 0 28px;">A 4-stage automated notification pipeline configured per document type — not globally — for maximum flexibility.</p>
 
-                    <div style="position:relative;padding-left:36px;">
-                        <div style="position:absolute;left:11px;top:24px;bottom:24px;width:2px;background:#e2e8f0;"></div>
+                        <!-- Stage 1 -->
+                        <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:18px;">
+                            <tr style="vertical-align:top;">
+                                <td style="width:36px;padding-right:12px;" width="36">
+                                    <span style="background:#dcfce7;border:2px solid #16a34a;border-radius:50%;width:26px;height:26px;font-size:14px;display:inline-block;text-align:center;line-height:22px;">&#128276;</span>
+                                </td>
+                                <td>
+                                    <h4 style="font-size:13px;font-weight:700;margin:0 0 3px;color:#1e293b;">90 days before — First Alert</h4>
+                                    <p style="font-size:12px;color:#64748b;margin:0;">Early heads-up gives time to initiate renewal without urgency.</p>
+                                </td>
+                            </tr>
+                        </table>
 
-                        <div style="position:relative;margin-bottom:22px;">
-                            <div style="position:absolute;left:-36px;width:24px;height:24px;border-radius:50%;background:#dcfce7;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:12px;box-shadow:0 0 0 2px #16a34a;">🔔</div>
-                            <h4 style="font-size:13px;font-weight:700;margin:0 0 3px;color:#1e293b;">90 days before — First Alert</h4>
-                            <p style="font-size:12px;color:#64748b;margin:0;">Early heads-up gives time to initiate renewal without urgency.</p>
-                        </div>
+                        <!-- Stage 2 -->
+                        <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:18px;">
+                            <tr style="vertical-align:top;">
+                                <td style="width:36px;padding-right:12px;" width="36">
+                                    <span style="background:#fef3c7;border:2px solid #d97706;border-radius:50%;width:26px;height:26px;font-size:14px;display:inline-block;text-align:center;line-height:22px;">&#128276;</span>
+                                </td>
+                                <td>
+                                    <h4 style="font-size:13px;font-weight:700;margin:0 0 3px;color:#1e293b;">30 days before — Follow-up</h4>
+                                    <p style="font-size:12px;color:#64748b;margin:0;">Sent to responsible user + all CC recipients configured on the document.</p>
+                                </td>
+                            </tr>
+                        </table>
 
-                        <div style="position:relative;margin-bottom:22px;">
-                            <div style="position:absolute;left:-36px;width:24px;height:24px;border-radius:50%;background:#fef3c7;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:12px;box-shadow:0 0 0 2px #d97706;">🔔</div>
-                            <h4 style="font-size:13px;font-weight:700;margin:0 0 3px;color:#1e293b;">30 days before — Follow-up</h4>
-                            <p style="font-size:12px;color:#64748b;margin:0;">Sent to responsible user + all CC recipients configured on the document.</p>
-                        </div>
+                        <!-- Stage 3 -->
+                        <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:18px;">
+                            <tr style="vertical-align:top;">
+                                <td style="width:36px;padding-right:12px;" width="36">
+                                    <span style="background:#fee2e2;border:2px solid #dc2626;border-radius:50%;width:26px;height:26px;font-size:14px;display:inline-block;text-align:center;line-height:22px;">&#128276;</span>
+                                </td>
+                                <td>
+                                    <h4 style="font-size:13px;font-weight:700;margin:0 0 3px;color:#1e293b;">7 days before — Urgent</h4>
+                                    <p style="font-size:12px;color:#64748b;margin:0;">Final warning. Configurable per type — critical docs can be set to 3 days.</p>
+                                </td>
+                            </tr>
+                        </table>
 
-                        <div style="position:relative;margin-bottom:22px;">
-                            <div style="position:absolute;left:-36px;width:24px;height:24px;border-radius:50%;background:#fee2e2;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:12px;box-shadow:0 0 0 2px #dc2626;">🔔</div>
-                            <h4 style="font-size:13px;font-weight:700;margin:0 0 3px;color:#1e293b;">7 days before — Urgent</h4>
-                            <p style="font-size:12px;color:#64748b;margin:0;">Final warning. Configurable per type — critical docs can be set to 3 days.</p>
-                        </div>
+                        <!-- Stage 4 -->
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr style="vertical-align:top;">
+                                <td style="width:36px;padding-right:12px;" width="36">
+                                    <span style="background:#fecaca;border:2px solid #991b1b;border-radius:50%;width:26px;height:26px;font-size:14px;display:inline-block;text-align:center;line-height:22px;">&#9888;&#65039;</span>
+                                </td>
+                                <td>
+                                    <h4 style="font-size:13px;font-weight:700;margin:0 0 3px;color:#1e293b;">After expiry — Escalation</h4>
+                                    <p style="font-size:12px;color:#64748b;margin:0;">If not renewed N days after expiry, escalation is sent automatically.</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
 
-                        <div style="position:relative;">
-                            <div style="position:absolute;left:-36px;width:24px;height:24px;border-radius:50%;background:#fecaca;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:12px;box-shadow:0 0 0 2px #991b1b;">⚠️</div>
-                            <h4 style="font-size:13px;font-weight:700;margin:0 0 3px;color:#1e293b;">After expiry — Escalation</h4>
-                            <p style="font-size:12px;color:#64748b;margin:0;">If not renewed N days after expiry, escalation is sent automatically.</p>
-                        </div>
-                    </div>
-                </td>
+                    <td style="width:50%;" width="50%">
+                        <img src="screen_alerts.png" class="img img-responsive" style="width:100%;display:block;border-radius:10px;border:1px solid #e2e8f0;" alt="Alert Configuration Screenshot"/>
+                    </td>
 
-                <td style="width:30%;">
-                    
-                </td>
-
-            </tr>
-        </table>
-    </div>
-</div>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 
 <!-- ═══════════════════════════════════════
-     RENEWAL WIZARD SCREENSHOT
+     RENEWAL WIZARD
 ═══════════════════════════════════════ -->
-<div style="background:#f8fafc;padding:56px 40px;">
-    <div style="max-width:900px;margin:0 auto;">
-        <table style="width:100%;border-collapse:collapse;">
-            <tr style="vertical-align:middle;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;">
+    <tr>
+        <td style="padding:56px 40px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width:900px;margin:0 auto;">
+                <tr style="vertical-align:middle;">
 
-                <td style="width:30%;padding-right:36px;">
-                   
-                </td>
+                    <td style="width:48%;" width="48%">
+                        <img src="screen_renewal.png" class="img img-responsive" style="width:100%;display:block;border-radius:10px;border:1px solid #e2e8f0;" alt="Renewal Wizard Screenshot"/>
+                    </td>
 
-                <td style="width:50%;padding-left:36px;">
-                    <span style="background:#dbeafe;color:#1d4ed8;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:inline-block;margin-bottom:10px;">Renewal Workflow</span>
-                    <h3 style="font-size:22px;font-weight:800;margin:0 0 18px;">Renew in 4 Steps</h3>
+                    <td style="width:4%;" width="4%"></td>
 
-                    <div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;">
-                        <span style="background:#1d4ed8;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;min-width:28px;text-align:center;">1</span>
-                        <div style="font-size:13px;color:#475569;padding-top:4px;">Click <strong style="color:#1e293b;">"Renew Document"</strong> on any active document form or list row.</div>
-                    </div>
-                    <div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;">
-                        <span style="background:#1d4ed8;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;min-width:28px;text-align:center;">2</span>
-                        <div style="font-size:13px;color:#475569;padding-top:4px;">Fill in the new issue and expiry dates, and optionally attach the renewed document file.</div>
-                    </div>
-                    <div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;">
-                        <span style="background:#1d4ed8;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;min-width:28px;text-align:center;">3</span>
-                        <div style="font-size:13px;color:#475569;padding-top:4px;">Confirm. The old record is automatically marked <strong style="color:#1e293b;">"Renewed"</strong> and a new active record is created.</div>
-                    </div>
-                    <div style="display:flex;gap:14px;align-items:flex-start;">
-                        <span style="background:#10b981;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;min-width:28px;text-align:center;">✓</span>
-                        <div style="font-size:13px;color:#475569;padding-top:4px;">Full renewal chain preserved — traceable from any document in the history tab.</div>
-                    </div>
-                </td>
+                    <td style="width:48%;" width="48%">
+                        <span style="background:#dbeafe;color:#1d4ed8;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Renewal Workflow</span>
+                        <h3 style="font-size:22px;font-weight:800;margin:10px 0 18px;">Renew in 4 Steps</h3>
 
-            </tr>
-        </table>
-    </div>
-</div>
+                        <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
+                            <tr style="vertical-align:top;">
+                                <td style="padding-right:14px;width:36px;" width="36">
+                                    <span style="background:#1d4ed8;color:#ffffff;border-radius:50%;width:28px;height:28px;font-weight:700;font-size:13px;display:inline-block;text-align:center;line-height:28px;">1</span>
+                                </td>
+                                <td style="font-size:13px;color:#475569;padding-top:4px;">Click <strong style="color:#1e293b;">"Renew Document"</strong> on any active document form or list row.</td>
+                            </tr>
+                        </table>
+                        <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
+                            <tr style="vertical-align:top;">
+                                <td style="padding-right:14px;width:36px;" width="36">
+                                    <span style="background:#1d4ed8;color:#ffffff;border-radius:50%;width:28px;height:28px;font-weight:700;font-size:13px;display:inline-block;text-align:center;line-height:28px;">2</span>
+                                </td>
+                                <td style="font-size:13px;color:#475569;padding-top:4px;">Fill in the new issue and expiry dates, and optionally attach the renewed document file.</td>
+                            </tr>
+                        </table>
+                        <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
+                            <tr style="vertical-align:top;">
+                                <td style="padding-right:14px;width:36px;" width="36">
+                                    <span style="background:#1d4ed8;color:#ffffff;border-radius:50%;width:28px;height:28px;font-weight:700;font-size:13px;display:inline-block;text-align:center;line-height:28px;">3</span>
+                                </td>
+                                <td style="font-size:13px;color:#475569;padding-top:4px;">Confirm. The old record is automatically marked <strong style="color:#1e293b;">"Renewed"</strong> and a new active record is created.</td>
+                            </tr>
+                        </table>
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr style="vertical-align:top;">
+                                <td style="padding-right:14px;width:36px;" width="36">
+                                    <span style="background:#10b981;color:#ffffff;border-radius:50%;width:28px;height:28px;font-size:14px;display:inline-block;text-align:center;line-height:28px;">&#10003;</span>
+                                </td>
+                                <td style="font-size:13px;color:#475569;padding-top:4px;">Full renewal chain preserved — traceable from any document in the history tab.</td>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 
 <!-- ═══════════════════════════════════════
      INSTALLATION
 ═══════════════════════════════════════ -->
-<div style="padding:64px 40px;">
-    <div style="max-width:900px;margin:0 auto;">
-        <table style="width:100%;border-collapse:collapse;">
-            <tr style="vertical-align:top;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;">
+    <tr>
+        <td style="padding:64px 40px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width:900px;margin:0 auto;">
+                <tr style="vertical-align:top;">
 
-                <td style="width:50%;padding-right:36px;">
-                    <span style="background:#dbeafe;color:#1d4ed8;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:inline-block;margin-bottom:10px;">Installation</span>
-                    <h3 style="font-size:22px;font-weight:800;margin:0 0 12px;">Up and Running in 5 Minutes</h3>
-                    <p style="font-size:14px;color:#64748b;margin:0 0 18px;">No external dependencies — copy the folder, restart, install.</p>
+                    <td style="width:50%;padding-right:36px;" width="50%">
+                        <span style="background:#dbeafe;color:#1d4ed8;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Installation</span>
+                        <h3 style="font-size:22px;font-weight:800;margin:10px 0 12px;">Up and Running in 5 Minutes</h3>
+                        <p style="font-size:14px;color:#64748b;margin:0 0 18px;">No external dependencies — copy the folder, restart, install.</p>
 
-                    <div style="background:#1e293b;border-radius:8px;padding:18px 20px;font-family:monospace;font-size:12px;color:#e2e8f0;line-height:1.9;">
-                        <div style="color:#64748b;"># 1. Copy to your addons path</div>
-                        <div style="color:#7dd3fc;">cp -r smart_document_expiry /opt/odoo/addons/</div>
-                        <div style="margin-top:8px;color:#64748b;"># 2. Restart Odoo server</div>
-                        <div style="color:#7dd3fc;">sudo systemctl restart odoo</div>
-                        <div style="margin-top:8px;color:#64748b;"># 3. Install from Apps menu</div>
-                        <div style="color:#86efac;">Apps → Update Apps List → Install</div>
-                    </div>
+                        <table width="100%" cellpadding="0" cellspacing="0" style="background:#1e293b;border-radius:8px;">
+                            <tr>
+                                <td style="padding:18px 20px;font-family:monospace;font-size:12px;color:#e2e8f0;line-height:1.9;">
+                                    <span style="color:#64748b;"># 1. Copy to your addons path</span><br/>
+                                    <span style="color:#7dd3fc;">cp -r smart_document_expiry /opt/odoo/addons/</span><br/><br/>
+                                    <span style="color:#64748b;"># 2. Restart Odoo server</span><br/>
+                                    <span style="color:#7dd3fc;">sudo systemctl restart odoo</span><br/><br/>
+                                    <span style="color:#64748b;"># 3. Install from Apps menu</span><br/>
+                                    <span style="color:#86efac;">Apps &#8594; Update Apps List &#8594; Install</span>
+                                </td>
+                            </tr>
+                        </table>
 
-                    <div style="margin-top:16px;padding:14px 16px;background:#eff6ff;border-radius:6px;border-left:4px solid #1d4ed8;font-size:13px;color:#1e3a8a;">
-                        <strong>Dependencies:</strong> Only <code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">base</code>, <code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">mail</code>, and <code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">web</code> — always available in every Odoo instance.
-                    </div>
-                </td>
+                        <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;background:#eff6ff;border-radius:6px;border-left:4px solid #1d4ed8;">
+                            <tr>
+                                <td style="padding:14px 16px;font-size:13px;color:#1e3a8a;">
+                                    <strong>Dependencies:</strong> Only <code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">base</code>, <code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">mail</code>, and <code style="background:#dbeafe;padding:1px 5px;border-radius:3px;">web</code> — always available in every Odoo instance.
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
 
-                <td style="width:50%;padding-left:36px;">
-                    <span style="background:#dbeafe;color:#1d4ed8;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:inline-block;margin-bottom:10px;">Configuration</span>
-                    <h3 style="font-size:22px;font-weight:800;margin:0 0 18px;">3 Areas to Configure</h3>
+                    <td style="width:50%;padding-left:36px;" width="50%">
+                        <span style="background:#dbeafe;color:#1d4ed8;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Configuration</span>
+                        <h3 style="font-size:22px;font-weight:800;margin:10px 0 18px;">3 Areas to Configure</h3>
 
-                    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin-bottom:10px;">
-                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-                            <span style="font-size:18px;">📋</span>
-                            <strong style="font-size:13px;">Document Types</strong>
-                        </div>
-                        <p style="font-size:12px;color:#64748b;margin:0;">Create custom types per entity, set per-type alert thresholds, toggle attachment requirement on renewal.</p>
-                    </div>
+                        <table width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:10px;">
+                            <tr>
+                                <td style="padding:16px;">
+                                    <table cellpadding="0" cellspacing="0" style="margin-bottom:6px;">
+                                        <tr>
+                                            <td style="padding-right:10px;font-size:18px;">&#128203;</td>
+                                            <td><strong style="font-size:13px;">Document Types</strong></td>
+                                        </tr>
+                                    </table>
+                                    <p style="font-size:12px;color:#64748b;margin:0;">Create custom types per entity, set per-type alert thresholds, toggle attachment requirement on renewal.</p>
+                                </td>
+                            </tr>
+                        </table>
 
-                    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin-bottom:10px;">
-                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-                            <span style="font-size:18px;">⏰</span>
-                            <strong style="font-size:13px;">Scheduled Actions</strong>
-                        </div>
-                        <p style="font-size:12px;color:#64748b;margin:0;">Two cron jobs auto-installed: daily alert sender at 07:00 and state refresh at 00:05. Adjust under Settings → Technical.</p>
-                    </div>
+                        <table width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:10px;">
+                            <tr>
+                                <td style="padding:16px;">
+                                    <table cellpadding="0" cellspacing="0" style="margin-bottom:6px;">
+                                        <tr>
+                                            <td style="padding-right:10px;font-size:18px;">&#9200;</td>
+                                            <td><strong style="font-size:13px;">Scheduled Actions</strong></td>
+                                        </tr>
+                                    </table>
+                                    <p style="font-size:12px;color:#64748b;margin:0;">Two cron jobs auto-installed: daily alert sender at 07:00 and state refresh at 00:05. Adjust under Settings &rarr; Technical.</p>
+                                </td>
+                            </tr>
+                        </table>
 
-                    <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:16px;">
-                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-                            <span style="font-size:18px;">✉️</span>
-                            <strong style="font-size:13px;">Email Templates</strong>
-                        </div>
-                        <p style="font-size:12px;color:#64748b;margin:0;">4 customizable HTML templates. Edit via Settings → Technical → Email → Templates.</p>
-                    </div>
-                </td>
+                        <table width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;">
+                            <tr>
+                                <td style="padding:16px;">
+                                    <table cellpadding="0" cellspacing="0" style="margin-bottom:6px;">
+                                        <tr>
+                                            <td style="padding-right:10px;font-size:18px;">&#9993;&#65039;</td>
+                                            <td><strong style="font-size:13px;">Email Templates</strong></td>
+                                        </tr>
+                                    </table>
+                                    <p style="font-size:12px;color:#64748b;margin:0;">4 customizable HTML templates. Edit via Settings &rarr; Technical &rarr; Email &rarr; Templates.</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
 
-            </tr>
-        </table>
-    </div>
-</div>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 
 <!-- ═══════════════════════════════════════
      PRICING CTA
 ═══════════════════════════════════════ -->
-<div style="background:#0f172a;padding:56px 40px;text-align:center;">
-    <div style="max-width:700px;margin:0 auto;">
-        <p style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin:0 0 10px;">One-time purchase · OPL-1 License</p>
-        <p style="font-size:13px;color:rgba(255,255,255,.4);margin:0 0 28px;">Single production instance</p>
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#0f172a;">
+    <tr>
+        <td style="padding:56px 40px;text-align:center;">
+            <table cellpadding="0" cellspacing="0" style="max-width:700px;margin:0 auto;">
+                <tr>
+                    <td style="text-align:center;">
+                        <p style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#475569;margin:0 0 10px;">One-time purchase &middot; OPL-1 License</p>
+                        <p style="font-size:13px;color:#334155;margin:0 0 28px;">Single production instance</p>
 
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:32px;">
-            <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.82);padding:5px 14px;border-radius:20px;font-size:12px;">✓ Lifetime access</span>
-            <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.82);padding:5px 14px;border-radius:20px;font-size:12px;">✓ Free bug fixes</span>
-            <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.82);padding:5px 14px;border-radius:20px;font-size:12px;">✓ Odoo 19 compatible</span>
-            <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.82);padding:5px 14px;border-radius:20px;font-size:12px;">✓ 20 demo records</span>
-            <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.82);padding:5px 14px;border-radius:20px;font-size:12px;">✓ Zero extra dependencies</span>
-            <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.82);padding:5px 14px;border-radius:20px;font-size:12px;">✓ Full source code</span>
-        </div>
+                        <!-- Feature tags -->
+                        <table cellpadding="0" cellspacing="4" style="margin:0 auto 32px;">
+                            <tr>
+                                <td style="padding:4px;"><span style="background:#1e293b;border:1px solid #334155;color:#cbd5e1;padding:5px 14px;border-radius:20px;font-size:12px;">&#10003; Lifetime access</span></td>
+                                <td style="padding:4px;"><span style="background:#1e293b;border:1px solid #334155;color:#cbd5e1;padding:5px 14px;border-radius:20px;font-size:12px;">&#10003; Free bug fixes</span></td>
+                                <td style="padding:4px;"><span style="background:#1e293b;border:1px solid #334155;color:#cbd5e1;padding:5px 14px;border-radius:20px;font-size:12px;">&#10003; Odoo 19 compatible</span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding:4px;"><span style="background:#1e293b;border:1px solid #334155;color:#cbd5e1;padding:5px 14px;border-radius:20px;font-size:12px;">&#10003; 20 demo records</span></td>
+                                <td style="padding:4px;"><span style="background:#1e293b;border:1px solid #334155;color:#cbd5e1;padding:5px 14px;border-radius:20px;font-size:12px;">&#10003; Zero extra dependencies</span></td>
+                                <td style="padding:4px;"><span style="background:#1e293b;border:1px solid #334155;color:#cbd5e1;padding:5px 14px;border-radius:20px;font-size:12px;">&#10003; Full source code</span></td>
+                            </tr>
+                        </table>
 
-        <div style="margin-bottom:16px;">
-            <span style="background:#1d4ed8;color:#fff;padding:14px 36px;border-radius:6px;font-size:15px;font-weight:700;display:inline-block;">Buy Now on Odoo Apps</span>
-        </div>
-        <p style="font-size:12px;color:rgba(255,255,255,.35);margin:0;">Questions? <a href="mailto:imazighenapps@gmail.com" style="color:rgba(255,255,255,.6);text-decoration:none;">imazighenapps@gmail.com</a></p>
-    </div>
-</div>
+                        <p style="margin:0 0 16px;">
+                            <span style="background:#1d4ed8;color:#ffffff;padding:14px 36px;border-radius:6px;font-size:15px;font-weight:700;display:inline-block;">Buy Now on Odoo Apps</span>
+                        </p>
+                        <p style="font-size:12px;color:#334155;margin:0;">Questions? <a href="mailto:imazighenapps@gmail.com" style="color:#64748b;text-decoration:none;">imazighenapps@gmail.com</a></p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 
 <!-- ═══════════════════════════════════════
      FOOTER
 ═══════════════════════════════════════ -->
-<div style="background:#0a0f1e;padding:20px 40px;">
-    <div style="max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-        <span style="font-size:12px;color:rgba(255,255,255,.3);">Licensed under OPL-1 · Odoo 19 Community &amp; Enterprise</span>
-    </div>
-</div>
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#0a0f1e;">
+    <tr>
+        <td style="padding:20px 40px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width:900px;margin:0 auto;">
+                <tr>
+                    <td><span style="font-size:12px;color:#1e293b;">Licensed under OPL-1 &middot; Odoo 19 Community &amp; Enterprise</span></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 
-</div>
+</body>
+</html>
