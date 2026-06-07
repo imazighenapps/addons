@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_document_expiry_compliance">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+
+                    <!-- Title -->
+                    <div class="row mb-4">
+                        <div class="col-12 text-center">
+                            <h2 style="color: #1565C0; border-bottom: 2px solid #1565C0; padding-bottom: 8px;">
+                                📋 Document Compliance Report
+                            </h2>
+                            <p class="text-muted">Generated on <t t-esc="context_timestamp(datetime.datetime.now()).strftime('%B %d, %Y')"/></p>
+                        </div>
+                    </div>
+
+                    <!-- Summary Stats -->
+                    <div class="row mb-4">
+                        <t t-set="all_docs" t-value="docs.search([('state','not in',['renewed','archived'])])"/>
+                        <t t-set="valid_count"    t-value="len(all_docs.filtered(lambda d: d.state == 'valid'))"/>
+                        <t t-set="expiring_count" t-value="len(all_docs.filtered(lambda d: d.state == 'expiring_soon'))"/>
+                        <t t-set="expired_count"  t-value="len(all_docs.filtered(lambda d: d.state == 'expired'))"/>
+                        <t t-set="total_count"    t-value="valid_count + expiring_count + expired_count"/>
+                        <t t-set="compliance_pct" t-value="round(valid_count / total_count * 100, 1) if total_count else 100"/>
+
+                        <div class="col-3 text-center">
+                            <div style="background: #e8f5e9; border-radius: 8px; padding: 12px;">
+                                <div style="font-size: 28px; font-weight: bold; color: #2e7d32;"><t t-esc="valid_count"/></div>
+                                <div style="color: #2e7d32;">Valid</div>
+                            </div>
+                        </div>
+                        <div class="col-3 text-center">
+                            <div style="background: #fff3e0; border-radius: 8px; padding: 12px;">
+                                <div style="font-size: 28px; font-weight: bold; color: #e65100;"><t t-esc="expiring_count"/></div>
+                                <div style="color: #e65100;">Expiring Soon</div>
+                            </div>
+                        </div>
+                        <div class="col-3 text-center">
+                            <div style="background: #ffebee; border-radius: 8px; padding: 12px;">
+                                <div style="font-size: 28px; font-weight: bold; color: #c62828;"><t t-esc="expired_count"/></div>
+                                <div style="color: #c62828;">Expired</div>
+                            </div>
+                        </div>
+                        <div class="col-3 text-center">
+                            <div style="background: #e3f2fd; border-radius: 8px; padding: 12px;">
+                                <div style="font-size: 28px; font-weight: bold; color: #1565C0;"><t t-esc="compliance_pct"/>%</div>
+                                <div style="color: #1565C0;">Compliance</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Documents Table -->
+                    <h4 style="color: #333; margin-top: 24px;">Document Details</h4>
+                    <table class="table table-sm table-bordered" style="font-size: 11px;">
+                        <thead style="background: #1565C0; color: white;">
+                            <tr>
+                                <th>Document</th>
+                                <th>Type</th>
+                                <th>Entity</th>
+                                <th>Reference</th>
+                                <th>Issue Date</th>
+                                <th>Expiry Date</th>
+                                <th>Days Left</th>
+                                <th>Status</th>
+                                <th>Responsible</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs.search([('state','not in',['renewed','archived'])], order='state asc, expiry_date asc')" t-as="doc">
+                                <tr t-attf-style="background: #{
+                                    '#ffebee' if doc.state == 'expired' else
+                                    '#fff8e1' if doc.state == 'expiring_soon' else
+                                    '#f1f8e9'
+                                };">
+                                    <td><t t-esc="doc.name"/></td>
+                                    <td><t t-esc="doc.document_type_id.name"/></td>
+                                    <td>
+                                        <t t-if="doc.person_id"><t t-esc="doc.person_id.name"/></t>
+                                        <t t-if="doc.partner_id"><t t-esc="doc.partner_id.name"/></t>
+                                        <t t-if="doc.vehicle_id"><t t-esc="doc.vehicle_id.name"/></t>
+                                        <t t-if="doc.equipment_id"><t t-esc="doc.equipment_id.name"/></t>
+                                    </td>
+                                    <td><t t-esc="doc.reference or '—'"/></td>
+                                    <td><t t-esc="doc.issue_date or '—'"/></td>
+                                    <td style="font-weight: bold;">
+                                        <t t-esc="doc.expiry_date"/>
+                                    </td>
+                                    <td style="font-weight: bold; color: #{ 'red' if doc.days_until_expiry &lt; 0 else 'orange' if doc.days_until_expiry &lt;= 30 else 'green' };">
+                                        <t t-esc="doc.days_until_expiry"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="doc.state == 'expired'">
+                                            <span style="color: #c62828; font-weight: bold;">● EXPIRED</span>
+                                        </t>
+                                        <t t-elif="doc.state == 'expiring_soon'">
+                                            <span style="color: #e65100; font-weight: bold;">● Expiring Soon</span>
+                                        </t>
+                                        <t t-else="">
+                                            <span style="color: #2e7d32;">● Valid</span>
+                                        </t>
+                                    </td>
+                                    <td><t t-esc="doc.responsible_id.name or '—'"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <!-- Footer note -->
+                    <div class="row mt-4">
+                        <div class="col-12 text-muted" style="font-size: 10px; border-top: 1px solid #ddd; padding-top: 8px;">
+                            This report was automatically generated by Smart Document Expiry Tracker.
+                            All times reflect the server timezone.
+                        </div>
+                    </div>
+
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

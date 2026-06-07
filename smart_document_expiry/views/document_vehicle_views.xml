@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_document_vehicle_form" model="ir.ui.view">
+        <field name="name">document.vehicle.form</field>
+        <field name="model">document.vehicle</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_documents" type="object"
+                                class="oe_stat_button" icon="fa-file-text-o"
+                                invisible="document_expiry_count == 0">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value"><field name="document_expiry_count"/></span>
+                                <span class="o_stat_text">Documents</span>
+                            </div>
+                        </button>
+                        <button name="action_view_documents" type="object"
+                                class="oe_stat_button" icon="fa-exclamation-triangle"
+                                invisible="document_expired_count == 0">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value text-danger"><field name="document_expired_count"/></span>
+                                <span class="o_stat_text">Expired</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Vehicle name / plate..."/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="license_plate"/>
+                            <field name="vin"/>
+                            <field name="brand"/>
+                            <field name="model"/>
+                            <field name="year"/>
+                            <field name="fuel_type"/>
+                        </group>
+                        <group string="Compliance">
+                            <field name="compliance_score"       string="Compliance (%)" readonly="1"/>
+                            <field name="document_expired_count" string="Expired"        readonly="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <field name="notes" placeholder="Notes..."/>
+                    <notebook>
+                        <page string="Documents" icon="fa-file-text-o">
+                            <field name="document_expiry_ids" mode="list">
+                                <list decoration-danger="state == 'expired'"
+                                      decoration-warning="state == 'expiring_soon'"
+                                      decoration-success="state == 'valid'">
+                                    <field name="name"/>
+                                    <field name="document_type_id"/>
+                                    <field name="reference"/>
+                                    <field name="expiry_date"/>
+                                    <field name="days_until_expiry" string="Days Left"/>
+                                    <field name="state" widget="badge"
+                                           decoration-danger="state == 'expired'"
+                                           decoration-warning="state == 'expiring_soon'"
+                                           decoration-success="state == 'valid'"/>
+                                    <button name="action_renew" type="object"
+                                            icon="fa-refresh" title="Renew"
+                                            invisible="state in ('renewed','archived')"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_document_vehicle_list" model="ir.ui.view">
+        <field name="name">document.vehicle.list</field>
+        <field name="model">document.vehicle</field>
+        <field name="arch" type="xml">
+            <list string="Vehicles">
+                <field name="name"/>
+                <field name="license_plate"/>
+                <field name="brand"/>
+                <field name="model"/>
+                <field name="year"/>
+                <field name="fuel_type"/>
+                <field name="document_expiry_count"  string="Docs"/>
+                <field name="document_expired_count" string="Expired"
+                       decoration-danger="document_expired_count > 0"/>
+                <field name="compliance_score"       string="Compliance (%)"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_document_vehicle_search" model="ir.ui.view">
+        <field name="name">document.vehicle.search</field>
+        <field name="model">document.vehicle</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="license_plate"/>
+                <field name="brand"/>
+                <!-- <filter string="With Expired Docs" name="has_expired"
+                        domain="[('document_expired_count','>',0)]"/> -->
+                <group>
+                    <filter string="Brand" name="by_brand" context="{'group_by':'brand'}"/>
+                    <filter string="Fuel"  name="by_fuel"  context="{'group_by':'fuel_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_document_vehicle" model="ir.actions.act_window">
+        <field name="name">Vehicles</field>
+        <field name="res_model">document.vehicle</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_document_vehicle_search"/>
+    </record>
+
+</odoo>

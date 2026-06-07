@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="paperformat_document_expiry" model="report.paperformat">
+        <field name="name">Document Expiry Compliance Report</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">20</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">10</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_document_expiry_compliance_report" model="ir.actions.report">
+        <field name="name">Compliance Report</field>
+        <field name="model">document.expiry</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smart_document_expiry.report_document_expiry_compliance</field>
+        <field name="report_file">smart_document_expiry.report_document_expiry_compliance</field>
+        <field name="binding_model_id" ref="model_document_expiry"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_document_expiry"/>
+    </record>
+
+</odoo>

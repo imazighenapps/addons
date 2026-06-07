@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- ══════════════════════════════════════════════════════
+             MODULE CATEGORY
+        ══════════════════════════════════════════════════════ -->
+        <record id="module_category_document_expiry" model="ir.module.category">
+            <field name="name">Document Expiry</field>
+            <field name="description">Track and manage expiry dates for documents across your organization.</field>
+            <field name="sequence">50</field>
+            <field name="visible">1</field>
+        </record>
+        
+        <record id="res_groups_privilege_document_expiry" model="res.groups.privilege" >
+            <field name="name">Document Expiry</field>
+            <field name="category_id" ref="module_category_document_expiry"/>
+            <field name="sequence">50</field>
+        </record>
+        
+        <record id="group_document_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="privilege_id" ref="res_groups_privilege_document_expiry"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">Can read, create and edit documents. Cannot delete or manage document types.</field>
+        </record>
+
+        <record id="group_document_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="privilege_id" ref="res_groups_privilege_document_expiry"/>        
+            <field name="implied_ids" eval="[(4, ref('smart_document_expiry.group_document_user'))]"/>
+            <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+            <field name="comment">Full access: configure document types, delete records, view alert logs, manage all entities.</field>
+        </record>
+
+        <!-- ══════════════════════════════════════════════════════
+             RECORD RULES — Odoo 19 pattern
+             - domain_force uses ORM domain syntax
+             - 'active' field is available in Odoo 19
+             - Removed portal rule: portal users have no direct
+               backend access; portal support lives in a separate
+               bridge module that depends on 'portal'.
+        ══════════════════════════════════════════════════════ -->
+
+        <!-- Multi-company isolation for all internal users -->
+        <record id="rule_document_expiry_multicompany" model="ir.rule">
+            <field name="name">Document Expiry: Multi-company isolation</field>
+            <field name="model_id" ref="model_document_expiry"/>
+            <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_read"   eval="True"/>
+            <field name="perm_write"  eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Users see all documents in their company (no personal filter) -->
+        <!-- Managers: no extra rule — they inherit the company rule via implied_ids -->
+
+    </data>
+</odoo>

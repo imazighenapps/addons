@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         DEMO — PERSONS
+    ══════════════════════════════════════════════════════════════ -->
+    <record id="demo_person_ahmed" model="document.person">
+        <field name="name">Ahmed Benali</field>
+        <field name="job_title">HSE Officer</field>
+        <field name="department">Health &amp; Safety</field>
+        <field name="email">ahmed.benali@demo.com</field>
+        <field name="phone">+213 550 123 456</field>
+    </record>
+
+    <record id="demo_person_sarah" model="document.person">
+        <field name="name">Sarah Dupont</field>
+        <field name="job_title">Senior Engineer</field>
+        <field name="department">Operations</field>
+        <field name="email">sarah.dupont@demo.com</field>
+        <field name="phone">+33 6 12 34 56 78</field>
+    </record>
+
+    <record id="demo_person_karim" model="document.person">
+        <field name="name">Karim Mansouri</field>
+        <field name="job_title">Forklift Operator</field>
+        <field name="department">Warehouse</field>
+        <field name="email">karim.mansouri@demo.com</field>
+        <field name="phone">+213 660 987 654</field>
+    </record>
+
+    <record id="demo_person_lin" model="document.person">
+        <field name="name">Lin Wei</field>
+        <field name="job_title">Project Manager</field>
+        <field name="department">Projects</field>
+        <field name="email">lin.wei@demo.com</field>
+        <field name="phone">+86 138 0000 1234</field>
+    </record>
+
+    <record id="demo_person_omar" model="document.person">
+        <field name="name">Omar Khalid</field>
+        <field name="job_title">Delivery Driver</field>
+        <field name="department">Logistics</field>
+        <field name="email">omar.khalid@demo.com</field>
+        <field name="phone">+971 50 222 3344</field>
+    </record>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         DEMO — VENDORS / PARTNERS
+    ══════════════════════════════════════════════════════════════ -->
+    <record id="demo_partner_buildsafe" model="document.partner">
+        <field name="name">BuildSafe Construction LLC</field>
+        <field name="vat">US-123456789</field>
+        <field name="email">compliance@buildsafe.com</field>
+        <field name="phone">+1 212 555 0101</field>
+        <field name="website">https://buildsafe.example.com</field>
+    </record>
+
+    <record id="demo_partner_techsupply" model="document.partner">
+        <field name="name">TechSupply International</field>
+        <field name="vat">GB-987654321</field>
+        <field name="email">legal@techsupply.co.uk</field>
+        <field name="phone">+44 20 7946 0000</field>
+    </record>
+
+    <record id="demo_partner_cleanpro" model="document.partner">
+        <field name="name">CleanPro Services</field>
+        <field name="vat">FR-456789012</field>
+        <field name="email">admin@cleanpro.fr</field>
+        <field name="phone">+33 1 23 45 67 89</field>
+    </record>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         DEMO — VEHICLES
+    ══════════════════════════════════════════════════════════════ -->
+    <record id="demo_vehicle_truck1" model="document.vehicle">
+        <field name="name">Truck DZ-1547-B</field>
+        <field name="license_plate">DZ-1547-B</field>
+        <field name="brand">Mercedes-Benz</field>
+        <field name="model">Actros 1845</field>
+        <field name="year">2019</field>
+        <field name="fuel_type">diesel</field>
+    </record>
+
+    <record id="demo_vehicle_van1" model="document.vehicle">
+        <field name="name">Van 16-ALG-247</field>
+        <field name="license_plate">16-ALG-247</field>
+        <field name="brand">Renault</field>
+        <field name="model">Master L3H2</field>
+        <field name="year">2021</field>
+        <field name="fuel_type">diesel</field>
+    </record>
+
+    <record id="demo_vehicle_pickup" model="document.vehicle">
+        <field name="name">Pickup 09-SET-882</field>
+        <field name="license_plate">09-SET-882</field>
+        <field name="brand">Toyota</field>
+        <field name="model">Hilux</field>
+        <field name="year">2022</field>
+        <field name="fuel_type">diesel</field>
+    </record>
+
+    <record id="demo_vehicle_electric" model="document.vehicle">
+        <field name="name">EV Car 75-PAR-001</field>
+        <field name="license_plate">75-PAR-001</field>
+        <field name="brand">Tesla</field>
+        <field name="model">Model 3</field>
+        <field name="year">2023</field>
+        <field name="fuel_type">electric</field>
+    </record>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         DEMO — EQUIPMENT
+    ══════════════════════════════════════════════════════════════ -->
+    <record id="demo_equip_crane" model="document.equipment">
+        <field name="name">Tower Crane TC-50</field>
+        <field name="reference">EQ-CRANE-001</field>
+        <field name="category">Lifting Equipment</field>
+    </record>
+
+    <record id="demo_equip_forklift" model="document.equipment">
+        <field name="name">Electric Forklift FL-3T</field>
+        <field name="reference">EQ-FORK-002</field>
+        <field name="category">Material Handling</field>
+    </record>
+
+    <record id="demo_equip_compressor" model="document.equipment">
+        <field name="name">Air Compressor AC-200</field>
+        <field name="reference">EQ-COMP-003</field>
+        <field name="category">Pneumatic Equipment</field>
+    </record>
+
+    <record id="demo_equip_generator" model="document.equipment">
+        <field name="name">Diesel Generator 75KVA</field>
+        <field name="reference">EQ-GEN-004</field>
+        <field name="category">Power Generation</field>
+    </record>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         DEMO — DOCUMENTS (VALID — expiry > 90 days)
+    ══════════════════════════════════════════════════════════════ -->
+
+    <!-- Person: valid work permit -->
+    <record id="demo_doc_ahmed_workpermit" model="document.expiry">
+        <field name="name">Work Permit — Ahmed Benali</field>
+        <field name="reference">WP-2024-0041</field>
+        <field name="document_type_id" ref="doc_type_work_permit"/>
+        <field name="entity_type">person</field>
+        <field name="person_id" ref="demo_person_ahmed"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=335)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Person: valid visa -->
+    <record id="demo_doc_lin_visa" model="document.expiry">
+        <field name="name">Business Visa — Lin Wei</field>
+        <field name="reference">VISA-FR-2024-8871</field>
+        <field name="document_type_id" ref="doc_type_visa"/>
+        <field name="entity_type">person</field>
+        <field name="person_id" ref="demo_person_lin"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=60)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=200)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Person: valid safety training -->
+    <record id="demo_doc_sarah_safety" model="document.expiry">
+        <field name="name">Safety Training Certificate — Sarah Dupont</field>
+        <field name="reference">CERT-HSE-2024-002</field>
+        <field name="document_type_id" ref="doc_type_safety_training"/>
+        <field name="entity_type">person</field>
+        <field name="person_id" ref="demo_person_sarah"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=90)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=275)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Vehicle: valid registration -->
+    <record id="demo_doc_pickup_reg" model="document.expiry">
+        <field name="name">Vehicle Registration — Pickup 09-SET-882</field>
+        <field name="reference">REG-2024-09SET882</field>
+        <field name="document_type_id" ref="doc_type_vehicle_registration"/>
+        <field name="entity_type">vehicle</field>
+        <field name="vehicle_id" ref="demo_vehicle_pickup"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=10)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=355)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Vehicle: valid insurance - electric car -->
+    <record id="demo_doc_ev_insurance" model="document.expiry">
+        <field name="name">Vehicle Insurance — EV Car 75-PAR-001</field>
+        <field name="reference">INS-AUTO-2024-EV001</field>
+        <field name="document_type_id" ref="doc_type_vehicle_insurance"/>
+        <field name="entity_type">vehicle</field>
+        <field name="vehicle_id" ref="demo_vehicle_electric"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=360)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Vendor: valid trade license -->
+    <record id="demo_doc_buildsafe_trade" model="document.expiry">
+        <field name="name">Trade License — BuildSafe Construction</field>
+        <field name="reference">TL-NYC-2024-0055</field>
+        <field name="document_type_id" ref="doc_type_trade_license"/>
+        <field name="entity_type">vendor</field>
+        <field name="partner_id" ref="demo_partner_buildsafe"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=20)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=345)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Vendor: valid vendor contract -->
+    <record id="demo_doc_techsupply_contract" model="document.expiry">
+        <field name="name">Supply Framework Contract — TechSupply International</field>
+        <field name="reference">CONTRACT-2024-TS-099</field>
+        <field name="document_type_id" ref="doc_type_vendor_contract"/>
+        <field name="entity_type">vendor</field>
+        <field name="partner_id" ref="demo_partner_techsupply"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=45)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=320)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Equipment: valid certification - generator -->
+    <record id="demo_doc_gen_cert" model="document.expiry">
+        <field name="name">Equipment Certification — Diesel Generator 75KVA</field>
+        <field name="reference">CERT-EQ-GEN-2024</field>
+        <field name="document_type_id" ref="doc_type_equipment_cert"/>
+        <field name="entity_type">equipment</field>
+        <field name="equipment_id" ref="demo_equip_generator"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=15)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=350)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Other entity: valid ISO certificate -->
+    <record id="demo_doc_iso_cert" model="document.expiry">
+        <field name="name">ISO 9001:2015 Quality Certificate</field>
+        <field name="reference">ISO-9001-2024-0012</field>
+        <field name="document_type_id" ref="doc_type_equipment_cert"/>
+        <field name="entity_type">other</field>
+        <field name="other_entity_name">Quality Management System</field>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=1095)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         DEMO — DOCUMENTS (EXPIRING SOON — within 30 days)
+    ══════════════════════════════════════════════════════════════ -->
+
+    <!-- Person: driving license expiring in 12 days -->
+    <record id="demo_doc_omar_drivinglicense" model="document.expiry">
+        <field name="name">Driving License — Omar Khalid</field>
+        <field name="reference">DL-UAE-KH-20190822</field>
+        <field name="document_type_id" ref="doc_type_driving_license_emp"/>
+        <field name="entity_type">person</field>
+        <field name="person_id" ref="demo_person_omar"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=1800)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=12)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Person: medical certificate expiring in 5 days -->
+    <record id="demo_doc_karim_medical" model="document.expiry">
+        <field name="name">Medical Certificate — Karim Mansouri</field>
+        <field name="reference">MED-2024-KM-005</field>
+        <field name="document_type_id" ref="doc_type_medical_cert"/>
+        <field name="entity_type">person</field>
+        <field name="person_id" ref="demo_person_karim"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=360)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=5)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Vehicle: technical inspection expiring in 20 days -->
+    <record id="demo_doc_truck_inspection" model="document.expiry">
+        <field name="name">Technical Inspection — Truck DZ-1547-B</field>
+        <field name="reference">INSP-2024-DZ1547B</field>
+        <field name="document_type_id" ref="doc_type_vehicle_inspection"/>
+        <field name="entity_type">vehicle</field>
+        <field name="vehicle_id" ref="demo_vehicle_truck1"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=345)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=20)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Vendor: insurance certificate expiring in 28 days -->
+    <record id="demo_doc_cleanpro_insurance" model="document.expiry">
+        <field name="name">Insurance Certificate — CleanPro Services</field>
+        <field name="reference">INS-CLEANPRO-2024</field>
+        <field name="document_type_id" ref="doc_type_insurance"/>
+        <field name="entity_type">vendor</field>
+        <field name="partner_id" ref="demo_partner_cleanpro"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=337)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=28)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Equipment: forklift warranty expiring in 18 days -->
+    <record id="demo_doc_forklift_warranty" model="document.expiry">
+        <field name="name">Equipment Warranty — Electric Forklift FL-3T</field>
+        <field name="reference">WARRANTY-FL3T-2021</field>
+        <field name="document_type_id" ref="doc_type_equipment_warranty"/>
+        <field name="entity_type">equipment</field>
+        <field name="equipment_id" ref="demo_equip_forklift"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=1082)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=18)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Equipment: crane calibration expiring in 8 days -->
+    <record id="demo_doc_crane_calibration" model="document.expiry">
+        <field name="name">Calibration Certificate — Tower Crane TC-50</field>
+        <field name="reference">CALIB-CRANE-2024-Q4</field>
+        <field name="document_type_id" ref="doc_type_calibration"/>
+        <field name="entity_type">equipment</field>
+        <field name="equipment_id" ref="demo_equip_crane"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=172)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=8)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         DEMO — DOCUMENTS (EXPIRED — past expiry date)
+    ══════════════════════════════════════════════════════════════ -->
+
+    <!-- Person: expired work permit -->
+    <record id="demo_doc_karim_workpermit_expired" model="document.expiry">
+        <field name="name">Work Permit — Karim Mansouri</field>
+        <field name="reference">WP-2022-KM-018</field>
+        <field name="document_type_id" ref="doc_type_work_permit"/>
+        <field name="entity_type">person</field>
+        <field name="person_id" ref="demo_person_karim"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=730)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() - timedelta(days=15)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Person: expired visa -->
+    <record id="demo_doc_sarah_visa_expired" model="document.expiry">
+        <field name="name">Schengen Visa — Sarah Dupont</field>
+        <field name="reference">VISA-DE-2022-4412</field>
+        <field name="document_type_id" ref="doc_type_visa"/>
+        <field name="entity_type">person</field>
+        <field name="person_id" ref="demo_person_sarah"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=400)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() - timedelta(days=35)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Vehicle: expired van registration -->
+    <record id="demo_doc_van_reg_expired" model="document.expiry">
+        <field name="name">Vehicle Registration — Van 16-ALG-247</field>
+        <field name="reference">REG-2023-16ALG247</field>
+        <field name="document_type_id" ref="doc_type_vehicle_registration"/>
+        <field name="entity_type">vehicle</field>
+        <field name="vehicle_id" ref="demo_vehicle_van1"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=400)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() - timedelta(days=35)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Vendor: expired trade license -->
+    <record id="demo_doc_buildsafe_trade_expired" model="document.expiry">
+        <field name="name">Trade License — BuildSafe Construction (Previous)</field>
+        <field name="reference">TL-NYC-2022-0033</field>
+        <field name="document_type_id" ref="doc_type_trade_license"/>
+        <field name="entity_type">vendor</field>
+        <field name="partner_id" ref="demo_partner_buildsafe"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=750)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() - timedelta(days=20)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- Equipment: expired compressor certification -->
+    <record id="demo_doc_compressor_cert_expired" model="document.expiry">
+        <field name="name">Equipment Certification — Air Compressor AC-200</field>
+        <field name="reference">CERT-EQ-COMP-2022</field>
+        <field name="document_type_id" ref="doc_type_equipment_cert"/>
+        <field name="entity_type">equipment</field>
+        <field name="equipment_id" ref="demo_equip_compressor"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=730)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() - timedelta(days=5)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         DEMO — DOCUMENTS (RENEWED — shows renewal chain)
+    ══════════════════════════════════════════════════════════════ -->
+
+    <!-- Old truck insurance (now renewed) -->
+    <record id="demo_doc_truck_ins_old" model="document.expiry">
+        <field name="name">Vehicle Insurance — Truck DZ-1547-B (2022)</field>
+        <field name="reference">INS-2022-DZ1547B</field>
+        <field name="document_type_id" ref="doc_type_vehicle_insurance"/>
+        <field name="entity_type">vehicle</field>
+        <field name="vehicle_id" ref="demo_vehicle_truck1"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=730)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() - timedelta(days=365)).strftime('%Y-%m-%d')"/>
+        <field name="state">renewed</field>
+    </record>
+
+    <!-- New truck insurance (renewal of old) -->
+    <record id="demo_doc_truck_ins_new" model="document.expiry">
+        <field name="name">Vehicle Insurance — Truck DZ-1547-B (2024)</field>
+        <field name="reference">INS-2024-DZ1547B</field>
+        <field name="document_type_id" ref="doc_type_vehicle_insurance"/>
+        <field name="entity_type">vehicle</field>
+        <field name="vehicle_id" ref="demo_vehicle_truck1"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=365)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=125)).strftime('%Y-%m-%d')"/>
+        <field name="previous_document_id" ref="demo_doc_truck_ins_old"/>
+    </record>
+
+    <!-- Old Ahmed visa (renewed) -->
+    <record id="demo_doc_ahmed_visa_old" model="document.expiry">
+        <field name="name">Work Visa — Ahmed Benali (2022)</field>
+        <field name="reference">VISA-2022-AB-001</field>
+        <field name="document_type_id" ref="doc_type_visa"/>
+        <field name="entity_type">person</field>
+        <field name="person_id" ref="demo_person_ahmed"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=800)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() - timedelta(days=70)).strftime('%Y-%m-%d')"/>
+        <field name="state">renewed</field>
+    </record>
+
+    <!-- New Ahmed visa (current) -->
+    <record id="demo_doc_ahmed_visa_new" model="document.expiry">
+        <field name="name">Work Visa — Ahmed Benali (2024)</field>
+        <field name="reference">VISA-2024-AB-002</field>
+        <field name="document_type_id" ref="doc_type_visa"/>
+        <field name="entity_type">person</field>
+        <field name="person_id" ref="demo_person_ahmed"/>
+        <field name="issue_date" eval="(datetime.now() - timedelta(days=65)).strftime('%Y-%m-%d')"/>
+        <field name="expiry_date" eval="(datetime.now() + timedelta(days=300)).strftime('%Y-%m-%d')"/>
+        <field name="previous_document_id" ref="demo_doc_ahmed_visa_old"/>
+    </record>
+
+</data>
+</odoo>

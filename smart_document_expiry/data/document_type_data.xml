@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ── Employee Document Types ───────────────────────── -->
+        <record id="doc_type_work_permit" model="document.expiry.type">
+            <field name="name">Work Permit</field>
+            <field name="code">WORK_PERMIT</field>
+            <field name="entity_type">person</field>
+            <field name="alert_days_1">90</field>
+            <field name="alert_days_2">30</field>
+            <field name="alert_days_3">7</field>
+            <field name="color">1</field>
+        </record>
+
+        <record id="doc_type_visa" model="document.expiry.type">
+            <field name="name">Visa</field>
+            <field name="code">VISA</field>
+            <field name="entity_type">person</field>
+            <field name="alert_days_1">90</field>
+            <field name="alert_days_2">30</field>
+            <field name="alert_days_3">14</field>
+            <field name="color">2</field>
+        </record>
+
+        <record id="doc_type_driving_license_emp" model="document.expiry.type">
+            <field name="name">Driving License (Employee)</field>
+            <field name="code">DRV_LIC_EMP</field>
+            <field name="entity_type">person</field>
+            <field name="alert_days_1">60</field>
+            <field name="alert_days_2">30</field>
+            <field name="alert_days_3">7</field>
+            <field name="color">3</field>
+        </record>
+
+        <record id="doc_type_medical_cert" model="document.expiry.type">
+            <field name="name">Medical Certificate</field>
+            <field name="code">MED_CERT</field>
+            <field name="entity_type">person</field>
+            <field name="alert_days_1">30</field>
+            <field name="alert_days_2">15</field>
+            <field name="alert_days_3">7</field>
+            <field name="color">4</field>
+        </record>
+
+        <record id="doc_type_safety_training" model="document.expiry.type">
+            <field name="name">Safety Training Certificate</field>
+            <field name="code">SAFETY_CERT</field>
+            <field name="entity_type">person</field>
+            <field name="alert_days_1">60</field>
+            <field name="alert_days_2">30</field>
+            <field name="alert_days_3">7</field>
+            <field name="color">5</field>
+        </record>
+
+        <!-- ── Vendor Document Types ──────────────────────────── -->
+        <record id="doc_type_insurance" model="document.expiry.type">
+            <field name="name">Insurance Certificate</field>
+            <field name="code">INSURANCE</field>
+            <field name="entity_type">vendor</field>
+            <field name="alert_days_1">90</field>
+            <field name="alert_days_2">30</field>
+            <field name="alert_days_3">7</field>
+            <field name="color">6</field>
+        </record>
+
+        <record id="doc_type_trade_license" model="document.expiry.type">
+            <field name="name">Trade License</field>
+            <field name="code">TRADE_LIC</field>
+            <field name="entity_type">vendor</field>
+            <field name="alert_days_1">90</field>
+            <field name="alert_days_2">30</field>
+            <field name="alert_days_3">7</field>
+            <field name="color">7</field>
+        </record>
+
+        <record id="doc_type_vendor_contract" model="document.expiry.type">
+            <field name="name">Vendor Contract</field>
+            <field name="code">VND_CONTRACT</field>
+            <field name="entity_type">vendor</field>
+            <field name="alert_days_1">90</field>
+            <field name="alert_days_2">30</field>
+            <field name="alert_days_3">7</field>
+            <field name="color">8</field>
+        </record>
+
+        <!-- ── Vehicle Document Types ─────────────────────────── -->
+        <record id="doc_type_vehicle_registration" model="document.expiry.type">
+            <field name="name">Vehicle Registration</field>
+            <field name="code">VEH_REG</field>
+            <field name="entity_type">vehicle</field>
+            <field name="alert_days_1">60</field>
+            <field name="alert_days_2">30</field>
+            <field name="alert_days_3">7</field>
+            <field name="color">9</field>
+        </record>
+
+        <record id="doc_type_vehicle_insurance" model="document.expiry.type">
+            <field name="name">Vehicle Insurance</field>
+            <field name="code">VEH_INS</field>
+            <field name="entity_type">vehicle</field>
+            <field name="alert_days_1">90</field>
+            <field name="alert_days_2">30</field>
+            <field name="alert_days_3">7</field>
+            <field name="color">10</field>
+        </record>
+
+        <record id="doc_type_vehicle_inspection" model="document.expiry.type">
+            <field name="name">Vehicle Technical Inspection</field>
+            <field name="code">VEH_INSP</field>
+            <field name="entity_type">vehicle</field>
+            <field name="alert_days_1">30</field>
+            <field name="alert_days_2">15</field>
+            <field name="alert_days_3">7</field>
+            <field name="color">11</field>
+        </record>
+
+        <!-- ── Equipment Document Types ───────────────────────── -->
+        <record id="doc_type_equipment_cert" model="document.expiry.type">
+            <field name="name">Equipment Certification</field>
+            <field name="code">EQ_CERT</field>
+            <field name="entity_type">equipment</field>
+            <field name="alert_days_1">90</field>
+            <field name="alert_days_2">30</field>
+            <field name="alert_days_3">7</field>
+            <field name="color">1</field>
+        </record>
+
+        <record id="doc_type_equipment_warranty" model="document.expiry.type">
+            <field name="name">Equipment Warranty</field>
+            <field name="code">EQ_WARRANTY</field>
+            <field name="entity_type">equipment</field>
+            <field name="alert_days_1">60</field>
+            <field name="alert_days_2">30</field>
+            <field name="alert_days_3">14</field>
+            <field name="color">2</field>
+        </record>
+
+        <record id="doc_type_calibration" model="document.expiry.type">
+            <field name="name">Calibration Certificate</field>
+            <field name="code">CALIBRATION</field>
+            <field name="entity_type">equipment</field>
+            <field name="alert_days_1">60</field>
+            <field name="alert_days_2">30</field>
+            <field name="alert_days_3">7</field>
+            <field name="color">3</field>
+        </record>
+
+    </data>
+</odoo>
