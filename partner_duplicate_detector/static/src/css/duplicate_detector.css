@@ -1,0 +1,145 @@
+/* Partner Duplicate Detector — Backend Styles */
+
+/* Score badge color coding */
+.o_field_progressbar .o_progressbar_value {
+    transition: width 0.4s ease;
+}
+
+/* Highlight duplicate rows in partner list */
+.o_list_view .o_data_row.duplicate-warning td {
+    background-color: #fff3cd !important;
+}
+
+/* Wizard preview table */
+.o_field_html table {
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+}
+
+.o_field_html table thead tr {
+    background-color: #f8f9fa;
+}
+
+.o_field_html table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Smart button pulse for duplicates */
+.oe_stat_button[name="action_view_duplicates"] {
+    animation: pulse-warning 2s infinite;
+}
+
+@keyframes pulse-warning {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.0); }
+    50%       { box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.2); }
+}
+
+/* Scan running spinner */
+.dup-scanning {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: #e8f4f8;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #0c5460;
+}
+
+/* ═══════════════════════════════════════════════
+   DASHBOARD
+═══════════════════════════════════════════════ */
+.o_dup_dashboard {
+    padding: 28px 32px;
+    background: var(--o-view-background-color, #f9fafb);
+    min-height: 100%;
+}
+
+/* Header */
+.o_dup_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.o_dup_header_left { display: flex; align-items: center; gap: 16px; }
+.o_dup_logo { font-size: 36px; color: #875a7b; }
+.o_dup_title { font-size: 22px; font-weight: 600; color: #1e1e2d; margin: 0 0 4px; }
+.o_dup_subtitle { font-size: 13px; color: #6c757d; margin: 0; }
+
+.o_dup_scan_btn {
+    background: #875a7b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+.o_dup_scan_btn:hover:not(:disabled) { background: #6d4864; }
+.o_dup_scan_btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* KPI row */
+.o_dup_kpi_row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+}
+.o_dup_kpi {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    transition: transform 0.15s, box-shadow 0.15s;
+    border-left: 4px solid transparent;
+}
+.o_dup_kpi:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+.o_dup_kpi_danger  { border-left-color: #dc3545; }
+.o_dup_kpi_warning { border-left-color: #fd7e14; }
+.o_dup_kpi_success { border-left-color: #28a745; }
+.o_dup_kpi_muted   { border-left-color: #adb5bd; }
+
+.o_dup_kpi_icon { font-size: 22px; width: 40px; text-align: center; }
+.o_dup_kpi_danger  .o_dup_kpi_icon { color: #dc3545; }
+.o_dup_kpi_warning .o_dup_kpi_icon { color: #fd7e14; }
+.o_dup_kpi_success .o_dup_kpi_icon { color: #28a745; }
+.o_dup_kpi_muted   .o_dup_kpi_icon { color: #adb5bd; }
+
+.o_dup_kpi_body { flex: 1; }
+.o_dup_kpi_value { font-size: 28px; font-weight: 700; color: #1e1e2d; line-height: 1; }
+.o_dup_kpi_label { font-size: 12px; color: #6c757d; margin-top: 4px; }
+.o_dup_kpi_arrow { color: #ced4da; font-size: 13px; }
+
+/* How it works */
+.o_dup_how {
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+.o_dup_how_title { font-size: 15px; font-weight: 600; color: #1e1e2d; margin: 0 0 18px; }
+.o_dup_steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.o_dup_step { display: flex; gap: 14px; align-items: flex-start; }
+.o_dup_step_num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #875a7b; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; flex-shrink: 0;
+}
+.o_dup_step_text { font-size: 13px; color: #495057; line-height: 1.6; }
+.o_dup_step_text strong { color: #1e1e2d; }

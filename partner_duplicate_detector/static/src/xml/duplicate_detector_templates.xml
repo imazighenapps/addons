@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- ═══════════════════════════════════════════════════════
+         DASHBOARD
+    ════════════════════════════════════════════════════════ -->
+    <t t-name="partner_duplicate_detector.Dashboard">
+        <div class="o_action o_dup_dashboard">
+
+            <!-- Header -->
+            <div class="o_dup_header">
+                <div class="o_dup_header_left">
+                    <i class="fa fa-copy o_dup_logo"/>
+                    <div>
+                        <h2 class="o_dup_title">Partner Duplicate Detector</h2>
+                        <p class="o_dup_subtitle">Detect and merge duplicate contacts in your database</p>
+                    </div>
+                </div>
+                <button class="o_dup_scan_btn"
+                        t-on-click="runScan"
+                        t-att-disabled="state.scanning">
+                    <t t-if="state.scanning">
+                        <i class="fa fa-spinner fa-spin"/> Scanning…
+                    </t>
+                    <t t-else="">
+                        <i class="fa fa-search"/> Run Scan Now
+                    </t>
+                </button>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="o_dup_kpi_row">
+
+                <div class="o_dup_kpi o_dup_kpi_danger" t-on-click="openPending">
+                    <div class="o_dup_kpi_icon"><i class="fa fa-exclamation-triangle"/></div>
+                    <div class="o_dup_kpi_body">
+                        <div class="o_dup_kpi_value" t-esc="state.pending"/>
+                        <div class="o_dup_kpi_label">To Review</div>
+                    </div>
+                    <div class="o_dup_kpi_arrow"><i class="fa fa-chevron-right"/></div>
+                </div>
+
+                <div class="o_dup_kpi o_dup_kpi_warning" t-on-click="openAffected">
+                    <div class="o_dup_kpi_icon"><i class="fa fa-users"/></div>
+                    <div class="o_dup_kpi_body">
+                        <div class="o_dup_kpi_value" t-esc="state.affected"/>
+                        <div class="o_dup_kpi_label">Partners Affected</div>
+                    </div>
+                    <div class="o_dup_kpi_arrow"><i class="fa fa-chevron-right"/></div>
+                </div>
+
+                <div class="o_dup_kpi o_dup_kpi_success" t-on-click="openMerged">
+                    <div class="o_dup_kpi_icon"><i class="fa fa-check-circle"/></div>
+                    <div class="o_dup_kpi_body">
+                        <div class="o_dup_kpi_value" t-esc="state.merged"/>
+                        <div class="o_dup_kpi_label">Merged</div>
+                    </div>
+                    <div class="o_dup_kpi_arrow"><i class="fa fa-chevron-right"/></div>
+                </div>
+
+                <div class="o_dup_kpi o_dup_kpi_muted" t-on-click="openIgnored">
+                    <div class="o_dup_kpi_icon"><i class="fa fa-eye-slash"/></div>
+                    <div class="o_dup_kpi_body">
+                        <div class="o_dup_kpi_value" t-esc="state.ignored"/>
+                        <div class="o_dup_kpi_label">Ignored</div>
+                    </div>
+                    <div class="o_dup_kpi_arrow"><i class="fa fa-chevron-right"/></div>
+                </div>
+
+            </div>
+
+            <!-- How it works -->
+            <div class="o_dup_how">
+                <h4 class="o_dup_how_title">How it works</h4>
+                <div class="o_dup_steps">
+                    <div class="o_dup_step">
+                        <div class="o_dup_step_num">1</div>
+                        <div class="o_dup_step_text">
+                            <strong>Click "Run Scan Now"</strong><br/>
+                            The engine scans all contacts using 4 detection methods: identical email, phone, VAT, and similar names.
+                        </div>
+                    </div>
+                    <div class="o_dup_step">
+                        <div class="o_dup_step_num">2</div>
+                        <div class="o_dup_step_text">
+                            <strong>Review duplicate groups</strong><br/>
+                            Each group shows the similarity score and the reason it was detected.
+                        </div>
+                    </div>
+                    <div class="o_dup_step">
+                        <div class="o_dup_step_num">3</div>
+                        <div class="o_dup_step_text">
+                            <strong>Merge with one click</strong><br/>
+                            Choose the master record. All sales, invoices and messages are transferred automatically.
+                        </div>
+                    </div>
+                    <div class="o_dup_step">
+                        <div class="o_dup_step_num">4</div>
+                        <div class="o_dup_step_text">
+                            <strong>Auto-scan every week</strong><br/>
+                            A scheduled job re-scans your database weekly so new duplicates never pile up.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </t>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SYSTRAY BADGE
+    ════════════════════════════════════════════════════════ -->
+    <t t-name="partner_duplicate_detector.SystrayBadge">
+        <div class="o_menu_systray_item o_nav_entry d-flex align-items-center"
+             t-on-click="openDuplicates"
+             title="Duplicate Partners to review"
+             t-if="state.count > 0">
+            <i class="fa fa-copy" style="font-size:16px; color:#dc3545;"/>
+            <span class="badge bg-danger ms-1" style="font-size:10px;">
+                <t t-esc="state.count"/>
+            </span>
+        </div>
+    </t>
+
+</templates>
