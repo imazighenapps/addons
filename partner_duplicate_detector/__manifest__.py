@@ -23,7 +23,7 @@ Features:
 Perfect for companies that imported data or used Odoo for years.
     """,
     'author': 'Farid SLIMANI',
-    'website': 'imazighenapps@gmail.com,
+    'website': 'imazighenapps@gmail.com',
     'license': 'OPL-1',
     'depends': ['contacts', 'mail'],
     'data': [
