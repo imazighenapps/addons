@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         LIST VIEW
+    ══════════════════════════════════════════════════════════════════ -->
+    <record id="view_duplicate_group_list" model="ir.ui.view">
+        <field name="name">partner.duplicate.group.list</field>
+        <field name="model">partner.duplicate.group</field>
+        <field name="arch" type="xml">
+            <list string="Duplicate Groups"
+                  decoration-danger="state == 'pending'"
+                  decoration-muted="state == 'ignored'"
+                  decoration-success="state == 'merged'"
+                  default_order="score desc">
+                <field name="name" string="Potential Duplicates"/>
+                <field name="partner_count" string="# Partners"/>
+                <field name="score" string="Similarity" widget="progressbar"/>
+                <field name="reason" string="Detected By"/>
+                <field name="state" widget="badge"
+                       decoration-warning="state == 'pending'"
+                       decoration-success="state == 'merged'"
+                       decoration-muted="state == 'ignored'"/>
+                <button name="action_open_merge_wizard"
+                        string="Merge"
+                        type="object"
+                        icon="fa-compress"
+                        invisible="state != 'pending'"
+                        class="btn-primary"/>
+                <button name="action_ignore"
+                        string="Ignore"
+                        type="object"
+                        icon="fa-eye-slash"
+                        invisible="state != 'pending'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         FORM VIEW
+    ══════════════════════════════════════════════════════════════════ -->
+    <record id="view_duplicate_group_form" model="ir.ui.view">
+        <field name="name">partner.duplicate.group.form</field>
+        <field name="model">partner.duplicate.group</field>
+        <field name="arch" type="xml">
+            <form string="Duplicate Group">
+                <header>
+                    <button name="action_open_merge_wizard"
+                            string="Merge Duplicates"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state != 'pending'"/>
+                    <button name="action_ignore"
+                            string="Mark as Ignored"
+                            type="object"
+                            invisible="state != 'pending'"/>
+                    <button name="action_review"
+                            string="Re-open"
+                            type="object"
+                            invisible="state == 'pending'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="pending,merged"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="score" widget="progressbar"/>
+                            <field name="reason"/>
+                        </group>
+                        <group>
+                            <field name="partner_count"/>
+                            <field name="master_partner_id"
+                                   domain="[('id', 'in', partner_ids)]"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Duplicate Partners">
+                            <field name="partner_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="email"/>
+                                    <field name="phone"/>
+                                    <field name="vat"/>
+                                    <field name="city"/>
+                                    <field name="country_id"/>
+                                    <!-- <field name="customer_rank" string="Customer"/> -->
+                                    <!-- <field name="supplier_rank" string="Vendor"/> -->
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         SEARCH VIEW
+    ══════════════════════════════════════════════════════════════════ -->
+    <record id="view_duplicate_group_search" model="ir.ui.view">
+        <field name="name">partner.duplicate.group.search</field>
+        <field name="model">partner.duplicate.group</field>
+        <field name="arch" type="xml">
+            <search string="Search Duplicate Groups">
+                <field name="name"/>
+                <field name="reason"/>
+                <filter string="To Review" name="pending"
+                        domain="[('state', '=', 'pending')]"/>
+                <filter string="Merged" name="merged"
+                        domain="[('state', '=', 'merged')]"/>
+                <filter string="Ignored" name="ignored"
+                        domain="[('state', '=', 'ignored')]"/>
+                <separator/>
+                <filter string="High Similarity >= 95%" name="high_sim"
+                        domain="[('score', '>=', 95)]"/>
+                <group>
+                    <filter string="Status" name="group_state"
+                            context="{'group_by': 'state'}"/>
+                    <filter string="Match Reason" name="group_reason"
+                            context="{'group_by': 'reason'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         ACTION — LIST OF GROUPS
+    ══════════════════════════════════════════════════════════════════ -->
+    <record id="action_duplicate_groups" model="ir.actions.act_window">
+        <field name="name">Duplicate Partners</field>
+        <field name="res_model">partner.duplicate.group</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_duplicate_group_search"/>
+        <field name="context">{'search_default_pending': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No duplicates found!
+            </p>
+            <p>
+                Run a scan to detect potential duplicate contacts in your database.
+            </p>
+        </field>
+    </record>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         SERVER ACTION: RUN SCAN
+         IMPORTANT: never raise UserError here — it rolls back the transaction
+         and destroys all newly created groups. Use 'action' variable instead.
+    ══════════════════════════════════════════════════════════════════ -->
+    <record id="action_run_scan" model="ir.actions.server">
+        <field name="name">Run Duplicate Scan Now</field>
+        <field name="model_id" ref="model_partner_duplicate_group"/>
+        <field name="state">code</field>
+        <field name="code">
+count = model.run_scan()
+
+
+
+        </field>
+    </record>
+
+</odoo>

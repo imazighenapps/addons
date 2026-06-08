@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_merge_partner_wizard_form" model="ir.ui.view">
+        <field name="name">merge.partner.wizard.form</field>
+        <field name="model">merge.partner.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Merge Duplicate Partners">
+                <sheet>
+                    <div class="alert alert-info" role="alert">
+                        <i class="fa fa-info-circle"/> 
+                        Select the <strong>master record</strong> to keep.
+                        All data (sales, invoices, messages) from other records 
+                        will be transferred to it. Duplicates will be archived.
+                    </div>
+                    <group>
+                        <field name="partner_ids" widget="many2many_tags" readonly="1"/>
+                        <field name="master_partner_id"
+                               domain="[('id', 'in', partner_ids)]"
+                               required="1"
+                               options="{'no_create': True, 'no_quick_create': True}"/>
+                    </group>
+                    <separator string="Preview"/>
+                    <field name="duplicates_preview" widget="html" readonly="1"/>
+                </sheet>
+                <footer>
+                    <button name="action_merge"
+                            string="Merge Now"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel"
+                            class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>
