@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_contract_form" model="ir.ui.view">
+        <field name="name">contract.contract.form</field>
+        <field name="model">contract.contract</field>
+        <field name="arch" type="xml">
+            <form string="Contract">
+                <header>
+                    <button name="action_negotiate" string="Start Negotiation"
+                            type="object" class="oe_highlight"
+                            invisible="state != 'draft'"/>
+                    <button name="action_submit_approval" string="Submit for Approval"
+                            type="object" class="oe_highlight"
+                            invisible="state != 'negotiation'"/>
+                    <button name="action_activate" string="Activate"
+                            type="object" class="oe_highlight"
+                            invisible="state not in ('negotiation', 'pending_approval')"
+                            groups="smart_contract_lifecycle.group_contract_manager"/>
+                    <button name="action_approve" string="Approve"
+                            type="object" class="oe_highlight"
+                            invisible="not can_user_approve"
+                            confirm="Do you confirm the approval of this contract at this step?"/>
+                    <button name="action_suspend" string="Suspend"
+                            type="object"
+                            invisible="state != 'active'"/>
+                    <button name="action_reactivate" string="Reactivate"
+                            type="object" class="oe_highlight"
+                            invisible="state != 'suspended'"/>
+                    <button name="action_renew" string="Renew"
+                            type="object" class="oe_highlight"
+                            invisible="state not in ('active', 'expired')"/>
+                    <button name="action_create_amendment" string="Create Amendment"
+                            type="object"
+                            invisible="state != 'active'"/>
+                    <button name="action_send_contract" string="Send"
+                            type="object"
+                            invisible="state not in ('active', 'suspended', 'expired', 'renewed')"/>
+                    <button name="action_print_contract" string="Print PDF"
+                            type="object"
+                            invisible="not id"/>
+                    <button name="action_cancel" string="Cancel"
+                            type="object"
+                            invisible="state in ('cancelled', 'renewed', 'expired')"
+                            groups="smart_contract_lifecycle.group_contract_manager"
+                            confirm="Are you sure you want to cancel this contract?"/>
+                    <button name="action_draft" string="Reset to Draft"
+                            type="object"
+                            invisible="state not in ('cancelled', 'negotiation')"
+                            groups="smart_contract_lifecycle.group_contract_manager"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,negotiation,pending_approval,active,expired"/>
+                </header>
+
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_amendments" type="object"
+                                class="oe_stat_button" icon="fa-file-text-o"
+                                invisible="amendment_count == 0">
+                            <field name="amendment_count" widget="statinfo" string="Amendments"/>
+                        </button>
+                        <button name="action_view_renewals" type="object"
+                                class="oe_stat_button" icon="fa-refresh"
+                                invisible="renewal_count == 0">
+                            <field name="renewal_count" widget="statinfo" string="Renewals"/>
+                        </button>
+                        <button name="action_view_sale_orders" type="object"
+                                class="oe_stat_button" icon="fa-usd"
+                                invisible="sale_order_count == 0 or contract_type not in ('customer', 'service', 'partnership')">
+                            <field name="sale_order_count" widget="statinfo" string="Quotations/Sales"/>
+                        </button>
+                        <button name="action_create_sale_order" type="object"
+                                class="oe_stat_button" icon="fa-plus-circle"
+                                invisible="sale_order_count != 0 or contract_type not in ('customer', 'service', 'partnership') or state == 'draft'"
+                                groups="smart_contract_lifecycle.group_contract_user">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Create Quotation</span>
+                            </div>
+                        </button>
+                        <button name="action_view_purchase_orders" type="object"
+                                class="oe_stat_button" icon="fa-truck"
+                                invisible="purchase_order_count == 0 or contract_type not in ('supplier', 'partnership')">
+                            <field name="purchase_order_count" widget="statinfo" string="Purchases"/>
+                        </button>
+                        <button name="action_create_purchase_order" type="object"
+                                class="oe_stat_button" icon="fa-plus-circle"
+                                invisible="purchase_order_count != 0 or contract_type not in ('supplier', 'partnership') or state == 'draft'"
+                                groups="smart_contract_lifecycle.group_contract_user">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Create Order</span>
+                            </div>
+                        </button>
+                        <button name="action_view_documents" type="object"
+                                class="oe_stat_button" icon="fa-paperclip">
+                            <field name="document_count" widget="statinfo" string="Documents"/>
+                        </button>
+                    </div>
+
+                    <div class="alert alert-danger" role="alert"
+                         invisible="not is_expired or state in ('cancelled', 'renewed')">
+                        <i class="fa fa-exclamation-triangle"/> This contract is <strong>expired</strong>.
+                    </div>
+                    <div class="alert alert-warning" role="alert"
+                         invisible="not is_near_expiry or is_expired">
+                        <i class="fa fa-clock-o"/> This contract expires in
+                        <strong><field name="days_remaining" readonly="1"/> days</strong>.
+                        Consider renewal.
+                    </div>
+                    <div class="alert alert-info" role="alert"
+                         invisible="state != 'pending_approval' or not approval_line_ids">
+                        <i class="fa fa-tasks"/> Pending approval —
+                        <strong><field name="approval_progress" readonly="1"/></strong>.
+                        Current step:
+                        <strong><field name="current_approval_line_id" readonly="1" options="{'no_open': True}"/></strong>
+                    </div>
+                    <div class="alert alert-info" role="alert"
+                         invisible="state != 'pending_approval' or approval_line_ids">
+                        <i class="fa fa-info-circle"/> Pending approval by
+                        <field name="approver_id" readonly="1" options="{'no_open': True}"/>.
+                    </div>
+                    <div class="alert alert-danger" role="alert"
+                         invisible="risk_level != 'high'">
+                        <i class="fa fa-exclamation-triangle"/>
+                        Risk score <strong><field name="risk_score" readonly="1"/>/100 — High</strong>.
+                        <field name="risk_factors" readonly="1" nolabel="1"
+                               class="d-block small mt-1" widget="text"/>
+                    </div>
+
+                    <div class="oe_title">
+                        <label class="o_form_label" for="title"/>
+                        <div>
+                            <field name="priority" widget="priority" class="me-2"/>
+                            <field name="name" readonly="1" class="text-muted me-2"/>
+                        </div>
+                        <h1>
+                            <field name="title" placeholder="Contract title..."/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="Identification">
+                            <field name="contract_type"/>
+                            <field name="partner_id" options="{'no_create': True}"/>
+                            <field name="partner_contact_id"
+                                   options="{'no_create': True}"
+                                   invisible="not partner_id"/>
+                            <field name="template_id"
+                                   options="{'no_create_edit': True}"
+                                   invisible="state != 'draft'"/>
+                            <field name="tag_ids" widget="many2many_tags"
+                                   options="{'color_field': 'color'}"/>
+                        </group>
+                        <group string="Responsible Parties">
+                            <field name="user_id" options="{'no_create': True}"/>
+                            <field name="approver_id" options="{'no_create': True}"/>
+                            <field name="company_id"
+                                   groups="base.group_multi_company"
+                                   options="{'no_create': True}"/>
+                            <field name="team_ids" widget="many2many_tags"
+                                   options="{'no_create': True}"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Term &amp; Conditions" name="dates">
+                            <group>
+                                <group string="Contract Period">
+                                    <field name="duration_type"/>
+                                    <field name="date_start"/>
+                                    <field name="date_end"
+                                           invisible="duration_type == 'indefinite'"/>
+                                    <field name="date_signed"/>
+                                    <field name="date_notice"
+                                           invisible="duration_type == 'indefinite'"/>
+                                    <field name="notice_days"
+                                           invisible="duration_type == 'indefinite'"/>
+                                </group>
+                                <group string="Renewal">
+                                    <field name="renewal_type"/>
+                                    <field name="renewal_duration"
+                                           invisible="renewal_type == 'none'"/>
+                                    <field name="renewal_duration_unit"
+                                           invisible="renewal_type == 'none'"/>
+                                    <field name="parent_contract_id" readonly="1"
+                                           invisible="not parent_contract_id"/>
+                                </group>
+                            </group>
+                            <group invisible="duration_type == 'indefinite'">
+                                <label for="progress" string="Contract Progress"/>
+                                <field name="progress" widget="progressbar"/>
+                            </group>
+                        </page>
+
+                        <page string="Financial" name="financial">
+                            <group>
+                                <group string="Value">
+                                    <field name="currency_id"/>
+                                    <field name="amount_total"/>
+                                    <field name="amount_invoiced" readonly="1"/>
+                                    <field name="amount_remaining" readonly="1"/>
+                                    <field name="billing_frequency"/>
+                                    <field name="payment_terms_id"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Contract Content" name="content">
+                            <div class="mb-2"
+                                 invisible="state not in ('draft', 'negotiation')">
+                                <button name="action_insert_clauses" type="object"
+                                        string="Insert Clauses"
+                                        class="btn btn-secondary" icon="fa-plus-square"/>
+                            </div>
+                            <field name="description" widget="html"
+                                   placeholder="Write the contract content here..."/>
+                        </page>
+
+                        <page string="Milestones / Deliverables" name="milestones">
+                            <field name="milestone_ids">
+                                <list editable="bottom"
+                                      decoration-danger="state == 'late'"
+                                      decoration-success="state == 'done'"
+                                      decoration-muted="state == 'cancelled'">
+                                    <field name="name"/>
+                                    <field name="date_due"/>
+                                    <field name="date_done"/>
+                                    <field name="amount"/>
+                                    <field name="responsible_id"
+                                           options="{'no_create': True}"/>
+                                    <field name="state" widget="badge"
+                                           decoration-success="state == 'done'"
+                                           decoration-warning="state == 'late'"
+                                           decoration-info="state == 'pending'"
+                                           decoration-muted="state == 'cancelled'"/>
+                                    <field name="is_cancelled" column_invisible="1"/>
+                                    <button name="action_mark_done" type="object"
+                                            icon="fa-check" string="Mark Done"
+                                            invisible="state in ('done', 'cancelled')"/>
+                                    <button name="action_cancel" type="object"
+                                            icon="fa-ban" string="Cancel"
+                                            invisible="state in ('done', 'cancelled')"/>
+                                    <button name="action_reactivate" type="object"
+                                            icon="fa-undo" string="Reactivate"
+                                            invisible="state != 'cancelled'"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Approval" name="approval"
+                              invisible="not approval_line_ids">
+                            <field name="approval_line_ids" readonly="1">
+                                <list decoration-success="state == 'approved'"
+                                      decoration-danger="state == 'rejected'"
+                                      decoration-muted="state == 'pending'">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="group_id"/>
+                                    <field name="user_id"/>
+                                    <field name="approved_by_id"/>
+                                    <field name="date_done"/>
+                                    <field name="state" widget="badge"
+                                           decoration-success="state == 'approved'"
+                                           decoration-warning="state == 'pending'"
+                                           decoration-danger="state == 'rejected'"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Sales / Purchases" name="sales_purchases"
+                              invisible="contract_type not in ('customer', 'supplier', 'service', 'partnership')">
+                            <group>
+                                <field name="sale_order_ids" widget="many2many_tags"
+                                       invisible="contract_type not in ('customer', 'service', 'partnership')"
+                                       options="{'no_create': True}"/>
+                                <field name="purchase_order_ids" widget="many2many_tags"
+                                       invisible="contract_type not in ('supplier', 'partnership')"
+                                       options="{'no_create': True}"/>
+                            </group>
+                        </page>
+
+                        <page string="Billing" name="billing">
+                            <group>
+                                <group string="Recurrence">
+                                    <field name="auto_invoice" widget="boolean_toggle"/>
+                                    <field name="next_invoice_date"
+                                           invisible="not auto_invoice"
+                                           required="auto_invoice"/>
+                                    <field name="invoice_count" invisible="1"/>
+                                </group>
+                            </group>
+                            <field name="billing_line_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="subtotal" sum="Total"/>
+                                </list>
+                            </field>
+                            <div class="mt-2">
+                                <button name="action_generate_invoice_now" type="object"
+                                        string="Generate Invoice Now"
+                                        class="btn btn-secondary"
+                                        invisible="not billing_line_ids or state != 'active'"/>
+                                <button name="action_view_invoices" type="object"
+                                        string="View Invoices"
+                                        class="btn btn-link"
+                                        invisible="invoice_count == 0"/>
+                            </div>
+                        </page>
+
+                        <page string="Signature" name="signature">
+                            <group>
+                                <group string="Signature Status">
+                                    <field name="signed_by_us" widget="boolean_toggle"/>
+                                    <field name="signed_by_partner" widget="boolean_toggle"/>
+                                </group>
+                                <group string="Signature Image (inserted into the PDF)">
+                                    <field name="signature_our" widget="image" class="oe_avatar"/>
+                                    <field name="signature_partner" widget="image" class="oe_avatar"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Internal Notes" name="notes"
+                              groups="smart_contract_lifecycle.group_contract_user">
+                            <field name="internal_notes" widget="html"
+                                   placeholder="Internal notes (not visible to the partner)..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_contract_list" model="ir.ui.view">
+        <field name="name">contract.contract.list</field>
+        <field name="model">contract.contract</field>
+        <field name="arch" type="xml">
+            <list string="Contracts"
+                  decoration-danger="is_expired or state == 'expired'"
+                  decoration-warning="is_near_expiry and not is_expired"
+                  decoration-muted="state in ('cancelled', 'renewed')"
+                  decoration-success="state == 'active' and not is_near_expiry">
+                <field name="name"/>
+                <field name="title"/>
+                <field name="contract_type"/>
+                <field name="partner_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="days_remaining"
+                       decoration-danger="days_remaining &lt; 0"
+                       decoration-warning="days_remaining &gt;= 0 and days_remaining &lt;= 30 and state == 'active'"/>
+                <field name="amount_total" sum="Total"/>
+                <field name="mrr" optional="hide" sum="Total MRR"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="user_id" optional="hide"/>
+                <field name="priority" widget="priority" optional="show"/>
+                <field name="risk_score" optional="show" string="Risk"
+                       decoration-danger="risk_level == 'high'"
+                       decoration-warning="risk_level == 'medium'"/>
+                <field name="risk_level" column_invisible="1"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'active'"
+                       decoration-warning="state in ('negotiation', 'pending_approval', 'suspended')"
+                       decoration-danger="state in ('expired', 'cancelled')"
+                       decoration-info="state == 'draft'"/>
+                <field name="is_near_expiry" column_invisible="1"/>
+                <field name="is_expired" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_contract_kanban" model="ir.ui.view">
+        <field name="name">contract.contract.kanban</field>
+        <field name="model">contract.contract</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_contract_kanban"
+                    quick_create="false">
+                <field name="name"/>
+                <field name="title"/>
+                <field name="partner_id"/>
+                <field name="date_end"/>
+                <field name="days_remaining"
+                       decoration-danger="days_remaining &lt; 0"
+                       decoration-warning="days_remaining &gt;= 0 and days_remaining &lt;= 30 and state == 'active'"/>
+                <field name="amount_total"/>
+                <field name="currency_id"/>
+                <field name="user_id"/>
+                <field name="state"/>
+                <field name="priority"/>
+                <field name="health_status"/>
+                <field name="contract_type"/>
+                <field name="duration_type"/>
+                <field name="is_near_expiry"/>
+                <field name="is_expired"/>
+                <field name="risk_level"/>
+                <field name="risk_score"/>
+                <field name="activity_ids"/>
+                <field name="activity_state"/>
+                <progressbar field="activity_state"
+                             colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_card oe_kanban_global_click o_contract_card"
+                             t-attf-class="border-start border-4 #{
+                                 record.health_status.raw_value === 'red' ? 'border-danger' :
+                                 record.health_status.raw_value === 'orange' ? 'border-warning' :
+                                 'border-success'
+                             }">
+                            <div class="oe_kanban_content p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <small class="text-muted fw-bold">
+                                        <t t-esc="record.name.value"/>
+                                    </small>
+                                    <div class="d-flex align-items-center gap-1">
+                                        <span t-if="record.risk_level.raw_value === 'high'"
+                                              class="badge bg-danger" title="High risk">
+                                            <i class="fa fa-exclamation-triangle"/> <t t-esc="record.risk_score.value"/>
+                                        </span>
+                                        <span t-elif="record.risk_level.raw_value === 'medium'"
+                                              class="badge bg-warning text-dark" title="Medium risk">
+                                            <t t-esc="record.risk_score.value"/>
+                                        </span>
+                                        <field name="priority" widget="priority"/>
+                                    </div>
+                                </div>
+                                <div class="fw-bold mb-1" style="font-size:14px;">
+                                    <t t-esc="record.title.value"/>
+                                </div>
+                                <div class="text-muted small mb-2">
+                                    <i class="fa fa-building me-1"/>
+                                    <t t-esc="record.partner_id.value"/>
+                                </div>
+                                <div t-if="record.date_end.value" class="small mb-1">
+                                    <i class="fa fa-calendar me-1"/>
+                                    <t t-esc="record.date_end.value"/>
+                                    <t t-if="record.is_near_expiry.raw_value">
+                                        <span class="badge bg-warning text-dark ms-1">
+                                            <t t-esc="record.days_remaining.value"/> d
+                                        </span>
+                                    </t>
+                                    <t t-if="record.is_expired.raw_value">
+                                        <span class="badge bg-danger ms-1">Expired</span>
+                                    </t>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <span class="fw-bold">
+                                        <field name="amount_total" widget="monetary"
+                                               options="{'currency_field': 'currency_id'}"/>
+                                    </span>
+                                    <field name="user_id" widget="many2one_avatar_user"
+                                           options="{'size': 24}"/>
+                                </div>
+                                <div class="o_kanban_record_bottom mt-2">
+                                    <div class="oe_kanban_bottom_left">
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_contract_calendar" model="ir.ui.view">
+        <field name="name">contract.contract.calendar</field>
+        <field name="model">contract.contract</field>
+        <field name="arch" type="xml">
+            <calendar string="Contract Deadlines"
+                      date_start="date_start"
+                      date_stop="date_end"
+                      color="contract_type"
+                      mode="month"
+                      event_limit="5">
+                <field name="title"/>
+                <field name="partner_id"/>
+                <field name="state"/>
+                <field name="amount_total"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_contract_search" model="ir.ui.view">
+        <field name="name">contract.contract.search</field>
+        <field name="model">contract.contract</field>
+        <field name="arch" type="xml">
+            <search string="Search Contract">
+                <field name="name" string="Reference"/>
+                <field name="title" string="Title"/>
+                <field name="partner_id" string="Partner"/>
+                <field name="user_id" string="Responsible"/>
+                <field name="tag_ids" string="Tags"/>
+
+                <filter name="filter_active" string="Active"
+                        domain="[('state', '=', 'active')]"/>
+                <filter name="filter_draft" string="Draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter name="filter_pending" string="Pending Approval"
+                        domain="[('state', '=', 'pending_approval')]"/>
+                <filter name="filter_near_expiry" string="Near Expiry"
+                        domain="[('is_near_expiry', '=', True)]"/>
+                <filter name="filter_expired" string="Expired"
+                        domain="[('state', 'in', ('expired',))]"/>
+                <separator/>
+                <filter name="filter_customer" string="Customer Contracts"
+                        domain="[('contract_type', '=', 'customer')]"/>
+                <filter name="filter_supplier" string="Vendor Contracts"
+                        domain="[('contract_type', '=', 'supplier')]"/>
+                <separator/>
+                <filter name="filter_my_contracts" string="My Contracts"
+                        domain="[('user_id', '=', uid)]"/>
+               
+                <separator/>
+                <filter name="filter_this_year" string="This Year"
+                        domain="[('date_start', '&gt;=', (context_today().replace(month=1,day=1)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="filter_risk_high" string="High Risk"
+                        domain="[('risk_level', '=', 'high')]"/>
+                <filter name="filter_risk_medium_high" string="Medium or High Risk"
+                        domain="[('risk_level', 'in', ('medium', 'high'))]"/>
+
+                <group >
+                    <filter name="group_state" string="Status"
+                            context="{'group_by': 'state'}"/>
+                    <filter name="group_type" string="Type"
+                            context="{'group_by': 'contract_type'}"/>
+                    <filter name="group_partner" string="Partner"
+                            context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_user" string="Responsible"
+                            context="{'group_by': 'user_id'}"/>
+                    <filter name="group_month" string="Start Month"
+                            context="{'group_by': 'date_start:month'}"/>
+                    <filter name="group_risk" string="Risk Level"
+                            context="{'group_by': 'risk_level'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_contract_list" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="res_model">contract.contract</field>
+        <field name="view_mode">list,kanban,calendar,form</field>
+        <field name="search_view_id" ref="view_contract_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first contract
+            </p>
+            <p>
+                Manage the complete lifecycle of your contracts: customers, vendors,
+                partnerships, NDAs, and more.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_contract_active" model="ir.actions.act_window">
+        <field name="name">Active Contracts</field>
+        <field name="res_model">contract.contract</field>
+        <field name="view_mode">list,kanban,calendar,form</field>
+        <field name="domain">[('state', '=', 'active')]</field>
+        <field name="search_view_id" ref="view_contract_search"/>
+    </record>
+
+    <record id="action_contract_expiring" model="ir.actions.act_window">
+        <field name="name">Contracts Near Expiry</field>
+        <field name="res_model">contract.contract</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="domain">[('is_near_expiry', '=', True)]</field>
+        <field name="search_view_id" ref="view_contract_search"/>
+    </record>
+
+    <record id="action_contract_my" model="ir.actions.act_window">
+        <field name="name">My Contracts</field>
+        <field name="res_model">contract.contract</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="domain">[('user_id', '=', uid)]</field>
+        <field name="search_view_id" ref="view_contract_search"/>
+    </record>
+
+    <record id="action_contract_risk" model="ir.actions.act_window">
+        <field name="name">At-Risk Contracts</field>
+        <field name="res_model">contract.contract</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="domain">[('risk_level', 'in', ('medium', 'high')), ('state', 'not in', ('cancelled', 'renewed'))]</field>
+        <field name="context">{'search_default_filter_risk_high': 0}</field>
+        <field name="search_view_id" ref="view_contract_search"/>
+    </record>
+
+</odoo>

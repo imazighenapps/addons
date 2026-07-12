@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data noupdate="1">
+
+    <!-- Contract Templates -->
+
+    <record id="demo_template_service" model="contract.template">
+        <field name="name">Service Agreement</field>
+        <field name="contract_type">service</field>
+        <field name="notice_days">30</field>
+        <field name="renewal_type">manual</field>
+        <field name="renewal_duration">12</field>
+        <field name="renewal_duration_unit">months</field>
+        <field name="content"><![CDATA[
+
+<h2>SERVICE AGREEMENT</h2>
+<p>Between the undersigned:</p>
+<p><strong>The Provider</strong>: [Company Name]</p>
+<p><strong>The Client</strong>: [Client Name]</p>
+
+<h3>Article 1 — Purpose</h3>
+<p>This agreement sets out the terms under which the Provider will supply services to the Client.</p>
+
+<h3>Article 2 — Term</h3>
+<p>This agreement is entered into for a fixed term.</p>
+
+<h3>Article 3 — Fees</h3>
+<p>The Client agrees to pay the Provider according to the agreed financial terms.</p>
+
+<h3>Article 4 — Confidentiality</h3>
+<p>All exchanged information shall remain confidential.</p>
+
+<h3>Article 5 — Termination</h3>
+<p>Either party may terminate this agreement upon notice.</p>
+            ]]></field>
+        </record>
+
+```
+    <record id="demo_template_nda" model="contract.template">
+        <field name="name">Non-Disclosure Agreement (NDA)</field>
+        <field name="contract_type">nda</field>
+        <field name="notice_days">15</field>
+        <field name="renewal_type">none</field>
+        <field name="renewal_duration">24</field>
+        <field name="renewal_duration_unit">months</field>
+        <field name="content"><![CDATA[
+```
+
+<h2>NON-DISCLOSURE AGREEMENT</h2>
+
+<h3>Article 1 — Confidential Information</h3>
+<p>All technical, commercial and financial information exchanged is confidential.</p>
+
+<h3>Article 2 — Obligations</h3>
+<p>The parties shall not disclose confidential information.</p>
+
+<h3>Article 3 — Duration</h3>
+<p>Confidentiality obligations remain effective after termination.</p>
+            ]]></field>
+        </record>
+
+```
+    <!-- Tags -->
+
+    <record id="demo_tag_urgent" model="contract.tag">
+        <field name="name">Urgent</field>
+        <field name="color">1</field>
+    </record>
+
+    <record id="demo_tag_strategique" model="contract.tag">
+        <field name="name">Strategic</field>
+        <field name="color">10</field>
+    </record>
+
+    <record id="demo_tag_annuel" model="contract.tag">
+        <field name="name">Annual</field>
+        <field name="color">4</field>
+    </record>
+
+    <!-- Customer Contract -->
+
+    <record id="demo_contract_client_1" model="contract.contract">
+        <field name="title">IT Maintenance Contract 2025</field>
+        <field name="contract_type">customer</field>
+        <field name="partner_id" ref="base.res_partner_1"/>
+        <field name="user_id" ref="base.user_admin"/>
+
+        <field name="date_start">2025-01-01</field>
+        <field name="date_end">2025-12-31</field>
+        <field name="date_signed">2024-12-15</field>
+
+        <field name="state">active</field>
+        <field name="duration_type">fixed</field>
+
+        <field name="renewal_type">manual</field>
+        <field name="renewal_duration">12</field>
+        <field name="renewal_duration_unit">months</field>
+
+        <field name="amount_total">48000</field>
+        <field name="billing_frequency">monthly</field>
+        <field name="notice_days">60</field>
+
+        <field name="priority">1</field>
+
+        <field name="signed_by_us" eval="True"/>
+        <field name="signed_by_partner" eval="True"/>
+
+        <field name="tag_ids"
+               eval="[(4, ref('demo_tag_strategique')),
+                      (4, ref('demo_tag_annuel'))]"/>
+
+        <field name="description"><![CDATA[
+```
+
+<p>IT maintenance contract covering all client equipment.</p>
+<ul>
+    <li>Preventive maintenance</li>
+    <li>Corrective interventions</li>
+    <li>Helpdesk support</li>
+    <li>Monthly reporting</li>
+</ul>
+            ]]></field>
+        </record>
+
+```
+    <!-- Supplier Contract -->
+
+    <record id="demo_contract_supplier_1" model="contract.contract">
+        <field name="title">Raw Materials Supply — Lot B</field>
+        <field name="contract_type">supplier</field>
+        <field name="partner_id" ref="base.res_partner_2"/>
+        <field name="user_id" ref="base.user_admin"/>
+
+        <field name="date_start">2024-09-01</field>
+        <field name="date_end">2025-08-31</field>
+
+        <field name="state">active</field>
+        <field name="duration_type">fixed</field>
+
+        <field name="renewal_type">automatic</field>
+        <field name="renewal_duration">12</field>
+        <field name="renewal_duration_unit">months</field>
+
+        <field name="amount_total">120000</field>
+        <field name="billing_frequency">quarterly</field>
+        <field name="notice_days">90</field>
+
+        <field name="priority">2</field>
+
+        <field name="signed_by_us" eval="True"/>
+        <field name="signed_by_partner" eval="True"/>
+    </record>
+
+    <!-- NDA -->
+
+    <record id="demo_contract_nda_1" model="contract.contract">
+        <field name="title">NDA — Regional Expansion Project</field>
+        <field name="contract_type">nda</field>
+        <field name="partner_id" ref="base.res_partner_3"/>
+        <field name="user_id" ref="base.user_admin"/>
+
+        <field name="date_start">2025-01-15</field>
+        <field name="date_end">2027-01-15</field>
+
+        <field name="state">active</field>
+        <field name="duration_type">fixed</field>
+
+        <field name="renewal_type">none</field>
+
+        <field name="amount_total">0</field>
+        <field name="notice_days">30</field>
+
+        <field name="template_id" ref="demo_template_nda"/>
+    </record>
+
+    <!-- Negotiation -->
+
+    <record id="demo_contract_draft_1" model="contract.contract">
+        <field name="title">Cloud Services Framework Agreement 2026</field>
+        <field name="contract_type">service</field>
+        <field name="partner_id" ref="base.res_partner_12"/>
+        <field name="user_id" ref="base.user_admin"/>
+
+        <field name="date_start">2026-01-01</field>
+        <field name="date_end">2026-12-31</field>
+
+        <field name="state">negotiation</field>
+        <field name="duration_type">fixed</field>
+
+        <field name="renewal_type">manual</field>
+
+        <field name="amount_total">75000</field>
+        <field name="notice_days">45</field>
+
+        <field name="priority">1</field>
+
+        <field name="tag_ids"
+               eval="[(4, ref('demo_tag_urgent'))]"/>
+    </record>
+
+    <!-- Expired Contract -->
+
+    <record id="demo_contract_expired" model="contract.contract">
+        <field name="title">Website Hosting Contract 2024</field>
+        <field name="contract_type">service</field>
+        <field name="partner_id" ref="base.res_partner_1"/>
+        <field name="user_id" ref="base.user_admin"/>
+
+        <field name="date_start">2024-01-01</field>
+        <field name="date_end">2024-12-31</field>
+
+        <field name="state">expired</field>
+        <field name="amount_total">12000</field>
+    </record>
+
+    <!-- Milestones -->
+
+    <record id="demo_milestone_1" model="contract.milestone">
+        <field name="contract_id" ref="demo_contract_client_1"/>
+        <field name="name">Initial IT equipment audit</field>
+        <field name="date_due">2025-01-15</field>
+        <field name="date_done">2025-01-12</field>
+        <field name="amount">2000</field>
+    </record>
+
+    <record id="demo_milestone_2" model="contract.milestone">
+        <field name="contract_id" ref="demo_contract_client_1"/>
+        <field name="name">H1 semi-annual report</field>
+        <field name="date_due">2025-06-30</field>
+        <field name="amount">0</field>
+    </record>
+
+    <record id="demo_milestone_3" model="contract.milestone">
+        <field name="contract_id" ref="demo_contract_client_1"/>
+        <field name="name">Annual review</field>
+        <field name="date_due">2025-12-15</field>
+        <field name="amount">0</field>
+    </record>
+
+</data>
+
+
+</odoo>

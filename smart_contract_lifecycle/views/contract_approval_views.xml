@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_contract_approval_rule_form" model="ir.ui.view">
+        <field name="name">contract.approval.rule.form</field>
+        <field name="model">contract.approval.rule</field>
+        <field name="arch" type="xml">
+            <form string="Approval Rule">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="e.g. Medium Amount"/></h1>
+                    </div>
+                    <group>
+                        <group string="Amount Bracket">
+                            <field name="currency_id" invisible="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="amount_min"/>
+                            <field name="amount_max"
+                                   help="0 = no upper limit"/>
+                            <field name="sequence"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <separator string="Approval Levels (in order)"/>
+                    <field name="approval_level_ids">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="group_id" options="{'no_create': True}"/>
+                            <field name="user_id" options="{'no_create': True}"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_contract_approval_rule_list" model="ir.ui.view">
+        <field name="name">contract.approval.rule.list</field>
+        <field name="model">contract.approval.rule</field>
+        <field name="arch" type="xml">
+            <list string="Approval Matrix">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="amount_min"/>
+                <field name="amount_max"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="approval_level_ids" widget="many2many_tags" string="Levels"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_contract_approval_rule" model="ir.actions.act_window">
+        <field name="name">Approval Matrix</field>
+        <field name="res_model">contract.approval.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smile">
+                Define amount brackets and their associated approval levels.
+                When a contract is submitted, the rule matching its amount
+                will be applied automatically.
+            </p>
+        </field>
+    </record>
+
+</odoo>

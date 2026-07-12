@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_contract_amendment_form" model="ir.ui.view">
+        <field name="name">contract.amendment.form</field>
+        <field name="model">contract.amendment</field>
+        <field name="arch" type="xml">
+            <form string="Amendment">
+                <header>
+                    <button name="action_submit" string="Submit for Signature"
+                            type="object" class="oe_highlight"
+                            invisible="state != 'draft'"/>
+                    <button name="action_sign" string="Mark as Signed"
+                            type="object" class="oe_highlight"
+                            invisible="state != 'pending'"/>
+                    <button name="action_cancel" string="Cancel"
+                            type="object"
+                            invisible="state in ('cancelled', 'signed')"
+                            confirm="Are you sure you want to cancel this amendment?"/>
+                    <button name="action_reset_draft" string="Reset to Draft"
+                            type="object"
+                            invisible="state != 'cancelled'"
+                            groups="smart_contract_lifecycle.group_contract_manager"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,pending,signed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Amendment">
+                            <field name="contract_id" options="{'no_create': True}"
+                                   readonly="state != 'draft'"/>
+                            <field name="amendment_type"
+                                   readonly="state != 'draft'"/>
+                            <field name="date"
+                                   readonly="state != 'draft'"/>
+                        </group>
+                        <group string="Changes">
+                            <field name="new_date_end"
+                                   invisible="amendment_type != 'extension'"
+                                   readonly="state != 'draft'"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="amount_change"
+                                   invisible="amendment_type != 'financial'"
+                                   readonly="state != 'draft'"/>
+                        </group>
+                    </group>
+                    <group string="Signature" invisible="state != 'signed'">
+                        <group>
+                            <field name="signed_date" readonly="1"/>
+                            <field name="signed_by" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description" widget="html" nolabel="1"
+                               readonly="state not in ('draft', 'pending')"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_contract_amendment_list" model="ir.ui.view">
+        <field name="name">contract.amendment.list</field>
+        <field name="model">contract.amendment</field>
+        <field name="arch" type="xml">
+            <list string="Amendments"
+                  decoration-success="state == 'signed'"
+                  decoration-warning="state == 'pending'"
+                  decoration-muted="state == 'cancelled'">
+                <field name="name"/>
+                <field name="contract_id"/>
+                <field name="partner_id"/>
+                <field name="amendment_type"/>
+                <field name="date"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="amount_change"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'signed'"
+                       decoration-warning="state == 'pending'"
+                       decoration-info="state == 'draft'"
+                       decoration-danger="state == 'cancelled'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_contract_amendment" model="ir.actions.act_window">
+        <field name="name">Amendments</field>
+        <field name="res_model">contract.amendment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

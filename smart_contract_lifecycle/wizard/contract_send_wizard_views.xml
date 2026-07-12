@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_contract_send_wizard_form" model="ir.ui.view">
+        <field name="name">contract.send.wizard.form</field>
+        <field name="model">contract.send.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Send Contract">
+                <group>
+                    <field name="partner_email" widget="email"/>
+                    <field name="cc_email"/>
+                    <field name="subject"/>
+                    <field name="attach_pdf"/>
+                </group>
+                <group string="Message">
+                    <field name="body" widget="html" nolabel="1"/>
+                </group>
+                <footer>
+                    <button name="action_send" string="Send"
+                            type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,754 @@
+.o_contract_card {
+    transition: box-shadow 0.2s ease, transform 0.1s ease;
+    border-radius: 10px !important;
+}
+
+.o_contract_card:hover {
+    box-shadow: 0 4px 16px rgba(20, 33, 61, 0.15);
+    transform: translateY(-1px);
+}
+
+/* .o_statusbar_status button.o_arrow_button[data-value="active"] {
+    background-color: #2e7d32 !important;
+    color: white !important;
+}
+
+.o_statusbar_status button.o_arrow_button[data-value="expired"] {
+    background-color: #c62828 !important;
+    color: white !important;
+}
+
+.o_statusbar_status button.o_arrow_button[data-value="pending_approval"] {
+    background-color: #e65100 !important;
+    color: white !important;
+} */
+
+.contract-health-green { color: #2e7d32; }
+.contract-health-orange { color: #e65100; }
+.contract-health-red { color: #c62828; }
+
+.o_field_progressbar .progress-bar {
+    background-color: #14213D !important;
+}
+
+.alert-contract-expiry {
+    border-left: 5px solid #e65100;
+    background: #fff8f0;
+}
+
+.o_form_view .o_form_sheet .oe_title h1 {
+    color: #2c2c2c;
+}
+
+.o_data_row.o_danger td {
+    background-color: rgba(198, 40, 40, 0.04) !important;
+}
+
+.o_data_row.o_warning td {
+    background-color: rgba(230, 81, 0, 0.04) !important;
+}
+
+.oe_button_box .oe_stat_button {
+    border-radius: 8px;
+    transition: background 0.15s;
+}
+
+@media print {
+    .o_contract_card {
+        box-shadow: none !important;
+        transform: none !important;
+    }
+}
+
+/* ============================================================
+   Contracts Dashboard — "Ledger & Ink" design system
+   ============================================================ */
+
+.o_contract_dashboard {
+    --ocl-ink: #14213D;
+    --ocl-ink-2: #1F3057;
+    --ocl-gold: #C9A227;
+    --ocl-gold-soft: #E8D9A8;
+    --ocl-parchment: #F8F6F1;
+    --ocl-paper: #FFFFFF;
+    --ocl-ash: #5B6472;
+    --ocl-line: #E5E1D6;
+    --ocl-success: #2F7D5C;
+    --ocl-warning: #C9852B;
+    --ocl-danger: #B3433E;
+    --ocl-info: #3E6E92;
+    --ocl-neutral: #8A8370;
+    --ocl-font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+    --ocl-font-mono: ui-monospace, SFMono-Regular, "Roboto Mono", Consolas, "Liberation Mono", monospace;
+
+    background: var(--ocl-parchment);
+    min-height: 100%;
+    padding: 0 0 32px 0;
+    overflow: auto;
+    height: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .o_contract_dashboard .ocl-fade-in {
+        animation: oclFadeUp 0.45s ease both;
+    }
+}
+@keyframes oclFadeUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Hero + signature chart ---------------------------------- */
+
+.ocl-hero {
+    background:
+        radial-gradient(ellipse 900px 280px at 85% -10%, rgba(201, 162, 39, 0.16), transparent 60%),
+        linear-gradient(135deg, var(--ocl-ink) 0%, var(--ocl-ink-2) 100%);
+    color: #EDEFF4;
+    padding: 28px 32px 0;
+}
+
+.ocl-hero__top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    padding-bottom: 18px;
+}
+
+.ocl-hero__eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ocl-gold);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.ocl-hero__title {
+    font-family: var(--ocl-font-display);
+    font-size: 28px;
+    line-height: 1.15;
+    margin: 0 0 6px 0;
+    color: #FFFFFF;
+}
+
+.ocl-hero__date {
+    color: #B7C0D6;
+    font-size: 13px;
+    text-transform: capitalize;
+}
+
+.ocl-hero__figure {
+    text-align: right;
+}
+
+.ocl-hero__figure-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #B7C0D6;
+    margin-bottom: 4px;
+}
+
+.ocl-hero__figure-value {
+    font-family: var(--ocl-font-mono);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ocl-gold);
+    line-height: 1;
+    text-shadow: 0 0 24px rgba(201, 162, 39, 0.35);
+}
+
+.ocl-hero__figure-value small {
+    font-size: 16px;
+    color: #B7C0D6;
+    font-family: var(--ocl-font-mono);
+    margin-left: 4px;
+    text-shadow: none;
+}
+
+.ocl-hero__chips {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.ocl-chip {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: #DCE2EF;
+    white-space: nowrap;
+}
+
+.ocl-chip strong {
+    font-family: var(--ocl-font-mono);
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+/* ---- Trend delta badges --------------------------------------- */
+
+.ocl-delta {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-family: var(--ocl-font-mono);
+    font-weight: 600;
+    margin-top: 6px;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.ocl-delta--up { color: #6FCF9E; }
+.ocl-delta--down { color: #E59B95; }
+
+.ocl-delta__label {
+    font-family: var(--ocl-font-display);
+    font-weight: 400;
+    font-style: italic;
+    color: #93A0BD;
+    margin-left: 2px;
+}
+
+.ocl-kpi__delta {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11px;
+    font-family: var(--ocl-font-mono);
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+.ocl-kpi__delta--up { color: var(--ocl-success); }
+.ocl-kpi__delta--down { color: var(--ocl-danger); }
+
+/* ---- Period selector -------------------------------------------- */
+
+.ocl-period-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 10px;
+}
+
+.ocl-period-bar__label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6E7CA0;
+}
+
+.ocl-period-pills {
+    display: flex;
+    gap: 4px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 3px;
+}
+
+.ocl-period-pill {
+    border: none;
+    background: transparent;
+    color: #B7C0D6;
+    font-size: 11.5px;
+    padding: 4px 12px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.ocl-period-pill:hover {
+    color: #FFFFFF;
+}
+
+.ocl-period-pill.active {
+    background: var(--ocl-gold);
+    color: var(--ocl-ink);
+    font-weight: 600;
+}
+
+.ocl-hero__chart {
+    position: relative;
+    height: 150px;
+    margin: 0 -8px;
+}
+
+/* ---- Status distribution strip ----------------------------- */
+
+.ocl-health-wrap {
+    padding: 18px 32px 4px;
+}
+
+.ocl-health__bar {
+    display: flex;
+    height: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--ocl-line);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.03);
+}
+
+.ocl-health__segment {
+    transition: flex-basis 0.4s ease;
+    min-width: 2px;
+}
+
+.ocl-health__segment--success { background: var(--ocl-success); }
+.ocl-health__segment--info { background: var(--ocl-info); }
+.ocl-health__segment--neutral { background: var(--ocl-neutral); }
+.ocl-health__segment--danger { background: var(--ocl-danger); }
+
+.ocl-health__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 10px;
+}
+
+.ocl-health__legend-item {
+    font-size: 12.5px;
+    color: var(--ocl-ash);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ocl-health__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.ocl-health__legend-item strong {
+    font-family: var(--ocl-font-mono);
+    color: var(--ocl-ink);
+}
+
+/* ---- KPI strip (overlapping the hero) ----------------------- */
+
+.ocl-kpi-strip {
+    padding: 0 32px;
+    margin-top: 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.ocl-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px;
+}
+
+@media (max-width: 1200px) {
+    .ocl-kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+    .ocl-kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.ocl-card {
+    background: var(--ocl-paper);
+    border: 1px solid var(--ocl-line);
+    border-radius: 12px;
+}
+
+.ocl-kpi {
+    padding: 16px 14px;
+    text-align: left;
+    cursor: pointer;
+    transition: box-shadow 0.18s ease, transform 0.12s ease, border-color 0.18s ease;
+    box-shadow: 0 10px 24px rgba(20, 33, 61, 0.10);
+}
+
+.ocl-kpi:hover {
+    box-shadow: 0 14px 30px rgba(20, 33, 61, 0.16);
+    transform: translateY(-3px);
+    border-color: var(--ocl-gold-soft);
+}
+
+.ocl-kpi__badge {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.ocl-kpi__badge--success { background: rgba(47, 125, 92, 0.12); color: var(--ocl-success); }
+.ocl-kpi__badge--warning { background: rgba(201, 133, 43, 0.13); color: var(--ocl-warning); }
+.ocl-kpi__badge--danger { background: rgba(179, 67, 58, 0.12); color: var(--ocl-danger); }
+.ocl-kpi__badge--neutral { background: rgba(138, 131, 112, 0.14); color: var(--ocl-neutral); }
+.ocl-kpi__badge--info { background: rgba(62, 110, 146, 0.13); color: var(--ocl-info); }
+
+.ocl-kpi__value {
+    font-family: var(--ocl-font-mono);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--ocl-ink);
+    margin: 0 0 2px;
+    line-height: 1;
+}
+
+.ocl-kpi__label {
+    font-size: 12px;
+    color: var(--ocl-ash);
+}
+
+/* ---- Insights strip --------------------------------------------- */
+
+.ocl-insights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ocl-insight {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--ocl-paper);
+    border: 1px solid var(--ocl-line);
+    border-left: 3px solid var(--ocl-neutral);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    color: var(--ocl-ink);
+    flex: 1 1 260px;
+}
+
+.ocl-insight i { font-size: 14px; flex-shrink: 0; }
+
+.ocl-insight--danger { border-left-color: var(--ocl-danger); }
+.ocl-insight--danger i { color: var(--ocl-danger); }
+.ocl-insight--warning { border-left-color: var(--ocl-warning); }
+.ocl-insight--warning i { color: var(--ocl-warning); }
+.ocl-insight--info { border-left-color: var(--ocl-info); }
+.ocl-insight--info i { color: var(--ocl-info); }
+.ocl-insight--success { border-left-color: var(--ocl-success); }
+.ocl-insight--success i { color: var(--ocl-success); }
+
+/* ---- Sections / two-column layout ---------------------------- */
+
+.ocl-section {
+    padding: 26px 32px 4px;
+}
+
+.ocl-section__title {
+    font-family: var(--ocl-font-display);
+    font-size: 16px;
+    color: var(--ocl-ink);
+    margin: 0 0 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ocl-section__title i {
+    color: var(--ocl-gold);
+}
+
+.ocl-chart-card__subtitle {
+    font-size: 12px;
+    color: var(--ocl-ash);
+    margin: -8px 0 14px;
+}
+
+.ocl-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+@media (max-width: 992px) {
+    .ocl-grid-2 { grid-template-columns: 1fr; }
+}
+
+.ocl-chart-card {
+    padding: 18px 20px 20px;
+}
+
+/* ---- Donut chart (Chart.js canvas) ----------------------------- */
+
+.ocl-donut-wrap {
+    height: 190px;
+    position: relative;
+}
+
+/* ---- Radial gauge (Chart.js doughnut + HTML center overlay) ---- */
+
+.ocl-gauge-wrap {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.ocl-gauge-canvas-wrap {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+}
+
+.ocl-gauge__center {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.ocl-gauge__score {
+    font-family: var(--ocl-font-mono);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--ocl-ink);
+    line-height: 1;
+}
+
+.ocl-gauge__suffix {
+    font-size: 10px;
+    color: var(--ocl-ash);
+    margin-top: 2px;
+}
+
+.ocl-gauge__legend {
+    flex: 1;
+    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ocl-gauge__legend-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12.5px;
+    color: var(--ocl-ash);
+    border-bottom: 1px dashed var(--ocl-line);
+    padding-bottom: 6px;
+}
+
+.ocl-gauge__legend-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.ocl-gauge__legend-row strong {
+    font-family: var(--ocl-font-mono);
+    color: var(--ocl-ink);
+}
+
+.ocl-risk-bars {
+    border-top: 1px solid var(--ocl-line);
+    padding-top: 16px;
+}
+
+/* ---- Bars (shared by risk breakdown) --------------------------- */
+
+.ocl-bar-row {
+    margin-bottom: 12px;
+}
+
+.ocl-bar-row:last-child { margin-bottom: 0; }
+
+.ocl-bar-row__head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12.5px;
+    color: var(--ocl-ash);
+    margin-bottom: 4px;
+}
+
+.ocl-bar-row__value {
+    font-family: var(--ocl-font-mono);
+    color: var(--ocl-ink);
+    font-weight: 600;
+}
+
+.ocl-bar-track {
+    height: 7px;
+    border-radius: 4px;
+    background: var(--ocl-line);
+    overflow: hidden;
+}
+
+.ocl-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+
+.ocl-bar-fill--success { background: var(--ocl-success); }
+.ocl-bar-fill--warning { background: var(--ocl-warning); }
+.ocl-bar-fill--danger { background: var(--ocl-danger); }
+
+/* ---- Risk vs. Value bubble chart --------------------------------- */
+
+.ocl-bubble-wrap {
+    height: 320px;
+    position: relative;
+}
+
+/* ---- Revenue ledger -------------------------------------------- */
+
+.ocl-ledger {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ocl-ledger__item {
+    padding: 16px 18px;
+    border-right: 1px solid var(--ocl-line);
+    border-bottom: 1px solid var(--ocl-line);
+}
+
+.ocl-ledger__item:nth-child(2n) { border-right: none; }
+.ocl-ledger__item:nth-last-child(-n+2) { border-bottom: none; }
+
+.ocl-ledger__label {
+    font-size: 11.5px;
+    color: var(--ocl-ash);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+}
+
+.ocl-ledger__value {
+    font-family: var(--ocl-font-mono);
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--ocl-ink);
+}
+
+.ocl-ledger__value small {
+    font-size: 12px;
+    color: var(--ocl-ash);
+    font-family: var(--ocl-font-mono);
+}
+
+/* ---- Watch list -------------------------------------------------- */
+
+.ocl-watch {
+    padding: 6px 4px;
+}
+
+.ocl-watch__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--ocl-line);
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.ocl-watch__row:last-child { border-bottom: none; }
+.ocl-watch__row:hover { background: var(--ocl-parchment); }
+
+.ocl-watch__row-name {
+    font-size: 13.5px;
+    color: var(--ocl-ink);
+    font-weight: 600;
+}
+
+.ocl-watch__row-partner {
+    font-size: 12px;
+    color: var(--ocl-ash);
+}
+
+.ocl-watch__right {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.ocl-watch__amount {
+    font-family: var(--ocl-font-mono);
+    font-size: 12.5px;
+    color: var(--ocl-ash);
+    display: block;
+    margin-top: 3px;
+}
+
+.ocl-badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-family: var(--ocl-font-mono);
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+
+.ocl-badge--critical { background: rgba(179, 67, 58, 0.12); color: var(--ocl-danger); }
+.ocl-badge--warning { background: rgba(201, 133, 43, 0.13); color: var(--ocl-warning); }
+.ocl-badge--ok { background: rgba(47, 125, 92, 0.12); color: var(--ocl-success); }
+
+.ocl-watch__empty {
+    padding: 28px 16px;
+    text-align: center;
+    color: var(--ocl-ash);
+    font-size: 13px;
+}
+
+.ocl-watch__empty i {
+    font-size: 22px;
+    color: var(--ocl-success);
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* ---- Quick actions ------------------------------------------------ */
+
+.ocl-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ocl-action-btn {
+    border: 1px solid var(--ocl-line);
+    background: var(--ocl-paper);
+    color: var(--ocl-ink);
+    border-radius: 7px;
+    padding: 8px 14px;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.ocl-action-btn:hover {
+    border-color: var(--ocl-gold);
+    color: var(--ocl-ink);
+    background: var(--ocl-gold-soft);
+}
+
+.ocl-action-btn i { color: var(--ocl-gold); }
+
+.ocl-action-btn:focus-visible,
+.ocl-period-pill:focus-visible,
+.ocl-kpi:focus-visible,
+.ocl-watch__row:focus-visible {
+    outline: 2px solid var(--ocl-gold);
+    outline-offset: 2px;
+}
