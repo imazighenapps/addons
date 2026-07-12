@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mail_template_contract_expiry_alert" model="mail.template">
+            <field name="name">Contract - Expiry Alert</field>
+            <field name="model_id" ref="model_contract_contract"/>
+            <field name="subject">⚠️ Contract {{ object.name }} expires in {{ object.days_remaining }} days</field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+    <div style="background: #714AB7; padding: 20px; border-radius: 8px 8px 0 0;">
+        <h2 style="color: white; margin: 0;">⚠️ Contract Expiry Alert</h2>
+    </div>
+    <div style="background: #f9f9f9; padding: 24px; border: 1px solid #e0e0e0;">
+        <p>Hello <strong>{{ object.user_id.name or 'Responsible' }}</strong>,</p>
+        <p>The following contract is approaching its expiry date:</p>
+        <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold; width: 40%;">Reference</td>
+                <td style="padding: 8px;">{{ object.name }}</td></tr>
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold;">Title</td>
+                <td style="padding: 8px;">{{ object.title }}</td></tr>
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold;">Partner</td>
+                <td style="padding: 8px;">{{ object.partner_id.name }}</td></tr>
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold;">Expiry Date</td>
+                <td style="padding: 8px; color: #d32f2f;"><strong>{{ object.date_end }}</strong></td></tr>
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold;">Days Remaining</td>
+                <td style="padding: 8px; color: #d32f2f;"><strong>{{ object.days_remaining }} days</strong></td></tr>
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold;">Contract Value</td>
+                <td style="padding: 8px;">{{ object.amount_total }} {{ object.currency_id.symbol }}</td></tr>
+        </table>
+        <p>Please take the necessary steps to renew or terminate this contract.</p>
+        <div style="text-align: center; margin-top: 24px;">
+            <a href="/odoo/contracts/{{ object.id }}"
+               style="background: #714AB7; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">
+                View Contract
+            </a>
+        </div>
+    </div>
+    <div style="background: #f0f0f0; padding: 12px; border-radius: 0 0 8px 8px; text-align: center; font-size: 12px; color: #666;">
+        Smart Contract Lifecycle — Odoo Module
+    </div>
+</div>
+            ]]></field>
+            <field name="email_to">{{ object.user_id.email or '' }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <record id="mail_template_contract_approval" model="mail.template">
+            <field name="name">Contract - Approval Request</field>
+            <field name="model_id" ref="model_contract_contract"/>
+            <field name="subject">📋 Approval required: Contract {{ object.name }}</field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+    <div style="background: #2e7d32; padding: 20px; border-radius: 8px 8px 0 0;">
+        <h2 style="color: white; margin: 0;">📋 Contract Approval Required</h2>
+    </div>
+    <div style="background: #f9f9f9; padding: 24px; border: 1px solid #e0e0e0;">
+        <p>Hello <strong>{{ object.approver_id.name or 'Approver' }}</strong>,</p>
+        <p>A contract requires your approval:</p>
+        <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold; width: 40%;">Reference</td>
+                <td style="padding: 8px;">{{ object.name }}</td></tr>
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold;">Title</td>
+                <td style="padding: 8px;">{{ object.title }}</td></tr>
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold;">Partner</td>
+                <td style="padding: 8px;">{{ object.partner_id.name }}</td></tr>
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold;">Requested By</td>
+                <td style="padding: 8px;">{{ object.user_id.name }}</td></tr>
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold;">Value</td>
+                <td style="padding: 8px;"><strong>{{ object.amount_total }} {{ object.currency_id.symbol }}</strong></td></tr>
+        </table>
+        <div style="text-align: center; margin-top: 24px;">
+            <a href="/odoo/contracts/{{ object.id }}"
+               style="background: #2e7d32; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">
+                Approve Contract
+            </a>
+        </div>
+    </div>
+</div>
+            ]]></field>
+            <field name="email_to">{{ object.approver_id.email or '' }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <record id="mail_template_contract_send" model="mail.template">
+            <field name="name">Contract - Send to Partner</field>
+            <field name="model_id" ref="model_contract_contract"/>
+            <field name="subject">📄 Contract {{ object.name }} — {{ object.title }}</field>
+            <field name="body_html"><![CDATA[
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+    <div style="background: #1565c0; padding: 20px; border-radius: 8px 8px 0 0;">
+        <h2 style="color: white; margin: 0;">📄 Contract to Sign</h2>
+    </div>
+    <div style="background: #f9f9f9; padding: 24px; border: 1px solid #e0e0e0;">
+        <p>Hello,</p>
+        <p>Please find attached the contract <strong>{{ object.title }}</strong>.</p>
+        <p>Kindly return this signed document to us as soon as possible.</p>
+        <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold; width: 40%;">Reference</td>
+                <td style="padding: 8px;">{{ object.name }}</td></tr>
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold;">Value</td>
+                <td style="padding: 8px;">{{ object.amount_total }} {{ object.currency_id.symbol }}</td></tr>
+            <tr><td style="padding: 8px; background: #f0f0f0; font-weight: bold;">Period</td>
+                <td style="padding: 8px;">{{ object.date_start }} → {{ object.date_end or 'Indefinite' }}</td></tr>
+        </table>
+        <p>For any questions, please contact <strong>{{ object.user_id.name }}</strong> — {{ object.user_id.email }}</p>
+    </div>
+</div>
+            ]]></field>
+            <field name="email_to">{{ object.partner_id.email or '' }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

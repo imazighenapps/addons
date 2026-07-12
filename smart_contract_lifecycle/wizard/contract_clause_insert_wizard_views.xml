@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_contract_clause_insert_wizard_form" model="ir.ui.view">
+        <field name="name">contract.clause.insert.wizard.form</field>
+        <field name="model">contract.clause.insert.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Insert Clauses">
+                <field name="contract_id" invisible="1"/>
+                <field name="contract_type_context" invisible="1"/>
+                <group>
+                    <field name="clause_ids" widget="many2many_tags"
+                           nolabel="1" colspan="2"
+                           options="{'no_create': True}"/>
+                </group>
+                <p class="text-muted">
+                    The selected clauses will be appended to the current
+                    contract content, ordered by category.
+                </p>
+                <footer>
+                    <button name="action_insert_clauses" type="object"
+                            string="Insert" class="btn btn-primary"/>
+                    <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

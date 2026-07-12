@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="smart_contract_lifecycle.ContractDashboard">
+        <div class="o_contract_dashboard o_view_controller">
+
+            <t t-if="state.loading">
+                <div class="d-flex justify-content-center align-items-center" style="height:300px">
+                    <div class="spinner-border" style="color:#C9A227" role="status">
+                        <span class="visually-hidden">Loading…</span>
+                    </div>
+                </div>
+            </t>
+
+            <t t-else="">
+
+                <!-- Hero with embedded portfolio growth chart (signature element) -->
+                <div class="ocl-hero ocl-fade-in">
+                    <div class="ocl-hero__top">
+                        <div>
+                            <div class="ocl-hero__eyebrow">Contract Oversight</div>
+                            <h3 class="ocl-hero__title">Contracts Dashboard</h3>
+                            <div class="ocl-hero__date" t-esc="state.today"/>
+                        </div>
+                        <div class="ocl-hero__figure">
+                            <div class="ocl-hero__figure-label">Total Engaged Value</div>
+                            <div class="ocl-hero__figure-value">
+                                <t t-esc="formatAmount(state.stats.total_value)"/>
+                                <small t-esc="state.stats.currency_symbol"/>
+                            </div>
+                            <div t-attf-class="ocl-delta ocl-delta--{{state.stats.value_delta_up ? 'up' : 'down'}}">
+                                <i t-attf-class="fa {{state.stats.value_delta_up ? 'fa-arrow-up' : 'fa-arrow-down'}}"/>
+                                <t t-esc="formatPercent(state.stats.value_delta_abs)"/>%
+                                <span class="ocl-delta__label" t-esc="state.stats.delta_label"/>
+                            </div>
+                            <div class="ocl-hero__chips">
+                                <span class="ocl-chip">
+                                    <strong t-esc="state.stats.active"/> active contracts
+                                </span>
+                                <span class="ocl-chip">
+                                    MRR <strong t-esc="formatAmount(state.stats.mrr)"/>
+                                    <t t-esc="state.stats.currency_symbol"/>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ocl-period-bar">
+                        <span class="ocl-period-bar__label">Trend</span>
+                        <div class="ocl-period-pills">
+                            <button t-attf-class="ocl-period-pill {{state.period === 'month' ? 'active' : ''}}"
+                                    t-on-click="() => this._setPeriod('month')">Month</button>
+                            <button t-attf-class="ocl-period-pill {{state.period === 'quarter' ? 'active' : ''}}"
+                                    t-on-click="() => this._setPeriod('quarter')">Quarter</button>
+                            <button t-attf-class="ocl-period-pill {{state.period === 'year' ? 'active' : ''}}"
+                                    t-on-click="() => this._setPeriod('year')">Year</button>
+                            <button t-attf-class="ocl-period-pill {{state.period === 'all' ? 'active' : ''}}"
+                                    t-on-click="() => this._setPeriod('all')">All</button>
+                        </div>
+                    </div>
+
+                    <div class="ocl-hero__chart">
+                        <canvas t-ref="trendChart"/>
+                    </div>
+                </div>
+
+                <!-- KPI strip, overlapping the hero -->
+                <div class="ocl-kpi-strip">
+                    <div class="ocl-kpi-grid">
+
+                        <div class="ocl-kpi ocl-card"
+                             t-on-click="() => this.openContracts([['state','=','active']], 'Active Contracts')">
+                            <div class="ocl-kpi__badge ocl-kpi__badge--success"><i class="fa fa-check-circle"/></div>
+                            <div class="ocl-kpi__value" t-esc="state.stats.active"/>
+                            <div class="ocl-kpi__label">Active</div>
+                            <div t-attf-class="ocl-kpi__delta ocl-kpi__delta--{{state.stats.count_delta_up ? 'up' : 'down'}}">
+                                <i t-attf-class="fa {{state.stats.count_delta_up ? 'fa-caret-up' : 'fa-caret-down'}}"/>
+                                <t t-esc="formatPercent(state.stats.count_delta_abs)"/>%
+                            </div>
+                        </div>
+
+                        <div class="ocl-kpi ocl-card"
+                             t-on-click="() => this.openContracts([['is_near_expiry','=',true],['state','=','active']], 'Near Expiry')">
+                            <div class="ocl-kpi__badge ocl-kpi__badge--warning"><i class="fa fa-clock-o"/></div>
+                            <div class="ocl-kpi__value" t-esc="state.stats.expiring"/>
+                            <div class="ocl-kpi__label">Near Expiry</div>
+                        </div>
+
+                        <div class="ocl-kpi ocl-card"
+                             t-on-click="() => this.openContracts([['state','=','expired']], 'Expired Contracts')">
+                            <div class="ocl-kpi__badge ocl-kpi__badge--danger"><i class="fa fa-times-circle"/></div>
+                            <div class="ocl-kpi__value" t-esc="state.stats.expired"/>
+                            <div class="ocl-kpi__label">Expired</div>
+                        </div>
+
+                        <div class="ocl-kpi ocl-card"
+                             t-on-click="() => this.openContracts([['state','=','draft']], 'Draft')">
+                            <div class="ocl-kpi__badge ocl-kpi__badge--neutral"><i class="fa fa-pencil"/></div>
+                            <div class="ocl-kpi__value" t-esc="state.stats.draft"/>
+                            <div class="ocl-kpi__label">Draft</div>
+                        </div>
+
+                        <div class="ocl-kpi ocl-card"
+                             t-on-click="() => this.openContracts([['state','=','pending_approval']], 'Pending Approval')">
+                            <div class="ocl-kpi__badge ocl-kpi__badge--info"><i class="fa fa-hourglass-half"/></div>
+                            <div class="ocl-kpi__value" t-esc="state.stats.pending_approval"/>
+                            <div class="ocl-kpi__label">Pending Approval</div>
+                        </div>
+
+                        <div class="ocl-kpi ocl-card"
+                             t-on-click="() => this.openContracts([['risk_level','=','high'],['state','=','active']], 'High Risk')">
+                            <div class="ocl-kpi__badge ocl-kpi__badge--danger"><i class="fa fa-exclamation-triangle"/></div>
+                            <div class="ocl-kpi__value" t-esc="state.stats.high_risk_count"/>
+                            <div class="ocl-kpi__label">High Risk</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Auto-generated insights -->
+                <div class="ocl-section ocl-fade-in" style="padding-top:18px; padding-bottom:0;">
+                    <div class="ocl-insights">
+                        <t t-foreach="state.stats.insights" t-as="ins" t-key="ins_index">
+                            <div t-attf-class="ocl-insight ocl-insight--{{ins.tone}}">
+                                <i t-attf-class="fa {{ins.icon}}"/>
+                                <span t-esc="ins.text"/>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+
+                <!-- Status distribution strip -->
+                <div class="ocl-health-wrap ocl-fade-in" t-if="state.stats.total_count">
+                    <div class="ocl-health__bar">
+                        <t t-foreach="state.stats.health" t-as="seg" t-key="seg.key">
+                            <div t-if="seg.count"
+                                 t-attf-class="ocl-health__segment ocl-health__segment--{{seg.color}}"
+                                 t-attf-style="flex-basis: {{seg.pct}}%"
+                                 t-att-title="seg.label + ': ' + seg.count"/>
+                        </t>
+                    </div>
+                    <div class="ocl-health__legend">
+                        <t t-foreach="state.stats.health" t-as="seg" t-key="seg.key">
+                            <span class="ocl-health__legend-item">
+                                <span t-attf-class="ocl-health__dot ocl-health__segment--{{seg.color}}"/>
+                                <t t-esc="seg.label"/>: <strong t-esc="seg.count"/>
+                            </span>
+                        </t>
+                    </div>
+                </div>
+
+                <!-- Composition (donut) + Health (radial gauge) -->
+                <div class="ocl-section ocl-fade-in">
+                    <div class="ocl-grid-2">
+
+                        <div class="ocl-card ocl-chart-card">
+                            <div class="ocl-section__title">
+                                <i class="fa fa-pie-chart"/> Portfolio Composition
+                            </div>
+                            <t t-if="state.stats.donut.labels.length">
+                                <div class="ocl-donut-wrap">
+                                    <canvas t-ref="donutChart"/>
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <div class="ocl-watch__empty">
+                                    <i class="fa fa-pie-chart"/>
+                                    No active contracts to break down yet.
+                                </div>
+                            </t>
+                        </div>
+
+                        <div class="ocl-card ocl-chart-card">
+                            <div class="ocl-section__title">
+                                <i class="fa fa-heartbeat"/> Portfolio Health
+                            </div>
+                            <div class="ocl-gauge-wrap">
+                                <div class="ocl-gauge-canvas-wrap">
+                                    <canvas t-ref="gaugeChart"/>
+                                    <div class="ocl-gauge__center">
+                                        <div class="ocl-gauge__score" t-esc="state.stats.health_score"/>
+                                        <div class="ocl-gauge__suffix">/ 100</div>
+                                    </div>
+                                </div>
+                                <div class="ocl-gauge__legend">
+                                    <div class="ocl-gauge__legend-row">
+                                        <span>Active</span>
+                                        <strong><t t-esc="formatPercent(state.stats.active_ratio)"/>%</strong>
+                                    </div>
+                                    <div class="ocl-gauge__legend-row">
+                                        <span>Low Risk</span>
+                                        <strong><t t-esc="formatPercent(state.stats.low_risk_ratio)"/>%</strong>
+                                    </div>
+                                    <div class="ocl-gauge__legend-row">
+                                        <span>Renewal Rate</span>
+                                        <strong><t t-esc="formatPercent(state.stats.renewal_rate)"/>%</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ocl-risk-bars">
+                                <t t-foreach="state.stats.risk" t-as="item" t-key="item.key">
+                                    <div class="ocl-bar-row">
+                                        <div class="ocl-bar-row__head">
+                                            <span t-esc="item.label"/>
+                                            <span class="ocl-bar-row__value" t-esc="item.count"/>
+                                        </div>
+                                        <div class="ocl-bar-track">
+                                            <div t-attf-class="ocl-bar-fill ocl-bar-fill--{{item.color}}"
+                                                 t-attf-style="width: {{item.pct}}%"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Risk vs. Value bubble chart -->
+                <div class="ocl-section ocl-fade-in"
+                     t-if="state.stats.bubble.low.length or state.stats.bubble.medium.length or state.stats.bubble.high.length">
+                    <div class="ocl-card ocl-chart-card">
+                        <div class="ocl-section__title">
+                            <i class="fa fa-bullseye"/> Risk vs. Value
+                        </div>
+                        <p class="ocl-chart-card__subtitle">
+                            Every active contract, plotted by risk score and value.
+                            Bubble size reflects its recurring revenue weight.
+                        </p>
+                        <div class="ocl-bubble-wrap">
+                            <canvas t-ref="bubbleChart"/>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recurring revenue ledger + Watch List -->
+                <div class="ocl-section ocl-fade-in">
+                    <div class="ocl-grid-2">
+
+                        <div>
+                            <div class="ocl-section__title">
+                                <i class="fa fa-line-chart"/> Recurring Revenue
+                            </div>
+                            <div class="ocl-ledger ocl-card">
+                                <div class="ocl-ledger__item">
+                                    <div class="ocl-ledger__label">Monthly MRR</div>
+                                    <div class="ocl-ledger__value">
+                                        <t t-esc="formatAmount(state.stats.mrr)"/>
+                                        <small t-esc="state.stats.currency_symbol"/>
+                                    </div>
+                                </div>
+                                <div class="ocl-ledger__item">
+                                    <div class="ocl-ledger__label">Annual ARR</div>
+                                    <div class="ocl-ledger__value">
+                                        <t t-esc="formatAmount(state.stats.arr)"/>
+                                        <small t-esc="state.stats.currency_symbol"/>
+                                    </div>
+                                </div>
+                                <div class="ocl-ledger__item">
+                                    <div class="ocl-ledger__label">Renewal Rate</div>
+                                    <div class="ocl-ledger__value">
+                                        <t t-esc="formatPercent(state.stats.renewal_rate)"/><small> %</small>
+                                    </div>
+                                </div>
+                                <div class="ocl-ledger__item">
+                                    <div class="ocl-ledger__label">Avg. Value / Contract</div>
+                                    <div class="ocl-ledger__value">
+                                        <t t-esc="formatAmount(state.stats.avg_contract_value)"/>
+                                        <small t-esc="state.stats.currency_symbol"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="ocl-section__title">
+                                <i class="fa fa-bell-o"/> Watch List
+                            </div>
+                            <div class="ocl-card ocl-watch">
+                                <t t-if="state.stats.watchlist.length === 0">
+                                    <div class="ocl-watch__empty">
+                                        <i class="fa fa-check-circle"/>
+                                        No upcoming deadlines among active contracts.
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <t t-foreach="state.stats.watchlist" t-as="item" t-key="item.id">
+                                        <div class="ocl-watch__row" t-on-click="() => this.openContract(item.id)">
+                                            <div>
+                                                <div class="ocl-watch__row-name" t-esc="item.name"/>
+                                                <div class="ocl-watch__row-partner" t-esc="item.partner_name"/>
+                                            </div>
+                                            <div class="ocl-watch__right">
+                                                <span t-attf-class="ocl-badge ocl-badge--{{item.urgency}}">
+                                                    <t t-if="item.days_remaining &lt; 0">Overdue</t>
+                                                    <t t-elif="item.days_remaining === 0">Today</t>
+                                                    <t t-else="">D-<t t-esc="item.days_remaining"/></t>
+                                                </span>
+                                                <span class="ocl-watch__amount">
+                                                    <t t-esc="formatAmount(item.amount_total)"/>
+                                                    <t t-esc="state.stats.currency_symbol"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Quick actions -->
+                <div class="ocl-section ocl-fade-in" style="padding-bottom: 22px;">
+                    <div class="ocl-section__title">
+                        <i class="fa fa-bolt"/> Quick Actions
+                    </div>
+                    <div class="ocl-actions">
+                        <button class="ocl-action-btn"
+                                t-on-click="() => this.openContracts([], 'All Contracts')">
+                            <i class="fa fa-list"/> All Contracts
+                        </button>
+                        <button class="ocl-action-btn"
+                                t-on-click="() => this.openContracts([['is_near_expiry','=',true]], 'To Renew')">
+                            <i class="fa fa-refresh"/> To Renew
+                        </button>
+                        <button class="ocl-action-btn"
+                                t-on-click="() => this.openContracts([['state','=','expired']], 'Expired')">
+                            <i class="fa fa-exclamation-triangle"/> Expired Contracts
+                        </button>
+                        <button class="ocl-action-btn"
+                                t-on-click="() => this.openContracts([['state','=','pending_approval']], 'To Approve')">
+                            <i class="fa fa-check"/> To Approve
+                        </button>
+                    </div>
+                </div>
+
+            </t>
+        </div>
+    </t>
+
+</templates>

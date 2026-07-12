@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_contract_pivot" model="ir.ui.view">
+        <field name="name">contract.contract.pivot</field>
+        <field name="model">contract.contract</field>
+        <field name="arch" type="xml">
+            <pivot string="Contract Analysis">
+                <field name="contract_type" type="row"/>
+                <field name="state" type="col"/>
+                <field name="amount_total" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_contract_graph" model="ir.ui.view">
+        <field name="name">contract.contract.graph</field>
+        <field name="model">contract.contract</field>
+        <field name="arch" type="xml">
+            <graph string="Contracts by Status" type="bar">
+                <field name="contract_type" type="row"/>
+                <field name="amount_total" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_contract_dashboard_client" model="ir.actions.client">
+        <field name="name">Contracts Dashboard</field>
+        <field name="tag">smart_contract_lifecycle.contract_dashboard_action_client</field>
+    </record>
+
+    <record id="action_contract_analysis" model="ir.actions.act_window">
+        <field name="name">Contract Analysis</field>
+        <field name="res_model">contract.contract</field>
+        <field name="view_mode">graph,pivot,list</field>
+        <field name="context">{'search_default_filter_active': 1}</field>
+    </record>
+
+</odoo>

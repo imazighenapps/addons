@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_contract_root"
+              name="Contracts"
+              sequence="55"
+              web_icon="smart_contract_lifecycle,static/src/img/icon.png"
+              groups="smart_contract_lifecycle.group_contract_user"/>
+
+    <menuitem id="menu_contract_contracts"
+              name="Contracts"
+              parent="menu_contract_root"
+              sequence="10"/>
+
+    <menuitem id="menu_contract_all"
+              name="All Contracts"
+              parent="menu_contract_contracts"
+              action="action_contract_list"
+              sequence="10"/>
+
+    <menuitem id="menu_contract_active"
+              name="Active Contracts"
+              parent="menu_contract_contracts"
+              action="action_contract_active"
+              sequence="20"/>
+
+    <menuitem id="menu_contract_expiring"
+              name="Near Expiry"
+              parent="menu_contract_contracts"
+              action="action_contract_expiring"
+              sequence="30"/>
+
+    <menuitem id="menu_contract_my"
+              name="My Contracts"
+              parent="menu_contract_contracts"
+              action="action_contract_my"
+              sequence="40"/>
+
+    <menuitem id="menu_contract_risk"
+              name="At-Risk Contracts"
+              parent="menu_contract_contracts"
+              action="action_contract_risk"
+              sequence="50"/>
+
+    <menuitem id="menu_contract_amendments"
+              name="Amendments"
+              parent="menu_contract_root"
+              action="action_contract_amendment"
+              sequence="20"/>
+
+    <menuitem id="menu_contract_analysis"
+              name="Reporting"
+              parent="menu_contract_root"
+              sequence="30"/>
+
+    <menuitem id="menu_contract_dashboard"
+              name="Dashboard"
+              parent="menu_contract_analysis"
+              action="action_contract_dashboard_client"
+              sequence="10"/>
+
+    <menuitem id="menu_contract_analyse"
+              name="Analysis"
+              parent="menu_contract_analysis"
+              action="action_contract_analysis"
+              sequence="20"/>
+
+    <menuitem id="menu_contract_config"
+              name="Configuration"
+              parent="menu_contract_root"
+              sequence="90"
+              groups="smart_contract_lifecycle.group_contract_manager"/>
+
+    <menuitem id="menu_contract_templates"
+              name="Contract Templates"
+              parent="menu_contract_config"
+              action="action_contract_template"
+              sequence="10"/>
+
+    <menuitem id="menu_contract_approval_rule"
+              name="Approval Matrix"
+              parent="menu_contract_config"
+              action="action_contract_approval_rule"
+              sequence="20"/>
+
+    <menuitem id="menu_contract_clause"
+              name="Clause Library"
+              parent="menu_contract_config"
+              action="action_contract_clause"
+              sequence="30"/>
+</odoo>

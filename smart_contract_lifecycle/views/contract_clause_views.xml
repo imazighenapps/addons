@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_contract_clause_form" model="ir.ui.view">
+        <field name="name">contract.clause.form</field>
+        <field name="model">contract.clause</field>
+        <field name="arch" type="xml">
+            <form string="Contract Clause">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="e.g. Confidentiality Clause"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="category"/>
+                            <field name="applicable_to"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="sequence"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <separator string="Content"/>
+                    <field name="content" widget="html"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_contract_clause_list" model="ir.ui.view">
+        <field name="name">contract.clause.list</field>
+        <field name="model">contract.clause</field>
+        <field name="arch" type="xml">
+            <list string="Clause Library">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="applicable_to"/>
+                <field name="description"/>
+                <field name="active" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_contract_clause_search" model="ir.ui.view">
+        <field name="name">contract.clause.search</field>
+        <field name="model">contract.clause</field>
+        <field name="arch" type="xml">
+            <search string="Search Clause">
+                <field name="name"/>
+                <field name="category"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group>
+                    <filter string="Category" name="group_category" context="{'group_by': 'category'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_contract_clause" model="ir.actions.act_window">
+        <field name="name">Clause Library</field>
+        <field name="res_model">contract.clause</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_contract_clause_search"/>
+        <field name="context">{'search_default_group_category': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smile">
+                Create standardized clauses (confidentiality, termination,
+                GDPR...) and insert them into your contracts in one click.
+            </p>
+        </field>
+    </record>
+
+</odoo>

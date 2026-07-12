@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="clause_confidentiality" model="contract.clause">
+            <field name="name">Confidentiality Clause</field>
+            <field name="category">confidentiality</field>
+            <field name="applicable_to">all</field>
+            <field name="description">Mutual confidentiality obligation</field>
+            <field name="content"><![CDATA[
+                <p>
+                    Each party agrees to keep strictly confidential all
+                    information, documents, and data exchanged under this
+                    agreement, and not to disclose them to any third party
+                    without the other party's prior written consent, for
+                    the entire term of this agreement and for a period of
+                    two (2) years following its expiry or termination.
+                </p>
+            ]]></field>
+        </record>
+
+        <record id="clause_termination" model="contract.clause">
+            <field name="name">Termination Clause</field>
+            <field name="category">termination</field>
+            <field name="applicable_to">all</field>
+            <field name="description">Early termination conditions</field>
+            <field name="content"><![CDATA[
+                <p>
+                    Either party may terminate this agreement early by
+                    giving written notice in accordance with the agreed
+                    notice period, subject to settlement of any outstanding
+                    financial and contractual obligations.
+                </p>
+                <p>
+                    In the event of a material breach by one party that
+                    remains uncured thirty (30) days after notification,
+                    the other party may terminate this agreement without
+                    notice.
+                </p>
+            ]]></field>
+        </record>
+
+        <record id="clause_penalty" model="contract.clause">
+            <field name="name">Late Payment Penalty Clause</field>
+            <field name="category">penalty</field>
+            <field name="applicable_to">all</field>
+            <field name="description">Penalties for late delivery or payment</field>
+            <field name="content"><![CDATA[
+                <p>
+                    Any payment not made by its due date shall accrue a
+                    penalty equal to the applicable statutory interest
+                    rate, calculated on the amount due, without prejudice
+                    to any other available remedy.
+                </p>
+            ]]></field>
+        </record>
+
+        <record id="clause_liability" model="contract.clause">
+            <field name="name">Limitation of Liability</field>
+            <field name="category">liability</field>
+            <field name="applicable_to">all</field>
+            <field name="description">Cap on contractual liability</field>
+            <field name="content"><![CDATA[
+                <p>
+                    Each party's liability under this agreement is limited
+                    to direct damages and shall not exceed the total amount
+                    paid under this agreement during the twelve (12) months
+                    preceding the event giving rise to liability. Indirect
+                    damages, loss of profit, or reputational harm are
+                    excluded.
+                </p>
+            ]]></field>
+        </record>
+
+        <record id="clause_ip" model="contract.clause">
+            <field name="name">Intellectual Property Clause</field>
+            <field name="category">ip</field>
+            <field name="applicable_to">all</field>
+            <field name="description">Intellectual property rights over deliverables</field>
+            <field name="content"><![CDATA[
+                <p>
+                    Unless otherwise agreed, each party retains all
+                    pre-existing intellectual property rights. New
+                    developments created specifically under this agreement
+                    shall be assigned according to the terms set out in the
+                    relevant schedule.
+                </p>
+            ]]></field>
+        </record>
+
+        <record id="clause_gdpr" model="contract.clause">
+            <field name="name">Data Protection Clause (GDPR)</field>
+            <field name="category">data_protection</field>
+            <field name="applicable_to">all</field>
+            <field name="description">Compliance with data protection regulations</field>
+            <field name="content"><![CDATA[
+                <p>
+                    The parties agree to process any personal data
+                    exchanged under this agreement in compliance with
+                    Regulation (EU) 2016/679 and applicable local
+                    legislation, and to implement appropriate technical
+                    and organizational measures to ensure the security of
+                    such data.
+                </p>
+            ]]></field>
+        </record>
+
+        <record id="clause_force_majeure" model="contract.clause">
+            <field name="name">Force Majeure Clause</field>
+            <field name="category">force_majeure</field>
+            <field name="applicable_to">all</field>
+            <field name="description">Exemption in the event of force majeure</field>
+            <field name="content"><![CDATA[
+                <p>
+                    Neither party shall be held liable for any failure to
+                    perform its obligations resulting from a force majeure
+                    event, as defined by applicable law and case law,
+                    provided that the other party is notified as soon as
+                    reasonably possible.
+                </p>
+            ]]></field>
+        </record>
+
+        <record id="clause_jurisdiction" model="contract.clause">
+            <field name="name">Governing Law and Jurisdiction</field>
+            <field name="category">jurisdiction</field>
+            <field name="applicable_to">all</field>
+            <field name="description">Applicable law and competent court</field>
+            <field name="content"><![CDATA[
+                <p>
+                    This agreement is governed by the law applicable at
+                    the company's place of establishment. Any dispute
+                    relating to its formation, performance, or
+                    interpretation shall be submitted to the exclusive
+                    jurisdiction of the courts of that place, failing
+                    amicable resolution.
+                </p>
+            ]]></field>
+        </record>
+
+    </data>
+</odoo>
