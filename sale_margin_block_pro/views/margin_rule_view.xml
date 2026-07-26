@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Action -->
+    <record id="action_sale_margin_rule" model="ir.actions.act_window">
+        <field name="name">Margin Rules</field>
+        <field name="res_model">sale.margin.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define minimum margin rules for sales orders.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem
+        id="menu_sale_margin_rule_root"
+        name="Margin Control"
+        parent="sale.sale_menu_root"
+        sequence="90"
+    />
+
+    <menuitem
+        id="menu_sale_margin_rule"
+        name="Margin Rules"
+        parent="menu_sale_margin_rule_root"
+        action="action_sale_margin_rule"
+        sequence="10"
+    />
+
+    <!-- List View -->
+    <record id="view_sale_margin_rule_list" model="ir.ui.view">
+        <field name="name">sale.margin.rule.list</field>
+        <field name="model">sale.margin.rule</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="min_margin_percent"/>
+                <field name="product_id"/>
+                <field name="product_tmpl_id"/>
+                <field name="categ_id"/>
+                <field name="partner_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_sale_margin_rule_form" model="ir.ui.view">
+        <field name="name">sale.margin.rule.form</field>
+        <field name="model">sale.margin.rule</field>
+        <field name="arch" type="xml">
+            <form string="Margin Rule">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                        <field name="active"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+
+                    <group string="Rule Scope" col="2">
+                        <field name="product_id"/>
+                        <field name="product_tmpl_id"/>
+                        <field name="categ_id"/>
+                        <field name="partner_id"/>
+                    </group>
+
+                    <group string="Margin Constraint">
+                        <field name="min_margin_percent"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

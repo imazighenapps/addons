@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_sale_order_form_margin" model="ir.ui.view">
+        <field name="name">sale.order.form.margin</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//group[@name='sale_total']" position="inside">
+                <field name="margin_percent" readonly="1"/>
+                <field name="required_margin_percent" readonly="1"/>
+                <field name="margin_below_threshold" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//sheet" position="inside">
+                <div class="alert alert-danger" role="alert"
+                     invisible="not margin_below_threshold">
+                    <strong>Margin too low.</strong>
+                    This order does not meet the minimum required margin.
+                    Confirmation is blocked unless you have margin override
+                    rights.
+                </div>
+            </xpath>
+
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button name="action_view_margin_block_logs"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-shield"
+                        invisible="margin_block_log_count == 0">
+                    <field name="margin_block_log_count" widget="statinfo"
+                           string="Margin Log"/>
+                </button>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
