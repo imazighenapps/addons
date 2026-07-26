@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_sale_margin_block_log" model="ir.actions.act_window">
+        <field name="name">Margin Block / Override Log</field>
+        <field name="res_model">sale.margin.block.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'create': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No margin block or override has been recorded yet.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_sale_margin_block_log"
+        name="Block / Override Log"
+        parent="menu_sale_margin_rule_root"
+        action="action_sale_margin_block_log"
+        sequence="20"
+    />
+
+    <record id="view_sale_margin_block_log_list" model="ir.ui.view">
+        <field name="name">sale.margin.block.log.list</field>
+        <field name="model">sale.margin.block.log</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0"
+                  decoration-danger="action == 'blocked'"
+                  decoration-warning="action == 'overridden'">
+                <field name="create_date"/>
+                <field name="order_id"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="action"/>
+                <field name="margin_percent"/>
+                <field name="required_margin_percent"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_sale_margin_block_log_form" model="ir.ui.view">
+        <field name="name">sale.margin.block.log.form</field>
+        <field name="model">sale.margin.block.log</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0">
+                <sheet>
+                    <group>
+                        <field name="order_id"/>
+                        <field name="partner_id"/>
+                        <field name="user_id"/>
+                        <field name="action"/>
+                        <field name="margin_percent"/>
+                        <field name="required_margin_percent"/>
+                        <field name="create_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

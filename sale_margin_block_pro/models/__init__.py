@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-
+from . import margin_rule
+from . import margin_block_log
 from . import sale_order
 from . import res_config_settings
-from . import margin_rule

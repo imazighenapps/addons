@@ -29,19 +29,21 @@
         sequence="10"
     />
 
-    <!-- Tree View -->
-    <record id="view_sale_margin_rule_tree" model="ir.ui.view">
-        <field name="name">sale.margin.rule.tree</field>
+    <!-- List View -->
+    <record id="view_sale_margin_rule_list" model="ir.ui.view">
+        <field name="name">sale.margin.rule.list</field>
         <field name="model">sale.margin.rule</field>
         <field name="arch" type="xml">
             <list>
-                <field name="sequence"/>
+                <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="min_margin_percent"/>
                 <field name="product_id"/>
+                <field name="product_tmpl_id"/>
                 <field name="categ_id"/>
                 <field name="partner_id"/>
-                <field name="active"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="active" widget="boolean_toggle"/>
             </list>
         </field>
     </record>
@@ -57,10 +59,12 @@
                         <field name="name"/>
                         <field name="sequence"/>
                         <field name="active"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
                     </group>
 
                     <group string="Rule Scope" col="2">
                         <field name="product_id"/>
+                        <field name="product_tmpl_id"/>
                         <field name="categ_id"/>
                         <field name="partner_id"/>
                     </group>
@@ -68,8 +72,6 @@
                     <group string="Margin Constraint">
                         <field name="min_margin_percent"/>
                     </group>
-
-                 
                 </sheet>
             </form>
         </field>
