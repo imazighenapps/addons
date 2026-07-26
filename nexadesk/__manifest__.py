@@ -2,7 +2,7 @@
 {
     'name': 'Nexadesk',
     'version': '19.0.1.0.0',
-    'category': 'Hidden',
+    'category': 'Theme',
     'summary': 'Custom home launcher for Odoo',
     'author': 'Farid SLIMANI',
     'website': 'imazighenapps@gmail.com',
