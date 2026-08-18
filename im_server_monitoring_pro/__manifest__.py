@@ -2,7 +2,7 @@
 {
     'name': 'IM Server Monitor Pro',
     'version': '19.0.1.0.0',
-    'category': 'Theme',
+    'category': 'Tools',
     "summary": "Real-time server monitoring dashboard with system metrics, alerts, and process management",
     'description': """Server Monitor Pro for Odoo 19
 
