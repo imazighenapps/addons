@@ -25,7 +25,7 @@ EduFlow centralizes the entire student lifecycle in Odoo:
 * Role-based security (Admin, Management, Administration, Teacher, Accountant, Parent)
 * Management dashboard
 """,
-    'author': 'EduFlow',
+    'author': 'Farid SLIMANI',
     'website': 'imazighenapps@gmail.com',
     'license': 'OPL-1',
     'depends': ['base', 'mail', 'portal', 'account', 'payment', 'website', 'website_payment', 'hr'],
