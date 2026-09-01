@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_card_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center">Report Card</h2>
+                        <h4 class="text-center">
+                            <span t-field="o.period_id.name"/> - <span t-field="o.year_id.name"/>
+                        </h4>
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <strong>Student :</strong> <span t-field="o.student_id.display_name"/><br/>
+                                <strong>Registration Number :</strong> <span t-field="o.student_id.matricule"/><br/>
+                                <strong>Class :</strong> <span t-field="o.classroom_id.name"/>
+                            </div>
+                            <div class="col-6 text-end">
+                                <strong>Overall Average :</strong>
+                                <span t-field="o.general_average"/> / 20<br/>
+                                <strong>Ranking :</strong> <span t-field="o.ranking"/><br/>
+                                <strong>Absences :</strong> <span t-field="o.absence_count"/>
+                            </div>
+                        </div>
+
+                        <table class="table table-sm table-bordered mt-4">
+                            <thead>
+                                <tr class="bg-200">
+                                    <th>Subject</th>
+                                    <th class="text-end">Average / 20</th>
+                                    <th class="text-end">Coefficient</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.line_ids" t-as="line">
+                                    <td><span t-field="line.subject_id.name"/></td>
+                                    <td class="text-end"><span t-field="line.average"/></td>
+                                    <td class="text-end"><span t-field="line.coefficient"/></td>
+                                    <td><span t-field="line.appreciation"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="row mt-4" t-if="o.council_decision">
+                            <div class="col-12">
+                                <strong>Class Board Decision :</strong>
+                                <span t-field="o.council_decision"/>
+                                <p t-if="o.council_notes" t-field="o.council_notes"/>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col-6"/>
+                            <div class="col-6 text-center">
+                                Institution Signature
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="payment_receipt_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center">Payment Receipt</h2>
+                        <h4 class="text-center"><span t-field="o.name"/></h4>
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <strong>Student :</strong> <span t-field="o.student_id.display_name"/><br/>
+                                <strong>Fee:</strong> <span t-field="o.fee_id.fee_type_id.name"/>
+                            </div>
+                            <div class="col-6 text-end">
+                                <strong>Date :</strong> <span t-field="o.date"/><br/>
+                                <strong>Moyen de paiement :</strong> <span t-field="o.method"/>
+                            </div>
+                        </div>
+                        <table class="table table-sm table-bordered mt-4">
+                            <tr>
+                                <td>Paid Amount</td>
+                                <td class="text-end">
+                                    <span t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                                </td>
+                            </tr>
+                            <tr t-if="o.reference">
+                                <td>Reference</td>
+                                <td class="text-end"><span t-field="o.reference"/></td>
+                            </tr>
+                        </table>
+                        <div class="row mt-5">
+                            <div class="col-6"/>
+                            <div class="col-6 text-center">
+                                Signature / Cachet
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

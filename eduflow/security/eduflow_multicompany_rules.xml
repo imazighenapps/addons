@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- F4.1: standard multi-company rules: every transactional model
+         (student, enrollment, exam, grade, attendance, fee, payment,
+         timetable, teacher, subject, admission, program, report card...)
+         is only visible/editable for the companies the current user has
+         access to. No group_id set => applies globally, on top of the
+         functional (portal/teacher) rules already defined in
+         eduflow_record_rules.xml. -->
+
+    <record id="rule_multicompany_student" model="ir.rule">
+        <field name="name">eduflow.student: multi-company</field>
+        <field name="model_id" ref="model_eduflow_student"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_teacher" model="ir.rule">
+        <field name="name">eduflow.teacher: multi-company</field>
+        <field name="model_id" ref="model_eduflow_teacher"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_classroom" model="ir.rule">
+        <field name="name">eduflow.classroom: multi-company</field>
+        <field name="model_id" ref="model_eduflow_classroom"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_enrollment" model="ir.rule">
+        <field name="name">eduflow.enrollment: multi-company</field>
+        <field name="model_id" ref="model_eduflow_enrollment"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_subject" model="ir.rule">
+        <field name="name">eduflow.subject: multi-company</field>
+        <field name="model_id" ref="model_eduflow_subject"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_exam" model="ir.rule">
+        <field name="name">eduflow.exam: multi-company</field>
+        <field name="model_id" ref="model_eduflow_exam"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_grade" model="ir.rule">
+        <field name="name">eduflow.grade: multi-company</field>
+        <field name="model_id" ref="model_eduflow_grade"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_attendance" model="ir.rule">
+        <field name="name">eduflow.attendance: multi-company</field>
+        <field name="model_id" ref="model_eduflow_attendance"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_timetable" model="ir.rule">
+        <field name="name">eduflow.timetable.session: multi-company</field>
+        <field name="model_id" ref="model_eduflow_timetable_session"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_fee" model="ir.rule">
+        <field name="name">eduflow.fee: multi-company</field>
+        <field name="model_id" ref="model_eduflow_fee"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_payment" model="ir.rule">
+        <field name="name">eduflow.payment: multi-company</field>
+        <field name="model_id" ref="model_eduflow_payment"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_admission" model="ir.rule">
+        <field name="name">eduflow.admission: multi-company</field>
+        <field name="model_id" ref="model_eduflow_admission"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_academic_year" model="ir.rule">
+        <field name="name">eduflow.academic.year: multi-company</field>
+        <field name="model_id" ref="model_eduflow_academic_year"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_program" model="ir.rule">
+        <field name="name">eduflow.program: multi-company</field>
+        <field name="model_id" ref="model_eduflow_program"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_report_card" model="ir.rule">
+        <field name="name">eduflow.report.card: multi-company</field>
+        <field name="model_id" ref="model_eduflow_report_card"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_multicompany_fee_type" model="ir.rule">
+        <field name="name">eduflow.fee.type: multi-company</field>
+        <field name="model_id" ref="model_eduflow_fee_type"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Additional Admissions in all 6 states -->
+    <record id="demo_admission_new" model="eduflow.admission">
+        <field name="student_id" ref="demo_student_ava_brown"/>
+        <field name="level_id" ref="demo_level_primary"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="parent_id" ref="demo_parent_brown"/>
+        <field name="state">new</field>
+    </record>
+    <record id="demo_admission_review2" model="eduflow.admission">
+        <field name="student_id" ref="demo_student_liam_davis"/>
+        <field name="level_id" ref="demo_level_primary"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="parent_id" ref="demo_parent_davis"/>
+        <field name="state">review</field>
+    </record>
+    <record id="demo_admission_interview" model="eduflow.admission">
+        <field name="student_id" ref="demo_student_sophia_miller"/>
+        <field name="level_id" ref="demo_level_middle"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="parent_id" ref="demo_parent_miller"/>
+        <field name="state">interview</field>
+        <field name="interview_date">2026-11-15 10:00:00</field>
+    </record>
+    <record id="demo_admission_accepted" model="eduflow.admission">
+        <field name="student_id" ref="demo_student_mason_wilson"/>
+        <field name="level_id" ref="demo_level_high"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="parent_id" ref="demo_parent_wilson"/>
+        <field name="state">accepted</field>
+    </record>
+    <record id="demo_admission_refused" model="eduflow.admission">
+        <field name="student_id" ref="demo_student_isabella_moore"/>
+        <field name="level_id" ref="demo_level_primary"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="parent_id" ref="demo_parent_moore"/>
+        <field name="state">refused</field>
+    </record>
+    <record id="demo_admission_enrolled" model="eduflow.admission">
+        <field name="student_id" ref="demo_student_ethan_taylor"/>
+        <field name="level_id" ref="demo_level_primary"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="parent_id" ref="demo_parent_taylor"/>
+        <field name="state">enrolled</field>
+    </record>
+
+    <!-- Enrollments in all states -->
+    <record id="demo_enroll_draft" model="eduflow.enrollment">
+        <field name="student_id" ref="demo_student_ava_brown"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="level_id" ref="demo_level_primary"/>
+        <field name="classroom_id" ref="demo_classroom_1b"/>
+        <field name="state">draft</field>
+        <field name="enrollment_type">new</field>
+    </record>
+    <record id="demo_enroll_confirmed" model="eduflow.enrollment">
+        <field name="student_id" ref="demo_student_liam_davis"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="level_id" ref="demo_level_primary"/>
+        <field name="classroom_id" ref="demo_classroom_1b"/>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="demo_enroll_cancelled" model="eduflow.enrollment">
+        <field name="student_id" ref="demo_student_sophia_miller"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="level_id" ref="demo_level_middle"/>
+        <field name="classroom_id" ref="demo_classroom_2a"/>
+        <field name="state">cancelled</field>
+    </record>
+
+    <!-- Fees in all states -->
+    <record id="demo_fee_pending" model="eduflow.fee">
+        <field name="student_id" ref="demo_student_ava_brown"/>
+        <field name="fee_type_id" ref="demo_fee_type_tuition"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="installment_name">Pending Fee</field>
+        <field name="amount">5000</field>
+        <field name="due_date">2026-12-15</field>
+    </record>
+    <record id="demo_fee_overdue" model="eduflow.fee">
+        <field name="student_id" ref="demo_student_liam_davis"/>
+        <field name="fee_type_id" ref="demo_fee_type_tuition"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="installment_name">Overdue Fee</field>
+        <field name="amount">7000</field>
+        <field name="due_date">2026-09-01</field>
+    </record>
+    <record id="demo_fee_paid" model="eduflow.fee">
+        <field name="student_id" ref="demo_student_sophia_miller"/>
+        <field name="fee_type_id" ref="demo_fee_type_tuition"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="installment_name">Paid Fee</field>
+        <field name="amount">6000</field>
+        <field name="due_date">2026-10-10</field>
+    </record>
+
+    <!-- Payments in all states -->
+    <record id="demo_payment_draft" model="eduflow.payment">
+        <field name="fee_id" ref="demo_fee_pending"/>
+        <field name="amount">1000</field>
+        <field name="method">cash</field>
+        <field name="state">draft</field>
+    </record>
+    <record id="demo_payment_cancelled" model="eduflow.payment">
+        <field name="fee_id" ref="demo_fee_pending"/>
+        <field name="amount">500</field>
+        <field name="method">cheque</field>
+        <field name="state">cancelled</field>
+    </record>
+    <record id="demo_payment_partial" model="eduflow.payment">
+        <field name="fee_id" ref="demo_fee_overdue"/>
+        <field name="amount">3000</field>
+        <field name="method">transfer</field>
+        <field name="state">confirmed</field>
+    </record>
+
+    <!-- Attendances in all states -->
+    <record id="demo_attendance_justified" model="eduflow.attendance">
+        <field name="student_id" ref="demo_student_mia_anderson"/>
+        <field name="classroom_id" ref="demo_classroom_1a"/>
+        <field name="date">2026-10-02</field>
+        <field name="state">justified</field>
+        <field name="reason">Medical certificate</field>
+    </record>
+    <record id="demo_attendance_present2" model="eduflow.attendance">
+        <field name="student_id" ref="demo_student_logan_thomas"/>
+        <field name="classroom_id" ref="demo_classroom_1a"/>
+        <field name="date">2026-10-02</field>
+        <field name="state">present</field>
+    </record>
+    <record id="demo_attendance_absent2" model="eduflow.attendance">
+        <field name="student_id" ref="demo_student_amelia_jackson"/>
+        <field name="classroom_id" ref="demo_classroom_1b"/>
+        <field name="date">2026-10-02</field>
+        <field name="state">absent</field>
+    </record>
+
+    <!-- Exams in all states -->
+    <record id="demo_exam_draft2" model="eduflow.exam">
+        <field name="name">Science Draft</field>
+        <field name="exam_type">continuous</field>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="period_id" ref="demo_period_t1"/>
+        <field name="classroom_id" ref="demo_classroom_1b"/>
+        <field name="subject_id" ref="demo_subject_science"/>
+        <field name="teacher_id" ref="demo_teacher_john_smith"/>
+        <field name="date">2026-12-12</field>
+        <field name="state">draft</field>
+    </record>
+    <record id="demo_exam_validated" model="eduflow.exam">
+        <field name="name">History Validated</field>
+        <field name="exam_type">supervised</field>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="period_id" ref="demo_period_t1"/>
+        <field name="classroom_id" ref="demo_classroom_2a"/>
+        <field name="subject_id" ref="demo_subject_history"/>
+        <field name="teacher_id" ref="demo_teacher_michael_brown"/>
+        <field name="date">2026-12-13</field>
+        <field name="state">validated</field>
+    </record>
+
+    <!-- Report Cards in all states -->
+    <record id="demo_report_draft" model="eduflow.report.card">
+        <field name="student_id" ref="demo_student_ava_brown"/>
+        <field name="classroom_id" ref="demo_classroom_1a"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="period_id" ref="demo_period_t1"/>
+        <field name="state">draft</field>
+    </record>
+    <record id="demo_report_published" model="eduflow.report.card">
+        <field name="student_id" ref="demo_student_emma_johnson"/>
+        <field name="classroom_id" ref="demo_classroom_1a"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="period_id" ref="demo_period_t1"/>
+        <field name="state">published</field>
+    </record>
+    <record id="demo_report_line_published" model="eduflow.report.card.line">
+        <field name="report_card_id" ref="demo_report_published"/>
+        <field name="subject_id" ref="demo_subject_french"/>
+        <field name="average">15.0</field>
+        <field name="coefficient">3</field>
+    </record>
+
+</odoo>

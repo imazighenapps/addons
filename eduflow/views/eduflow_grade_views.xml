@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_grade_list" model="ir.ui.view">
+        <field name="name">eduflow.grade.list</field>
+        <field name="model">eduflow.grade</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="exam_id"/>
+                <field name="student_id"/>
+                <field name="subject_id"/>
+                <field name="grade"/>
+                <field name="appreciation"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_grade_search" model="ir.ui.view">
+        <field name="name">eduflow.grade.search</field>
+        <field name="model">eduflow.grade</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="student_id"/>
+                <field name="exam_id"/>
+                <field name="subject_id"/>
+                <group>
+                    <filter string="Student" name="group_student" context="{'group_by':'student_id'}"/>
+                    <filter string="Subject" name="group_subject" context="{'group_by':'subject_id'}"/>
+                    <filter string="Exam" name="group_exam" context="{'group_by':'exam_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_eduflow_grade_graph" model="ir.ui.view">
+        <field name="name">eduflow.grade.graph</field>
+        <field name="model">eduflow.grade</field>
+        <field name="arch" type="xml">
+            <graph string="Average by subject" type="bar">
+                <field name="subject_id" type="row"/>
+                <field name="grade" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_eduflow_grade_pivot" model="ir.ui.view">
+        <field name="name">eduflow.grade.pivot</field>
+        <field name="model">eduflow.grade</field>
+        <field name="arch" type="xml">
+            <pivot string="Grades">
+                <field name="subject_id" type="row"/>
+                <field name="exam_id" type="col"/>
+                <field name="grade" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_eduflow_grade" model="ir.actions.act_window">
+        <field name="name">Grades</field>
+        <field name="res_model">eduflow.grade</field>
+        <field name="view_mode">list,form,graph,pivot</field>
+        <field name="search_view_id" ref="view_eduflow_grade_search"/>
+    </record>
+</odoo>

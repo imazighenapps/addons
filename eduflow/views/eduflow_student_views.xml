@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_student_list" model="ir.ui.view">
+        <field name="name">eduflow.student.list</field>
+        <field name="model">eduflow.student</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="status in ('left','graduated')">
+                <field name="matricule"/>
+                <field name="firstname"/>
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="current_classroom_id"/>
+                <field name="status" decoration-success="status == 'active'"
+                       decoration-warning="status == 'suspended'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_student_search" model="ir.ui.view">
+        <field name="name">eduflow.student.search</field>
+        <field name="model">eduflow.student</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="matricule"/>
+                <field name="current_classroom_id"/>
+                <filter string="Actives" name="active_students" domain="[('status','=','active')]"/>
+                <group>
+                    <filter string="Class" name="group_classroom" context="{'group_by':'current_classroom_id'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by':'status'}"/>
+                    <filter string="Sexe" name="group_gender" context="{'group_by':'gender'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_eduflow_student_form" model="ir.ui.view">
+        <field name="name">eduflow.student.form</field>
+        <field name="model">eduflow.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="status" widget="statusbar"
+                           statusbar_visible="prospect,candidate,waiting,enrolled,active"/>
+                </header>
+                <sheet>
+                    <field name="photo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label for="firstname" string="First Name"/>
+                        <h1><field name="firstname" placeholder="First Name"/></h1>
+                        <label for="name" string="Nom"/>
+                        <h1><field name="name" placeholder="Nom"/></h1>
+                        <field name="matricule" readonly="1"/>
+                    </div>
+                    <group>
+                        <group string="Identity">
+                            <field name="birth_date"/>
+                            <field name="birth_place"/>
+                            <field name="gender"/>
+                            <field name="nationality_id"/>
+                            <field name="id_document_number"/>
+                        </group>
+                        <group string="Contact Information">
+                            <field name="address"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="current_classroom_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Guardians">
+                            <field name="parent_rel_ids">
+                                <list editable="bottom">
+                                    <field name="parent_id"/>
+                                    <field name="relation"/>
+                                    <field name="is_primary"/>
+                                    <field name="is_financial"/>
+                                    <field name="can_communicate"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Historique scolaire">
+                            <field name="enrollment_ids">
+                                <list>
+                                    <field name="year_id"/>
+                                    <field name="classroom_id"/>
+                                    <field name="date"/>
+                                    <field name="enrollment_type"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Attendance Records">
+                            <field name="attendance_ids">
+                                <list>
+                                    <field name="date"/>
+                                    <field name="classroom_id"/>
+                                    <field name="state"/>
+                                    <field name="reason"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Grades">
+                            <field name="grade_ids">
+                                <list>
+                                    <field name="exam_id"/>
+                                    <field name="subject_id"/>
+                                    <field name="grade"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Fees and Payments">
+                            <field name="fee_ids">
+                                <list>
+                                    <field name="fee_type_id"/>
+                                    <field name="due_date"/>
+                                    <field name="amount"/>
+                                    <field name="paid_amount"/>
+                                    <field name="remaining_amount"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Medical / Administrative Information">
+                            <group>
+                                <field name="medical_info"/>
+                                <field name="admin_notes"/>
+                            </group>
+                        </page>
+                        <page string="Documents">
+                            <field name="document_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_eduflow_student" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">eduflow.student</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_eduflow_student_search"/>
+        <field name="context">{'search_default_active_students': 1}</field>
+    </record>
+</odoo>

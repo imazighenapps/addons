@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- F3.1: public (auth='public') pre-registration form, rendered
+         inside the public website layout. -->
+    <template id="public_admission_form" name="EduFlow: Pre-registration Form">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container my-5" style="max-width: 720px;">
+                    <h1>Pré-inscription</h1>
+                    <p class="text-muted">
+                        Fill in this form to request a place for your child. Our
+                        administration team will contact you to complete the file.
+                    </p>
+                    <t t-if="error">
+                        <div class="alert alert-danger" role="alert" t-esc="error"/>
+                    </t>
+                    <form action="/admissions/apply/submit" method="post" class="row g-3">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <!-- Honeypot anti-spam field, hidden from real visitors -->
+                        <div style="position:absolute; left:-9999px;" aria-hidden="true">
+                            <input type="text" name="website_url" tabindex="-1" autocomplete="off"/>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Student's Last Name *</label>
+                            <input type="text" name="student_name" class="form-control" required="required"
+                                   t-att-value="values.get('student_name')"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Student's First Name *</label>
+                            <input type="text" name="student_firstname" class="form-control" required="required"
+                                   t-att-value="values.get('student_firstname')"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Birth Date</label>
+                            <input type="date" name="student_birth_date" class="form-control"
+                                   t-att-value="values.get('student_birth_date')"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Level Requested *</label>
+                            <select name="level_id" class="form-select" required="required">
+                                <option value="">-- Select --</option>
+                                <t t-foreach="levels" t-as="level">
+                                    <option t-att-value="level.id" t-esc="level.name"/>
+                                </t>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Parent / Guardian Name *</label>
+                            <input type="text" name="parent_name" class="form-control" required="required"
+                                   t-att-value="values.get('parent_name')"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Parent Email *</label>
+                            <input type="email" name="parent_email" class="form-control" required="required"
+                                   t-att-value="values.get('parent_email')"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Parent Phone</label>
+                            <input type="tel" name="parent_phone" class="form-control"
+                                   t-att-value="values.get('parent_phone')"/>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Notes</label>
+                            <textarea name="notes" class="form-control" rows="3"/>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Submit Application</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="public_admission_thanks" name="EduFlow: Application Received">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container my-5 text-center" style="max-width: 640px;">
+                    <h1>Application Received</h1>
+                    <p class="text-muted">
+                        Thank you, your pre-registration request
+                        <span t-esc="admission.display_name"/> has been recorded. Our team will
+                        contact you shortly to complete the admission file.
+                    </p>
+                    <a href="/" class="btn btn-secondary">Back to home</a>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

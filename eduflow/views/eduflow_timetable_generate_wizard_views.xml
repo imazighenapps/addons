@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_timetable_generate_wizard_form" model="ir.ui.view">
+        <field name="name">eduflow.timetable.generate.wizard.form</field>
+        <field name="model">eduflow.timetable.generate.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="year_id" options="{'no_create': True}"/>
+                    <field name="classroom_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                </group>
+                <group>
+                    <field name="slot_duration"/>
+                    <field name="lunch_break"/>
+                    <field name="strategy"/>
+                </group>
+                <group>
+                    <field name="allow_overwrite"/>
+                    <field name="lock_existing"/>
+                    <field name="use_teacher_availability"/>
+                    <field name="use_room_pool"/>
+                </group>
+                <group>
+                    <field name="morning_core"/>
+                    <field name="max_hours_per_day_teacher"/>
+                    <field name="avoid_consecutive_same"/>
+                </group>
+                <group string="Result" invisible="not generated_count and not unassigned_count">
+                    <field name="generated_count" readonly="1"/>
+                    <field name="unassigned_count" readonly="1"/>
+                    <field name="log" readonly="1" widget="text"/>
+                </group>
+                <footer>
+                    <button name="action_generate" string="Generate" type="object" class="oe_highlight"/>
+                    <button special="cancel" string="Close"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_eduflow_timetable_generate_wizard" model="ir.actions.act_window">
+        <field name="name">Generate Timetable</field>
+        <field name="res_model">eduflow.timetable.generate.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

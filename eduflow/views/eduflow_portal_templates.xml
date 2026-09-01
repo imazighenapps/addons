@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============================================================ -->
+    <!-- Carte "My Children" sur la page d'accueil du portail          -->
+    <!-- ============================================================ -->
+    <template id="portal_my_home_eduflow" name="Portail : carte My Children" inherit_id="portal.portal_my_home">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-if="request.env.user.has_group('eduflow.group_eduflow_parent_portal')">
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="title">My Children</t>
+                    <t t-set="url" t-value="'/my/children'"/>
+                    <t t-set="placeholder_count" t-value="'eduflow_children_count'"/>
+                </t>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- ============================================================ -->
+    <!-- List of children of the logged-in parent                          -->
+    <!-- ============================================================ -->
+    <template id="portal_my_children" name="Portail : mes enfants">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">My Children</t>
+            </t>
+            <div class="o_portal_my_doc_table">
+                <t t-if="not children">
+                    <p class="alert alert-warning" role="alert">
+                        No student is currently linked to your parent account.
+                    </p>
+                </t>
+                <div t-else="" class="row">
+                    <t t-foreach="children" t-as="child">
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <a t-attf-href="/my/children/#{child.id}"
+                               class="card h-100 text-decoration-none text-reset shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-1" t-field="child.display_name"/>
+                                    <p class="card-text text-muted mb-1">
+                                        <span t-if="child.current_classroom_id" t-field="child.current_classroom_id.name"/>
+                                        <span t-else="">Aucune classe active</span>
+                                    </p>
+                                    <span t-attf-class="badge #{'bg-success' if child.status in ('enrolled','active') else 'bg-secondary'}">
+                                        <span t-field="child.status"/>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- ============================================================ -->
+    <!-- Dashboard d'un enfant                                   -->
+    <!-- ============================================================ -->
+    <template id="portal_child_dashboard" name="Portail : fiche enfant">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <t t-set="additional_title" t-value="child.display_name"/>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <a href="/my/children" class="text-muted small">&#8592; My Children</a>
+                    <h2 class="mb-0" t-field="child.display_name"/>
+                    <p class="text-muted mb-0">
+                        <span t-if="classroom" t-field="classroom.name"/>
+                        <span t-if="enrollment.year_id"> · <span t-field="enrollment.year_id.name"/></span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Onglets -->
+            <ul class="nav nav-tabs mb-3" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#tab_infos" role="tab">Infos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#tab_timetable" role="tab">Timetable</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#presences" role="tab">Attendance Records</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#tab_report_cards" role="tab">Report Cards</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#tab_fees" role="tab">Fees &amp; Payments</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+
+                <!-- ============== INFOS ============== -->
+                <div class="tab-pane fade show active" id="tab_infos" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table table-sm">
+                                <tr><th>Registration Number</th><td t-field="child.matricule"/></tr>
+                                <tr><th>Birth Date</th><td t-field="child.birth_date"/></tr>
+                                <tr><th>Sexe</th><td t-field="child.gender"/></tr>
+                                <tr><th>Status</th><td t-field="child.status"/></tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table table-sm">
+                                <tr><th>Current Class</th>
+                                    <td><span t-if="classroom" t-field="classroom.name"/><span t-else="">-</span></td></tr>
+                                <tr><th>Regime</th><td t-field="enrollment.regime"/></tr>
+                                <tr><th>Academic Year</th>
+                                    <td><span t-if="enrollment.year_id" t-field="enrollment.year_id.name"/><span t-else="">-</span></td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============== EMPLOI DU TEMPS ============== -->
+                <div class="tab-pane fade" id="tab_timetable" role="tabpanel">
+                    <t t-if="not classroom">
+                        <p class="alert alert-info">Aucune classe active pour le moment.</p>
+                    </t>
+                    <t t-else="">
+                        <t t-foreach="day_labels" t-as="day_item">
+                            <t t-set="day_code" t-value="day_item[0]"/>
+                            <t t-set="day_sessions" t-value="timetable_by_day.get(day_code)"/>
+                            <t t-if="day_sessions">
+                                <h5 t-esc="day_item[1]"/>
+                                <table class="table table-sm table-bordered mb-4">
+                                    <thead>
+                                        <tr>
+                                            <th>Horaire</th>
+                                            <th>Subject</th>
+                                            <th>Teacher</th>
+                                            <th>Room</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="day_sessions.sorted('hour_start')" t-as="session">
+                                            <td>
+                                                <t t-esc="'%02d:%02d' % (int(session.hour_start), round((session.hour_start %1)*60))"/>
+                                                -
+                                                <t t-esc="'%02d:%02d' % (int(session.hour_end), round((session.hour_end %1)*60))"/>
+                                            </td>
+                                            <td t-field="session.subject_id.name"/>
+                                            <td t-field="session.teacher_id.name"/>
+                                            <td t-field="session.room"/>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                        </t>
+                    </t>
+                </div>
+
+                <!-- ============== ATTENDANCE ============== -->
+                <div class="tab-pane fade" id="presences" role="tabpanel">
+                    <t t-if="not attendances">
+                        <p class="alert alert-info">No attendance recorded.</p>
+                    </t>
+                    <t t-else="">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr><th>Date</th><th>Status</th><th>Reason</th><th>Comment</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="attendances" t-as="att">
+                                    <td t-field="att.date"/>
+                                    <td>
+                                        <span t-attf-class="badge #{
+                                            'bg-success' if att.state == 'present' else
+                                            'bg-danger' if att.state == 'absent' else
+                                            'bg-warning text-dark' if att.state == 'late' else
+                                            'bg-info text-dark'}">
+                                            <span t-field="att.state"/>
+                                        </span>
+                                    </td>
+                                    <td t-field="att.reason"/>
+                                    <td t-field="att.comment"/>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div t-if="attendance_pager" t-call="portal.pager">
+                            <t t-set="pager" t-value="attendance_pager"/>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- ============== BULLETINS ============== -->
+                <div class="tab-pane fade" id="tab_report_cards" role="tabpanel">
+                    <t t-if="not report_cards">
+                        <p class="alert alert-info">No published report card at the moment.</p>
+                    </t>
+                    <t t-else="">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Period</th>
+                                    <th>Overall Average</th>
+                                    <th>Ranking</th>
+                                    <th>Absences</th>
+                                    <th/>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="report_cards" t-as="rc">
+                                    <td t-field="rc.period_id.name"/>
+                                    <td><span t-field="rc.general_average"/> / 20</td>
+                                    <td t-field="rc.ranking"/>
+                                    <td t-field="rc.absence_count"/>
+                                    <td>
+                                        <a t-if="rc.state == 'published'"
+                                           t-attf-href="/my/children/#{child.id}/report-card/#{rc.id}"
+                                           class="btn btn-sm btn-primary" target="_blank">
+                                            Download PDF
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+
+                <!-- ============== FRAIS &amp; PAIEMENTS ============== -->
+                <div class="tab-pane fade" id="tab_fees" role="tabpanel">
+                    <t t-if="not fees">
+                        <p class="alert alert-info">No fee recorded.</p>
+                    </t>
+                    <t t-else="">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Fee Type</th>
+                                    <th>Due</th>
+                                    <th>Amount</th>
+                                    <th>Paid</th>
+                                    <th>Restant</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="fees" t-as="fee">
+                                    <tr>
+                                        <td t-field="fee.fee_type_id.name"/>
+                                        <td t-field="fee.due_date"/>
+                                        <td><span t-field="fee.amount" t-options="{'widget': 'monetary', 'display_currency': fee.currency_id}"/></td>
+                                        <td><span t-field="fee.paid_amount" t-options="{'widget': 'monetary', 'display_currency': fee.currency_id}"/></td>
+                                        <td><span t-field="fee.remaining_amount" t-options="{'widget': 'monetary', 'display_currency': fee.currency_id}"/></td>
+                                        <td>
+                                            <span t-attf-class="badge #{
+                                                'bg-success' if fee.state == 'paid' else
+                                                'bg-danger' if fee.state == 'overdue' else
+                                                'bg-warning text-dark' if fee.state == 'partial' else
+                                                'bg-secondary'}">
+                                                <span t-field="fee.state"/>
+                                            </span>
+                                            <a t-if="fee.invoice_id and fee.remaining_amount &gt; 0"
+                                               t-attf-href="/my/invoices/#{fee.invoice_id.id}"
+                                               class="btn btn-sm btn-success ms-1" target="_blank">
+                                                Pay Online
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="fee.payment_ids">
+                                        <td colspan="6" class="ps-4">
+                                            <table class="table table-sm table-borderless mb-0">
+                                                <tr t-foreach="fee.payment_ids" t-as="payment">
+                                                    <td class="text-muted" t-field="payment.date"/>
+                                                    <td class="text-muted" t-field="payment.name"/>
+                                                    <td class="text-muted" t-field="payment.method"/>
+                                                    <td class="text-muted">
+                                                        <span t-field="payment.amount" t-options="{'widget': 'monetary', 'display_currency': payment.currency_id}"/>
+                                                    </td>
+                                                    <td>
+                                                        <a t-if="payment.state == 'confirmed'"
+                                                           t-attf-href="/my/children/#{child.id}/payment/#{payment.id}"
+                                                           class="btn btn-sm btn-link" target="_blank">
+                                                            Receipt PDF
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </t>
+                </div>
+
+            </div>
+
+            <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Reopen Attendance tab if returning from paginator page
+                    var params = new URLSearchParams(window.location.search);
+                    if (params.get('page') || window.location.hash === '#presences') {
+                        var trigger = document.querySelector('.nav-tabs a[href="#presences"]');
+                        if (trigger &amp;&amp; window.bootstrap &amp;&amp; window.bootstrap.Tab) {
+                            new window.bootstrap.Tab(trigger).show();
+                        }
+                    }
+                });
+            </script>
+        </t>
+    </template>
+    <!-- ============================================================ -->
+    <!-- Carte "Mon espace enseignant" sur la page d'accueil portail (F3.2) -->
+    <!-- ============================================================ -->
+    <template id="portal_my_home_eduflow_teacher" name="Portail : carte enseignant"
+              inherit_id="portal.portal_my_home">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-if="request.env.user.has_group('eduflow.group_eduflow_teacher')">
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="title">My Teaching Space</t>
+                    <t t-set="url" t-value="'/my/teacher'"/>
+                </t>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- ============================================================ -->
+    <!-- F3.2: Teacher self-service space: weekly timetable + classes -->
+    <!-- ============================================================ -->
+    <template id="portal_teacher_home" name="Portail : espace enseignant">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+            <t t-set="additional_title">My Teaching Space</t>
+            <h2 t-esc="teacher.display_name"/>
+
+            <h4 class="mt-4">My Classes</h4>
+            <div class="row">
+                <t t-if="not classrooms">
+                    <p class="alert alert-info">No class assigned yet.</p>
+                </t>
+                <t t-foreach="classrooms" t-as="classroom">
+                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title" t-field="classroom.name"/>
+                                <p class="card-text text-muted mb-2">
+                                    <span t-field="classroom.level_id.name"/>
+                                </p>
+                                <!-- Opens the standard EduFlow backend form for this class,
+                                     where the teacher can launch 'Take Attendance' (F2.1). -->
+                                <a t-attf-href="/web#model=eduflow.classroom&amp;view_type=form&amp;id=#{classroom.id}"
+                                   class="btn btn-sm btn-primary" target="_blank">
+                                    Open Class
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+
+            <h4 class="mt-4">Weekly Timetable</h4>
+            <t t-foreach="day_labels" t-as="day_item">
+                <t t-set="day_code" t-value="day_item[0]"/>
+                <t t-set="day_sessions" t-value="timetable_by_day.get(day_code)"/>
+                <t t-if="day_sessions">
+                    <h5 t-esc="day_item[1]"/>
+                    <table class="table table-sm table-bordered mb-4">
+                        <thead>
+                            <tr>
+                                <th>Horaire</th>
+                                <th>Class</th>
+                                <th>Subject</th>
+                                <th>Room</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="day_sessions.sorted('hour_start')" t-as="session">
+                                <td>
+                                    <t t-esc="'%02d:%02d' % (int(session.hour_start), round((session.hour_start %1)*60))"/>
+                                    -
+                                    <t t-esc="'%02d:%02d' % (int(session.hour_end), round((session.hour_end %1)*60))"/>
+                                </td>
+                                <td t-field="session.classroom_id.name"/>
+                                <td t-field="session.subject_id.name"/>
+                                <td t-field="session.room"/>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

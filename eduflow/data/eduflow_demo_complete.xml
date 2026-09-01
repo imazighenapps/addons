@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Academic Periods -->
+    <record id="demo_period_t2" model="eduflow.academic.period">
+        <field name="name">Trimester 2</field>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="date_start">2027-01-05</field>
+        <field name="date_end">2027-03-20</field>
+        <field name="sequence">20</field>
+    </record>
+    <record id="demo_period_t3" model="eduflow.academic.period">
+        <field name="name">Trimester 3</field>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="date_start">2027-03-21</field>
+        <field name="date_end">2027-06-30</field>
+        <field name="sequence">30</field>
+    </record>
+
+    <!-- Rooms -->
+    <record id="demo_room_101" model="eduflow.room">
+        <field name="name">Room 101</field>
+        <field name="code">R101</field>
+        <field name="capacity">30</field>
+        <field name="room_type">classroom</field>
+    </record>
+    <record id="demo_room_lab" model="eduflow.room">
+        <field name="name">Science Lab</field>
+        <field name="code">LAB1</field>
+        <field name="capacity">25</field>
+        <field name="room_type">lab</field>
+    </record>
+    <record id="demo_room_gym" model="eduflow.room">
+        <field name="name">Gym</field>
+        <field name="code">GYM</field>
+        <field name="capacity">50</field>
+        <field name="room_type">gym</field>
+    </record>
+
+    <!-- Time Slots -->
+    <record id="demo_slot_1" model="eduflow.time.slot">
+        <field name="name">08:00-09:00</field>
+        <field name="sequence">10</field>
+        <field name="hour_from">8.0</field>
+        <field name="hour_to">9.0</field>
+    </record>
+    <record id="demo_slot_2" model="eduflow.time.slot">
+        <field name="name">09:00-10:00</field>
+        <field name="sequence">20</field>
+        <field name="hour_from">9.0</field>
+        <field name="hour_to">10.0</field>
+    </record>
+    <record id="demo_slot_3" model="eduflow.time.slot">
+        <field name="name">10:15-11:15</field>
+        <field name="sequence">30</field>
+        <field name="hour_from">10.25</field>
+        <field name="hour_to">11.25</field>
+    </record>
+    <record id="demo_slot_4" model="eduflow.time.slot">
+        <field name="name">11:15-12:15</field>
+        <field name="sequence">40</field>
+        <field name="hour_from">11.25</field>
+        <field name="hour_to">12.25</field>
+    </record>
+
+    <!-- Level Subject Hours -->
+    <record id="demo_hours_math_primary" model="eduflow.level.subject.hours">
+        <field name="level_id" ref="demo_level_primary"/>
+        <field name="subject_id" ref="demo_subject_math"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="hours_per_week">4.0</field>
+        <field name="room_type">classroom</field>
+    </record>
+    <record id="demo_hours_french_primary" model="eduflow.level.subject.hours">
+        <field name="level_id" ref="demo_level_primary"/>
+        <field name="subject_id" ref="demo_subject_french"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="hours_per_week">3.0</field>
+    </record>
+    <record id="demo_hours_science_primary" model="eduflow.level.subject.hours">
+        <field name="level_id" ref="demo_level_primary"/>
+        <field name="subject_id" ref="demo_subject_science"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="hours_per_week">3.0</field>
+        <field name="room_type">lab</field>
+    </record>
+
+    <!-- Teacher Availabilities -->
+    <record id="demo_avail_john_mon" model="eduflow.teacher.availability">
+        <field name="teacher_id" ref="demo_teacher_john_smith"/>
+        <field name="day">0</field>
+        <field name="hour_from">8.0</field>
+        <field name="hour_to">12.0</field>
+        <field name="preference">1</field>
+    </record>
+    <record id="demo_avail_john_tue" model="eduflow.teacher.availability">
+        <field name="teacher_id" ref="demo_teacher_john_smith"/>
+        <field name="day">1</field>
+        <field name="hour_from">8.0</field>
+        <field name="hour_to">16.0</field>
+    </record>
+    <record id="demo_avail_emily_mon" model="eduflow.teacher.availability">
+        <field name="teacher_id" ref="demo_teacher_emily_johnson"/>
+        <field name="day">0</field>
+        <field name="hour_from">9.0</field>
+        <field name="hour_to">15.0</field>
+    </record>
+
+    <!-- Timetable Sessions - shifted to avoid conflict with base demo (Mon 08:00 Nadia) -->
+    <record id="demo_timetable_1" model="eduflow.timetable.session">
+        <field name="classroom_id" ref="demo_classroom_1a"/>
+        <field name="subject_id" ref="demo_subject_math"/>
+        <field name="teacher_id" ref="demo_teacher_david_wilson"/>
+        <field name="day">2</field>
+        <field name="hour_start">10.25</field>
+        <field name="hour_end">11.25</field>
+        <field name="room">Room 101</field>
+    </record>
+    <record id="demo_timetable_2" model="eduflow.timetable.session">
+        <field name="classroom_id" ref="demo_classroom_1a"/>
+        <field name="subject_id" ref="demo_subject_french"/>
+        <field name="teacher_id" ref="demo_teacher_jessica_moore"/>
+        <field name="day">0</field>
+        <field name="hour_start">9.0</field>
+        <field name="hour_end">10.0</field>
+        <field name="room">Room 101</field>
+    </record>
+    <record id="demo_timetable_3" model="eduflow.timetable.session">
+        <field name="classroom_id" ref="demo_classroom_1b"/>
+        <field name="subject_id" ref="demo_subject_science"/>
+        <field name="teacher_id" ref="demo_teacher_john_smith"/>
+        <field name="day">1</field>
+        <field name="hour_start">8.0</field>
+        <field name="hour_end">9.0</field>
+        <field name="room_id" ref="demo_room_lab"/>
+    </record>
+
+    <!-- Attendances -->
+    <record id="demo_attendance_1" model="eduflow.attendance">
+        <field name="student_id" ref="demo_student_james_smith"/>
+        <field name="classroom_id" ref="demo_classroom_1a"/>
+        <field name="date">2026-10-01</field>
+        <field name="state">present</field>
+    </record>
+    <record id="demo_attendance_2" model="eduflow.attendance">
+        <field name="student_id" ref="demo_student_emma_johnson"/>
+        <field name="classroom_id" ref="demo_classroom_1a"/>
+        <field name="date">2026-10-01</field>
+        <field name="state">absent</field>
+        <field name="reason">Sick leave</field>
+    </record>
+    <record id="demo_attendance_3" model="eduflow.attendance">
+        <field name="student_id" ref="demo_student_olivia_williams"/>
+        <field name="classroom_id" ref="demo_classroom_1b"/>
+        <field name="date">2026-10-01</field>
+        <field name="state">late</field>
+    </record>
+
+    <!-- Exams -->
+    <record id="demo_exam_math_t1" model="eduflow.exam">
+        <field name="name">Math Trimester 1</field>
+        <field name="exam_type">trimester</field>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="period_id" ref="demo_period_t1"/>
+        <field name="classroom_id" ref="demo_classroom_1a"/>
+        <field name="subject_id" ref="demo_subject_math"/>
+        <field name="teacher_id" ref="demo_teacher_1"/>
+        <field name="date">2026-12-10</field>
+        <field name="state">grading</field>
+    </record>
+    <record id="demo_exam_french_t1" model="eduflow.exam">
+        <field name="name">French Trimester 1</field>
+        <field name="exam_type">trimester</field>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="period_id" ref="demo_period_t1"/>
+        <field name="classroom_id" ref="demo_classroom_1a"/>
+        <field name="subject_id" ref="demo_subject_french"/>
+        <field name="teacher_id" ref="demo_teacher_jessica_moore"/>
+        <field name="date">2026-12-11</field>
+        <field name="state">draft</field>
+    </record>
+
+    <!-- Grades -->
+    <record id="demo_grade_james_math" model="eduflow.grade">
+        <field name="student_id" ref="demo_student_james_smith"/>
+        <field name="exam_id" ref="demo_exam_math_t1"/>
+        <field name="grade">16.5</field>
+        <field name="appreciation">Excellent work</field>
+    </record>
+    <record id="demo_grade_emma_math" model="eduflow.grade">
+        <field name="student_id" ref="demo_student_emma_johnson"/>
+        <field name="exam_id" ref="demo_exam_math_t1"/>
+        <field name="grade">14.0</field>
+        <field name="appreciation">Good effort</field>
+    </record>
+    <record id="demo_grade_olivia_math" model="eduflow.grade">
+        <field name="student_id" ref="demo_student_olivia_williams"/>
+        <field name="exam_id" ref="demo_exam_math_t1"/>
+        <field name="grade">12.5</field>
+    </record>
+
+    <!-- Report Cards -->
+    <record id="demo_report_james_t1" model="eduflow.report.card">
+        <field name="student_id" ref="demo_student_james_smith"/>
+        <field name="classroom_id" ref="demo_classroom_1a"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="period_id" ref="demo_period_t1"/>
+        <field name="state">generated</field>
+    </record>
+    <record id="demo_report_line_james_math" model="eduflow.report.card.line">
+        <field name="report_card_id" ref="demo_report_james_t1"/>
+        <field name="subject_id" ref="demo_subject_math"/>
+        <field name="average">16.5</field>
+        <field name="coefficient">4</field>
+    </record>
+
+    <!-- Admissions (public) -->
+    <record id="demo_admission_western" model="eduflow.admission">
+        <field name="student_id" ref="demo_student_noah_jones"/>
+        <field name="level_id" ref="demo_level_primary"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="parent_id" ref="demo_parent_jones"/>
+        <field name="state">review</field>
+    </record>
+
+    <!-- Document Types -->
+    <record id="demo_doctype_birth" model="eduflow.document.type">
+        <field name="name">Birth Certificate</field>
+        <field name="required">True</field>
+    </record>
+    <record id="demo_doctype_report" model="eduflow.document.type">
+        <field name="name">Previous Report Card</field>
+        <field name="level_id" ref="demo_level_primary"/>
+        <field name="required">True</field>
+    </record>
+
+    <!-- Payments -->
+    <record id="demo_payment_james" model="eduflow.payment">
+        <field name="fee_id" ref="demo_fee_james"/>
+        <field name="amount">15000</field>
+        <field name="method">transfer</field>
+        <field name="state">confirmed</field>
+    </record>
+
+</odoo>
