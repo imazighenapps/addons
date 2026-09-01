@@ -1,0 +1,272 @@
+// ============================================================================
+// EDUFLOW · DASHBOARD ÉDUCATION
+// Design system local au composant (namespacé sous .o_eduflow_dashboard
+// pour ne rien fuiter dans le reste du backend Odoo).
+// ============================================================================
+
+.o_eduflow_dashboard {
+    // ------------------------------------------------------------------
+    // Design tokens
+    // ------------------------------------------------------------------
+    --edu-bg: #f5f6fa;
+    --edu-surface: #ffffff;
+    --edu-border: #e8eaf1;
+    --edu-text: #1c2033;
+    --edu-text-muted: #767c94;
+
+    --edu-primary: #4a5cf7;
+    --edu-primary-dark: #3444d6;
+    --edu-primary-soft: rgba(74, 92, 247, 0.10);
+
+    --edu-blue: #3b82f6;
+    --edu-purple: #8b5cf6;
+    --edu-green: #16a34a;
+    --edu-orange: #f59e0b;
+    --edu-red: #ef4444;
+    --edu-cyan: #06b6d4;
+
+    --edu-radius: 14px;
+    --edu-radius-sm: 10px;
+    --edu-shadow: 0 1px 2px rgba(20, 23, 40, 0.04), 0 8px 24px -12px rgba(20, 23, 40, 0.10);
+    --edu-shadow-hover: 0 4px 10px rgba(20, 23, 40, 0.06), 0 16px 32px -14px rgba(20, 23, 40, 0.16);
+
+    background: var(--edu-bg);
+    color: var(--edu-text);
+    padding: 24px;
+    overflow-y: auto;
+    max-height: calc(100vh - 100px);
+    font-feature-settings: "tnum" 1;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    // ------------------------------------------------------------------
+    // Header
+    // ------------------------------------------------------------------
+    .o_edu_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--edu-border);
+
+        .o_edu_title_group {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .o_edu_title_icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--edu-primary), var(--edu-primary-dark));
+            color: #fff;
+            font-size: 18px;
+            box-shadow: 0 6px 14px -4px rgba(74, 92, 247, 0.55);
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            margin: 0;
+            color: var(--edu-text);
+        }
+
+        .o_edu_subtitle {
+            font-size: 0.8rem;
+            color: var(--edu-text-muted);
+            margin-top: 2px;
+        }
+
+        .btn-primary {
+            background: var(--edu-primary);
+            border-color: var(--edu-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            border-radius: var(--edu-radius-sm);
+            padding: 8px 16px;
+            box-shadow: 0 4px 10px -3px rgba(74, 92, 247, 0.5);
+            transition: background 0.15s, transform 0.15s;
+
+            &:hover {
+                background: var(--edu-primary-dark);
+                border-color: var(--edu-primary-dark);
+                transform: translateY(-1px);
+            }
+
+            &:disabled {
+                opacity: 0.65;
+                transform: none;
+            }
+
+            .fa-refresh {
+                transition: transform 0.4s ease;
+            }
+
+            &:active .fa-refresh {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Loading state
+    // ------------------------------------------------------------------
+    .o_edu_loading {
+        min-height: 320px;
+
+        .fa-spinner {
+            color: var(--edu-primary);
+        }
+
+        span {
+            font-size: 0.85rem;
+            color: var(--edu-text-muted);
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Generic card
+    // ------------------------------------------------------------------
+    .card {
+        background: var(--edu-surface);
+        border: 1px solid var(--edu-border);
+        border-radius: var(--edu-radius);
+        box-shadow: var(--edu-shadow);
+        transition: box-shadow 0.18s ease, transform 0.18s ease;
+
+        &:hover {
+            box-shadow: var(--edu-shadow-hover);
+            transform: translateY(-2px);
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // KPI cards
+    // ------------------------------------------------------------------
+    .o_kpi_card {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        padding: 18px !important;
+
+        .o_kpi_icon {
+            flex: 0 0 auto;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+
+            &.is-blue   { background: rgba(59, 130, 246, 0.12); color: var(--edu-blue); }
+            &.is-purple { background: rgba(139, 92, 246, 0.12); color: var(--edu-purple); }
+            &.is-green  { background: rgba(22, 163, 74, 0.12);  color: var(--edu-green); }
+            &.is-orange { background: rgba(245, 158, 11, 0.12); color: var(--edu-orange); }
+        }
+
+        .o_kpi_body {
+            min-width: 0;
+            flex: 1 1 auto;
+        }
+
+        h6.o_kpi_label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            color: var(--edu-text-muted);
+            margin: 0 0 6px;
+        }
+
+        h3.o_kpi_value {
+            font-size: 1.65rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 0 0 6px;
+            line-height: 1.1;
+            color: var(--edu-text);
+
+            small {
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: var(--edu-text-muted);
+                margin-left: 2px;
+            }
+        }
+
+        .o_kpi_meta {
+            font-size: 0.76rem;
+            color: var(--edu-text-muted);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 8px;
+
+            strong {
+                color: var(--edu-text);
+                font-weight: 700;
+            }
+
+            .o_kpi_sep {
+                color: var(--edu-border);
+            }
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Chart cards
+    // ------------------------------------------------------------------
+    .o_chart_card {
+        padding: 18px !important;
+
+        .o_chart_card_header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--edu-border);
+
+            i {
+                color: var(--edu-primary);
+                font-size: 0.85rem;
+            }
+
+            h5 {
+                font-size: 0.88rem;
+                font-weight: 700;
+                color: var(--edu-text);
+                margin: 0;
+            }
+        }
+
+        .o_eduflow_chart_container {
+            position: relative;
+        }
+
+        canvas {
+            max-height: 220px !important;
+        }
+    }
+
+    // ------------------------------------------------------------------
+    // Misc
+    // ------------------------------------------------------------------
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--edu-border);
+        border-radius: 4px;
+    }
+}
