@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="eduflow.DashboardEducation">
+
+    <div class="o_eduflow_dashboard">
+
+        <!-- =========================================================
+             HEADER
+        ========================================================== -->
+        <div class="o_edu_header">
+
+            <div class="o_edu_title_group">
+                <div class="o_edu_title_icon">
+                    <i class="fa fa-dashboard"/>
+                </div>
+                <div>
+                    <h2>EduFlow Pro Dashboard</h2>
+                    <div class="o_edu_subtitle">
+                        Vue d'ensemble établissement · pilotage direction
+                    </div>
+                </div>
+            </div>
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                t-on-click="_loadData"
+                t-att-disabled="state.loading" >
+                <i class="fa fa-refresh me-1"/>
+                Refresh
+            </button>
+
+        </div>
+
+
+        <!-- =========================================================
+             LOADING
+        ========================================================== -->
+        <div
+            t-if="state.loading"
+            class="o_edu_loading d-flex flex-column justify-content-center align-items-center p-5"
+        >
+            <i class="fa fa-spinner fa-spin fa-2x mb-3"/>
+            <span>
+                Loading dashboard...
+            </span>
+        </div>
+
+
+        <!-- =========================================================
+             DASHBOARD CONTENT
+        ========================================================== -->
+        <div
+            t-else=""
+            class="row g-3"
+        >
+
+            <!-- =====================================================
+                 KPI 1 - STUDENTS
+            ====================================================== -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 o_kpi_card">
+                    <div class="o_kpi_icon is-blue">
+                        <i class="fa fa-users"/>
+                    </div>
+                    <div class="o_kpi_body">
+                        <h6 class="o_kpi_label">Students</h6>
+                        <h3 class="o_kpi_value">
+                            <t t-esc="kpi.enrollment ? kpi.enrollment.total_students : 0"/>
+                        </h3>
+                        <div class="o_kpi_meta">
+                            Fill
+                            <strong>
+                                <t t-esc="kpi.enrollment ? kpi.enrollment.fill_rate : 0"/>%
+                            </strong>
+                            <span class="o_kpi_sep">|</span>
+                            Pending
+                            <strong>
+                                <t t-esc="kpi.enrollment ? kpi.enrollment.pending_admissions : 0"/>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- =====================================================
+                 KPI 2 - PEDAGOGY
+            ====================================================== -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 o_kpi_card">
+                    <div class="o_kpi_icon is-purple">
+                        <i class="fa fa-graduation-cap"/>
+                    </div>
+                    <div class="o_kpi_body">
+                        <h6 class="o_kpi_label">Pedagogy</h6>
+                        <h3 class="o_kpi_value">
+                            <t t-esc="kpi.attendance ? kpi.attendance.absenteeism : 0"/>%
+                            <small>absent</small>
+                        </h3>
+                        <div class="o_kpi_meta">
+                            Avg
+                            <strong>
+                                <t t-esc="kpi.grades ? kpi.grades.average : 0"/>/20
+                            </strong>
+                            <span class="o_kpi_sep">|</span>
+                            Top
+                            <strong>
+                                <t t-esc="(kpi.grades and kpi.grades.top_classes and kpi.grades.top_classes.length) ? kpi.grades.top_classes[0].name : '-'"/>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- =====================================================
+                 KPI 3 - FINANCE
+            ====================================================== -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 o_kpi_card">
+                    <div class="o_kpi_icon is-green">
+                        <i class="fa fa-money"/>
+                    </div>
+                    <div class="o_kpi_body">
+                        <h6 class="o_kpi_label">Finance</h6>
+                        <h3 class="o_kpi_value">
+                            <t t-esc="kpi.finance ? kpi.finance.collection_rate : 0"/>%
+                            <small>collected</small>
+                        </h3>
+                        <div class="o_kpi_meta">
+                            Invoiced
+                            <strong>
+                                <t t-esc="kpi.finance ? kpi.finance.invoiced : 0"/>
+                            </strong>
+                            <span class="o_kpi_sep">|</span>
+                            Outstanding
+                            <strong>
+                                <t t-esc="kpi.finance ? kpi.finance.outstanding : 0"/>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- =====================================================
+                 KPI 4 - TODAY
+            ====================================================== -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100 o_kpi_card">
+                    <div class="o_kpi_icon is-orange">
+                        <i class="fa fa-clock-o"/>
+                    </div>
+                    <div class="o_kpi_body">
+                        <h6 class="o_kpi_label">Today</h6>
+                        <h3 class="o_kpi_value">
+                            <t t-esc="kpi.attendance ? kpi.attendance.present_today : 0"/>
+                            <small>present</small>
+                        </h3>
+                        <div class="o_kpi_meta" t-if="kpi.last_updated">
+                            Updated: <t t-esc="kpi.last_updated"/>
+                        </div>
+                        <div class="o_kpi_meta" t-else="">
+                            No update information
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- =====================================================
+                 CHART 1 - ENROLLMENT BY LEVEL
+            ====================================================== -->
+            <div class="col-lg-6">
+                <div class="card h-100 o_chart_card">
+                    <div class="o_chart_card_header">
+                        <i class="fa fa-bar-chart"/>
+                        <h5>Enrollment by Level</h5>
+                    </div>
+                    <div class="o_eduflow_chart_container" style="height: 220px;">
+                        <canvas id="chart_enrollment_level" t-ref="enrollmentCanvas"/>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- =====================================================
+                 CHART 2 - FEES BY MONTH
+            ====================================================== -->
+            <div class="col-lg-6">
+                <div class="card h-100 o_chart_card">
+                    <div class="o_chart_card_header">
+                        <i class="fa fa-line-chart"/>
+                        <h5>Fees by Month</h5>
+                    </div>
+                    <div class="o_eduflow_chart_container" style="height: 220px;">
+                        <canvas id="chart_fees_month" t-ref="feesCanvas"/>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- =====================================================
+                 CHART 3 - STUDENTS BY GENDER
+            ====================================================== -->
+            <div class="col-lg-4">
+                <div class="card h-100 o_chart_card">
+                    <div class="o_chart_card_header">
+                        <i class="fa fa-pie-chart"/>
+                        <h5>Students by Gender</h5>
+                    </div>
+                    <div class="o_eduflow_chart_container" style="height: 220px;">
+                        <canvas id="chart_students_gender" t-ref="genderCanvas"/>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- =====================================================
+                 CHART 4 - ADMISSIONS
+            ====================================================== -->
+            <div class="col-lg-4">
+                <div class="card h-100 o_chart_card">
+                    <div class="o_chart_card_header">
+                        <i class="fa fa-bar-chart"/>
+                        <h5>Admissions by State</h5>
+                    </div>
+                    <div class="o_eduflow_chart_container" style="height: 220px;">
+                        <canvas id="chart_admissions_state" t-ref="admissionsCanvas"/>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- =====================================================
+                 CHART 5 - EXAMS
+            ====================================================== -->
+            <div class="col-lg-4">
+                <div class="card h-100 o_chart_card">
+                    <div class="o_chart_card_header">
+                        <i class="fa fa-pie-chart"/>
+                        <h5>Exams by State</h5>
+                    </div>
+                    <div class="o_eduflow_chart_container" style="height: 220px;">
+                        <canvas id="chart_exams_state" t-ref="examsCanvas"/>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- =====================================================
+                 CHART 6 - CLASSROOM OCCUPANCY
+            ====================================================== -->
+            <div class="col-lg-6">
+                <div class="card h-100 o_chart_card">
+                    <div class="o_chart_card_header">
+                        <i class="fa fa-building-o"/>
+                        <h5>Classroom Occupancy</h5>
+                    </div>
+                    <div class="o_eduflow_chart_container" style="height: 220px;">
+                        <canvas id="chart_classroom_occupancy" t-ref="classroomCanvas"/>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- =====================================================
+                 CHART 7 - TEACHERS BY SPECIALTY
+            ====================================================== -->
+            <div class="col-lg-3">
+                <div class="card h-100 o_chart_card">
+                    <div class="o_chart_card_header">
+                        <i class="fa fa-pie-chart"/>
+                        <h5>Teachers by Specialty</h5>
+                    </div>
+                    <div class="o_eduflow_chart_container" style="height: 220px;">
+                        <canvas id="chart_teachers_specialty" t-ref="teachersCanvas"/>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- =====================================================
+                 CHART 8 - TOP CLASSES
+            ====================================================== -->
+            <div class="col-lg-3">
+                <div class="card h-100 o_chart_card">
+                    <div class="o_chart_card_header">
+                        <i class="fa fa-trophy"/>
+                        <h5>Top Classes</h5>
+                    </div>
+                    <div class="o_eduflow_chart_container" style="height: 220px;">
+                        <canvas id="chart_top_classes" t-ref="topClassesCanvas"/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</t>
+
+</templates>
