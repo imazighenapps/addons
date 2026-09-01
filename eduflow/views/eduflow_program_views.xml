@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_program_list" model="ir.ui.view">
+        <field name="name">eduflow.program.list</field>
+        <field name="model">eduflow.program</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="year_id"/>
+                <field name="level_id"/>
+                <field name="subject_id"/>
+                <field name="coefficient"/>
+                <field name="teacher_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_program_search" model="ir.ui.view">
+        <field name="name">eduflow.program.search</field>
+        <field name="model">eduflow.program</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="subject_id"/>
+                <field name="level_id"/>
+                <field name="year_id"/>
+                <field name="teacher_id"/>
+                <group>
+                    <filter string="Academic Year" name="group_year" context="{'group_by':'year_id'}"/>
+                    <filter string="Level" name="group_level" context="{'group_by':'level_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_eduflow_program" model="ir.actions.act_window">
+        <field name="name">Academic Programs</field>
+        <field name="res_model">eduflow.program</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_eduflow_program_search"/>
+    </record>
+</odoo>

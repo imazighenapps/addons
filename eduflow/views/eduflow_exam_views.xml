@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_exam_list" model="ir.ui.view">
+        <field name="name">eduflow.exam.list</field>
+        <field name="model">eduflow.exam</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="exam_type"/>
+                <field name="classroom_id"/>
+                <field name="subject_id"/>
+                <field name="period_id"/>
+                <field name="date"/>
+                <field name="coefficient"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_exam_form" model="ir.ui.view">
+        <field name="name">eduflow.exam.form</field>
+        <field name="model">eduflow.exam</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_open_grading" string="Saisir les notes" type="object"
+                            invisible="state != 'draft'" class="oe_highlight"/>
+                    <button name="action_generate_grade_grid" string="Générer la grille de notes"
+                            type="object" invisible="state == 'validated'"/>
+                    <button name="action_validate" string="Valider" type="object"
+                            invisible="state != 'grading'" class="oe_highlight"/>
+                    <button name="action_set_draft" string="Remettre en brouillon" type="object"
+                            invisible="state != 'validated'" groups="eduflow.group_eduflow_administration,eduflow.group_eduflow_direction,eduflow.group_eduflow_admin"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,grading,validated"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="exam_type"/>
+                            <field name="year_id"/>
+                            <field name="period_id"/>
+                            <field name="classroom_id"/>
+                        </group>
+                        <group>
+                            <field name="subject_id"/>
+                            <field name="teacher_id"/>
+                            <field name="date"/>
+                            <field name="coefficient"/>
+                            <field name="duration"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Grades">
+                            <field name="grade_ids">
+                                <list editable="bottom">
+                                    <field name="student_id"/>
+                                    <field name="grade"/>
+                                    <field name="appreciation"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eduflow_exam_search" model="ir.ui.view">
+        <field name="name">eduflow.exam.search</field>
+        <field name="model">eduflow.exam</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="classroom_id"/>
+                <field name="subject_id"/>
+                <field name="teacher_id"/>
+                <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+                <filter string="Grade Entry" name="grading" domain="[('state','=','grading')]"/>
+                <filter string="Validated" name="validated" domain="[('state','=','validated')]"/>
+                <group>
+                    <filter string="Class" name="group_classroom" context="{'group_by':'classroom_id'}"/>
+                    <filter string="Subject" name="group_subject" context="{'group_by':'subject_id'}"/>
+                    <filter string="Period" name="group_period" context="{'group_by':'period_id'}"/>
+                    <filter string="Status" name="group_state" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_eduflow_exam" model="ir.actions.act_window">
+        <field name="name">Exams</field>
+        <field name="res_model">eduflow.exam</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_eduflow_exam_search"/>
+    </record>
+</odoo>

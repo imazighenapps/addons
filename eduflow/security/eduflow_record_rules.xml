@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Le parent ne voit que sa propre fiche -->
+    <record id="rule_parent_portal_own_record" model="ir.rule">
+        <field name="name">Portal Parent: own record</field>
+        <field name="model_id" ref="model_eduflow_parent"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_parent_portal'))]"/>
+        <field name="domain_force">[('partner_id.user_ids', 'in', [user.id])]</field>
+    </record>
+
+    <!-- Le parent ne voit que ses propres enfants -->
+    <record id="rule_parent_portal_own_children" model="ir.rule">
+        <field name="name">Portal Parent: own children only</field>
+        <field name="model_id" ref="model_eduflow_student"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_parent_portal'))]"/>
+        <field name="domain_force">[('parent_rel_ids.parent_id.partner_id.user_ids', 'in', [user.id])]</field>
+    </record>
+
+    <record id="rule_parent_portal_own_children_rel" model="ir.rule">
+        <field name="name">Portal Parent: student-parent links</field>
+        <field name="model_id" ref="model_eduflow_student_parent_rel"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_parent_portal'))]"/>
+        <field name="domain_force">[('parent_id.partner_id.user_ids', 'in', [user.id])]</field>
+    </record>
+
+    <record id="rule_parent_portal_enrollment" model="ir.rule">
+        <field name="name">Portal Parent: enrollments of own children</field>
+        <field name="model_id" ref="model_eduflow_enrollment"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_parent_portal'))]"/>
+        <field name="domain_force">[('student_id.parent_rel_ids.parent_id.partner_id.user_ids', 'in', [user.id])]</field>
+    </record>
+
+    <record id="rule_parent_portal_grade" model="ir.rule">
+        <field name="name">Portal Parent: grades of own children</field>
+        <field name="model_id" ref="model_eduflow_grade"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_parent_portal'))]"/>
+        <field name="domain_force">[('student_id.parent_rel_ids.parent_id.partner_id.user_ids', 'in', [user.id])]</field>
+    </record>
+
+    <record id="rule_parent_portal_attendance" model="ir.rule">
+        <field name="name">Portal Parent: attendance of own children</field>
+        <field name="model_id" ref="model_eduflow_attendance"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_parent_portal'))]"/>
+        <field name="domain_force">[('student_id.parent_rel_ids.parent_id.partner_id.user_ids', 'in', [user.id])]</field>
+    </record>
+
+    <record id="rule_parent_portal_report_card" model="ir.rule">
+        <field name="name">Portal Parent: published report cards of own children</field>
+        <field name="model_id" ref="model_eduflow_report_card"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_parent_portal'))]"/>
+        <field name="domain_force">[('student_id.parent_rel_ids.parent_id.partner_id.user_ids', 'in', [user.id]), ('state', '=', 'published')]</field>
+    </record>
+
+    <record id="rule_parent_portal_report_card_line" model="ir.rule">
+        <field name="name">Portal Parent: report card lines of own children</field>
+        <field name="model_id" ref="model_eduflow_report_card_line"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_parent_portal'))]"/>
+        <field name="domain_force">[('report_card_id.student_id.parent_rel_ids.parent_id.partner_id.user_ids', 'in', [user.id]), ('report_card_id.state', '=', 'published')]</field>
+    </record>
+
+    <record id="rule_parent_portal_fee" model="ir.rule">
+        <field name="name">Portal Parent: fees of own children</field>
+        <field name="model_id" ref="model_eduflow_fee"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_parent_portal'))]"/>
+        <field name="domain_force">[('student_id.parent_rel_ids.parent_id.partner_id.user_ids', 'in', [user.id])]</field>
+    </record>
+
+    <record id="rule_parent_portal_payment" model="ir.rule">
+        <field name="name">Portal Parent: payments of own children</field>
+        <field name="model_id" ref="model_eduflow_payment"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_parent_portal'))]"/>
+        <field name="domain_force">[('fee_id.student_id.parent_rel_ids.parent_id.partner_id.user_ids', 'in', [user.id])]</field>
+    </record>
+
+    <record id="rule_parent_portal_timetable" model="ir.rule">
+        <field name="name">Portal Parent: timetable of own children's class</field>
+        <field name="model_id" ref="model_eduflow_timetable_session"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_parent_portal'))]"/>
+        <field name="domain_force">[('classroom_id.enrollment_ids.student_id.parent_rel_ids.parent_id.partner_id.user_ids', 'in', [user.id])]</field>
+    </record>
+
+    <!-- ================================================================ -->
+    <!-- Teacher: scope limited to taught classes / subjects   -->
+    <!-- Without these rules, perm_write/perm_create rights granted to the   -->
+    <!-- Teacher group in ir.model.access.csv would apply to ALL -->
+    <!-- classes in the institution, not only their own.       -->
+    <!-- ================================================================ -->
+
+    <!-- A teacher can only view/enter/edit attendance for
+         classes where they have a timetable session, or for which they
+         are homeroom teacher.
+         NB : group_eduflow_admin implique group_eduflow_teacher (voir
+         eduflow_security.xml) : sans le bypass ci-dessous, un compte
+         System Administrator would also be restricted to their
+         own classes, as it would then be the only rule
+         applicable to their groups on this model. -->
+    <record id="rule_teacher_attendance_own_classes" model="ir.rule">
+        <field name="name">Teacher: attendance of own classes only</field>
+        <field name="model_id" ref="model_eduflow_attendance"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_teacher'))]"/>
+        <field name="domain_force">[(1, '=', 1)] if (user.has_group('eduflow.group_eduflow_admin') or user.has_group('eduflow.group_eduflow_direction') or user.has_group('eduflow.group_eduflow_administration')) else ['|', ('classroom_id.principal_teacher_id.user_id', '=', user.id), ('classroom_id.timetable_ids.teacher_id.user_id', '=', user.id)]</field>
+    </record>
+
+    <!-- A teacher can only read/edit/create exams for which they
+         are the assigned teacher. Without this rule, perm_read=1 without
+         domain would expose exams (and via eduflow.grade, grades) of
+         all classes to all teachers. Same bypass as
+         above for management/administration roles. -->
+    <record id="rule_teacher_exam_own" model="ir.rule">
+        <field name="name">Teacher: own exams only</field>
+        <field name="model_id" ref="model_eduflow_exam"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_teacher'))]"/>
+        <field name="domain_force">[(1, '=', 1)] if (user.has_group('eduflow.group_eduflow_admin') or user.has_group('eduflow.group_eduflow_direction') or user.has_group('eduflow.group_eduflow_administration')) else [('teacher_id.user_id', '=', user.id)]</field>
+    </record>
+
+    <!-- Un enseignant ne peut lire/saisir/modifier que les notes des
+         exams for which they are the assigned teacher (full CRUD access
+         granted by ir.model.access.csv, thus restriction is essential).
+         Same management/administration bypass. -->
+    <record id="rule_teacher_grade_own_exam" model="ir.rule">
+        <field name="name">Teacher: grades of own exams only</field>
+        <field name="model_id" ref="model_eduflow_grade"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_teacher'))]"/>
+        <field name="domain_force">[(1, '=', 1)] if (user.has_group('eduflow.group_eduflow_admin') or user.has_group('eduflow.group_eduflow_direction') or user.has_group('eduflow.group_eduflow_administration')) else [('exam_id.teacher_id.user_id', '=', user.id)]</field>
+    </record>
+
+    <!-- A teacher only sees students from their own classes.
+         Without this rule, perm_read=1 without domain would expose to any
+         teacher sensitive data (medical_info, admin_notes,
+         contact details) of ALL students in the institution. Same bypass
+         direction/administration. -->
+    <record id="rule_teacher_student_own_classes" model="ir.rule">
+        <field name="name">Teacher: students of own classes only</field>
+        <field name="model_id" ref="model_eduflow_student"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_teacher'))]"/>
+        <field name="domain_force">[(1, '=', 1)] if (user.has_group('eduflow.group_eduflow_admin') or user.has_group('eduflow.group_eduflow_direction') or user.has_group('eduflow.group_eduflow_administration')) else ['|', ('current_classroom_id.principal_teacher_id.user_id', '=', user.id), ('current_classroom_id.timetable_ids.teacher_id.user_id', '=', user.id)]</field>
+    </record>
+
+    <!-- Idem pour les inscriptions : un enseignant ne doit voir que les
+         enrollments linked to their own classes. Same bypass
+         direction/administration. -->
+    <record id="rule_teacher_enrollment_own_classes" model="ir.rule">
+        <field name="name">Teacher: enrollments of own classes only</field>
+        <field name="model_id" ref="model_eduflow_enrollment"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_teacher'))]"/>
+        <field name="domain_force">[(1, '=', 1)] if (user.has_group('eduflow.group_eduflow_admin') or user.has_group('eduflow.group_eduflow_direction') or user.has_group('eduflow.group_eduflow_administration')) else ['|', ('classroom_id.principal_teacher_id.user_id', '=', user.id), ('classroom_id.timetable_ids.teacher_id.user_id', '=', user.id)]</field>
+    </record>
+
+    <!-- Fuite report.card corrigée (audit 2026-08-31) : un enseignant ne doit voir que les bulletins de ses propres classes -->
+    <record id="rule_teacher_report_card_own_classes" model="ir.rule">
+        <field name="name">Teacher: report cards of own classes only</field>
+        <field name="model_id" ref="model_eduflow_report_card"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_teacher'))]"/>
+        <field name="domain_force">[(1, '=', 1)] if (user.has_group('eduflow.group_eduflow_admin') or user.has_group('eduflow.group_eduflow_direction') or user.has_group('eduflow.group_eduflow_administration')) else ['|', ('classroom_id.principal_teacher_id.user_id', '=', user.id), ('classroom_id.timetable_ids.teacher_id.user_id', '=', user.id)]</field>
+    </record>
+
+    <record id="rule_teacher_report_card_line_own_classes" model="ir.rule">
+        <field name="name">Teacher: report card lines of own classes only</field>
+        <field name="model_id" ref="model_eduflow_report_card_line"/>
+        <field name="groups" eval="[(4, ref('group_eduflow_teacher'))]"/>
+        <field name="domain_force">[(1, '=', 1)] if (user.has_group('eduflow.group_eduflow_admin') or user.has_group('eduflow.group_eduflow_direction') or user.has_group('eduflow.group_eduflow_administration')) else ['|', ('report_card_id.classroom_id.principal_teacher_id.user_id', '=', user.id), ('report_card_id.classroom_id.timetable_ids.teacher_id.user_id', '=', user.id)]</field>
+    </record>
+
+</odoo>

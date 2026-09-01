@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_room_list" model="ir.ui.view">
+        <field name="name">eduflow.room.list</field>
+        <field name="model">eduflow.room</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/><field name="code"/><field name="room_type"/><field name="capacity"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_eduflow_room_form" model="ir.ui.view">
+        <field name="name">eduflow.room.form</field>
+        <field name="model">eduflow.room</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/><field name="code"/><field name="room_type"/><field name="capacity"/><field name="company_id"/>
+                </group>
+                <field name="notes"/>
+            </form>
+        </field>
+    </record>
+    <record id="action_eduflow_room" model="ir.actions.act_window">
+        <field name="name">Rooms</field><field name="res_model">eduflow.room</field><field name="view_mode">list,form</field>
+    </record>
+    <record id="view_eduflow_time_slot_list" model="ir.ui.view">
+        <field name="name">eduflow.time.slot.list</field>
+        <field name="model">eduflow.time.slot</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence" widget="handle"/><field name="name"/><field name="hour_from" widget="float_time"/><field name="hour_to" widget="float_time"/><field name="is_break"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_eduflow_time_slot_form" model="ir.ui.view">
+        <field name="name">eduflow.time.slot.form</field>
+        <field name="model">eduflow.time.slot</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/><field name="sequence"/><field name="hour_from" widget="float_time"/><field name="hour_to" widget="float_time"/><field name="is_break"/><field name="company_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="action_eduflow_time_slot" model="ir.actions.act_window">
+        <field name="name">Time Slots</field><field name="res_model">eduflow.time.slot</field><field name="view_mode">list,form</field>
+    </record>
+    <record id="view_eduflow_level_subject_hours_list" model="ir.ui.view">
+        <field name="name">eduflow.level.subject.hours.list</field>
+        <field name="model">eduflow.level.subject.hours</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="level_id"/><field name="subject_id"/><field name="hours_per_week"/><field name="sessions_per_week" readonly="1"/><field name="room_type"/><field name="morning_only"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_eduflow_level_subject_hours_form" model="ir.ui.view">
+        <field name="name">eduflow.level.subject.hours.form</field>
+        <field name="model">eduflow.level.subject.hours</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="level_id"/><field name="subject_id"/><field name="year_id"/><field name="hours_per_week"/>
+                    <field name="room_type"/><field name="consecutive"/><field name="morning_only"/><field name="company_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="action_eduflow_level_subject_hours" model="ir.actions.act_window">
+        <field name="name">Hours per Level/Subject</field><field name="res_model">eduflow.level.subject.hours</field><field name="view_mode">list,form</field>
+    </record>
+    <record id="view_eduflow_teacher_availability_list" model="ir.ui.view">
+        <field name="name">eduflow.teacher.availability.list</field>
+        <field name="model">eduflow.teacher.availability</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="teacher_id"/><field name="day"/><field name="hour_from" widget="float_time"/><field name="hour_to" widget="float_time"/><field name="preference"/><field name="available"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_eduflow_teacher_availability_form" model="ir.ui.view">
+        <field name="name">eduflow.teacher.availability.form</field>
+        <field name="model">eduflow.teacher.availability</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="teacher_id"/><field name="day"/><field name="hour_from" widget="float_time"/><field name="hour_to" widget="float_time"/>
+                    <field name="preference"/><field name="available"/><field name="company_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="action_eduflow_teacher_availability" model="ir.actions.act_window">
+        <field name="name">Teacher Availabilities</field><field name="res_model">eduflow.teacher.availability</field><field name="view_mode">list,form</field>
+    </record>
+    <record id="view_eduflow_teacher_form_availability" model="ir.ui.view">
+        <field name="name">eduflow.teacher.form.availability</field>
+        <field name="model">eduflow.teacher</field>
+        <field name="inherit_id" ref="eduflow.view_eduflow_teacher_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Availability">
+                    <field name="availability_ids">
+                        <list editable="bottom">
+                            <field name="day"/><field name="hour_from" widget="float_time"/><field name="hour_to" widget="float_time"/><field name="preference"/><field name="available"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+   </odoo>

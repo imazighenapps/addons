@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_report_card_list" model="ir.ui.view">
+        <field name="name">eduflow.report.card.list</field>
+        <field name="model">eduflow.report.card</field>
+        <field name="arch" type="xml">
+            <list decoration-success="general_average &gt;= 10" decoration-danger="general_average &lt; 10">
+                <field name="student_id"/>
+                <field name="classroom_id"/>
+                <field name="period_id"/>
+                <field name="general_average"/>
+                <field name="ranking"/>
+                <field name="absence_count"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_report_card_form" model="ir.ui.view">
+        <field name="name">eduflow.report.card.form</field>
+        <field name="model">eduflow.report.card</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_generate_lines" string="Generate / Recalculate Averages"
+                            type="object" class="oe_highlight"/>
+                    <button name="action_publish" string="Publish sur le portail parent" type="object"
+                            invisible="state != 'generated'" class="oe_highlight"/>
+                    <button name="action_print_report_card" string="Imprimer le bulletin (PDF)"
+                            type="object" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,generated,published"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="classroom_id"/>
+                            <field name="year_id"/>
+                            <field name="period_id"/>
+                        </group>
+                        <group>
+                            <field name="general_average"/>
+                            <field name="ranking"/>
+                            <field name="absence_count"/>
+                        </group>
+                    </group>
+                    <field name="line_ids">
+                        <list editable="bottom">
+                            <field name="subject_id"/>
+                            <field name="average"/>
+                            <field name="coefficient"/>
+                            <field name="appreciation"/>
+                        </list>
+                    </field>
+                    <group string="Conseil de classe">
+                        <field name="council_decision"/>
+                        <field name="council_notes" nolabel="1"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eduflow_report_card_search" model="ir.ui.view">
+        <field name="name">eduflow.report.card.search</field>
+        <field name="model">eduflow.report.card</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="student_id"/>
+                <field name="classroom_id"/>
+                <field name="period_id"/>
+                <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+                <filter string="Published" name="published" domain="[('state','=','published')]"/>
+                <group>
+                    <filter string="Class" name="group_classroom" context="{'group_by':'classroom_id'}"/>
+                    <filter string="Period" name="group_period" context="{'group_by':'period_id'}"/>
+                    <filter string="Status" name="group_state" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_eduflow_report_card_pivot" model="ir.ui.view">
+        <field name="name">eduflow.report.card.pivot</field>
+        <field name="model">eduflow.report.card</field>
+        <field name="arch" type="xml">
+            <pivot string="Report Cards">
+                <field name="classroom_id" type="row"/>
+                <field name="period_id" type="col"/>
+                <field name="general_average" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_eduflow_report_card" model="ir.actions.act_window">
+        <field name="name">Report Cards scolaires</field>
+        <field name="res_model">eduflow.report.card</field>
+        <field name="view_mode">list,form,pivot</field>
+        <field name="search_view_id" ref="view_eduflow_report_card_search"/>
+    </record>
+</odoo>

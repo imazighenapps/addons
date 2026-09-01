@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_parent_list" model="ir.ui.view">
+        <field name="name">eduflow.parent.list</field>
+        <field name="model">eduflow.parent</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="profession"/>
+                <field name="portal_access" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_parent_form" model="ir.ui.view">
+        <field name="name">eduflow.parent.form</field>
+        <field name="model">eduflow.parent</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_grant_portal_access" string="Activate Portal Access"
+                            type="object" class="oe_highlight" invisible="portal_access"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="address"/>
+                        </group>
+                        <group>
+                            <field name="profession"/>
+                            <field name="partner_id"/>
+                            <field name="portal_access"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Enfants">
+                            <field name="student_rel_ids">
+                                <list editable="bottom">
+                                    <field name="student_id"/>
+                                    <field name="relation"/>
+                                    <field name="is_primary"/>
+                                    <field name="is_financial"/>
+                                    <field name="can_communicate"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eduflow_parent_search" model="ir.ui.view">
+        <field name="name">eduflow.parent.search</field>
+        <field name="model">eduflow.parent</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <filter string="Portal Access" name="portal_access" domain="[('portal_access','=',True)]"/>
+                <group>
+                    <filter string="Profession" name="group_profession" context="{'group_by':'profession'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_eduflow_parent" model="ir.actions.act_window">
+        <field name="name">Parents / Guardians</field>
+        <field name="res_model">eduflow.parent</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_eduflow_parent_search"/>
+    </record>
+</odoo>

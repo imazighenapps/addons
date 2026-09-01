@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_payment_list" model="ir.ui.view">
+        <field name="name">eduflow.payment.list</field>
+        <field name="model">eduflow.payment</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="student_id"/>
+                <field name="date"/>
+                <field name="amount"/>
+                <field name="method"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_payment_form" model="ir.ui.view">
+        <field name="name">eduflow.payment.form</field>
+        <field name="model">eduflow.payment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" string="Confirmer" type="object"
+                            class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_print_receipt" string="Print Receipt" type="object"
+                            class="oe_highlight" invisible="state != 'confirmed'"/>
+                    <button name="action_cancel" string="Annuler" type="object"
+                            invisible="state != 'draft'"/>
+                    <button name="action_set_draft" string="Remettre en brouillon" type="object"
+                            invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="fee_id"/>
+                            <field name="student_id" readonly="1"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="amount"/>
+                            <field name="method"/>
+                            <field name="reference"/>
+                            <field name="account_payment_id" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eduflow_payment_search" model="ir.ui.view">
+        <field name="name">eduflow.payment.search</field>
+        <field name="model">eduflow.payment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="student_id"/>
+                <field name="reference"/>
+                <filter string="Confirmed" name="confirmed" domain="[('state','=','confirmed')]"/>
+                <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+                <group>
+                    <filter string="Student" name="group_student" context="{'group_by':'student_id'}"/>
+                    <filter string="Method" name="group_method" context="{'group_by':'method'}"/>
+                    <filter string="Status" name="group_state" context="{'group_by':'state'}"/>
+                    <filter string="Date" name="group_date" context="{'group_by':'date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_eduflow_payment_graph" model="ir.ui.view">
+        <field name="name">eduflow.payment.graph</field>
+        <field name="model">eduflow.payment</field>
+        <field name="arch" type="xml">
+            <graph string="Payments by month" type="bar">
+                <field name="date" type="row" interval="month"/>
+                <field name="amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_eduflow_payment_pivot" model="ir.ui.view">
+        <field name="name">eduflow.payment.pivot</field>
+        <field name="model">eduflow.payment</field>
+        <field name="arch" type="xml">
+            <pivot string="Payments">
+                <field name="method" type="row"/>
+                <field name="date" type="col" interval="month"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_eduflow_payment" model="ir.actions.act_window">
+        <field name="name">Payments</field>
+        <field name="res_model">eduflow.payment</field>
+        <field name="view_mode">list,form,graph,pivot</field>
+        <field name="search_view_id" ref="view_eduflow_payment_search"/>
+    </record>
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_dashboard_form" model="ir.ui.view">
+        <field name="name">eduflow.dashboard.form</field>
+        <field name="model">eduflow.dashboard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="year_id"/>
+                    </group>
+                    <div class="o_horizontal_separator">Enrollment Counts</div>
+                    <group>
+                        <group>
+                            <field name="total_students"/>
+                            <field name="new_students"/>
+                            <field name="total_teachers"/>
+                            <field name="total_classrooms"/>
+                        </group>
+                        <group>
+                            <field name="absenteeism_rate"/>
+                            <field name="general_average"/>
+                        </group>
+                    </group>
+                    <div class="o_horizontal_separator">Finance</div>
+                    <group>
+                        <group>
+                            <field name="total_invoiced"/>
+                            <field name="total_collected"/>
+                            <field name="total_unpaid"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_view_students" string="View Students" type="object"
+                                class="btn-secondary"/>
+                        <button name="action_view_unpaid" string="View Overdue" type="object"
+                                class="btn-secondary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_eduflow_dashboard" model="ir.actions.act_window">
+        <field name="name">Management dashboard</field>
+        <field name="res_model">eduflow.dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+</odoo>

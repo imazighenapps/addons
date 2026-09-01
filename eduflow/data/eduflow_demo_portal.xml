@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Portal users for demo - Western parents -->
+    <record id="demo_partner_smith_portal" model="res.partner">
+        <field name="name">Robert Smith (Portal)</field>
+        <field name="email">robert.smith.portal@example.com</field>
+    </record>
+    <record id="demo_user_smith_portal" model="res.users">
+        <field name="name">Robert Smith Portal</field>
+        <field name="login">robert.smith.portal@example.com</field>
+        <field name="email">robert.smith.portal@example.com</field>
+        <field name="partner_id" ref="demo_partner_smith_portal"/>
+        <field name="groups_id" eval="[(6,0, [ref('base.group_portal'), ref('eduflow.group_eduflow_parent_portal')])]"/>
+    </record>
+    <!-- Link the portal partner to the existing eduflow.parent -->
+    <record id="demo_parent_smith_portal" model="eduflow.parent">
+        <field name="name">Robert Smith Portal Parent</field>
+        <field name="partner_id" ref="demo_partner_smith_portal"/>
+        <field name="email">robert.smith.portal@example.com</field>
+        <field name="portal_access">True</field>
+    </record>
+    <record id="demo_student_smith_portal" model="eduflow.student">
+        <field name="firstname">Portal</field>
+        <field name="name">Smith Jr.</field>
+        <field name="birth_date">2018-03-15</field>
+        <field name="gender">m</field>
+        <field name="status">active</field>
+    </record>
+    <record id="demo_rel_smith_portal" model="eduflow.student.parent.rel">
+        <field name="student_id" ref="demo_student_smith_portal"/>
+        <field name="parent_id" ref="demo_parent_smith_portal"/>
+        <field name="relation">father</field>
+        <field name="is_primary">True</field>
+        <field name="is_financial">True</field>
+    </record>
+    <record id="demo_enroll_smith_portal" model="eduflow.enrollment">
+        <field name="student_id" ref="demo_student_smith_portal"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="level_id" ref="demo_level_primary"/>
+        <field name="classroom_id" ref="demo_classroom_1a"/>
+        <field name="state">active</field>
+    </record>
+
+    <record id="demo_partner_johnson_portal" model="res.partner">
+        <field name="name">Jennifer Johnson (Portal)</field>
+        <field name="email">jennifer.johnson.portal@example.com</field>
+    </record>
+    <record id="demo_user_johnson_portal" model="res.users">
+        <field name="name">Jennifer Johnson Portal</field>
+        <field name="login">jennifer.johnson.portal@example.com</field>
+        <field name="email">jennifer.johnson.portal@example.com</field>
+        <field name="partner_id" ref="demo_partner_johnson_portal"/>
+        <field name="groups_id" eval="[(6,0, [ref('base.group_portal'), ref('eduflow.group_eduflow_parent_portal')])]"/>
+    </record>
+    <record id="demo_parent_johnson_portal" model="eduflow.parent">
+        <field name="name">Jennifer Johnson Portal Parent</field>
+        <field name="partner_id" ref="demo_partner_johnson_portal"/>
+        <field name="email">jennifer.johnson.portal@example.com</field>
+        <field name="portal_access">True</field>
+    </record>
+    <record id="demo_student_johnson_portal" model="eduflow.student">
+        <field name="firstname">Portal</field>
+        <field name="name">Johnson Jr.</field>
+        <field name="birth_date">2018-06-22</field>
+        <field name="gender">f</field>
+        <field name="status">active</field>
+    </record>
+    <record id="demo_rel_johnson_portal" model="eduflow.student.parent.rel">
+        <field name="student_id" ref="demo_student_johnson_portal"/>
+        <field name="parent_id" ref="demo_parent_johnson_portal"/>
+        <field name="relation">mother</field>
+        <field name="is_primary">True</field>
+        <field name="is_financial">True</field>
+    </record>
+    <record id="demo_enroll_johnson_portal" model="eduflow.enrollment">
+        <field name="student_id" ref="demo_student_johnson_portal"/>
+        <field name="year_id" ref="demo_year_2026"/>
+        <field name="level_id" ref="demo_level_primary"/>
+        <field name="classroom_id" ref="demo_classroom_1a"/>
+        <field name="state">active</field>
+    </record>
+
+    <!-- Teacher portal user -->
+    <record id="demo_partner_teacher_portal" model="res.partner">
+        <field name="name">John Smith Teacher Portal</field>
+        <field name="email">john.smith.teacher.portal@example.com</field>
+    </record>
+    <record id="demo_user_teacher_portal" model="res.users">
+        <field name="name">John Smith Teacher Portal</field>
+        <field name="login">john.smith.teacher.portal@example.com</field>
+        <field name="email">john.smith.teacher.portal@example.com</field>
+        <field name="partner_id" ref="demo_partner_teacher_portal"/>
+        <field name="groups_id" eval="[(6,0, [ref('eduflow.group_eduflow_teacher')])]"/>
+    </record>
+    <record id="demo_teacher_portal" model="eduflow.teacher">
+        <field name="name">John Smith Portal Teacher</field>
+        <field name="email">john.smith.portal.teacher@example.com</field>
+        <field name="user_id" ref="demo_user_teacher_portal"/>
+        <field name="specialty">Mathematics</field>
+    </record>
+</odoo>

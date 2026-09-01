@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_admission_kanban" model="ir.ui.view">
+        <field name="name">eduflow.admission.kanban</field>
+        <field name="model">eduflow.admission</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" quick_create="false" class="o_kanban_small_column">
+                <field name="name"/>
+                <field name="student_id"/>
+                <field name="level_id"/>
+                <field name="request_date"/>
+                <field name="parent_id"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <strong><field name="student_id"/></strong>
+                            <div><field name="level_id"/></div>
+                            <div class="text-muted">
+                                <field name="request_date"/> — <field name="parent_id"/>
+                            </div>
+                            <div><field name="name"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_eduflow_admission_search" model="ir.ui.view">
+        <field name="name">eduflow.admission.search</field>
+        <field name="model">eduflow.admission</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="student_id"/>
+                <field name="level_id"/>
+                <filter string="New" name="new" domain="[('state','=','new')]"/>
+                <filter string="Accepted" name="accepted" domain="[('state','=','accepted')]"/>
+                <filter string="Refused" name="refused" domain="[('state','=','refused')]"/>
+                <filter string="Incomplete Documents" name="incomplete_docs"
+                        domain="[('documents_complete','=',False)]"/>
+                <group>
+                    <filter string="Status" name="group_state" context="{'group_by':'state'}"/>
+                    <filter string="Level" name="group_level" context="{'group_by':'level_id'}"/>
+                    <filter string="Academic Year" name="group_year" context="{'group_by':'year_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_eduflow_admission_list" model="ir.ui.view">
+        <field name="name">eduflow.admission.list</field>
+        <field name="model">eduflow.admission</field>
+        <field name="arch" type="xml">
+            <list decoration-success="state == 'accepted'" decoration-danger="state == 'refused'">
+                <field name="name"/>
+                <field name="student_id"/>
+                <field name="level_id"/>
+                <field name="year_id"/>
+                <field name="request_date"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_admission_form" model="ir.ui.view">
+        <field name="name">eduflow.admission.form</field>
+        <field name="model">eduflow.admission</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start_review" string="Review Application" type="object"
+                            invisible="state != 'new'" class="oe_highlight"/>
+                    <button name="action_schedule_interview" string="Planifier entretien" type="object"
+                            invisible="state != 'review'" class="oe_highlight"/>
+                    <button name="action_accept" string="Accept" type="object"
+                            invisible="state not in ('review','interview')" class="oe_highlight"/>
+                    <button name="action_refuse" string="Refuse" type="object"
+                            invisible="state in ('accepted','refused','enrolled')"/>
+                    <button name="action_create_enrollment" string="Create Enrollment" type="object"
+                            invisible="state != 'accepted'" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="new,review,interview,accepted,enrolled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="level_id"/>
+                            <field name="year_id"/>
+                            <field name="parent_id"/>
+                        </group>
+                        <group>
+                            <field name="request_date"/>
+                            <field name="interview_date"/>
+                        </group>
+                    </group>
+                    <group string="Documents">
+                        <field name="document_ids" widget="many2many_binary" nolabel="1" options="{'no_create': True}"/>
+                    </group>
+                    <group string="Required Documents (F3.3)">
+                        <field name="document_line_ids" nolabel="1">
+                            <list editable="bottom">
+                                <field name="document_type_id"/>
+                                <field name="required"/>
+                                <field name="received"/>
+                                <field name="attachment_id"/>
+                                <field name="note"/>
+                            </list>
+                        </field>
+                        <field name="documents_complete" readonly="1"/>
+                    </group>
+                    <group string="Grades">
+                        <field name="notes" nolabel="1"/>
+                    </group>
+                    <group string="Interview Result" invisible="state == 'new'">
+                        <field name="interview_result" nolabel="1"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_eduflow_admission" model="ir.actions.act_window">
+        <field name="name">Admissions</field>
+        <field name="res_model">eduflow.admission</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="view_eduflow_admission_search"/>
+    </record>
+</odoo>

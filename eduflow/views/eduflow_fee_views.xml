@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_fee_type_list" model="ir.ui.view">
+        <field name="name">eduflow.fee.type.list</field>
+        <field name="model">eduflow.fee.type</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name"/>
+                <field name="amount"/>
+                <field name="level_id"/>
+                <field name="year_id"/>
+                <field name="student_type"/>
+                <field name="journal_id" optional="hide"/>
+                <field name="account_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_fee_type_form" model="ir.ui.view">
+        <field name="name">eduflow.fee.type.form</field>
+        <field name="model">eduflow.fee.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="amount"/>
+                            <field name="level_id"/>
+                            <field name="year_id"/>
+                            <field name="student_type"/>
+                        </group>
+                        <group string="Accounting (F1.1)">
+                            <field name="journal_id"/>
+                            <field name="account_id"/>
+                            <field name="tax_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_eduflow_fee_type" model="ir.actions.act_window">
+        <field name="name">Fee Types</field>
+        <field name="res_model">eduflow.fee.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="view_eduflow_fee_list" model="ir.ui.view">
+        <field name="name">eduflow.fee.list</field>
+        <field name="model">eduflow.fee</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="state == 'overdue'" decoration-success="state == 'paid'"
+                  decoration-warning="state == 'partial'">
+                <field name="student_id"/>
+                <field name="fee_type_id"/>
+                <field name="installment_name"/>
+                <field name="due_date"/>
+                <field name="amount"/>
+                <field name="paid_amount"/>
+                <field name="remaining_amount"/>
+                <field name="invoice_state" optional="show"/>
+                <field name="state"/>
+                <button name="action_create_invoice" string="Créer la facture" type="object"
+                        invisible="invoice_state == 'invoiced'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_fee_search" model="ir.ui.view">
+        <field name="name">eduflow.fee.search</field>
+        <field name="model">eduflow.fee</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="student_id"/>
+                <field name="fee_type_id"/>
+                <filter string="Overdue" name="overdue" domain="[('state','=','overdue')]"/>
+                <filter string="Unpaid" name="unpaid" domain="[('state','!=','paid')]"/>
+                <filter string="Not Invoiced" name="not_invoiced"
+                        domain="[('invoice_state','=','not_invoiced')]"/>
+                <group>
+                    <filter string="Student" name="group_student" context="{'group_by':'student_id'}"/>
+                    <filter string="Fee Type" name="group_type" context="{'group_by':'fee_type_id'}"/>
+                    <filter string="Status" name="group_state" context="{'group_by':'state'}"/>
+                    <filter string="Due Date" name="group_due_date" context="{'group_by':'due_date'}"/>
+                    <filter string="Invoicing" name="group_invoice_state"
+                            context="{'group_by':'invoice_state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_eduflow_fee_graph" model="ir.ui.view">
+        <field name="name">eduflow.fee.graph</field>
+        <field name="model">eduflow.fee</field>
+        <field name="arch" type="xml">
+            <graph string="Collected vs Outstanding" type="bar">
+                <field name="due_date" type="row" interval="month"/>
+                <field name="paid_amount" type="measure"/>
+                <field name="remaining_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_eduflow_fee_pivot" model="ir.ui.view">
+        <field name="name">eduflow.fee.pivot</field>
+        <field name="model">eduflow.fee</field>
+        <field name="arch" type="xml">
+            <pivot string="Fees / Dues">
+                <field name="fee_type_id" type="row"/>
+                <field name="due_date" type="col" interval="month"/>
+                <field name="amount" type="measure"/>
+                <field name="paid_amount" type="measure"/>
+                <field name="remaining_amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_eduflow_fee_form" model="ir.ui.view">
+        <field name="name">eduflow.fee.form</field>
+        <field name="model">eduflow.fee</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_send_reminder" string="Envoyer une relance" type="object"
+                            invisible="state == 'paid'" class="oe_highlight"/>
+                    <button name="action_create_invoice" string="Créer la facture" type="object"
+                            invisible="invoice_state == 'invoiced'"/>
+                    <button name="action_cancel_invoice" string="Annuler la facture" type="object"
+                            invisible="invoice_state != 'invoiced'"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Paid" bg_color="text-bg-success"
+                            invisible="state != 'paid'"/>
+                    <widget name="web_ribbon" title="Overdue" bg_color="text-bg-danger"
+                            invisible="state != 'overdue'"/>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="fee_type_id"/>
+                            <field name="year_id"/>
+                            <field name="installment_name"/>
+                        </group>
+                        <group>
+                            <field name="due_date"/>
+                            <field name="amount"/>
+                            <field name="paid_amount"/>
+                            <field name="remaining_amount"/>
+                            <field name="state"/>
+                            <field name="invoice_id" readonly="1"/>
+                            <field name="reminder_count" readonly="1"/>
+                            <field name="last_reminder_date" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Payments">
+                            <field name="payment_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="date"/>
+                                    <field name="amount"/>
+                                    <field name="method"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_eduflow_fee" model="ir.actions.act_window">
+        <field name="name">School Fees / Dues</field>
+        <field name="res_model">eduflow.fee</field>
+        <field name="view_mode">list,form,graph,pivot</field>
+        <field name="search_view_id" ref="view_eduflow_fee_search"/>
+    </record>
+</odoo>

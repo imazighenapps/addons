@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_enrollment_list" model="ir.ui.view">
+        <field name="name">eduflow.enrollment.list</field>
+        <field name="model">eduflow.enrollment</field>
+        <field name="arch" type="xml">
+            <list decoration-success="state == 'active'">
+                <field name="student_id"/>
+                <field name="year_id"/>
+                <field name="level_id"/>
+                <field name="classroom_id"/>
+                <field name="date"/>
+                <field name="enrollment_type"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_enrollment_form" model="ir.ui.view">
+        <field name="name">eduflow.enrollment.form</field>
+        <field name="model">eduflow.enrollment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" string="Confirmer" type="object"
+                            invisible="state != 'draft'" class="oe_highlight"/>
+                    <button name="action_activate" string="Activer" type="object"
+                            invisible="state != 'confirmed'" class="oe_highlight"/>
+                    <button name="action_cancel" string="Annuler" type="object"
+                            invisible="state in ('cancelled','active')"/>
+                    <button name="action_renew_next_year" string="Re-enroll Next Year"
+                            type="object" invisible="state != 'active'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,active"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="year_id"/>
+                            <field name="level_id"/>
+                            <field name="classroom_id"/>
+                            <field name="section"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="regime"/>
+                            <field name="enrollment_type"/>
+                            <field name="registration_fee"/>
+                            <field name="admission_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Historique des changements de classe">
+                            <field name="classroom_history_ids" readonly="1">
+                                <list>
+                                    <field name="change_date"/>
+                                    <field name="old_classroom_id"/>
+                                    <field name="new_classroom_id"/>
+                                    <field name="user_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eduflow_enrollment_search" model="ir.ui.view">
+        <field name="name">eduflow.enrollment.search</field>
+        <field name="model">eduflow.enrollment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="student_id"/>
+                <field name="classroom_id"/>
+                <field name="year_id"/>
+                <filter string="Active" name="active_state" domain="[('state','=','active')]"/>
+                <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
+                <group>
+                    <filter string="Class" name="group_classroom" context="{'group_by':'classroom_id'}"/>
+                    <filter string="Academic Year" name="group_year" context="{'group_by':'year_id'}"/>
+                    <filter string="Status" name="group_state" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_eduflow_enrollment" model="ir.actions.act_window">
+        <field name="name">Enrollments</field>
+        <field name="res_model">eduflow.enrollment</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_eduflow_enrollment_search"/>
+    </record>
+</odoo>

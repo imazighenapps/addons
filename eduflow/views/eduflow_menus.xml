@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_eduflow_root" name="EduFlow" sequence="10"
+              groups="group_eduflow_admin,group_eduflow_direction,group_eduflow_administration,group_eduflow_teacher,group_eduflow_accountant,group_eduflow_parent_portal"
+              web_icon="eduflow,static/description/icon.png"/>
+
+    <!-- Dashboard -->
+    <menuitem id="menu_dashboard_education" name="Dashboard Pro" parent="menu_eduflow_root" sequence="0" action="action_dashboard_education"/>
+
+    <menuitem id="menu_eduflow_dashboard" name="Dashboard" parent="menu_eduflow_root"
+              sequence="5" action="action_eduflow_dashboard"
+              groups="group_eduflow_direction,group_eduflow_admin"/>
+    <!-- Admissions & Enrollments -->
+    <menuitem id="menu_eduflow_admissions_root" name="Admissions" parent="menu_eduflow_root"
+              sequence="10" groups="group_eduflow_administration,group_eduflow_admin,group_eduflow_direction"/>
+    <menuitem id="menu_eduflow_admission" name="Admission Applications" parent="menu_eduflow_admissions_root"
+              sequence="10" action="action_eduflow_admission"/>
+    <menuitem id="menu_eduflow_enrollment" name="Enrollments" parent="menu_eduflow_admissions_root"
+              sequence="20" action="action_eduflow_enrollment"/>
+
+    <!-- Students & Parents -->
+    <menuitem id="menu_eduflow_people_root" name="Students &amp; Parents" parent="menu_eduflow_root"
+              sequence="20"/>
+    <menuitem id="menu_eduflow_student" name="Students" parent="menu_eduflow_people_root"
+              sequence="10" action="action_eduflow_student"/>
+    <menuitem id="menu_eduflow_parent" name="Parents / Guardians" parent="menu_eduflow_people_root"
+              sequence="20" action="action_eduflow_parent"
+              groups="group_eduflow_administration,group_eduflow_admin,group_eduflow_direction"/>
+    <menuitem id="menu_eduflow_teacher" name="Teachers" parent="menu_eduflow_people_root"
+              sequence="30" action="action_eduflow_teacher"
+              groups="group_eduflow_administration,group_eduflow_admin,group_eduflow_direction"/>
+
+    <!-- Pedagogy -->
+    <menuitem id="menu_eduflow_pedagogy_root" name="Pedagogy" parent="menu_eduflow_root" sequence="30"/>
+ 
+    <menuitem id="menu_eduflow_generate_timetable" name="Generate Timetable" parent="menu_eduflow_pedagogy_root" sequence="5" action="action_eduflow_timetable_generate_wizard"/>
+
+    <menuitem id="menu_eduflow_classroom" name="Classes" parent="menu_eduflow_pedagogy_root"
+              sequence="10" action="action_eduflow_classroom"/>
+    <menuitem id="menu_eduflow_subject" name="Subjects" parent="menu_eduflow_pedagogy_root"
+              sequence="20" action="action_eduflow_subject"/>
+    <menuitem id="menu_eduflow_program" name="Programs" parent="menu_eduflow_pedagogy_root"
+              sequence="30" action="action_eduflow_program"
+              groups="group_eduflow_administration,group_eduflow_admin,group_eduflow_direction"/>
+    <menuitem id="menu_eduflow_timetable" name="Timetables" parent="menu_eduflow_pedagogy_root"
+              sequence="40" action="action_eduflow_timetable"/>
+    <menuitem id="menu_eduflow_attendance" name="Attendance Records" parent="menu_eduflow_pedagogy_root"
+              sequence="50" action="action_eduflow_attendance"/>
+    <menuitem id="menu_eduflow_attendance_wizard" name="Faire l'appel" parent="menu_eduflow_pedagogy_root"
+              sequence="45" action="action_eduflow_attendance_wizard"
+              groups="group_eduflow_teacher,group_eduflow_administration,group_eduflow_admin"/>
+
+    <!-- Assessments -->
+    <menuitem id="menu_eduflow_evaluation_root" name="Assessments" parent="menu_eduflow_root" sequence="40"/>
+    <menuitem id="menu_eduflow_exam" name="Exams" parent="menu_eduflow_evaluation_root"
+              sequence="10" action="action_eduflow_exam"/>
+    <menuitem id="menu_eduflow_grade" name="Grades" parent="menu_eduflow_evaluation_root"
+              sequence="20" action="action_eduflow_grade"/>
+    <menuitem id="menu_eduflow_report_card" name="Report Cards" parent="menu_eduflow_evaluation_root"
+              sequence="30" action="action_eduflow_report_card"/>
+
+    <!-- Finance -->
+    <menuitem id="menu_eduflow_finance_root" name="Finance" parent="menu_eduflow_root" sequence="50"
+              groups="group_eduflow_accountant,group_eduflow_admin,group_eduflow_direction,group_eduflow_parent_portal"/>
+    <menuitem id="menu_eduflow_fee_type" name="Fee Types" parent="menu_eduflow_finance_root"
+              sequence="10" action="action_eduflow_fee_type"
+              groups="group_eduflow_accountant,group_eduflow_admin"/>
+    <menuitem id="menu_eduflow_fee" name="Fees / Dues" parent="menu_eduflow_finance_root"
+              sequence="20" action="action_eduflow_fee"/>
+    <menuitem id="menu_eduflow_payment" name="Payments" parent="menu_eduflow_finance_root"
+              sequence="30" action="action_eduflow_payment"/>
+
+
+    <!-- Configuration -->
+    <menuitem id="menu_eduflow_config_root" name="Configuration" parent="menu_eduflow_root"
+              sequence="90" groups="group_eduflow_admin"/>
+    <menuitem id="menu_eduflow_academic_year" name="Academic Years" parent="menu_eduflow_config_root"
+              sequence="10" action="action_eduflow_academic_year"/>
+    <menuitem id="menu_eduflow_academic_period" name="Academic Periods" parent="menu_eduflow_config_root"
+              sequence="20" action="action_eduflow_academic_period"/>
+    <menuitem id="menu_eduflow_level" name="Levels" parent="menu_eduflow_config_root"
+              sequence="30" action="action_eduflow_level"/>
+    <menuitem id="menu_eduflow_document_type" name="Admission Document Types" parent="menu_eduflow_config_root"
+              sequence="40" action="action_eduflow_document_type"/>
+
+        <menuitem id="menu_eduflow_timetable_config" name="Timetable Config" parent="menu_eduflow_config_root" sequence="50"/>
+            <menuitem id="menu_eduflow_room_config" name="Rooms" parent="menu_eduflow_timetable_config" action="action_eduflow_room" sequence="10"/>
+            <menuitem id="menu_eduflow_time_slot_config" name="Time Slots" parent="menu_eduflow_timetable_config" action="action_eduflow_time_slot" sequence="20"/>
+            <menuitem id="menu_eduflow_level_hours_config" name="Hours per Subject" parent="menu_eduflow_timetable_config" action="action_eduflow_level_subject_hours" sequence="30"/>
+            <menuitem id="menu_eduflow_teacher_avail_config" name="Teacher Availabilities" parent="menu_eduflow_timetable_config" action="action_eduflow_teacher_availability" sequence="40"/>
+              
+              
+</odoo>
+

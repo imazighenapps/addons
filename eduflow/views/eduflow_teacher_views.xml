@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_teacher_list" model="ir.ui.view">
+        <field name="name">eduflow.teacher.list</field>
+        <field name="model">eduflow.teacher</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="matricule"/>
+                <field name="name"/>
+                <field name="specialty"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_teacher_form" model="ir.ui.view">
+        <field name="name">eduflow.teacher.form</field>
+        <field name="model">eduflow.teacher</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                        <field name="matricule" readonly="1"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="specialty"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="status"/>
+                        </group>
+                        <group id="eduflow_teacher_links_group">
+                            <field name="employee_id" options="{'no_create': True}"/>
+                            <field name="user_id"/>
+                            <field name="subject_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Timetable">
+                            <field name="timetable_ids">
+                                <list>
+                                    <field name="day"/>
+                                    <field name="hour_start" widget="float_time"/>
+                                    <field name="hour_end" widget="float_time"/>
+                                    <field name="classroom_id"/>
+                                    <field name="subject_id"/>
+                                    <field name="room"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Classs (professeur principal)">
+                            <field name="classroom_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="year_id"/>
+                                    <field name="level_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eduflow_teacher_search" model="ir.ui.view">
+        <field name="name">eduflow.teacher.search</field>
+        <field name="model">eduflow.teacher</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="matricule"/>
+                <field name="specialty"/>
+                <field name="subject_ids"/>
+                <group>
+                    <filter string="Specialty" name="group_specialty" context="{'group_by':'specialty'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by':'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_eduflow_teacher" model="ir.actions.act_window">
+        <field name="name">Teachers</field>
+        <field name="res_model">eduflow.teacher</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_eduflow_teacher_search"/>
+    </record>
+</odoo>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_classroom_list" model="ir.ui.view">
+        <field name="name">eduflow.classroom.list</field>
+        <field name="model">eduflow.classroom</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="year_id"/>
+                <field name="level_id"/>
+                <field name="section"/>
+                <field name="principal_teacher_id"/>
+                <field name="student_count"/>
+                <field name="capacity"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_classroom_form" model="ir.ui.view">
+        <field name="name">eduflow.classroom.form</field>
+        <field name="model">eduflow.classroom</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="E.g. 1st Year A"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="year_id"/>
+                            <field name="level_id"/>
+                            <field name="section"/>
+                        </group>
+                        <group>
+                            <field name="principal_teacher_id"/>
+                            <field name="capacity"/>
+                            <field name="student_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Students inscrits">
+                            <field name="enrollment_ids">
+                                <list>
+                                    <field name="student_id"/>
+                                    <field name="date"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eduflow_classroom_search" model="ir.ui.view">
+        <field name="name">eduflow.classroom.search</field>
+        <field name="model">eduflow.classroom</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="level_id"/>
+                <field name="year_id"/>
+                <field name="principal_teacher_id"/>
+                <group>
+                    <filter string="Academic Year" name="group_year" context="{'group_by':'year_id'}"/>
+                    <filter string="Level" name="group_level" context="{'group_by':'level_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_eduflow_classroom" model="ir.actions.act_window">
+        <field name="name">Classs</field>
+        <field name="res_model">eduflow.classroom</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_eduflow_classroom_search"/>
+    </record>
+</odoo>

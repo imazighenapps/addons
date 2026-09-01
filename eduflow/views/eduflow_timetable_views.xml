@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_timetable_list" model="ir.ui.view">
+        <field name="name">eduflow.timetable.session.list</field>
+        <field name="model">eduflow.timetable.session</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="classroom_id"/>
+                <field name="subject_id"/>
+                <field name="teacher_id"/>
+                <field name="day"/>
+                <field name="hour_start" widget="float_time"/>
+                <field name="hour_end" widget="float_time"/>
+                <field name="room"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eduflow_timetable_form" model="ir.ui.view">
+        <field name="name">eduflow.timetable.session.form</field>
+        <field name="model">eduflow.timetable.session</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="classroom_id"/>
+                            <field name="subject_id"/>
+                            <field name="teacher_id"/>
+                            <field name="room"/>
+                        </group>
+                        <group>
+                            <field name="day"/>
+                            <field name="hour_start" widget="float_time"/>
+                            <field name="hour_end" widget="float_time"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eduflow_timetable_search" model="ir.ui.view">
+        <field name="name">eduflow.timetable.session.search</field>
+        <field name="model">eduflow.timetable.session</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="classroom_id"/>
+                <field name="teacher_id"/>
+                <field name="subject_id"/>
+                <field name="room_id"/>
+                <field name="room"/>
+                <field name="day"/>
+                <filter string="Today" name="today" domain="[('day','=', str(datetime.datetime.now().weekday()))]"/>
+                <filter string="Monday" name="monday" domain="[('day','=','0')]"/>
+                <filter string="Tuesday" name="tuesday" domain="[('day','=','1')]"/>
+                <filter string="My Classes" name="my_classes" domain="[('teacher_id.user_id','=',uid)]"/>
+                <separator/>
+                <filter string="Locked" name="locked" domain="[('locked','=',True)]"/>
+                <filter string="Unlocked" name="unlocked" domain="[('locked','=',False)]"/>
+                <group>
+                    <filter string="Class" name="group_classroom" context="{'group_by':'classroom_id'}"/>
+                    <filter string="Teacher" name="group_teacher" context="{'group_by':'teacher_id'}"/>
+                    <filter string="Subject" name="group_subject" context="{'group_by':'subject_id'}"/>
+                    <filter string="Day" name="group_day" context="{'group_by':'day'}"/>
+                    <filter string="Room" name="group_room" context="{'group_by':'room_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_eduflow_timetable_calendar" model="ir.ui.view">
+        <field name="name">eduflow.timetable.session.calendar</field>
+        <field name="model">eduflow.timetable.session</field>
+        <field name="arch" type="xml">
+            <calendar string="Weekly Timetable" date_start="date_start" date_stop="date_stop"
+                      mode="week" color="subject_id" event_limit="10">
+                <field name="classroom_id"/>
+                <field name="teacher_id"/>
+                <field name="subject_id"/>
+                <field name="room"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="action_eduflow_timetable" model="ir.actions.act_window">
+        <field name="name">Timetables</field>
+        <field name="res_model">eduflow.timetable.session</field>
+        <field name="view_mode">calendar,list,form</field>
+        <field name="search_view_id" ref="view_eduflow_timetable_search"/>
+    </record>
+</odoo>

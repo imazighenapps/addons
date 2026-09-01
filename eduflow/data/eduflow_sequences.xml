@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="seq_eduflow_student_matricule" model="ir.sequence">
+        <field name="name">EduFlow - Student Registration No.</field>
+        <field name="code">eduflow.student.matricule</field>
+        <field name="prefix">EDU-%(year)s-</field>
+        <field name="padding">5</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">standard</field>
+    </record>
+
+    <record id="seq_eduflow_admission" model="ir.sequence">
+        <field name="name">EduFlow - N° dossier admission</field>
+        <field name="code">eduflow.admission</field>
+        <field name="prefix">ADM-%(year)s-</field>
+        <field name="padding">5</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">standard</field>
+    </record>
+
+    <record id="seq_eduflow_teacher" model="ir.sequence">
+        <field name="name">EduFlow - Registration Number enseignant</field>
+        <field name="code">eduflow.teacher</field>
+        <field name="prefix">ENS-%(year)s-</field>
+        <field name="padding">4</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">standard</field>
+    </record>
+
+    <record id="seq_eduflow_payment" model="ir.sequence">
+        <field name="name">EduFlow - Payment Receipt No.</field>
+        <field name="code">eduflow.payment</field>
+        <field name="prefix">REC-%(year)s-</field>
+        <field name="padding">5</field>
+        <field name="number_increment">1</field>
+        <field name="implementation">standard</field>
+    </record>
+</odoo>

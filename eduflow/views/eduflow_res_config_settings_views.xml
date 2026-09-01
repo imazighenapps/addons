@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_eduflow_res_config_settings_form" model="ir.ui.view">
+        <field name="name">eduflow.res.config.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <div class="app_settings_block" data-string="EduFlow" string="EduFlow" data-key="eduflow">
+                    <h2>EduFlow Settings</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"><field name="eduflow_account_sync_enabled"/></div>
+                            <div class="o_setting_right_pane"><label for="eduflow_account_sync_enabled"/><div class="text-muted">Sync payments to Accounting</div></div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"><field name="eduflow_absenteeism_alert_threshold"/></div>
+                            <div class="o_setting_right_pane"><label for="eduflow_absenteeism_alert_threshold"/></div>
+                        </div>
+                        <div class="col-12"><label for="eduflow_report_card_legal_mention"/><field name="eduflow_report_card_legal_mention" class="o_field_textarea"/></div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
