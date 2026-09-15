@@ -1,0 +1,162 @@
+<odoo>
+    <!-- Demo data intentionally represents a realistic production environment for screenshots and product evaluation. -->
+    <record id="demo_baseline_production" model="fs.guardian.baseline">
+        <field name="name">Production - Algeria HQ</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="description">Trusted production baseline after the initial Odoo implementation and go-live review.</field>
+        <field name="state">active</field>
+        <field name="active">True</field>
+    </record>
+    <record id="demo_baseline_staging" model="fs.guardian.baseline">
+        <field name="name">Staging - Pre Go-Live</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="description">Staging reference used by the implementation team before production deployment.</field>
+        <field name="state">active</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="demo_snapshot_production" model="fs.guardian.snapshot">
+        <field name="name">Production Baseline - 01 Sep 2026 08:30</field>
+        <field name="baseline_id" ref="demo_baseline_production"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="captured_by" ref="base.user_admin"/>
+        <field name="is_baseline">True</field>
+        <field name="state">completed</field>
+        <field name="item_count">186</field>
+        <field name="checksum">fsg-demo-prod-20260901-a81f9c</field>
+        <field name="scan_type">baseline</field>
+        <field name="payload" eval="{'demo': True, 'environment': 'production', 'categories': {'security': 42, 'accounting': 31, 'inventory': 28, 'sales': 22, 'automation': 19, 'technical': 30, 'studio': 14}}"/>
+    </record>
+    <record id="demo_snapshot_staging" model="fs.guardian.snapshot">
+        <field name="name">Staging Snapshot - 14 Sep 2026 17:45</field>
+        <field name="baseline_id" ref="demo_baseline_staging"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="captured_by" ref="base.user_admin"/>
+        <field name="is_baseline">True</field>
+        <field name="state">completed</field>
+        <field name="item_count">194</field>
+        <field name="checksum">fsg-demo-stage-20260914-31cd77</field>
+        <field name="scan_type">baseline</field>
+        <field name="payload" eval="{'demo': True, 'environment': 'staging', 'categories': {'security': 45, 'accounting': 32, 'inventory': 29, 'sales': 23, 'automation': 20, 'technical': 31, 'studio': 14}}"/>
+    </record>
+    <record id="demo_snapshot_scan" model="fs.guardian.snapshot">
+        <field name="name">Configuration Scan - 15 Sep 2026 08:32</field>
+        <field name="baseline_id" ref="demo_baseline_production"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="captured_by" ref="base.user_admin"/>
+        <field name="is_baseline">False</field>
+        <field name="state">completed</field>
+        <field name="item_count">193</field>
+        <field name="checksum">fsg-demo-scan-20260915-5be201</field>
+        <field name="scan_type">scan</field>
+        <field name="payload" eval="{'demo': True, 'environment': 'production', 'categories': {'security': 45, 'accounting': 33, 'inventory': 29, 'sales': 24, 'automation': 21, 'technical': 27, 'studio': 14}}"/>
+    </record>
+    <record id="demo_snapshot_failed" model="fs.guardian.snapshot">
+        <field name="name">Configuration Scan - 14 Sep 2026 02:00</field>
+        <field name="baseline_id" ref="demo_baseline_production"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="captured_by" ref="base.user_admin"/>
+        <field name="is_baseline">False</field>
+        <field name="state">failed</field>
+        <field name="item_count">0</field>
+        <field name="checksum">fsg-demo-failed</field>
+        <field name="scan_type">scan</field>
+        <field name="error_message">Demo: temporary collector timeout while reading a non-critical technical registry.</field>
+    </record>
+
+    <!-- Link each baseline to its snapshot. Reuse the existing external IDs; do not create a new baseline record. -->
+    <record id="demo_baseline_production" model="fs.guardian.baseline">
+        <field name="snapshot_id" ref="demo_snapshot_production"/>
+    </record>
+    <record id="demo_baseline_staging" model="fs.guardian.baseline">
+        <field name="snapshot_id" ref="demo_snapshot_staging"/>
+    </record>
+
+    <!-- Security -->
+    <record id="demo_change_security_admin" model="fs.guardian.change">
+        <field name="name">Security: System Administrator privileges changed</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">security</field><field name="operation">modified</field><field name="model_name">res.users</field><field name="record_key">user:demo-admin</field><field name="record_label">System Administrator</field><field name="external_id">base.user_admin</field><field name="detected_at">2026-09-15 08:32:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'groups': ['Sales / User', 'Inventory / User']}"/><field name="after_data" eval="{'groups': ['Sales / User', 'Inventory / User', 'Administration / Settings']}"/><field name="risk_level">critical</field><field name="risk_reason">Administrative access changed on a privileged user. This can affect the entire Odoo security boundary.</field><field name="status">unknown</field><field name="fingerprint">demo-security-admin-001</field>
+    </record>
+    <record id="demo_change_security_group" model="fs.guardian.change">
+        <field name="name">Security: Sales Manager group membership</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">security</field><field name="operation">modified</field><field name="model_name">res.groups</field><field name="record_key">group:sales-manager</field><field name="record_label">Sales / Manager</field><field name="detected_at">2026-09-15 08:18:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'users': 4}"/><field name="after_data" eval="{'users': 5}"/><field name="risk_level">high</field><field name="risk_reason">A privileged business group gained a new member.</field><field name="status">expected</field><field name="reviewer_id" ref="base.user_admin"/><field name="reviewed_at">2026-09-15 09:00:00</field><field name="review_note">New sales manager approved during onboarding.</field><field name="fingerprint">demo-security-group-001</field>
+    </record>
+    <record id="demo_change_security_rule" model="fs.guardian.change">
+        <field name="name">Security: Customer record rule modified</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">security</field><field name="operation">modified</field><field name="model_name">ir.rule</field><field name="record_key">rule:res-partner-sales</field><field name="record_label">Sales: Own Customers</field><field name="detected_at">2026-09-14 16:40:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'domain_force': [['user_id', '=', 'user.id']]}"/><field name="after_data" eval="{'domain_force': ['|', ['user_id', '=', 'user.id'], ['user_id', '=', False]]}"/><field name="risk_level">critical</field><field name="risk_reason">Record rule domain changed and may broaden access to customer records.</field><field name="status">approved</field><field name="reviewer_id" ref="base.user_admin"/><field name="reviewed_at">2026-09-14 17:10:00</field><field name="review_note">Approved after security review.</field><field name="fingerprint">demo-security-rule-001</field>
+    </record>
+    <record id="demo_change_security_access" model="fs.guardian.change">
+        <field name="name">Security: Invoice access control added</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">security</field><field name="operation">added</field><field name="model_name">ir.model.access</field><field name="record_key">access:account-move-manager</field><field name="record_label">Account Move Manager ACL</field><field name="detected_at">2026-09-13 11:20:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{}"/><field name="after_data" eval="{'perm_read': True, 'perm_write': True, 'perm_create': True, 'perm_unlink': False}"/><field name="risk_level">high</field><field name="risk_reason">A new accounting permission was introduced for a manager role.</field><field name="status">unknown</field><field name="fingerprint">demo-security-acl-001</field>
+    </record>
+
+    <!-- Accounting -->
+    <record id="demo_change_accounting_tax" model="fs.guardian.change">
+        <field name="name">Accounting: VAT 19% tax configuration</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">accounting</field><field name="operation">modified</field><field name="model_name">account.tax</field><field name="record_key">tax:vat-19</field><field name="record_label">VAT 19%</field><field name="detected_at">2026-09-15 07:52:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'amount': 19.0, 'active': True, 'price_include': False}"/><field name="after_data" eval="{'amount': 19.0, 'active': True, 'price_include': True}"/><field name="risk_level">critical</field><field name="risk_reason">Tax price-inclusion behavior changed and can alter customer invoice totals.</field><field name="status">unknown</field><field name="fingerprint">demo-account-tax-001</field>
+    </record>
+    <record id="demo_change_accounting_journal" model="fs.guardian.change">
+        <field name="name">Accounting: Bank Journal posting settings</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">accounting</field><field name="operation">modified</field><field name="model_name">account.journal</field><field name="record_key">journal:bank</field><field name="record_label">Bank</field><field name="detected_at">2026-09-14 15:12:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'default_account': '512000'}"/><field name="after_data" eval="{'default_account': '512100'}"/><field name="risk_level">high</field><field name="risk_reason">Default bank account changed. Posting behavior may be affected.</field><field name="status">approved</field><field name="reviewer_id" ref="base.user_admin"/><field name="reviewed_at">2026-09-14 16:00:00</field><field name="review_note">Approved by finance lead for the new bank account.</field><field name="fingerprint">demo-account-journal-001</field>
+    </record>
+    <record id="demo_change_accounting_sequence" model="fs.guardian.change">
+        <field name="name">Accounting: Customer invoice sequence</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">accounting</field><field name="operation">modified</field><field name="model_name">ir.sequence</field><field name="record_key">sequence:customer-invoice</field><field name="record_label">Customer Invoices</field><field name="detected_at">2026-09-13 09:05:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'prefix': 'INV/%(year)s/', 'padding': 5}"/><field name="after_data" eval="{'prefix': 'INV/%(year)s/ALG/', 'padding': 6}"/><field name="risk_level">medium</field><field name="risk_reason">Document numbering format changed; verify downstream reporting and legal numbering requirements.</field><field name="status">expected</field><field name="reviewer_id" ref="base.user_admin"/><field name="reviewed_at">2026-09-13 10:00:00</field><field name="review_note">Planned numbering change for FY2026.</field><field name="fingerprint">demo-account-seq-001</field>
+    </record>
+    <record id="demo_change_accounting_lock" model="fs.guardian.change">
+        <field name="name">Accounting: Fiscal lock date changed</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">accounting</field><field name="operation">modified</field><field name="model_name">res.company</field><field name="record_key">company:main:lock-date</field><field name="record_label">Algeria HQ</field><field name="detected_at">2026-09-12 18:22:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'period_lock_date': '2026-08-31'}"/><field name="after_data" eval="{'period_lock_date': '2026-09-10'}"/><field name="risk_level">high</field><field name="risk_reason">Fiscal period locking was moved forward and may prevent corrections in earlier periods.</field><field name="status">unknown</field><field name="fingerprint">demo-account-lock-001</field>
+    </record>
+
+    <!-- Inventory -->
+    <record id="demo_change_inventory_route" model="fs.guardian.change">
+        <field name="name">Inventory: Dropship route activated</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">inventory</field><field name="operation">modified</field><field name="model_name">stock.route</field><field name="record_key">route:dropship</field><field name="record_label">Dropship</field><field name="detected_at">2026-09-15 08:04:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'active': False}"/><field name="after_data" eval="{'active': True}"/><field name="risk_level">high</field><field name="risk_reason">A logistics route was activated and may change procurement and fulfillment flows.</field><field name="status">unknown</field><field name="fingerprint">demo-inventory-route-001</field>
+    </record>
+    <record id="demo_change_inventory_warehouse" model="fs.guardian.change">
+        <field name="name">Inventory: Main warehouse operation type</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">inventory</field><field name="operation">modified</field><field name="model_name">stock.picking.type</field><field name="record_key">picking:outgoing</field><field name="record_label">Delivery Orders</field><field name="detected_at">2026-09-14 13:45:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'reservation_method': 'at_confirm'}"/><field name="after_data" eval="{'reservation_method': 'manual'}"/><field name="risk_level">medium</field><field name="risk_reason">Reservation behavior changed for outgoing operations.</field><field name="status">expected</field><field name="reviewer_id" ref="base.user_admin"/><field name="reviewed_at">2026-09-14 14:00:00</field><field name="review_note">Approved for warehouse process redesign.</field><field name="fingerprint">demo-inventory-picking-001</field>
+    </record>
+    <record id="demo_change_inventory_location" model="fs.guardian.change">
+        <field name="name">Inventory: Quarantine location removed</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">inventory</field><field name="operation">removed</field><field name="model_name">stock.location</field><field name="record_key">location:quarantine</field><field name="record_label">Quality Control / Quarantine</field><field name="detected_at">2026-09-13 17:30:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'complete_name': 'WH/Quality/Quarantine', 'usage': 'internal'}"/><field name="after_data" eval="{}"/><field name="risk_level">critical</field><field name="risk_reason">A stock location disappeared from the trusted baseline and may break existing routes or inventory history.</field><field name="status">rejected</field><field name="reviewer_id" ref="base.user_admin"/><field name="reviewed_at">2026-09-13 18:00:00</field><field name="review_note">Rejected. Location restored during incident response.</field><field name="fingerprint">demo-inventory-location-001</field>
+    </record>
+
+    <!-- Sales -->
+    <record id="demo_change_sales_pricelist" model="fs.guardian.change">
+        <field name="name">Sales: B2B Algeria pricelist</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">sales</field><field name="operation">modified</field><field name="model_name">product.pricelist</field><field name="record_key">pricelist:b2b-algeria</field><field name="record_label">B2B Algeria</field><field name="detected_at">2026-09-15 08:12:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'discount_policy': 'with_discount'}"/><field name="after_data" eval="{'discount_policy': 'without_discount'}"/><field name="risk_level">high</field><field name="risk_reason">Price calculation behavior changed for B2B quotations.</field><field name="status">unknown</field><field name="fingerprint">demo-sales-pricelist-001</field>
+    </record>
+    <record id="demo_change_sales_payment" model="fs.guardian.change">
+        <field name="name">Sales: Customer payment terms</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">sales</field><field name="operation">modified</field><field name="model_name">account.payment.term</field><field name="record_key">payment-term:30-days</field><field name="record_label">30 Days</field><field name="detected_at">2026-09-14 10:18:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'days': 30, 'day_of_the_month': 0}"/><field name="after_data" eval="{'days': 45, 'day_of_the_month': 0}"/><field name="risk_level">medium</field><field name="risk_reason">Customer payment terms were extended from 30 to 45 days.</field><field name="status">expected</field><field name="reviewer_id" ref="base.user_admin"/><field name="reviewed_at">2026-09-14 11:00:00</field><field name="review_note">Commercial policy approved for strategic customers.</field><field name="fingerprint">demo-sales-payment-001</field>
+    </record>
+    <record id="demo_change_sales_team" model="fs.guardian.change">
+        <field name="name">Sales: Sales team configuration added</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">sales</field><field name="operation">added</field><field name="model_name">crm.team</field><field name="record_key">team:enterprise</field><field name="record_label">Enterprise Accounts</field><field name="detected_at">2026-09-12 09:40:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{}"/><field name="after_data" eval="{'company': 'Algeria HQ', 'quotations': True, 'invoicing_target': 25000000}"/><field name="risk_level">low</field><field name="risk_reason">A new sales team was added to support enterprise accounts.</field><field name="status">approved</field><field name="reviewer_id" ref="base.user_admin"/><field name="reviewed_at">2026-09-12 10:00:00</field><field name="fingerprint">demo-sales-team-001</field>
+    </record>
+
+    <!-- Automation -->
+    <record id="demo_change_cron" model="fs.guardian.change">
+        <field name="name">Automation: Customer reminder scheduled action</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">automation</field><field name="operation">modified</field><field name="model_name">ir.cron</field><field name="record_key">cron:customer-reminder</field><field name="record_label">Customer Payment Reminder</field><field name="detected_at">2026-09-15 06:30:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'interval_number': 1, 'interval_type': 'days', 'active': True}"/><field name="after_data" eval="{'interval_number': 6, 'interval_type': 'hours', 'active': True}"/><field name="risk_level">high</field><field name="risk_reason">Execution frequency changed significantly for an automated action.</field><field name="status">unknown</field><field name="fingerprint">demo-auto-cron-001</field>
+    </record>
+    <record id="demo_change_server_action" model="fs.guardian.change">
+        <field name="name">Automation: Sales confirmation server action</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">automation</field><field name="operation">modified</field><field name="model_name">ir.actions.server</field><field name="record_key">server-action:sale-confirm</field><field name="record_label">Confirm Sale - Send Notification</field><field name="detected_at">2026-09-14 09:25:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'state': 'code', 'code_hash': 'a8f31d'}"/><field name="after_data" eval="{'state': 'code', 'code_hash': 'f9c201'}"/><field name="risk_level">critical</field><field name="risk_reason">Server action executable code changed. Review the change before allowing production execution.</field><field name="status">unknown</field><field name="fingerprint">demo-auto-server-001</field>
+    </record>
+    <record id="demo_change_mail_template" model="fs.guardian.change">
+        <field name="name">Automation: Invoice email template updated</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">automation</field><field name="operation">modified</field><field name="model_name">mail.template</field><field name="record_key">template:invoice</field><field name="record_label">Invoice: Send by Email</field><field name="detected_at">2026-09-13 14:12:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'subject': 'Invoice {{ object.name }}'}"/><field name="after_data" eval="{'subject': 'Invoice {{ object.name }} - Thanks for your business'}"/><field name="risk_level">low</field><field name="risk_reason">Customer-facing email template was updated.</field><field name="status">expected</field><field name="reviewer_id" ref="base.user_admin"/><field name="reviewed_at">2026-09-13 15:00:00</field><field name="fingerprint">demo-auto-mail-001</field>
+    </record>
+
+    <!-- Studio / Technical -->
+    <record id="demo_change_studio_field" model="fs.guardian.change">
+        <field name="name">Studio: Customer risk level field added</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">studio</field><field name="operation">added</field><field name="model_name">ir.model.fields</field><field name="record_key">field:res.partner:x_risk_level</field><field name="record_label">Customer Risk Level</field><field name="detected_at">2026-09-12 16:25:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{}"/><field name="after_data" eval="{'ttype': 'selection', 'model': 'res.partner', 'field_description': 'Customer Risk Level'}"/><field name="risk_level">medium</field><field name="risk_reason">A custom Studio field was added to customer master data.</field><field name="status">approved</field><field name="reviewer_id" ref="base.user_admin"/><field name="reviewed_at">2026-09-12 17:00:00</field><field name="fingerprint">demo-studio-field-001</field>
+    </record>
+    <record id="demo_change_view" model="fs.guardian.change">
+        <field name="name">Technical: Sales order form view changed</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">technical</field><field name="operation">modified</field><field name="model_name">ir.ui.view</field><field name="record_key">view:sale.order.form.custom</field><field name="record_label">Sales Order Form - Custom</field><field name="detected_at">2026-09-15 07:20:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'arch_hash': '1b72f0', 'priority': 16}"/><field name="after_data" eval="{'arch_hash': '82d4a1', 'priority': 16}"/><field name="risk_level">medium</field><field name="risk_reason">A production form view changed and should be checked for unintended UI or workflow impact.</field><field name="status">unknown</field><field name="fingerprint">demo-tech-view-001</field>
+    </record>
+    <record id="demo_change_module" model="fs.guardian.change">
+        <field name="name">Technical: Custom integration module installed</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">technical</field><field name="operation">added</field><field name="model_name">ir.module.module</field><field name="record_key">module:custom_logistics_bridge</field><field name="record_label">Custom Logistics Bridge</field><field name="detected_at">2026-09-14 18:05:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{}"/><field name="after_data" eval="{'state': 'installed', 'version': '19.0.1.2.0'}"/><field name="risk_level">high</field><field name="risk_reason">A custom module was installed in production and may alter business workflows or security.</field><field name="status">unknown</field><field name="fingerprint">demo-tech-module-001</field>
+    </record>
+    <record id="demo_change_parameter" model="fs.guardian.change">
+        <field name="name">Technical: Mail catchall configuration</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">technical</field><field name="operation">modified</field><field name="model_name">ir.config_parameter</field><field name="record_key">param:mail.catchall.domain</field><field name="record_label">Mail Catchall Domain</field><field name="detected_at">2026-09-13 12:40:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'value': 'erp.example.dz'}"/><field name="after_data" eval="{'value': 'mail.example.dz'}"/><field name="risk_level">medium</field><field name="risk_reason">System mail routing configuration changed.</field><field name="status">expected</field><field name="reviewer_id" ref="base.user_admin"/><field name="reviewed_at">2026-09-13 13:00:00</field><field name="fingerprint">demo-tech-param-001</field>
+    </record>
+
+    <!-- A deliberately rejected and a low-risk approved example complete the review-state coverage. -->
+    <record id="demo_change_rejected_pricelist" model="fs.guardian.change">
+        <field name="name">Sales: Discount rule removed</field><field name="baseline_id" ref="demo_baseline_production"/><field name="category">sales</field><field name="operation">removed</field><field name="model_name">product.pricelist.item</field><field name="record_key">pricelist-item:volume-discount</field><field name="record_label">Volume Discount 10%</field><field name="detected_at">2026-09-11 15:55:00</field><field name="detected_by" ref="base.user_admin"/><field name="before_data" eval="{'discount': 10.0, 'min_quantity': 50}"/><field name="after_data" eval="{}"/><field name="risk_level">high</field><field name="risk_reason">A commercial discount rule was removed from the trusted baseline.</field><field name="status">rejected</field><field name="reviewer_id" ref="base.user_admin"/><field name="reviewed_at">2026-09-11 16:30:00</field><field name="review_note">Rejected. Discount rule was removed accidentally and has been restored.</field><field name="fingerprint">demo-sales-discount-001</field>
+    </record>
+
+    <!-- Risk rules shown in the Rules menu. -->
+    <record id="demo_rule_security_users" model="fs.guardian.rule"><field name="name">Privileged user changes</field><field name="sequence">1</field><field name="category">security</field><field name="model_name">res.users</field><field name="risk_level">critical</field><field name="description">Any change affecting privileged users should be reviewed immediately.</field></record>
+    <record id="demo_rule_security_rules" model="fs.guardian.rule"><field name="name">Record rule changes</field><field name="sequence">2</field><field name="category">security</field><field name="model_name">ir.rule</field><field name="risk_level">critical</field><field name="description">Record rule changes can broaden or restrict access to business data.</field></record>
+    <record id="demo_rule_automation_code" model="fs.guardian.rule"><field name="name">Executable automation changes</field><field name="sequence">3</field><field name="category">automation</field><field name="model_name">ir.actions.server</field><field name="risk_level">critical</field><field name="description">Changes to executable server actions require a production review.</field></record>
+    <record id="demo_rule_accounting_tax" model="fs.guardian.rule"><field name="name">Tax configuration changes</field><field name="sequence">4</field><field name="category">accounting</field><field name="model_name">account.tax</field><field name="risk_level">critical</field><field name="description">Tax configuration changes can affect invoicing and compliance.</field></record>
+    <record id="demo_rule_inventory_routes" model="fs.guardian.rule"><field name="name">Logistics route changes</field><field name="sequence">5</field><field name="category">inventory</field><field name="model_name">stock.route</field><field name="risk_level">high</field><field name="description">Route changes can modify procurement and fulfillment behavior.</field></record>
+    <record id="demo_rule_technical_modules" model="fs.guardian.rule"><field name="name">Production module installation</field><field name="sequence">6</field><field name="category">technical</field><field name="model_name">ir.module.module</field><field name="risk_level">high</field><field name="description">Installing or removing modules in production should be visible to the integrator.</field></record>
+</odoo>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="fs_configuration_guardian.GuardianDashboard">
+        <div class="o_guardian_dashboard">
+            <t t-if="state.loading">
+                <div class="guardian-loading"><i class="fa fa-shield fa-2x"/><span>Loading Configuration Guardian…</span></div>
+            </t>
+            <t t-elif="state.error">
+                <div class="alert alert-danger m-4"><strong>Dashboard unavailable.</strong> <t t-esc="state.error"/></div>
+            </t>
+            <t t-else="">
+                <div class="guardian-shell">
+                    <header class="guardian-header">
+                        <div>
+                            <div class="guardian-eyebrow"><i class="fa fa-shield"/> CONFIGURATION GOVERNANCE</div>
+                            <h1>Configuration Health</h1>
+                            <p>Monitor configuration drift, understand risk and keep <strong><t t-esc="state.data.company.name"/></strong> under control.</p>
+                        </div>
+                        <div class="guardian-actions">
+                            <button class="btn btn-outline-secondary" t-on-click="refresh"><i class="fa fa-refresh mr-1"/> Refresh</button>
+                            <button class="btn btn-primary" t-on-click="openChanges"><i class="fa fa-list mr-1"/> View Changes</button>
+                        </div>
+                    </header>
+
+                    <div class="guardian-kpis">
+                        <button class="guardian-kpi guardian-kpi-health" t-on-click="openBaselines">
+                            <div class="kpi-icon"><i class="fa fa-shield"/></div>
+                            <div><span class="kpi-label">Configuration Health</span><strong><t t-esc="state.data.kpis.health_score"/>/100</strong><small>Overall health score</small></div>
+                            <div class="health-ring" t-att-style="'--score:' + state.data.kpis.health_score + '%'"/>
+                        </button>
+                        <button class="guardian-kpi" t-on-click="openChanges">
+                            <div class="kpi-icon icon-neutral"><i class="fa fa-exchange"/></div>
+                            <div><span class="kpi-label">Open Changes</span><strong><t t-esc="state.data.kpis.open_changes"/></strong><small>Need review or action</small></div>
+                        </button>
+                        <button class="guardian-kpi kpi-critical" t-on-click="() => openChanges([['risk_level', '=', 'critical']])">
+                            <div class="kpi-icon"><i class="fa fa-exclamation-circle"/></div>
+                            <div><span class="kpi-label">Critical</span><strong><t t-esc="state.data.kpis.critical"/></strong><small>Immediate attention</small></div>
+                        </button>
+                        <button class="guardian-kpi kpi-high" t-on-click="() => openChanges([['risk_level', '=', 'high']])">
+                            <div class="kpi-icon"><i class="fa fa-warning"/></div>
+                            <div><span class="kpi-label">High Risk</span><strong><t t-esc="state.data.kpis.high"/></strong><small>Priority review</small></div>
+                        </button>
+                        <button class="guardian-kpi" t-on-click="openBaselines">
+                            <div class="kpi-icon icon-success"><i class="fa fa-database"/></div>
+                            <div><span class="kpi-label">Active Baselines</span><strong><t t-esc="state.data.kpis.active_baselines"/></strong><small>Trusted configurations</small></div>
+                        </button>
+                    </div>
+
+                    <div class="guardian-grid guardian-grid-top">
+                        <section class="guardian-card guardian-trend-card">
+                            <div class="card-head"><div><h2>Configuration Changes</h2><p>Detected drift over the last 7 days</p></div><button class="icon-button" t-on-click="openChanges"><i class="fa fa-arrow-right"/></button></div>
+                            <div class="trend-chart">
+                                <div class="trend-grid"><span/><span/><span/><span/></div>
+                                <div class="trend-bars">
+                                    <t t-foreach="state.data.trend" t-as="day" t-key="day.date">
+                                        <div class="trend-column" t-on-click="openChanges([[['detected_at', '>=', day.date + ' 00:00:00']], [['detected_at', '&lt;', day.date + ' 23:59:59']]])">
+                                            <div class="trend-value"><t t-esc="day.value"/></div>
+                                            <div class="trend-bar" t-att-style="'height:' + trendHeight(day.value)"/>
+                                            <div class="trend-label"><t t-esc="shortDate(day.date)"/></div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="guardian-card status-card">
+                            <div class="card-head"><div><h2>Review Status</h2><p>Change governance state</p></div></div>
+                            <div class="status-donut-wrap">
+                                <div class="status-donut"><div><strong><t t-esc="state.data.kpis.total_changes"/></strong><span>Total</span></div></div>
+                                <div class="status-legend">
+                                    <t t-foreach="state.data.statuses" t-as="row" t-key="row.key">
+                                        <div class="legend-row"><span t-att-class="'legend-dot dot-' + row.key"/><span><t t-esc="row.label"/></span><strong><t t-esc="row.value"/></strong></div>
+                                    </t>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="guardian-grid guardian-grid-middle">
+                        <section class="guardian-card">
+                            <div class="card-head"><div><h2>Changes by Category</h2><p>Where configuration drift is happening</p></div></div>
+                            <div class="category-list">
+                                <t t-if="!state.data.categories.length"><div class="empty-state">No configuration changes detected.</div></t>
+                                <t t-foreach="state.data.categories" t-as="row" t-key="row.key">
+                                    <button class="category-row" t-on-click="() => openChanges([['category', '=', row.key]])">
+                                        <span class="category-name"><i t-att-class="'fa fa-' + ({security:'lock',automation:'cogs',studio:'paint-brush',accounting:'calculator',inventory:'cube',sales:'bar-chart',technical:'code'}[row.key] || 'circle')"/><t t-esc="row.label"/></span>
+                                        <span class="category-track"><span t-att-style="'width:' + categoryWidth(row.value)"/></span>
+                                        <strong><t t-esc="row.value"/></strong>
+                                    </button>
+                                </t>
+                            </div>
+                        </section>
+                        <section class="guardian-card">
+                            <div class="card-head"><div><h2>Risk Distribution</h2><p>Current exposure across all detected changes</p></div></div>
+                            <div class="risk-list">
+                                <t t-foreach="state.data.risks" t-as="row" t-key="row.key">
+                                    <button class="risk-row" t-on-click="() => openChanges([['risk_level', '=', row.key]])">
+                                        <span t-att-class="riskClass(row.key)"><t t-esc="row.label"/></span>
+                                        <span class="risk-track"><span t-att-class="'risk-fill fill-' + row.key" t-att-style="'width:' + Math.max(5, (row.value / Math.max(state.data.kpis.total_changes, 1)) * 100) + '%'"/></span>
+                                        <strong><t t-esc="row.value"/></strong>
+                                    </button>
+                                </t>
+                            </div>
+                        </section>
+                    </div>
+
+                    <section class="guardian-card recent-card">
+                        <div class="card-head"><div><h2>Recent Configuration Changes</h2><p>Latest activity requiring visibility</p></div><button class="btn btn-link" t-on-click="openChanges">View all <i class="fa fa-arrow-right ml-1"/></button></div>
+                        <div class="table-responsive">
+                            <table class="guardian-table">
+                                <thead><tr><th>Change</th><th>Category</th><th>Operation</th><th>Risk</th><th>Status</th><th>Detected</th></tr></thead>
+                                <tbody>
+                                    <t t-if="!state.data.recent_changes.length"><tr><td colspan="6" class="empty-state">No configuration changes detected yet.</td></tr></t>
+                                    <t t-foreach="state.data.recent_changes" t-as="change" t-key="change.id">
+                                        <tr t-on-click="() => openChange(change.id)">
+                                            <td><strong><t t-esc="change.name"/></strong><small><t t-esc="change.record_label"/></small></td>
+                                            <td><span class="category-pill"><t t-esc="change.category_label"/></span></td>
+                                            <td><span t-att-class="'operation-' + change.operation"><t t-esc="change.operation_label"/></span></td>
+                                            <td><span t-att-class="riskClass(change.risk_level)"><t t-esc="change.risk_label"/></span></td>
+                                            <td><span t-att-class="statusClass(change.status)"><t t-esc="change.status_label"/></span></td>
+                                            <td><t t-esc="formatDate(change.detected_at)"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <div class="guardian-grid guardian-grid-bottom">
+                        <section class="guardian-card baseline-card">
+                            <div class="card-head"><div><h2>Protected Baselines</h2><p>Trusted reference configurations</p></div><button class="btn btn-link" t-on-click="openBaselines">Manage</button></div>
+                            <t t-foreach="state.data.baselines" t-as="baseline" t-key="baseline.id">
+                                <div class="baseline-row">
+                                    <div class="baseline-icon"><i class="fa fa-shield"/></div>
+                                    <div class="baseline-main"><strong><t t-esc="baseline.name"/></strong><small><t t-esc="baseline.change_count"/> changes · last scan <t t-esc="formatDate(baseline.last_scan_at)"/></small></div>
+                                    <div class="baseline-score"><strong><t t-esc="baseline.health_score"/></strong><small>/100</small></div>
+                                </div>
+                            </t>
+                            <t t-if="!state.data.baselines.length"><div class="empty-state">Create a baseline to start protecting your configuration.</div></t>
+                        </section>
+                        <section class="guardian-card snapshot-card">
+                            <div class="card-head"><div><h2>Latest Snapshot</h2><p>Most recent configuration capture</p></div><button class="icon-button" t-on-click="openSnapshots"><i class="fa fa-arrow-right"/></button></div>
+                            <t t-if="state.data.latest_snapshot.id">
+                                <div class="snapshot-hero"><div class="snapshot-icon"><i class="fa fa-database"/></div><div><strong><t t-esc="state.data.latest_snapshot.name"/></strong><span t-att-class="'snapshot-state snapshot-' + state.data.latest_snapshot.state"><t t-esc="state.data.latest_snapshot.state"/></span><small><t t-esc="state.data.latest_snapshot.item_count"/> configuration items · <t t-esc="formatDate(state.data.latest_snapshot.captured_at)"/></small></div></div>
+                            </t>
+                            <t t-else=""><div class="empty-state">No snapshots captured yet.</div></t>
+                        </section>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

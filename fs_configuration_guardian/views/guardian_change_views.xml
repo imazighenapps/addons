@@ -1,0 +1,53 @@
+<odoo>
+    <record id="guardian_change_search" model="ir.ui.view">
+        <field name="name">fs.guardian.change.search</field>
+        <field name="model">fs.guardian.change</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/><field name="model_name"/><field name="record_label"/><field name="baseline_id"/>
+                <filter name="critical" string="Critical" domain="[('risk_level','=','critical')]"/>
+                <filter name="high" string="High" domain="[('risk_level','=','high')]"/>
+                <filter name="unknown" string="Needs Review" domain="[('status','=','unknown')]"/>
+                <group><filter name="group_category" string="Category" context="{'group_by':'category'}"/><filter name="group_risk" string="Risk" context="{'group_by':'risk_level'}"/><filter name="group_status" string="Status" context="{'group_by':'status'}"/></group>
+            </search>
+        </field>
+    </record>
+    <record id="guardian_change_list" model="ir.ui.view">
+        <field name="name">fs.guardian.change.list</field>
+        <field name="model">fs.guardian.change</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="risk_level == 'critical'" decoration-warning="risk_level == 'high'">
+                <field name="name"/><field name="category"/><field name="operation"/><field name="model_name"/><field name="record_label"/><field name="risk_level" widget="badge"/><field name="status" widget="badge"/><field name="detected_at"/><field name="detected_by"/>
+            </list>
+        </field>
+    </record>
+    <record id="guardian_change_form" model="ir.ui.view">
+        <field name="name">fs.guardian.change.form</field>
+        <field name="model">fs.guardian.change</field>
+        <field name="arch" type="xml">
+            <form string="Configuration Change">
+                <header>
+                    <button name="action_mark_expected" type="object" string="Mark Expected" class="btn-primary" invisible="status != 'unknown'"/>
+                    <button name="action_mark_approved" type="object" string="Approve" invisible="status != 'unknown'"/>
+                    <button name="action_mark_rejected" type="object" string="Reject" invisible="status != 'unknown'"/>
+                    <button name="action_reset_review" type="object" string="Reset Review" invisible="status == 'unknown'"/>
+                    <field name="status" widget="statusbar" statusbar_visible="unknown,expected,approved,rejected"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="name"/></h1></div>
+                    <group>
+                        <group><field name="category"/><field name="operation"/><field name="model_name"/><field name="record_label"/><field name="record_key"/></group>
+                        <group><field name="risk_level" widget="badge"/><field name="detected_at"/><field name="detected_by"/><field name="reviewer_id"/><field name="reviewed_at"/><field name="fingerprint" invisible="1"/></group>
+                    </group>
+                    <group><field name="risk_reason"/></group>
+                    <notebook>
+                        <page string="Before"><field name="before_data" widget="json" nolabel="1"/></page>
+                        <page string="After"><field name="after_data" widget="json" nolabel="1"/></page>
+                        <page string="Review"><field name="review_note" placeholder="Why was this change expected, approved or rejected?"/></page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+</odoo>
