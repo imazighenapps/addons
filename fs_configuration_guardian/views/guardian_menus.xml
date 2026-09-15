@@ -21,8 +21,9 @@
         <field name="view_mode">list,form</field>
     </record>
     <menuitem id="guardian_root_menu" name="Configuration Guardian" sequence="50" groups="group_guardian_user" web_icon="fs_configuration_guardian,static/description/icon.png"/>
-    <menuitem id="guardian_menu_dashboard" name="Configuration Health" parent="guardian_root_menu" action="action_guardian_dashboard" sequence="10"/>
-    <menuitem id="guardian_menu_changes" name="Changes" parent="guardian_root_menu" action="action_guardian_changes" sequence="20"/>
-    <menuitem id="guardian_menu_snapshots" name="Snapshots" parent="guardian_root_menu" action="action_guardian_snapshots" sequence="30"/>
-    <menuitem id="guardian_menu_rules" name="Risk Rules" parent="guardian_root_menu" action="action_guardian_rules" sequence="40" groups="group_guardian_manager"/>
+        <menuitem id="guardian_menu_dashboard" name="Dashboard" parent="guardian_root_menu" action="action_guardian_dashboard" sequence="10"/>
+        <menuitem id="guardian_menu_baselines" name="Baselines" parent="guardian_root_menu" action="action_guardian_baselines" sequence="20"/>
+        <menuitem id="guardian_menu_changes" name="Changes" parent="guardian_root_menu" action="action_guardian_changes" sequence="30"/>
+        <menuitem id="guardian_menu_snapshots" name="Snapshots" parent="guardian_root_menu" action="action_guardian_snapshots" sequence="40"/>
+        <menuitem id="guardian_menu_rules" name="Risk Rules" parent="guardian_root_menu" action="action_guardian_rules" sequence="50" groups="group_guardian_manager"/>
 </odoo>

@@ -6,8 +6,9 @@ import { useService } from '@web/core/utils/hooks';
 
 export class GuardianDashboard extends Component {
     static template = 'fs_configuration_guardian.GuardianDashboard';
-
+    
     setup() {
+        console.log("GuardianDashboard loaded");
         this.orm = useService('orm');
         this.action = useService('action');
         this.notification = useService('notification');
@@ -16,6 +17,7 @@ export class GuardianDashboard extends Component {
     }
 
     async loadDashboard() {
+        console.log("loadDashboard loaded");
         this.state.loading = true;
         try {
             this.state.data = await this.orm.call('fs.guardian.baseline', 'get_dashboard_data', []);
@@ -32,17 +34,25 @@ export class GuardianDashboard extends Component {
         return this.loadDashboard();
     }
 
-    openChanges(domain = []) {
+   openChanges = (domain = []) => {
+        if (!Array.isArray(domain)) {
+            domain = [];
+        }
+
         return this.action.doAction({
             type: 'ir.actions.act_window',
             name: 'Configuration Changes',
             res_model: 'fs.guardian.change',
             views: [[false, 'list'], [false, 'form']],
-            domain: [['company_id', '=', this.state.data.company.id], ...domain],
+            domain: [
+                ['company_id', '=', this.state.data.company.id],
+                ...domain,
+            ],
         });
-    }
+    };
 
     openBaselines() {
+        console.log("openBaselines loaded");
         return this.action.doAction('fs_configuration_guardian.action_guardian_baselines');
     }
 
