@@ -1,0 +1,12 @@
+<odoo>
+    <record id="guardian_rule_list" model="ir.ui.view">
+        <field name="name">fs.guardian.rule.list</field>
+        <field name="model">fs.guardian.rule</field>
+        <field name="arch" type="xml"><list editable="bottom"><field name="sequence"/><field name="name"/><field name="category"/><field name="model_name"/><field name="risk_level"/><field name="active"/></list></field>
+    </record>
+    <record id="guardian_rule_form" model="ir.ui.view">
+        <field name="name">fs.guardian.rule.form</field>
+        <field name="model">fs.guardian.rule</field>
+        <field name="arch" type="xml"><form string="Risk Rule"><sheet><group><field name="name"/><field name="sequence"/><field name="active"/><field name="category"/><field name="model_name"/><field name="risk_level"/><field name="description"/></group></sheet></form></field>
+    </record>
+</odoo>

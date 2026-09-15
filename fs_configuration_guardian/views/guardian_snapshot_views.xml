@@ -1,0 +1,25 @@
+<odoo>
+    <record id="guardian_snapshot_list" model="ir.ui.view">
+        <field name="name">fs.guardian.snapshot.list</field>
+        <field name="model">fs.guardian.snapshot</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/><field name="baseline_id"/><field name="company_id"/><field name="captured_at"/><field name="captured_by"/><field name="item_count"/><field name="state"/><field name="checksum"/>
+            </list>
+        </field>
+    </record>
+    <record id="guardian_snapshot_form" model="ir.ui.view">
+        <field name="name">fs.guardian.snapshot.form</field>
+        <field name="model">fs.guardian.snapshot</field>
+        <field name="arch" type="xml">
+            <form string="Configuration Snapshot">
+                <sheet>
+                    <group><field name="name"/><field name="baseline_id"/><field name="company_id"/><field name="captured_at"/><field name="captured_by"/><field name="is_baseline"/><field name="state"/></group>
+                    <group><field name="item_count"/><field name="checksum"/></group>
+                    <field name="error_message" invisible="not error_message"/>
+                    <notebook><page string="Captured State"><field name="payload" widget="json" nolabel="1"/></page></notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
