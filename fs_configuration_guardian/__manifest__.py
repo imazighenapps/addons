@@ -75,7 +75,7 @@ security privilege architecture and Odoo 19 field/view conventions.
     ],
 
     "images": [
-        "images/cover.png",
+        "static/images/cover.png",
     ],
 
     "assets": {
