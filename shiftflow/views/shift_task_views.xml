@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- ============================================================ -->
+  <!-- Follow-up tasks                                              -->
+  <!-- ============================================================ -->
+
+  <record id="view_shiftflow_task_search" model="ir.ui.view">
+    <field name="name">shiftflow.task.search</field>
+    <field name="model">shiftflow.task</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="reference"/>
+        <field name="name"/>
+        <field name="shift_id"/>
+        <field name="responsible_id"/>
+        <field name="priority"/>
+        <field name="state"/>
+        <filter name="open" string="Open" domain="[('state','not in',('done','cancelled'))]"/>
+        <filter name="overdue" string="Overdue" domain="[('deadline','&lt;',context_today()),('state','not in',('done','cancelled'))]"/>
+        <filter name="carry" string="Carry-over" domain="[('carry_over','=',True)]"/>
+        <separator/>
+        <filter name="group_priority" string="Priority" context="{'group_by':'priority'}"/>
+        <filter name="group_state" string="Status" context="{'group_by':'state'}"/>
+        <filter name="group_responsible_id" string="Responsible" context="{'group_by':'responsible_id'}"/>
+        <filter name="group_shift_id" string="Shift" context="{'group_by':'shift_id'}"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_shiftflow_task_list" model="ir.ui.view">
+    <field name="name">shiftflow.task.list</field>
+    <field name="model">shiftflow.task</field>
+    <field name="arch" type="xml">
+      <list decoration-danger="is_overdue" decoration-warning="priority == 'urgent'">
+        <field name="reference"/>
+        <field name="name"/>
+        <field name="shift_id"/>
+        <field name="responsible_id"/>
+        <field name="deadline"/>
+        <field name="priority"/>
+        <field name="state"/>
+        <field name="carry_over"/>
+        <field name="is_overdue" optional="show"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_shiftflow_task_form" model="ir.ui.view">
+    <field name="name">shiftflow.task.form</field>
+    <field name="model">shiftflow.task</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button name="action_start" type="object" string="Start" class="btn-primary" invisible="state != 'open'"/>
+          <button name="action_done" type="object" string="Mark Done" class="btn-primary" invisible="state == 'done'"/>
+          <button name="action_reopen" type="object" string="Reopen" invisible="state not in ('done','cancelled')"/>
+          <button name="action_cancel" type="object" string="Cancel" invisible="state in ('done','cancelled')"/>
+          <field name="state" widget="statusbar" statusbar_visible="open,in_progress,done"/>
+        </header>
+        <sheet>
+          <h1><field name="name"/></h1>
+          <group>
+            <field name="reference"/>
+            <field name="shift_id"/>
+            <field name="responsible_id"/>
+            <field name="deadline"/>
+            <field name="priority"/>
+            <field name="carry_over"/>
+            <field name="is_overdue" readonly="1"/>
+          </group>
+          <field name="description"/>
+        </sheet>
+        <chatter/>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_shiftflow_tasks" model="ir.actions.act_window">
+    <field name="name">Follow-up Tasks</field>
+    <field name="res_model">shiftflow.task</field>
+    <field name="view_mode">kanban,list,form</field>
+    <field name="search_view_id" ref="view_shiftflow_task_search"/>
+  </record>
+
+  <record id="view_shiftflow_task_kanban" model="ir.ui.view">
+    <field name="name">shiftflow.task.kanban</field>
+    <field name="model">shiftflow.task</field>
+    <field name="arch" type="xml">
+      <kanban default_group_by="state">
+        <field name="reference"/>
+        <field name="name"/>
+        <field name="priority"/>
+        <field name="responsible_id"/>
+        <field name="deadline"/>
+        <field name="is_overdue"/>
+        <templates>
+          <t t-name="card">
+            <div class="oe_kanban_global_click">
+              <div class="d-flex justify-content-between">
+                <strong><field name="reference"/></strong>
+                <span class="badge text-bg-danger" invisible="not is_overdue">Overdue</span>
+              </div>
+              <div class="mt-1"><field name="name"/></div>
+              <div class="text-muted mt-2"><field name="responsible_id"/></div>
+              <div class="mt-2"><field name="deadline"/></div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+</odoo>

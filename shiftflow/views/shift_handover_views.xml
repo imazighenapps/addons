@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- ============================================================ -->
+  <!-- Shift handovers                                              -->
+  <!-- ============================================================ -->
+
+  <record id="view_shiftflow_handover_search" model="ir.ui.view">
+    <field name="name">shiftflow.handover.search</field>
+    <field name="model">shiftflow.handover</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="name"/>
+        <field name="outgoing_shift_id"/>
+        <field name="incoming_shift_id"/>
+        <field name="state"/>
+        <field name="prepared_by_id"/>
+        <filter name="waiting" string="Waiting Acceptance" domain="[('state','=','waiting')]"/>
+        <filter name="accepted" string="Accepted" domain="[('state','=','accepted')]"/>
+        <separator/>
+        <filter name="group_state" string="Status" context="{'group_by':'state'}"/>
+        <filter name="group_outgoing_shift_id" string="Outgoing Shift" context="{'group_by':'outgoing_shift_id'}"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_shiftflow_handover_list" model="ir.ui.view">
+    <field name="name">shiftflow.handover.list</field>
+    <field name="model">shiftflow.handover</field>
+    <field name="arch" type="xml">
+      <list decoration-success="state == 'accepted'" decoration-warning="state == 'waiting'" decoration-danger="state == 'rejected'">
+        <field name="name"/>
+        <field name="outgoing_shift_id"/>
+        <field name="incoming_shift_id"/>
+        <field name="prepared_by_id"/>
+        <field name="prepared_at"/>
+        <field name="accepted_by_id"/>
+        <field name="state"/>
+        <field name="item_count"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_shiftflow_handover_form" model="ir.ui.view">
+    <field name="name">shiftflow.handover.form</field>
+    <field name="model">shiftflow.handover</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button name="action_prepare" type="object" string="Prepare Handover" class="btn-primary" invisible="state not in ('draft','rejected')"/>
+          <button name="action_send" type="object" string="Send for Acceptance" class="btn-primary" invisible="state != 'prepared'"/>
+          <button name="action_accept" type="object" string="Accept Handover" class="btn-primary" invisible="state != 'waiting'"/>
+          <button name="action_reject" type="object" string="Reject / Request Clarification" invisible="state != 'waiting'"/>
+          <field name="state" widget="statusbar" statusbar_visible="draft,prepared,waiting,accepted,rejected"/>
+        </header>
+        <sheet>
+          <h1><field name="name"/></h1>
+          <group>
+            <group>
+              <field name="outgoing_shift_id"/>
+              <field name="incoming_shift_id"/>
+              <field name="prepared_by_id"/>
+              <field name="prepared_at"/>
+            </group>
+            <group>
+              <field name="accepted_by_id"/>
+              <field name="accepted_at"/>
+              <field name="item_count"/>
+              <field name="rejection_reason" invisible="state != 'rejected'"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Handover Items">
+              <field name="item_ids">
+                <list editable="bottom">
+                  <field name="sequence" widget="handle"/>
+                  <field name="item_type"/>
+                  <field name="description"/>
+                  <field name="priority"/>
+                  <field name="carry_over"/>
+                  <field name="status_note"/>
+                </list>
+              </field>
+            </page>
+            <page string="Summary">
+              <field name="summary"/>
+            </page>
+          </notebook>
+        </sheet>
+        <chatter/>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_shiftflow_handovers" model="ir.actions.act_window">
+    <field name="name">Shift Handovers</field>
+    <field name="res_model">shiftflow.handover</field>
+    <field name="view_mode">list,form</field>
+    <field name="search_view_id" ref="view_shiftflow_handover_search"/>
+  </record>
+
+</odoo>

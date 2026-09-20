@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- ============================================================ -->
+  <!-- Navigation : dashboard, opérations, analyse, configuration   -->
+  <!-- ============================================================ -->
+
+  <record id="action_shiftflow_dashboard" model="ir.actions.client">
+    <field name="name">Operations Dashboard</field>
+    <field name="tag">shiftflow_dashboard</field>
+  </record>
+
+  <!-- Root -->
+  <menuitem id="menu_shiftflow_root" name="ShiftFlow" sequence="10" groups="shiftflow.group_shiftflow_user" web_icon="shiftflow,static/description/icon.png"/>
+
+  <!-- Dashboard -->
+  <menuitem id="menu_shiftflow_dashboard" name="Operations Dashboard" parent="menu_shiftflow_root" action="action_shiftflow_dashboard" sequence="5"/>
+
+  <!-- Daily operations -->
+  <menuitem id="menu_shiftflow_operations" name="Operations" parent="menu_shiftflow_root" sequence="10"/>
+  <menuitem id="menu_shiftflow_shifts" name="Shifts" parent="menu_shiftflow_operations" action="action_shiftflow_shifts" sequence="10"/>
+  <menuitem id="menu_shiftflow_handovers" name="Shift Handovers" parent="menu_shiftflow_operations" action="action_shiftflow_handovers" sequence="20"/>
+  <menuitem id="menu_shiftflow_logs" name="Operational Log" parent="menu_shiftflow_operations" action="action_shiftflow_logs" sequence="30"/>
+  <menuitem id="menu_shiftflow_incidents" name="Incidents" parent="menu_shiftflow_operations" action="action_shiftflow_incidents" sequence="40"/>
+  <menuitem id="menu_shiftflow_tasks" name="Follow-up Tasks" parent="menu_shiftflow_operations" action="action_shiftflow_tasks" sequence="50"/>
+
+  <!-- Analysis (managers) -->
+  <menuitem id="menu_shiftflow_analysis" name="Analysis" parent="menu_shiftflow_root" sequence="50" groups="shiftflow.group_shiftflow_manager"/>
+  <menuitem id="menu_shiftflow_incident_analysis" name="Incident Analysis" parent="menu_shiftflow_analysis" action="action_shiftflow_incident_analysis" sequence="10"/>
+
+  <!-- Configuration -->
+  <menuitem id="menu_shiftflow_config" name="Configuration" parent="menu_shiftflow_root" sequence="90"/>
+  <menuitem id="menu_shiftflow_teams" name="Teams" parent="menu_shiftflow_config" action="action_shiftflow_teams" sequence="10" groups="shiftflow.group_shiftflow_manager"/>
+
+</odoo>

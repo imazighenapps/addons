@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- ============================================================ -->
+  <!-- Teams                                                        -->
+  <!-- ============================================================ -->
+
+  <record id="view_shiftflow_team_list" model="ir.ui.view">
+    <field name="name">shiftflow.team.list</field>
+    <field name="model">shiftflow.team</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="name"/>
+        <field name="code"/>
+        <field name="manager_id"/>
+        <field name="member_ids" widget="many2many_tags"/>
+        <field name="company_id"/>
+        <field name="active"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_shiftflow_team_form" model="ir.ui.view">
+    <field name="name">shiftflow.team.form</field>
+    <field name="model">shiftflow.team</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="code"/>
+            <field name="manager_id"/>
+            <field name="member_ids" widget="many2many_tags"/>
+            <field name="company_id"/>
+            <field name="active"/>
+          </group>
+          <field name="notes"/>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_shiftflow_teams" model="ir.actions.act_window">
+    <field name="name">Teams</field>
+    <field name="res_model">shiftflow.team</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+</odoo>
