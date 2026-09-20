@@ -8,7 +8,7 @@
     'license': 'OPL-1',
     "website": "https://slimanifarid.github.io",
     "license": "LGPL-3",
-    'price': 48.00,
+    'price': 68.00,
     'currency': 'EUR',
     'depends': ['base', 'mail'],
     'data': [
