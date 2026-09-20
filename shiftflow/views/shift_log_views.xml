@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- ============================================================ -->
+  <!-- Operational logs                                             -->
+  <!-- ============================================================ -->
+
+  <record id="view_shiftflow_log_search" model="ir.ui.view">
+    <field name="name">shiftflow.log.search</field>
+    <field name="model">shiftflow.log</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="name"/>
+        <field name="shift_id"/>
+        <field name="entry_type"/>
+        <field name="priority"/>
+        <field name="author_id"/>
+        <filter name="critical" string="Critical" domain="[('priority','=','critical')]"/>
+        <filter name="high" string="High" domain="[('priority','=','high')]"/>
+        <separator/>
+        <filter name="group_entry_type" string="Type" context="{'group_by':'entry_type'}"/>
+        <filter name="group_priority" string="Priority" context="{'group_by':'priority'}"/>
+        <filter name="group_shift_id" string="Shift" context="{'group_by':'shift_id'}"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_shiftflow_log_list" model="ir.ui.view">
+    <field name="name">shiftflow.log.list</field>
+    <field name="model">shiftflow.log</field>
+    <field name="arch" type="xml">
+      <list decoration-danger="priority == 'critical'" decoration-warning="priority == 'high'">
+        <field name="occurred_at"/>
+        <field name="name"/>
+        <field name="shift_id"/>
+        <field name="entry_type"/>
+        <field name="priority"/>
+        <field name="author_id"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_shiftflow_log_form" model="ir.ui.view">
+    <field name="name">shiftflow.log.form</field>
+    <field name="model">shiftflow.log</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="shift_id"/>
+            <field name="occurred_at"/>
+            <field name="author_id"/>
+            <field name="entry_type"/>
+            <field name="priority"/>
+          </group>
+          <field name="description"/>
+          <field name="attachment_ids" widget="many2many_binary"/>
+        </sheet>
+        <chatter/>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_shiftflow_logs" model="ir.actions.act_window">
+    <field name="name">Operational Log</field>
+    <field name="res_model">shiftflow.log</field>
+    <field name="view_mode">list,form</field>
+    <field name="search_view_id" ref="view_shiftflow_log_search"/>
+  </record>
+
+</odoo>

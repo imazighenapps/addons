@@ -1,0 +1,6 @@
+<odoo>
+ <record id="demo_team" model="shiftflow.team"><field name="name">Production Team A</field><field name="code">PROD-A</field><field name="manager_id" ref="base.user_admin"/></record>
+ <record id="demo_shift" model="shiftflow.shift"><field name="date">2026-09-18</field><field name="start_datetime">2026-09-18 06:00:00</field><field name="end_datetime">2026-09-18 14:00:00</field><field name="team_id" ref="demo_team"/><field name="supervisor_id" ref="base.user_admin"/><field name="state">active</field></record>
+ <record id="demo_incident" model="shiftflow.incident"><field name="name">Machine M-104 operating in degraded mode</field><field name="shift_id" ref="demo_shift"/><field name="severity">high</field><field name="owner_id" ref="base.user_admin"/><field name="description">Maintenance intervention is pending. Monitor the machine until intervention is completed.</field><field name="carry_over">1</field></record>
+ <record id="demo_task" model="shiftflow.task"><field name="name">Confirm external technician arrival</field><field name="shift_id" ref="demo_shift"/><field name="responsible_id" ref="base.user_admin"/><field name="deadline">2026-09-18 14:30:00</field><field name="priority">high</field><field name="description">Confirm the technician arrival and update the incident.</field><field name="carry_over">1</field></record>
+</odoo>

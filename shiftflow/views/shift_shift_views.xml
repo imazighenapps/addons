@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- ============================================================ -->
+  <!-- Shifts                                                       -->
+  <!-- ============================================================ -->
+
+  <record id="view_shiftflow_shift_search" model="ir.ui.view">
+    <field name="name">shiftflow.shift.search</field>
+    <field name="model">shiftflow.shift</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="name"/>
+        <field name="team_id"/>
+        <field name="supervisor_id"/>
+        <field name="state"/>
+        <filter name="active" string="Active" domain="[('state','=','active')]"/>
+        <filter name="closing" string="Closing" domain="[('state','=','closing')]"/>
+        <filter name="today" string="Today" domain="[('date','=',context_today())]"/>
+        <separator/>
+        <filter name="group_team" string="Team" context="{'group_by':'team_id'}"/>
+        <filter name="group_state" string="Status" context="{'group_by':'state'}"/>
+        <filter name="group_date" string="Date" context="{'group_by':'date'}"/>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_shiftflow_shift_list" model="ir.ui.view">
+    <field name="name">shiftflow.shift.list</field>
+    <field name="model">shiftflow.shift</field>
+    <field name="arch" type="xml">
+      <list decoration-success="state == 'active'" decoration-warning="state == 'closing'" decoration-muted="state == 'cancelled'">
+        <field name="name"/>
+        <field name="date"/>
+        <field name="start_datetime"/>
+        <field name="end_datetime"/>
+        <field name="team_id"/>
+        <field name="supervisor_id"/>
+        <field name="state"/>
+        <field name="open_issue_count"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_shiftflow_shift_kanban" model="ir.ui.view">
+    <field name="name">shiftflow.shift.kanban</field>
+    <field name="model">shiftflow.shift</field>
+    <field name="arch" type="xml">
+      <kanban default_group_by="state">
+        <field name="name"/>
+        <field name="team_id"/>
+        <field name="supervisor_id"/>
+        <field name="start_datetime"/>
+        <field name="open_issue_count"/>
+        <templates>
+          <t t-name="card">
+            <div class="oe_kanban_global_click">
+              <strong><field name="name"/></strong>
+              <div><field name="team_id"/></div>
+              <div><field name="start_datetime"/></div>
+              <div class="mt-2">
+                <span class="badge text-bg-warning"><field name="open_issue_count"/> open issues</span>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <record id="view_shiftflow_shift_form" model="ir.ui.view">
+    <field name="name">shiftflow.shift.form</field>
+    <field name="model">shiftflow.shift</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button name="action_start" type="object" string="Start Shift" class="btn-primary" invisible="state != 'draft'"/>
+          <button name="action_prepare_closing" type="object" string="Prepare Closing" invisible="state != 'active'"/>
+          <button name="action_prepare_handover" type="object" string="Prepare Handover" class="btn-primary" invisible="state not in ('closing','closed')"/>
+          <button name="action_close" type="object" string="Close Shift" invisible="state not in ('active','closing')"/>
+          <button name="action_cancel" type="object" string="Cancel" invisible="state in ('closed','cancelled')"/>
+          <field name="state" widget="statusbar" statusbar_visible="draft,active,closing,closed"/>
+        </header>
+        <sheet>
+          <div class="oe_button_box">
+            <button name="%(action_shiftflow_logs)d" type="action" class="oe_stat_button" icon="fa-book">
+              <field name="log_count" widget="statinfo" string="Logs"/>
+            </button>
+            <button name="%(action_shiftflow_incidents)d" type="action" class="oe_stat_button" icon="fa-exclamation-triangle">
+              <field name="incident_count" widget="statinfo" string="Incidents"/>
+            </button>
+            <button name="%(action_shiftflow_tasks)d" type="action" class="oe_stat_button" icon="fa-tasks">
+              <field name="task_count" widget="statinfo" string="Tasks"/>
+            </button>
+          </div>
+          <h1><field name="name"/></h1>
+          <group>
+            <group>
+              <field name="date"/>
+              <field name="start_datetime"/>
+              <field name="end_datetime"/>
+              <field name="team_id"/>
+            </group>
+            <group>
+              <field name="supervisor_id"/>
+              <field name="company_id"/>
+              <field name="previous_shift_id"/>
+              <field name="next_shift_id"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Logs">
+              <field name="log_ids">
+                <list editable="bottom">
+                  <field name="occurred_at"/>
+                  <field name="name"/>
+                  <field name="entry_type"/>
+                  <field name="priority"/>
+                  <field name="author_id"/>
+                </list>
+              </field>
+            </page>
+            <page string="Incidents">
+              <field name="incident_ids">
+                <list editable="bottom">
+                  <field name="reference"/>
+                  <field name="name"/>
+                  <field name="severity"/>
+                  <field name="state"/>
+                  <field name="owner_id"/>
+                  <field name="carry_over"/>
+                </list>
+              </field>
+            </page>
+            <page string="Tasks">
+              <field name="task_ids">
+                <list editable="bottom">
+                  <field name="reference"/>
+                  <field name="name"/>
+                  <field name="deadline"/>
+                  <field name="priority"/>
+                  <field name="state"/>
+                  <field name="carry_over"/>
+                  <field name="is_overdue"/>
+                </list>
+              </field>
+            </page>
+            <page string="Notes">
+              <field name="notes"/>
+            </page>
+          </notebook>
+        </sheet>
+        <chatter/>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_shiftflow_shifts" model="ir.actions.act_window">
+    <field name="name">Shifts</field>
+    <field name="res_model">shiftflow.shift</field>
+    <field name="view_mode">kanban,list,form</field>
+    <field name="search_view_id" ref="view_shiftflow_shift_search"/>
+  </record>
+
+</odoo>

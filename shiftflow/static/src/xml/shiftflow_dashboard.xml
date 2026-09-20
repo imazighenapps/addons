@@ -1,0 +1,178 @@
+<templates xml:space="preserve">
+  <t t-name="shiftflow.ShiftFlowDashboard">
+    <div class="o_shiftflow_dashboard">
+      <div class="o_shiftflow_header">
+        <div>
+          <h1>Operations Dashboard</h1>
+          <p>ShiftFlow — live continuity of shifts, incidents, tasks and handovers</p>
+        </div>
+        <div class="o_shiftflow_current">
+          <div>
+            <span>Current Shift</span>
+            <strong><t t-esc="state.data.current_shift || 'No active shift'"/></strong>
+          </div>
+          <div>
+            <span>Team</span>
+            <strong><t t-esc="state.data.current_team || '—'"/></strong>
+          </div>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-secondary" t-on-click="refresh">Refresh</button>
+          <button class="btn btn-primary" t-on-click="() => open('shiftflow.action_shiftflow_handovers')">View Handovers</button>
+        </div>
+      </div>
+
+      <div t-if="state.loading">Loading...</div>
+
+      <div t-else="">
+        <div class="o_shiftflow_cards">
+          <button t-on-click="() => open('shiftflow.action_shiftflow_shifts')">
+            <span>Today's Shifts</span>
+            <strong><t t-esc="state.data.today_shifts || 0"/></strong>
+          </button>
+          <button t-on-click="() => open('shiftflow.action_shiftflow_incidents')">
+            <span>Open Incidents</span>
+            <strong><t t-esc="state.data.open_incidents || 0"/></strong>
+          </button>
+          <button t-on-click="() => open('shiftflow.action_shiftflow_incidents')">
+            <span>Critical Incidents</span>
+            <strong><t t-esc="state.data.critical_incidents || 0"/></strong>
+          </button>
+          <button t-on-click="() => open('shiftflow.action_shiftflow_tasks')">
+            <span>Overdue Tasks</span>
+            <strong><t t-esc="state.data.overdue_tasks || 0"/></strong>
+          </button>
+          <button t-on-click="() => open('shiftflow.action_shiftflow_handovers')">
+            <span>Waiting Handovers</span>
+            <strong><t t-esc="state.data.waiting_handovers || 0"/></strong>
+          </button>
+          <button t-on-click="() => open('shiftflow.action_shiftflow_handovers')">
+            <span>Carry-over Items</span>
+            <strong><t t-esc="state.data.carry_over_items || 0"/></strong>
+          </button>
+          <button t-on-click="() => open('shiftflow.action_shiftflow_incidents')">
+            <span>Resolved (7 days)</span>
+            <strong><t t-esc="state.data.resolved_week || 0"/></strong>
+          </button>
+        </div>
+
+        <div class="o_shiftflow_row">
+          <div class="o_shiftflow_panel">
+            <h2>Open incidents by severity</h2>
+            <div class="o_shiftflow_bars" t-if="(state.data.incidents_by_severity || []).length">
+              <t t-foreach="state.data.incidents_by_severity" t-as="seg" t-key="seg.label">
+                <div class="o_shiftflow_barcol">
+                  <div class="o_shiftflow_barval"><t t-esc="seg.value"/></div>
+                  <div class="o_shiftflow_bartrack">
+                    <div t-attf-class="o_shiftflow_barfill tone-#{seg.tone}" t-att-style="'height:' + this.barHeight(seg.value, state.data.incidents_by_severity) + '%'"/>
+                  </div>
+                  <span><t t-esc="seg.label"/></span>
+                </div>
+              </t>
+            </div>
+          </div>
+          <div class="o_shiftflow_panel">
+            <h2>Open tasks by status</h2>
+            <div class="o_shiftflow_donutwrap" t-if="(state.data.tasks_by_state || []).length">
+              <div class="o_shiftflow_donut" t-att-style="this.donutStyle(state.data.tasks_by_state)">
+                <div class="o_shiftflow_donutcenter">
+                  <strong><t t-esc="this.donutTotal(state.data.tasks_by_state)"/></strong>
+                  <span>Open</span>
+                </div>
+              </div>
+              <div class="o_shiftflow_legend">
+                <t t-foreach="state.data.tasks_by_state" t-as="seg" t-key="seg.label">
+                  <div class="o_shiftflow_legendrow">
+                    <span t-attf-class="o_shiftflow_dot tone-#{seg.tone}"/>
+                    <span><t t-esc="seg.label"/></span>
+                    <strong><t t-esc="seg.value"/></strong>
+                    <small><t t-esc="this.donutPct(seg.value, state.data.tasks_by_state)"/>%</small>
+                  </div>
+                </t>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="o_shiftflow_panel">
+          <h2>Activity — last 7 days</h2>
+          <div class="o_shiftflow_bars o_shiftflow_grouped" t-if="(state.data.activity || []).length">
+            <t t-foreach="state.data.activity" t-as="point" t-key="point.label">
+              <div class="o_shiftflow_barcol">
+                <div class="o_shiftflow_groupbars">
+                  <div class="o_shiftflow_barfill tone-blue" t-att-style="'height:' + this.actHeight(point, 'shifts') + '%'" title="Shifts"/>
+                  <div class="o_shiftflow_barfill tone-red" t-att-style="'height:' + this.actHeight(point, 'incidents') + '%'" title="Incidents"/>
+                  <div class="o_shiftflow_barfill tone-green" t-att-style="'height:' + this.actHeight(point, 'tasks') + '%'" title="Tasks"/>
+                </div>
+                <span><t t-esc="point.label"/></span>
+              </div>
+            </t>
+          </div>
+          <div class="o_shiftflow_legendline">
+            <span><i class="o_shiftflow_dot tone-blue"/> Shifts</span>
+            <span><i class="o_shiftflow_dot tone-red"/> Incidents</span>
+            <span><i class="o_shiftflow_dot tone-green"/> Tasks</span>
+          </div>
+        </div>
+
+        <div class="o_shiftflow_row">
+          <div class="o_shiftflow_panel">
+            <h2>Open incidents — priority watch</h2>
+            <table class="o_shiftflow_table" t-if="(state.data.open_incidents_list || []).length">
+              <thead><tr><th>Reference</th><th>Title</th><th>Severity</th><th>Shift</th><th>Owner</th></tr></thead>
+              <tbody>
+                <t t-foreach="state.data.open_incidents_list" t-as="row" t-key="row.reference">
+                  <tr>
+                    <td><strong><t t-esc="row.reference"/></strong></td>
+                    <td><t t-esc="row.name"/></td>
+                    <td><t t-esc="row.severity"/></td>
+                    <td><t t-esc="row.shift"/></td>
+                    <td><t t-esc="row.owner"/></td>
+                  </tr>
+                </t>
+              </tbody>
+            </table>
+            <div class="o_shiftflow_empty" t-if="!(state.data.open_incidents_list || []).length">No open incidents. All clear.</div>
+          </div>
+          <div class="o_shiftflow_panel">
+            <h2>Overdue tasks</h2>
+            <table class="o_shiftflow_table" t-if="(state.data.overdue_tasks_list || []).length">
+              <thead><tr><th>Reference</th><th>Title</th><th>Deadline</th><th>Responsible</th></tr></thead>
+              <tbody>
+                <t t-foreach="state.data.overdue_tasks_list" t-as="row" t-key="row.reference">
+                  <tr>
+                    <td><strong><t t-esc="row.reference"/></strong></td>
+                    <td><t t-esc="row.name"/></td>
+                    <td><t t-esc="row.deadline"/></td>
+                    <td><t t-esc="row.responsible"/></td>
+                  </tr>
+                </t>
+              </tbody>
+            </table>
+            <div class="o_shiftflow_empty" t-if="!(state.data.overdue_tasks_list || []).length">No overdue tasks.</div>
+          </div>
+        </div>
+
+        <div class="o_shiftflow_panel">
+          <h2>Handovers waiting for acceptance</h2>
+          <table class="o_shiftflow_table" t-if="(state.data.waiting_handovers_list || []).length">
+            <thead><tr><th>Handover</th><th>Outgoing shift</th><th>Incoming shift</th></tr></thead>
+            <tbody>
+              <t t-foreach="state.data.waiting_handovers_list" t-as="row" t-key="row.name">
+                <tr>
+                  <td><strong><t t-esc="row.name"/></strong></td>
+                  <td><t t-esc="row.outgoing"/></td>
+                  <td><t t-esc="row.incoming"/></td>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+          <div class="o_shiftflow_empty" t-if="!(state.data.waiting_handovers_list || []).length">No handover waiting.</div>
+          <div class="o_shiftflow_panelcta">
+            <button class="btn btn-primary" t-on-click="() => open('shiftflow.action_shiftflow_handovers')">Review handovers</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </t>
+</templates>
