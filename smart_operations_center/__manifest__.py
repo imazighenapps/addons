@@ -27,6 +27,9 @@
         'wizard/investigate_issue_views.xml',
         'wizard/resolve_issue_views.xml',
     ],
+
+    "images": ["static/description/banner.png", "static/description/icon.png"],
+
     'assets': {
         'web.assets_backend': [
             'smart_operations_center/static/src/dashboard/operations_dashboard.js',
