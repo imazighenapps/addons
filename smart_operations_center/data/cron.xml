@@ -1,0 +1,20 @@
+<odoo>
+    <record id="cron_detect_operations_issues" model="ir.cron">
+        <field name="name">Smart Operations: Detect Risks</field>
+        <field name="model_id" ref="model_smart_operations_issue_detector"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_detect_issues()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="active">True</field>
+    </record>
+    <record id="cron_refresh_process_baselines" model="ir.cron">
+        <field name="name">Smart Operations: Refresh Process Baselines</field>
+        <field name="model_id" ref="model_smart_operations_baseline_engine"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_refresh_baselines()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

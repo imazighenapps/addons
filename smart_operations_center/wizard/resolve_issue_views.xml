@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_resolve_issue_wizard" model="ir.ui.view">
+        <field name="name">smart.operations.resolve.wizard.form</field>
+        <field name="model">smart.operations.resolve.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Resolve Issue">
+                <group><field name="issue_id" readonly="1"/><field name="reason" placeholder="Describe the corrective action and outcome..."/></group>
+                <footer><button name="action_confirm" type="object" string="Resolve Issue" class="btn-primary"/><button string="Cancel" special="cancel"/></footer>
+            </form>
+        </field>
+    </record>
+</odoo>
