@@ -1,0 +1,54 @@
+.o_soc_dashboard{overflow: auto; height: stretch; padding:14px 20px;max-width:1600px;margin:auto}
+.o_soc_header{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.o_soc_header h1{margin:0;font-size:22px}
+.o_soc_header p{margin:2px 0 0;color:#6b7280;font-size:13px}
+.o_soc_header_right{display:flex;align-items:center;gap:12px}
+.o_soc_impact{display:flex;flex-direction:column;background:var(--o-view-background-color,#fff);border:1px solid #ddd;border-left:4px solid #e45b5b;border-radius:10px;padding:8px 14px}
+.o_soc_impact span{font-size:11px;color:#6b7280}
+.o_soc_impact strong{font-size:17px;white-space:nowrap}
+.o_soc_kpis{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px;margin-bottom:12px}
+.o_soc_kpi{background:var(--o-view-background-color,#fff);border:1px solid #ddd;border-radius:10px;padding:10px 12px;cursor:pointer;text-align:left}
+div.o_soc_kpi{cursor:default}
+.o_soc_kpi.alert{border-left:4px solid #e45b5b}
+.o_soc_kpi.ok{border-left:4px solid #22a06b}
+.o_soc_kpi_label{font-size:12px;color:#6b7280}
+.o_soc_kpi strong{display:block;font-size:25px;margin-top:4px}
+.o_soc_row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:12px}
+.o_soc_row.o_soc_row2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.o_soc_panel{background:var(--o-view-background-color,#fff);border:1px solid #ddd;border-radius:10px;padding:12px 14px;margin-bottom:12px}
+.o_soc_panel h2{margin:0 0 10px;font-size:16px}
+.o_soc_panelhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.o_soc_panelhead h2{margin:0}
+.o_soc_bars{display:flex;align-items:flex-end;gap:12px;min-height:130px}
+.o_soc_barcol{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}
+.o_soc_barcol span{font-size:12px;color:#6b7280;white-space:nowrap}
+.o_soc_barval{font-weight:bold;font-size:14px}
+.o_soc_bartrack{width:30px;height:88px;background:#eef1f5;border-radius:6px;display:flex;align-items:flex-end;overflow:hidden}
+.o_soc_groupbars{display:flex;align-items:flex-end;gap:4px;height:88px}
+.o_soc_barfill{width:100%;min-height:8px;border-radius:6px 6px 0 0}
+.o_soc_groupbars .o_soc_barfill{width:20px}
+.tone-blue{background:#2f7bd8}.tone-violet{background:#7b59d8}.tone-red{background:#e45b5b}.tone-orange{background:#f1ae3d}.tone-amber{background:#f1ae3d}.tone-green{background:#22a06b}
+.o_soc_donutwrap{display:flex;align-items:center;gap:20px}
+.o_soc_donut{width:118px;height:118px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.o_soc_donutcenter{width:74px;height:74px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.o_soc_donutcenter strong{font-size:20px}
+.o_soc_donutcenter span{font-size:11px;color:#6b7280}
+.o_soc_legend{display:flex;flex-direction:column;gap:6px;flex:1}
+.o_soc_legendrow{display:flex;align-items:center;gap:8px;font-size:13px}
+.o_soc_legendrow strong{margin-left:auto}
+.o_soc_legendrow small{color:#6b7280}
+.o_soc_dot{display:inline-block;width:12px;height:12px;border-radius:50%}
+.o_soc_legendline{display:flex;gap:18px;margin-top:10px;font-size:13px;color:#6b7280}
+.o_soc_hbars{display:flex;flex-direction:column;gap:8px}
+.o_soc_hbarrow{display:grid;grid-template-columns:130px 1fr 70px;align-items:center;gap:8px;font-size:12.5px}
+.o_soc_hbarlabel{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#374151}
+.o_soc_hbartrack{height:12px;background:#eef1f5;border-radius:6px;overflow:hidden}
+.o_soc_hbarfill{height:100%;min-width:4%;border-radius:6px;background:linear-gradient(90deg,#2f7bd8,#7b59d8)}
+.o_soc_hbarrow strong{text-align:right}
+.o_soc_table{width:100%;border-collapse:collapse;font-size:12.5px}
+.o_soc_table th{text-align:left;color:#6b7280;font-weight:600;padding:6px 8px;border-bottom:2px solid #e5e7eb}
+.o_soc_table td{padding:6px 8px;border-bottom:1px solid #eef1f5}
+.o_soc_clickrow{cursor:pointer}
+.o_soc_empty{color:#6b7280;padding:10px 0}
+@media(max-width:1250px){.o_soc_kpis{grid-template-columns:repeat(4,minmax(0,1fr))}.o_soc_row{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:900px){.o_soc_kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}

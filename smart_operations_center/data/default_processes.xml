@@ -1,0 +1,34 @@
+<odoo noupdate="1">
+    <record id="process_purchase_cycle" model="smart.operations.process">
+        <field name="name">Purchase Receipt Cycle Time</field>
+        <field name="application">purchase</field>
+        <field name="source_model">stock.picking</field>
+        <field name="start_field">scheduled_date</field>
+        <field name="end_field">date_done</field>
+        <field name="description">Measures the elapsed time from purchase order confirmation to the actual completion of the related incoming receipt. This requires a configured completion model when customized.</field>
+    </record>
+    <record id="process_manufacturing_cycle" model="smart.operations.process">
+        <field name="name">Manufacturing Cycle Time</field>
+        <field name="application">mrp</field>
+        <field name="source_model">mrp.production</field>
+        <field name="start_field">date_start</field>
+        <field name="end_field">date_finished</field>
+        <field name="description">Measures completed manufacturing order cycle time.</field>
+    </record>
+    <record id="process_crm_opportunity_cycle" model="smart.operations.process">
+        <field name="name">CRM Opportunity Cycle Time</field>
+        <field name="application">crm</field>
+        <field name="source_model">crm.lead</field>
+        <field name="start_field">create_date</field>
+        <field name="end_field">date_closed</field>
+        <field name="description">Measures the elapsed time for opportunities that reached a closed state.</field>
+    </record>
+    <record id="process_inventory_transfer_cycle" model="smart.operations.process">
+        <field name="name">Inventory Transfer Cycle Time</field>
+        <field name="application">stock</field>
+        <field name="source_model">stock.picking</field>
+        <field name="start_field">scheduled_date</field>
+        <field name="end_field">date_done</field>
+        <field name="description">Measures the elapsed time between the scheduled transfer date and actual completion date for completed transfers.</field>
+    </record>
+</odoo>

@@ -1,0 +1,191 @@
+<templates xml:space="preserve">
+    <t t-name="smart_operations_center.OperationsDashboard">
+        <div class="o_soc_dashboard">
+            <div class="o_soc_header">
+                <div>
+                    <h1>Operations Center</h1>
+                    <p>Business process health, risk, impact and actions</p>
+                </div>
+                <div class="o_soc_header_right">
+                    <div class="o_soc_impact" t-if="!state.loading">
+                        <span>Open exposure</span>
+                        <strong><t t-esc="this.fmtMoney(state.data.total_impact)"/></strong>
+                    </div>
+                    <button class="btn btn-outline-primary" t-on-click="load">Refresh</button>
+                </div>
+            </div>
+
+            <t t-if="state.loading">
+                <div class="text-muted">Loading operational intelligence...</div>
+            </t>
+            <t t-else="">
+                <div class="o_soc_kpis">
+                    <button class="o_soc_kpi" t-on-click="openOpen">
+                        <span class="o_soc_kpi_label">Open issues</span>
+                        <strong><t t-esc="state.data.open_count || 0"/></strong>
+                    </button>
+                    <button class="o_soc_kpi alert" t-on-click="openCritical">
+                        <span class="o_soc_kpi_label">Critical</span>
+                        <strong><t t-esc="state.data.critical_count || 0"/></strong>
+                    </button>
+                    <button class="o_soc_kpi" t-on-click="openEscalated">
+                        <span class="o_soc_kpi_label">Escalated</span>
+                        <strong><t t-esc="state.data.escalated_count || 0"/></strong>
+                    </button>
+                    <button class="o_soc_kpi" t-on-click="openOverdueActions">
+                        <span class="o_soc_kpi_label">Overdue actions</span>
+                        <strong><t t-esc="state.data.overdue_actions || 0"/></strong>
+                    </button>
+                    <div class="o_soc_kpi">
+                        <span class="o_soc_kpi_label">Avg. risk score</span>
+                        <strong><t t-esc="state.data.avg_risk || 0"/></strong>
+                    </div>
+                    <div class="o_soc_kpi">
+                        <span class="o_soc_kpi_label">Snoozed</span>
+                        <strong><t t-esc="state.data.snoozed_count || 0"/></strong>
+                    </div>
+                    <div class="o_soc_kpi ok">
+                        <span class="o_soc_kpi_label">Resolved (7 days)</span>
+                        <strong><t t-esc="state.data.resolved_week || 0"/></strong>
+                    </div>
+                    <div class="o_soc_kpi">
+                        <span class="o_soc_kpi_label">At-risk exposure</span>
+                        <strong><t t-esc="this.fmtMoney(state.data.total_impact)"/></strong>
+                    </div>
+                </div>
+
+                <div class="o_soc_row">
+                    <div class="o_soc_panel">
+                        <h2>Open issues by severity</h2>
+                        <div class="o_soc_bars" t-if="(state.data.by_severity || []).length">
+                            <t t-foreach="state.data.by_severity" t-as="seg" t-key="seg.label">
+                                <div class="o_soc_barcol">
+                                    <div class="o_soc_barval"><t t-esc="seg.value"/></div>
+                                    <div class="o_soc_bartrack">
+                                        <div t-attf-class="o_soc_barfill tone-#{seg.tone}" t-att-style="'height:' + this.barHeight(seg.value, state.data.by_severity) + '%'"/>
+                                    </div>
+                                    <span><t t-esc="seg.label"/></span>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="o_soc_panel">
+                        <h2>Open issues by status</h2>
+                        <div class="o_soc_donutwrap" t-if="(state.data.by_state || []).length">
+                            <div class="o_soc_donut" t-att-style="this.donutStyle(state.data.by_state)">
+                                <div class="o_soc_donutcenter">
+                                    <strong><t t-esc="this.donutTotal(state.data.by_state)"/></strong>
+                                    <span>Open</span>
+                                </div>
+                            </div>
+                            <div class="o_soc_legend">
+                                <t t-foreach="state.data.by_state" t-as="seg" t-key="seg.label">
+                                    <div class="o_soc_legendrow">
+                                        <span t-attf-class="o_soc_dot tone-#{seg.tone}"/>
+                                        <span><t t-esc="seg.label"/></span>
+                                        <strong><t t-esc="seg.value"/></strong>
+                                        <small><t t-esc="this.donutPct(seg.value, state.data.by_state)"/>%</small>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="o_soc_panel">
+                        <h2>Exposure by issue type</h2>
+                        <div class="o_soc_hbars" t-if="(state.data.impact_by_type || []).length">
+                            <t t-foreach="state.data.impact_by_type" t-as="row" t-key="row.label">
+                                <div class="o_soc_hbarrow">
+                                    <span class="o_soc_hbarlabel"><t t-esc="row.label"/></span>
+                                    <div class="o_soc_hbartrack">
+                                        <div class="o_soc_hbarfill" t-att-style="'width:' + this.hbarWidth(row.value, state.data.impact_by_type) + '%'"/>
+                                    </div>
+                                    <strong><t t-esc="this.fmtMoney(row.value)"/></strong>
+                                </div>
+                            </t>
+                        </div>
+                        <div class="o_soc_empty" t-if="!(state.data.impact_by_type || []).length">No quantified exposure.</div>
+                    </div>
+                </div>
+
+                <div class="o_soc_panel">
+                    <h2>Detection vs resolution — last 7 days</h2>
+                    <div class="o_soc_bars o_soc_grouped" t-if="(state.data.activity || []).length">
+                        <t t-foreach="state.data.activity" t-as="point" t-key="point.label">
+                            <div class="o_soc_barcol">
+                                <div class="o_soc_groupbars">
+                                    <div class="o_soc_barfill tone-red" t-att-style="'height:' + this.actHeight(point, 'detected') + '%'" title="Detected"/>
+                                    <div class="o_soc_barfill tone-green" t-att-style="'height:' + this.actHeight(point, 'resolved') + '%'" title="Resolved"/>
+                                </div>
+                                <span><t t-esc="point.label"/></span>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="o_soc_legendline">
+                        <span><i class="o_soc_dot tone-red"/> Detected</span>
+                        <span><i class="o_soc_dot tone-green"/> Resolved</span>
+                    </div>
+                </div>
+
+                <div class="o_soc_row o_soc_row2">
+                    <div class="o_soc_panel">
+                        <h2>Top risks</h2>
+                        <table class="o_soc_table" t-if="(state.data.top_issues || []).length">
+                            <thead><tr><th>Issue</th><th>Severity</th><th>Risk</th><th>Impact</th></tr></thead>
+                            <tbody>
+                                <t t-foreach="state.data.top_issues" t-as="row" t-key="row.id">
+                                    <tr t-on-click="() => this.openIssue(row.id)" class="o_soc_clickrow">
+                                        <td><strong><t t-esc="row.name"/></strong></td>
+                                        <td><t t-esc="row.severity"/></td>
+                                        <td><t t-esc="row.risk"/></td>
+                                        <td><t t-esc="this.fmtMoney(row.impact)"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <div class="o_soc_empty" t-if="!(state.data.top_issues || []).length">No active operational issues.</div>
+                    </div>
+                    <div class="o_soc_panel">
+                        <h2>Overdue actions</h2>
+                        <table class="o_soc_table" t-if="(state.data.overdue_list || []).length">
+                            <thead><tr><th>Action</th><th>Issue</th><th>Due</th><th>Responsible</th></tr></thead>
+                            <tbody>
+                                <t t-foreach="state.data.overdue_list" t-as="row" t-key="row.name">
+                                    <tr t-on-click="() => this.openIssue(row.id)" class="o_soc_clickrow">
+                                        <td><strong><t t-esc="row.name"/></strong></td>
+                                        <td><t t-esc="row.issue"/></td>
+                                        <td><t t-esc="row.due"/></td>
+                                        <td><t t-esc="row.responsible"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <div class="o_soc_empty" t-if="!(state.data.overdue_list || []).length">No overdue actions.</div>
+                    </div>
+                </div>
+
+                <div class="o_soc_panel">
+                    <div class="o_soc_panelhead">
+                        <h2>Process Health</h2>
+                        <span class="text-muted">Current cycle time versus historical baseline</span>
+                    </div>
+                    <table class="o_soc_table" t-if="(state.data.baselines || []).length">
+                        <thead><tr><th>Process</th><th>Baseline</th><th>P90</th><th>Current</th><th>Deviation</th><th>Health</th></tr></thead>
+                        <tbody>
+                            <t t-foreach="state.data.baselines" t-as="baseline" t-key="baseline.id">
+                                <tr t-on-click="() => this.openBaseline(baseline.id)" class="o_soc_clickrow">
+                                    <td><t t-esc="baseline.process"/></td>
+                                    <td><t t-esc="baseline.average"/> d</td>
+                                    <td><t t-esc="baseline.p90"/> d</td>
+                                    <td><strong><t t-esc="baseline.current"/> d</strong></td>
+                                    <td><t t-esc="baseline.deviation"/>%</td>
+                                    <td><span class="badge text-bg-warning" t-esc="baseline.health"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <div class="o_soc_empty" t-if="!(state.data.baselines || []).length">No degraded process detected.</div>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>

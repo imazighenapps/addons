@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_investigate_issue_wizard" model="ir.ui.view">
+        <field name="name">smart.operations.investigate.wizard.form</field>
+        <field name="model">smart.operations.investigate.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Investigate Issue">
+                <group><field name="issue_id" readonly="1"/><field name="findings" placeholder="Record what you found and why..."/><field name="next_action"/></group>
+                <footer><button name="action_confirm" type="object" string="Save Investigation" class="btn-primary"/><button string="Cancel" special="cancel"/></footer>
+            </form>
+        </field>
+    </record>
+</odoo>

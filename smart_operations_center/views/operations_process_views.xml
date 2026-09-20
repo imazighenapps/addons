@@ -1,0 +1,69 @@
+<odoo>
+    <record id="view_operations_process_list" model="ir.ui.view">
+        <field name="name">smart.operations.process.list</field>
+        <field name="model">smart.operations.process</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="application"/>
+                <field name="source_model"/>
+                <field name="baseline_window_days"/>
+                <field name="current_window_days"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_operations_process_form" model="ir.ui.view">
+        <field name="name">smart.operations.process.form</field>
+        <field name="model">smart.operations.process</field>
+        <field name="arch" type="xml">
+            <form string="Operational Process">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="application"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Measurement">
+                            <field name="source_model" placeholder="purchase.order"/>
+                            <field name="start_field" placeholder="date_order"/>
+                            <field name="end_field" placeholder="date_planned"/>
+                            <field name="baseline_window_days"/>
+                            <field name="current_window_days"/>
+                            <field name="minimum_samples"/>
+                        </group>
+                    </group>
+                    <field name="description" placeholder="Explain what this process measures and why it matters."/>
+                    <notebook>
+                        <page string="Baselines">
+                            <field name="baseline_ids" readonly="1">
+                                <list>
+                                    <field name="period_start"/>
+                                    <field name="period_end"/>
+                                    <field name="sample_count"/>
+                                    <field name="average_days"/>
+                                    <field name="median_days"/>
+                                    <field name="p75_days"/>
+                                    <field name="p90_days"/>
+                                    <field name="current_days"/>
+                                    <field name="deviation_percent"/>
+                                    <field name="health" widget="badge"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_operations_processes" model="ir.actions.act_window">
+        <field name="name">Processes</field>
+        <field name="res_model">smart.operations.process</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

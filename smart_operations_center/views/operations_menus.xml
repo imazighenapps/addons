@@ -1,0 +1,13 @@
+<odoo>
+    <record id="action_operations_dashboard" model="ir.actions.client"><field name="name">Operations Center</field><field name="tag">smart_operations_center.dashboard</field></record>
+    
+    <menuitem id="menu_operations_root" name="Operations Center" sequence="10" web_icon="smart_operations_center,static/description/icon.png"  groups="group_operations_user"/>
+    <menuitem id="menu_operations_dashboard" name="Dashboard" parent="menu_operations_root" action="action_operations_dashboard" sequence="1" groups="group_operations_user"/>
+    <menuitem id="menu_operations_issues" name="Issues" parent="menu_operations_root" action="action_operations_issues" sequence="10" groups="group_operations_user"/>
+    <menuitem id="menu_operations_actions" name="Action Center" parent="menu_operations_root" action="action_operations_actions" sequence="20" groups="group_operations_user"/>
+    <menuitem id="menu_operations_processes" name="Processes" parent="menu_operations_root" action="action_operations_processes" sequence="30" groups="group_operations_manager"/>
+    <menuitem id="menu_operations_baselines" name="Baselines" parent="menu_operations_root" action="action_operations_baselines" sequence="40" groups="group_operations_manager"/>
+    <menuitem id="menu_operations_config" name="Configuration" parent="menu_operations_root" sequence="90" groups="group_operations_manager"/>
+    <menuitem id="menu_operations_escalations" name="Escalation Policies" parent="menu_operations_config" action="action_operations_escalations" sequence="20" groups="group_operations_manager"/>
+    <menuitem id="menu_operations_rules" name="Monitoring Rules" parent="menu_operations_config" action="action_operations_rules" sequence="10" groups="group_operations_manager"/>
+</odoo>
