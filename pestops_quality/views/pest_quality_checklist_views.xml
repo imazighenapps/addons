@@ -1,0 +1,83 @@
+<odoo>
+    <record id="view_pest_quality_checklist_list" model="ir.ui.view">
+        <field name="name">pest.quality.checklist.list</field>
+        <field name="model">pest.quality.checklist</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="procedure_id"/>
+                <field name="name"/>
+                <field name="version"/>
+                <field name="item_count"/>
+                <field name="check_count"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_pest_quality_checklist_form" model="ir.ui.view">
+        <field name="name">pest.quality.checklist.form</field>
+        <field name="model">pest.quality.checklist</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_new_version" type="object" string="New Version" class="oe_highlight"/>
+                    <field name="active" widget="boolean_toggle"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="procedure_id"/>
+                            <field name="version"/>
+                        </group>
+                        <group>
+                            <field name="item_count" readonly="1"/>
+                            <field name="check_count" readonly="1"/>
+                            <field name="company_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <field name="description"/>
+                    <separator string="Checklist Items"/>
+                    <field name="item_ids">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="question"/>
+                            <field name="response_type"/>
+                            <field name="mandatory"/>
+                            <field name="failure_severity"/>
+                            <field name="active"/>
+                        </list>
+                    </field>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_pest_quality_checklist_item_form" model="ir.ui.view">
+        <field name="name">pest.quality.checklist.item.form</field>
+        <field name="model">pest.quality.checklist.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="checklist_id"/>
+                        <field name="sequence"/>
+                        <field name="name"/>
+                        <field name="response_type"/>
+                        <field name="mandatory"/>
+                        <field name="failure_severity"/>
+                        <field name="expected_value"/>
+                        <field name="active"/>
+                    </group>
+                    <field name="question"/>
+                    <field name="guidance"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_pest_quality_checklists" model="ir.actions.act_window">
+        <field name="name">Quality Checklists</field>
+        <field name="res_model">pest.quality.checklist</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

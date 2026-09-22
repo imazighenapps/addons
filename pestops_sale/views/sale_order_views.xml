@@ -1,0 +1,63 @@
+<odoo>
+
+    <record id="view_order_form_pestops" model="ir.ui.view">
+        <field name="name">sale.order.form.pestops</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//header" position="inside">
+                <button name="action_create_pestops_contract"
+                        type="object"
+                        string="Create PestOps Contract"
+                        class="oe_highlight"
+                        invisible="not pestops_enabled or pestops_contract_id"/>
+                <button name="action_open_pestops_contract"
+                        type="object"
+                        string="Open PestOps Contract"
+                        invisible="not pestops_contract_id"/>
+            </xpath>
+
+            <xpath expr="//sheet/notebook" position="inside">
+                <page string="PestOps" name="pestops_tab">
+                    <group>
+                        <group>
+                            <field name="pestops_enabled"/>
+                            <field name="pestops_contract_id"/>
+                            <field name="pestops_start_date"
+                                   invisible="not pestops_enabled"/>
+                            <field name="pestops_end_date"
+                                   invisible="not pestops_enabled"/>
+                        </group>
+                        <group>
+                            <field name="pestops_frequency_type"
+                                   invisible="not pestops_enabled"/>
+                            <field name="pestops_frequency_number"
+                                   invisible="not pestops_enabled"/>
+                            <field name="pestops_visit_duration_minutes"
+                                   invisible="not pestops_enabled"/>
+                            <field name="pestops_technician_id"
+                                   invisible="not pestops_enabled"/>
+                            <field name="pestops_billing_frequency"
+                                   invisible="not pestops_enabled"/>
+                        </group>
+                    </group>
+
+                    <group string="Service Sites"
+                           invisible="not pestops_enabled">
+                        <field name="pestops_site_ids"
+                               widget="many2many_tags"
+                               options="{'no_create': True}"/>
+                    </group>
+
+                    <p class="text-muted">
+                        The quotation can create a draft PestOps contract.
+                        The contract becomes active when the sales order is confirmed.
+                    </p>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

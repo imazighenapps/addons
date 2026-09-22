@@ -1,0 +1,32 @@
+<odoo>
+    <record id="view_pest_visit_form_quality_inherit" model="ir.ui.view">
+        <field name="name">pest.visit.form.quality</field>
+        <field name="model">pest.visit</field>
+        <field name="inherit_id" ref="pestops_core.view_pest_visit_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='action_done']" position="before">
+                <button name="action_create_quality_check" type="object" string="New Quality Check" invisible="state not in ('in_progress','done')"/>
+                <button name="action_view_quality_checks" type="object" string="Quality" invisible="not quality_count"/>
+            </xpath>
+            <xpath expr="//group[field[@name='inspection_required']]" position="inside">
+                <field name="quality_required"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='anomalies']" position="after">
+                <page string="Quality">
+                    <field name="quality_check_ids">
+                        <list>
+                            <field name="name"/>
+                            <field name="procedure_id"/>
+                            <field name="checklist_id"/>
+                            <field name="date"/>
+                            <field name="state"/>
+                            <field name="result"/>
+                            <field name="nonconformity_count"/>
+                            <field name="open_nonconformity_count"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

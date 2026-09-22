@@ -1,0 +1,11 @@
+<odoo>
+    <record id="group_pest_quality_user" model="res.groups">
+        <field name="name">PestOps Quality User</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="group_pest_quality_manager" model="res.groups">
+        <field name="name">PestOps Quality Manager</field>
+        <field name="implied_ids" eval="[(4, ref('pestops_quality.group_pest_quality_user'))]"/>
+    </record>
+</odoo>

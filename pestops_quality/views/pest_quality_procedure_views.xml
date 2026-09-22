@@ -1,0 +1,65 @@
+<odoo>
+    <record id="view_pest_quality_procedure_list" model="ir.ui.view">
+        <field name="name">pest.quality.procedure.list</field>
+        <field name="model">pest.quality.procedure</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="version"/>
+                <field name="scope"/>
+                <field name="owner_id"/>
+                <field name="checklist_count"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_pest_quality_procedure_form" model="ir.ui.view">
+        <field name="name">pest.quality.procedure.form</field>
+        <field name="model">pest.quality.procedure</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="version"/>
+                            <field name="scope"/>
+                        </group>
+                        <group>
+                            <field name="owner_id"/>
+                            <field name="company_id"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Purpose &amp; Instructions">
+                            <field name="purpose"/>
+                            <field name="instructions"/>
+                        </page>
+                        <page string="Checklists">
+                            <field name="checklist_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="version"/>
+                                    <field name="item_count"/>
+                                    <field name="check_count"/>
+                                    <field name="active"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_pest_quality_procedures" model="ir.actions.act_window">
+        <field name="name">Quality Procedures</field>
+        <field name="res_model">pest.quality.procedure</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

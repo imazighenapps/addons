@@ -1,0 +1,46 @@
+<odoo>
+    <template id="report_pest_visit_quality_inherit" inherit_id="pestops_core.report_pest_visit_document">
+        <xpath expr="//div[@class='pestops-subtitle' and normalize-space()='Customer Notes']" position="before">
+            <div class="pestops-subtitle">Quality &amp; Compliance</div>
+            <t t-if="o.quality_check_ids">
+                <t t-foreach="o.quality_check_ids" t-as="quality">
+                    <table class="pestops-table">
+                        <tr>
+                            <th>Quality Check</th>
+                            <td><span t-field="quality.name"/></td>
+                            <th>Procedure</th>
+                            <td><span t-field="quality.procedure_id"/></td>
+                        </tr>
+                        <tr>
+                            <th>Checklist</th>
+                            <td><span t-field="quality.checklist_id"/></td>
+                            <th>Result</th>
+                            <td><span t-field="quality.result"/></td>
+                        </tr>
+                    </table>
+                    <table class="pestops-table" t-if="quality.nonconformity_ids">
+                        <thead>
+                            <tr>
+                                <th>Non-Conformity</th>
+                                <th>Severity</th>
+                                <th>Status</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="quality.nonconformity_ids" t-as="nc">
+                                <td><span t-field="nc.name"/></td>
+                                <td><span t-field="nc.severity"/></td>
+                                <td><span t-field="nc.state"/></td>
+                                <td><span t-field="nc.description"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </t>
+            <t t-else="">
+                <p class="pestops-muted">No quality check was recorded.</p>
+            </t>
+        </xpath>
+    </template>
+</odoo>
