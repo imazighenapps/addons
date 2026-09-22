@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_res_company_form_pestops_localization" model="ir.ui.view">
+        <field name="name">res.company.form.pestops.localization</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_info']" position="after">
+                <page string="PestOps Localization" name="pestops_localization">
+                    <group>
+                        <group string="Defaults">
+                            <field name="pestops_default_language_id"/>
+                            <field name="pestops_default_country_id"/>
+                            <field name="pestops_default_currency_id"/>
+                            <field name="pestops_report_timezone"/>
+                        </group>
+                        <group string="Documents">
+                            <field name="pestops_enable_bilingual_reports"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_res_partner_form_pestops_localization" model="ir.ui.view">
+        <field name="name">res.partner.form.pestops.localization</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page string="PestOps Documents" name="pestops_documents">
+                    <group>
+                        <field name="pestops_document_language_id"/>
+                        <field name="pestops_document_profile_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

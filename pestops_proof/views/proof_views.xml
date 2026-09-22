@@ -1,0 +1,118 @@
+<odoo>
+    <record id="view_pest_intervention_proof_list" model="ir.ui.view">
+        <field name="name">pest.intervention.proof.list</field>
+        <field name="model">pest.intervention.proof</field>
+        <field name="arch" type="xml">
+            <list string="Intervention Proofs">
+                <field name="name"/>
+                <field name="visit_id"/>
+                <field name="site_id"/>
+                <field name="partner_id"/>
+                <field name="technician_id"/>
+                <field name="state"/>
+                <field name="customer_name"/>
+                <field name="evidence_count"/>
+                <field name="signed_at"/>
+                <field name="proof_hash"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_intervention_proof_form" model="ir.ui.view">
+        <field name="name">pest.intervention.proof.form</field>
+        <field name="model">pest.intervention.proof</field>
+        <field name="arch" type="xml">
+            <form string="Intervention Proof">
+                <header>
+                    <button name="action_prepare" type="object" string="Prepare"
+                            class="btn-secondary" invisible="state != 'draft'"/>
+                    <button name="action_customer_accept" type="object" string="Customer Accept"
+                            class="oe_highlight" invisible="state not in ('draft','prepared')"/>
+                    <button name="action_sign" type="object" string="Sign &amp; Seal"
+                            class="oe_highlight" invisible="state != 'accepted'"/>
+                    <button name="action_print" type="object" string="PDF Report"
+                            invisible="state == 'draft'"/>
+                    <button name="action_reset" type="object" string="Reset"
+                            invisible="state in ('draft','cancelled')"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state in ('signed','cancelled')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,prepared,accepted,signed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="name"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="visit_id"/>
+                            <field name="site_id"/>
+                            <field name="partner_id"/>
+                            <field name="technician_id"/>
+                            <field name="proof_hash" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="customer_name"/>
+                            <field name="customer_role"/>
+                            <field name="customer_accepted_at" readonly="1"/>
+                            <field name="signed_at" readonly="1"/>
+                            <field name="signature_ready" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Customer Acceptance">
+                            <group>
+                                <field name="customer_comment"/>
+                                <field name="customer_signature" widget="image" class="oe_avatar"/>
+                            </group>
+                        </page>
+                        <page string="Technician Signature">
+                            <field name="technician_signature" widget="image" class="oe_avatar"/>
+                        </page>
+                        <page string="Evidence">
+                            <field name="evidence_ids">
+                                <list editable="bottom">
+                                    <field name="sequence"/>
+                                    <field name="category"/>
+                                    <field name="title"/>
+                                    <field name="captured_at"/>
+                                    <field name="captured_by"/>
+                                    <field name="sha256"/>
+                                    <field name="image" widget="image"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Used Resources">
+                            <group>
+                                <field name="equipment_ids" widget="many2many_tags"/>
+                                <field name="treatment_ids" widget="many2many_tags"/>
+                                <field name="inspection_ids" widget="many2many_tags"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pest_intervention_evidence_list" model="ir.ui.view">
+        <field name="name">pest.intervention.evidence.list</field>
+        <field name="model">pest.intervention.evidence</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="proof_id"/>
+                <field name="sequence"/>
+                <field name="category"/>
+                <field name="title"/>
+                <field name="captured_at"/>
+                <field name="captured_by"/>
+                <field name="sha256"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_pest_intervention_proof" model="ir.actions.act_window">
+        <field name="name">Intervention Proofs</field>
+        <field name="res_model">pest.intervention.proof</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

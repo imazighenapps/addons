@@ -1,0 +1,345 @@
+<odoo>
+    <!-- Home card -->
+    <template id="portal_my_home_pestops" name="PestOps portal home" inherit_id="portal.portal_my_home" priority="40">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="icon" t-value="'/pestops_portal/static/src/img/pestops.svg'"/>
+                <t t-set="title">PestOps</t>
+                <t t-set="text">Sites, visits, reports and service requests</t>
+                <t t-set="url" t-value="'/my/pestops'"/>
+                <t t-set="placeholder_count" t-value="'pest_visit_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Breadcrumbs -->
+    <template id="portal_pestops_breadcrumbs" name="PestOps breadcrumbs" inherit_id="portal.portal_breadcrumbs" priority="40">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'pestops'" class="breadcrumb-item active">PestOps</li>
+            <li t-if="page_name in ['pestops_sites', 'pestops_site']" t-attf-class="breadcrumb-item #{'active' if page_name == 'pestops_sites' else ''}">
+                <a t-if="page_name == 'pestops_site'" href="/my/pestops/sites">Sites</a>
+                <t t-else="">Sites</t>
+            </li>
+            <li t-if="page_name == 'pestops_site'" class="breadcrumb-item active"><t t-out="site.name"/></li>
+            <li t-if="page_name in ['pestops_visits', 'pestops_visit']" t-attf-class="breadcrumb-item #{'active' if page_name == 'pestops_visits' else ''}">
+                <a t-if="page_name == 'pestops_visit'" href="/my/pestops/visits">Visits</a>
+                <t t-else="">Visits</t>
+            </li>
+            <li t-if="page_name == 'pestops_visit'" class="breadcrumb-item active"><t t-out="visit.name"/></li>
+            <li t-if="page_name in ['pestops_documents']" class="breadcrumb-item active">Documents</li>
+            <li t-if="page_name in ['pestops_requests', 'pestops_request_new', 'pestops_request']" t-attf-class="breadcrumb-item #{'active' if page_name == 'pestops_requests' else ''}">
+                <a t-if="page_name != 'pestops_requests'" href="/my/pestops/requests">Service Requests</a>
+                <t t-else="">Service Requests</t>
+            </li>
+            <li t-if="page_name == 'pestops_request_new'" class="breadcrumb-item active">New Request</li>
+            <li t-if="page_name == 'pestops_request'" class="breadcrumb-item active"><t t-out="service_request.name"/></li>
+        </xpath>
+    </template>
+
+    <template id="portal_pestops_dashboard" name="PestOps dashboard">
+        <t t-call="portal.portal_layout">
+            <t t-set="my_details" t-value="False"/>
+            <div class="pestops-portal-shell">
+                <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 align-items-lg-center mb-4">
+                    <div>
+                        <h1 class="h3 mb-1">PestOps Customer Portal</h1>
+                        <p class="text-muted mb-0">Follow your pest control service activity in one place.</p>
+                    </div>
+                    <a class="btn btn-primary" href="/my/pestops/request"><i class="fa fa-plus me-1"/> New service request</a>
+                </div>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <a href="/my/pestops/sites" class="text-decoration-none">
+                            <div class="card shadow-sm h-100 pestops-kpi-card">
+                                <div class="card-body"><div class="text-muted small">Sites</div><div class="display-6 fw-semibold"><t t-esc="site_count"/></div><span class="small">Authorized sites <i class="fa fa-arrow-right ms-1"/></span></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <a href="/my/pestops/visits" class="text-decoration-none">
+                            <div class="card shadow-sm h-100 pestops-kpi-card">
+                                <div class="card-body"><div class="text-muted small">Visits</div><div class="display-6 fw-semibold"><t t-esc="visit_count"/></div><span class="small">Service visits <i class="fa fa-arrow-right ms-1"/></span></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <a href="/my/pestops/requests" class="text-decoration-none">
+                            <div class="card shadow-sm h-100 pestops-kpi-card">
+                                <div class="card-body"><div class="text-muted small">Requests</div><div class="display-6 fw-semibold"><t t-esc="request_count"/></div><span class="small">Track requests <i class="fa fa-arrow-right ms-1"/></span></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <a href="/my/pestops/documents" class="text-decoration-none">
+                            <div class="card shadow-sm h-100 pestops-kpi-card">
+                                <div class="card-body"><div class="text-muted small">Documents</div><div class="display-6 fw-semibold"><t t-esc="document_count"/></div><span class="small">Reports &amp; certificates <i class="fa fa-arrow-right ms-1"/></span></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-header bg-transparent"><strong>Upcoming visits</strong></div>
+                    <div class="card-body p-0">
+                        <t t-if="upcoming_visits">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle mb-0">
+                                    <thead><tr><th>Visit</th><th>Site</th><th>Scheduled</th><th>Status</th></tr></thead>
+                                    <tbody>
+                                        <tr t-foreach="upcoming_visits" t-as="visit_item">
+                                            <td><a t-att-href="'/my/pestops/visit/%s' % visit_item.id"><t t-out="visit_item.name"/></a></td>
+                                            <td><t t-out="visit_item.site_id.name"/></td>
+                                            <td><span t-field="visit_item.scheduled_start"/></td>
+                                            <td><span t-out="dict(visit_item._fields['state'].selection).get(visit_item.state)"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </t>
+                        <t t-else=""><div class="p-4 text-muted">No upcoming visit is currently scheduled.</div></t>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm mt-4">
+                    <div class="card-header bg-transparent d-flex justify-content-between align-items-center"><strong>Recent documents</strong><a href="/my/pestops/documents" class="small">View all</a></div>
+                    <div class="card-body p-0">
+                        <t t-if="recent_documents">
+                            <div class="table-responsive"><table class="table table-hover align-middle mb-0"><thead><tr><th>Document</th><th>Type</th><th>Site</th><th>Date</th><th></th></tr></thead><tbody>
+                                <tr t-foreach="recent_documents" t-as="doc"><td><t t-out="doc.name"/></td><td><t t-out="dict(doc._fields['document_type'].selection).get(doc.document_type)"/></td><td><t t-out="doc.site_id.name or '-'"/></td><td><span t-field="doc.document_date"/></td><td class="text-end"><a t-att-href="'/my/pestops/document/%s' % doc.id" class="btn btn-sm btn-outline-primary">Download</a></td></tr>
+                            </tbody></table></div>
+                        </t>
+                        <t t-else=""><div class="p-4 text-muted">No documents have been published to your portal yet.</div></t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_pestops_documents" name="PestOps portal documents">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar"><t t-set="title">Documents</t></t>
+            <div class="pestops-portal-shell">
+                <div class="card shadow-sm"><div class="card-header bg-transparent"><strong>Documents published by your PestOps team</strong></div><div class="card-body p-0">
+                    <t t-if="documents"><div class="table-responsive"><table class="table table-hover align-middle mb-0"><thead><tr><th>Document</th><th>Type</th><th>Site</th><th>Visit</th><th>Date</th><th></th></tr></thead><tbody>
+                        <tr t-foreach="documents" t-as="doc"><td><t t-out="doc.name"/></td><td><span class="badge text-bg-light"><t t-out="dict(doc._fields['document_type'].selection).get(doc.document_type)"/></span></td><td><t t-out="doc.site_id.name or '-'"/></td><td><t t-out="doc.visit_id.name or '-'"/></td><td><span t-field="doc.document_date"/></td><td class="text-end"><a t-att-href="'/my/pestops/document/%s' % doc.id" class="btn btn-sm btn-primary"><i class="fa fa-download me-1"/> Download</a></td></tr>
+                    </tbody></table></div></t>
+                    <t t-else=""><div class="p-4 text-muted">No documents have been published to your portal yet.</div></t>
+                </div></div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_pestops_sites" name="PestOps sites">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar"><t t-set="title">Sites</t></t>
+            <div class="pestops-portal-shell">
+                <t t-if="sites">
+                    <div class="row g-3">
+                        <div class="col-12 col-lg-6" t-foreach="sites" t-as="site">
+                            <a t-att-href="'/my/pestops/site/%s' % site.id" class="text-decoration-none">
+                                <div class="card shadow-sm h-100 pestops-site-card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between gap-3"><h2 class="h5 mb-1"><t t-out="site.name"/></h2><span class="badge text-bg-light"><t t-out="site.code"/></span></div>
+                                        <div class="text-muted small mb-3"><t t-out="site.site_type"/></div>
+                                        <div class="small"><t t-out="site.street or ''"/><t t-if="site.city">, <t t-out="site.city"/></t></div>
+                                        <div class="small text-muted mt-2"><t t-esc="site.visit_count"/> visits · <t t-esc="site.open_reservice_count"/> open re-services</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </t>
+                <t t-else=""><div class="alert alert-info">No PestOps site is linked to your customer account.</div></t>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_pestops_site" name="PestOps site detail">
+        <t t-call="portal.portal_layout">
+            <div class="pestops-portal-shell">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between flex-wrap gap-2">
+                            <div><h1 class="h3 mb-1"><t t-out="site.name"/></h1><div class="text-muted"><t t-out="site.code"/></div></div>
+                            <a class="btn btn-outline-primary" t-att-href="'/my/pestops/request?site_id=%s' % site.id"><i class="fa fa-plus me-1"/> Request service</a>
+                        </div>
+                        <hr/>
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6"><div class="text-muted small">Address</div><div><t t-out="site.street or ''"/><t t-if="site.city">, <t t-out="site.city"/></t><t t-if="site.zip"> <t t-out="site.zip"/></t></div></div>
+                            <div class="col-6 col-md-3"><div class="text-muted small">Last visit</div><div><span t-field="site.last_visit_date"/></div></div>
+                            <div class="col-6 col-md-3"><div class="text-muted small">Next visit</div><div><span t-field="site.next_visit_date"/></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow-sm">
+                    <div class="card-header bg-transparent"><strong>Recent visits</strong></div>
+                    <div class="card-body p-0">
+                        <t t-if="visits">
+                            <div class="table-responsive"><table class="table table-hover align-middle mb-0"><thead><tr><th>Visit</th><th>Scheduled</th><th>Status</th><th/></tr></thead><tbody>
+                                <tr t-foreach="visits" t-as="visit_item">
+                                    <td><a t-att-href="'/my/pestops/visit/%s' % visit_item.id"><t t-out="visit_item.name"/></a></td>
+                                    <td><span t-field="visit_item.scheduled_start"/></td>
+                                    <td><span t-out="dict(visit_item._fields['state'].selection).get(visit_item.state)"/></td>
+                                    <td class="text-end"><a class="btn btn-sm btn-outline-secondary" t-att-href="'/my/pestops/visit/%s' % visit_item.id">Open</a></td>
+                                </tr>
+                            </tbody></table></div>
+                        </t>
+                        <t t-else=""><div class="p-4 text-muted">No visits recorded for this site.</div></t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_pestops_visits" name="PestOps visits">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar"><t t-set="title">Visits</t></t>
+            <div class="pestops-portal-shell">
+                <t t-if="visits">
+                    <div class="table-responsive card shadow-sm"><table class="table table-hover align-middle mb-0"><thead><tr><th>Visit</th><th>Site</th><th>Scheduled</th><th>Technician</th><th>Status</th></tr></thead><tbody>
+                        <tr t-foreach="visits" t-as="visit_item">
+                            <td><a t-att-href="'/my/pestops/visit/%s' % visit_item.id"><t t-out="visit_item.name"/></a></td>
+                            <td><t t-out="visit_item.site_id.name"/></td>
+                            <td><span t-field="visit_item.scheduled_start"/></td>
+                            <td><t t-out="visit_item.technician_id.name or '-'"/></td>
+                            <td><t t-out="dict(visit_item._fields['state'].selection).get(visit_item.state)"/></td>
+                        </tr>
+                    </tbody></table></div>
+                </t>
+                <t t-else=""><div class="alert alert-info">No visit is available for your account.</div></t>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_pestops_visit" name="PestOps visit detail">
+        <t t-call="portal.portal_layout">
+            <div class="pestops-portal-shell">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between flex-wrap gap-2"><div><h1 class="h3 mb-1"><t t-out="visit.name"/></h1><div class="text-muted"><t t-out="visit.site_id.name"/></div></div><a class="btn btn-primary" t-att-href="'/my/pestops/report/visit/%s' % visit.id"><i class="fa fa-file-pdf-o me-1"/> Service report</a></div>
+                        <hr/>
+                        <div class="row g-3">
+                            <div class="col-12 col-md-4"><div class="text-muted small">Scheduled</div><div><span t-field="visit.scheduled_start"/></div></div>
+                            <div class="col-12 col-md-4"><div class="text-muted small">Technician</div><div><t t-out="visit.technician_id.name or '-'"/></div></div>
+                            <div class="col-12 col-md-4"><div class="text-muted small">Status</div><div><t t-out="dict(visit._fields['state'].selection).get(visit.state)"/></div></div>
+                        </div>
+                        <div t-if="visit.customer_feedback" class="alert alert-info mt-4 mb-0"><strong>Customer feedback:</strong><div t-esc="visit.customer_feedback"/></div>
+                        <div t-if="visit.notes" class="mt-4"><div class="text-muted small mb-1">Service notes</div><div t-field="visit.notes"/></div>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-12 col-lg-6">
+                        <div class="card shadow-sm h-100"><div class="card-header bg-transparent"><strong>Inspections</strong></div><div class="card-body">
+                            <t t-if="visit.inspection_ids"><div t-foreach="visit.inspection_ids" t-as="inspection"><div class="border-bottom pb-3 mb-3"><div class="fw-semibold"><t t-out="inspection.name"/></div><div class="small text-muted"><t t-out="inspection.state"/></div><div t-if="inspection.notes" class="small mt-2"><t t-esc="inspection.notes"/></div></div></div></t>
+                            <t t-else=""><span class="text-muted">No inspection recorded.</span></t>
+                        </div></div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="card shadow-sm h-100"><div class="card-header bg-transparent"><strong>Treatments</strong></div><div class="card-body">
+                            <t t-if="visit.treatment_ids"><div t-foreach="visit.treatment_ids" t-as="treatment"><div class="border-bottom pb-3 mb-3"><div class="d-flex justify-content-between gap-2"><div class="fw-semibold"><t t-out="treatment.name"/></div><a class="btn btn-sm btn-outline-secondary" t-att-href="'/my/pestops/report/treatment/%s' % treatment.id">Certificate</a></div><div class="small text-muted"><t t-out="treatment.result"/> · <t t-out="treatment.method_id.name or '-'"/></div><div t-if="treatment.notes" class="small mt-2"><t t-esc="treatment.notes"/></div></div></div></t>
+                            <t t-else=""><span class="text-muted">No treatment recorded.</span></t>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_pestops_requests" name="PestOps service requests">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar"><t t-set="title">Service Requests</t></t>
+            <div class="pestops-portal-shell">
+                <div class="d-flex justify-content-end mb-3"><a href="/my/pestops/request" class="btn btn-primary"><i class="fa fa-plus me-1"/> New request</a></div>
+                <t t-if="service_requests"><div class="table-responsive card shadow-sm"><table class="table table-hover align-middle mb-0"><thead><tr><th>Reference</th><th>Site</th><th>Type</th><th>Priority</th><th>Status</th><th>Date</th></tr></thead><tbody>
+                    <tr t-foreach="service_requests" t-as="sr"><td><a t-att-href="'/my/pestops/request/%s' % sr.id"><t t-out="sr.name"/></a></td><td><t t-out="sr.site_id.name"/></td><td><t t-out="dict(sr._fields['request_type'].selection).get(sr.request_type)"/></td><td><t t-out="dict(sr._fields['priority'].selection).get(sr.priority)"/></td><td><t t-out="dict(sr._fields['state'].selection).get(sr.state)"/></td><td><span t-field="sr.create_date"/></td></tr>
+                </tbody></table></div></t>
+                <t t-else=""><div class="alert alert-info">No service request has been submitted yet.</div></t>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_pestops_request_form" name="PestOps service request form">
+        <t t-call="portal.portal_layout">
+            <div class="pestops-portal-shell">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4 p-lg-5">
+                        <h1 class="h3 mb-1">New service request</h1>
+                        <p class="text-muted mb-4">Tell your service team what you need.</p>
+                        <t t-if="errors"><div class="alert alert-danger"><ul class="mb-0"><li t-foreach="errors" t-as="error"><t t-out="error"/></li></ul></div></t>
+                        <form method="post">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label">Site</label>
+                                    <select name="site_id" class="form-select" required="required">
+                                        <option value="">Select a site</option>
+                                        <option t-foreach="sites" t-as="site" t-att-value="site.id" t-att-selected="str(site.id) == str(form.get('site_id') or request.params.get('site_id') or '')"><t t-out="site.name"/></option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label">Related visit (optional)</label>
+                                    <select name="visit_id" class="form-select">
+                                        <option value="">No related visit</option>
+                                        <option t-foreach="visits" t-as="visit_item" t-att-value="visit_item.id" t-att-selected="str(visit_item.id) == str(form.get('visit_id') or '')"><t t-out="visit_item.name"/> — <t t-out="visit_item.site_id.name"/></option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label">Request type</label>
+                                    <select name="request_type" class="form-select">
+                                        <option value="reservice" t-att-selected="form.get('request_type') == 'reservice'">Re-Service</option>
+                                        <option value="additional_visit" t-att-selected="form.get('request_type') == 'additional_visit'">Additional Visit</option>
+                                        <option value="document" t-att-selected="form.get('request_type') == 'document'">Document Request</option>
+                                        <option value="other" t-att-selected="form.get('request_type') == 'other'">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label">Priority</label>
+                                    <select name="priority" class="form-select">
+                                        <option value="0" t-att-selected="form.get('priority') in (None, '', '0')">Normal</option>
+                                        <option value="1" t-att-selected="form.get('priority') == '1'">High</option>
+                                        <option value="2" t-att-selected="form.get('priority') == '2'">Urgent</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Description</label>
+                                    <textarea name="description" class="form-control" rows="7" required="required" placeholder="Describe the issue, requested action or document..." t-esc="form.get('description') or ''"/>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end gap-2 mt-4"><a href="/my/pestops/requests" class="btn btn-outline-secondary">Cancel</a><button type="submit" class="btn btn-primary">Submit request</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_pestops_request" name="PestOps service request detail">
+        <t t-call="portal.portal_layout">
+            <div class="pestops-portal-shell">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4 p-lg-5">
+                        <div class="d-flex justify-content-between flex-wrap gap-3">
+                            <div><h1 class="h3 mb-1"><t t-out="service_request.name"/></h1><div class="text-muted"><t t-out="service_request.site_id.name"/></div></div>
+                            <span class="badge rounded-pill text-bg-light align-self-start"><t t-out="dict(service_request._fields['state'].selection).get(service_request.state)"/></span>
+                        </div>
+                        <hr/>
+                        <div class="row g-3">
+                            <div class="col-12 col-md-4"><div class="text-muted small">Type</div><div><t t-out="dict(service_request._fields['request_type'].selection).get(service_request.request_type)"/></div></div>
+                            <div class="col-12 col-md-4"><div class="text-muted small">Priority</div><div><t t-out="dict(service_request._fields['priority'].selection).get(service_request.priority)"/></div></div>
+                            <div class="col-12 col-md-4"><div class="text-muted small">Submitted</div><div><span t-field="service_request.create_date"/></div></div>
+                        </div>
+                        <div class="mt-4"><div class="text-muted small mb-1">Request</div><div class="pestops-request-description"><t t-esc="service_request.description"/></div></div>
+                        <div t-if="service_request.resservice_id" class="alert alert-success mt-4 mb-0"><strong>Re-Service opened:</strong> <t t-out="service_request.resservice_id.name"/>.</div>
+                        <div t-if="service_request.response_notes" class="alert alert-info mt-4 mb-0"><strong>Service team response</strong><div t-field="service_request.response_notes"/></div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

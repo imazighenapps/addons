@@ -1,0 +1,11 @@
+<odoo>
+    <record id="ir_cron_pestops_hardening_watchdog" model="ir.cron">
+        <field name="name">PestOps: Automation Stale-Run Watchdog</field>
+        <field name="model_id" ref="model_pestops_automation_guard"/>
+        <field name="state">code</field>
+        <field name="code">model.clean_stale_runs()</field>
+        <field name="interval_number">30</field>
+        <field name="interval_type">minutes</field>
+        <field name="active">True</field>
+    </record>
+</odoo>
