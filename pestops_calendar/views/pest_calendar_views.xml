@@ -1,0 +1,109 @@
+<odoo>
+    <record id="view_pest_visit_calendar" model="ir.ui.view">
+        <field name="name">pest.visit.calendar</field>
+        <field name="model">pest.visit</field>
+        <field name="arch" type="xml">
+            <calendar string="PestOps Visits" date_start="scheduled_start" date_stop="scheduled_end" color="technician_id">
+                <field name="name"/>
+                <field name="site_id"/>
+                <field name="technician_id"/>
+                <field name="state"/>
+                <field name="priority"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_pest_visit_calendar_list" model="ir.ui.view">
+        <field name="name">pest.visit.calendar.list</field>
+        <field name="model">pest.visit</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="schedule_has_conflict" decoration-muted="state == 'cancelled'" decoration-success="state == 'done'">
+                <field name="name"/>
+                <field name="site_id"/>
+                <field name="technician_id"/>
+                <field name="scheduled_start"/>
+                <field name="scheduled_end"/>
+                <field name="schedule_conflict_count"/>
+                <field name="state"/>
+                <field name="priority" widget="priority"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_visit_conflict_list" model="ir.ui.view">
+        <field name="name">pest.visit.conflict.list</field>
+        <field name="model">pest.visit</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="schedule_has_conflict">
+                <field name="name"/>
+                <field name="site_id"/>
+                <field name="technician_id"/>
+                <field name="scheduled_start"/>
+                <field name="scheduled_end"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_visit_form_calendar_inherit" model="ir.ui.view">
+        <field name="name">pest.visit.form.calendar.inherit</field>
+        <field name="model">pest.visit</field>
+        <field name="inherit_id" ref="pestops_core.view_pest_visit_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_check_schedule_conflicts"
+                        type="object"
+                        string="Check Conflicts"
+                        icon="fa-warning"
+                        invisible="not technician_id or not scheduled_start or not scheduled_end"/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <group string="Planning" name="pestops_planning_info">
+                    <field name="schedule_has_conflict" invisible="1"/>
+                    <field name="schedule_conflict_count"
+                           invisible="not technician_id or not scheduled_start or not scheduled_end"
+                           readonly="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_pestops_visit_calendar" model="ir.actions.act_window">
+        <field name="name">Visit Calendar</field>
+        <field name="res_model">pest.visit</field>
+        <field name="view_mode">calendar,list,form</field>
+        <field name="view_id" ref="view_pest_visit_calendar"/>
+        <field name="domain">[('state', '!=', 'cancelled')]</field>
+        <field name="context">{'search_default_scheduled': 1}</field>
+    </record>
+
+    <record id="action_pestops_visit_calendar_all" model="ir.actions.act_window">
+        <field name="name">All Visits Calendar</field>
+        <field name="res_model">pest.visit</field>
+        <field name="view_mode">calendar,list,form</field>
+        <field name="view_id" ref="view_pest_visit_calendar"/>
+    </record>
+
+    <record id="view_pest_visit_search_calendar" model="ir.ui.view">
+        <field name="name">pest.visit.search.calendar</field>
+        <field name="model">pest.visit</field>
+        <field name="arch" type="xml">
+            <search string="Visit Planning">
+                <field name="name"/>
+                <field name="site_id"/>
+                <field name="technician_id"/>
+                <field name="state"/>
+                <field name="scheduled_start"/>
+                <filter name="scheduled" string="Scheduled" domain="[('state', '=', 'scheduled')]"/>
+                <filter name="today" string="Today" domain="[('scheduled_start', '&gt;=', context_today()), ('scheduled_start', '&lt;', context_today() + relativedelta(days=1))]"/>
+                <filter name="this_week" string="This Week" domain="[('scheduled_start', '&gt;=', context_today() - relativedelta(days=context_today().weekday())), ('scheduled_start', '&lt;', context_today() - relativedelta(days=context_today().weekday()) + relativedelta(days=7))]"/>
+                <filter name="conflicts" string="Conflicts" domain="[('schedule_conflict_count', '&gt;', 0)]"/>
+                <group>
+                    <filter name="group_technician" string="Technician" context="{'group_by': 'technician_id'}"/>
+                    <filter name="group_site" string="Site" context="{'group_by': 'site_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

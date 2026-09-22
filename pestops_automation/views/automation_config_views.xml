@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pest_automation_config_list" model="ir.ui.view">
+        <field name="name">pest.automation.config.list</field>
+        <field name="model">pest.automation.config</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="active"/>
+                <field name="visit_reminder_hours"/>
+                <field name="contract_renewal_days"/>
+                <field name="customer_notifications"/>
+                <field name="service_request_responsible_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_automation_config_form" model="ir.ui.view">
+        <field name="name">pest.automation.config.form</field>
+        <field name="model">pest.automation.config</field>
+        <field name="arch" type="xml">
+            <form string="PestOps Automation">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="active"/>
+                            <field name="visit_reminder_hours"/>
+                            <field name="contract_renewal_days"/>
+                            <field name="overdue_anomaly_grace_days"/>
+                        </group>
+                        <group>
+                            <field name="service_request_responsible_id"/>
+                            <field name="escalation_user_id"/>
+                            <field name="overdue_visit_enabled"/>
+                            <field name="stock_alert_enabled"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Customer Notifications">
+                            <group>
+                                <field name="customer_notifications"/>
+                                <field name="customer_visit_reminders"/>
+                                <field name="customer_contract_renewals"/>
+                                <field name="customer_service_requests"/>
+                                <field name="customer_portal_documents"/>
+                            </group>
+                        </page>
+                        <page string="Automation Scope">
+                            <p class="text-muted">
+                                PestOps creates traceable activities and automation logs. Customer emails are optional and disabled by default.
+                            </p>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pest_automation_config" model="ir.actions.act_window">
+        <field name="name">Automation Settings</field>
+        <field name="res_model">pest.automation.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,51 @@
+<odoo>
+    <record id="action_pest_analytics_company_kpi" model="ir.actions.act_window">
+        <field name="name">Executive KPIs</field>
+        <field name="res_model">pest.analytics.company.kpi</field>
+        <field name="view_mode">form,list</field>
+        <field name="view_id" ref="view_pest_analytics_company_kpi_form"/>
+    </record>
+
+    <record id="action_pest_analytics_visits" model="ir.actions.act_window">
+        <field name="name">Visit Analytics</field>
+        <field name="res_model">pest.analytics.visit.report</field>
+        <field name="view_mode">graph,pivot,list</field>
+        <field name="view_id" ref="view_pest_analytics_visit_graph"/>
+    </record>
+
+    <record id="action_pest_analytics_sites" model="ir.actions.act_window">
+        <field name="name">Site Performance</field>
+        <field name="res_model">pest.analytics.site.kpi</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_pest_analytics_site_list"/>
+    </record>
+
+    <record id="action_pest_analytics_technicians" model="ir.actions.act_window">
+        <field name="name">Technician Performance</field>
+        <field name="res_model">pest.analytics.technician.kpi</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_pest_analytics_technician_list"/>
+    </record>
+
+    <record id="action_pest_analytics_contracts" model="ir.actions.act_window">
+        <field name="name">Contract Portfolio</field>
+        <field name="res_model">pest.analytics.contract.kpi</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_pest_analytics_contract_list"/>
+    </record>
+
+    <record id="action_pest_analytics_financial" model="ir.actions.act_window">
+        <field name="name">Financial Analytics</field>
+        <field name="res_model">pest.analytics.financial.report</field>
+        <field name="view_mode">graph,pivot,list</field>
+        <field name="view_id" ref="view_pest_analytics_financial_graph"/>
+    </record>
+
+    <menuitem id="menu_pestops_analytics" name="Analytics" parent="pestops_core.menu_pestops_root" sequence="40" groups="pestops_core.group_pestops_supervisor,pestops_core.group_pestops_operations,pestops_core.group_pestops_manager,pestops_core.group_pestops_admin"/>
+    <menuitem id="menu_pestops_analytics_dashboard" name="Executive KPIs" parent="menu_pestops_analytics" action="action_pest_analytics_company_kpi" sequence="1"/>
+    <menuitem id="menu_pestops_analytics_visits" name="Visit Analytics" parent="menu_pestops_analytics" action="action_pest_analytics_visits" sequence="10"/>
+    <menuitem id="menu_pestops_analytics_sites" name="Site Performance" parent="menu_pestops_analytics" action="action_pest_analytics_sites" sequence="20"/>
+    <menuitem id="menu_pestops_analytics_technicians" name="Technician Performance" parent="menu_pestops_analytics" action="action_pest_analytics_technicians" sequence="30"/>
+    <menuitem id="menu_pestops_analytics_contracts" name="Contract Portfolio" parent="menu_pestops_analytics" action="action_pest_analytics_contracts" sequence="40"/>
+    <menuitem id="menu_pestops_analytics_financial" name="Financial Analytics" parent="menu_pestops_analytics" action="action_pest_analytics_financial" sequence="50"/>
+</odoo>
