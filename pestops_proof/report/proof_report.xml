@@ -1,0 +1,55 @@
+<odoo>
+    <record id="action_pest_intervention_proof_report" model="ir.actions.report">
+        <field name="name">Intervention Proof</field>
+        <field name="model">pest.intervention.proof</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pestops_proof.report_pest_intervention_proof</field>
+        <field name="report_file">pestops_proof.report_pest_intervention_proof</field>
+        <field name="print_report_name">'Proof - %s' % (object.name)</field>
+    </record>
+
+    <template id="report_pest_intervention_proof">
+        <t t-call="web.external_layout">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <h2>Intervention Proof</h2>
+                    <table class="table table-sm">
+                        <tr><td>Reference</td><td><span t-field="o.name"/></td></tr>
+                        <tr><td>Visit</td><td><span t-field="o.visit_id"/></td></tr>
+                        <tr><td>Site</td><td><span t-field="o.site_id"/></td></tr>
+                        <tr><td>Customer</td><td><span t-field="o.partner_id"/></td></tr>
+                        <tr><td>Technician</td><td><span t-field="o.technician_id"/></td></tr>
+                        <tr><td>Status</td><td><span t-field="o.state"/></td></tr>
+                        <tr><td>Signatory</td><td><span t-field="o.customer_name"/></td></tr>
+                        <tr><td>Accepted At</td><td><span t-field="o.customer_accepted_at"/></td></tr>
+                        <tr><td>Signed At</td><td><span t-field="o.signed_at"/></td></tr>
+                        <tr><td>Proof Hash</td><td><span t-field="o.proof_hash"/></td></tr>
+                    </table>
+
+                    <h3>Evidence</h3>
+                    <t t-foreach="o.evidence_ids" t-as="e">
+                        <div style="margin-bottom: 14px;">
+                            <strong><span t-field="e.category"/> — <span t-field="e.title"/></strong><br/>
+                            <span t-field="e.captured_at"/><br/>
+                            <img t-if="e.image" t-att-src="image_data_uri(e.image)" style="max-height: 220px; max-width: 320px;"/>
+                            <p><span t-field="e.note"/></p>
+                        </div>
+                    </t>
+
+                    <t t-if="o.customer_signature">
+                        <div style="margin-top: 18px;">
+                            <strong>Customer Signature</strong><br/>
+                            <img t-att-src="image_data_uri(o.customer_signature)" style="max-height: 120px;"/>
+                        </div>
+                    </t>
+                    <t t-if="o.technician_signature">
+                        <div style="margin-top: 18px;">
+                            <strong>Technician Signature</strong><br/>
+                            <img t-att-src="image_data_uri(o.technician_signature)" style="max-height: 120px;"/>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

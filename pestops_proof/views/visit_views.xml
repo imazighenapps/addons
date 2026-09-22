@@ -1,0 +1,25 @@
+<odoo>
+    <record id="view_pest_visit_form_proof" model="ir.ui.view">
+        <field name="name">pest.visit.form.proof</field>
+        <field name="model">pest.visit</field>
+        <field name="inherit_id" ref="pestops_core.view_pest_visit_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_create_intervention_proof"
+                        type="object"
+                        string="Intervention Proof"
+                        class="btn-secondary"
+                        invisible="proof_id"/>
+            </xpath>
+            <xpath expr="//sheet/notebook" position="inside">
+                <page string="Proof &amp; Evidence">
+                    <group>
+                        <field name="proof_required"/>
+                        <field name="proof_id"/>
+                        <field name="proof_state"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

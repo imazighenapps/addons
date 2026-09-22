@@ -1,0 +1,69 @@
+<odoo>
+    <record id="view_pestops_production_settings_list" model="ir.ui.view">
+        <field name="name">pestops.production.settings.list</field>
+        <field name="model">pestops.production.settings</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="company_id"/>
+                <field name="production_label"/>
+                <field name="automation_enabled"/>
+                <field name="maintenance_mode"/>
+                <field name="require_single_run_lock"/>
+                <field name="stale_run_timeout_minutes"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pestops_production_settings_form" model="ir.ui.view">
+        <field name="name">pestops.production.settings.form</field>
+        <field name="model">pestops.production.settings</field>
+        <field name="arch" type="xml">
+            <form string="PestOps Production Settings">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="production_label"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="automation_enabled"/>
+                            <field name="maintenance_mode"/>
+                            <field name="require_single_run_lock"/>
+                            <field name="stale_run_timeout_minutes"/>
+                        </group>
+                    </group>
+                    <field name="notes"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pestops_automation_run_list" model="ir.ui.view">
+        <field name="name">pestops.automation.run.list</field>
+        <field name="model">pestops.automation.run</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="key"/>
+                <field name="company_id"/>
+                <field name="status"/>
+                <field name="started_at"/>
+                <field name="finished_at"/>
+                <field name="message"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_pestops_production_settings" model="ir.actions.act_window">
+        <field name="name">Production Settings</field>
+        <field name="res_model">pestops.production.settings</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_pestops_automation_runs" model="ir.actions.act_window">
+        <field name="name">Automation Runs</field>
+        <field name="res_model">pestops.automation.run</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>

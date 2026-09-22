@@ -1,0 +1,33 @@
+.pestops-portal-shell {
+    .card {
+        border-radius: 1rem;
+        border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .pestops-kpi-card,
+    .pestops-site-card {
+        transition: transform .15s ease, box-shadow .15s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 .75rem 1.5rem rgba(0, 0, 0, .08) !important;
+        }
+    }
+
+    .pestops-request-description {
+        white-space: pre-wrap;
+        line-height: 1.7;
+    }
+
+    table th {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .pestops-portal-shell {
+        table {
+            font-size: .9rem;
+        }
+    }
+}

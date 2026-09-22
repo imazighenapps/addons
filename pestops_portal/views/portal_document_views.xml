@@ -1,0 +1,68 @@
+<odoo>
+    <record id="view_pest_portal_document_list" model="ir.ui.view">
+        <field name="name">pest.portal.document.list</field>
+        <field name="model">pest.portal.document</field>
+        <field name="arch" type="xml">
+            <list string="Portal Documents">
+                <field name="name"/>
+                <field name="document_type"/>
+                <field name="partner_id"/>
+                <field name="site_id"/>
+                <field name="visit_id"/>
+                <field name="document_date"/>
+                <field name="published"/>
+                <field name="download_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_portal_document_form" model="ir.ui.view">
+        <field name="name">pest.portal.document.form</field>
+        <field name="model">pest.portal.document</field>
+        <field name="arch" type="xml">
+            <form string="Portal Document">
+                <header>
+                    <button name="action_toggle_published" type="object" string="Toggle Published" class="btn-primary"/>
+                    <button name="action_generate_visit_report" type="object" string="Generate Visit Report" invisible="not visit_id"/>
+                    <button name="action_generate_treatment_certificate" type="object" string="Generate Treatment Certificate" invisible="not treatment_id"/>
+                    <button name="action_download" type="object" string="Open Download" class="btn-secondary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="document_type"/>
+                            <field name="document_date"/>
+                            <field name="published"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="company_id"/>
+                            <field name="download_count" readonly="1"/>
+                            <field name="attachment_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Links">
+                            <group>
+                                <field name="site_id"/>
+                                <field name="visit_id"/>
+                                <field name="treatment_id"/>
+                                <field name="service_request_id"/>
+                            </group>
+                        </page>
+                        <page string="Description">
+                            <field name="description" placeholder="Internal or customer-facing context..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pest_portal_document" model="ir.actions.act_window">
+        <field name="name">Portal Documents</field>
+        <field name="res_model">pest.portal.document</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
