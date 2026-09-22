@@ -1,0 +1,94 @@
+<odoo>
+    <record id="view_pest_equipment_list" model="ir.ui.view">
+        <field name="name">pest.equipment.list</field>
+        <field name="model">pest.equipment</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="status == 'out_of_service'" decoration-warning="has_due_action" decoration-success="status == 'available'">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="equipment_type"/>
+                <field name="serial_number"/>
+                <field name="registration_number"/>
+                <field name="assigned_user_id"/>
+                <field name="status"/>
+                <field name="next_inspection_date"/>
+                <field name="next_maintenance_date"/>
+                <field name="company_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_equipment_form" model="ir.ui.view">
+        <field name="name">pest.equipment.form</field>
+        <field name="model">pest.equipment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_set_maintenance" type="object" string="Send to Maintenance" invisible="status in ('maintenance', 'retired')"/>
+                    <button name="action_set_available" type="object" string="Set Available" invisible="status in ('available', 'retired')"/>
+                    <button name="action_set_out_of_service" type="object" string="Out of Service" invisible="status in ('out_of_service', 'retired')"/>
+                    <button name="action_retire" type="object" string="Retire" invisible="status == 'retired'"/>
+                    <field name="status" widget="statusbar" statusbar_visible="available,assigned,maintenance,out_of_service,retired"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_assignments" type="object" class="oe_stat_button" icon="fa-users">
+                            <field name="assignment_count" widget="statinfo" string="Assignments"/>
+                        </button>
+                        <button name="action_view_inspections" type="object" class="oe_stat_button" icon="fa-check-square-o">
+                            <field name="inspection_count" widget="statinfo" string="Inspections"/>
+                        </button>
+                        <button name="action_view_maintenance" type="object" class="oe_stat_button" icon="fa-wrench">
+                            <field name="maintenance_count" widget="statinfo" string="Maintenance"/>
+                        </button>
+                        <button name="action_view_usage" type="object" class="oe_stat_button" icon="fa-history">
+                            <field name="usage_count" widget="statinfo" string="Visit Usage"/>
+                        </button>
+                    </div>
+                    <div class="oe_title"><h1><field name="name"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="code" readonly="1"/>
+                            <field name="equipment_type"/>
+                            <field name="manufacturer"/>
+                            <field name="model_name"/>
+                            <field name="product_id"/>
+                            <field name="serial_number"/>
+                            <field name="asset_tag"/>
+                            <field name="registration_number" invisible="equipment_type != 'vehicle'"/>
+                        </group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="responsible_id"/>
+                            <field name="assigned_user_id"/>
+                            <field name="assigned_site_id"/>
+                            <field name="purchase_date"/>
+                            <field name="warranty_end_date"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group string="Due dates">
+                        <field name="next_inspection_date" readonly="1"/>
+                        <field name="next_maintenance_date" readonly="1"/>
+                        <field name="has_due_action" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Assignments"><field name="assignment_ids"><list><field name="name"/><field name="user_id"/><field name="site_id"/><field name="date_start"/><field name="date_end"/><field name="state"/></list></field></page>
+                        <page string="Inspections"><field name="inspection_ids"><list><field name="name"/><field name="scheduled_date"/><field name="completed_date"/><field name="state"/><field name="next_due_date"/></list></field></page>
+                        <page string="Maintenance"><field name="maintenance_ids"><list><field name="name"/><field name="maintenance_type"/><field name="planned_date"/><field name="completed_date"/><field name="state"/><field name="cost"/></list></field></page>
+                        <page string="Visit Usage"><field name="usage_ids"><list><field name="name"/><field name="visit_id"/><field name="technician_id"/><field name="site_id"/><field name="date"/></list></field></page>
+                        <page string="Notes"><field name="notes"/></page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pest_equipment" model="ir.actions.act_window">
+        <field name="name">Equipment &amp; Assets</field>
+        <field name="res_model">pest.equipment</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_active': 1}</field>
+    </record>
+</odoo>

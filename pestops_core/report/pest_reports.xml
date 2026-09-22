@@ -1,0 +1,399 @@
+<odoo>
+
+    <!-- ============================================================
+         Common report styles
+         ============================================================ -->
+    <template id="pestops_report_styles">
+        <style>
+            .pestops-title {
+                font-size: 22px;
+                font-weight: 700;
+                margin-bottom: 12px;
+            }
+            .pestops-subtitle {
+                font-size: 15px;
+                font-weight: 600;
+                margin: 12px 0 6px;
+            }
+            .pestops-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 12px;
+            }
+            .pestops-table th,
+            .pestops-table td {
+                border: 1px solid #d9d9d9;
+                padding: 6px;
+                vertical-align: top;
+            }
+            .pestops-table th {
+                background: #f4f4f4;
+            }
+            .pestops-photo {
+                max-width: 160px;
+                max-height: 120px;
+                margin: 3px;
+            }
+            .pestops-muted {
+                color: #666;
+            }
+        </style>
+    </template>
+
+    <!-- ============================================================
+         Service report
+         ============================================================ -->
+    <template id="report_pest_visit_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <t t-call="pestops_core.pestops_report_styles"/>
+
+                        <div class="pestops-title">
+                            Pest Control Service Report
+                        </div>
+
+                        <table class="pestops-table">
+                            <tr>
+                                <th>Visit</th>
+                                <td><span t-field="o.name"/></td>
+                                <th>Date</th>
+                                <td><span t-field="o.actual_start"/></td>
+                            </tr>
+                            <tr>
+                                <th>Customer</th>
+                                <td><span t-field="o.site_id.partner_id"/></td>
+                                <th>Site</th>
+                                <td><span t-field="o.site_id"/></td>
+                            </tr>
+                            <tr>
+                                <th>Technician</th>
+                                <td><span t-field="o.technician_id"/></td>
+                                <th>Status</th>
+                                <td><span t-field="o.state"/></td>
+                            </tr>
+                        </table>
+
+                        <div class="pestops-subtitle">Inspection Results</div>
+                        <t t-if="o.inspection_ids">
+                            <t t-foreach="o.inspection_ids" t-as="inspection">
+                                <table class="pestops-table">
+                                    <tr>
+                                        <th>Inspection</th>
+                                        <td><span t-field="inspection.name"/></td>
+                                        <th>Activity</th>
+                                        <td><span t-field="inspection.activity_level"/></td>
+                                    </tr>
+                                </table>
+
+                                <table class="pestops-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Control Point</th>
+                                            <th>Pest</th>
+                                            <th>Activity</th>
+                                            <th>Evidence</th>
+                                            <th>Observation</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="inspection.line_ids" t-as="line">
+                                            <td><span t-field="line.control_point_id"/></td>
+                                            <td><span t-field="line.pest_id"/></td>
+                                            <td><span t-field="line.activity_level"/></td>
+                                            <td><span t-field="line.evidence"/></td>
+                                            <td><span t-field="line.observation"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div t-if="inspection.image_1920">
+                                    <img t-att-src="image_data_uri(inspection.image_1920)"
+                                         class="pestops-photo"
+                                         alt="Inspection"/>
+                                </div>
+
+                                <div t-if="inspection.line_ids.filtered(lambda l: l.image_1920)"
+                                     style="margin-bottom:10px;">
+                                    <t t-foreach="inspection.line_ids.filtered(lambda l: l.image_1920)"
+                                       t-as="line">
+                                        <img t-att-src="image_data_uri(line.image_1920)"
+                                             class="pestops-photo"
+                                             alt="Evidence"/>
+                                    </t>
+                                </div>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <p class="pestops-muted">No inspection was recorded.</p>
+                        </t>
+
+                        <div class="pestops-subtitle">Treatments</div>
+                        <t t-if="o.treatment_ids">
+                            <t t-foreach="o.treatment_ids" t-as="treatment">
+                                <table class="pestops-table">
+                                    <tr>
+                                        <th>Treatment</th>
+                                        <td><span t-field="treatment.name"/></td>
+                                        <th>Date</th>
+                                        <td><span t-field="treatment.date"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pest</th>
+                                        <td><span t-field="treatment.pest_id"/></td>
+                                        <th>Method</th>
+                                        <td><span t-field="treatment.method_id"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Result</th>
+                                        <td colspan="3"><span t-field="treatment.result"/></td>
+                                    </tr>
+                                </table>
+
+                                <table class="pestops-table"
+                                       t-if="treatment.line_ids">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Lot</th>
+                                            <th>Quantity</th>
+                                            <th>UoM</th>
+                                            <th>Consumption</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="treatment.line_ids" t-as="line">
+                                            <td><span t-field="line.product_id"/></td>
+                                            <td><span t-field="line.lot_id"/></td>
+                                            <td><span t-field="line.quantity"/></td>
+                                            <td><span t-field="line.uom_id"/></td>
+                                            <td><span t-field="line.consumption_state"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <p class="pestops-muted">No treatment was recorded.</p>
+                        </t>
+
+                        <div class="pestops-subtitle">Customer Notes</div>
+                        <p t-if="o.customer_feedback"><span t-field="o.customer_feedback"/></p>
+                        <p t-else="" class="pestops-muted">No customer feedback recorded.</p>
+
+                        <div class="pestops-subtitle">Completion Outcome</div>
+                        <p><strong><span t-field="o.completion_outcome"/></strong></p>
+                        <p t-if="o.completion_summary" t-field="o.completion_summary"/>
+
+                        <div class="pestops-subtitle">Mobile Traceability</div>
+                        <table class="pestops-table">
+                            <tr>
+                                <th>Check-in</th><td><span t-field="o.checkin_at"/></td>
+                                <th>Check-out</th><td><span t-field="o.checkout_at"/></td>
+                            </tr>
+                            <tr>
+                                <th>Field Duration</th><td><span t-esc="'%.0f min' % o.mobile_duration_minutes"/></td>
+                                <th>Customer</th><td><span t-esc="o.customer_signature_name or ''"/></td>
+                            </tr>
+                        </table>
+                        <div t-if="o.customer_signature" style="margin-top:12px;">
+                            <strong>Customer Signature</strong><br/>
+                            <img t-att-src="image_data_uri(o.customer_signature)" style="max-width:280px; max-height:120px;" alt="Customer signature"/>
+                            <p t-if="o.customer_signature_date" class="pestops-muted">Signed on <span t-field="o.customer_signature_date"/></p>
+                            <p t-if="o.customer_signature_note"><span t-field="o.customer_signature_note"/></p>
+                        </div>
+
+                        <div class="pestops-subtitle">Technician Notes</div>
+                        <div t-if="o.notes" t-field="o.notes"/>
+                        <p t-else="" class="pestops-muted">No technician notes recorded.</p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- ============================================================
+         Treatment certificate
+         ============================================================ -->
+    <template id="report_pest_treatment_certificate">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <t t-call="pestops_core.pestops_report_styles"/>
+
+                        <div class="text-center">
+                            <div class="pestops-title">Treatment Certificate</div>
+                            <p class="pestops-muted">
+                                Certificate issued from PestOps
+                            </p>
+                        </div>
+
+                        <table class="pestops-table">
+                            <tr>
+                                <th>Certificate Reference</th>
+                                <td><span t-field="o.name"/></td>
+                                <th>Date</th>
+                                <td><span t-field="o.date"/></td>
+                            </tr>
+                            <tr>
+                                <th>Customer</th>
+                                <td><span t-field="o.site_id.partner_id"/></td>
+                                <th>Site</th>
+                                <td><span t-field="o.site_id"/></td>
+                            </tr>
+                            <tr>
+                                <th>Technician</th>
+                                <td><span t-field="o.technician_id"/></td>
+                                <th>Result</th>
+                                <td><span t-field="o.result"/></td>
+                            </tr>
+                        </table>
+
+                        <div class="pestops-subtitle">Treatment Details</div>
+
+                        <table class="pestops-table">
+                            <tr>
+                                <th>Target Pest</th>
+                                <td><span t-field="o.pest_id"/></td>
+                            </tr>
+                            <tr>
+                                <th>Method</th>
+                                <td><span t-field="o.method_id"/></td>
+                            </tr>
+                            <tr>
+                                <th>Zone</th>
+                                <td><span t-field="o.zone_id"/></td>
+                            </tr>
+                        </table>
+
+                        <div class="pestops-subtitle">Products Used</div>
+                        <table class="pestops-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Lot</th>
+                                    <th>Planned</th>
+                                    <th>Actual</th>
+                                    <th>Variance</th>
+                                    <th>UoM</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.line_ids" t-as="line">
+                                    <td><span t-field="line.product_id"/></td>
+                                    <td><span t-field="line.lot_id"/></td>
+                                    <td><span t-field="line.planned_quantity"/></td>
+                                    <td><span t-field="line.quantity"/></td>
+                                    <td><span t-field="line.quantity_variance"/></td>
+                                    <td><span t-field="line.uom_id"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="pestops-subtitle">Notes</div>
+                        <div t-if="o.notes" t-field="o.notes"/>
+                        <p t-else="" class="pestops-muted">No additional notes.</p>
+
+
+                        <div class="pestops-subtitle">Anomalies &amp; Corrective Actions</div>
+                        <t t-set="visit_anomalies" t-value="o.visit_id.anomaly_ids"/>
+                        <t t-if="visit_anomalies">
+                            <table class="pestops-table">
+                                <thead><tr><th>Severity</th><th>Control Point</th><th>Description</th><th>State</th></tr></thead>
+                                <tbody>
+                                    <tr t-foreach="visit_anomalies" t-as="anomaly">
+                                        <td><span t-field="anomaly.severity"/></td>
+                                        <td><span t-field="anomaly.control_point_id"/></td>
+                                        <td><span t-field="anomaly.description"/></td>
+                                        <td><span t-field="anomaly.state"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+                        <p t-else="" class="pestops-muted">No anomaly recorded.</p>
+
+                        <div style="margin-top:50px;">
+                            <table style="width:100%;">
+                                <tr>
+                                    <td style="width:50%; text-align:center;">
+                                        <strong>Technician</strong>
+                                        <br/><br/><br/>
+                                        ______________________________
+                                    </td>
+                                    <td style="width:50%; text-align:center;">
+                                        <strong>Customer</strong>
+                                        <br/><br/><br/>
+                                        ______________________________
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- ============================================================
+         Control point label with QR
+         ============================================================ -->
+    <template id="report_pest_control_point_label">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="page" style="text-align:center; padding-top:30px;">
+                    <t t-call="pestops_core.pestops_report_styles"/>
+                    <h2><span t-field="o.name"/></h2>
+                    <h4><span t-field="o.code"/></h4>
+                    <p><span t-field="o.site_id"/></p>
+                    <p><span t-field="o.zone_id"/></p>
+                    <img t-if="o.qr_code_image"
+                         t-att-src="image_data_uri(o.qr_code_image)"
+                         style="width:65mm; height:65mm;"
+                         alt="QR Code"/>
+                    <p style="font-size:12px; margin-top:10px;">
+                        Scan to open this control point in PestOps.
+                    </p>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <!-- ============================================================
+         Report actions
+         ============================================================ -->
+    <record id="action_report_pest_visit" model="ir.actions.report">
+        <field name="name">PestOps Service Report</field>
+        <field name="model">pest.visit</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pestops_core.report_pest_visit_document</field>
+        <field name="report_file">pestops_core.report_pest_visit_document</field>
+        <field name="print_report_name">'PestOps - Service Report - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_pest_visit"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_report_pest_treatment_certificate" model="ir.actions.report">
+        <field name="name">Treatment Certificate</field>
+        <field name="model">pest.treatment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pestops_core.report_pest_treatment_certificate</field>
+        <field name="report_file">pestops_core.report_pest_treatment_certificate</field>
+        <field name="print_report_name">'PestOps - Treatment Certificate - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_pest_treatment"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_report_pest_control_point_label" model="ir.actions.report">
+        <field name="name">Control Point QR Label</field>
+        <field name="model">pest.control.point</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pestops_core.report_pest_control_point_label</field>
+        <field name="report_file">pestops_core.report_pest_control_point_label</field>
+        <field name="print_report_name">'PestOps - QR - %s' % (object.code)</field>
+        <field name="binding_model_id" ref="model_pest_control_point"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

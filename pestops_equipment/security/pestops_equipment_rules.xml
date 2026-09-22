@@ -1,0 +1,27 @@
+<odoo>
+    <record id="rule_pest_equipment_company" model="ir.rule">
+        <field name="name">PestOps Equipment Company Rule</field>
+        <field name="model_id" ref="model_pest_equipment"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_pest_equipment_assignment_company" model="ir.rule">
+        <field name="name">PestOps Equipment Assignment Company Rule</field>
+        <field name="model_id" ref="model_pest_equipment_assignment"/>
+        <field name="domain_force">[('equipment_id.company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_pest_equipment_inspection_company" model="ir.rule">
+        <field name="name">PestOps Equipment Inspection Company Rule</field>
+        <field name="model_id" ref="model_pest_equipment_inspection"/>
+        <field name="domain_force">[('equipment_id.company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_pest_equipment_maintenance_company" model="ir.rule">
+        <field name="name">PestOps Equipment Maintenance Company Rule</field>
+        <field name="model_id" ref="model_pest_equipment_maintenance"/>
+        <field name="domain_force">[('equipment_id.company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_pest_equipment_usage_company" model="ir.rule">
+        <field name="name">PestOps Equipment Usage Company Rule</field>
+        <field name="model_id" ref="model_pest_equipment_usage"/>
+        <field name="domain_force">[('equipment_id.company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

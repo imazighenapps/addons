@@ -1,0 +1,556 @@
+<templates xml:space="preserve">
+
+    <t t-name="pestops_core.PestOpsTechnicianApp">
+        <div class="pestops-tech-app">
+            <div class="pestops-tech-header">
+                <div>
+                    <div class="pestops-tech-brand">PestOps</div>
+                    <div class="pestops-tech-subtitle">Technician Workspace</div>
+                </div>
+                <button class="btn btn-outline-secondary"
+                        t-on-click="openVisits"
+                        t-if="state.view !== 'visits'">
+                    <i class="fa fa-arrow-left me-1"/> Visits
+                </button>
+            </div>
+
+            <div t-if="!state.online" class="alert alert-warning pestops-tech-offline-banner">
+                <i class="fa fa-wifi me-1"/> Offline mode: server actions are paused. Local mobile drafts remain available until you reconnect.
+            </div>
+
+            <t t-if="state.loading">
+                <div class="pestops-tech-loading">
+                    <div class="spinner-border" role="status"/>
+                    <div>Loading…</div>
+                </div>
+            </t>
+
+            <!-- VISITS -->
+            <t t-if="!state.loading and state.view === 'visits'">
+                <div class="pestops-tech-section">
+                    <div class="pestops-tech-section-head">
+                        <div>
+                            <h2>Today's visits</h2>
+                            <span class="text-muted">
+                                <t t-esc="state.visits.length"/> visit(s)
+                            </span>
+                        </div>
+                        <button class="btn btn-primary"
+                                t-on-click="loadVisits">
+                            <i class="fa fa-refresh me-1"/> Refresh
+                        </button>
+                    </div>
+
+                    <t t-if="!state.visits.length">
+                        <div class="pestops-tech-empty">
+                            <i class="fa fa-calendar-check-o"/>
+                            <h3>No visit scheduled</h3>
+                            <p>Your PestOps visits for today will appear here.</p>
+                        </div>
+                    </t>
+
+                    <div class="pestops-tech-visit-list">
+                        <t t-foreach="state.visits" t-as="visit" t-key="visit.id">
+                            <button class="pestops-tech-visit-card"
+                                    t-on-click="() => selectVisit(visit)">
+                                <div class="pestops-tech-visit-time">
+                                    <t t-esc="formatDateTime(visit.scheduled_start)"/>
+                                </div>
+                                <div class="pestops-tech-visit-main">
+                                    <strong><t t-esc="visit.site_id[1]"/></strong>
+                                    <span><t t-esc="visit.name"/></span>
+                                    <small t-if="visit.plan_id">
+                                        Plan: <t t-esc="visit.plan_id[1]"/>
+                                    </small>
+                                </div>
+                                <div class="pestops-tech-visit-status"
+                                     t-att-class="stateClass(visit.state)">
+                                    <t t-esc="stateLabel(visit.state)"/>
+                                </div>
+                            </button>
+                        </t>
+                    </div>
+                </div>
+            </t>
+
+            <!-- VISIT -->
+            <t t-if="!state.loading and state.view === 'visit' and state.selectedVisit">
+                <div class="pestops-tech-section">
+                    <div class="pestops-tech-visit-hero">
+                        <div>
+                            <span class="pestops-tech-kicker">
+                                <t t-esc="state.selectedVisit.name"/>
+                            </span>
+                            <h2><t t-esc="state.selectedVisit.site_id[1]"/></h2>
+                            <p t-if="state.selectedVisit.plan_id">
+                                <t t-esc="state.selectedVisit.plan_id[1]"/>
+                            </p>
+                        </div>
+                        <span class="pestops-tech-badge"
+                              t-att-class="stateClass(state.selectedVisit.state)">
+                            <t t-esc="stateLabel(state.selectedVisit.state)"/>
+                        </span>
+                    </div>
+
+                    <div class="pestops-tech-action-grid">
+                        <button class="pestops-tech-action action-primary"
+                                t-on-click="startVisit"
+                                t-if="state.selectedVisit.state in ['draft', 'scheduled']">
+                            <i class="fa fa-play"/>
+                            <span>Check in</span>
+                        </button>
+
+                        <button class="pestops-tech-action"
+                                t-on-click="addAllPointsToInspection"
+                                t-if="state.selectedVisit.state === 'in_progress'">
+                            <i class="fa fa-search"/>
+                            <span>Inspect all points</span>
+                        </button>
+
+                        <button class="pestops-tech-action"
+                                t-on-click="newInspection"
+                                t-if="state.selectedVisit.state in ['in_progress', 'done']">
+                            <i class="fa fa-clipboard"/>
+                            <span>New inspection</span>
+                        </button>
+
+                        <button class="pestops-tech-action"
+                                t-on-click="newTreatment"
+                                t-if="state.selectedVisit.state in ['in_progress', 'done']">
+                            <i class="fa fa-flask"/>
+                            <span>Treatment</span>
+                        </button>
+
+                        <button class="pestops-tech-action action-success"
+                                t-on-click="finishVisit"
+                                t-if="state.selectedVisit.state === 'in_progress'">
+                            <i class="fa fa-check"/>
+                            <span>Review &amp; finish</span>
+                        </button>
+
+                        <button class="pestops-tech-action"
+                                t-on-click="enterSignature"
+                                t-if="state.selectedVisit.state === 'in_progress'">
+                            <i class="fa fa-pencil"/>
+                            <span>Customer acceptance</span>
+                        </button>
+
+                        <button class="pestops-tech-action"
+                                t-on-click="openBackendVisit">
+                            <i class="fa fa-external-link"/>
+                            <span>Open Odoo form</span>
+                        </button>
+                    </div>
+
+
+                    <div t-if="state.selectedVisit.state === 'in_progress' and (state.selectedVisit.inspection_required or state.selectedVisit.treatment_required)" class="alert alert-info mt-3">
+                        <strong>Completion requirements:</strong>
+                        <span t-if="state.selectedVisit.inspection_required"> inspection</span>
+                        <span t-if="state.selectedVisit.treatment_required"> treatment</span>.
+                        Action-required inspection lines will become anomalies when the visit is closed.
+                    </div>
+
+                    <div t-if="state.selectedVisit.state === 'in_progress'" class="pestops-tech-mobile-status">
+                        <div>
+                            <strong>Mobile traceability</strong>
+                            <span t-if="state.selectedVisit.checkin_at">Checked in at <t t-esc="formatDateTime(state.selectedVisit.checkin_at)"/></span>
+                            <span t-if="state.selectedVisit.customer_signature_name">Signed by <t t-esc="state.selectedVisit.customer_signature_name"/></span>
+                            <span t-if="!state.selectedVisit.customer_signature_name">Customer signature not yet captured</span>
+                        </div>
+                        <span class="pestops-mobile-online" t-if="state.online"><i class="fa fa-circle"/> Online</span>
+                        <span class="pestops-mobile-offline" t-else=""><i class="fa fa-circle"/> Offline</span>
+                    </div>
+
+                    <div class="pestops-tech-metrics">
+                        <div class="pestops-tech-metric">
+                            <strong><t t-esc="state.controlPoints.length"/></strong>
+                            <span>Control points</span>
+                        </div>
+                        <div class="pestops-tech-metric">
+                            <strong><t t-esc="state.selectedVisit.inspection_count"/></strong>
+                            <span>Inspections</span>
+                        </div>
+                        <div class="pestops-tech-metric">
+                            <strong><t t-esc="state.selectedVisit.treatment_count"/></strong>
+                            <span>Treatments</span>
+                        </div>
+                        <div class="pestops-tech-metric">
+                            <strong><t t-esc="state.selectedVisit.reservice_count"/></strong>
+                            <span>Re-services</span>
+                        </div>
+                        <div class="pestops-tech-metric">
+                            <strong><t t-esc="state.selectedVisit.open_anomaly_count || 0"/></strong>
+                            <span>Open anomalies</span>
+                        </div>
+                    </div>
+
+                    <div class="pestops-tech-section-card">
+                        <div class="pestops-tech-section-card-head">
+                            <h3>Control points</h3>
+                            <span><t t-esc="state.controlPoints.length"/></span>
+                        </div>
+
+                        <div class="pestops-point-list">
+                            <t t-foreach="state.controlPoints" t-as="point" t-key="point.id">
+                                <div class="pestops-point-row">
+                                    <div>
+                                        <strong><t t-esc="point.code"/></strong>
+                                        <span><t t-esc="point.name"/></span>
+                                        <small t-if="point.zone_id"><t t-esc="point.zone_id[1]"/></small>
+                                    </div>
+                                    <div class="pestops-point-right">
+                                        <span t-if="point.last_activity_level"
+                                              class="pestops-activity-chip">
+                                            <t t-esc="point.last_activity_level"/>
+                                        </span>
+                                        <button class="btn btn-sm btn-primary"
+                                                t-on-click="() => newInspection(point)">
+                                            Inspect
+                                        </button>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+
+            <!-- INSPECTION -->
+            <t t-if="!state.loading and state.view === 'inspection'">
+                <div class="pestops-tech-section">
+                    <div class="pestops-tech-section-head">
+                        <div>
+                            <h2>Inspection</h2>
+                            <p class="text-muted">
+                                Record what you actually found on site.
+                            </p>
+                        </div>
+                        <button class="btn btn-success" t-on-click="saveInspection">
+                            <i class="fa fa-save me-1"/> Save
+                        </button>
+                    </div>
+
+                    <div class="pestops-tech-form-card">
+                        <div class="pestops-tech-form-grid">
+                            <label>
+                                Overall activity
+                                <select class="form-select"
+                                        t-on-change="(ev) => onInspectionHeaderField('activity_level', ev.target.value)">
+                                    <option value="none">None</option>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                    <option value="critical">Critical</option>
+                                </select>
+                            </label>
+
+                            <label>
+                                Inspection photo
+                                <input type="file"
+                                       accept="image/*"
+                                       capture="environment"
+                                       class="form-control"
+                                       t-on-change="onInspectionHeaderPhoto"/>
+                            </label>
+                        </div>
+
+                        <label class="mt-3">
+                            Notes
+                            <textarea class="form-control"
+                                      rows="3"
+                                      placeholder="Observation, recommendation…"
+                                      t-on-input="(ev) => onInspectionHeaderField('notes', ev.target.value)"/>
+                        </label>
+                    </div>
+
+                    <div class="pestops-tech-section-card mt-3">
+                        <div class="pestops-tech-section-card-head">
+                            <h3>Control points</h3>
+                            <span><t t-esc="Object.keys(state.inspectionLines).length"/></span>
+                        </div>
+
+                        <div class="pestops-inspection-list">
+                            <t t-foreach="Object.values(state.inspectionLines)"
+                               t-as="line" t-key="line.id">
+                                <div class="pestops-inspection-card">
+                                    <div class="pestops-inspection-card-head">
+                                        <div>
+                                            <strong>
+                                                <t t-esc="line.control_point_id ? line.control_point_id[1] : 'Control point'"/>
+                                            </strong>
+                                            <small t-if="line.pest_id">
+                                                <t t-esc="line.pest_id[1]"/>
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <div class="pestops-tech-form-grid">
+                                        <label>
+                                            Activity
+                                            <select class="form-select"
+                                                    t-att-value="line.activity_level"
+                                                    t-on-change="(ev) => onInspectionField(line.id, 'activity_level', ev.target.value)">
+                                                <option value="none">None</option>
+                                                <option value="low">Low</option>
+                                                <option value="medium">Medium</option>
+                                                <option value="high">High</option>
+                                                <option value="critical">Critical</option>
+                                            </select>
+                                        </label>
+
+                                        <label>
+                                            Evidence
+                                            <select class="form-select"
+                                                    t-att-value="line.evidence"
+                                                    t-on-change="(ev) => onInspectionField(line.id, 'evidence', ev.target.value)">
+                                                <option value="none">None</option>
+                                                <option value="live_pest">Live pest</option>
+                                                <option value="droppings">Droppings</option>
+                                                <option value="damage">Damage</option>
+                                                <option value="nest">Nest</option>
+                                                <option value="odor">Odor</option>
+                                                <option value="trap_activity">Trap activity</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </label>
+                                    </div>
+
+                                    <label class="mt-3">
+                                        Observation
+                                        <textarea class="form-control"
+                                                  rows="2"
+                                                  t-att-value="line.observation || ''"
+                                                  t-on-input="(ev) => onInspectionField(line.id, 'observation', ev.target.value)"/>
+                                    </label>
+
+                                    <div class="pestops-photo-line">
+                                        <label class="btn btn-outline-primary">
+                                            <i class="fa fa-camera me-1"/> Photo
+                                            <input type="file"
+                                                   accept="image/*"
+                                                   capture="environment"
+                                                   hidden="hidden"
+                                                   t-on-change="(ev) => onInspectionLinePhoto(line.id, ev)"/>
+                                        </label>
+                                        <label class="form-check">
+                                            <input type="checkbox"
+                                                   class="form-check-input"
+                                                   t-att-checked="line.action_required"
+                                                   t-on-change="(ev) => onInspectionField(line.id, 'action_required', ev.target.checked)"/>
+                                            Action required
+                                        </label>
+                                        <span t-if="line.photoFile" class="text-success">
+                                            Photo ready
+                                        </span>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+
+                    <div class="pestops-tech-sticky-actions">
+                        <button class="btn btn-outline-secondary" t-on-click="openVisits">Cancel</button>
+                        <button class="btn btn-primary" t-on-click="saveInspection">
+                            Save inspection
+                        </button>
+                    </div>
+                </div>
+            </t>
+
+            <!-- CUSTOMER ACCEPTANCE -->
+            <t t-if="!state.loading and state.view === 'signature' and state.selectedVisit">
+                <div class="pestops-tech-section">
+                    <div class="pestops-tech-section-head">
+                        <div>
+                            <h2>Customer acceptance</h2>
+                            <p class="text-muted">Capture the customer's signature and complete the mobile check-out.</p>
+                        </div>
+                        <span t-if="state.mobileDraftSaved" class="badge text-bg-success">Local draft saved</span>
+                    </div>
+
+                    <div class="pestops-tech-form-card">
+                        <div class="pestops-tech-form-grid">
+                            <label>
+                                Signed by
+                                <input class="form-control"
+                                       type="text"
+                                       t-att-value="state.signerName"
+                                       t-on-input="(ev) => state.signerName = ev.target.value"
+                                       placeholder="Customer contact name"/>
+                            </label>
+                            <label>
+                                Customer note
+                                <input class="form-control"
+                                       type="text"
+                                       t-att-value="state.signatureNote"
+                                       t-on-input="(ev) => state.signatureNote = ev.target.value"
+                                       placeholder="Optional comment"/>
+                            </label>
+                        </div>
+
+                        <div class="pestops-signature-wrapper mt-3">
+                            <div class="pestops-signature-head">
+                                <strong>Signature</strong>
+                                <button class="btn btn-sm btn-outline-secondary" t-on-click="clearSignature">Clear</button>
+                            </div>
+                            <div class="pestops-signature-canvas-wrap">
+                                <canvas class="pestops-signature-pad"
+                                        width="900" height="320"
+                                        t-on-pointerdown="signatureStart"
+                                        t-on-pointermove="signatureMove"
+                                        t-on-pointerup="signatureEnd"
+                                        t-on-pointercancel="signatureEnd"
+                                        t-on-pointerleave="signatureEnd"/>
+                                <div class="pestops-signature-hint">Sign with your finger, stylus or mouse.</div>
+                            </div>
+                        </div>
+
+                        <div t-if="state.signatureData" class="pestops-signature-preview mt-3">
+                            <strong>Signature ready</strong>
+                            <img t-att-src="'data:image/png;base64,' + state.signatureData" alt="Customer signature"/>
+                        </div>
+
+                        <div class="alert alert-info mt-3 mb-0">
+                            <i class="fa fa-map-marker me-1"/> GPS check-out will be recorded when you complete the visit.
+                        </div>
+                    </div>
+
+                    <div class="pestops-tech-sticky-actions">
+                        <button class="btn btn-outline-secondary" t-on-click="() => state.view = 'visit'">Back</button>
+                        <button class="btn btn-outline-primary" t-on-click="saveMobileDraft">
+                            <i class="fa fa-save me-1"/> Save local draft
+                        </button>
+                        <button class="btn btn-success" t-on-click="completeMobileVisit" t-att-disabled="!state.online">
+                            <i class="fa fa-check me-1"/> Complete visit
+                        </button>
+                    </div>
+                </div>
+            </t>
+
+            <!-- TREATMENT -->
+            <t t-if="!state.loading and state.view === 'treatment'">
+                <div class="pestops-tech-section">
+                    <div class="pestops-tech-section-head">
+                        <div>
+                            <h2>Treatment</h2>
+                            <p class="text-muted">
+                                Record the treatment and the material consumed.
+                            </p>
+                        </div>
+                        <button class="btn btn-success" t-on-click="saveTreatment">
+                            <i class="fa fa-save me-1"/> Save
+                        </button>
+                    </div>
+
+                    <div class="pestops-tech-form-card">
+                        <div class="pestops-tech-form-grid">
+                            <label>
+                                Result
+                                <select class="form-select"
+                                        t-on-change="(ev) => onTreatmentField('result', ev.target.value)">
+                                    <option value="completed">Completed</option>
+                                    <option value="partial">Partial</option>
+                                    <option value="follow_up">Follow-up required</option>
+                                </select>
+                            </label>
+
+                            <label>
+                                Treatment photo
+                                <input type="file"
+                                       accept="image/*"
+                                       capture="environment"
+                                       class="form-control"
+                                       t-on-change="onTreatmentPhoto"/>
+                            </label>
+                        </div>
+
+                        <label class="mt-3">
+                            Notes
+                            <textarea class="form-control"
+                                      rows="3"
+                                      t-on-input="(ev) => onTreatmentField('notes', ev.target.value)"/>
+                        </label>
+                    </div>
+
+                    <div class="pestops-tech-section-card mt-3">
+                        <div class="pestops-tech-section-card-head">
+                            <h3>Product consumption</h3>
+                            <span>Stock</span>
+                        </div>
+
+                        <div class="pestops-tech-form-grid">
+                            <label>
+                                Product
+                                <select class="form-select"
+                                        t-on-change="onTreatmentProductChange">
+                                    <option value="">Select product…</option>
+                                    <t t-foreach="state.treatmentProducts" t-as="product" t-key="product.id">
+                                        <option t-att-value="product.id">
+                                            <t t-esc="product.display_name"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </label>
+
+                            <label>
+                                Lot
+                                <select class="form-select"
+                                        t-on-change="(ev) => state.treatmentLine.lot_id = Number(ev.target.value) || null">
+                                    <option value="">Select lot…</option>
+                                    <t t-foreach="state.treatmentLots" t-as="lot" t-key="lot.id">
+                                        <option t-att-value="lot.id">
+                                            <t t-esc="lot.name"/>
+                                            <t t-if="lot.expiration_date">
+                                                — Exp. <t t-esc="lot.expiration_date"/>
+                                            </t>
+                                        </option>
+                                    </t>
+                                </select>
+                            </label>
+
+                            <label>
+                                Quantity
+                                <input type="number"
+                                       min="0.001"
+                                       step="0.001"
+                                       class="form-control"
+                                       t-att-value="state.treatmentLine.quantity"
+                                       t-on-input="(ev) => state.treatmentLine.quantity = ev.target.value"/>
+                            </label>
+
+                            <label>
+                                Source location
+                                <select class="form-select"
+                                        t-on-change="(ev) => state.treatmentLine.location_id = Number(ev.target.value) || null">
+                                    <option value="">Default warehouse stock</option>
+                                    <t t-foreach="state.stockLocations" t-as="location" t-key="location.id">
+                                        <option t-att-value="location.id">
+                                            <t t-esc="location.display_name"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="alert alert-info mt-3 mb-0">
+                            <i class="fa fa-info-circle me-1"/>
+                            Saving records the treatment. Stock is deducted only after the
+                            manager/technician explicitly uses <strong>Consume Products</strong>
+                            from the treatment.
+                        </div>
+                    </div>
+
+                    <div class="pestops-tech-sticky-actions">
+                        <button class="btn btn-outline-secondary" t-on-click="() => state.view = 'visit'">
+                            Cancel
+                        </button>
+                        <button class="btn btn-primary" t-on-click="saveTreatment">
+                            Save treatment
+                        </button>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </t>
+
+</templates>

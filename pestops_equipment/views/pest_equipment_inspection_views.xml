@@ -1,0 +1,53 @@
+<odoo>
+    <record id="view_pest_equipment_inspection_list" model="ir.ui.view">
+        <field name="name">pest.equipment.inspection.list</field>
+        <field name="model">pest.equipment.inspection</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="state == 'failed'" decoration-warning="state == 'open'">
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="scheduled_date"/>
+                <field name="completed_date"/>
+                <field name="performed_by"/>
+                <field name="state"/>
+                <field name="next_due_date"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_pest_equipment_inspection_form" model="ir.ui.view">
+        <field name="name">pest.equipment.inspection.form</field>
+        <field name="model">pest.equipment.inspection</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_pass" type="object" string="Pass" class="oe_highlight" invisible="state != 'open'"/>
+                    <button name="action_fail" type="object" string="Fail" invisible="state != 'open'"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state in ('done','failed','cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,done,failed,cancelled"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="equipment_id"/>
+                        <field name="scheduled_date"/>
+                        <field name="completed_date"/>
+                        <field name="performed_by"/>
+                        <field name="frequency_days"/>
+                        <field name="next_due_date" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="checklist"/>
+                        <field name="findings"/>
+                        <field name="corrective_action"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_pest_equipment_inspections" model="ir.actions.act_window">
+        <field name="name">Equipment Inspections</field>
+        <field name="res_model">pest.equipment.inspection</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

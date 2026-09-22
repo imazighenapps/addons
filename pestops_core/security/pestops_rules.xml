@@ -1,0 +1,36 @@
+<odoo>
+    <record id="rule_pest_site_company" model="ir.rule">
+        <field name="name">Pest Site Multi Company</field>
+        <field name="model_id" ref="model_pest_site"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_pest_visit_company" model="ir.rule">
+        <field name="name">Pest Visit Multi Company</field>
+        <field name="model_id" ref="model_pest_visit"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_pest_plan_company" model="ir.rule">
+        <field name="name">Pest Plan Multi Company</field>
+        <field name="model_id" ref="model_pest_treatment_plan"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_pest_control_point_company" model="ir.rule">
+        <field name="name">Pest Control Point Multi Company</field>
+        <field name="model_id" ref="model_pest_control_point"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_pest_contract_company" model="ir.rule">
+        <field name="name">Pest Contract Multi Company</field>
+        <field name="model_id" ref="model_pest_contract"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_pest_contract_site_company" model="ir.rule">
+        <field name="name">Pest Contract Site Multi Company</field>
+        <field name="model_id" ref="model_pest_contract_site"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

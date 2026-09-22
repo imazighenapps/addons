@@ -1,0 +1,80 @@
+<odoo>
+    <record id="view_pest_treatment_list" model="ir.ui.view">
+        <field name="name">pest.treatment.list</field>
+        <field name="model">pest.treatment</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="visit_id"/>
+                <field name="site_id"/>
+                <field name="date"/>
+                <field name="pest_id"/>
+                <field name="method_id"/>
+                <field name="result"/>
+                <field name="stock_consumption_state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_treatment_form" model="ir.ui.view">
+        <field name="name">pest.treatment.form</field>
+        <field name="model">pest.treatment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_consume_products"
+                            type="object"
+                            string="Consume Products"
+                            class="oe_highlight"
+                            invisible="stock_consumption_state == 'done'"/>
+                    <button name="%(action_report_pest_treatment_certificate)d"
+                            type="action"
+                            string="Print Certificate"/>
+                    <field name="stock_consumption_state" widget="statusbar"
+                           statusbar_visible="none,partial,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="visit_id"/>
+                        <field name="site_id"/>
+                        <field name="zone_id"/>
+                        <field name="pest_id"/>
+                        <field name="method_id"/>
+                        <field name="date"/>
+                        <field name="technician_id"/>
+                        <field name="result"/>
+                    </group>
+                    <field name="instructions"/>
+                    <field name="notes"/>
+                            <field name="image_1920" widget="image"/>
+                    <notebook>
+                        <page string="Product Consumption" name="product_consumption">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="lot_id"/>
+                                    <field name="location_id"/>
+                                    <field name="planned_quantity"/>
+                                <field name="quantity"/>
+                                <field name="quantity_variance" readonly="1"/>
+                                    <field name="uom_id"/>
+                                    <field name="consumption_state"/>
+                                    <field name="stock_move_id"/>
+                                    <field name="notes"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pest_treatments" model="ir.actions.act_window">
+        <field name="name">Treatments</field>
+        <field name="res_model">pest.treatment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

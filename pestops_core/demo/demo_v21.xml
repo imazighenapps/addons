@@ -1,0 +1,85 @@
+<odoo>
+    <record id="demo_partner_hotel" model="res.partner">
+        <field name="name">Demo Hospitality Group</field>
+        <field name="company_type">company</field>
+        <field name="street">12 Rue des Pins</field>
+        <field name="city">Algiers</field>
+        <field name="country_id" ref="base.dz"/>
+    </record>
+
+    <record id="demo_risk_low" model="pest.risk.level">
+        <field name="name">Low</field>
+        <field name="code">low</field>
+        <field name="sequence">10</field>
+        <field name="color">10</field>
+    </record>
+    <record id="demo_risk_medium" model="pest.risk.level">
+        <field name="name">Medium</field>
+        <field name="code">medium</field>
+        <field name="sequence">20</field>
+        <field name="color">3</field>
+    </record>
+    <record id="demo_risk_high" model="pest.risk.level">
+        <field name="name">High</field>
+        <field name="code">high</field>
+        <field name="sequence">30</field>
+        <field name="color">2</field>
+    </record>
+    <record id="demo_risk_critical" model="pest.risk.level">
+        <field name="name">Critical</field>
+        <field name="code">critical</field>
+        <field name="sequence">40</field>
+        <field name="color">1</field>
+    </record>
+
+    <record id="demo_site_hotel" model="pest.site">
+        <field name="name">Demo Hotel Algiers</field>
+        <field name="partner_id" ref="demo_partner_hotel"/>
+        <field name="site_type">hotel</field>
+        <field name="risk_level_id" ref="demo_risk_high"/>
+        <field name="street">12 Rue des Pins</field>
+        <field name="city">Algiers</field>
+        <field name="country_id" ref="base.dz"/>
+        <field name="notes"><p>Reference demonstration site for PestOps V2.1.</p></field>
+    </record>
+
+    <record id="demo_zone_kitchen" model="pest.zone">
+        <field name="name">Main Kitchen</field>
+        <field name="code">KIT-01</field>
+        <field name="site_id" ref="demo_site_hotel"/>
+        <field name="zone_type">kitchen</field>
+        <field name="risk_level_id" ref="demo_risk_high"/>
+    </record>
+    <record id="demo_zone_storage" model="pest.zone">
+        <field name="name">Food Storage</field>
+        <field name="code">STO-01</field>
+        <field name="site_id" ref="demo_site_hotel"/>
+        <field name="zone_type">warehouse</field>
+        <field name="risk_level_id" ref="demo_risk_medium"/>
+    </record>
+
+    <record id="demo_point_kitchen_01" model="pest.control.point">
+        <field name="name">Kitchen Rodent Station 01</field>
+        <field name="site_id" ref="demo_site_hotel"/>
+        <field name="zone_id" ref="demo_zone_kitchen"/>
+        <field name="point_type">rodent_station</field>
+    </record>
+    <record id="demo_point_kitchen_02" model="pest.control.point">
+        <field name="name">Kitchen Inspection Point 02</field>
+        <field name="site_id" ref="demo_site_hotel"/>
+        <field name="zone_id" ref="demo_zone_kitchen"/>
+        <field name="point_type">inspection_point</field>
+    </record>
+    <record id="demo_point_storage_01" model="pest.control.point">
+        <field name="name">Storage Rodent Station 01</field>
+        <field name="site_id" ref="demo_site_hotel"/>
+        <field name="zone_id" ref="demo_zone_storage"/>
+        <field name="point_type">rodent_station</field>
+    </record>
+    <record id="demo_point_storage_02" model="pest.control.point">
+        <field name="name">Storage Cockroach Trap 02</field>
+        <field name="site_id" ref="demo_site_hotel"/>
+        <field name="zone_id" ref="demo_zone_storage"/>
+        <field name="point_type">cockroach_trap</field>
+    </record>
+</odoo>

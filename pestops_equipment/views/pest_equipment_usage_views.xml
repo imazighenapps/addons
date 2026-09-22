@@ -1,0 +1,61 @@
+<odoo>
+    <record id="view_pest_equipment_usage_list" model="ir.ui.view">
+        <field name="name">pest.equipment.usage.list</field>
+        <field name="model">pest.equipment.usage</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="visit_id"/>
+                <field name="technician_id"/>
+                <field name="site_id"/>
+                <field name="date"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_pest_equipment_usage_form" model="ir.ui.view">
+        <field name="name">pest.equipment.usage.form</field>
+        <field name="model">pest.equipment.usage</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="equipment_id"/>
+                        <field name="visit_id"/>
+                        <field name="technician_id" readonly="1"/>
+                        <field name="site_id" readonly="1"/>
+                        <field name="date"/>
+                    </group>
+                    <field name="notes"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_pest_visit_form_equipment_usage" model="ir.ui.view">
+        <field name="name">pest.visit.form.equipment.usage</field>
+        <field name="model">pest.visit</field>
+        <field name="inherit_id" ref="pestops_core.view_pest_visit_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Equipment">
+                    <field name="equipment_usage_ids" context="{'default_visit_id': id}">
+                        <list editable="bottom">
+                            <field name="equipment_id"/>
+                            <field name="date"/>
+                            <field name="technician_id" readonly="1"/>
+                            <field name="site_id" readonly="1"/>
+                            <field name="notes"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_pest_equipment_usage" model="ir.actions.act_window">
+        <field name="name">Equipment Usage</field>
+        <field name="res_model">pest.equipment.usage</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

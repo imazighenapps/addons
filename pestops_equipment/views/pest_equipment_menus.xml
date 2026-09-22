@@ -1,0 +1,12 @@
+<odoo>
+    <menuitem id="menu_pestops_equipment_root"
+              name="Equipment"
+              parent="pestops_core.menu_pestops_resources"
+              groups="pestops_equipment.group_pestops_equipment_user,pestops_core.group_pestops_supervisor,pestops_core.group_pestops_operations,pestops_core.group_pestops_manager,pestops_core.group_pestops_admin"
+              sequence="10"/>
+    <menuitem id="menu_pestops_equipment_assets" name="Equipment &amp; Assets" parent="menu_pestops_equipment_root" action="action_pest_equipment" sequence="10"/>
+    <menuitem id="menu_pestops_equipment_assignments" name="Assignments" parent="menu_pestops_equipment_root" action="action_pest_equipment_assignments" sequence="20"/>
+    <menuitem id="menu_pestops_equipment_inspections" name="Inspections" parent="menu_pestops_equipment_root" action="action_pest_equipment_inspections" sequence="30"/>
+    <menuitem id="menu_pestops_equipment_maintenance" name="Maintenance" parent="menu_pestops_equipment_root" action="action_pest_equipment_maintenance" sequence="40"/>
+    <menuitem id="menu_pestops_equipment_usage" name="Visit Usage" parent="menu_pestops_equipment_root" action="action_pest_equipment_usage" sequence="50"/>
+</odoo>

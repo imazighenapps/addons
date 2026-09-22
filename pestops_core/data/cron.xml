@@ -1,0 +1,31 @@
+<odoo noupdate="1">
+    <record id="ir_cron_pestops_contract_state" model="ir.cron">
+        <field name="name">PestOps - Contract State Maintenance</field>
+        <field name="model_id" ref="model_pest_contract"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_contract_state()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="ir_cron_pestops_generate_visits" model="ir.cron">
+        <field name="name">PestOps - Generate Recurring Visits</field>
+        <field name="model_id" ref="model_pest_visit"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_generate_recurring_visits()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="ir_cron_pestops_visit_reminders" model="ir.cron">
+        <field name="name">PestOps - Visit Reminders</field>
+        <field name="model_id" ref="model_pest_visit"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_visit_reminders()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

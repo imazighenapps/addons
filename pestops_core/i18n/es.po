@@ -1,0 +1,3400 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22\n"
+"PO-Revision-Date: 2026-09-22\n"
+"Last-Translator: PestOps <imazighenapps@gmail.com>\n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pestops_core
+#: model:ir.actions.report,print_report_name:pestops_core.action_report_pest_control_point_label
+msgid "'PestOps - QR - %s' % (object.code)"
+msgstr "'PestOps - QR - %s' % (object.code)"
+
+#. module: pestops_core
+#: model:ir.actions.report,print_report_name:pestops_core.action_report_pest_visit
+msgid "'PestOps - Service Report - %s' % (object.name)"
+msgstr "'PestOps - Service Report - %s' % (object.name)"
+
+#. module: pestops_core
+#: model:ir.actions.report,print_report_name:pestops_core.action_report_pest_treatment_certificate
+msgid "'PestOps - Treatment Certificate - %s' % (object.name)"
+msgstr "'PestOps - Treatment Certificate - %s' % (object.name)"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid ""
+".\n"
+"                        Action-required inspection lines will become anomalies when the visit is closed."
+msgstr "Las líneas de inspección que requieren acción se convertirán en anomalías al cerrar la visita."
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_plan_form
+msgid "<span class=\"o_stat_text\">Generate</span>"
+msgstr "<span class=\"o_stat_text\">Generar</span>"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_control_point_form
+msgid "<span class=\"o_stat_text\">Inspect</span>"
+msgstr "<span class=\"o_stat_text\">Inspeccionar</span>"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "<span class=\"o_stat_text\">Task</span>"
+msgstr "<span class=\"o_stat_text\">Tarea</span>"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "<strong>Customer Signature</strong><br/>"
+msgstr "<strong>Firma del cliente</strong><br/>"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid ""
+"<strong>Customer</strong>\n"
+"                                        <br/><br/><br/>\n"
+"                                        ______________________________"
+msgstr "<strong>Cliente</strong> <br/><br/><br/> ______________________________"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid ""
+"<strong>Technician</strong>\n"
+"                                        <br/><br/><br/>\n"
+"                                        ______________________________"
+msgstr "<strong>Técnico</strong> <br/><br/><br/> ______________________________"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "A completed visit cannot be cancelled."
+msgstr "Una visita cerrada no puede cancelarse."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "A customer signature can only be recorded on an active visit."
+msgstr "La firma del cliente solo puede registrarse en una visita activa."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "A customer signature is required before completing this visit."
+msgstr "Se requiere la firma del cliente antes de cerrar esta visita."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+msgid "A site can only appear once in a contract."
+msgstr "Un sitio solo puede aparecer una vez en un contrato."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__message_needaction
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__message_needaction
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__message_needaction
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__message_needaction
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__message_needaction
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__message_needaction
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__message_needaction
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__message_needaction
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__message_needaction
+msgid "Action Needed"
+msgstr "Acción requerida"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__action_required
+msgid "Action Required"
+msgstr "Acción requerida"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__action_required_count
+msgid "Action Required Count"
+msgstr "Número de acciones requeridas"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Action required"
+msgstr "Acción requerida"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Action required at control point %s."
+msgstr "Acción requerida en el punto de control %s."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_category__active
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__active
+#: model:ir.model.fields,field_description:pestops_core.field_pest_risk_level__active
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__active
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_method__active
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__active
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__active
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__active
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__activity_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__activity_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__activity_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__activity_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__activity_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__activity_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Activity"
+msgstr "Actividad"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__activity_exception_decoration
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__activity_exception_decoration
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__activity_exception_decoration
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__activity_exception_decoration
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__activity_exception_decoration
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__activity_exception_decoration
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de excepción de actividad"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__last_activity_level
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__activity_level
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__activity_level
+msgid "Activity Level"
+msgstr "Nivel de actividad"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__activity_state
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__activity_state
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__activity_state
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__activity_state
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__activity_state
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__activity_state
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__activity_state
+msgid "Activity State"
+msgstr "Estado de la actividad"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__activity_type_icon
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__activity_type_icon
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__activity_type_icon
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__activity_type_icon
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__activity_type_icon
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__activity_type_icon
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icono de tipo de actividad"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "Actual"
+msgstr "Real"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__actual_end
+msgid "Actual End"
+msgstr "Fin real"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__quantity
+msgid "Actual Quantity"
+msgstr "Cantidad real"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__actual_start
+msgid "Actual Start"
+msgstr "Inicio real"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+msgid "Add at least one site before confirming the contract."
+msgstr "Añada al menos un sitio antes de confirmar el contrato."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_anomaly.py:0
+msgid "An anomaly must be linked to a visit before creating a re-service."
+msgstr "Una anomalía debe vincularse a una visita antes de crear un re-servicio."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+msgid "An expired contract cannot be cancelled."
+msgstr "Un contrato vencido no puede cancelarse."
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__billing_frequency__annual
+msgid "Annual"
+msgstr "Anual"
+
+#. module: pestops_core
+#: model:ir.actions.act_window,name:pestops_core.action_pest_anomalies
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__anomaly_ids
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Anomalies"
+msgstr "Anomalías"
+
+#. module: pestops_core
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_anomalies
+msgid "Anomalies & Actions"
+msgstr "Anomalías y acciones"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "Anomalies &amp; Corrective Actions"
+msgstr "Anomalías y acciones correctivas"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__anomaly_ids
+msgid "Anomaly"
+msgstr "Anomalía"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__anomaly_count
+msgid "Anomaly Count"
+msgstr "Número de anomalías"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_anomaly_overdue_grace_days
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_anomaly_overdue_grace_days
+msgid "Anomaly Grace Period (days)"
+msgstr "Período de gracia de anomalía (días)"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__assigned_user_id
+msgid "Assigned User"
+msgstr "Usuario asignado"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "At least one inspection is required before completing this visit."
+msgstr "Se requiere al menos una inspección antes de cerrar esta visita."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "At least one treatment is required before completing this visit."
+msgstr "Se requiere al menos un tratamiento antes de cerrar esta visita."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__message_attachment_count
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__message_attachment_count
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__message_attachment_count
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__message_attachment_count
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__message_attachment_count
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__message_attachment_count
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__message_attachment_count
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__message_attachment_count
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__message_attachment_count
+msgid "Attachment Count"
+msgstr "Número de adjuntos"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__attachment_image
+msgid "Attachment Image"
+msgstr "Imagen adjunta"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_auto_publish_reports
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_auto_publish_reports
+msgid "Auto-Publish Service Reports"
+msgstr "Publicación auto de informes"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Back"
+msgstr "Atrás"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__billing_frequency
+msgid "Billing Frequency"
+msgstr "Frecuencia de facturación"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__billing_notes
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+msgid "Billing Notes"
+msgstr "Notas de facturación"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_anomaly_form
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_reservice_form
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_anomaly__state__cancelled
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__state__cancelled
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_reservice__state__cancelled
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_visit__state__cancelled
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Capture the customer's signature and complete the mobile check-out."
+msgstr "Capture la firma del cliente y completa la salida móvil."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__category
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__category_id
+msgid "Category"
+msgstr "Categoría"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "Certificate Reference"
+msgstr "Referencia del certificado"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "Certificate issued from PestOps"
+msgstr "Certificado emitido desde PestOps"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Check in"
+msgstr "Registrar entrada"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Check-in"
+msgstr "Entrada"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__checkin_accuracy
+msgid "Check-in Accuracy (m)"
+msgstr "Precisión de entrada (m)"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Check-out"
+msgstr "Salida"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__checkout_accuracy
+msgid "Check-out Accuracy (m)"
+msgstr "Precisión de salida (m)"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Checked in at"
+msgstr "Registrado a las"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__checkin_at
+msgid "Checkin At"
+msgstr "Entrada el"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__checkin_latitude
+msgid "Checkin Latitude"
+msgstr "Latitud de entrada"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__checkin_longitude
+msgid "Checkin Longitude"
+msgstr "Longitud de entrada"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__checkout_at
+msgid "Checkout At"
+msgstr "Salida el"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__checkout_latitude
+msgid "Checkout Latitude"
+msgstr "Latitud de salida"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__checkout_longitude
+msgid "Checkout Longitude"
+msgstr "Longitud de salida"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__city
+msgid "City"
+msgstr "Ciudad"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Clear"
+msgstr "Borrar"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__closed_date
+msgid "Closed Date"
+msgstr "Fecha de cierre"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_control_point__point_type__cockroach_trap
+msgid "Cockroach Trap"
+msgstr "Trampa de cucarachas"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__code
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__code
+#: model:ir.model.fields,field_description:pestops_core.field_pest_risk_level__code
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__code
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_method__code
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__code
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__code
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__code
+msgid "Code"
+msgstr "Código"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_zone__zone_type__cold_room
+msgid "Cold Room"
+msgstr "Cámara fría"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_risk_level__color
+msgid "Color"
+msgstr "Color"
+
+#. module: pestops_core
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_commercial
+msgid "Commercial"
+msgstr "Comercial"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__company_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_category__company_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__company_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__company_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__company_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_risk_level__company_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__company_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__company_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__company_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_method__company_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__company_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__company_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__company_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Complete visit"
+msgstr "Cerrar visita"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_treatment__result__completed
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_visit__completion_outcome__normal
+msgid "Completed"
+msgstr "Completado"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Completed with %s open anomaly(ies)."
+msgstr "Cerrada con %s anomalía(s) abierta(s)."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__completion_outcome
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Completion Outcome"
+msgstr "Resultado de visita"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__completion_summary
+msgid "Completion Summary"
+msgstr "Resumen de visita"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Completion requirements:"
+msgstr "Requisitos de cierre:"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Completion summary..."
+msgstr "Resumen de visita..."
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de config"
+
+#. module: pestops_core
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_config
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__state__confirmed
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_treatment_form
+msgid "Consume Products"
+msgstr "Consumir productos"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_treatment__stock_consumption_state__done
+msgid "Consumed"
+msgstr "Consumido"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_treatment.py:0
+msgid "Consumed quantity must be greater than zero."
+msgstr "La cantidad consumida debe ser mayor que cero."
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Consumption"
+msgstr "Consumo"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__consumption_state
+msgid "Consumption State"
+msgstr "Estado de consumo"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_treatment.py:0
+msgid "Consumption quantity must be greater than zero."
+msgstr "La cantidad consumida debe ser mayor que cero."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__contract_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__contract_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__contract_id
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__amount
+msgid "Contract Amount"
+msgstr "Importe del contrato"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_contract_renewal_days
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_contract_renewal_days
+msgid "Contract Renewal Warning (days)"
+msgstr "Aviso de renovación (días)"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__responsible_id
+msgid "Contract Responsible"
+msgstr "Responsable de contrato"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__contract_site_line_id
+msgid "Contract Site Line"
+msgstr "Línea de sitio de contrato"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+#: model:ir.actions.act_window,name:pestops_core.action_pest_contract_sites
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_contract_sites
+msgid "Contract Sites"
+msgstr "Sitios del contrato"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+msgid "Contract end date must be on or after the start date."
+msgstr "El fin del contrato debe ser posterior o igual al inicio."
+
+#. module: pestops_core
+#: model:ir.actions.act_window,name:pestops_core.action_pest_contracts
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_contracts
+msgid "Contracts"
+msgstr "Contratos"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__control_point_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__control_point_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__control_point_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__control_point_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__control_point_ids
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Control Point"
+msgstr "Punto de control"
+
+#. module: pestops_core
+#: model:ir.actions.report,name:pestops_core.action_report_pest_control_point_label
+msgid "Control Point QR Label"
+msgstr "Etiqueta QR del punto"
+
+#. module: pestops_core
+#: model:ir.actions.act_window,name:pestops_core.action_pest_control_points
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_points
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_site_form
+msgid "Control Points"
+msgstr "Puntos de control"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Control points"
+msgstr "puntos de control"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__corrective_action
+msgid "Corrective Action"
+msgstr "Acción correctiva"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__country_id
+msgid "Country"
+msgstr "País"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_anomaly_form
+msgid "Create Re-Service"
+msgstr "Crear re-servicio"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_category__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_risk_level__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_method__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__create_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_category__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_risk_level__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_method__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__create_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_anomaly__severity__critical
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection__activity_level__critical
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection_line__activity_level__critical
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_risk_level__code__critical
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_type__risk_level__critical
+#: model:pest.risk.level,name:pestops_core.risk_critical
+msgid "Critical"
+msgstr "Crítico"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__critical_count
+msgid "Critical Count"
+msgstr "Número críticos"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_visit__completion_outcome__critical
+msgid "Critical Findings"
+msgstr "Hallazgos críticos"
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment_plan__visit_horizon_days
+msgid "Cron generates visits up to this many days ahead."
+msgstr "El cron genera visitas hasta este número de días por adelantado."
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__service_type__curative
+msgid "Curative Pest Control"
+msgstr "Control curativo"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__partner_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__partner_id
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Customer Acceptance"
+msgstr "Aceptación del cliente"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__customer_feedback
+msgid "Customer Feedback"
+msgstr "Opinión del cliente"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Customer Notes"
+msgstr "Notas del cliente"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_reservice__reason__customer_request
+msgid "Customer Request"
+msgstr "Solicitud de cliente"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__customer_signature
+msgid "Customer Signature"
+msgstr "Firma del cliente"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__customer_signature_note
+msgid "Customer Signature Note"
+msgstr "Nota de firma"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Customer acceptance"
+msgstr "aceptación del cliente"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Customer contact name"
+msgstr "Nombre del contacto"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Customer note"
+msgstr "nota del cliente"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Customer signature"
+msgstr "firma del cliente"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Customer signature not yet captured"
+msgstr "Firma del cliente aún no capturada"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Customer signature recorded by %s."
+msgstr "Firma del cliente registrada por %s."
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection_line__evidence__damage
+msgid "Damage"
+msgstr "Daños"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__last_inspection_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__date
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Date"
+msgstr "Fecha"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__default_frequency_type__days
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract_site__frequency_type__days
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_treatment_plan__frequency_type__days
+#: model:ir.model.fields.selection,name:pestops_core.selection__res_company__pestops_default_frequency_type__days
+msgid "Days"
+msgstr "Días"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__default_frequency_number
+msgid "Default Frequency Number"
+msgstr "Número de frecuencia predeterminado"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__default_frequency_type
+msgid "Default Frequency Type"
+msgstr "Tipo de frecuencia predeterminado"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_default_frequency_number
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_default_frequency_number
+msgid "Default Frequency Value"
+msgstr "Valor de frecuencia predeterminado"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+msgid "Default Operations"
+msgstr "Operaciones predeterminadas"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__default_technician_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__technician_id
+msgid "Default Technician"
+msgstr "Técnico predeterminado"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_default_visit_duration_minutes
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_default_visit_duration_minutes
+msgid "Default Visit Duration (min)"
+msgstr "Duración de visita predeterminada (min)"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__default_visit_duration_minutes
+msgid "Default Visit Duration Minutes"
+msgstr "Duración de visita predeterminada (minutos)"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_default_frequency_type
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_default_frequency_type
+msgid "Default Visit Frequency"
+msgstr "Frecuencia de visita predeterminada"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_default_plan_horizon_days
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_default_plan_horizon_days
+msgid "Default Visit Generation Horizon (days)"
+msgstr "Horizonte de generación predeterminado (días)"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+msgid "Default frequency must be greater than zero."
+msgstr "La frecuencia predeterminada debe ser mayor que cero."
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment_line__uom_id
+msgid "Default unit of measure used for all stock operations."
+msgstr "Unidad de medida predeterminada de operaciones de stock."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+msgid "Default visit duration must be greater than zero."
+msgstr "La duración predeterminada debe ser mayor que cero."
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Default warehouse stock"
+msgstr "Stock de almacén predeterminado"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__description
+#: model:ir.model.fields,field_description:pestops_core.field_pest_category__description
+#: model:ir.model.fields,field_description:pestops_core.field_pest_risk_level__description
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_method__description
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__description
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__description
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "Description"
+msgstr "Descripción"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__detected_date
+msgid "Detected Date"
+msgstr "Fecha de detección"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__service_type__disinfection
+msgid "Disinfection"
+msgstr "Desinfección"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_category__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_risk_level__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_method__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__display_name
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Nombre visible"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_anomaly__state__done
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_reservice__state__done
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_treatment_line__consumption_state__done
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_visit__state__done
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_reservice_form
+msgid "Done"
+msgstr "Hecho"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__state__draft
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_reservice__state__draft
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_visit__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection_line__evidence__droppings
+msgid "Droppings"
+msgstr "Excrementos"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__due_date
+msgid "Due Date"
+msgstr "Vencimiento"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__duration_minutes
+msgid "Duration Minutes"
+msgstr "Duración (minutos)"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_site__site_type__education
+msgid "Education"
+msgstr "Educación"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_automation_enabled
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_automation_enabled
+msgid "Enable PestOps Automations"
+msgstr "Activar automatizaciones PestOps"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_portal_documents_enabled
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_portal_documents_enabled
+msgid "Enable Portal Documents"
+msgstr "Activar documentos de portal"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__end_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__end_date
+msgid "End Date"
+msgstr "Fecha de fin"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_plan.py:0
+msgid "End date must be on or after the start date."
+msgstr "La fecha de fin debe ser posterior o igual al inicio."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_enforce_mobile_geofence
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_enforce_mobile_geofence
+msgid "Enforce Mobile Geofence"
+msgstr "Forzar geovalla móvil"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_anomaly__category__equipment
+msgid "Equipment Issue"
+msgstr "Problema de equipo"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__evidence
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Evidence"
+msgstr "Evidencia"
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment_plan__visit_duration_minutes
+msgid "Expected duration of each operational visit in minutes."
+msgstr "Duración prevista de cada visita en minutos."
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__state__expired
+msgid "Expired"
+msgstr "Vencido"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Field Duration"
+msgstr "Duración en campo"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__mobile_duration_minutes
+msgid "Field Duration (min)"
+msgstr "Duración en campo (min)"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_treatment__result__follow_up
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_visit__completion_outcome__follow_up
+msgid "Follow-up Required"
+msgstr "Seguimiento requerido"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Follow-up required"
+msgstr "seguimiento requerido"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__message_follower_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__message_follower_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__message_follower_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__message_follower_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__message_follower_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__message_follower_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__message_follower_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__message_follower_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__message_partner_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__message_partner_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__message_partner_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__message_partner_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__message_partner_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__message_partner_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__message_partner_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__message_partner_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (contactos)"
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_anomaly__activity_type_icon
+#: model:ir.model.fields,help:pestops_core.field_pest_contract__activity_type_icon
+#: model:ir.model.fields,help:pestops_core.field_pest_control_point__activity_type_icon
+#: model:ir.model.fields,help:pestops_core.field_pest_reservice__activity_type_icon
+#: model:ir.model.fields,help:pestops_core.field_pest_site__activity_type_icon
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment_plan__activity_type_icon
+#: model:ir.model.fields,help:pestops_core.field_pest_visit__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icono Font Awesome p. ej. fa-tasks"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__frequency_number
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__frequency_number
+msgid "Frequency Number"
+msgstr "Número de frecuencia"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__frequency_type
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__frequency_type
+msgid "Frequency Type"
+msgstr "Tipo de frecuencia"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_plan.py:0
+msgid "Frequency must be greater than zero."
+msgstr "La frecuencia debe ser mayor que cero."
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__service_type__fumigation
+msgid "Fumigation"
+msgstr "Fumigación"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "GPS check-out will be recorded when you complete the visit."
+msgstr "La salida GPS se registrará al cerrar la visita."
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_plan_form
+msgid "Generate Visits"
+msgstr "Generar visitas"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__generated_from_plan
+msgid "Generated From Plan"
+msgstr "Generado desde el plan"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__generated_visit_count
+msgid "Generated Visit Count"
+msgstr "Número de visitas generadas"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__visit_horizon_days
+msgid "Generation Horizon"
+msgstr "Horizonte de generación"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_plan.py:0
+msgid "Generation horizon must be greater than zero."
+msgstr "El horizonte debe ser mayor que cero."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__has_message
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__has_message
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__has_message
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__has_message
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__has_message
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__has_message
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__has_message
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__has_message
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__has_message
+msgid "Has Message"
+msgstr "Tiene mensajes"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_site__site_type__healthcare
+msgid "Healthcare"
+msgstr "Salud"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_anomaly__severity__high
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection__activity_level__high
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection_line__activity_level__high
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_risk_level__code__high
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_treatment_plan__priority__1
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_type__risk_level__high
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_visit__priority__1
+#: model:pest.risk.level,name:pestops_core.risk_high
+msgid "High"
+msgstr "Alta"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_site__site_type__hotel
+msgid "Hotel"
+msgstr "Hotel"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_anomaly__category__hygiene
+msgid "Hygiene Issue"
+msgstr "Problema de higiene"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_category__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_risk_level__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_method__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__id
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__id
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__activity_exception_icon
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__activity_exception_icon
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__activity_exception_icon
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__activity_exception_icon
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__activity_exception_icon
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__activity_exception_icon
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_anomaly__activity_exception_icon
+#: model:ir.model.fields,help:pestops_core.field_pest_contract__activity_exception_icon
+#: model:ir.model.fields,help:pestops_core.field_pest_control_point__activity_exception_icon
+#: model:ir.model.fields,help:pestops_core.field_pest_reservice__activity_exception_icon
+#: model:ir.model.fields,help:pestops_core.field_pest_site__activity_exception_icon
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment_plan__activity_exception_icon
+#: model:ir.model.fields,help:pestops_core.field_pest_visit__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono de actividad excepcional."
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_anomaly__message_needaction
+#: model:ir.model.fields,help:pestops_core.field_pest_contract__message_needaction
+#: model:ir.model.fields,help:pestops_core.field_pest_control_point__message_needaction
+#: model:ir.model.fields,help:pestops_core.field_pest_inspection__message_needaction
+#: model:ir.model.fields,help:pestops_core.field_pest_reservice__message_needaction
+#: model:ir.model.fields,help:pestops_core.field_pest_site__message_needaction
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment__message_needaction
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment_plan__message_needaction
+#: model:ir.model.fields,help:pestops_core.field_pest_visit__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si marcado, los mensajes nuevos requieren atención."
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_anomaly__message_has_error
+#: model:ir.model.fields,help:pestops_core.field_pest_anomaly__message_has_sms_error
+#: model:ir.model.fields,help:pestops_core.field_pest_contract__message_has_error
+#: model:ir.model.fields,help:pestops_core.field_pest_contract__message_has_sms_error
+#: model:ir.model.fields,help:pestops_core.field_pest_control_point__message_has_error
+#: model:ir.model.fields,help:pestops_core.field_pest_control_point__message_has_sms_error
+#: model:ir.model.fields,help:pestops_core.field_pest_inspection__message_has_error
+#: model:ir.model.fields,help:pestops_core.field_pest_inspection__message_has_sms_error
+#: model:ir.model.fields,help:pestops_core.field_pest_reservice__message_has_error
+#: model:ir.model.fields,help:pestops_core.field_pest_reservice__message_has_sms_error
+#: model:ir.model.fields,help:pestops_core.field_pest_site__message_has_error
+#: model:ir.model.fields,help:pestops_core.field_pest_site__message_has_sms_error
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment__message_has_error
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment__message_has_sms_error
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment_plan__message_has_error
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment_plan__message_has_sms_error
+#: model:ir.model.fields,help:pestops_core.field_pest_visit__message_has_error
+#: model:ir.model.fields,help:pestops_core.field_pest_visit__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si marcado, algunos mensajes tienen error de entrega."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__image_1920
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__image_1920
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__image_1920
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__image_1920
+msgid "Image 1920"
+msgstr "Imagen 1920"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_anomaly__state__in_progress
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_reservice__state__in_progress
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_visit__state__in_progress
+msgid "In Progress"
+msgstr "En curso"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_site__site_type__industry
+msgid "Industrial"
+msgstr "Industrial"
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_contract__billing_notes
+msgid "Informational billing instructions for the Community core. Accounting/Sales integration is added by optional modules."
+msgstr "Instrucciones de facturación informativas para la base Community. La integración de Contabilidad/Ventas la aportan módulos opcionales."
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_control_point__point_type__insect_light
+msgid "Insect Light Trap"
+msgstr "Trampa de luz"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Inspect"
+msgstr "Inspeccionar"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Inspect all points"
+msgstr "Inspeccionar todos los puntos"
+
+#. module: pestops_core
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__inspection_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__inspection_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__inspection_ids
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Inspection"
+msgstr "Inspección"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__inspection_count
+msgid "Inspection Count"
+msgstr "Número de inspecciones"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__inspection_line_id
+msgid "Inspection Line"
+msgstr "Línea de inspección"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_inspection_form
+msgid "Inspection Lines"
+msgstr "Líneas de inspección"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_control_point__point_type__inspection_point
+msgid "Inspection Point"
+msgstr "Punto de inspección"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__inspection_required
+msgid "Inspection Required"
+msgstr "Inspección requerida"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Inspection Results"
+msgstr "Resultados de inspección"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Inspection photo"
+msgstr "foto de inspección"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.actions.act_window,name:pestops_core.action_pest_inspections
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_inspections
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Inspections"
+msgstr "Inspecciones"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__installation_date
+msgid "Installation Date"
+msgstr "Fecha de instalación"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__instructions
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_method__instructions
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__instructions
+msgid "Instructions"
+msgstr "Instrucciones"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_reservice__reason__insufficient_treatment
+msgid "Insufficient Treatment"
+msgstr "Tratamiento insuficiente"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_treatment.py:0
+msgid "Insufficient stock for %s. Available: %s %s; requested: %s %s."
+msgstr "Stock insuficiente para %s. Disponible: %s %s; solicitado: %s %s."
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__service_type__integrated
+msgid "Integrated Pest Management"
+msgstr "Manejo integrado"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Invalid GPS coordinates."
+msgstr "Coordenadas GPS inválidas."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__message_is_follower
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__message_is_follower
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__message_is_follower
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__message_is_follower
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__message_is_follower
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__message_is_follower
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__message_is_follower
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__message_is_follower
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__message_is_follower
+msgid "Is Follower"
+msgstr "Es seguidor"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_zone__zone_type__kitchen
+msgid "Kitchen"
+msgstr "Cocina"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__last_inspection_id
+msgid "Last Inspection"
+msgstr "Última inspección"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_category__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_risk_level__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_method__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__write_uid
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__write_uid
+msgid "Last Updated by"
+msgstr "Última modif. por"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_category__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_risk_level__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_method__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__write_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__write_date
+msgid "Last Updated on"
+msgstr "Última modif. el"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__last_visit_date
+msgid "Last Visit Date"
+msgstr "Fecha última visita"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__latitude
+msgid "Latitude"
+msgstr "Latitud"
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_contract_site__frequency_type
+msgid "Leave empty to use the contract default."
+msgstr "Dejar vacío para usar el valor del contrato."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__line_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__line_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__line_ids
+msgid "Line"
+msgstr "Línea"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection_line__evidence__live_pest
+msgid "Live Pest"
+msgstr "Plaga viva"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Live pest"
+msgstr "plaga viva"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Loading…"
+msgstr "Cargando…"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Local draft saved"
+msgstr "Borrador local guardado"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Location is required for this mobile action."
+msgstr "La ubicación es requerida para esta acción móvil."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__longitude
+msgid "Longitude"
+msgstr "Longitud"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__lot_id
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Lot"
+msgstr "Lote"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_anomaly__severity__low
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection__activity_level__low
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection_line__activity_level__low
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_risk_level__code__low
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_type__risk_level__low
+#: model:pest.risk.level,name:pestops_core.risk_low
+msgid "Low"
+msgstr "Baja"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Mark Done"
+msgstr "Marcar hecho"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+msgid "Mark To Renew"
+msgstr "Marcar para renovar"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_anomaly__severity__medium
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection__activity_level__medium
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection_line__activity_level__medium
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_risk_level__code__medium
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_type__risk_level__medium
+#: model:pest.risk.level,name:pestops_core.risk_medium
+msgid "Medium"
+msgstr "Media"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__message_has_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__message_has_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__message_has_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__message_has_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__message_has_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__message_has_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__message_has_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__message_has_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de entrega"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__method_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__method_id
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Method"
+msgstr "Método"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Mobile & Signature"
+msgstr "Móvil y firma"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__mobile_checkin_used
+msgid "Mobile Checkin Used"
+msgstr "Entrada móvil usada"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pestops_settings_form
+msgid "Mobile Field Controls"
+msgstr "Controles móviles"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_mobile_geofence_radius_meters
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_mobile_geofence_radius_meters
+msgid "Mobile Geofence Radius (m)"
+msgstr "Radio geovalla móvil (m)"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Mobile Traceability"
+msgstr "Trazabilidad móvil"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Mobile check-in recorded at %s, GPS accuracy %.0f m."
+msgstr "Entrada móvil registrada a las %s, precisión GPS %.0f m."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Mobile check-out recorded and visit completed."
+msgstr "Salida móvil registrada y visita cerrada."
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Mobile traceability"
+msgstr "trazabilidad móvil"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__billing_frequency__monthly
+msgid "Monthly"
+msgstr "Mensual"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__default_frequency_type__months
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract_site__frequency_type__months
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_treatment_plan__frequency_type__months
+#: model:ir.model.fields.selection,name:pestops_core.selection__res_company__pestops_default_frequency_type__months
+msgid "Months"
+msgstr "Meses"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__my_activity_date_deadline
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__my_activity_date_deadline
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__my_activity_date_deadline
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__my_activity_date_deadline
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__my_activity_date_deadline
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__my_activity_date_deadline
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Mi vencimiento"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_category__name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_risk_level__name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_method__name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__name
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection_line__evidence__nest
+msgid "Nest"
+msgstr "Nido"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_reservice__reason__new_infestation
+msgid "New Infestation"
+msgstr "Nueva infestación"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "New Inspection"
+msgstr "Nueva inspección"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "New Treatment"
+msgstr "Nuevo tratamiento"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "New inspection"
+msgstr "nueva inspección"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__activity_calendar_event_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__activity_calendar_event_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__activity_calendar_event_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__activity_calendar_event_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__activity_calendar_event_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__activity_calendar_event_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Próximo evento"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__activity_date_deadline
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__activity_date_deadline
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__activity_date_deadline
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__activity_date_deadline
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__activity_date_deadline
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__activity_date_deadline
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Próximo vencimiento"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__activity_summary
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__activity_summary
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__activity_summary
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__activity_summary
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__activity_summary
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__activity_summary
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen próxima actividad"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__activity_type_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__activity_type_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__activity_type_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__activity_type_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__activity_type_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__activity_type_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo próxima actividad"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__next_inspection_date
+msgid "Next Inspection Date"
+msgstr "Fecha próxima inspección"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__next_visit_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__next_visit_date
+msgid "Next Visit Date"
+msgstr "Fecha próxima visita"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_control_point.py:0
+msgid "No active PestOps visit exists for this site. Start or schedule a visit before creating an inspection."
+msgstr "No existe una visita PestOps activa para este sitio. Inicie o planifique una visita antes de crear una inspección."
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "No additional notes."
+msgstr "Sin notas adicionales."
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "No anomaly recorded."
+msgstr "Ninguna anomalía registrada."
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "No customer feedback recorded."
+msgstr "Ninguna opinión registrada."
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "No inspection was recorded."
+msgstr "Ninguna inspección registrada."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_treatment.py:0
+msgid "No inventory adjustment location could be found."
+msgstr "No se encontró ubicación de ajuste."
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "No technician notes recorded."
+msgstr "Ninguna nota de técnico."
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "No treatment was recorded."
+msgstr "Ningún tratamiento registrado."
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "No visit scheduled"
+msgstr "Ninguna visita planificada"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection__activity_level__none
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection_line__activity_level__none
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection_line__evidence__none
+msgid "None"
+msgstr "Ninguno"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_treatment_plan__priority__0
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_visit__priority__0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_treatment__stock_consumption_state__none
+msgid "Not Consumed"
+msgstr "No consumido"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__notes
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__notes
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__notes
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__notes
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__notes
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__notes
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__notes
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__notes
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_control_point_form
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_site_form
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__message_needaction_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__message_needaction_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__message_needaction_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__message_needaction_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__message_needaction_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__message_needaction_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__message_needaction_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__message_needaction_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__message_has_error_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__message_has_error_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__message_has_error_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__message_has_error_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__message_has_error_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__message_has_error_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__message_has_error_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__message_has_error_counter
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_anomaly__message_needaction_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_contract__message_needaction_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_control_point__message_needaction_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_inspection__message_needaction_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_reservice__message_needaction_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_site__message_needaction_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment__message_needaction_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment_plan__message_needaction_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_visit__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Mensajes que requieren acción"
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_anomaly__message_has_error_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_contract__message_has_error_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_control_point__message_has_error_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_inspection__message_has_error_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_reservice__message_has_error_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_site__message_has_error_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment__message_has_error_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment_plan__message_has_error_counter
+#: model:ir.model.fields,help:pestops_core.field_pest_visit__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Mensajes con error de entrega"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__observation
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Observation"
+msgstr "Observación"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Observation, recommendation…"
+msgstr "Observación, recomendación…"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection_line__evidence__odor
+msgid "Odor"
+msgstr "Olor"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_site__site_type__office
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_zone__zone_type__office
+msgid "Office"
+msgstr "Oficina"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Offline"
+msgstr "Sin conexión"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Offline mode: server actions are paused. Local mobile drafts remain available until you reconnect."
+msgstr "Modo sin conexión: las acciones del servidor están en pausa. Los borradores móviles locales siguen disponibles hasta reconectar."
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__billing_frequency__once
+msgid "One-off"
+msgstr "Único"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Online"
+msgstr "En línea"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+msgid "Only confirmed contracts can be suspended."
+msgstr "Solo los contratos confirmados pueden suspenderse."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Only draft or scheduled visits can be checked in."
+msgstr "Solo visitas en borrador o planificadas admiten entrada."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Only draft or scheduled visits can be started."
+msgstr "Solo visitas en borrador o planificadas pueden iniciarse."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+msgid "Only suspended contracts can be resumed."
+msgstr "Solo contratos suspendidos pueden reanudarse."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Only visits in progress can be completed."
+msgstr "Solo visitas en curso pueden cerrarse."
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_anomaly__state__open
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_reservice__state__open
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_reservice_form
+msgid "Open"
+msgstr "Abierto"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__open_anomaly_count
+msgid "Open Anomaly Count"
+msgstr "Número de anomalías abiertas"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Open Odoo form"
+msgstr "Abrir formulario Odoo"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__open_reservice_count
+msgid "Open Reservice Count"
+msgstr "Número de re-servicios abiertos"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Open anomalies"
+msgstr "anomalías abiertas"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pestops_settings_form
+msgid "Operational Defaults"
+msgstr "Valores operativos predeterminados"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__responsible_id
+msgid "Operational Responsible"
+msgstr "Responsable operativo"
+
+#. module: pestops_core
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_operations
+msgid "Operations"
+msgstr "Operaciones"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Optional comment"
+msgstr "Comentario opcional"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__origin_generation_date
+msgid "Origin Generation Date"
+msgstr "Fecha de generación"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__origin_visit_id
+msgid "Origin Visit"
+msgstr "Visita de origen"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_anomaly__category__other
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__service_type__other
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_control_point__point_type__other
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection_line__evidence__other
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_reservice__reason__other
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_site__site_type__other
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_zone__zone_type__other
+msgid "Other"
+msgstr "Otro"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_zone__zone_type__outdoor
+msgid "Outdoor"
+msgstr "Exterior"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Overall activity"
+msgstr "Actividad global"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_treatment__result__partial
+msgid "Partial"
+msgstr "Parcial"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_treatment__stock_consumption_state__partial
+msgid "Partially Consumed"
+msgstr "Parcialmente consumido"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_treatment_line__consumption_state__pending
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__billing_frequency__per_visit
+msgid "Per Visit"
+msgstr "Por visita"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_reservice__reason__persistent_infestation
+msgid "Persistent Infestation"
+msgstr "Infestación persistente"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__pest_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__pest_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__pest_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__pest_id
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Pest"
+msgstr "Plaga"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_anomaly__category__activity
+msgid "Pest Activity"
+msgstr "Actividad de plagas"
+
+#. module: pestops_core
+#: model:ir.actions.act_window,name:pestops_core.action_pest_categories
+#: model:ir.ui.menu,name:pestops_core.menu_pest_categories
+msgid "Pest Categories"
+msgstr "Categorías de plagas"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_category
+msgid "Pest Category"
+msgstr "Categoría de plagas"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_contract_site
+msgid "Pest Contract Site"
+msgstr "Sitio de contrato"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_anomaly
+msgid "Pest Control Anomaly"
+msgstr "Anomalía de control"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_contract
+msgid "Pest Control Contract"
+msgstr "Contrato de control"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_control_point
+msgid "Pest Control Point"
+msgstr "Punto de control"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Pest Control Service Report"
+msgstr "Informe de servicio"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_site
+msgid "Pest Control Site"
+msgstr "Sitio de control"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_visit
+msgid "Pest Control Visit"
+msgstr "Visita de control"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_zone
+msgid "Pest Control Zone"
+msgstr "Zona de control"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_inspection
+msgid "Pest Inspection"
+msgstr "Inspección"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_inspection_line
+msgid "Pest Inspection Line"
+msgstr "Línea de inspección"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_reservice
+msgid "Pest Re-Service"
+msgstr "Re-servicio"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_risk_level
+msgid "Pest Risk Level"
+msgstr "Nivel de riesgo"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_treatment
+msgid "Pest Treatment"
+msgstr "Tratamiento"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_treatment_line
+msgid "Pest Treatment Consumption"
+msgstr "Consumo de tratamiento"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_treatment_plan
+msgid "Pest Treatment Plan"
+msgstr "Plan de tratamiento"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_treatment_plan_line
+msgid "Pest Treatment Plan Line"
+msgstr "Línea de plan"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_type
+msgid "Pest Type"
+msgstr "Tipo de plaga"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_root
+msgid "PestOps"
+msgstr "PestOps"
+
+#. module: pestops_core
+#: model:ir.actions.server,name:pestops_core.ir_cron_pestops_contract_state_ir_actions_server
+msgid "PestOps - Contract State Maintenance"
+msgstr "PestOps - Mantenimiento de contratos"
+
+#. module: pestops_core
+#: model:ir.actions.server,name:pestops_core.ir_cron_pestops_generate_visits_ir_actions_server
+msgid "PestOps - Generate Recurring Visits"
+msgstr "PestOps - Generar visitas"
+
+#. module: pestops_core
+#: model:ir.actions.server,name:pestops_core.ir_cron_pestops_visit_reminders_ir_actions_server
+msgid "PestOps - Visit Reminders"
+msgstr "PestOps - Recordatorios"
+
+#. module: pestops_core
+#: model:res.groups,name:pestops_core.group_pestops_admin
+msgid "PestOps Administrator"
+msgstr "Administrador PestOps"
+
+#. module: pestops_core
+#: model:res.groups,name:pestops_core.group_pestops_billing
+msgid "PestOps Billing Manager"
+msgstr "Responsable de facturación"
+
+#. module: pestops_core
+#: model:res.groups,name:pestops_core.group_pestops_manager
+msgid "PestOps Manager"
+msgstr "Responsable PestOps"
+
+#. module: pestops_core
+#: model:res.groups,name:pestops_core.group_pestops_operations
+msgid "PestOps Operations Manager"
+msgstr "Responsable de operaciones"
+
+#. module: pestops_core
+#: model:res.groups,name:pestops_core.group_pestops_quality
+msgid "PestOps Quality Manager"
+msgstr "Responsable de calidad"
+
+#. module: pestops_core
+#: model:ir.actions.report,name:pestops_core.action_report_pest_visit
+msgid "PestOps Service Report"
+msgstr "Informe de servicio"
+
+#. module: pestops_core
+#: model:ir.actions.act_window,name:pestops_core.action_pestops_settings
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pestops_settings_form
+msgid "PestOps Settings"
+msgstr "Ajustes PestOps"
+
+#. module: pestops_core
+#: model:res.groups,name:pestops_core.group_pestops_stock
+msgid "PestOps Stock Manager"
+msgstr "Responsable de stock"
+
+#. module: pestops_core
+#: model:res.groups,name:pestops_core.group_pestops_supervisor
+msgid "PestOps Supervisor"
+msgstr "Supervisor PestOps"
+
+#. module: pestops_core
+#: model:res.groups,name:pestops_core.group_pestops_technician
+msgid "PestOps Technician"
+msgstr "Técnico PestOps"
+
+#. module: pestops_core
+#: model:res.groups,name:pestops_core.group_pestops_user
+msgid "PestOps User"
+msgstr "Usuario PestOps"
+
+#. module: pestops_core
+#: model:ir.actions.act_window,name:pestops_core.action_pest_types
+#: model:ir.ui.menu,name:pestops_core.menu_pest_types
+msgid "Pests"
+msgstr "Plagas"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Photo"
+msgstr "Foto"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Photo ready"
+msgstr "Foto lista"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__plan_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__plan_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__plan_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__plan_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__plan_id
+msgid "Plan"
+msgstr "Plan"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__plan_count
+msgid "Plan Count"
+msgstr "Número de planes"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__plan_line_ids
+msgid "Plan Line"
+msgstr "Línea de plan"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_plan_form
+msgid "Plan Lines"
+msgstr "Líneas de plan"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Plan:"
+msgstr "Plan:"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "Planned"
+msgstr "Planificado"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__planned_quantity
+msgid "Planned Quantity"
+msgstr "Cantidad prevista"
+
+#. module: pestops_core
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_planning
+msgid "Planning"
+msgstr "Planificación"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_site_form
+msgid "Plans"
+msgstr "Planes"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Please capture the customer signature before saving."
+msgstr "Capture la firma del cliente antes de guardar."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_treatment.py:0
+msgid "Please configure a source stock location for product consumption."
+msgstr "Configure una ubicación de origen para el consumo."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__point_type
+msgid "Point Type"
+msgstr "Tipo de punto"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pestops_settings_form
+msgid "Portal & Automation"
+msgstr "Portal y automatización"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__service_type__preventive
+msgid "Preventive Pest Control"
+msgstr "Control preventivo"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_treatment_form
+msgid "Print Certificate"
+msgstr "Imprimir certificado"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Print Service Report"
+msgstr "Imprimir informe"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__priority
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__priority
+msgid "Priority"
+msgstr "Prioridad"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__product_id
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Product"
+msgstr "Producto"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_treatment_form
+msgid "Product Consumption"
+msgstr "Consumo de productos"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Product consumption"
+msgstr "consumo de productos"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_zone__zone_type__production
+msgid "Production Area"
+msgstr "Zona de producción"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "Products Used"
+msgstr "Productos usados"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__task_id
+msgid "Project Task"
+msgstr "Tarea de proyecto"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_control_point_label
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_control_point_form
+msgid "QR Code"
+msgstr "Código QR"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__qr_code_image
+msgid "Qr Code Image"
+msgstr "Imagen QR"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__qr_scan_url
+msgid "Qr Scan Url"
+msgstr "URL de escaneo"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__qr_token
+msgid "Qr Token"
+msgstr "Token QR"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__quantity_variance
+msgid "Quantity Variance"
+msgstr "Variación de cantidad"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__billing_frequency__quarterly
+msgid "Quarterly"
+msgstr "Trimestral"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_control_point.py:0
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_control_point_form
+msgid "Quick Inspection"
+msgstr "Inspección rápida"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__rating_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__rating_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__rating_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__rating_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__rating_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__rating_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__rating_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__rating_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__rating_ids
+msgid "Ratings"
+msgstr "Calificaciones"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__reservice_id
+msgid "Re-Service"
+msgstr "Re-servicio"
+
+#. module: pestops_core
+#: model:ir.actions.act_window,name:pestops_core.action_pest_reservices
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_reservices
+msgid "Re-Services"
+msgstr "Re-servicios"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_site_form
+msgid "Re-services"
+msgstr "re-servicios"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__reason
+msgid "Reason"
+msgstr "Motivo"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__recommendation
+msgid "Recommendation"
+msgstr "Recomendación"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection_line__recommended_action
+msgid "Recommended Action"
+msgstr "Acción recomendada"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Record the treatment and the material consumed."
+msgstr "Registre el tratamiento y el material consumido."
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Record what you actually found on site."
+msgstr "Anote lo encontrado en el sitio."
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Refresh"
+msgstr "Actualizar"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__requested_by
+msgid "Requested By"
+msgstr "Solicitado por"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_require_customer_signature_before_close
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_require_customer_signature_before_close
+msgid "Require Customer Signature Before Visit Completion"
+msgstr "Requerir firma antes del cierre"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_require_inspection_before_close
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_require_inspection_before_close
+msgid "Require Inspection Before Visit Completion"
+msgstr "Requerir inspección antes del cierre"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_require_treatment_before_close
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_require_treatment_before_close
+msgid "Require Treatment Before Visit Completion"
+msgstr "Requerir tratamiento antes del cierre"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__reservice_ids
+msgid "Reservice"
+msgstr "Re-servicio"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__reservice_count
+msgid "Reservice Count"
+msgstr "Número de re-servicios"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_site__site_type__residential
+msgid "Residential"
+msgstr "Residencial"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_anomaly_form
+msgid "Resolve"
+msgstr "Resolver"
+
+#. module: pestops_core
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_resources
+msgid "Resources"
+msgstr "Recursos"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__responsible_id
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__activity_user_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__activity_user_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__activity_user_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__activity_user_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__activity_user_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__activity_user_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario responsable"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_site__site_type__restaurant
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_zone__zone_type__restaurant
+msgid "Restaurant"
+msgstr "Restaurante"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__result
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Result"
+msgstr "Resultado"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+msgid "Resume"
+msgstr "Reanudar"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_site__site_type__retail
+msgid "Retail"
+msgstr "Minorista"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Review & finish"
+msgstr "Revisar y terminar"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__risk_level_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__risk_level
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__risk_level_id
+msgid "Risk Level"
+msgstr "Nivel de riesgo"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_control_point__point_type__rodent_station
+msgid "Rodent Station"
+msgstr "Estación de roedores"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__message_has_sms_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__message_has_sms_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__message_has_sms_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__message_has_sms_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__message_has_sms_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__message_has_sms_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__message_has_sms_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__message_has_sms_error
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega SMS"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Save"
+msgstr "Guardar"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Save inspection"
+msgstr "Guardar inspección"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Save local draft"
+msgstr "Guardar borrador"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Save treatment"
+msgstr "Guardar tratamiento"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid ""
+"Saving records the treatment. Stock is deducted only after the\n"
+"                            manager/technician explicitly uses"
+msgstr "Al guardar se registra el tratamiento. El stock solo se descuenta tras el uso explícito del responsable/técnico."
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_control_point_label
+msgid "Scan to open this control point in PestOps."
+msgstr "Escanee para abrir este punto en PestOps."
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Schedule"
+msgstr "Planificar"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_visit__state__scheduled
+msgid "Scheduled"
+msgstr "Planificado"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__scheduled_end
+msgid "Scheduled End"
+msgstr "Fin planificada"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__scheduled_start
+msgid "Scheduled Start"
+msgstr "Inicio planificado"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Scheduled end must be after scheduled start."
+msgstr "El fin debe ser posterior al inicio."
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Select lot…"
+msgstr "Elegir lote…"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Select product…"
+msgstr "Elegir producto…"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_category__sequence
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__sequence
+#: model:ir.model.fields,field_description:pestops_core.field_pest_risk_level__sequence
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_method__sequence
+#: model:ir.model.fields,field_description:pestops_core.field_pest_type__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__service_type
+msgid "Service Type"
+msgstr "Tipo de servicio"
+
+#. module: pestops_core
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_settings
+msgid "Settings"
+msgstr "Ajustes"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__severity
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "Severity"
+msgstr "Gravedad"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Sign with your finger, stylus or mouse."
+msgstr "Firme con dedo, lápiz o ratón."
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Signature"
+msgstr "Firma"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__customer_signature_date
+msgid "Signature Date"
+msgstr "Fecha de firma"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Signature ready"
+msgstr "firma lista"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__customer_signature_name
+msgid "Signed By"
+msgstr "Firmado por"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Signed by"
+msgstr "firmado por"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Signed on"
+msgstr "firmado el"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__site_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__site_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__site_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__site_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__site_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__site_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__site_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__site_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__site_id
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Site"
+msgstr "Sitio"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__site_count
+msgid "Site Count"
+msgstr "Número de sitios"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__site_line_ids
+msgid "Site Line"
+msgstr "Línea de sitio"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__site_type
+msgid "Site Type"
+msgstr "Tipo de sitio"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+msgid "Site frequency must be greater than zero."
+msgstr "La frecuencia debe ser mayor que cero."
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+msgid "Site lines can override these defaults."
+msgstr "Las líneas pueden anular estos valores."
+
+#. module: pestops_core
+#: model:ir.actions.act_window,name:pestops_core.action_pest_sites
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_sites
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+msgid "Sites"
+msgstr "Sitios"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__location_id
+msgid "Source Location"
+msgstr "Ubicación de origen"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Source location"
+msgstr "ubicación de origen"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_anomaly_form
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_reservice_form
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Start"
+msgstr "Iniciar"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__start_date
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__start_date
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__state
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__state
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__state
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__state_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__state
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "State"
+msgstr "Estado"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Status"
+msgstr "Estado"
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_anomaly__activity_state
+#: model:ir.model.fields,help:pestops_core.field_pest_contract__activity_state
+#: model:ir.model.fields,help:pestops_core.field_pest_control_point__activity_state
+#: model:ir.model.fields,help:pestops_core.field_pest_reservice__activity_state
+#: model:ir.model.fields,help:pestops_core.field_pest_site__activity_state
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment_plan__activity_state
+#: model:ir.model.fields,help:pestops_core.field_pest_visit__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr "Estado basado en actividades. Atrasado: fecha ya pasada. Hoy: actividad de hoy. Planificado: actividades futuras."
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Stock"
+msgstr "Stock"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__stock_consumption_state
+msgid "Stock Consumption State"
+msgstr "Estado de consumo"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__stock_move_id
+msgid "Stock Move"
+msgstr "Movimiento de stock"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__street
+msgid "Street"
+msgstr "Calle"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__street2
+msgid "Street2"
+msgstr "Calle (cont.)"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_anomaly__category__structural
+msgid "Structural Issue"
+msgstr "Problema estructural"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__surface
+msgid "Surface"
+msgstr "Superficie"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+msgid "Suspend"
+msgstr "Suspender"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__state__suspended
+msgid "Suspended"
+msgstr "Suspendido"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__target_pest_ids
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "Target Pest"
+msgstr "Plaga objetivo"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__technician_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__technician_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__technician_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__technician_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__technician_id
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Technician"
+msgstr "Técnico"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Technician Notes"
+msgstr "Notas del técnico"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.actions.client,name:pestops_core.action_pestops_technician_app
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_technician
+msgid "Technician Workspace"
+msgstr "Espacio del técnico"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_treatment.py:0
+msgid "The selected lot does not belong to the selected product."
+msgstr "El lote no pertenece al producto."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_treatment.py:0
+msgid "The source location belongs to another company."
+msgstr "La ubicación pertenece a otra compañía."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "The visit must be started before it can be completed."
+msgstr "La visita debe iniciarse antes de cerrarse."
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__state__to_renew
+msgid "To Renew"
+msgstr "A renovar"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Today's visits"
+msgstr "Visitas de hoy"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_inspection_line__evidence__trap_activity
+msgid "Trap Activity"
+msgstr "Actividad de trampa"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Trap activity"
+msgstr "actividad de trampa"
+
+#. module: pestops_core
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__treatment_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__treatment_ids
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Treatment"
+msgstr "Tratamiento"
+
+#. module: pestops_core
+#: model:ir.actions.report,name:pestops_core.action_report_pest_treatment_certificate
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "Treatment Certificate"
+msgstr "Certificado de tratamiento"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__treatment_count
+msgid "Treatment Count"
+msgstr "Número de tratamientos"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "Treatment Details"
+msgstr "Detalles del tratamiento"
+
+#. module: pestops_core
+#: model:ir.model,name:pestops_core.model_pest_treatment_method
+msgid "Treatment Method"
+msgstr "Método de tratamiento"
+
+#. module: pestops_core
+#: model:ir.actions.act_window,name:pestops_core.action_treatment_methods
+#: model:ir.ui.menu,name:pestops_core.menu_treatment_methods
+msgid "Treatment Methods"
+msgstr "Métodos de tratamiento"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+#: model:ir.actions.act_window,name:pestops_core.action_pest_plans
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_plans
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+msgid "Treatment Plans"
+msgstr "Planes de tratamiento"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__treatment_required
+msgid "Treatment Required"
+msgstr "Tratamiento requerido"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Treatment photo"
+msgstr "foto de tratamiento"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.actions.act_window,name:pestops_core.action_pest_treatments
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_treatments
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_visit_form
+msgid "Treatments"
+msgstr "Tratamientos"
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_anomaly__activity_exception_decoration
+#: model:ir.model.fields,help:pestops_core.field_pest_contract__activity_exception_decoration
+#: model:ir.model.fields,help:pestops_core.field_pest_control_point__activity_exception_decoration
+#: model:ir.model.fields,help:pestops_core.field_pest_reservice__activity_exception_decoration
+#: model:ir.model.fields,help:pestops_core.field_pest_site__activity_exception_decoration
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment_plan__activity_exception_decoration
+#: model:ir.model.fields,help:pestops_core.field_pest_visit__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad excepcional."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_line__uom_id
+msgid "Unit"
+msgstr "Unidad"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "UoM"
+msgstr "UdM"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "Variance"
+msgstr "Variación"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__visit_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__visit_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__visit_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__visit_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__visit_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__visit_ids
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_visit_document
+msgid "Visit"
+msgstr "Visita"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Visit Anomalies"
+msgstr "Anomalías de visita"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pestops_settings_form
+msgid "Visit Completion Rules"
+msgstr "Reglas de cierre"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__visit_count
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__visit_count
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__visit_count
+msgid "Visit Count"
+msgstr "Número de visitas"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__visit_duration_minutes
+msgid "Visit Duration"
+msgstr "Duración de visita"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__visit_duration_minutes
+msgid "Visit Duration Minutes"
+msgstr "Duración (minutos)"
+
+#. module: pestops_core
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_plan_form
+msgid "Visit Generation"
+msgstr "Generación de visitas"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract_site__visit_horizon_days
+msgid "Visit Horizon Days"
+msgstr "Horizonte (días)"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_res_company__pestops_visit_reminder_hours
+#: model:ir.model.fields,field_description:pestops_core.field_res_config_settings__pestops_visit_reminder_hours
+msgid "Visit Reminder (hours)"
+msgstr "Recordatorio (horas)"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Visit Task"
+msgstr "Tarea de visita"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "Visit completed successfully."
+msgstr "Visita cerrada con éxito."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+#: code:addons/pestops_core/models/pest_plan.py:0
+msgid "Visit duration must be greater than zero."
+msgstr "La duración debe ser mayor que cero."
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+msgid "Visit generation horizon must be greater than zero."
+msgstr "El horizonte debe ser mayor que cero."
+
+#. module: pestops_core
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+#: model:ir.actions.act_window,name:pestops_core.action_pest_visits
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_visits
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_contract_form
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_plan_form
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_site_form
+msgid "Visits"
+msgstr "Visitas"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_site__site_type__warehouse
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_zone__zone_type__warehouse
+msgid "Warehouse"
+msgstr "Almacén"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_zone__zone_type__waste
+msgid "Waste Area"
+msgstr "Zona de residuos"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__website_message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_contract__website_message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__website_message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_inspection__website_message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_reservice__website_message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__website_message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__website_message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan__website_message_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_visit__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio"
+
+#. module: pestops_core
+#: model:ir.model.fields,help:pestops_core.field_pest_anomaly__website_message_ids
+#: model:ir.model.fields,help:pestops_core.field_pest_contract__website_message_ids
+#: model:ir.model.fields,help:pestops_core.field_pest_control_point__website_message_ids
+#: model:ir.model.fields,help:pestops_core.field_pest_inspection__website_message_ids
+#: model:ir.model.fields,help:pestops_core.field_pest_reservice__website_message_ids
+#: model:ir.model.fields,help:pestops_core.field_pest_site__website_message_ids
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment__website_message_ids
+#: model:ir.model.fields,help:pestops_core.field_pest_treatment_plan__website_message_ids
+#: model:ir.model.fields,help:pestops_core.field_pest_visit__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicación"
+
+#. module: pestops_core
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract__default_frequency_type__weeks
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_contract_site__frequency_type__weeks
+#: model:ir.model.fields.selection,name:pestops_core.selection__pest_treatment_plan__frequency_type__weeks
+#: model:ir.model.fields.selection,name:pestops_core.selection__res_company__pestops_default_frequency_type__weeks
+msgid "Weeks"
+msgstr "Semanas"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "You are approximately %.0f m away from the site, outside the allowed mobile radius of %.0f m."
+msgstr "Está a aproximadamente %.0f m del sitio, fuera del radio móvil permitido de %.0f m."
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "Your PestOps visits for today will appear here."
+msgstr "Sus visitas de hoy aparecerán aquí."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__zip
+msgid "Zip"
+msgstr "C.P."
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_anomaly__zone_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_control_point__zone_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_site__zone_ids
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment__zone_id
+#: model:ir.model.fields,field_description:pestops_core.field_pest_treatment_plan_line__zone_id
+#: model_terms:ir.ui.view,arch_db:pestops_core.report_pest_treatment_certificate
+msgid "Zone"
+msgstr "Zona"
+
+#. module: pestops_core
+#: model:ir.model.fields,field_description:pestops_core.field_pest_zone__zone_type
+msgid "Zone Type"
+msgstr "Tipo de zona"
+
+#. module: pestops_core
+#: model:ir.actions.act_window,name:pestops_core.action_pest_zones
+#: model:ir.ui.menu,name:pestops_core.menu_pestops_zones
+#: model_terms:ir.ui.view,arch_db:pestops_core.view_pest_site_form
+msgid "Zones"
+msgstr "Zonas"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_contract.py:0
+msgid "contract_id"
+msgstr ""
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "from the treatment."
+msgstr "del tratamiento."
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "inspection"
+msgstr "inspección"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "the customer"
+msgstr "el cliente"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "treatment"
+msgstr "tratamiento"
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "visit(s)"
+msgstr "visita(s)"
+
+#. module: pestops_core
+#. odoo-python
+#: code:addons/pestops_core/models/pest_visit.py:0
+msgid "visit_id"
+msgstr ""
+
+#. module: pestops_core
+#. odoo-javascript
+#: code:addons/pestops_core/static/src/technician_app/technician_app.xml:0
+msgid "— Exp."
+msgstr ""

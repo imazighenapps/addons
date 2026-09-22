@@ -1,0 +1,57 @@
+<odoo>
+    <record id="action_pestops_settings" model="ir.actions.act_window">
+        <field name="name">PestOps Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="context">{'module': 'pestops_core'}</field>
+    </record>
+
+    <record id="view_pestops_settings_form" model="ir.ui.view">
+        <field name="name">pestops.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="arch" type="xml">
+            <form string="PestOps Settings">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>PestOps Settings</h1>
+                    </div>
+                    <group string="Operational Defaults">
+                        <group>
+                            <field name="pestops_default_frequency_type"/>
+                            <field name="pestops_default_frequency_number"/>
+                            <field name="pestops_default_visit_duration_minutes"/>
+                            <field name="pestops_default_plan_horizon_days"/>
+                        </group>
+                        <group>
+                            <field name="pestops_visit_reminder_hours"/>
+                            <field name="pestops_contract_renewal_days"/>
+                            <field name="pestops_anomaly_overdue_grace_days"/>
+                        </group>
+                    </group>
+                    <group string="Visit Completion Rules">
+                        <field name="pestops_require_inspection_before_close"/>
+                        <field name="pestops_require_treatment_before_close"/>
+                        <field name="pestops_require_customer_signature_before_close"/>
+                    </group>
+                    <group string="Mobile Field Controls">
+                        <field name="pestops_enforce_mobile_geofence"/>
+                        <field name="pestops_mobile_geofence_radius_meters" invisible="not pestops_enforce_mobile_geofence"/>
+                    </group>
+                    <group string="Portal &amp; Automation">
+                        <field name="pestops_auto_publish_reports"/>
+                        <field name="pestops_portal_documents_enabled"/>
+                        <field name="pestops_automation_enabled"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_pestops_settings"
+              name="Settings"
+              parent="menu_pestops_config"
+              action="action_pestops_settings"
+              groups="pestops_core.group_pestops_manager,pestops_core.group_pestops_admin"
+              sequence="1"/>
+</odoo>
