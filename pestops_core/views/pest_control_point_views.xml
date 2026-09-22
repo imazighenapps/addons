@@ -1,0 +1,85 @@
+<odoo>
+    <record id="view_pest_control_point_list" model="ir.ui.view">
+        <field name="name">pest.control.point.list</field>
+        <field name="model">pest.control.point</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="site_id"/>
+                <field name="zone_id"/>
+                <field name="point_type"/>
+                <field name="last_inspection_date"/>
+                <field name="last_activity_level"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_control_point_form" model="ir.ui.view">
+        <field name="name">pest.control.point.form</field>
+        <field name="model">pest.control.point</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_new_inspection"
+                            type="object"
+                            string="Quick Inspection"
+                            class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_new_inspection"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-search">
+                            <span class="o_stat_text">Inspect</span>
+                        </button>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="code" readonly="1"/>
+                            <field name="name"/>
+                            <field name="site_id"/>
+                            <field name="zone_id"/>
+                            <field name="point_type"/>
+                            <field name="target_pest_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="installation_date"/>
+                            <field name="active"/>
+                            <field name="last_inspection_id"/>
+                            <field name="last_inspection_date"/>
+                            <field name="last_activity_level"/>
+                            <field name="next_inspection_date"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="QR Code">
+                            <group>
+                                <field name="qr_scan_url" readonly="1"/>
+                                <field name="qr_code_image"
+                                       widget="image"
+                                       readonly="1"
+                                       class="oe_avatar"
+                                       options="{'size': [260, 260]}"/>
+                            </group>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pest_control_points" model="ir.actions.act_window">
+        <field name="name">Control Points</field>
+        <field name="res_model">pest.control.point</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

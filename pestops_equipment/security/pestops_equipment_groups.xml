@@ -1,0 +1,9 @@
+<odoo>
+    <record id="group_pestops_equipment_user" model="res.groups">
+        <field name="name">PestOps Equipment User</field>
+    </record>
+    <record id="group_pestops_equipment_manager" model="res.groups">
+        <field name="name">PestOps Equipment Manager</field>
+        <field name="implied_ids" eval="[(4, ref('group_pestops_equipment_user'))]"/>
+    </record>
+</odoo>

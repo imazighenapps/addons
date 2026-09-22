@@ -1,0 +1,48 @@
+<odoo>
+    <record id="group_pestops_user" model="res.groups">
+        <field name="name">PestOps User</field>
+    </record>
+
+    <record id="group_pestops_technician" model="res.groups">
+        <field name="name">PestOps Technician</field>
+        <field name="implied_ids" eval="[(4, ref('pestops_core.group_pestops_user'))]"/>
+    </record>
+
+    <record id="group_pestops_supervisor" model="res.groups">
+        <field name="name">PestOps Supervisor</field>
+        <field name="implied_ids" eval="[(4, ref('pestops_core.group_pestops_user'))]"/>
+    </record>
+
+    <record id="group_pestops_operations" model="res.groups">
+        <field name="name">PestOps Operations Manager</field>
+        <field name="implied_ids" eval="[(4, ref('pestops_core.group_pestops_supervisor'))]"/>
+    </record>
+
+    <record id="group_pestops_manager" model="res.groups">
+        <field name="name">PestOps Manager</field>
+        <field name="implied_ids" eval="[(4, ref('pestops_core.group_pestops_operations'))]"/>
+    </record>
+
+    <record id="group_pestops_quality" model="res.groups">
+        <field name="name">PestOps Quality Manager</field>
+        <field name="implied_ids" eval="[(4, ref('pestops_core.group_pestops_user'))]"/>
+    </record>
+
+    <record id="group_pestops_stock" model="res.groups">
+        <field name="name">PestOps Stock Manager</field>
+        <field name="implied_ids" eval="[(4, ref('pestops_core.group_pestops_user'))]"/>
+    </record>
+
+    <record id="group_pestops_billing" model="res.groups">
+        <field name="name">PestOps Billing Manager</field>
+        <field name="implied_ids" eval="[(4, ref('pestops_core.group_pestops_user'))]"/>
+    </record>
+
+    <record id="group_pestops_admin" model="res.groups">
+        <field name="name">PestOps Administrator</field>
+        <field name="implied_ids" eval="[(4, ref('pestops_core.group_pestops_manager')),
+            (4, ref('pestops_core.group_pestops_quality')),
+            (4, ref('pestops_core.group_pestops_stock')),
+            (4, ref('pestops_core.group_pestops_billing'))]"/>
+    </record>
+</odoo>

@@ -1,0 +1,70 @@
+<odoo>
+    <menuitem id="menu_pestops_root"
+              name="PestOps"
+              sequence="10"
+              groups="pestops_core.group_pestops_user"/>
+
+    <menuitem id="menu_pestops_technician"
+              name="Technician Workspace"
+              parent="menu_pestops_root"
+              action="pestops_core.action_pestops_technician_app"
+              groups="pestops_core.group_pestops_technician,pestops_core.group_pestops_supervisor,pestops_core.group_pestops_operations,pestops_core.group_pestops_manager,pestops_core.group_pestops_admin"
+              sequence="1"/>
+
+    <menuitem id="menu_pestops_planning"
+              name="Planning"
+              parent="menu_pestops_root"
+              groups="pestops_core.group_pestops_technician,pestops_core.group_pestops_supervisor,pestops_core.group_pestops_operations,pestops_core.group_pestops_manager,pestops_core.group_pestops_admin"
+              sequence="5"/>
+
+    <menuitem id="menu_pestops_operations"
+              name="Operations"
+              parent="menu_pestops_root"
+              groups="pestops_core.group_pestops_supervisor,pestops_core.group_pestops_operations,pestops_core.group_pestops_manager,pestops_core.group_pestops_admin"
+              sequence="10"/>
+    <menuitem id="menu_pestops_sites" name="Sites" parent="menu_pestops_operations" action="action_pest_sites"/>
+    <menuitem id="menu_pestops_zones" name="Zones" parent="menu_pestops_operations" action="action_pest_zones"/>
+    <menuitem id="menu_pestops_points" name="Control Points" parent="menu_pestops_operations" action="action_pest_control_points"/>
+    <menuitem id="menu_pestops_plans" name="Treatment Plans" parent="menu_pestops_operations" action="action_pest_plans"/>
+    <menuitem id="menu_pestops_visits" name="Visits" parent="menu_pestops_operations" action="action_pest_visits"/>
+    <menuitem id="menu_pestops_inspections" name="Inspections" parent="menu_pestops_operations" action="action_pest_inspections"/>
+    <menuitem id="menu_pestops_treatments" name="Treatments" parent="menu_pestops_operations" action="action_pest_treatments"/>
+    <menuitem id="menu_pestops_reservices" name="Re-Services" parent="menu_pestops_operations" action="action_pest_reservices"/>
+    <menuitem id="menu_pestops_anomalies" name="Anomalies &amp; Actions" parent="menu_pestops_operations" action="action_pest_anomalies"/>
+
+    <menuitem id="menu_pestops_commercial"
+              name="Commercial"
+              parent="menu_pestops_root"
+              groups="pestops_core.group_pestops_supervisor,pestops_core.group_pestops_operations,pestops_core.group_pestops_billing,pestops_core.group_pestops_manager,pestops_core.group_pestops_admin"
+              sequence="20"/>
+    <menuitem id="menu_pestops_contracts"
+              name="Contracts"
+              parent="menu_pestops_commercial"
+              action="action_pest_contracts"
+              groups="pestops_core.group_pestops_supervisor,pestops_core.group_pestops_operations,pestops_core.group_pestops_manager,pestops_core.group_pestops_admin"
+              sequence="10"/>
+    <menuitem id="menu_pestops_contract_sites"
+              name="Contract Sites"
+              parent="menu_pestops_commercial"
+              action="action_pest_contract_sites"
+              groups="pestops_core.group_pestops_supervisor,pestops_core.group_pestops_operations,pestops_core.group_pestops_manager,pestops_core.group_pestops_admin"
+              sequence="20"/>
+
+    <!-- No groups here on purpose: each child module gates its own
+         entries, so the section only shows when something is visible.
+         This keeps partial-suite installs (e.g. core + equipment only)
+         clean without core depending on optional modules. -->
+    <menuitem id="menu_pestops_resources"
+              name="Resources"
+              parent="menu_pestops_root"
+              sequence="30"/>
+
+    <menuitem id="menu_pestops_config"
+              name="Configuration"
+              parent="menu_pestops_root"
+              groups="pestops_core.group_pestops_manager,pestops_core.group_pestops_admin"
+              sequence="100"/>
+    <menuitem id="menu_pest_categories" name="Pest Categories" parent="menu_pestops_config" action="action_pest_categories"/>
+    <menuitem id="menu_pest_types" name="Pests" parent="menu_pestops_config" action="action_pest_types"/>
+    <menuitem id="menu_treatment_methods" name="Treatment Methods" parent="menu_pestops_config" action="action_treatment_methods"/>
+</odoo>

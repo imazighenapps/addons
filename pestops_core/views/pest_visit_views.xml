@@ -1,0 +1,143 @@
+<odoo>
+    <record id="view_pest_visit_list" model="ir.ui.view">
+        <field name="name">pest.visit.list</field>
+        <field name="model">pest.visit</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="state == 'cancelled'" decoration-success="state == 'done'">
+                <field name="name"/>
+                <field name="site_id"/>
+                <field name="plan_id"/>
+                <field name="technician_id"/>
+                <field name="scheduled_start"/>
+                <field name="scheduled_end"/>
+                <field name="state"/>
+                <field name="completion_outcome"/>
+                <field name="open_anomaly_count"/>
+                <field name="priority"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_visit_form" model="ir.ui.view">
+        <field name="name">pest.visit.form</field>
+        <field name="model">pest.visit</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_schedule" type="object" string="Schedule" invisible="state != 'draft'"/>
+                    <button name="action_start" type="object" string="Start" class="oe_highlight" invisible="state not in ('draft', 'scheduled')"/>
+                    <button name="action_done" type="object" string="Mark Done" class="oe_highlight" invisible="state != 'in_progress'"/>
+                    <button name="action_view_anomalies" type="object" string="Anomalies" invisible="not anomaly_count"/>
+                    <button name="action_create_inspection" type="object" string="New Inspection" invisible="state not in ('in_progress', 'done')"/>
+                    <button name="action_create_treatment" type="object" string="New Treatment" invisible="state not in ('in_progress', 'done')"/>
+                    <button name="%(action_report_pest_visit)d"
+                            type="action"
+                            string="Print Service Report"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state in ('done', 'cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,scheduled,in_progress,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_task" type="object" class="oe_stat_button" icon="fa-tasks"
+                                invisible="not task_id">
+                            <span class="o_stat_text">Task</span>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="site_id"/>
+                            <field name="plan_id"/>
+                            <field name="technician_id"/>
+                            <field name="priority"/>
+                        </group>
+                        <group>
+                            <field name="scheduled_start"/>
+                            <field name="scheduled_end"/>
+                            <field name="generated_from_plan"/>
+                            <field name="origin_generation_date"/>
+                            <field name="actual_start"/>
+                            <field name="actual_end"/>
+                            <field name="company_id"/>
+                            <field name="inspection_required"/>
+                            <field name="treatment_required"/>
+                            <field name="completion_outcome"/>
+                            <field name="mobile_duration_minutes"/>
+                            <field name="mobile_checkin_used"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Inspections">
+                            <field name="inspection_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="date"/>
+                                    <field name="activity_level"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Treatments">
+                            <field name="treatment_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="date"/>
+                                    <field name="pest_id"/>
+                                    <field name="method_id"/>
+                                    <field name="result"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Anomalies" name="anomalies">
+                            <field name="anomaly_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="control_point_id"/>
+                                    <field name="severity"/>
+                                    <field name="state"/>
+                                    <field name="due_date"/>
+                                    <field name="reservice_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Mobile &amp; Signature">
+                            <group>
+                                <group string="Check-in">
+                                    <field name="checkin_at"/>
+                                    <field name="checkin_latitude"/>
+                                    <field name="checkin_longitude"/>
+                                    <field name="checkin_accuracy"/>
+                                </group>
+                                <group string="Check-out">
+                                    <field name="checkout_at"/>
+                                    <field name="checkout_latitude"/>
+                                    <field name="checkout_longitude"/>
+                                    <field name="checkout_accuracy"/>
+                                </group>
+                            </group>
+                            <group string="Customer Acceptance">
+                                <field name="customer_signature_name"/>
+                                <field name="customer_signature_date"/>
+                                <field name="customer_signature" widget="image" class="oe_avatar"/>
+                                <field name="customer_signature_note"/>
+                            </group>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes"/>
+                            <field name="customer_feedback"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            <div class="mt-2"><field name="completion_summary" nolabel="1" placeholder="Completion summary..."/></div>
+                </form>
+        </field>
+    </record>
+
+    <record id="action_pest_visits" model="ir.actions.act_window">
+        <field name="name">Visits</field>
+        <field name="res_model">pest.visit</field>
+        <field name="view_mode">list,form,calendar</field>
+    </record>
+</odoo>

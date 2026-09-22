@@ -1,0 +1,227 @@
+<odoo>
+
+    <record id="view_pest_contract_list" model="ir.ui.view">
+        <field name="name">pest.contract.list</field>
+        <field name="model">pest.contract</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="service_type"/>
+                <field name="state"/>
+                <field name="site_count"/>
+                <field name="visit_count"/>
+                <field name="amount"/>
+                <field name="currency_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_contract_form" model="ir.ui.view">
+        <field name="name">pest.contract.form</field>
+        <field name="model">pest.contract</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm"
+                            type="object"
+                            string="Confirm"
+                            class="oe_highlight"
+                            invisible="state not in ('draft', 'to_renew')"/>
+                    <button name="action_suspend"
+                            type="object"
+                            string="Suspend"
+                            invisible="state != 'confirmed'"/>
+                    <button name="action_resume"
+                            type="object"
+                            string="Resume"
+                            class="oe_highlight"
+                            invisible="state != 'suspended'"/>
+                    <button name="action_set_to_renew"
+                            type="object"
+                            string="Mark To Renew"
+                            invisible="state != 'confirmed'"/>
+                    <button name="action_generate_visits"
+                            type="object"
+                            string="Generate Visits"
+                            invisible="state not in ('confirmed', 'to_renew')"/>
+                    <button name="action_cancel"
+                            type="object"
+                            string="Cancel"
+                            invisible="state in ('cancelled', 'expired')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirmed,suspended,to_renew,expired"/>
+                </header>
+
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object"
+                                name="action_view_sites"
+                                class="oe_stat_button"
+                                icon="fa-building">
+                            <field name="site_count" widget="statinfo" string="Sites"/>
+                        </button>
+                        <button type="object"
+                                name="action_view_plans"
+                                class="oe_stat_button"
+                                icon="fa-list">
+                            <field name="plan_count" widget="statinfo" string="Plans"/>
+                        </button>
+                        <button type="object"
+                                name="action_view_visits"
+                                class="oe_stat_button"
+                                icon="fa-calendar">
+                            <field name="visit_count" widget="statinfo" string="Visits"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="code" readonly="1"/>
+                            <field name="partner_id"/>
+                            <field name="service_type"/>
+                            <field name="responsible_id"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="billing_frequency"/>
+                            <field name="amount"/>
+                            <field name="currency_id"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Sites">
+                            <field name="site_line_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="site_id"/>
+                                    <field name="frequency_type"/>
+                                    <field name="frequency_number"/>
+                                    <field name="visit_duration_minutes"/>
+                                    <field name="technician_id"/>
+                                    <field name="visit_horizon_days"/>
+                                    <field name="plan_id"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Default Operations">
+                            <group>
+                                <group>
+                                    <field name="default_frequency_type"/>
+                                    <field name="default_frequency_number"/>
+                                    <field name="default_visit_duration_minutes"/>
+                                </group>
+                                <group>
+                                    <field name="default_technician_id"/>
+                                </group>
+                            </group>
+                            <p class="text-muted">
+                                Site lines can override these defaults.
+                            </p>
+                        </page>
+
+                        <page string="Treatment Plans">
+                            <field name="plan_ids">
+                                <list>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="site_id"/>
+                                    <field name="frequency_type"/>
+                                    <field name="frequency_number"/>
+                                    <field name="next_visit_date"/>
+                                    <field name="active"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Visits">
+                            <field name="visit_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="site_id"/>
+                                    <field name="scheduled_start"/>
+                                    <field name="technician_id"/>
+                                    <field name="state"/>
+                                    <field name="generated_from_plan"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Billing Notes" name="billing_notes">
+                            <field name="billing_notes"/>
+                        </page>
+
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pest_contract_site_list" model="ir.ui.view">
+        <field name="name">pest.contract.site.list</field>
+        <field name="model">pest.contract.site</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle"/>
+                <field name="contract_id"/>
+                <field name="site_id"/>
+                <field name="frequency_type"/>
+                <field name="frequency_number"/>
+                <field name="technician_id"/>
+                <field name="plan_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_contract_site_form" model="ir.ui.view">
+        <field name="name">pest.contract.site.form</field>
+        <field name="model">pest.contract.site</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="contract_id"/>
+                        <field name="site_id"/>
+                        <field name="frequency_type"/>
+                        <field name="frequency_number"/>
+                        <field name="visit_duration_minutes"/>
+                        <field name="technician_id"/>
+                        <field name="visit_horizon_days"/>
+                        <field name="plan_id"/>
+                        <field name="company_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pest_contracts" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="res_model">pest.contract</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_pest_contract_sites" model="ir.actions.act_window">
+        <field name="name">Contract Sites</field>
+        <field name="res_model">pest.contract.site</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

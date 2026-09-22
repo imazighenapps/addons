@@ -1,0 +1,99 @@
+<odoo>
+    <record id="view_pest_plan_list" model="ir.ui.view">
+        <field name="name">pest.treatment.plan.list</field>
+        <field name="model">pest.treatment.plan</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="not active">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="site_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="frequency_type"/>
+                <field name="frequency_number"/>
+                <field name="visit_duration_minutes"/>
+                <field name="next_visit_date"/>
+                <field name="visit_count"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_plan_form" model="ir.ui.view">
+        <field name="name">pest.treatment.plan.form</field>
+        <field name="model">pest.treatment.plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_generate_now" type="object" string="Generate Visits" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_generate_now" type="object" class="oe_stat_button" icon="fa-calendar-plus">
+                            <span class="o_stat_text">Generate</span>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code" readonly="1"/>
+                            <field name="site_id"/>
+                            <field name="responsible_id"/>
+                            <field name="technician_id"/>
+                            <field name="priority"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="frequency_type"/>
+                            <field name="frequency_number"/>
+                            <field name="visit_duration_minutes"/>
+                            <field name="visit_horizon_days"/>
+                        </group>
+                    </group>
+                    <group string="Visit Generation">
+                        <field name="next_visit_date"/>
+                        <field name="visit_count"/>
+                        <field name="generated_visit_count"/>
+                    </group>
+                    <notebook>
+                        <page string="Plan Lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="zone_id"/>
+                                    <field name="pest_id"/>
+                                    <field name="method_id"/>
+                                    <field name="duration_minutes"/>
+                                    <field name="control_point_ids" widget="many2many_tags"/>
+                                    <field name="active"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Visits">
+                            <field name="visit_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="scheduled_start"/>
+                                    <field name="technician_id"/>
+                                    <field name="state"/>
+                                    <field name="generated_from_plan"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pest_plans" model="ir.actions.act_window">
+        <field name="name">Treatment Plans</field>
+        <field name="res_model">pest.treatment.plan</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

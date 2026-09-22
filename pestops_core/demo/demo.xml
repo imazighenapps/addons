@@ -1,0 +1,26 @@
+<odoo>
+    <record id="demo_pest_category_rodents" model="pest.category">
+        <field name="name">Rodents</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="demo_pest_category_insects" model="pest.category">
+        <field name="name">Insects</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="demo_pest_type_rat" model="pest.type">
+        <field name="name">Rat</field>
+        <field name="category_id" ref="demo_pest_category_rodents"/>
+        <field name="risk_level">high</field>
+    </record>
+    <record id="demo_pest_type_cockroach" model="pest.type">
+        <field name="name">Cockroach</field>
+        <field name="category_id" ref="demo_pest_category_insects"/>
+        <field name="risk_level">high</field>
+    </record>
+
+    <record id="demo_treatment_method_gel" model="pest.treatment.method">
+        <field name="name">Gel Bait</field>
+        <field name="code">GEL</field>
+    </record>
+</odoo>
