@@ -1,0 +1,84 @@
+<odoo>
+    <record id="view_pest_stock_threshold_list" model="ir.ui.view">
+        <field name="name">pest.stock.threshold.list</field>
+        <field name="model">pest.stock.threshold</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="location_id"/>
+                <field name="company_id"/>
+                <field name="minimum_qty"/>
+                <field name="current_qty"/>
+                <field name="shortage_qty"/>
+                <field name="status"/>
+                <field name="responsible_user_id"/>
+                <field name="alert_open"/>
+                <field name="last_alert_at"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_stock_threshold_search" model="ir.ui.view">
+        <field name="name">pest.stock.threshold.search</field>
+        <field name="model">pest.stock.threshold</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_id"/>
+                <field name="location_id"/>
+                <field name="responsible_user_id"/>
+                <filter name="filter_low" string="Low / Out" domain="[('status', 'in', ['low', 'out'])]"/>
+                <filter name="filter_out" string="Out of Stock" domain="[('status', '=', 'out')]"/>
+                <filter name="filter_open_alert" string="Open Alerts" domain="[('alert_open', '=', True)]"/>
+                <filter name="filter_active" string="Active" domain="[('active', '=', True)]"/>
+                <group>
+                    <filter name="group_product" string="Product" context="{'group_by': 'product_id'}"/>
+                    <filter name="group_location" string="Location" context="{'group_by': 'location_id'}"/>
+                    <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_pest_stock_threshold_form" model="ir.ui.view">
+        <field name="name">pest.stock.threshold.form</field>
+        <field name="model">pest.stock.threshold</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_check_now" type="object" string="Check Stock Now" class="oe_highlight"/>
+                    <field name="status" widget="statusbar" statusbar_visible="ok,low,out"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="product_id"/>
+                            <field name="location_id"/>
+                            <field name="company_id"/>
+                            <field name="minimum_qty"/>
+                        </group>
+                        <group>
+                            <field name="current_qty"/>
+                            <field name="shortage_qty"/>
+                            <field name="responsible_user_id"/>
+                            <field name="alert_open" readonly="1"/>
+                            <field name="last_alert_at" readonly="1"/>
+                            <field name="last_alert_qty" readonly="1"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <chatter/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pest_stock_thresholds" model="ir.actions.act_window">
+        <field name="name">Stock Thresholds</field>
+        <field name="res_model">pest.stock.threshold</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_pest_stock_threshold_search"/>
+    </record>
+</odoo>

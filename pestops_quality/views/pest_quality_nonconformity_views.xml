@@ -1,0 +1,116 @@
+<odoo>
+    <record id="view_pest_quality_nc_list" model="ir.ui.view">
+        <field name="name">pest.quality.nonconformity.list</field>
+        <field name="model">pest.quality.nonconformity</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="severity == 'critical'" decoration-warning="severity == 'high'" decoration-success="state in ('resolved','closed')">
+                <field name="name"/>
+                <field name="visit_id"/>
+                <field name="site_id"/>
+                <field name="severity"/>
+                <field name="state"/>
+                <field name="responsible_user_id"/>
+                <field name="due_date"/>
+                <field name="action_count"/>
+                <field name="open_action_count"/>
+                <field name="evidence_count"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_pest_quality_nc_form" model="ir.ui.view">
+        <field name="name">pest.quality.nonconformity.form</field>
+        <field name="model">pest.quality.nonconformity</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start" type="object" string="Start" class="oe_highlight" invisible="state != 'open'"/>
+                    <button name="action_create_action" type="object" string="New Corrective Action" invisible="state in ('closed','cancelled')"/>
+                    <button name="action_resolve" type="object" string="Resolve" class="oe_highlight" invisible="state not in ('open','in_progress')"/>
+                    <button name="action_close" type="object" string="Close" class="oe_highlight" invisible="state != 'resolved'"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state in ('resolved','closed','cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,in_progress,resolved,closed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="check_id" readonly="1"/>
+                            <field name="check_line_id" readonly="1"/>
+                            <field name="visit_id" readonly="1"/>
+                            <field name="site_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="severity"/>
+                            <field name="responsible_user_id"/>
+                            <field name="due_date"/>
+                            <field name="detected_date" readonly="1"/>
+                            <field name="resolved_date" readonly="1"/>
+                            <field name="closed_date" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Issue">
+                            <field name="description"/>
+                            <field name="root_cause"/>
+                        </page>
+                        <page string="Corrective / Preventive Actions">
+                            <field name="corrective_action"/>
+                            <field name="preventive_action"/>
+                            <field name="action_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="action_type"/>
+                                    <field name="state"/>
+                                    <field name="responsible_user_id"/>
+                                    <field name="due_date"/>
+                                    <field name="closed_date"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Evidence">
+                            <field name="evidence_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="evidence_type"/>
+                                    <field name="date"/>
+                                    <field name="filename"/>
+                                    <field name="file" filename="filename" widget="binary"/>
+                                    <field name="note"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_pest_quality_nonconformities" model="ir.actions.act_window">
+        <field name="name">Non-Conformities</field>
+        <field name="res_model">pest.quality.nonconformity</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_open': 1}</field>
+    </record>
+
+    <record id="view_pest_quality_nc_search" model="ir.ui.view">
+        <field name="name">pest.quality.nonconformity.search</field>
+        <field name="model">pest.quality.nonconformity</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="visit_id"/>
+                <field name="site_id"/>
+                <field name="responsible_user_id"/>
+                <filter name="open" string="Open" domain="[('state', 'in', ('open','in_progress'))]"/>
+                <filter name="overdue" string="Overdue" domain="[('due_date', '&lt;', context_today()), ('state', 'in', ('open','in_progress'))]"/>
+                <filter name="critical" string="Critical" domain="[('severity', '=', 'critical')]"/>
+                <group>
+                    <filter name="group_severity" string="Severity" context="{'group_by': 'severity'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_site" string="Site" context="{'group_by': 'site_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

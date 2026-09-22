@@ -1,0 +1,88 @@
+<odoo>
+    <record id="view_pest_quality_action_list" model="ir.ui.view">
+        <field name="name">pest.quality.action.list</field>
+        <field name="model">pest.quality.action</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="state != 'done' and due_date and due_date &lt; today" decoration-success="state == 'done'">
+                <field name="name"/>
+                <field name="nonconformity_id"/>
+                <field name="action_type"/>
+                <field name="state"/>
+                <field name="responsible_user_id"/>
+                <field name="due_date"/>
+                <field name="closed_date"/>
+                <field name="evidence_count"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_pest_quality_action_form" model="ir.ui.view">
+        <field name="name">pest.quality.action.form</field>
+        <field name="model">pest.quality.action</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start" type="object" string="Start" class="oe_highlight" invisible="state != 'todo'"/>
+                    <button name="action_done" type="object" string="Mark Done" class="oe_highlight" invisible="state not in ('todo','in_progress')"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state in ('done','cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="todo,in_progress,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="nonconformity_id"/>
+                            <field name="action_type"/>
+                            <field name="responsible_user_id"/>
+                        </group>
+                        <group>
+                            <field name="due_date"/>
+                            <field name="started_date" readonly="1"/>
+                            <field name="closed_date" readonly="1"/>
+                            <field name="evidence_count" readonly="1"/>
+                        </group>
+                    </group>
+                    <field name="description"/>
+                    <field name="result"/>
+                    <separator string="Evidence"/>
+                    <field name="evidence_ids">
+                        <list editable="bottom">
+                            <field name="name"/>
+                            <field name="evidence_type"/>
+                            <field name="date"/>
+                            <field name="filename"/>
+                            <field name="file" filename="filename" widget="binary"/>
+                            <field name="note"/>
+                        </list>
+                    </field>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_pest_quality_actions" model="ir.actions.act_window">
+        <field name="name">Corrective &amp; Preventive Actions</field>
+        <field name="res_model">pest.quality.action</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="view_pest_quality_action_search" model="ir.ui.view">
+        <field name="name">pest.quality.action.search</field>
+        <field name="model">pest.quality.action</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="nonconformity_id"/>
+                <field name="responsible_user_id"/>
+                <filter name="todo" string="To Do" domain="[('state', '=', 'todo')]"/>
+                <filter name="in_progress" string="In Progress" domain="[('state', '=', 'in_progress')]"/>
+                <filter name="overdue" string="Overdue" domain="[('due_date', '&lt;', context_today()), ('state', '!=', 'done')]"/>
+                <group>
+                    <filter name="group_type" string="Type" context="{'group_by': 'action_type'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_responsible" string="Responsible" context="{'group_by': 'responsible_user_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>
