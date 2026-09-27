@@ -1,0 +1,154 @@
+<odoo>
+  <record id="view_fs_stock_reservation_aging_list" model="ir.ui.view">
+    <field name="name">fs.stock.reservation.aging.list</field>
+    <field name="model">fs.stock.reservation.aging</field>
+    <field name="arch" type="xml">
+      <list decoration-danger="bucket == 'critical'" decoration-warning="bucket == 'aging'">
+        <field name="product_id"/>
+        <field name="picking_id"/>
+        <field name="sale_order_id"/>
+        <field name="reserved_quantity"/>
+        <field name="reservation_since"/>
+        <field name="age_days"/>
+        <field name="bucket"/>
+        <field name="company_id"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_fs_stock_reservation_aging_form" model="ir.ui.view">
+    <field name="name">fs.stock.reservation.aging.form</field>
+    <field name="model">fs.stock.reservation.aging</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button name="action_open_release_wizard" type="object" string="Release Reservation" class="btn-primary" groups="stock.group_stock_manager"/>
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="product_id"/>
+              <field name="reserved_quantity"/>
+              <field name="reservation_since"/>
+              <field name="reservation_date_approximate"/>
+            </group>
+            <group>
+              <field name="move_id"/>
+              <field name="picking_id"/>
+              <field name="sale_order_id"/>
+              <field name="location_id"/>
+              <field name="age_days"/>
+              <field name="bucket"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Traceability">
+              <field name="state"/>
+              <field name="released_at"/>
+              <field name="released_by"/>
+              <field name="release_reason" readonly="1"/>
+              <field name="release_audit_ids" readonly="1">
+                <list>
+                  <field name="released_at"/>
+                  <field name="released_by"/>
+                  <field name="quantity"/>
+                  <field name="reason"/>
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_fs_stock_reservation_aging_search" model="ir.ui.view">
+    <field name="name">fs.stock.reservation.aging.search</field>
+    <field name="model">fs.stock.reservation.aging</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="product_id"/>
+        <field name="picking_id"/>
+        <field name="sale_order_id"/>
+        <field name="company_id"/>
+        <filter name="aging" string="Aging" domain="[('bucket','=','aging')]"/>
+        <filter name="age3" string=">= 3 Days" domain="[('age_days','>=',3)]"/>
+        <filter name="age7" string=">= 7 Days" domain="[('age_days','>=',7)]"/>
+        <filter name="age14" string=">= 14 Days" domain="[('age_days','>=',14)]"/>
+        <filter name="age30" string=">= 30 Days" domain="[('age_days','>=',30)]"/>
+        <filter name="age60" string=">= 60 Days" domain="[('age_days','>=',60)]"/>
+        <filter name="critical" string="Critical" domain="[('bucket','=','critical')]"/>
+        <group>
+          <filter name="group_product" string="Product" context="{'group_by':'product_id'}"/>
+          <filter name="group_bucket" string="Bucket" context="{'group_by':'bucket'}"/>
+          <filter name="group_company" string="Company" context="{'group_by':'company_id'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+  <record id="view_fs_stock_reservation_aging_config_search" model="ir.ui.view"><field name="name">fs.stock.reservation.aging.config.search</field><field name="model">fs.stock.reservation.aging.config</field><field name="arch" type="xml"><search><field name="company_id"/></search></field></record>
+  <record id="action_fs_stock_reservation_aging" model="ir.actions.act_window">
+    <field name="name">Reservation Aging</field>
+    <field name="res_model">fs.stock.reservation.aging</field>
+    <field name="view_mode">list,kanban,form</field>
+  </record>
+  <record id="view_fs_stock_reservation_aging_kanban" model="ir.ui.view">
+    <field name="name">fs.stock.reservation.aging.kanban</field>
+    <field name="model">fs.stock.reservation.aging</field>
+    <field name="arch" type="xml">
+      <kanban>
+        <templates>
+          <t t-name="card">
+            <div class="oe_kanban_global_click">
+              <strong>
+                <field name="product_id"/>
+              </strong>
+              <div>Age: <field name="age_days"/> days</div>
+              <div>Status: <field name="bucket"/>
+              </div>
+              <div>
+                <field name="picking_id"/>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+  <menuitem id="menu_fs_stock_reservation_aging_root" name="Reservation Aging" parent="stock.menu_stock_root" sequence="90" groups="stock.group_stock_user"/>
+  <menuitem id="menu_fs_stock_reservation_aging" name="Reservations" parent="menu_fs_stock_reservation_aging_root" action="action_fs_stock_reservation_aging" sequence="10"/>
+  <record id="view_fs_stock_reservation_release_wizard" model="ir.ui.view">
+    <field name="name">fs.stock.reservation.release.wizard.form</field>
+    <field name="model">fs.stock.reservation.release.wizard</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="reservation_ids" widget="many2many_tags" readonly="1"/>
+            <field name="reason" required="1"/>
+          </group>
+          <footer>
+            <button name="action_release" type="object" string="Release" class="btn-primary"/>
+            <button string="Cancel" special="cancel"/>
+          </footer>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_fs_stock_reservation_aging_config_list" model="ir.ui.view">
+    <field name="name">fs.stock.reservation.aging.config.list</field>
+    <field name="model">fs.stock.reservation.aging.config</field>
+    <field name="arch" type="xml"><list><field name="company_id"/><field name="aging_days"/><field name="critical_days"/></list></field>
+  </record>
+  <record id="view_fs_stock_reservation_aging_config_form" model="ir.ui.view">
+    <field name="name">fs.stock.reservation.aging.config.form</field>
+    <field name="model">fs.stock.reservation.aging.config</field>
+    <field name="arch" type="xml"><form><sheet><group><field name="company_id"/><field name="aging_days"/><field name="critical_days"/></group></sheet></form></field>
+  </record>
+  <menuitem id="menu_fs_stock_reservation_aging_config" name="Configuration" parent="menu_fs_stock_reservation_aging_root" groups="stock.group_stock_manager" sequence="90"/>
+  <record id="action_fs_stock_reservation_aging_config" model="ir.actions.act_window">
+    <field name="name">Configuration</field>
+    <field name="res_model">fs.stock.reservation.aging.config</field>
+    <field name="view_mode">list,form</field>
+  </record>
+  <menuitem id="menu_fs_stock_reservation_aging_settings" name="Thresholds" parent="menu_fs_stock_reservation_aging_config" action="action_fs_stock_reservation_aging_config"/>
+</odoo>

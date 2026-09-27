@@ -1,0 +1,26 @@
+<odoo>
+  <record id="rule_reservation_company_user" model="ir.rule">
+    <field name="name">Reservation aging: company scope</field>
+    <field name="model_id" ref="model_fs_stock_reservation_aging"/>
+    <field name="groups" eval="[(4, ref('stock.group_stock_user'))]"/>
+    <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+  </record>
+  <record id="rule_reservation_company_manager" model="ir.rule">
+    <field name="name">Reservation aging: manager company scope</field>
+    <field name="model_id" ref="model_fs_stock_reservation_aging"/>
+    <field name="groups" eval="[(4, ref('stock.group_stock_manager'))]"/>
+    <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+  </record>
+  <record id="rule_reservation_config_company" model="ir.rule">
+    <field name="name">Reservation aging configuration: company scope</field>
+    <field name="model_id" ref="model_fs_stock_reservation_aging_config"/>
+    <field name="groups" eval="[(4, ref('stock.group_stock_manager'))]"/>
+    <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+  </record>
+  <record id="rule_reservation_release_company" model="ir.rule">
+    <field name="name">Reservation release history: company scope</field>
+    <field name="model_id" ref="model_fs_stock_reservation_aging_release"/>
+    <field name="groups" eval="[(4, ref('stock.group_stock_manager'))]"/>
+    <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+  </record>
+</odoo>
