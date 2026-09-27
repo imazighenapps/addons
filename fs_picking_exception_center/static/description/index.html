@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO BANNER
+═══════════════════════════════════════════════════════════════ -->
+<section class="container-fluid"
+         style="background-color:#05080f;
+                padding:60px 20px 50px;text-align:center;border-radius:8px;margin-bottom:0;">
+
+    <div class="mb-3">
+        <span style="background-color:rgba(61,155,255,0.15);color:#3d9bff;
+                     border:1px solid rgba(61,155,255,0.4);
+                     padding:6px 18px;border-radius:20px;
+                     font-size:12px;font-weight:700;letter-spacing:2px;
+                     text-transform:uppercase;">
+            🚨 &nbsp; Warehouse Exceptions · Odoo
+        </span>
+    </div>
+
+    <h1 style="color:#ffffff;font-size:2.8rem;font-weight:900;
+               letter-spacing:-1px;margin-bottom:16px;line-height:1.15;">
+        Picking Exception Center
+    </h1>
+
+    <p style="color:rgba(255,255,255,0.65);font-size:1.15rem;
+              max-width:620px;margin:0 auto 30px;line-height:1.7;">
+        Prioritize stock transfers by the real operational exceptions blocking
+        execution — shortages, overdue picks, blocked and backordered transfers,
+        all classified with severity and age.
+    </p>
+
+    <div class="d-flex justify-content-center flex-wrap"
+         style="gap:12px;margin-bottom:36px;">
+        <span style="background-color:rgba(255,255,255,0.08);color:#ffffff;
+                     border:1px solid rgba(255,255,255,0.15);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;">
+            ⚠️ &nbsp; 6 Exception Types
+        </span>
+        <span style="background-color:rgba(255,255,255,0.08);color:#ffffff;
+                     border:1px solid rgba(255,255,255,0.15);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;">
+            🎚️ &nbsp; Severity Scoring
+        </span>
+        <span style="background-color:rgba(255,255,255,0.08);color:#ffffff;
+                     border:1px solid rgba(255,255,255,0.15);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;">
+            👤 &nbsp; Assignment &amp; Aging
+        </span>
+        <span style="background-color:rgba(255,255,255,0.08);color:#ffffff;
+                     border:1px solid rgba(255,255,255,0.15);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;">
+            🌐 &nbsp; 3 Languages
+        </span>
+        <span style="background-color:rgba(61,155,255,0.2);color:#3d9bff;
+                     border:1px solid rgba(61,155,255,0.4);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:700;">
+            ✅ &nbsp; Odoo Ready
+        </span>
+    </div>
+
+    <div style="max-width:752px;margin:0 auto;">
+        <img src="screenshot_01_exceptions_list.png"
+             alt="Picking Exception Center — exceptions list"
+             style="width:100%;border-radius:10px;
+                    border:1px solid rgba(255,255,255,0.12);
+                    box-shadow:0 20px 60px rgba(0,0,0,0.5);"
+             class="img-fluid"/>
+        <p style="color:rgba(255,255,255,0.35);font-size:12px;margin-top:10px;
+                  text-align:center;letter-spacing:1px;text-transform:uppercase;">
+            Exception queue — type, severity and age per blocked transfer
+        </p>
+    </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     WHO NEEDS IT
+═══════════════════════════════════════════════════════════════ -->
+<section class="container mt-5 mb-4">
+    <div class="text-center mb-4">
+        <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;">
+            Stop Firefighting, Start Prioritizing
+        </h2>
+        <p class="text-muted" style="max-width:560px;margin:8px auto 0;font-size:15px;">
+            Hundreds of open transfers hide the five that actually block shipping.
+            The Exception Center ranks them so teams attack the right ones first.
+        </p>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-6 col-md-3 mb-3">
+            <div style="background-color:#f8faff;border:1px solid #e0e7ff;
+                        border-radius:12px;padding:20px 12px;">
+                <div style="font-size:2rem;margin-bottom:8px;">🏭</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;">Busy Warehouses</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+            <div style="background-color:#f8faff;border:1px solid #e0e7ff;
+                        border-radius:12px;padding:20px 12px;">
+                <div style="font-size:2rem;margin-bottom:8px;">🛒</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;">E-commerce Fulfilment</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+            <div style="background-color:#f8faff;border:1px solid #e0e7ff;
+                        border-radius:12px;padding:20px 12px;">
+                <div style="font-size:2rem;margin-bottom:8px;">🚚</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;">Same-Day Shipping</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+            <div style="background-color:#f8faff;border:1px solid #e0e7ff;
+                        border-radius:12px;padding:20px 12px;">
+                <div style="font-size:2rem;margin-bottom:8px;">📦</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;">3PL Operations</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURE 1 — DETECTION
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#f8faff;border-radius:12px;padding:48px 40px;margin-bottom:8px;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-5 mb-4 mb-md-0">
+                <span style="background-color:#eff6ff;color:#3b82f6;
+                             border:1px solid rgba(59,130,246,.3);
+                             padding:4px 14px;border-radius:20px;
+                             font-size:11px;font-weight:700;letter-spacing:1.5px;
+                             text-transform:uppercase;display:inline-block;margin-bottom:16px;">
+                    Feature 01
+                </span>
+                <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;
+                           margin-bottom:14px;line-height:1.3;">
+                    Six Exception Types, Auto-Detected
+                </h2>
+                <p class="text-muted" style="font-size:14px;line-height:1.7;margin-bottom:16px;">
+                    Every refresh classifies open transfers into
+                    <strong>shortage</strong>, <strong>reservation</strong>,
+                    <strong>overdue</strong>, <strong>blocked</strong>,
+                    <strong>dependency</strong> and <strong>backorder</strong> —
+                    each with severity, details and age.
+                </p>
+                <ul style="list-style:none;padding:0;margin:0;font-size:14px;">
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Forecast-availability shortage detection
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Partial reservation and dependency flags
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Deadline-aware overdue computation
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Critical / warning severity per type
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7">
+                <img src="screenshot_01_exceptions_list.png"
+                     alt="Picking Exception Center — list"
+                     style="width:100%;border-radius:10px;
+                            border:1px solid #dbe4ff;
+                            box-shadow:0 8px 32px rgba(59,130,246,0.12);"
+                     class="img-fluid"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURE 2 — WORKFLOW
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#ffffff;border-radius:12px;padding:48px 40px;
+                border:1px solid #e9ecef;margin-bottom:8px;">
+    <div class="container">
+        <div class="row align-items-center flex-row-reverse">
+            <div class="col-md-5 mb-4 mb-md-0 pl-md-4">
+                <span style="background-color:#f0fdf4;color:#10b981;
+                             border:1px solid rgba(16,185,129,.3);
+                             padding:4px 14px;border-radius:20px;
+                             font-size:11px;font-weight:700;letter-spacing:1.5px;
+                             text-transform:uppercase;display:inline-block;margin-bottom:16px;">
+                    Feature 02
+                </span>
+                <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;
+                           margin-bottom:14px;line-height:1.3;">
+                    Assign, Resolve, Reopen
+                </h2>
+                <p class="text-muted" style="font-size:14px;line-height:1.7;margin-bottom:16px;">
+                    A full lifecycle around each exception: assign to a
+                    responsible, resolve when the transfer moves, reopen on
+                    relapse — with aging reset and notification activities.
+                </p>
+                <ul style="list-style:none;padding:0;margin:0;font-size:14px;">
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Assign to me in one click
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Auto-resolution on terminal transfer states
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Reopen resets aging honestly
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Exception button on the transfer form
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7">
+                <img src="screenshot_02_exception_form.png"
+                     alt="Picking Exception Center — detail"
+                     style="width:100%;border-radius:10px;
+                            border:1px solid #d1fae5;
+                            box-shadow:0 8px 32px rgba(16,185,129,0.12);"
+                     class="img-fluid"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     COMPLETE FEATURE LIST
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#ffffff;border-radius:12px;padding:48px 40px;
+                border:1px solid #e9ecef;margin-bottom:8px;">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;margin-bottom:8px;">
+                Everything Included
+            </h2>
+            <p class="text-muted" style="font-size:14px;">
+                No add-ons, no hidden costs. All features are included in one module.
+            </p>
+        </div>
+        <div class="row">
+
+            <div class="col-md-4 mb-4">
+                <h5 style="font-weight:800;color:#1a1a2e;font-size:14px;
+                           text-transform:uppercase;letter-spacing:1px;
+                           border-bottom:2px solid #3b82f6;padding-bottom:8px;margin-bottom:14px;">
+                    🚨 Detection
+                </h5>
+                <ul style="list-style:none;padding:0;margin:0;font-size:13px;color:#4b5563;">
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>6 exception types</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Severity + age scoring</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Configurable thresholds</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Bounded batch refresh</li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 style="font-weight:800;color:#1a1a2e;font-size:14px;
+                           text-transform:uppercase;letter-spacing:1px;
+                           border-bottom:2px solid #10b981;padding-bottom:8px;margin-bottom:14px;">
+                    👤 Resolution Flow
+                </h5>
+                <ul style="list-style:none;padding:0;margin:0;font-size:13px;color:#4b5563;">
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Assign / resolve / reopen</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Auto-resolve on completion</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Activity notifications</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Transfer stat button</li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 style="font-weight:800;color:#1a1a2e;font-size:14px;
+                           text-transform:uppercase;letter-spacing:1px;
+                           border-bottom:2px solid #8b5cf6;padding-bottom:8px;margin-bottom:14px;">
+                    ⚙ Backend &amp; Platform
+                </h5>
+                <ul style="list-style:none;padding:0;margin:0;font-size:13px;color:#4b5563;">
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Native transfers untouched</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Multi-company record rules</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>English + French + Spanish</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Automated test suite included</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Community compatible</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     MULTILINGUAL
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#ffffff;border-radius:12px;padding:40px;
+                border:1px solid #e9ecef;margin-bottom:8px;">
+    <div class="container text-center">
+        <h2 style="font-weight:800;color:#1a1a2e;font-size:1.5rem;margin-bottom:8px;">
+            🌐 Available in 3 Languages
+        </h2>
+        <p class="text-muted mb-4" style="font-size:14px;">
+            English interface with French and Spanish translation files included.
+        </p>
+        <div class="d-flex justify-content-center flex-wrap" style="gap:10px;">
+            <span style="background-color:#f8faff;border:1px solid #dbe4ff;
+                         padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;">
+                🇬🇧 English
+            </span>
+            <span style="background-color:#f8faff;border:1px solid #dbe4ff;
+                         padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;">
+                🇫🇷 Français
+            </span>
+            <span style="background-color:#f8faff;border:1px solid #dbe4ff;
+                         padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;">
+                🇪🇸 Español
+            </span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TECHNICAL SPECS
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#f8faff;border-radius:12px;padding:40px;margin-bottom:8px;">
+    <div class="container">
+        <h2 style="font-weight:800;color:#1a1a2e;font-size:1.5rem;
+                   text-align:center;margin-bottom:28px;">
+            Technical Specifications
+        </h2>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <table style="width:100%;font-size:13px;border-collapse:collapse;">
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;width:45%;">Odoo Version</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Community</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">License</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">OPL-1 (Odoo Proprietary)</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Module Type</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Standalone Extension</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Dependencies</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">stock, mail</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">External Services</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">None required</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6 mb-3">
+                <table style="width:100%;font-size:13px;border-collapse:collapse;">
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;width:45%;">Backend Tech</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Python 3 · Odoo ORM</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Security</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Stock roles, company rules</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Automation</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Bounded batch cron refresh</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Tests</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Automated suite included</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Demo Data</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Not included (live analysis)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HOW IT WORKS — 4 STEPS
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#ffffff;border-radius:12px;padding:48px 40px;
+                border:1px solid #e9ecef;margin-bottom:8px;">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;margin-bottom:8px;">
+                Up and Running in 4 Steps
+            </h2>
+        </div>
+        <div class="row text-center">
+            <div class="col-6 col-md-3 mb-4">
+                <div style="width:52px;height:52px;background-color:#eff6ff;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#3b82f6;
+                            border:2px solid rgba(59,130,246,.3);">1</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;">
+                    Install the module
+                </div>
+                <div style="font-size:13px;color:#6b7280;">
+                    Copy to your addons folder and install from Settings → Apps
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <div style="width:52px;height:52px;background-color:#f0fdf4;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#10b981;
+                            border:2px solid rgba(16,185,129,.3);">2</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;">
+                    Set thresholds
+                </div>
+                <div style="font-size:13px;color:#6b7280;">
+                    Overdue minutes and critical age per company
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <div style="width:52px;height:52px;background-color:#fff7ed;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#f59e0b;
+                            border:2px solid rgba(245,158,11,.3);">3</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;">
+                    Work transfers
+                </div>
+                <div style="font-size:13px;color:#6b7280;">
+                    Exceptions appear automatically as work stalls
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <div style="width:52px;height:52px;background-color:#fdf4ff;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#8b5cf6;
+                            border:2px solid rgba(139,92,246,.3);">4</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;">
+                    Resolve in order
+                </div>
+                <div style="font-size:13px;color:#6b7280;">
+                    Assign, fix, resolve — aging resets on reopen
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SUPPORT BLOCK
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#0d1b35;
+                border-radius:12px;padding:48px 40px;text-align:center;">
+    <div class="container">
+        <h2 style="color:#ffffff;font-weight:800;font-size:1.6rem;margin-bottom:12px;">
+            Professional Support Included
+        </h2>
+        <p style="color:rgba(255,255,255,0.6);font-size:15px;
+                  max-width:520px;margin:0 auto 28px;line-height:1.7;">
+            Purchase includes full support, bug fixes, and updates.
+            We respond quickly and take pride in helping every customer
+            get the most out of this module.
+        </p>
+        <div class="d-flex justify-content-center flex-wrap" style="gap:16px;">
+            <div style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+                        border-radius:10px;padding:16px 24px;min-width:140px;">
+                <div style="font-size:1.8rem;margin-bottom:6px;">📧</div>
+                <div style="color:#ffffff;font-weight:700;font-size:13px;">imazighenapps@gmail.com</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:12px;margin-top:2px;">
+                    Fast response
+                </div>
+            </div>
+            <div style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+                        border-radius:10px;padding:16px 24px;min-width:140px;">
+                <div style="font-size:1.8rem;margin-bottom:6px;">🔄</div>
+                <div style="color:#ffffff;font-weight:700;font-size:13px;">Free Updates</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:12px;margin-top:2px;">
+                    Ongoing improvements
+                </div>
+            </div>
+            <div style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+                        border-radius:10px;padding:16px 24px;min-width:140px;">
+                <div style="font-size:1.8rem;margin-bottom:6px;">🧪</div>
+                <div style="color:#ffffff;font-weight:700;font-size:13px;">Tested Module</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:12px;margin-top:2px;">
+                    Automated suite included
+                </div>
+            </div>
+            <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+                        border-radius:10px;padding:16px 24px;min-width:140px;">
+                <div style="font-size:1.8rem;margin-bottom:6px;">🌐</div>
+                <div style="color:#ffffff;font-weight:700;font-size:13px;">3 Languages</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:12px;margin-top:2px;">
+                    EN · FR · ES included
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
