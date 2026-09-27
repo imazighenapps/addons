@@ -1,0 +1,142 @@
+<odoo>
+  <record id="view_fs_delivery_promise_risk_list" model="ir.ui.view">
+    <field name="name">fs.delivery.promise.risk.list</field>
+    <field name="model">fs.delivery.promise.risk</field>
+    <field name="arch" type="xml">
+      <list decoration-danger="status == 'late'" decoration-warning="status == 'at_risk'">
+        <field name="sale_order_id"/>
+        <field name="partner_id"/>
+        <field name="commitment_date"/>
+        <field name="latest_scheduled_date"/>
+        <field name="status"/>
+        <field name="risk_days"/>
+        <field name="company_id"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_fs_delivery_promise_risk_form" model="ir.ui.view">
+    <field name="name">fs.delivery.promise.risk.form</field>
+    <field name="model">fs.delivery.promise.risk</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button name="action_open_order" type="object" string="Open Order" class="btn-primary"/>
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="sale_order_id"/>
+              <field name="partner_id"/>
+              <field name="user_id"/>
+              <field name="company_id"/>
+            </group>
+            <group>
+              <field name="commitment_date"/>
+              <field name="expected_date"/>
+              <field name="latest_scheduled_date"/>
+              <field name="actual_delivery_date"/>
+              <field name="status"/>
+              <field name="risk_days"/>
+            </group>
+          </group>
+          <group>
+            <field name="reason"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_fs_delivery_promise_risk_search" model="ir.ui.view">
+    <field name="name">fs.delivery.promise.risk.search</field>
+    <field name="model">fs.delivery.promise.risk</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="sale_order_id"/>
+        <field name="partner_id"/>
+        <field name="user_id"/>
+        <field name="commitment_date"/>
+        <filter name="filter_at_risk" string="At Risk" domain="[('status','=','at_risk')]"/>
+        <filter name="filter_late" string="Late" domain="[('status','=','late')]"/>
+        <filter name="filter_delivered_late" string="Delivered Late" domain="[('status','=','delivered_late')]"/>
+      </search>
+    </field>
+  </record>
+  <record id="view_fs_delivery_promise_config_search" model="ir.ui.view"><field name="name">fs.delivery.promise.monitor.config.search</field><field name="model">fs.delivery.promise.monitor.config</field><field name="arch" type="xml"><search><field name="company_id"/></search></field></record>
+  <record id="action_fs_delivery_promise_risk" model="ir.actions.act_window">
+    <field name="name">Delivery Promise Monitor</field>
+    <field name="res_model">fs.delivery.promise.risk</field>
+    <field name="view_mode">list,kanban,form</field>
+  </record>
+  <record id="view_fs_delivery_promise_risk_kanban" model="ir.ui.view">
+    <field name="name">fs.delivery.promise.risk.kanban</field>
+    <field name="model">fs.delivery.promise.risk</field>
+    <field name="arch" type="xml">
+      <kanban>
+        <templates>
+          <t t-name="card">
+            <div class="oe_kanban_global_click">
+              <strong>
+                <field name="sale_order_id"/>
+              </strong>
+              <div>
+                <field name="status"/>
+              </div>
+              <div>Promise: <field name="commitment_date"/>
+              </div>
+              <div>Schedule: <field name="latest_scheduled_date"/>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+  <menuitem id="menu_fs_delivery_promise_root" name="Delivery Promise" sequence="85" groups="sales_team.group_sale_salesman"/>
+  <menuitem id="menu_fs_delivery_promise" name="Monitor" parent="menu_fs_delivery_promise_root" action="action_fs_delivery_promise_risk"/>
+  <menuitem id="menu_fs_delivery_promise_config_root" name="Configuration" parent="menu_fs_delivery_promise_root" groups="sales_team.group_sale_manager" sequence="90"/>
+  <record id="action_fs_delivery_promise_config" model="ir.actions.act_window">
+    <field name="name">Configuration</field>
+    <field name="res_model">fs.delivery.promise.monitor.config</field>
+    <field name="view_mode">list,form</field>
+  </record>
+  <menuitem id="menu_fs_delivery_promise_config" name="Rules" parent="menu_fs_delivery_promise_config_root" action="action_fs_delivery_promise_config"/>
+  <record id="view_fs_delivery_promise_config_form" model="ir.ui.view">
+    <field name="name">fs.delivery.promise.monitor.config.form</field>
+    <field name="model">fs.delivery.promise.monitor.config</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet><group><field name="company_id"/><field name="warning_hours"/><field name="notification_mode"/></group></sheet>
+      </form>
+    </field>
+  </record>
+  <record id="sale_order_view_form_fs_delivery_promise_monitor" model="ir.ui.view">
+    <field name="name">sale.order.form.fs.delivery.promise.monitor</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//header" position="inside">
+        <button name="action_fs_delivery_promise_risk" type="object" string="Delivery Promise" class="btn-secondary" invisible="not commitment_date or state not in ('sale','done')"/>
+      </xpath>
+      <xpath expr="//sheet//div[@name='button_box']" position="inside">
+        <button name="action_fs_delivery_promise_risks" type="object" class="oe_stat_button" icon="fa-truck" invisible="fs_delivery_promise_risk_count == 0">
+          <field name="fs_delivery_promise_risk_count" widget="statinfo" string="Delivery Risks"/>
+        </button>
+      </xpath>
+      <xpath expr="//sheet" position="inside">
+        <field name="fs_delivery_promise_status" invisible="1"/>
+      </xpath>
+    </field>
+  </record>
+  <record id="stock_picking_view_form_fs_delivery_promise_monitor" model="ir.ui.view">
+    <field name="name">stock.picking.form.fs.delivery.promise.monitor</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.view_picking_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet//div[@name='button_box']" position="inside">
+        <button name="action_fs_delivery_promise_risks" type="object" class="oe_stat_button" icon="fa-truck" invisible="fs_delivery_promise_risk_count == 0">
+          <field name="fs_delivery_promise_risk_count" widget="statinfo" string="Delivery Risks"/>
+        </button>
+      </xpath>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,85 @@
+<odoo>
+  <record id="view_fs_customer_snapshot_wizard" model="ir.ui.view">
+    <field name="name">fs.customer.order.snapshot.wizard.form</field>
+    <field name="model">fs.customer.order.snapshot.wizard</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="sale_order_id"/>
+            <field name="partner_id"/>
+            <field name="product_id"/>
+          </group>
+          <group>
+            <label for="line_ids" string="Recent Orders"/>
+            <field name="line_ids">
+              <list>
+                <field name="date_order"/>
+                <field name="order_id"/>
+                <field name="product_id"/>
+                <field name="quantity"/>
+                <field name="unit_price"/>
+                <field name="discount"/>
+                <field name="order_total"/>
+              </list>
+            </field>
+          </group>
+          <footer>
+            <button name="populate_lines" type="object" string="Refresh"/>
+            <button string="Close" special="cancel"/>
+          </footer>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="sale_order_view_form_fs_customer_snapshot" model="ir.ui.view">
+    <field name="name">sale.order.form.fs.customer.snapshot</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//header" position="inside">
+        <button name="action_fs_customer_snapshot" type="object" string="Customer Snapshot" class="btn-secondary" invisible="partner_id == False"/>
+      </xpath>
+      <xpath expr="//sheet//div[@name='button_box']" position="inside">
+        <button name="action_fs_customer_snapshot" type="object" class="oe_stat_button" icon="fa-history" invisible="fs_snapshot_order_count == 0">
+          <field name="fs_snapshot_order_count" widget="statinfo" string="Recent Orders"/>
+        </button>
+      </xpath>
+      <xpath expr="//sheet" position="inside">
+        <group string="Customer Buying Context" invisible="partner_id == False">
+          <group>
+            <field name="fs_snapshot_last_order_date" readonly="1"/>
+            <field name="fs_snapshot_last_order_name" readonly="1"/>
+            <field name="fs_snapshot_last_order_amount" readonly="1"/>
+          </group>
+          <group>
+            <field name="fs_snapshot_order_count" readonly="1"/>
+            <field name="fs_snapshot_average_interval" readonly="1"/>
+            <field name="fs_snapshot_last_product_id" readonly="1"/>
+            <field name="fs_snapshot_last_product_qty" readonly="1"/>
+            <field name="fs_snapshot_last_product_unit_price" readonly="1"/>
+            <field name="fs_snapshot_last_product_discount" readonly="1"/>
+          </group>
+        </group>
+      </xpath>
+    </field>
+  </record>
+  <record id="view_fs_customer_snapshot_config_list" model="ir.ui.view">
+    <field name="name">fs.customer.order.snapshot.config.list</field>
+    <field name="model">fs.customer.order.snapshot.config</field>
+    <field name="arch" type="xml"><list><field name="company_id"/><field name="lookback_days"/><field name="max_orders"/><field name="include_prices"/><field name="include_discounts"/></list></field>
+  </record>
+  <record id="view_fs_customer_snapshot_config_form" model="ir.ui.view">
+    <field name="name">fs.customer.order.snapshot.config.form</field>
+    <field name="model">fs.customer.order.snapshot.config</field>
+    <field name="arch" type="xml"><form><sheet><group><field name="company_id"/><field name="lookback_days"/><field name="max_orders"/><field name="include_prices"/><field name="include_discounts"/></group></sheet></form></field>
+  </record>
+  <record id="view_fs_customer_snapshot_config_search" model="ir.ui.view"><field name="name">fs.customer.order.snapshot.config.search</field><field name="model">fs.customer.order.snapshot.config</field><field name="arch" type="xml"><search><field name="company_id"/></search></field></record>
+  <record id="action_fs_customer_snapshot_config" model="ir.actions.act_window">
+    <field name="name">Customer Snapshot Configuration</field>
+    <field name="res_model">fs.customer.order.snapshot.config</field>
+    <field name="view_mode">list,form</field>
+  </record>
+  <menuitem id="menu_fs_customer_snapshot_config_root" name="Configuration" groups="sales_team.group_sale_manager" sequence="90"/>
+  <menuitem id="menu_fs_customer_snapshot_config" name="Rules" parent="menu_fs_customer_snapshot_config_root" action="action_fs_customer_snapshot_config"/>
+</odoo>
