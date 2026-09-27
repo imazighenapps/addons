@@ -1,0 +1,111 @@
+<odoo>
+  <record id="view_fs_cutoff_rule_list" model="ir.ui.view">
+    <field name="name">fs.warehouse.cutoff.rule.list</field>
+    <field name="model">fs.warehouse.cutoff.rule</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="warehouse_id"/>
+        <field name="picking_type_id"/>
+        <field name="carrier_id"/>
+        <field name="weekday"/>
+        <field name="cutoff_hour"/>
+        <field name="warning_minutes"/>
+        <field name="timezone"/>
+        <field name="allow_next_day"/>
+        <field name="notification_mode"/>
+        <field name="active"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_fs_cutoff_rule_form" model="ir.ui.view">
+    <field name="name">fs.warehouse.cutoff.rule.form</field>
+    <field name="model">fs.warehouse.cutoff.rule</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="warehouse_id"/>
+            <field name="picking_type_id"/>
+            <field name="carrier_id"/>
+            <field name="weekday"/>
+            <field name="cutoff_hour" widget="float_time"/>
+            <field name="warning_minutes"/>
+            <field name="timezone"/>
+            <field name="allow_next_day"/>
+            <field name="notification_mode"/>
+            <field name="active"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_fs_cutoff_monitor_list" model="ir.ui.view">
+    <field name="name">fs.warehouse.cutoff.monitor.list</field>
+    <field name="model">fs.warehouse.cutoff.monitor</field>
+    <field name="arch" type="xml">
+      <list decoration-danger="status == 'missed_cutoff'" decoration-warning="status == 'at_risk'">
+        <field name="picking_id"/>
+        <field name="warehouse_id"/>
+        <field name="scheduled_date"/>
+        <field name="cutoff_datetime"/>
+        <field name="minutes_to_cutoff"/>
+        <field name="ready"/>
+        <field name="status"/>
+        <field name="reason"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_fs_cutoff_monitor_form" model="ir.ui.view">
+    <field name="name">fs.warehouse.cutoff.monitor.form</field>
+    <field name="model">fs.warehouse.cutoff.monitor</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button name="action_open_picking" type="object" string="Open Transfer" class="btn-primary"/>
+        </header>
+        <sheet>
+          <group>
+            <field name="picking_id"/>
+            <field name="rule_id"/>
+            <field name="scheduled_date"/>
+            <field name="cutoff_datetime"/>
+            <field name="minutes_to_cutoff"/>
+            <field name="ready"/>
+            <field name="status"/>
+            <field name="reason"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_fs_cutoff_rule_search" model="ir.ui.view">
+    <field name="name">fs.warehouse.cutoff.rule.search</field>
+    <field name="model">fs.warehouse.cutoff.rule</field>
+    <field name="arch" type="xml"><search><field name="company_id"/><field name="warehouse_id"/><field name="picking_type_id"/><field name="carrier_id"/><filter name="filter_active" string="Active" domain="[('active','=',True)]"/></search></field>
+  </record>
+  <record id="action_fs_cutoff_rules" model="ir.actions.act_window">
+    <field name="name">Cut-off Rules</field>
+    <field name="res_model">fs.warehouse.cutoff.rule</field>
+    <field name="view_mode">list,form</field>
+  </record>
+  <record id="action_fs_cutoff_monitor" model="ir.actions.act_window">
+    <field name="name">Cut-off Monitor</field>
+    <field name="res_model">fs.warehouse.cutoff.monitor</field>
+    <field name="view_mode">list,kanban,form</field>
+  </record>
+  <menuitem id="menu_fs_cutoff_root" name="Warehouse Cut-off" parent="stock.menu_stock_root" sequence="93" groups="stock.group_stock_user"/>
+  <menuitem id="menu_fs_cutoff_monitor" name="Monitor" parent="menu_fs_cutoff_root" action="action_fs_cutoff_monitor"/>
+  <menuitem id="menu_fs_cutoff_rules" name="Rules" parent="menu_fs_cutoff_root" action="action_fs_cutoff_rules"/>
+  <record id="stock_picking_view_form_fs_warehouse_cutoff" model="ir.ui.view">
+    <field name="name">stock.picking.form.fs.warehouse.cutoff</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.view_picking_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet//div[@name='button_box']" position="inside">
+        <button name="action_fs_cutoff_monitor" type="object" class="oe_stat_button" icon="fa-clock-o" invisible="fs_cutoff_monitor_count == 0">
+          <field name="fs_cutoff_monitor_count" widget="statinfo" string="Cut-off"/>
+        </button>
+      </xpath>
+    </field>
+  </record>
+</odoo>

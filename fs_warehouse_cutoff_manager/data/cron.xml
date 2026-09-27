@@ -1,0 +1,11 @@
+<odoo>
+  <record id="ir_cron_fs_warehouse_cutoff_refresh" model="ir.cron">
+    <field name="name">Refresh Warehouse Cut-off Monitor</field>
+    <field name="model_id" ref="model_fs_warehouse_cutoff_monitor"/>
+    <field name="state">code</field>
+    <field name="code">model.cron_refresh()</field>
+    <field name="interval_number">15</field>
+    <field name="interval_type">minutes</field>
+    <field name="active">True</field>
+  </record>
+</odoo>

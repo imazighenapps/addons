@@ -1,0 +1,18 @@
+{
+    'name': 'Stock Reservation Aging',
+    'version': '19.0.1.1.0',
+    'category': 'Inventory',
+    'summary': 'Identify and safely review stock reservations that have remained allocated for too long.',
+    'author': 'Farid SLIMANI',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'license': 'OPL-1',
+    'price': 39.0,
+    'currency': 'EUR',
+    'depends': ['stock', 'sale_management', 'sale_stock', 'mail'],
+    'data': ['security/security.xml', 'security/ir.model.access.csv', 'views/views.xml', 'data/cron.xml'],
+    'demo': [],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+    'images': ['static/description/banner.png', 'static/description/icon.png'],
+}
