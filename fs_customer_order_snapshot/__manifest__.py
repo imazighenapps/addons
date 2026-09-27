@@ -1,0 +1,18 @@
+{
+    'name': 'Customer Order Snapshot',
+    'version': '19.0.1.1.0',
+    'category': 'Sales',
+    'summary': 'Give salespeople a concise, contextual view of recent customer buying behavior while preparing an order.',
+    'author': 'Farid SLIMANI',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'license': 'OPL-1',
+    'price': 29.0,
+    'currency': 'EUR',
+    'depends': ['sale_management', 'mail'],
+    'data': ['security/security.xml', 'security/ir.model.access.csv', 'views/views.xml'],
+    'demo': [],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+    'images': ['static/description/banner.png', 'static/description/icon.png'],
+}

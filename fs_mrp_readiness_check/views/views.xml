@@ -1,0 +1,105 @@
+<odoo>
+  <record id="view_fs_mrp_readiness_list" model="ir.ui.view">
+    <field name="name">fs.mrp.readiness.check.list</field>
+    <field name="model">fs.mrp.readiness.check</field>
+    <field name="arch" type="xml">
+      <list decoration-danger="status == 'blocked'" decoration-warning="status == 'warning'">
+        <field name="production_id"/>
+        <field name="status"/>
+        <field name="blocker_count"/>
+        <field name="warning_count"/>
+        <field name="checked_at"/>
+        <field name="company_id"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_fs_mrp_readiness_form" model="ir.ui.view">
+    <field name="name">fs.mrp.readiness.check.form</field>
+    <field name="model">fs.mrp.readiness.check</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button name="action_check" type="object" string="Run Check"/>
+          <button name="action_open_mo" type="object" string="Open Manufacturing Order" class="btn-primary"/>
+          <field name="status" widget="statusbar" statusbar_visible="ready,warning,blocked"/>
+        </header>
+        <sheet>
+          <group>
+            <field name="production_id"/>
+            <field name="checked_at"/>
+            <field name="blocker_count"/>
+            <field name="warning_count"/>
+            <field name="summary"/>
+          </group>
+          <field name="item_ids">
+            <list decoration-danger="severity == 'blocker'" decoration-warning="severity == 'warning'">
+              <field name="name"/>
+              <field name="category"/>
+              <field name="severity"/>
+              <field name="detail"/>
+            </list>
+          </field>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_fs_mrp_readiness_config_search" model="ir.ui.view"><field name="name">fs.mrp.readiness.config.search</field><field name="model">fs.mrp.readiness.config</field><field name="arch" type="xml"><search><field name="company_id"/></search></field></record>
+  <record id="action_fs_mrp_readiness" model="ir.actions.act_window">
+    <field name="name">MRP Readiness</field>
+    <field name="res_model">fs.mrp.readiness.check</field>
+    <field name="view_mode">list,form</field>
+  </record>
+  <record id="mrp_production_view_form_fs_readiness" model="ir.ui.view">
+    <field name="name">mrp.production.form.fs.readiness</field>
+    <field name="model">mrp.production</field>
+    <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+    <field name="arch" type="xml">
+      <xpath expr="//header" position="inside">
+        <button name="action_fs_check_readiness" type="object" string="Check Readiness" class="btn-secondary"/>
+      </xpath>
+      <xpath expr="//sheet//div[@name='button_box']" position="inside">
+        <button name="action_fs_check_readiness" type="object" class="oe_stat_button" icon="fa-check-square-o">
+          <field name="fs_readiness_blocker_count" widget="statinfo" string="Readiness Blockers"/>
+        </button>
+      </xpath>
+      <xpath expr="//sheet" position="inside">
+        <field name="fs_readiness_status" invisible="1"/>
+      </xpath>
+    </field>
+  </record>
+  <menuitem id="menu_fs_mrp_readiness_root" name="MRP Readiness" sequence="88" groups="mrp.group_mrp_user"/>
+  <menuitem id="menu_fs_mrp_readiness" name="Checks" parent="menu_fs_mrp_readiness_root" action="action_fs_mrp_readiness"/>
+  <menuitem id="menu_fs_mrp_readiness_config_root" name="Configuration" parent="menu_fs_mrp_readiness_root" groups="mrp.group_mrp_manager" sequence="90"/>
+  <record id="action_fs_mrp_readiness_config" model="ir.actions.act_window">
+    <field name="name">Configuration</field>
+    <field name="res_model">fs.mrp.readiness.config</field>
+    <field name="view_mode">list,form</field>
+  </record>
+  <menuitem id="menu_fs_mrp_readiness_config" name="Rules" parent="menu_fs_mrp_readiness_config_root" action="action_fs_mrp_readiness_config"/>
+  <record id="view_fs_mrp_readiness_config_list" model="ir.ui.view">
+    <field name="name">fs.mrp.readiness.config.list</field>
+    <field name="model">fs.mrp.readiness.config</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="company_id"/>
+        <field name="check_workcenters"/>
+        <field name="blocking_policy"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_fs_mrp_readiness_config_form" model="ir.ui.view">
+    <field name="name">fs.mrp.readiness.config.form</field>
+    <field name="model">fs.mrp.readiness.config</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="company_id"/>
+            <field name="check_workcenters"/>
+            <field name="blocking_policy"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>
