@@ -1,0 +1,160 @@
+<odoo>
+  <record id="view_fs_duplicate_match_list" model="ir.ui.view">
+    <field name="name">fs.sale.order.duplicate.match.list</field>
+    <field name="model">fs.sale.order.duplicate.match</field>
+    <field name="arch" type="xml">
+      <list decoration-warning="level == 'possible'" decoration-danger="level == 'likely'">
+        <field name="sale_order_id"/>
+        <field name="candidate_order_id"/>
+        <field name="score"/>
+        <field name="level"/>
+        <field name="state"/>
+        <field name="decided_by"/>
+        <field name="decision_date"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_fs_duplicate_match_form" model="ir.ui.view">
+    <field name="name">fs.sale.order.duplicate.match.form</field>
+    <field name="model">fs.sale.order.duplicate.match</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button name="action_mark_duplicate" type="object" string="Mark Duplicate" class="btn-primary"/>
+          <button name="action_ignore" type="object" string="Ignore"/>
+        </header>
+        <sheet>
+          <group>
+            <field name="sale_order_id"/>
+            <field name="candidate_order_id"/>
+            <field name="score"/>
+            <field name="level"/>
+            <field name="state"/>
+          </group>
+          <group>
+            <field name="factors"/>
+            <field name="decision_note"/>
+            <field name="decided_by"/>
+            <field name="decision_date"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_fs_duplicate_match_search" model="ir.ui.view">
+    <field name="name">fs.sale.order.duplicate.match.search</field>
+    <field name="model">fs.sale.order.duplicate.match</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="sale_order_id"/>
+        <field name="candidate_order_id"/>
+        <field name="score"/>
+        <filter name="filter_open" string="Open" domain="[('state','=','open')]"/>
+        <filter name="filter_likely" string="Likely" domain="[('level','=','likely')]"/>
+      </search>
+    </field>
+  </record>
+  <record id="view_fs_duplicate_review_wizard" model="ir.ui.view">
+    <field name="name">fs.sale.order.duplicate.review.wizard.form</field>
+    <field name="model">fs.sale.order.duplicate.review.wizard</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="sale_order_id"/>
+            <field name="decision_note" placeholder="Optional decision note..."/>
+          </group>
+          <field name="match_ids">
+            <list>
+              <field name="candidate_order_id"/>
+              <field name="score"/>
+              <field name="level"/>
+              <field name="factors"/>
+            </list>
+          </field>
+          <footer>
+            <button name="action_confirm_anyway" type="object" string="Confirm Anyway" class="btn-primary"/>
+            <button name="action_mark_duplicates" type="object" string="Mark as Duplicate" groups="sales_team.group_sale_manager"/>
+            <button name="action_ignore_matches" type="object" string="Ignore Matches"/>
+            <button string="Cancel" special="cancel"/>
+          </footer>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_fs_duplicate_config_search" model="ir.ui.view"><field name="name">fs.sale.order.duplicate.config.search</field><field name="model">fs.sale.order.duplicate.config</field><field name="arch" type="xml"><search><field name="company_id"/></search></field></record>
+  <record id="action_fs_duplicate_match" model="ir.actions.act_window">
+    <field name="name">Duplicate Reviews</field>
+    <field name="res_model">fs.sale.order.duplicate.match</field>
+    <field name="view_mode">list,form</field>
+    <field name="domain">[('state','=','open')]</field>
+  </record>
+  <record id="sale_order_view_form_fs_duplicate_guard" model="ir.ui.view">
+    <field name="name">sale.order.form.fs.duplicate.guard</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet" position="before">
+        <div class="alert alert-warning" role="alert" invisible="not fs_duplicate_warning">
+          <strong>Possible duplicate order.</strong> Review the detected matches before confirming this quotation.
+          <button name="action_fs_duplicate_check" type="object" string="Review Matches" class="btn-link p-0 ms-2"/>
+        </div>
+      </xpath>
+      <xpath expr="//header" position="inside">
+        <button name="action_fs_duplicate_check" type="object" string="Duplicate Check" class="btn-secondary" invisible="state == 'cancel'"/>
+      </xpath>
+      <xpath expr="//sheet//div[@name='button_box']" position="inside">
+        <button name="action_fs_duplicate_check" type="object" class="oe_stat_button" icon="fa-copy" invisible="fs_duplicate_match_count == 0">
+          <field name="fs_duplicate_match_count" widget="statinfo" string="Possible Duplicates"/>
+        </button>
+      </xpath>
+    </field>
+  </record>
+  <menuitem id="menu_fs_duplicate_guard_root" name="Order Duplicate Guard" sequence="86" groups="sales_team.group_sale_salesman"/>
+  <menuitem id="menu_fs_duplicate_guard" name="Reviews" parent="menu_fs_duplicate_guard_root" action="action_fs_duplicate_match"/>
+  <menuitem id="menu_fs_duplicate_config_root" name="Configuration" parent="menu_fs_duplicate_guard_root" groups="sales_team.group_sale_manager" sequence="90"/>
+  <record id="action_fs_duplicate_config" model="ir.actions.act_window">
+    <field name="name">Configuration</field>
+    <field name="res_model">fs.sale.order.duplicate.config</field>
+    <field name="view_mode">list,form</field>
+  </record>
+  <menuitem id="menu_fs_duplicate_config" name="Rules" parent="menu_fs_duplicate_config_root" action="action_fs_duplicate_config"/>
+  <record id="view_fs_duplicate_config_list" model="ir.ui.view">
+    <field name="name">fs.sale.order.duplicate.config.list</field>
+    <field name="model">fs.sale.order.duplicate.config</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="company_id"/>
+        <field name="lookback_days"/>
+        <field name="medium_threshold"/>
+        <field name="high_threshold"/>
+        <field name="amount_tolerance"/>
+        <field name="quantity_tolerance"/>
+        <field name="compare_reference"/>
+        <field name="compare_lines"/>
+        <field name="active"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_fs_duplicate_config_form" model="ir.ui.view">
+    <field name="name">fs.sale.order.duplicate.config.form</field>
+    <field name="model">fs.sale.order.duplicate.config</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="company_id"/>
+            <field name="lookback_days"/>
+            <field name="medium_threshold"/>
+            <field name="high_threshold"/>
+            <field name="amount_tolerance"/>
+            <field name="quantity_tolerance"/>
+            <field name="compare_reference"/>
+            <field name="compare_lines"/>
+            <field name="active"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

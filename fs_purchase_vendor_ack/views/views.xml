@@ -1,0 +1,87 @@
+<odoo>
+  <record id="view_fs_vendor_ack_list" model="ir.ui.view">
+    <field name="name">fs.purchase.vendor.ack.list</field>
+    <field name="model">fs.purchase.vendor.ack</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="purchase_order_id"/>
+        <field name="vendor_id"/>
+        <field name="version"/>
+        <field name="state"/>
+        <field name="requested_on"/>
+        <field name="submitted_on"/>
+        <field name="expiration_date"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_fs_vendor_ack_form" model="ir.ui.view">
+    <field name="name">fs.purchase.vendor.ack.form</field>
+    <field name="model">fs.purchase.vendor.ack</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button name="action_send_invitation" type="object" string="Send Invitation" class="btn-primary"/>
+          <button name="action_open_portal" type="object" string="Open Vendor Form"/>
+          <field name="state" widget="statusbar" statusbar_visible="draft,sent,submitted,contested"/>
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="purchase_order_id"/>
+              <field name="vendor_id"/>
+              <field name="company_id"/>
+            </group>
+            <group>
+              <field name="version"/>
+              <field name="expiration_date"/>
+              <field name="requested_on"/>
+              <field name="submitted_on"/>
+            </group>
+          </group>
+          <field name="note"/>
+          <notebook>
+            <page string="Lines">
+              <field name="line_ids">
+                <list editable="bottom">
+                  <field name="product_id" readonly="1"/>
+                  <field name="ordered_qty" readonly="1"/>
+                  <field name="ordered_uom_id" readonly="1"/>
+                  <field name="ordered_date" readonly="1"/>
+                  <field name="confirmed_qty"/>
+                  <field name="confirmed_date"/>
+                  <field name="state"/>
+                  <field name="reason"/>
+                  <field name="qty_difference" readonly="1"/>
+                  <field name="date_difference_days" readonly="1"/>
+                  <field name="difference_type" readonly="1"/>
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="action_fs_vendor_ack" model="ir.actions.act_window">
+    <field name="name">Vendor Acknowledgments</field>
+    <field name="res_model">fs.purchase.vendor.ack</field>
+    <field name="view_mode">list,form</field>
+  </record>
+  <record id="purchase_order_view_form_fs_vendor_ack" model="ir.ui.view">
+    <field name="name">purchase.order.form.fs.vendor.ack</field>
+    <field name="model">purchase.order</field>
+    <field name="inherit_id" ref="purchase.purchase_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//header" position="inside">
+        <button name="action_fs_create_vendor_ack" type="object" string="Vendor Acknowledgment" class="btn-secondary" invisible="state not in ('purchase','done')"/>
+      </xpath>
+      <xpath expr="//sheet//div[@name='button_box']" position="inside">
+        <button name="action_fs_open_vendor_ack" type="object" class="oe_stat_button" icon="fa-handshake">
+          <field name="fs_vendor_ack_count" widget="statinfo" string="Acknowledgments"/>
+        </button>
+      </xpath>
+    </field>
+  </record>
+  <menuitem id="menu_fs_vendor_ack_root" name="Vendor Acknowledgment" sequence="87" groups="purchase.group_purchase_user"/>
+  <menuitem id="menu_fs_vendor_ack" name="Acknowledgments" parent="menu_fs_vendor_ack_root" action="action_fs_vendor_ack"/>
+</odoo>

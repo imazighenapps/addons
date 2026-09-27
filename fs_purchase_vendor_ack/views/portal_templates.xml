@@ -1,0 +1,89 @@
+<odoo>
+  <template id="portal_ack_form" name="Vendor acknowledgment form">
+    <t t-call="portal.frontend_layout">
+      <t t-set="title">Vendor Acknowledgment</t>
+      <div class="container py-5">
+        <h2>Vendor Acknowledgment</h2>
+        <p>
+          <strong>Purchase Order:</strong>
+          <t t-esc="ack.purchase_order_id.name"/>
+        </p>
+        <form t-att-action="ack.get_portal_url() + '/submit'" method="post">
+          <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Ordered</th>
+                <th>Confirmed</th>
+                <th>Confirmed Date</th>
+                <th>Status</th>
+                <th>Reason</th>
+              </tr>
+            </thead>
+            <tbody>
+              <t t-foreach="ack.line_ids" t-as="line">
+                <tr>
+                  <td>
+                    <t t-esc="line.product_id.display_name"/>
+                  </td>
+                  <td>
+                    <t t-esc="line.ordered_qty"/>
+                    <t t-esc="line.ordered_uom_id.name"/>
+                  </td>
+                  <td>
+                    <input class="form-control" type="number" step="any" t-att-name="'qty_%s' % line.id" t-att-value="line.confirmed_qty"/>
+                  </td>
+                  <td>
+                    <input class="form-control" type="datetime-local" t-att-name="'date_%s' % line.id"/>
+                  </td>
+                  <td>
+                    <select class="form-select" t-att-name="'state_%s' % line.id">
+                      <option value="confirmed">Confirmed</option>
+                      <option value="partial">Partial</option>
+                      <option value="rejected">Rejected</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input class="form-control" type="text" t-att-name="'reason_%s' % line.id"/>
+                  </td>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+          <button class="btn btn-primary" type="submit">Submit Acknowledgment</button>
+        </form>
+      </div>
+    </t>
+  </template>
+  <template id="portal_success" name="Vendor acknowledgment success">
+    <t t-call="portal.frontend_layout">
+      <div class="container py-5">
+        <h2>Thank you</h2>
+        <p>Your acknowledgment has been received.</p>
+        <p>Purchase Order: <strong>
+            <t t-esc="ack.purchase_order_id.name"/>
+          </strong>
+        </p>
+      </div>
+    </t>
+  </template>
+  <template id="portal_expired" name="Vendor acknowledgment expired">
+    <t t-call="portal.frontend_layout">
+      <div class="container py-5">
+        <h2>Link no longer active</h2>
+        <p>This acknowledgment link is expired or superseded.</p>
+      </div>
+    </t>
+  </template>
+  <template id="portal_error" name="Vendor acknowledgment error">
+    <t t-call="portal.frontend_layout">
+      <div class="container py-5">
+        <h2>Unable to submit</h2>
+        <p>
+          <t t-esc="message"/>
+        </p>
+      </div>
+    </t>
+  </template>
+</odoo>

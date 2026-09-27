@@ -1,0 +1,18 @@
+{
+    'name': 'POS Cash Closing Review',
+    'version': '18.0.1.1.0',
+    'category': 'Point of Sale',
+    'summary': 'Review POS closing differences by payment method before or after a session is closed.',
+    'author': 'Farid SLIMANI',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'license': 'OPL-1',
+    'price': 39.0,
+    'currency': 'EUR',
+    'depends': ['point_of_sale', 'mail'],
+    'data': ['security/security.xml', 'security/ir.model.access.csv', 'views/views.xml'],
+    'demo': [],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+    'images': ['static/description/banner.png', 'static/description/icon.png'],
+}
