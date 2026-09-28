@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'EduFlow - School Management',
-    'version': '19.0.1.1.0',
+    'version': '20.0.1.1.0',
     'category': 'Education',
     'summary': "Integrated school management solution: students, parents, admissions, "
                "enrollments, classes, timetables, attendance, exams, grades, "
