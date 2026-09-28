@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Nexadesk',
-    'version': '19.0.1.0.0',
+    'version': '20.0.1.0.0',
     'category': 'Theme',
     'summary': 'Custom home launcher for Odoo',
     'author': 'Farid SLIMANI',
