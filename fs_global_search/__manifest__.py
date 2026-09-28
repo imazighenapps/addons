@@ -40,7 +40,7 @@
     'website': "",
     'license': 'OPL-1',
     'category': 'Tools',
-    'version': '1.0',
+    'version': '20.0.0.1',
     'depends': ['base'],  
     'images': ['static/description/img.png'],
     'license': 'OPL-1',
