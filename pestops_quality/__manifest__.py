@@ -1,6 +1,6 @@
 {
     'name': 'PestOps Quality & Compliance',
-    'version': '19.0.1.5.1',
+    'version': '20.0.1.5.1',
     'category': 'Services',
     'summary': 'Quality procedures, checklists, non-conformities and corrective actions for PestOps',
     'description': '''
