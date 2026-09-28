@@ -1,6 +1,6 @@
 {
     "name": "ShiftFlow - Digital Shift Handover",
-    "version": "19.0.1.3.0",
+    "version": "20.0.1.3.0",
     "category": "Operations",
     "summary": "Digital shift handovers, operational logs, incidents and carry-over actions",
     "description": "Digitize shift operations, capture incidents and logs, manage follow-up actions, and transfer outstanding work between outgoing and incoming teams.",
