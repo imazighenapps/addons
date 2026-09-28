@@ -1,6 +1,6 @@
 {
     'name': 'PestOps Sales Integration',
-    'version': '19.0.1.0.0',
+    'version': '20.0.1.0.0',
     'category': 'Sales',
     'summary': 'Connect Odoo Sales with PestOps contracts',
     'description': '''
