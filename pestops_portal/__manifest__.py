@@ -1,6 +1,6 @@
 {
     'name': 'PestOps Portal',
-    'version': '19.0.1.0.1',
+    'version': '20.0.1.0.1',
     'category': 'Services',
     'summary': 'Customer portal for PestOps sites, visits, reports and service requests',
     'description': '''
