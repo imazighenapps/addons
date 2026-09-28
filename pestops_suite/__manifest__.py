@@ -1,6 +1,6 @@
 {
     'name': 'PestOps Suite',
-    'version': '19.0.3.0.1',
+    'version': '20.0.3.0.1',
     'category': 'Services',
     'summary': 'Pest control vertical ERP suite for Odoo 19 Community',
     'description': '''
