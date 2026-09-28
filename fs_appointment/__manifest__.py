@@ -6,7 +6,7 @@
     'author': "SLIMANI Farid",
     'website': "",
     'category': 'Appointment',
-    'version': '1.0',
+    'version': '20.0.1',
     'license': 'OPL-1',
     'currency': 'EUR',
     'price': 22.0,
