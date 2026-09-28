@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Smart Financial Dashboard - CFO Pack Pro',
-    'version': '19.0.1.0.0',
+    'version': '20.0.1.0.0',
     'category': 'Accounting/Accounting',
     'summary': 'Executive Financial Dashboard with Cash Flow Forecast, Profitability Analysis & Multi-Company Consolidation',
     'description': """
