@@ -1,6 +1,6 @@
 {
     'name': 'PestOps Calendar',
-    'version': '19.0.1.0.1',
+    'version': '20.0.1.0.1',
     'category': 'Services',
     'summary': 'Community scheduling and conflict control for PestOps visits',
     'description': '''
