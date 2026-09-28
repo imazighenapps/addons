@@ -16,7 +16,7 @@
     'currency': 'EUR',
     'price': 50.0,
     'category': 'Tools',
-    'version': '1.0',
+    'version': '20.0.2.1',
 
     'depends': ['base'],
     'images': ['static/description/img.png'],
