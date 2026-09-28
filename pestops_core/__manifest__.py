@@ -1,6 +1,6 @@
 {
     'name': 'PestOps Core',
-    'version': '19.0.2.3.0',
+    'version': '20.0.2.3.0',
     'category': 'Services',
     'summary': 'Pest Control Management for Odoo Community',
     'description': '''
