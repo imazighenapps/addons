@@ -1,6 +1,6 @@
 {
     "name": "FS Configuration Guardian",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Technical",
     "summary": "Detect, explain and govern Odoo configuration drift",
 
