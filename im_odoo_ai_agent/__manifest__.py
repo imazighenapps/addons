@@ -1,7 +1,7 @@
 
 {
     'name': 'AI Agent Assistant',
-    'version': '19.0.3.1.0',
+    'version': '20.0.3.1.0',
     'category': 'Productivity',
     'summary': 'Local AI assistant for managers and employees (GPT4All, Ollama, OpenAI, Claude, Gemini)',
     'description': """
