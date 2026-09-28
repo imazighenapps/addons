@@ -1,6 +1,6 @@
 {
     'name': 'PestOps Proof & Signature',
-    'version': '19.0.2.3.1',
+    'version': '20.0.2.3.1',
     'category': 'Services',
     'summary': 'Structured intervention evidence, acceptance and signed proof',
     'description': '''
