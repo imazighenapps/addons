@@ -1,6 +1,6 @@
 {
     'name': 'PestOps Stock & Traceability',
-    'version': '19.0.1.1.1',
+    'version': '20.0.1.1.1',
     'category': 'Services',
     'summary': 'Advanced stock traceability and product consumption for PestOps',
     'description': '''
