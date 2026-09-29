@@ -1,0 +1,64 @@
+<odoo>
+    <record id="view_qms_complaint_list" model="ir.ui.view">
+        <field name="name">qms.complaint.list</field>
+        <field name="model">qms.complaint</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="sla_breached == True">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="priority" widget="priority"/>
+                <field name="category"/>
+                <field name="state"/>
+                <field name="sla_deadline"/>
+                <field name="sla_breached"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_complaint_form" model="ir.ui.view">
+        <field name="name">qms.complaint.form</field>
+        <field name="model">qms.complaint</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_acknowledge" type="object" string="Acknowledge" invisible="state != 'new'"/>
+                    <button name="action_investigate" type="object" string="Investigate" invisible="state not in ['acknowledged','waiting_customer']" class="btn-primary"/>
+                    <button name="action_wait_customer" type="object" string="Wait for Customer" invisible="state != 'investigating'"/>
+                    <button name="action_resolve" type="object" string="Resolve" invisible="state not in ['investigating','waiting_customer']"/>
+                    <button name="action_close" type="object" string="Close" invisible="state != 'resolved'"/>
+                    <button name="action_escalate_to_ncr" type="object" string="Escalate to NCR" class="btn-secondary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,acknowledged,investigating,resolved,closed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="code" readonly="1"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="priority"/>
+                        <field name="category"/>
+                        <field name="assigned_to_id"/>
+                    </group>
+                    <group>
+                        <field name="received_at"/>
+                        <field name="response_sla_hours"/>
+                        <field name="sla_deadline" readonly="1"/>
+                        <field name="sla_breached" readonly="1"/>
+                        <field name="ncr_id" readonly="1"/>
+                        <field name="evidence_ids" widget="many2many_tags"/>
+                    </group>
+                    <group string="Complaint Details">
+                        <field name="description"/>
+                        <field name="resolution"/>
+                        <field name="satisfaction_score"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_qms_complaint" model="ir.actions.act_window">
+        <field name="name">Customer Complaints</field>
+        <field name="res_model">qms.complaint</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

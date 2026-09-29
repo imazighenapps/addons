@@ -1,0 +1,11 @@
+<odoo>
+    <record id="demo_review" model="qms.management.review">
+        <field name="name">Management Review Q3 2026 (Demo)</field>
+        <field name="meeting_date">2026-09-28</field>
+    </record>
+    <record id="demo_review_action" model="qms.management.action">
+        <field name="review_id" ref="qms_management_review.demo_review"/>
+        <field name="name">Approve calibration budget (Demo)</field>
+        <field name="owner_id" ref="base.user_admin"/>
+    </record>
+</odoo>

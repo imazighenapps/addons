@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qms_dashboard.Cockpit">
+        <div class="qms_cockpit">
+            <div class="qms_cockpit_header">
+                <h1>QMS Executive Cockpit</h1>
+                <t t-if="this.cockpit.data">
+                    <span t-attf-class="qms_band qms_band_#{this.cockpit.data.readiness_band}">
+                        Readiness <t t-out="this.cockpit.data.readiness_index"/>% — <t t-out="this.cockpit.data.readiness_label"/>
+                    </span>
+                </t>
+            </div>
+            <div t-if="!this.cockpit.data" class="qms_loading">Loading indicators…</div>
+            <div t-if="this.cockpit.data">
+                <div class="qms_kpi_grid">
+                    <div class="qms_kpi" t-on-click="() => this.open('qms.ncr', [['status', '!=', 'closed']], 'Open NCRs')">
+                        <span class="qms_kpi_value" t-out="this.cockpit.data.kpis.open_ncr"/>
+                        <span class="qms_kpi_label">Open NCRs</span>
+                    </div>
+                    <div class="qms_kpi" t-on-click="() => this.open('qms.capa', [['status', 'not in', ['effective', 'cancelled']]], 'Open CAPAs')">
+                        <span class="qms_kpi_value" t-out="this.cockpit.data.kpis.overdue_capa"/>
+                        <span class="qms_kpi_label">Overdue CAPAs</span>
+                    </div>
+                    <div class="qms_kpi" t-on-click="() => this.open('qms.audit', [['state', '!=', 'closed']], 'Open Audits')">
+                        <span class="qms_kpi_value" t-out="this.cockpit.data.kpis.open_audits"/>
+                        <span class="qms_kpi_label">Open Audits</span>
+                    </div>
+                    <div class="qms_kpi" t-on-click="() => this.open('qms.requirement', [['compliance_state', 'in', ['missing', 'partial']]], 'Compliance Gaps')">
+                        <span class="qms_kpi_value"><t t-out="this.cockpit.data.kpis.coverage"/>%</span>
+                        <span class="qms_kpi_label">Requirements Coverage</span>
+                    </div>
+                    <div class="qms_kpi" t-on-click="() => this.open('qms.complaint', [['state', 'not in', ['closed', 'cancelled']]], 'Open Complaints')">
+                        <span class="qms_kpi_value" t-out="this.cockpit.data.kpis.open_complaints"/>
+                        <span class="qms_kpi_label">Open Complaints</span>
+                    </div>
+                    <div class="qms_kpi" t-on-click="() => this.open('qms.training.assignment', [['state', 'in', ['expired', 'failed', 'assigned']]], 'Training Gaps')">
+                        <span class="qms_kpi_value" t-out="this.cockpit.data.kpis.training_gaps"/>
+                        <span class="qms_kpi_label">Training Gaps</span>
+                    </div>
+                    <div class="qms_kpi" t-on-click="() => this.open('qms.measurement.equipment', [['state', '=', 'overdue']], 'Overdue Calibration')">
+                        <span class="qms_kpi_value" t-out="this.cockpit.data.kpis.overdue_calibration"/>
+                        <span class="qms_kpi_label">Overdue Calibrations</span>
+                    </div>
+                    <div class="qms_kpi" t-on-click="() => this.open('qms.risk', [['residual_level', 'in', ['high', 'critical']]], 'High Risks')">
+                        <span class="qms_kpi_value" t-out="this.cockpit.data.kpis.high_risks"/>
+                        <span class="qms_kpi_label">High / Critical Risks</span>
+                    </div>
+                </div>
+                <div class="qms_charts_grid">
+                    <div class="qms_chart_card">
+                        <h3>Requirements Coverage</h3>
+                        <div class="qms_chart"><canvas t-ref="this.coverageChart.ref"/></div>
+                    </div>
+                    <div class="qms_chart_card">
+                        <h3>NCRs by Status</h3>
+                        <div class="qms_chart"><canvas t-ref="this.ncrChart.ref"/></div>
+                    </div>
+                    <div class="qms_chart_card">
+                        <h3>NCRs &amp; Audits — Last 6 Months</h3>
+                        <div class="qms_chart"><canvas t-ref="this.monthlyChart.ref"/></div>
+                    </div>
+                    <div class="qms_chart_card">
+                        <h3>Complaints by Status</h3>
+                        <div class="qms_chart"><canvas t-ref="this.complaintChart.ref"/></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_qms_quality_cost_pivot" model="ir.ui.view">
+        <field name="name">qms.quality.cost.pivot</field>
+        <field name="model">qms.quality.cost</field>
+        <field name="arch" type="xml">
+            <pivot string="Cost of Quality Analysis">
+                <field name="cost_type" type="row"/>
+                <field name="date" type="col" interval="month"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+    <record id="action_qms_quality_cost" model="ir.actions.act_window">
+        <field name="name">Cost of Quality Analysis</field>
+        <field name="res_model">qms.quality.cost</field>
+        <field name="view_mode">pivot,list,form</field>
+    </record>
+</odoo>

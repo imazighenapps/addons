@@ -1,0 +1,13 @@
+<odoo>
+    <record id="view_quality_check_qms_ncr" model="ir.ui.view">
+        <field name="name">quality.check.qms.ncr</field>
+        <field name="model">quality.check</field>
+        <field name="inherit_id" ref="quality.quality_check_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_qms_create_ncr" type="object" string="Create QMS NCR" class="btn-primary" invisible="quality_state != 'fail' or qms_ncr_id"/>
+                <field name="qms_ncr_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

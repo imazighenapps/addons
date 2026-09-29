@@ -1,0 +1,28 @@
+id,name,model_id,group_id/id,operation,domain
+access_qms_clause_manager,qms.standard.clause manager,qms.standard.clause,qms_core.group_qms_manager,crud,
+access_qms_clause_user,qms.standard.clause user,qms.standard.clause,qms_core.group_qms_user,r,
+access_qms_control_manager,qms.control manager,qms.control,qms_core.group_qms_manager,crud,
+access_qms_control_user,qms.control user,qms.control,qms_core.group_qms_user,r,
+access_qms_evidence_manager,qms.evidence manager,qms.evidence,qms_core.group_qms_manager,crud,
+access_qms_evidence_user,qms.evidence user,qms.evidence,qms_core.group_qms_user,cru,
+access_qms_process_manager,qms.process manager,qms.process,qms_core.group_qms_manager,crud,
+access_qms_process_user,qms.process user,qms.process,qms_core.group_qms_user,r,
+access_qms_requirement_manager,qms.requirement manager,qms.requirement,qms_core.group_qms_manager,crud,
+access_qms_requirement_user,qms.requirement user,qms.requirement,qms_core.group_qms_user,r,
+access_qms_risk_manager,qms.risk manager,qms.risk,qms_core.group_qms_manager,crud,
+access_qms_risk_user,qms.risk user,qms.risk,qms_core.group_qms_user,r,
+access_qms_standard_manager,qms.standard manager,qms.standard,qms_core.group_qms_manager,crud,
+access_qms_standard_mapping_manager,qms.standard.mapping manager,qms.standard.mapping,qms_core.group_qms_manager,crud,
+access_qms_standard_mapping_user,qms.standard.mapping user,qms.standard.mapping,qms_core.group_qms_user,r,
+access_qms_standard_transition_manager,qms.standard.transition manager,qms.standard.transition,qms_core.group_qms_manager,crud,
+access_qms_standard_transition_user,qms.standard.transition user,qms.standard.transition,qms_core.group_qms_user,r,
+access_qms_standard_user,qms.standard user,qms.standard,qms_core.group_qms_user,r,
+comp_qms_control_company,Control multi-company,qms.control,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_evidence_company,Evidence multi-company,qms.evidence,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_process_company,Process multi-company,qms.process,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_requirement_company,Requirement multi-company,qms.requirement,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_risk_company,Risk multi-company,qms.risk,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_standard_clause_company,Standard Clause multi-company,qms.standard.clause,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_standard_company,Standard multi-company,qms.standard,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_standard_mapping_company,Standard Mapping multi-company,qms.standard.mapping,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_standard_transition_company,Standard Transition multi-company,qms.standard.transition,,crud,"[('company_id', 'in', company_ids)]"

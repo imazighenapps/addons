@@ -1,0 +1,95 @@
+<odoo>
+    <record id="view_qms_requirement_list" model="ir.ui.view">
+        <field name="name">qms.requirement.list</field>
+        <field name="model">qms.requirement</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="compliance_state == 'missing'" decoration-warning="compliance_state == 'partial'" decoration-success="compliance_state == 'supported'">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="standard_id"/>
+                <field name="clause_id"/>
+                <field name="process_count" string="Processes"/>
+                <field name="risk_count" string="Risks"/>
+                <field name="control_count" string="Controls"/>
+                <field name="evidence_count" string="Evidence"/>
+                <field name="implementation_status" widget="badge"/>
+                <field name="compliance_state" widget="badge"/>
+                <field name="mandatory"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_requirement_form" model="ir.ui.view">
+        <field name="name">qms.requirement.form</field>
+        <field name="model">qms.requirement</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_mark_supported" type="object" string="Assess as Implemented" class="btn-primary" invisible="implementation_status == 'implemented'"/>
+                    <button name="action_assess_partial" type="object" string="Assess as Partial" invisible="implementation_status == 'partial'"/>
+                    <button name="action_mark_not_applicable" type="object" string="Mark Not Applicable" invisible="implementation_status == 'not_applicable'"/>
+                    <field name="compliance_state" widget="statusbar" statusbar_visible="missing,partial,supported"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <field name="code" readonly="1"/>
+                    <field name="standard_id"/>
+                    <field name="clause_id" domain="[('standard_id', '=', standard_id)]"/>
+                    <field name="mandatory"/>
+                    <field name="sequence"/>
+                    <field name="implementation_status"/>
+                    <field name="assessment_date" readonly="1"/>
+                    <field name="assessed_by_id" readonly="1"/>
+                    <field name="active"/>
+                    <field name="compliance_state" readonly="1"/>
+                    <notebook>
+                        <page string="Requirement">
+                            <field name="description" widget="html"/>
+                            <separator string="Guidance"/>
+                            <field name="guidance" widget="html"/>
+                        </page>
+                        <page string="Traceability">
+                            <field name="process_ids" widget="many2many_tags"/>
+                            <field name="risk_ids" widget="many2many_tags"/>
+                            <field name="control_ids" widget="many2many_tags"/>
+                            <field name="evidence_ids" widget="many2many_tags"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_qms_requirement_search" model="ir.ui.view">
+        <field name="name">qms.requirement.search</field>
+        <field name="model">qms.requirement</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="standard_id"/>
+                <field name="clause_id"/>
+                <filter name="not_assessed" string="Not Assessed" domain="[('implementation_status', '=', 'not_assessed')]"/>
+                <filter name="partial_implementation" string="Partially Implemented" domain="[('implementation_status', '=', 'partial')]"/>
+                <filter name="missing" string="Missing Evidence" domain="[('compliance_state', '=', 'missing')]"/>
+                <filter name="partial" string="Partial" domain="[('compliance_state', '=', 'partial')]"/>
+                <filter name="supported" string="Supported" domain="[('compliance_state', '=', 'supported')]"/>
+                <filter name="mandatory" string="Mandatory" domain="[('mandatory', '=', True)]"/>
+                <group>
+                    <filter name="group_standard" string="Standard" context="{'group_by': 'standard_id'}"/>
+                    <filter name="group_implementation" string="Implementation" context="{'group_by': 'implementation_status'}"/>
+                    <filter name="group_compliance" string="Compliance" context="{'group_by': 'compliance_state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_qms_requirement" model="ir.actions.act_window">
+        <field name="name">Requirements</field>
+        <field name="res_model">qms.requirement</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_qms_requirement_search"/>
+    </record>
+</odoo>

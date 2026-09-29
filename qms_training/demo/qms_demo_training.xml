@@ -1,0 +1,16 @@
+<odoo>
+    <record id="demo_course_iso" model="qms.training.course">
+        <field name="name">ISO 9001 Awareness (Demo)</field>
+        <field name="course_type">quality</field>
+    </record>
+    <record id="demo_assignment" model="qms.training.assignment">
+        <field name="course_id" ref="qms_training.demo_course_iso"/>
+        <field name="employee_id" ref="base.user_admin"/>
+        <field name="assigned_date">2026-09-01</field>
+    </record>
+    <record id="demo_competency" model="qms.competency.requirement">
+        <field name="name">Internal Auditor (Demo)</field>
+        <field name="role_name">Auditor</field>
+        <field name="level">advanced</field>
+    </record>
+</odoo>

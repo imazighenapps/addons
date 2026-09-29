@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_qms_review_action_manager,qms.management.action manager,qms.management.action,qms_core.group_qms_manager,crud,
+access_qms_review_action_user,qms.management.action user,qms.management.action,qms_core.group_qms_user,cru,
+access_qms_review_manager,qms.management.review manager,qms.management.review,qms_core.group_qms_manager,crud,
+access_qms_review_user,qms.management.review user,qms.management.review,qms_core.group_qms_user,r,
+comp_qms_management_action_company,Management Action multi-company,qms.management.action,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_management_review_company,Management Review multi-company,qms.management.review,,crud,"[('company_id', 'in', company_ids)]"

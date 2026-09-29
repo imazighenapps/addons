@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_qms_supplier_certificate_manager,qms.supplier.certificate manager,qms.supplier.certificate,qms_core.group_qms_manager,crud,
+access_qms_supplier_certificate_user,qms.supplier.certificate user,qms.supplier.certificate,qms_core.group_qms_user,cru,
+access_qms_supplier_evaluation_manager,qms.supplier.evaluation manager,qms.supplier.evaluation,qms_core.group_qms_manager,crud,
+access_qms_supplier_evaluation_user,qms.supplier.evaluation user,qms.supplier.evaluation,qms_core.group_qms_user,cru,
+access_qms_supplier_manager,qms.supplier manager,qms.supplier,qms_core.group_qms_manager,crud,
+access_qms_supplier_user,qms.supplier user,qms.supplier,qms_core.group_qms_user,cru,
+comp_qms_supplier_certificate_company,Supplier Certificate multi-company,qms.supplier.certificate,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_supplier_company,Supplier multi-company,qms.supplier,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_supplier_evaluation_company,Supplier Evaluation multi-company,qms.supplier.evaluation,,crud,"[('company_id', 'in', company_ids)]"

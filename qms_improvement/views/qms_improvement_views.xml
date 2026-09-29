@@ -1,0 +1,106 @@
+<odoo>
+    <record id="view_qms_improvement_list" model="ir.ui.view">
+        <field name="name">qms.improvement.list</field>
+        <field name="model">qms.improvement</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="improvement_type"/>
+                <field name="source"/>
+                <field name="priority" widget="priority"/>
+                <field name="status"/>
+                <field name="owner_id"/>
+                <field name="target_date"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_improvement_form" model="ir.ui.view">
+        <field name="name">qms.improvement.form</field>
+        <field name="model">qms.improvement</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_approve" type="object" string="Approve" invisible="status != 'idea'"/>
+                    <button name="action_start" type="object" string="Start" invisible="status != 'approved'" class="btn-primary"/>
+                    <button name="action_complete" type="object" string="Complete" invisible="status != 'in_progress'"/>
+                    <button name="action_standardize" type="object" string="Standardize" invisible="status != 'completed'" class="btn-primary"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="status in ['completed','standardized','cancelled']"/>
+                    <field name="status" widget="statusbar" statusbar_visible="idea,approved,in_progress,completed,standardized"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="code" readonly="1"/>
+                        <field name="name"/>
+                        <field name="improvement_type"/>
+                        <field name="source"/>
+                        <field name="priority"/>
+                        <field name="owner_id"/>
+                        <field name="target_date"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                        <field name="action_plan"/>
+                        <field name="expected_benefit"/>
+                        <field name="lessons_learned"/>
+                    </group>
+                    <group>
+                        <field name="baseline_value"/>
+                        <field name="target_value"/>
+                        <field name="actual_value"/>
+                        <field name="unit"/>
+                        <field name="benefit_value"/>
+                        <field name="currency_id" readonly="1"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_qms_lesson_list" model="ir.ui.view">
+        <field name="name">qms.lesson.learned.list</field>
+        <field name="model">qms.lesson.learned</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="source_reference"/>
+                <field name="owner_id"/>
+                <field name="shared"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_lesson_form" model="ir.ui.view">
+        <field name="name">qms.lesson.learned.form</field>
+        <field name="model">qms.lesson.learned</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="source_reference"/>
+                        <field name="owner_id"/>
+                        <field name="shared"/>
+                    </group>
+                    <group>
+                        <field name="situation"/>
+                        <field name="learning"/>
+                        <field name="action_to_standardize"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_qms_improvement" model="ir.actions.act_window">
+        <field name="name">Continuous Improvements</field>
+        <field name="res_model">qms.improvement</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_qms_lesson" model="ir.actions.act_window">
+        <field name="name">Lessons Learned</field>
+        <field name="res_model">qms.lesson.learned</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

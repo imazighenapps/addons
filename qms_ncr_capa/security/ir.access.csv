@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_qms_capa_manager,qms.capa manager,qms.capa,qms_core.group_qms_manager,crud,
+access_qms_capa_user,qms.capa user,qms.capa,qms_core.group_qms_user,cru,
+access_qms_ncr_manager,qms.ncr manager,qms.ncr,qms_core.group_qms_manager,crud,
+access_qms_ncr_user,qms.ncr user,qms.ncr,qms_core.group_qms_user,cru,
+access_qms_quality_cost_manager,qms.quality.cost manager,qms.quality.cost,qms_core.group_qms_manager,crud,
+access_qms_quality_cost_user,qms.quality.cost user,qms.quality.cost,qms_core.group_qms_user,cru,
+comp_qms_capa_company,Capa multi-company,qms.capa,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_ncr_company,Ncr multi-company,qms.ncr,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_quality_cost_company,Quality Cost multi-company,qms.quality.cost,,crud,"[('company_id', 'in', company_ids)]"

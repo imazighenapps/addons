@@ -1,0 +1,94 @@
+<odoo>
+    <record id="view_qms_dashboard_form" model="ir.ui.view">
+        <field name="name">qms.dashboard.form</field>
+        <field name="model">qms.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="QMS Executive Cockpit">
+                <header>
+                    <button name="action_refresh" type="object" string="Refresh Indicators" class="btn-primary"/>
+                    <field name="readiness_band" widget="badge" readonly="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <div class="text-muted">Internal management-system readiness indicators; not an ISO certification score.</div>
+                    </div>
+                    <group>
+                        <group string="Readiness">
+                            <field name="readiness_index" widget="progressbar"/>
+                            <field name="requirement_coverage" widget="progressbar"/>
+                            <field name="audit_compliance_rate" widget="progressbar"/>
+                            <field name="refreshed_at" readonly="1"/>
+                        </group>
+                        <group string="Requirements">
+                            <field name="requirement_total"/>
+                            <field name="requirement_supported"/>
+                            <field name="requirement_partial"/>
+                            <field name="requirement_missing"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Evidence &amp; Documents">
+                            <field name="valid_evidence_count"/>
+                            <field name="expired_evidence_count"/>
+                            <field name="published_document_count"/>
+                            <field name="overdue_document_review_count"/>
+                        </group>
+                        <group string="Actions &amp; Risk">
+                            <field name="open_ncr_count"/>
+                            <field name="major_ncr_count"/>
+                            <field name="overdue_capa_count"/>
+                            <field name="high_risk_count"/>
+                        </group>
+                        <group string="People &amp; Objectives">
+                            <field name="training_gap_count"/>
+                            <field name="objectives_at_risk_count"/>
+                            <field name="open_audit_count"/>
+                        </group>
+                        <group string="Customer &amp; Operations">
+                            <field name="open_complaint_count"/>
+                            <field name="breached_complaint_count"/>
+                            <field name="overdue_calibration_count"/>
+                            <field name="open_improvement_count"/>
+                            <field name="open_opportunity_count"/>
+                            <field name="compliance_gap_count"/>
+                            <field name="cost_of_quality"/>
+                        </group>
+                    </group>
+                    <separator string="Drill-down"/>
+                    <div class="row">
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <button name="action_open_missing_requirements" type="object" class="btn btn-secondary w-100">Requirements needing evidence</button>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <button name="action_open_ncr" type="object" class="btn btn-secondary w-100">Open NCR</button>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <button name="action_open_capa" type="object" class="btn btn-secondary w-100">Open CAPA</button>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <button name="action_open_risks" type="object" class="btn btn-secondary w-100">High / Critical risks</button>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <button name="action_open_training" type="object" class="btn btn-secondary w-100">Training gaps</button>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <button name="action_open_audits" type="object" class="btn btn-secondary w-100">Open audits</button>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <button name="action_open_complaints" type="object" class="btn btn-secondary w-100">Open complaints</button>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <button name="action_open_calibration" type="object" class="btn btn-secondary w-100">Overdue calibration</button>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <button name="action_open_improvements" type="object" class="btn btn-secondary w-100">Open improvements</button>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

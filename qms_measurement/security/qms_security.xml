@@ -1,0 +1,9 @@
+<odoo>
+    <record id="group_qms_measurement_user" model="res.groups">
+        <field name="name">QMS Measurement User</field>
+    </record>
+    <record id="group_qms_measurement_manager" model="res.groups">
+        <field name="name">QMS Measurement Manager</field>
+        <field name="implied_ids" eval="[(4, ref('qms_measurement.group_qms_measurement_user'))]"/>
+    </record>
+</odoo>

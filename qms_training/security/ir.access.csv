@@ -1,0 +1,13 @@
+id,name,model_id,group_id/id,operation,domain
+access_qms_competency_requirement_manager,qms.competency.requirement manager,qms.competency.requirement,qms_core.group_qms_manager,crud,
+access_qms_competency_requirement_user,qms.competency.requirement user,qms.competency.requirement,qms_core.group_qms_user,r,
+access_qms_employee_competency_manager,qms.employee.competency manager,qms.employee.competency,qms_core.group_qms_manager,crud,
+access_qms_employee_competency_user,qms.employee.competency user,qms.employee.competency,qms_core.group_qms_user,cru,
+access_qms_training_assignment_manager,qms.training.assignment manager,qms.training.assignment,qms_core.group_qms_manager,crud,
+access_qms_training_assignment_user,qms.training.assignment user,qms.training.assignment,qms_core.group_qms_user,cru,
+access_qms_training_course_manager,qms.training.course manager,qms.training.course,qms_core.group_qms_manager,crud,
+access_qms_training_course_user,qms.training.course user,qms.training.course,qms_core.group_qms_user,r,
+comp_qms_competency_requirement_company,Competency Requirement multi-company,qms.competency.requirement,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_employee_competency_company,Employee Competency multi-company,qms.employee.competency,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_training_assignment_company,Training Assignment multi-company,qms.training.assignment,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_training_course_company,Training Course multi-company,qms.training.course,,crud,"[('company_id', 'in', company_ids)]"

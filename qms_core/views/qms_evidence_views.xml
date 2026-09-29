@@ -1,0 +1,79 @@
+<odoo>
+    <record id="view_qms_evidence_list" model="ir.ui.view">
+        <field name="name">qms.evidence.list</field>
+        <field name="model">qms.evidence</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="status in ('expired','rejected')" decoration-success="status == 'valid'">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="evidence_type"/>
+                <field name="evidence_date"/>
+                <field name="valid_until"/>
+                <field name="owner_id"/>
+                <field name="status" widget="badge"/>
+                <field name="integrity_hash"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_evidence_form" model="ir.ui.view">
+        <field name="name">qms.evidence.form</field>
+        <field name="model">qms.evidence</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_validate" type="object" string="Validate" class="btn-primary" invisible="status == 'valid'"/>
+                    <button name="action_expire" type="object" string="Expire" invisible="status == 'expired'"/>
+                    <button name="action_reject" type="object" string="Reject" invisible="status == 'rejected'"/>
+                    <field name="status" widget="statusbar" statusbar_visible="draft,valid,expired,rejected"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <field name="code" readonly="1"/>
+                    <field name="evidence_type"/>
+                    <field name="evidence_date"/>
+                    <field name="source"/>
+                    <field name="owner_id"/>
+                    <field name="valid_from"/>
+                    <field name="valid_until"/>
+                    <field name="integrity_hash" readonly="1"/>
+                    <group string="Linked Records">
+                        <field name="attachment_ids" widget="many2many_binary"/>
+                        <field name="requirement_ids" widget="many2many_tags"/>
+                        <field name="control_ids" widget="many2many_tags"/>
+                    </group>
+                    <field name="description"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_qms_evidence_search" model="ir.ui.view">
+        <field name="name">qms.evidence.search</field>
+        <field name="model">qms.evidence</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="evidence_type"/>
+                <field name="owner_id"/>
+                <filter name="valid" string="Valid" domain="[('status', '=', 'valid')]"/>
+                <filter name="expired" string="Expired" domain="[('status', '=', 'expired')]"/>
+                <filter name="draft" string="Draft" domain="[('status', '=', 'draft')]"/>
+                <group>
+                    <filter name="group_type" string="Type" context="{'group_by': 'evidence_type'}"/>
+                    <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_qms_evidence" model="ir.actions.act_window">
+        <field name="name">Evidence</field>
+        <field name="res_model">qms.evidence</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_qms_evidence_search"/>
+    </record>
+</odoo>

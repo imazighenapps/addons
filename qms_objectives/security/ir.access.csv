@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_qms_objective_manager,qms.objective manager,qms.objective,qms_core.group_qms_manager,crud,
+access_qms_objective_measurement_manager,qms.objective.measurement manager,qms.objective.measurement,qms_core.group_qms_manager,crud,
+access_qms_objective_measurement_user,qms.objective.measurement user,qms.objective.measurement,qms_core.group_qms_user,cru,
+access_qms_objective_user,qms.objective user,qms.objective,qms_core.group_qms_user,r,
+comp_qms_objective_company,Objective multi-company,qms.objective,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_objective_measurement_company,Objective Measurement multi-company,qms.objective.measurement,,crud,"[('company_id', 'in', company_ids)]"

@@ -1,0 +1,116 @@
+<odoo>
+    <record id="view_qms_measurement_equipment_list" model="ir.ui.view">
+        <field name="name">qms.measurement.equipment.list</field>
+        <field name="model">qms.measurement.equipment</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="state == 'overdue'">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="equipment_type"/>
+                <field name="serial_number"/>
+                <field name="last_calibration_date"/>
+                <field name="next_due_date"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_measurement_equipment_form" model="ir.ui.view">
+        <field name="name">qms.measurement.equipment.form</field>
+        <field name="model">qms.measurement.equipment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_activate" type="object" string="Activate" invisible="state != 'draft'" class="btn-primary"/>
+                    <button name="action_out_of_service" type="object" string="Out of Service" invisible="state == 'out_of_service'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,due,overdue,out_of_service"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="code" readonly="1"/>
+                        <field name="name"/>
+                        <field name="equipment_type"/>
+                        <field name="manufacturer"/>
+                        <field name="serial_number"/>
+                        <field name="location"/>
+                        <field name="owner_id"/>
+                    </group>
+                    <group>
+                        <field name="measurement_range"/>
+                        <field name="accuracy"/>
+                        <field name="calibration_interval"/>
+                        <field name="last_calibration_date"/>
+                        <field name="next_due_date" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Calibration History">
+                            <field name="certificate_ids">
+                                <list editable="bottom">
+                                    <field name="calibration_date"/>
+                                    <field name="result"/>
+                                    <field name="as_found"/>
+                                    <field name="as_left"/>
+                                    <field name="certificate_number"/>
+                                    <field name="next_due_date"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_qms_measurement_calibration_list" model="ir.ui.view">
+        <field name="name">qms.measurement.calibration.list</field>
+        <field name="model">qms.measurement.calibration</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="equipment_id"/>
+                <field name="calibration_date"/>
+                <field name="result"/>
+                <field name="as_found"/>
+                <field name="as_left"/>
+                <field name="certificate_number"/>
+                <field name="next_due_date"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_measurement_calibration_form" model="ir.ui.view">
+        <field name="name">qms.measurement.calibration.form</field>
+        <field name="model">qms.measurement.calibration</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_validate" type="object" string="Validate" class="btn-primary"/>
+                    <field name="result" widget="badge"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="equipment_id"/>
+                        <field name="calibration_date"/>
+                        <field name="performed_by_id"/>
+                        <field name="result"/>
+                        <field name="as_found"/>
+                        <field name="as_left"/>
+                        <field name="certificate_number"/>
+                        <field name="next_due_date"/>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                        <field name="attachment_ids" widget="many2many_binary"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_qms_measurement_equipment" model="ir.actions.act_window">
+        <field name="name">Measurement Equipment</field>
+        <field name="res_model">qms.measurement.equipment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_qms_measurement_calibration" model="ir.actions.act_window">
+        <field name="name">Calibration Records</field>
+        <field name="res_model">qms.measurement.calibration</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

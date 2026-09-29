@@ -1,0 +1,29 @@
+<odoo>
+    <record id="demo_issue_regulation" model="qms.context.issue">
+        <field name="name">New packaging regulation (Demo)</field>
+        <field name="issue_type">external</field>
+        <field name="category">regulatory</field>
+        <field name="description">Upcoming packaging rules affect product labeling.</field>
+    </record>
+    <record id="demo_party_customer" model="qms.interested.party">
+        <field name="name">Key customer Acme (Demo)</field>
+        <field name="category">customer</field>
+        <field name="needs_expectations">On-time delivery above 98%.</field>
+    </record>
+    <record id="demo_scope" model="qms.management.scope">
+        <field name="name">QMS Scope 2026 (Demo)</field>
+        <field name="scope_text">Design, production and delivery of industrial components.</field>
+    </record>
+    <record id="demo_obligation" model="qms.compliance.obligation">
+        <field name="name">ISO 9001 certification upkeep (Demo)</field>
+        <field name="obligation_type">industry</field>
+        <field name="description">Maintain ISO 9001 certification.</field>
+        <field name="review_date">2026-12-01</field>
+    </record>
+    <record id="demo_opportunity" model="qms.opportunity">
+        <field name="name">Automate final inspection (Demo)</field>
+        <field name="source">audit</field>
+        <field name="description">Vision system could replace manual final inspection.</field>
+        <field name="priority">2</field>
+    </record>
+</odoo>
