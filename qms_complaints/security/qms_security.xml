@@ -1,0 +1,9 @@
+<odoo>
+    <record id="group_qms_complaint_user" model="res.groups">
+        <field name="name">QMS Complaint User</field>
+    </record>
+    <record id="group_qms_complaint_manager" model="res.groups">
+        <field name="name">QMS Complaint Manager</field>
+        <field name="implied_ids" eval="[(4, ref('qms_complaints.group_qms_complaint_user'))]"/>
+    </record>
+</odoo>

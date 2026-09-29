@@ -1,0 +1,11 @@
+<odoo>
+    <record id="ir_cron_qms_evidence_expiry" model="ir.cron">
+        <field name="name">QMS: expire evidence</field>
+        <field name="model_id" ref="model_qms_evidence"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_expire_records()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

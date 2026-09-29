@@ -1,0 +1,238 @@
+<odoo>
+    <record id="view_qms_context_issue_list" model="ir.ui.view">
+        <field name="name">qms.context.issue.list</field>
+        <field name="model">qms.context.issue</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="issue_type"/>
+                <field name="category"/>
+                <field name="climate_relevance"/>
+                <field name="owner_id"/>
+                <field name="review_date"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_context_issue_form" model="ir.ui.view">
+        <field name="name">qms.context.issue.form</field>
+        <field name="model">qms.context.issue</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="issue_type"/>
+                        <field name="category"/>
+                        <field name="climate_relevance"/>
+                        <field name="owner_id"/>
+                        <field name="review_date"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                        <field name="impact"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_qms_context_issue" model="ir.actions.act_window">
+        <field name="name">Context Issues</field>
+        <field name="res_model">qms.context.issue</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="view_qms_interested_party_list" model="ir.ui.view">
+        <field name="name">qms.interested.party.list</field>
+        <field name="model">qms.interested.party</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="relevant"/>
+                <field name="owner_id"/>
+                <field name="review_date"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_interested_party_form" model="ir.ui.view">
+        <field name="name">qms.interested.party.form</field>
+        <field name="model">qms.interested.party</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="category"/>
+                        <field name="relevant"/>
+                        <field name="owner_id"/>
+                        <field name="review_date"/>
+                    </group>
+                    <group>
+                        <field name="needs_expectations"/>
+                        <field name="requirements"/>
+                        <field name="monitoring_method"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_qms_interested_party" model="ir.actions.act_window">
+        <field name="name">Interested Parties</field>
+        <field name="res_model">qms.interested.party</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="view_qms_scope_list" model="ir.ui.view">
+        <field name="name">qms.management.scope.list</field>
+        <field name="model">qms.management.scope</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="effective_date"/>
+                <field name="review_date"/>
+                <field name="climate_relevance"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_scope_form" model="ir.ui.view">
+        <field name="name">qms.management.scope.form</field>
+        <field name="model">qms.management.scope</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_approve" type="object" string="Approve" invisible="state != 'draft'" class="btn-primary"/>
+                    <button name="action_supersede" type="object" string="Supersede" invisible="state != 'approved'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approved,superseded"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="effective_date"/>
+                        <field name="review_date"/>
+                        <field name="climate_relevance"/>
+                    </group>
+                    <notebook>
+                        <page string="Scope">
+                            <group>
+                                <field name="scope_text"/>
+                                <field name="sites"/>
+                                <field name="products_services"/>
+                                <field name="processes"/>
+                            </group>
+                        </page>
+                        <page string="Boundaries">
+                            <field name="exclusions"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_qms_scope" model="ir.actions.act_window">
+        <field name="name">Management Scopes</field>
+        <field name="res_model">qms.management.scope</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="view_qms_obligation_list" model="ir.ui.view">
+        <field name="name">qms.compliance.obligation.list</field>
+        <field name="model">qms.compliance.obligation</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="obligation_type"/>
+                <field name="status"/>
+                <field name="owner_id"/>
+                <field name="review_date"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_obligation_form" model="ir.ui.view">
+        <field name="name">qms.compliance.obligation.form</field>
+        <field name="model">qms.compliance.obligation</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="code" readonly="1"/>
+                        <field name="name"/>
+                        <field name="obligation_type"/>
+                        <field name="source_reference"/>
+                        <field name="status"/>
+                        <field name="owner_id"/>
+                        <field name="review_date"/>
+                        <field name="next_review_date"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                        <field name="notes"/>
+                    </group>
+                    <group string="Linked Records">
+                        <field name="applicable_process_ids" widget="many2many_tags"/>
+                        <field name="evidence_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_qms_obligation" model="ir.actions.act_window">
+        <field name="name">Compliance Obligations</field>
+        <field name="res_model">qms.compliance.obligation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="view_qms_opportunity_list" model="ir.ui.view">
+        <field name="name">qms.opportunity.list</field>
+        <field name="model">qms.opportunity</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="source"/>
+                <field name="priority" widget="priority"/>
+                <field name="status"/>
+                <field name="owner_id"/>
+                <field name="target_date"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_opportunity_form" model="ir.ui.view">
+        <field name="name">qms.opportunity.form</field>
+        <field name="model">qms.opportunity</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_approve" type="object" string="Approve" invisible="status != 'identified'"/>
+                    <button name="action_start" type="object" string="Start" invisible="status not in ['approved']" class="btn-primary"/>
+                    <button name="action_complete" type="object" string="Complete" invisible="status != 'in_progress'" class="btn-primary"/>
+                    <button name="action_reject" type="object" string="Reject" invisible="status in ['completed','rejected']"/>
+                    <field name="status" widget="statusbar" statusbar_visible="identified,approved,in_progress,completed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="code" readonly="1"/>
+                        <field name="name"/>
+                        <field name="source"/>
+                        <field name="priority"/>
+                        <field name="owner_id"/>
+                        <field name="target_date"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                        <field name="expected_benefit"/>
+                        <field name="action_plan"/>
+                        <field name="result"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_qms_opportunity" model="ir.actions.act_window">
+        <field name="name">Opportunities</field>
+        <field name="res_model">qms.opportunity</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

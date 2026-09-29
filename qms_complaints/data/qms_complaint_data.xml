@@ -1,0 +1,17 @@
+<odoo>
+    <record id="seq_qms_complaint" model="ir.sequence">
+        <field name="name">QMS Customer Complaint</field>
+        <field name="code">qms.complaint</field>
+        <field name="prefix">CMP/%(year)s/</field>
+        <field name="padding">5</field>
+    </record>
+    <record id="ir_cron_qms_complaint_sla" model="ir.cron">
+        <field name="name">QMS Complaint SLA Check</field>
+        <field name="model_id" ref="model_qms_complaint"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_sla_breach()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

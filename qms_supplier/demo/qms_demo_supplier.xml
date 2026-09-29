@@ -1,0 +1,27 @@
+<odoo>
+    <record id="demo_partner_supplier" model="res.partner">
+        <field name="name">Precision Parts Ltd (Demo)</field>
+        <field name="email">sales@precision.example</field>
+    </record>
+    <record id="demo_supplier" model="qms.supplier">
+        <field name="name">Precision Parts Ltd (Demo)</field>
+        <field name="partner_id" ref="qms_supplier.demo_partner_supplier"/>
+        <field name="qualification_status">qualified</field>
+        <field name="risk_level">low</field>
+    </record>
+    <record id="demo_supplier_cert" model="qms.supplier.certificate">
+        <field name="name">ISO 9001 certificate (Demo)</field>
+        <field name="supplier_id" ref="qms_supplier.demo_supplier"/>
+        <field name="certificate_number">CERT-DEMO-001</field>
+        <field name="status">active</field>
+    </record>
+    <record id="demo_supplier_eval" model="qms.supplier.evaluation">
+        <field name="supplier_id" ref="qms_supplier.demo_supplier"/>
+        <field name="evaluation_date">2026-09-01</field>
+        <field name="evaluator_id" ref="base.user_admin"/>
+        <field name="quality_score">92.0</field>
+        <field name="delivery_score">85.0</field>
+        <field name="responsiveness_score">90.0</field>
+        <field name="compliance_score">95.0</field>
+    </record>
+</odoo>

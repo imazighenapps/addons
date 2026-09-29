@@ -1,0 +1,105 @@
+<odoo>
+    <template id="portal_my_complaints" name="My QMS Complaints">
+        <t t-call="portal.portal_layout">
+            <div class="container my-4">
+                <h2>My Quality Complaints</h2>
+                <a href="/my/qms-complaints/new" class="btn btn-primary mb-3">Submit a Complaint</a>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Reference</th>
+                            <th>Subject</th>
+                            <th>Status</th>
+                            <th>Received</th>
+                            <th>SLA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="complaints" t-as="c">
+                            <td>
+                                <t t-esc="c.code"/>
+                            </td>
+                            <td>
+                                <a t-att-href="'/my/qms-complaints/%s' % c.id">
+                                    <t t-esc="c.name"/>
+                                </a>
+                            </td>
+                            <td>
+                                <t t-esc="c.state"/>
+                            </td>
+                            <td>
+                                <t t-esc="c.received_at"/>
+                            </td>
+                            <td>
+                                <t t-esc="c.sla_deadline"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+    <template id="portal_new_complaint" name="Submit Quality Complaint">
+        <t t-call="portal.portal_layout">
+            <div class="container my-4">
+                <h2>Submit a Quality Complaint</h2>
+                <form method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="mb-3">
+                        <label>Subject</label>
+                        <input class="form-control" name="name" required="required"/>
+                    </div>
+                    <div class="mb-3">
+                        <label>Category</label>
+                        <select class="form-select" name="category">
+                            <option value="service">Service</option>
+                            <option value="product">Product</option>
+                            <option value="delivery">Delivery</option>
+                            <option value="documentation">Documentation</option>
+                            <option value="communication">Communication</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label>Description</label>
+                        <textarea class="form-control" name="description" required="required"/>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+            </div>
+        </t>
+    </template>
+    <template id="portal_complaint_detail" name="Quality Complaint Detail">
+        <t t-call="portal.portal_layout">
+            <div class="container my-4">
+                <a href="/my/qms-complaints" class="btn btn-link px-0">← Back to complaints</a>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h2>
+                                <t t-esc="complaint.name"/>
+                            </h2>
+                            <span class="badge bg-secondary">
+                                <t t-esc="complaint.state"/>
+                            </span>
+                        </div>
+                        <p class="text-muted">
+                            <t t-esc="complaint.code"/>
+                             · 
+                            <t t-esc="complaint.received_at"/>
+                        </p>
+                        <h5>Description</h5>
+                        <p>
+                            <t t-esc="complaint.description"/>
+                        </p>
+                        <h5>Resolution</h5>
+                        <p>
+                            <t t-esc="complaint.resolution or 'No resolution has been recorded yet.'"/>
+                        </p>
+                        <div t-if="complaint.ncr_id" class="alert alert-light border">This complaint is linked to a quality non-conformity.</div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

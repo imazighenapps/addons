@@ -1,0 +1,189 @@
+<odoo>
+    <record id="view_qms_supplier_list" model="ir.ui.view">
+        <field name="name">qms.supplier.list</field>
+        <field name="model">qms.supplier</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="qualification_status"/>
+                <field name="risk_level"/>
+                <field name="latest_score"/>
+                <field name="review_date"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_supplier_form" model="ir.ui.view">
+        <field name="name">qms.supplier.form</field>
+        <field name="model">qms.supplier</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_qualify" type="object" string="Qualify" class="btn-primary" invisible="qualification_status == 'qualified'"/>
+                    <button name="action_suspend" type="object" string="Suspend" invisible="qualification_status == 'suspended'"/>
+                    <button name="action_requalify" type="object" string="Requalify" class="btn-secondary" invisible="qualification_status != 'suspended'"/>
+                    <field name="qualification_status" widget="statusbar" statusbar_visible="draft,qualified,probation,suspended,disqualified"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="partner_id"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="qualification_status"/>
+                            <field name="risk_level"/>
+                            <field name="owner_id"/>
+                        </group>
+                        <group>
+                            <field name="review_date"/>
+                            <field name="latest_score" readonly="1"/>
+                            <field name="latest_evaluation_date" readonly="1"/>
+                            <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Certificates">
+                            <field name="certificate_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="certificate_number"/>
+                                    <field name="standard_id"/>
+                                    <field name="issue_date"/>
+                                    <field name="expiry_date"/>
+                                    <field name="status"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Evaluations">
+                            <field name="evaluation_ids">
+                                <list editable="bottom">
+                                    <field name="evaluation_date"/>
+                                    <field name="evaluator_id"/>
+                                    <field name="overall_score"/>
+                                    <field name="conclusion"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_qms_supplier_certificate_list" model="ir.ui.view">
+        <field name="name">qms.supplier.certificate.list</field>
+        <field name="model">qms.supplier.certificate</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="supplier_id"/>
+                <field name="name"/>
+                <field name="certificate_number"/>
+                <field name="standard_id"/>
+                <field name="expiry_date"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_supplier_certificate_form" model="ir.ui.view">
+        <field name="name">qms.supplier.certificate.form</field>
+        <field name="model">qms.supplier.certificate</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="supplier_id"/>
+                            <field name="certificate_number"/>
+                            <field name="standard_id"/>
+                        </group>
+                        <group>
+                            <field name="issuing_body_id"/>
+                            <field name="issue_date"/>
+                            <field name="expiry_date"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                    <field name="attachment_ids" widget="many2many_binary"/>
+                    <field name="notes"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_qms_supplier_evaluation_list" model="ir.ui.view">
+        <field name="name">qms.supplier.evaluation.list</field>
+        <field name="model">qms.supplier.evaluation</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="supplier_id"/>
+                <field name="evaluation_date"/>
+                <field name="evaluator_id"/>
+                <field name="quality_score"/>
+                <field name="delivery_score"/>
+                <field name="responsiveness_score"/>
+                <field name="compliance_score"/>
+                <field name="overall_score"/>
+                <field name="conclusion"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_supplier_evaluation_form" model="ir.ui.view">
+        <field name="name">qms.supplier.evaluation.form</field>
+        <field name="model">qms.supplier.evaluation</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="supplier_id"/>
+                            <field name="evaluation_date"/>
+                            <field name="evaluator_id"/>
+                        </group>
+                        <group>
+                            <field name="quality_score"/>
+                            <field name="delivery_score"/>
+                            <field name="responsiveness_score"/>
+                            <field name="compliance_score"/>
+                            <field name="overall_score" readonly="1"/>
+                        </group>
+                    </group>
+                    <field name="conclusion"/>
+                    <field name="notes"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_qms_supplier" model="ir.actions.act_window">
+        <field name="name">Supplier Profiles</field>
+        <field name="res_model">qms.supplier</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_qms_supplier_certificate" model="ir.actions.act_window">
+        <field name="name">Supplier Certificates</field>
+        <field name="res_model">qms.supplier.certificate</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_qms_supplier_evaluation" model="ir.actions.act_window">
+        <field name="name">Supplier Evaluations</field>
+        <field name="res_model">qms.supplier.evaluation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="view_res_partner_qms_supplier_buttons" model="ir.ui.view">
+        <field name="name">res.partner.qms.supplier.buttons</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button type="object" name="action_open_qms_supplier_profile" class="oe_stat_button" icon="fa-check-square-o" invisible="qms_supplier_profile_count == 0">
+                    <field name="qms_supplier_profile_count" widget="statinfo" string="QMS Supplier"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

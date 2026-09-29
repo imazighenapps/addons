@@ -1,0 +1,43 @@
+<odoo>
+    <record id="demo_clause_leadership" model="qms.standard.clause">
+        <field name="name">Leadership</field>
+        <field name="code">5</field>
+        <field name="sequence">50</field>
+        <field name="standard_id" ref="qms_core.standard_iso_9001_2026"/>
+    </record>
+    <record id="demo_requirement_leadership" model="qms.requirement">
+        <field name="name">Top management shall demonstrate leadership and commitment</field>
+        <field name="code">REQ-DEMO-5.1</field>
+        <field name="standard_id" ref="qms_core.standard_iso_9001_2026"/>
+        <field name="clause_id" ref="qms_core.demo_clause_leadership"/>
+        <field name="implementation_status">implemented</field>
+    </record>
+    <record id="demo_process_production" model="qms.process">
+        <field name="name">Production Control</field>
+        <field name="code">PRD-DEMO-01</field>
+    </record>
+    <record id="demo_process_incoming" model="qms.process">
+        <field name="name">Incoming Inspection</field>
+        <field name="code">QCT-DEMO-02</field>
+    </record>
+    <record id="demo_risk_delivery" model="qms.risk">
+        <field name="name">Supplier delivery delay</field>
+        <field name="description">Late delivery of critical components stops the line.</field>
+        <field name="category">operational</field>
+        <field name="likelihood">4</field>
+        <field name="impact">4</field>
+    </record>
+    <record id="demo_control_incoming" model="qms.control">
+        <field name="name">Incoming goods inspection</field>
+        <field name="control_type">detective</field>
+        <field name="frequency">daily</field>
+        <field name="process_id" ref="qms_core.demo_process_incoming"/>
+    </record>
+    <record id="demo_evidence_inspection" model="qms.evidence">
+        <field name="name">Inspection record IR-DEMO-001</field>
+        <field name="evidence_type">record</field>
+        <field name="evidence_date">2026-09-01</field>
+        <field name="status">valid</field>
+        <field name="requirement_ids" eval="[(6, 0, [ref('qms_core.demo_requirement_leadership')])]"/>
+    </record>
+</odoo>

@@ -1,0 +1,28 @@
+<odoo>
+    <record id="view_sale_order_qms_ncr" model="ir.ui.view">
+        <field name="name">sale.order.qms.ncr</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button type="object" name="action_open_qms_ncrs" class="oe_stat_button" icon="fa-exclamation-triangle" invisible="qms_ncr_count == 0">
+                    <field name="qms_ncr_count" widget="statinfo" string="QMS NCR"/>
+                </button>
+                <button type="object" name="action_create_qms_ncr" class="oe_stat_button" icon="fa-plus" string="Create NCR"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_purchase_order_qms_ncr" model="ir.ui.view">
+        <field name="name">purchase.order.qms.ncr</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button type="object" name="action_open_qms_ncrs" class="oe_stat_button" icon="fa-exclamation-triangle" invisible="qms_ncr_count == 0">
+                    <field name="qms_ncr_count" widget="statinfo" string="QMS NCR"/>
+                </button>
+                <button type="object" name="action_create_qms_ncr" class="oe_stat_button" icon="fa-plus" string="Create NCR"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_qms_measurement_calibration_manager,qms.measurement.calibration manager,qms.measurement.calibration,qms_measurement.group_qms_measurement_manager,crud,
+access_qms_measurement_calibration_user,qms.measurement.calibration user,qms.measurement.calibration,qms_measurement.group_qms_measurement_user,cru,
+access_qms_measurement_equipment_manager,qms.measurement.equipment manager,qms.measurement.equipment,qms_measurement.group_qms_measurement_manager,crud,
+access_qms_measurement_equipment_user,qms.measurement.equipment user,qms.measurement.equipment,qms_measurement.group_qms_measurement_user,cru,
+comp_qms_measurement_calibration_company,Measurement Calibration multi-company,qms.measurement.calibration,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_measurement_equipment_company,Measurement Equipment multi-company,qms.measurement.equipment,,crud,"[('company_id', 'in', company_ids)]"

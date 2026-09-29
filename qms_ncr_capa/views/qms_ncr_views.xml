@@ -1,0 +1,168 @@
+<odoo>
+    <record id="view_qms_ncr_list" model="ir.ui.view">
+        <field name="name">qms.ncr.list</field>
+        <field name="model">qms.ncr</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="source"/>
+                <field name="severity"/>
+                <field name="status"/>
+                <field name="owner_id"/>
+                <field name="all_capa_effective"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_ncr_form" model="ir.ui.view">
+        <field name="name">qms.ncr.form</field>
+        <field name="model">qms.ncr</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start_containment" type="object" string="Containment" invisible="status != 'new'"/>
+                    <button name="action_start_analysis" type="object" string="Start RCA" class="btn-primary" invisible="status != 'containment'"/>
+                    <button name="action_open_action_plan" type="object" string="Action Plan" class="btn-primary" invisible="status != 'analysis'"/>
+                    <button name="action_verify_effectiveness" type="object" string="Verify Effectiveness" invisible="status != 'action'"/>
+                    <button name="action_close" type="object" string="Close NCR" class="btn-primary" invisible="status != 'effectiveness'"/>
+                    <field name="status" widget="statusbar" statusbar_visible="new,containment,analysis,action,effectiveness,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="source"/>
+                            <field name="severity"/>
+                            <field name="owner_id"/>
+                        </group>
+                        <group>
+                            <field name="audit_id"/>
+                            <field name="finding_id"/>
+                            <field name="requirement_id"/>
+                            <field name="process_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Problem">
+                            <field name="description"/>
+                            <field name="containment"/>
+                        </page>
+                        <page string="Root Cause">
+                            <group>
+                                <field name="root_cause_method"/>
+                            </group>
+                            <field name="root_cause"/>
+                        </page>
+                        <page string="CAPA">
+                            <field name="capa_ids">
+                                <list editable="bottom">
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="action_type"/>
+                                    <field name="owner_id"/>
+                                    <field name="deadline"/>
+                                    <field name="status"/>
+                                    <field name="implementation_date"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_qms_capa_list" model="ir.ui.view">
+        <field name="name">qms.capa.list</field>
+        <field name="model">qms.capa</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="ncr_id"/>
+                <field name="action_type"/>
+                <field name="deadline"/>
+                <field name="owner_id"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_capa_form" model="ir.ui.view">
+        <field name="name">qms.capa.form</field>
+        <field name="model">qms.capa</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start" type="object" string="Start" invisible="status != 'planned'"/>
+                    <button name="action_mark_implemented" type="object" string="Mark Implemented" class="btn-primary" invisible="status != 'in_progress'"/>
+                    <button name="action_mark_effective" type="object" string="Verify Effective" class="btn-primary" invisible="status != 'implemented'"/>
+                    <button name="action_mark_ineffective" type="object" string="Ineffective" invisible="status != 'implemented'"/>
+                    <field name="status" widget="statusbar" statusbar_visible="planned,in_progress,implemented,effective"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="ncr_id"/>
+                            <field name="action_type"/>
+                            <field name="owner_id"/>
+                        </group>
+                        <group>
+                            <field name="deadline"/>
+                            <field name="implementation_date"/>
+                            <field name="verification_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Action">
+                            <field name="action_description"/>
+                        </page>
+                        <page string="Effectiveness">
+                            <field name="verification_method"/>
+                            <field name="effectiveness_note"/>
+                        </page>
+                    </notebook>
+                    <group string="Linked Evidence">
+                        <field name="evidence_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_qms_ncr" model="ir.actions.act_window">
+        <field name="name">Non-Conformities</field>
+        <field name="res_model">qms.ncr</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_qms_capa" model="ir.actions.act_window">
+        <field name="name">CAPA</field>
+        <field name="res_model">qms.capa</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="view_qms_finding_form_ncr_extension" model="ir.ui.view">
+        <field name="name">qms.finding.form.ncr.bridge</field>
+        <field name="model">qms.finding</field>
+        <field name="inherit_id" ref="qms_audit.view_qms_finding_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet" position="before">
+                <header>
+                    <button name="action_create_ncr" type="object" string="Create NCR" class="btn-primary" invisible="ncr_id"/>
+                </header>
+            </xpath>
+            <xpath expr="//sheet/group" position="inside">
+                <field name="ncr_id" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

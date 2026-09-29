@@ -1,0 +1,211 @@
+<odoo>
+    <record id="view_qms_audit_list" model="ir.ui.view">
+        <field name="name">qms.audit.list</field>
+        <field name="model">qms.audit</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="audit_type"/>
+                <field name="lead_auditor_id"/>
+                <field name="risk_based" widget="boolean_toggle"/>
+                <field name="auditor_competence_status" widget="badge"/>
+                <field name="planned_date"/>
+                <field name="state"/>
+                <field name="compliance_rate" widget="progressbar"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_audit_form" model="ir.ui.view">
+        <field name="name">qms.audit.form</field>
+        <field name="model">qms.audit</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_schedule" type="object" string="Schedule" class="btn-primary" invisible="state != 'planned'"/>
+                    <button name="action_start" type="object" string="Start Audit" class="btn-primary" invisible="state != 'scheduled'"/>
+                    <button name="action_generate_report" type="object" string="Generate Report" invisible="state != 'in_progress'"/>
+                    <button name="action_close" type="object" string="Close Audit" class="btn-primary" invisible="state != 'report'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="planned,scheduled,in_progress,report,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="audit_type"/>
+                            <field name="program_id"/>
+                            <field name="lead_auditor_id"/>
+                            <field name="risk_based"/>
+                            <field name="auditor_competence_status" widget="badge"/>
+                        </group>
+                        <group>
+                            <field name="planned_date"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="compliance_rate"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="scope"/>
+                        <field name="objective"/>
+                        <field name="criteria"/>
+                    </group>
+                    <notebook>
+                        <page string="Audit Team">
+                            <field name="auditor_ids" widget="many2many_tags"/>
+                            <field name="process_ids" widget="many2many_tags"/>
+                            <field name="requirement_ids" widget="many2many_tags"/>
+                        </page>
+                        <page string="Planning">
+                            <group>
+                                <field name="risk_based"/>
+                                <field name="risk_review_date"/>
+                                <field name="cycle_type"/>
+                                <field name="required_competency_ids" widget="many2many_tags"/>
+                                <field name="auditor_competence_status" readonly="1"/>
+                            </group>
+                            <field name="risk_basis"/>
+                            <field name="sampling_plan"/>
+                        </page>
+                        <page string="Checks">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="requirement_id"/>
+                                    <field name="question"/>
+                                    <field name="method"/>
+                                    <field name="result"/>
+                                    <field name="note"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Findings">
+                            <field name="finding_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="severity"/>
+                                    <field name="requirement_id"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_qms_finding_list" model="ir.ui.view">
+        <field name="name">qms.finding.list</field>
+        <field name="model">qms.finding</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="audit_id"/>
+                <field name="severity"/>
+                <field name="requirement_id"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_finding_form" model="ir.ui.view">
+        <field name="name">qms.finding.form</field>
+        <field name="model">qms.finding</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="audit_id"/>
+                        <field name="audit_line_id"/>
+                        <field name="severity"/>
+                        <field name="state"/>
+                        <field name="requirement_id"/>
+                    </group>
+                    <field name="description"/>
+                    <field name="evidence_ids" widget="many2many_tags"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_qms_audit_calendar" model="ir.ui.view">
+        <field name="name">qms.audit.calendar</field>
+        <field name="model">qms.audit</field>
+        <field name="arch" type="xml">
+            <calendar string="Audit Calendar" date_start="planned_date" color="audit_type">
+                <field name="name"/>
+                <field name="lead_auditor_id"/>
+            </calendar>
+        </field>
+    </record>
+    <record id="view_qms_audit_kanban" model="ir.ui.view">
+        <field name="name">qms.audit.kanban</field>
+        <field name="model">qms.audit</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <field name="name"/>
+                <field name="audit_type"/>
+                <field name="planned_date"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_card p-2">
+                            <strong>
+                                <field name="name"/>
+                            </strong>
+                            <div>
+                                <field name="audit_type"/>
+                                 · 
+                                <field name="planned_date"/>
+                            </div>
+                            <div>
+                                <field name="compliance_rate" widget="progressbar"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="view_qms_audit_pivot" model="ir.ui.view">
+        <field name="name">qms.audit.pivot</field>
+        <field name="model">qms.audit</field>
+        <field name="arch" type="xml">
+            <pivot string="Audit Analysis">
+                <field name="audit_type" type="row"/>
+                <field name="state" type="col"/>
+                <field name="compliance_rate" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+    <record id="view_qms_audit_graph" model="ir.ui.view">
+        <field name="name">qms.audit.graph</field>
+        <field name="model">qms.audit</field>
+        <field name="arch" type="xml">
+            <graph string="Audit Compliance" type="bar">
+                <field name="audit_type"/>
+                <field name="compliance_rate" type="measure"/>
+            </graph>
+        </field>
+    </record>
+    <record id="action_qms_audit" model="ir.actions.act_window">
+        <field name="name">Audits</field>
+        <field name="res_model">qms.audit</field>
+        <field name="view_mode">list,kanban,calendar,pivot,graph,form</field>
+    </record>
+    <record id="action_qms_finding" model="ir.actions.act_window">
+        <field name="name">Audit Findings</field>
+        <field name="res_model">qms.finding</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,254 @@
+<odoo>
+    <record id="paperformat_qms_a4" model="report.paperformat">
+        <field name="name">QMS A4</field>
+        <field name="format">A4</field>
+        <field name="margin_top">15</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">12</field>
+        <field name="margin_right">12</field>
+        <field name="orientation">Portrait</field>
+    </record>
+    <record id="action_report_qms_audit" model="ir.actions.report">
+        <field name="name">Audit Report</field>
+        <field name="model">qms.audit</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">qms_management.report_qms_audit</field>
+        <field name="binding_model_id" ref="qms_audit.model_qms_audit"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_qms_a4"/>
+    </record>
+    <template id="report_qms_audit">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Audit Report</h2>
+                        <p>
+                            <strong t-esc="doc.code"/>
+                             — 
+                            <span t-esc="doc.name"/>
+                        </p>
+                        <table class="table table-sm">
+                            <tr>
+                                <th>Type</th>
+                                <td t-esc="doc.audit_type"/>
+                            </tr>
+                            <tr>
+                                <th>Lead Auditor</th>
+                                <td t-esc="doc.lead_auditor_id.name"/>
+                            </tr>
+                            <tr>
+                                <th>Planned Date</th>
+                                <td t-esc="doc.planned_date"/>
+                            </tr>
+                            <tr>
+                                <th>Compliance</th>
+                                <td>
+                                    <span t-esc="doc.compliance_rate"/>
+                                    %
+                                </td>
+                            </tr>
+                        </table>
+                        <h4>Scope</h4>
+                        <p t-esc="doc.scope"/>
+                        <h4>Audit Checks</h4>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Question</th>
+                                    <th>Method</th>
+                                    <th>Result</th>
+                                    <th>Note</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.line_ids" t-as="line">
+                                    <td t-esc="line.question"/>
+                                    <td t-esc="line.method"/>
+                                    <td t-esc="line.result"/>
+                                    <td t-esc="line.note"/>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4>Findings</h4>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Finding</th>
+                                    <th>Severity</th>
+                                    <th>Requirement</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.finding_ids" t-as="finding">
+                                    <td t-esc="finding.name"/>
+                                    <td t-esc="finding.severity"/>
+                                    <td t-esc="finding.requirement_id.code"/>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="action_report_qms_ncr" model="ir.actions.report">
+        <field name="name">NCR &amp; CAPA Report</field>
+        <field name="model">qms.ncr</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">qms_management.report_qms_ncr</field>
+        <field name="binding_model_id" ref="qms_ncr_capa.model_qms_ncr"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_qms_a4"/>
+    </record>
+    <template id="report_qms_ncr">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>NCR / CAPA Report</h2>
+                        <p>
+                            <strong t-esc="doc.code"/>
+                             — 
+                            <span t-esc="doc.name"/>
+                        </p>
+                        <table class="table table-sm">
+                            <tr>
+                                <th>Source</th>
+                                <td t-esc="doc.source"/>
+                            </tr>
+                            <tr>
+                                <th>Severity</th>
+                                <td t-esc="doc.severity"/>
+                            </tr>
+                            <tr>
+                                <th>Status</th>
+                                <td t-esc="doc.status"/>
+                            </tr>
+                            <tr>
+                                <th>Owner</th>
+                                <td t-esc="doc.owner_id.name"/>
+                            </tr>
+                        </table>
+                        <h4>Problem</h4>
+                        <p t-esc="doc.description"/>
+                        <h4>Containment</h4>
+                        <p t-esc="doc.containment"/>
+                        <h4>Root Cause</h4>
+                        <p t-esc="doc.root_cause"/>
+                        <h4>CAPA</h4>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>Owner</th>
+                                    <th>Deadline</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.capa_ids" t-as="capa">
+                                    <td t-esc="capa.action_description"/>
+                                    <td t-esc="capa.owner_id.name"/>
+                                    <td t-esc="capa.deadline"/>
+                                    <td t-esc="capa.status"/>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="action_report_qms_review" model="ir.actions.report">
+        <field name="name">Management Review Report</field>
+        <field name="model">qms.management.review</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">qms_management.report_qms_review</field>
+        <field name="binding_model_id" ref="qms_management_review.model_qms_management_review"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_qms_a4"/>
+    </record>
+    <template id="report_qms_review">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Management Review</h2>
+                        <p>
+                            <strong t-esc="doc.code"/>
+                             — 
+                            <span t-esc="doc.name"/>
+                        </p>
+                        <table class="table table-sm">
+                            <tr>
+                                <th>Meeting Date</th>
+                                <td t-esc="doc.meeting_date"/>
+                            </tr>
+                            <tr>
+                                <th>Period</th>
+                                <td>
+                                    <span t-esc="doc.period_start"/>
+                                     to 
+                                    <span t-esc="doc.period_end"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>State</th>
+                                <td t-esc="doc.state"/>
+                            </tr>
+                        </table>
+                        <h4>Management Snapshot</h4>
+                        <ul>
+                            <li>
+                                Closed audits: 
+                                <span t-esc="doc.closed_audit_count"/>
+                            </li>
+                            <li>
+                                Open NCR: 
+                                <span t-esc="doc.open_ncr_count"/>
+                            </li>
+                            <li>
+                                Overdue CAPA: 
+                                <span t-esc="doc.overdue_capa_count"/>
+                            </li>
+                            <li>
+                                High/Critical risks: 
+                                <span t-esc="doc.high_risk_count"/>
+                            </li>
+                            <li>
+                                Objectives at risk: 
+                                <span t-esc="doc.objective_at_risk_count"/>
+                            </li>
+                            <li>
+                                Expired training: 
+                                <span t-esc="doc.expired_training_count"/>
+                            </li>
+                        </ul>
+                        <h4>Decisions</h4>
+                        <p t-esc="doc.decisions"/>
+                        <h4>Actions</h4>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>Owner</th>
+                                    <th>Due</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.action_ids" t-as="action">
+                                    <td t-esc="action.name"/>
+                                    <td t-esc="action.owner_id.name"/>
+                                    <td t-esc="action.due_date"/>
+                                    <td t-esc="action.status"/>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

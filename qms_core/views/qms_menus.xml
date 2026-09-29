@@ -1,0 +1,19 @@
+<odoo>
+    <!-- ======================= ROOT 1 : COCKPIT (pilotage) ======================= -->
+    <menuitem id="menu_qms_cockpit_root" name="QMS Cockpit" sequence="5" groups="qms_core.group_qms_user" web_icon="qms_dashboard,static/description/icon.png"/>
+    <!-- ======================= ROOT 2 : SYSTEM (referentiel) ======================= -->
+    <menuitem id="menu_qms_root" name="QMS System" sequence="10" groups="qms_core.group_qms_user" web_icon="qms_core,static/description/icon.png"/>
+    <menuitem id="menu_qms_setup" name="Management System" parent="menu_qms_root" sequence="10"/>
+    <menuitem id="menu_qms_standards" name="Standards" parent="menu_qms_setup" action="action_qms_standard" sequence="10"/>
+    <menuitem id="menu_qms_requirements" name="Requirements" parent="menu_qms_setup" action="action_qms_requirement" sequence="20"/>
+    <menuitem id="menu_qms_processes" name="Processes" parent="menu_qms_setup" action="action_qms_process" sequence="30"/>
+    <menuitem id="menu_qms_risks" name="Risks" parent="menu_qms_setup" action="action_qms_risk" sequence="40"/>
+    <menuitem id="menu_qms_controls" name="Controls" parent="menu_qms_setup" action="action_qms_control" sequence="50"/>
+    <menuitem id="menu_qms_evidence" name="Evidence" parent="menu_qms_root" action="action_qms_evidence" sequence="20"/>
+    <menuitem id="menu_qms_standard_transitions" name="Standard Transitions" parent="menu_qms_setup" action="action_qms_standard_transition" sequence="15"/>
+    <menuitem id="menu_qms_standard_mappings" name="Requirement Mappings" parent="menu_qms_setup" action="action_qms_standard_mapping" sequence="16"/>
+    <!-- ======================= ROOT 3 : ASSURANCE (verification) ======================= -->
+    <menuitem id="menu_qms_assurance_root" name="QMS Assurance" sequence="20" groups="qms_core.group_qms_user" web_icon="qms_audit,static/description/icon.png"/>
+    <!-- ======================= ROOT 4 : PROGRESS (humain & progres) ======================= -->
+    <menuitem id="menu_qms_progress_root" name="QMS Progress" sequence="30" groups="qms_core.group_qms_user" web_icon="qms_improvement,static/description/icon.png"/>
+</odoo>
