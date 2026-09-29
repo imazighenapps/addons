@@ -18,7 +18,7 @@ Features
     
     
     ''',
-    'version': '20.0.1.1.0',
+    'version': '2.0.1.1.0',
     'category': 'Quality',
     'author': 'FARID SLIMANI',
     'license': 'OPL-1',
@@ -40,7 +40,6 @@ Features
         'demo/qms_demo_audit.xml',
     ],
     'images': [
-        'static/description/icon.png',
         'static/description/banner.png',
     ],
     'installable': True,
