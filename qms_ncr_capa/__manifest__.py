@@ -40,7 +40,7 @@ Features
         'demo/qms_demo_ncr.xml',
     ],
     'images': [
-        'static/description/icon.png',
+    
         'static/description/banner.png',
     ],
     'installable': True,

@@ -48,7 +48,7 @@ Features
     ],
     'assets': {'web.assets_backend': ['qms_dashboard/static/src/js/qms_cockpit.js', 'qms_dashboard/static/src/xml/qms_cockpit.xml', 'qms_dashboard/static/src/scss/qms_cockpit.scss']},
     'images': [
-        'static/description/icon.png',
+         
         'static/description/banner.png',
     ],
     'installable': True,

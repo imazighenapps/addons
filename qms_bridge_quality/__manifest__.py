@@ -34,7 +34,6 @@ Features
         'security/ir.access.csv',
     ],
     'images': [
-        'static/description/icon.png',
         'static/description/banner.png',
     ],
     'installable': True,

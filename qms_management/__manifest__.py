@@ -48,7 +48,7 @@ Features
         'views/qms_report_buttons.xml',
     ],
     'images': [
-        'static/description/icon.png',
+        
         'static/description/banner.png',
     ],
     'installable': True,
