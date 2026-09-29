@@ -39,7 +39,7 @@ Features
         'demo/qms_demo_measurement.xml',
     ],
     'images': [
-        'static/description/icon.png',
+        
         'static/description/banner.png',
     ],
     'installable': True,

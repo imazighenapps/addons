@@ -41,7 +41,7 @@ Features
         'demo/qms_demo_certification.xml',
     ],
     'images': [
-        'static/description/icon.png',
+        
         'static/description/banner.png',
     ],
     'installable': True,
