@@ -22,7 +22,7 @@ Features
     'category': 'Quality',
     'author': 'FARID SLIMANI',
     'license': 'OPL-1',
-    'price': 49,
+    'price': 29,
     'currency': 'EUR',
     'depends': [
         'qms_core',
