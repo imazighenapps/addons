@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_qms_document_ack_manager,qms.document.ack manager,qms.document.ack,qms_core.group_qms_manager,crud,
+access_qms_document_ack_user,qms.document.ack user,qms.document.ack,qms_core.group_qms_user,cru,
+access_qms_document_manager,qms.document manager,qms.document,qms_core.group_qms_manager,crud,
+access_qms_document_user,qms.document user,qms.document,qms_core.group_qms_user,cru,
+access_qms_document_version_manager,qms.document.version manager,qms.document.version,qms_core.group_qms_manager,crud,
+access_qms_document_version_user,qms.document.version user,qms.document.version,qms_core.group_qms_user,cru,
+comp_qms_document_ack_company,Document Ack multi-company,qms.document.ack,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_document_company,Document multi-company,qms.document,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_document_version_company,Document Version multi-company,qms.document.version,,crud,"[('company_id', 'in', company_ids)]"

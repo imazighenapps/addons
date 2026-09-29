@@ -1,0 +1,9 @@
+<odoo>
+    <record id="group_qms_user" model="res.groups">
+        <field name="name">QMS User</field>
+    </record>
+    <record id="group_qms_manager" model="res.groups">
+        <field name="name">QMS Manager</field>
+        <field name="implied_ids" eval="[(4, ref('qms_core.group_qms_user'))]"/>
+    </record>
+</odoo>

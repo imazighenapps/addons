@@ -1,0 +1,18 @@
+id,name,model_id,group_id/id,operation,domain
+access_qms_audit_line_manager,qms.audit.line manager,qms.audit.line,qms_core.group_qms_manager,crud,
+access_qms_audit_line_user,qms.audit.line user,qms.audit.line,qms_core.group_qms_user,cru,
+access_qms_audit_manager,qms.audit manager,qms.audit,qms_core.group_qms_manager,crud,
+access_qms_audit_program_manager,qms.audit.program manager,qms.audit.program,qms_core.group_qms_manager,crud,
+access_qms_audit_program_user,qms.audit.program user,qms.audit.program,qms_core.group_qms_user,cru,
+access_qms_audit_template_line_manager,qms.audit.template.line manager,qms.audit.template.line,qms_core.group_qms_manager,crud,
+access_qms_audit_template_line_user,qms.audit.template.line user,qms.audit.template.line,qms_core.group_qms_user,cru,
+access_qms_audit_template_manager,qms.audit.template manager,qms.audit.template,qms_core.group_qms_manager,crud,
+access_qms_audit_template_user,qms.audit.template user,qms.audit.template,qms_core.group_qms_user,cru,
+access_qms_audit_user,qms.audit user,qms.audit,qms_core.group_qms_user,cru,
+access_qms_finding_manager,qms.finding manager,qms.finding,qms_core.group_qms_manager,crud,
+access_qms_finding_user,qms.finding user,qms.finding,qms_core.group_qms_user,cru,
+comp_qms_audit_company,Audit multi-company,qms.audit,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_audit_line_company,Audit Line multi-company,qms.audit.line,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_audit_program_company,Audit Program multi-company,qms.audit.program,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_audit_template_company,Audit Template multi-company,qms.audit.template,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_finding_company,Finding multi-company,qms.finding,,crud,"[('company_id', 'in', company_ids)]"

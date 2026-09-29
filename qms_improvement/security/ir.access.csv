@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_qms_improvement_manager,qms.improvement manager,qms.improvement,qms_improvement.group_qms_improvement_manager,crud,
+access_qms_improvement_user,qms.improvement user,qms.improvement,qms_improvement.group_qms_improvement_user,cru,
+access_qms_lesson_manager,qms.lesson.learned manager,qms.lesson.learned,qms_improvement.group_qms_improvement_manager,crud,
+access_qms_lesson_user,qms.lesson.learned user,qms.lesson.learned,qms_improvement.group_qms_improvement_user,cru,
+comp_qms_improvement_company,Improvement multi-company,qms.improvement,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_lesson_learned_company,Lesson Learned multi-company,qms.lesson.learned,,crud,"[('company_id', 'in', company_ids)]"

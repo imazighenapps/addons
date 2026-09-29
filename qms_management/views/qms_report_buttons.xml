@@ -1,0 +1,32 @@
+<odoo>
+    <record id="view_qms_audit_report_button" model="ir.ui.view">
+        <field name="name">qms.audit.form.report.button</field>
+        <field name="model">qms.audit</field>
+        <field name="inherit_id" ref="qms_audit.view_qms_audit_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="%(action_report_qms_audit)d" type="action" string="Print Report" class="btn-secondary"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_qms_ncr_report_button" model="ir.ui.view">
+        <field name="name">qms.ncr.form.report.button</field>
+        <field name="model">qms.ncr</field>
+        <field name="inherit_id" ref="qms_ncr_capa.view_qms_ncr_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="%(action_report_qms_ncr)d" type="action" string="Print Report" class="btn-secondary"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_qms_review_report_button" model="ir.ui.view">
+        <field name="name">qms.management.review.form.report.button</field>
+        <field name="model">qms.management.review</field>
+        <field name="inherit_id" ref="qms_management_review.view_qms_review_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="%(action_report_qms_review)d" type="action" string="Print Report" class="btn-secondary"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

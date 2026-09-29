@@ -1,0 +1,127 @@
+<odoo>
+    <record id="view_qms_standard_mapping_list" model="ir.ui.view">
+        <field name="name">qms.standard.mapping.list</field>
+        <field name="model">qms.standard.mapping</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="source_standard_id"/>
+                <field name="source_requirement_id"/>
+                <field name="target_requirement_id"/>
+                <field name="mapping_type" widget="badge"/>
+                <field name="impact" widget="badge"/>
+                <field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_standard_mapping_form" model="ir.ui.view">
+        <field name="name">qms.standard.mapping.form</field>
+        <field name="model">qms.standard.mapping</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="company_id"/>
+                            <field name="source_standard_id"/>
+                            <field name="source_requirement_id"/>
+                        </group>
+                        <group>
+                            <field name="target_standard_id"/>
+                            <field name="target_requirement_id"/>
+                            <field name="mapping_type"/>
+                            <field name="impact"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                    <field name="transition_id"/>
+                    <field name="transition_action"/>
+                    <field name="notes"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_qms_standard_transition_list" model="ir.ui.view">
+        <field name="name">qms.standard.transition.list</field>
+        <field name="model">qms.standard.transition</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="source_standard_id"/>
+                <field name="target_standard_id"/>
+                <field name="deadline"/>
+                <field name="completion_percent"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_standard_transition_form" model="ir.ui.view">
+        <field name="name">qms.standard.transition.form</field>
+        <field name="model">qms.standard.transition</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start_assessment" type="object" string="Start Assessment" class="btn-primary" invisible="state != 'planned'"/>
+                    <button name="action_start" type="object" string="Start Transition" class="btn-primary" invisible="state != 'assessing'"/>
+                    <button name="action_complete" type="object" string="Complete" class="btn-primary" invisible="state != 'in_progress'"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state in ('completed','cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="planned,assessing,in_progress,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code" readonly="1"/>
+                            <field name="company_id"/>
+                            <field name="source_standard_id"/>
+                            <field name="target_standard_id"/>
+                        </group>
+                        <group>
+                            <field name="owner_id"/>
+                            <field name="deadline"/>
+                            <field name="mapping_count" readonly="1"/>
+                            <field name="migrated_count" readonly="1"/>
+                            <field name="completion_percent" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Scope">
+                            <field name="scope"/>
+                            <field name="impact_summary"/>
+                        </page>
+                        <page string="Mappings">
+                            <field name="mapping_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="source_requirement_id"/>
+                                    <field name="target_requirement_id"/>
+                                    <field name="mapping_type"/>
+                                    <field name="impact"/>
+                                    <field name="status"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_qms_standard_mapping" model="ir.actions.act_window">
+        <field name="name">Requirement Mappings</field>
+        <field name="res_model">qms.standard.mapping</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_qms_standard_transition" model="ir.actions.act_window">
+        <field name="name">Standard Transitions</field>
+        <field name="res_model">qms.standard.transition</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

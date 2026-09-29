@@ -1,0 +1,55 @@
+<odoo>
+    <record id="view_qms_requirement_compliance_matrix_list" model="ir.ui.view">
+        <field name="name">qms.requirement.compliance.matrix.list</field>
+        <field name="model">qms.requirement</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="compliance_state == 'missing'" decoration-warning="compliance_state == 'partial'" decoration-success="compliance_state == 'supported'">
+                <field name="standard_id"/>
+                <field name="clause_id"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="process_count"/>
+                <field name="risk_count"/>
+                <field name="control_count"/>
+                <field name="valid_evidence_count"/>
+                <field name="open_ncr_count"/>
+                <field name="open_capa_count"/>
+                <field name="support_score" widget="progressbar"/>
+                <field name="compliance_state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_requirement_compliance_matrix_search" model="ir.ui.view">
+        <field name="name">qms.requirement.compliance.matrix.search</field>
+        <field name="model">qms.requirement</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="standard_id"/>
+                <field name="clause_id"/>
+                <field name="code"/>
+                <field name="name"/>
+                <filter string="Missing" name="matrix_missing" domain="[('compliance_state', '=', 'missing')]"/>
+                <filter string="Partial" name="matrix_partial" domain="[('compliance_state', '=', 'partial')]"/>
+                <filter string="Supported" name="matrix_supported" domain="[('compliance_state', '=', 'supported')]"/>
+                <group>
+                    <filter name="group_standard" string="Standard" context="{'group_by': 'standard_id'}"/>
+                    <filter name="group_clause" string="Clause" context="{'group_by': 'clause_id'}"/>
+                    <filter name="group_compliance" string="Compliance" context="{'group_by': 'compliance_state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_qms_compliance_matrix" model="ir.actions.act_window">
+        <field name="name">Compliance Matrix</field>
+        <field name="res_model">qms.requirement</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_qms_requirement_compliance_matrix_list"/>
+        <field name="search_view_id" ref="view_qms_requirement_compliance_matrix_search"/>
+    </record>
+    <record id="action_qms_dashboard_server" model="ir.actions.server">
+        <field name="name">Open QMS Executive Cockpit</field>
+        <field name="model_id" ref="model_qms_dashboard"/>
+        <field name="state">code</field>
+        <field name="code">action = env["qms.dashboard"].action_open_dashboard()</field>
+    </record>
+</odoo>

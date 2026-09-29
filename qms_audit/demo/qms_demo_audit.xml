@@ -1,0 +1,37 @@
+<odoo>
+    <record id="demo_audit_program" model="qms.audit.program">
+        <field name="name">Annual Audit Program 2026</field>
+        <field name="year">2026</field>
+        <field name="cycle_type">annual</field>
+    </record>
+    <record id="demo_audit_template" model="qms.audit.template">
+        <field name="name">ISO 9001 Internal Checklist (Demo)</field>
+        <field name="standard_id" ref="qms_core.standard_iso_9001_2026"/>
+    </record>
+    <record id="demo_audit" model="qms.audit">
+        <field name="name">Internal Audit Q3 - Production (Demo)</field>
+        <field name="program_id" ref="qms_audit.demo_audit_program"/>
+        <field name="audit_type">internal</field>
+        <field name="scope">Production and incoming inspection processes</field>
+        <field name="state">in_progress</field>
+        <field name="risk_basis">High residual risks on suppliers and calibration</field>
+    </record>
+    <record id="demo_audit_line_1" model="qms.audit.line">
+        <field name="audit_id" ref="qms_audit.demo_audit"/>
+        <field name="sequence">10</field>
+        <field name="question">Are incoming goods inspected?</field>
+        <field name="result">conform</field>
+    </record>
+    <record id="demo_audit_line_2" model="qms.audit.line">
+        <field name="audit_id" ref="qms_audit.demo_audit"/>
+        <field name="sequence">20</field>
+        <field name="question">Are gauges calibrated?</field>
+        <field name="result">minor</field>
+    </record>
+    <record id="demo_finding" model="qms.finding">
+        <field name="name">Calibration stickers missing on 2 gauges</field>
+        <field name="audit_id" ref="qms_audit.demo_audit"/>
+        <field name="severity">minor</field>
+        <field name="description">Two pressure gauges found without valid calibration stickers.</field>
+    </record>
+</odoo>

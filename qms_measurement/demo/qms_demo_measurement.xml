@@ -1,0 +1,15 @@
+<odoo>
+    <record id="demo_equipment_caliper" model="qms.measurement.equipment">
+        <field name="name">Digital Caliper MIT-150 (Demo)</field>
+        <field name="equipment_type">Caliper</field>
+        <field name="serial_number">SN-DEMO-001</field>
+        <field name="criticality">high</field>
+        <field name="calibration_interval">180</field>
+        <field name="state">active</field>
+    </record>
+    <record id="demo_calibration" model="qms.measurement.calibration">
+        <field name="equipment_id" ref="qms_measurement.demo_equipment_caliper"/>
+        <field name="calibration_date">2026-09-01</field>
+        <field name="result">pass</field>
+    </record>
+</odoo>

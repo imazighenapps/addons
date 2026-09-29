@@ -1,0 +1,98 @@
+<odoo>
+    <record id="view_qms_objective_tree" model="ir.ui.view">
+        <field name="name">qms.objective.tree</field>
+        <field name="model">qms.objective</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="objective_type"/>
+                <field name="owner_id"/>
+                <field name="current_value"/>
+                <field name="target_value"/>
+                <field name="progress_percent"/>
+                <field name="deadline"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_objective_form" model="ir.ui.view">
+        <field name="name">qms.objective.form</field>
+        <field name="model">qms.objective</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="objective_type"/>
+                            <field name="process_id"/>
+                            <field name="owner_id"/>
+                        </group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="direction"/>
+                            <field name="unit"/>
+                            <field name="start_date"/>
+                            <field name="deadline"/>
+                        </group>
+                    </group>
+                    <group string="Performance">
+                        <group>
+                            <field name="baseline_value"/>
+                            <field name="target_value"/>
+                            <field name="current_value" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="progress_percent" readonly="1" widget="progressbar"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Measurements">
+                            <field name="measurement_ids">
+                                <list editable="bottom">
+                                    <field name="date"/>
+                                    <field name="value"/>
+                                    <field name="source"/>
+                                    <field name="note"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_qms_objective_measurement_tree" model="ir.ui.view">
+        <field name="name">qms.objective.measurement.tree</field>
+        <field name="model">qms.objective.measurement</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="objective_id"/>
+                <field name="date"/>
+                <field name="value"/>
+                <field name="source"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_qms_objective" model="ir.actions.act_window">
+        <field name="name">Objectives</field>
+        <field name="res_model">qms.objective</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_qms_objective_measurement" model="ir.actions.act_window">
+        <field name="name">Measurements</field>
+        <field name="res_model">qms.objective.measurement</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

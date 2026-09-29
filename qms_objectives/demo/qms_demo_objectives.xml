@@ -1,0 +1,28 @@
+<odoo>
+    <record id="demo_objective_scrap" model="qms.objective">
+        <field name="name">Reduce scrap rate below 1.5% (Demo)</field>
+        <field name="objective_type">quality</field>
+        <field name="direction">decrease</field>
+        <field name="baseline_value">2.8</field>
+        <field name="target_value">1.5</field>
+        <field name="status">on_track</field>
+    </record>
+    <record id="demo_objective_otd" model="qms.objective">
+        <field name="name">On-time delivery above 98% (Demo)</field>
+        <field name="objective_type">customer</field>
+        <field name="direction">increase</field>
+        <field name="baseline_value">94.0</field>
+        <field name="target_value">98.0</field>
+        <field name="status">at_risk</field>
+    </record>
+    <record id="demo_measurement_1" model="qms.objective.measurement">
+        <field name="objective_id" ref="qms_objectives.demo_objective_scrap"/>
+        <field name="date">2026-08-01</field>
+        <field name="value">2.4</field>
+    </record>
+    <record id="demo_measurement_2" model="qms.objective.measurement">
+        <field name="objective_id" ref="qms_objectives.demo_objective_scrap"/>
+        <field name="date">2026-09-01</field>
+        <field name="value">2.1</field>
+    </record>
+</odoo>

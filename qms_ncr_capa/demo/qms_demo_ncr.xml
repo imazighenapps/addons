@@ -1,0 +1,25 @@
+<odoo>
+    <record id="demo_ncr" model="qms.ncr">
+        <field name="name">Nonconforming batch B-DEMO-01</field>
+        <field name="source">process</field>
+        <field name="severity">major</field>
+        <field name="description">Batch out of tolerance on diameter.</field>
+        <field name="containment">Batch quarantined in MRB area.</field>
+        <field name="root_cause">Worn cutting tool not replaced per schedule.</field>
+        <field name="status">action</field>
+    </record>
+    <record id="demo_capa" model="qms.capa">
+        <field name="name">Implement tool-life monitoring (Demo)</field>
+        <field name="ncr_id" ref="qms_ncr_capa.demo_ncr"/>
+        <field name="action_type">corrective</field>
+        <field name="action_description">Install tool-life counters and alerts on CNC machines.</field>
+        <field name="owner_id" ref="base.user_admin"/>
+        <field name="status">in_progress</field>
+    </record>
+    <record id="demo_cost" model="qms.quality.cost">
+        <field name="name">Scrap batch B-DEMO-01</field>
+        <field name="date">2026-09-10</field>
+        <field name="cost_type">internal_failure</field>
+        <field name="amount">4250.0</field>
+    </record>
+</odoo>

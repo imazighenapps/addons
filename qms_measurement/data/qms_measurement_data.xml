@@ -1,0 +1,17 @@
+<odoo>
+    <record id="seq_qms_measurement_equipment" model="ir.sequence">
+        <field name="name">QMS Measurement Equipment</field>
+        <field name="code">qms.measurement.equipment</field>
+        <field name="prefix">CAL/%(year)s/</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="ir_cron_qms_measurement" model="ir.cron">
+        <field name="name">QMS Measurement Status Check</field>
+        <field name="model_id" ref="model_qms_measurement_equipment"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_update_status()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

@@ -1,0 +1,26 @@
+<odoo>
+    <record id="demo_partner_acme" model="res.partner">
+        <field name="name">Acme Industries (Demo)</field>
+        <field name="email">quality@acme.example</field>
+    </record>
+    <record id="demo_complaint_late" model="qms.complaint">
+        <field name="name">Late delivery - order SO-DEMO-01</field>
+        <field name="partner_id" ref="qms_complaints.demo_partner_acme"/>
+        <field name="category">delivery</field>
+        <field name="description">Order arrived late, line stopped for half a day.</field>
+        <field name="received_at">2026-09-12 09:00:00</field>
+        <field name="response_sla_hours">24.0</field>
+        <field name="sla_escalation_hours">72.0</field>
+        <field name="state">investigating</field>
+    </record>
+    <record id="demo_complaint_quality" model="qms.complaint">
+        <field name="name">Scratched housings (Demo)</field>
+        <field name="partner_id" ref="qms_complaints.demo_partner_acme"/>
+        <field name="category">product</field>
+        <field name="description">Cosmetic scratches on 5% of housings.</field>
+        <field name="received_at">2026-09-05 14:30:00</field>
+        <field name="response_sla_hours">24.0</field>
+        <field name="sla_escalation_hours">72.0</field>
+        <field name="state">new</field>
+    </record>
+</odoo>

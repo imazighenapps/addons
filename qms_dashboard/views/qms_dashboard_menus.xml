@@ -1,0 +1,5 @@
+<odoo>
+    <menuitem id="menu_qms_dashboard" name="Dashboard" parent="qms_core.menu_qms_cockpit_root" action="action_qms_dashboard_client" sequence="10" groups="qms_dashboard.group_qms_dashboard_user"/>
+    <menuitem id="menu_qms_compliance" name="Compliance" parent="qms_core.menu_qms_cockpit_root" sequence="20" groups="qms_dashboard.group_qms_dashboard_user"/>
+    <menuitem id="menu_qms_compliance_matrix" name="Compliance Matrix" parent="menu_qms_compliance" action="qms_dashboard.action_qms_compliance_matrix" sequence="10" groups="qms_dashboard.group_qms_dashboard_user"/>
+</odoo>

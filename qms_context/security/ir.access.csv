@@ -1,0 +1,16 @@
+id,name,model_id,group_id/id,operation,domain
+access_qms_context_issue_manager,qms.context.issue manager,qms.context.issue,qms_context.group_qms_context_manager,crud,
+access_qms_context_issue_user,qms.context.issue user,qms.context.issue,qms_context.group_qms_context_user,cru,
+access_qms_interested_party_manager,qms.interested.party manager,qms.interested.party,qms_context.group_qms_context_manager,crud,
+access_qms_interested_party_user,qms.interested.party user,qms.interested.party,qms_context.group_qms_context_user,cru,
+access_qms_obligation_manager,qms.compliance.obligation manager,qms.compliance.obligation,qms_context.group_qms_context_manager,crud,
+access_qms_obligation_user,qms.compliance.obligation user,qms.compliance.obligation,qms_context.group_qms_context_user,cru,
+access_qms_opportunity_manager,qms.opportunity manager,qms.opportunity,qms_context.group_qms_context_manager,crud,
+access_qms_opportunity_user,qms.opportunity user,qms.opportunity,qms_context.group_qms_context_user,cru,
+access_qms_scope_manager,qms.management.scope manager,qms.management.scope,qms_context.group_qms_context_manager,crud,
+access_qms_scope_user,qms.management.scope user,qms.management.scope,qms_context.group_qms_context_user,cru,
+comp_qms_compliance_obligation_company,Compliance Obligation multi-company,qms.compliance.obligation,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_context_issue_company,Context Issue multi-company,qms.context.issue,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_interested_party_company,Interested Party multi-company,qms.interested.party,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_management_scope_company,Management Scope multi-company,qms.management.scope,,crud,"[('company_id', 'in', company_ids)]"
+comp_qms_opportunity_company,Opportunity multi-company,qms.opportunity,,crud,"[('company_id', 'in', company_ids)]"

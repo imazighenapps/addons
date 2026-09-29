@@ -1,0 +1,169 @@
+<odoo>
+    <record id="view_qms_review_tree" model="ir.ui.view">
+        <field name="name">qms.management.review.tree</field>
+        <field name="model">qms.management.review</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="meeting_date"/>
+                <field name="chair_id"/>
+                <field name="closed_audit_count"/>
+                <field name="open_ncr_count"/>
+                <field name="overdue_capa_count"/>
+                <field name="high_risk_count"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_review_form" model="ir.ui.view">
+        <field name="name">qms.management.review.form</field>
+        <field name="model">qms.management.review</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_prepare_snapshot" string="Prepare Snapshot" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_mark_held" string="Mark Held" type="object" invisible="state != 'prepared'"/>
+                    <button name="action_close" string="Close Review" type="object" class="btn-primary" invisible="state != 'held'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,prepared,held,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="meeting_date"/>
+                            <field name="period_start"/>
+                            <field name="period_end"/>
+                        </group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="chair_id"/>
+                            <field name="attendee_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <group string="Snapshot">
+                        <group>
+                            <field name="closed_audit_count"/>
+                            <field name="open_ncr_count"/>
+                            <field name="overdue_capa_count"/>
+                        </group>
+                        <group>
+                            <field name="high_risk_count"/>
+                            <field name="objective_at_risk_count"/>
+                            <field name="expired_training_count"/>
+                            <field name="open_complaint_count"/>
+                            <field name="overdue_calibration_count"/>
+                            <field name="open_opportunity_count"/>
+                            <field name="compliance_gap_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Context &amp; Compliance">
+                            <field name="context_summary"/>
+                            <field name="compliance_gap_count"/>
+                        </page>
+                        <page string="Suppliers">
+                            <field name="supplier_summary"/>
+                        </page>
+                        <page string="Complaints &amp; Measurement">
+                            <field name="open_complaint_count"/>
+                            <field name="measurement_summary"/>
+                        </page>
+                        <page string="Improvement">
+                            <field name="improvement_summary"/>
+                        </page>
+                        <page string="Audits">
+                            <field name="audit_summary"/>
+                        </page>
+                        <page string="NCR &amp; CAPA">
+                            <field name="ncr_capa_summary"/>
+                        </page>
+                        <page string="Risks">
+                            <field name="risk_summary"/>
+                        </page>
+                        <page string="Objectives">
+                            <field name="objective_summary"/>
+                        </page>
+                        <page string="People">
+                            <field name="people_summary"/>
+                        </page>
+                        <page string="Resources">
+                            <field name="resource_needs"/>
+                        </page>
+                        <page string="Decisions">
+                            <field name="decisions"/>
+                        </page>
+                        <page string="Actions">
+                            <field name="action_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="owner_id"/>
+                                    <field name="due_date"/>
+                                    <field name="status"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_qms_review_action_tree" model="ir.ui.view">
+        <field name="name">qms.management.action.tree</field>
+        <field name="model">qms.management.action</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="review_id"/>
+                <field name="name"/>
+                <field name="owner_id"/>
+                <field name="due_date"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qms_review_action_form" model="ir.ui.view">
+        <field name="name">qms.management.action.form</field>
+        <field name="model">qms.management.action</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start" string="Start" type="object" invisible="status != 'planned'"/>
+                    <button name="action_done" string="Done" type="object" class="btn-primary" invisible="status not in ('planned','in_progress')"/>
+                    <button name="action_cancel" string="Cancel" type="object" invisible="status in ('done','cancelled')"/>
+                    <field name="status" widget="statusbar" statusbar_visible="planned,in_progress,done,cancelled"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="review_id"/>
+                            <field name="name"/>
+                            <field name="owner_id"/>
+                        </group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="due_date"/>
+                        </group>
+                    </group>
+                    <field name="description"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_qms_management_review" model="ir.actions.act_window">
+        <field name="name">Management Reviews</field>
+        <field name="res_model">qms.management.review</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_qms_management_action" model="ir.actions.act_window">
+        <field name="name">Management Actions</field>
+        <field name="res_model">qms.management.action</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
