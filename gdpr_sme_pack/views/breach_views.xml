@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_gdpr_breach_list" model="ir.ui.view">
+        <field name="name">gdpr.breach.list</field>
+        <field name="model">gdpr.breach</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="nature"/>
+                <field name="risk" widget="badge" decoration-danger="risk == 'high'" decoration-warning="risk == 'low'" decoration-muted="risk == 'unlikely'"/>
+                <field name="awareness_date"/>
+                <field name="notify_deadline"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_gdpr_breach_form" model="ir.ui.view">
+        <field name="name">gdpr.breach.form</field>
+        <field name="model">gdpr.breach</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_assess" string="Assess" type="object"/>
+                    <button name="action_notify" string="Notify Authority" type="object" class="btn-primary"/>
+                    <button name="action_close" string="Close" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="detected,assessing,notified,closed"/>
+                </header>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group string="Breach">
+                            <field name="detection_date"/>
+                            <field name="awareness_date"/>
+                            <field name="nature"/>
+                            <field name="risk"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group string="Notification (72h)">
+                            <field name="notify_deadline"/>
+                            <field name="notify_authority"/>
+                            <field name="notify_justification"/>
+                            <field name="notified_date"/>
+                            <field name="delay_reason"/>
+                            <field name="notify_persons"/>
+                            <field name="notify_method"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="categories"/>
+                        <field name="volume_persons"/>
+                        <field name="volume_records"/>
+                    </group>
+                    <field name="consequences"/>
+                    <field name="measures"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_gdpr_breach" model="ir.actions.act_window">
+        <field name="name">Breaches (Art.33-34)</field>
+        <field name="res_model">gdpr.breach</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

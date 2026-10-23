@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pm_counter_list" model="ir.ui.view">
+        <field name="name">pm.counter.list</field>
+        <field name="model">pm.counter</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="type_id"/>
+                <field name="last_value"/>
+                <field name="next_due_value"/>
+                <field name="last_reading_date"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_pm_counter_form" model="ir.ui.view">
+        <field name="name">pm.counter.form</field>
+        <field name="model">pm.counter</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <field name="equipment_id"/>
+                        <field name="type_id"/>
+                        <field name="warning_target"/>
+                        <field name="critical_target"/>
+                        <field name="interval_target"/>
+                        <field name="tolerance"/>
+                        <field name="last_value"/>
+                        <field name="last_reading_date"/>
+                        <field name="next_due_value"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_pm_counter" model="ir.actions.act_window">
+        <field name="name">Counters</field>
+        <field name="res_model">pm.counter</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

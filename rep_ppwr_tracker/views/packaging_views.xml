@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_rep_packaging_list" model="ir.ui.view">
+        <field name="name">rep.packaging.list</field>
+        <field name="model">rep.packaging</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="material_id"/>
+                <field name="level"/>
+                <field name="reuse"/>
+                <field name="recyclability_class"/>
+                <field name="eco_cost_unit"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_rep_packaging_form" model="ir.ui.view">
+        <field name="name">rep.packaging.form</field>
+        <field name="model">rep.packaging</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group string="Packaging">
+                            <field name="material_id"/>
+                            <field name="weight_g"/>
+                            <field name="qty_per_unit"/>
+                            <field name="level"/>
+                            <field name="reuse"/>
+                            <field name="deposit_id"/>
+                            <field name="company_id"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="PPWR">
+                            <field name="recycled_pct"/>
+                            <field name="recyclability_class"/>
+                            <field name="food_contact"/>
+                            <field name="soc_flag"/>
+                            <field name="eco_cost_unit"/>
+                        </group>
+                    </group>
+                    <field name="product_ids" widget="many2many_tags"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rep_packaging" model="ir.actions.act_window">
+        <field name="name">Packaging Sheets</field>
+        <field name="res_model">rep.packaging</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

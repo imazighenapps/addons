@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qes_envelope_list" model="ir.ui.view">
+        <field name="name">qes.envelope.list</field>
+        <field name="model">qes.envelope</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="account_id"/>
+                <field name="state" widget="badge" decoration-success="state in ('signed', 'completed')" decoration-info="state == 'sent'" decoration-warning="state in ('draft', 'ready', 'partial')" decoration-danger="state in ('error', 'expired', 'refused')"/>
+                <field name="provider_tx_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qes_envelope_form" model="ir.ui.view">
+        <field name="name">qes.envelope.form</field>
+        <field name="model">qes.envelope</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_prepare" string="Prepare" type="object"/>
+                    <button name="action_start" string="Start Signing" type="object" class="btn-primary"/>
+                    <button name="action_check_status" string="Check Status" type="object"/>
+                    <button name="action_fetch_evidence" string="Evidence File" type="object"/>
+                    <button name="action_archive" string="Archive" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,signed,completed,archived"/>
+                </header>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group string="Envelope">
+                            <field name="account_id"/>
+                            <field name="company_id"/>
+                            <field name="provider_tx_id"/>
+                            <field name="expiry_date"/>
+                        </group>
+                        <group string="Result">
+                            <field name="signed_pdf_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Participants" name="participants">
+                            <field name="participant_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="email"/>
+                                    <field name="role"/>
+                                    <field name="required_level"/>
+                                    <field name="obtained_level"/>
+                                    <field name="signed_on"/>
+                                </list>
+                                <form>
+                                    <field name="name"/>
+                                    <group>
+                                        <field name="partner_id"/>
+                                        <field name="email"/>
+                                        <field name="phone"/>
+                                        <field name="role"/>
+                                        <field name="sequence"/>
+                                        <field name="required_level"/>
+                                        <field name="obtained_level"/>
+                                        <field name="auth_means"/>
+                                        <field name="signed_on"/>
+                                    </group>
+                                    <field name="sign_url"/>
+                                    <field name="cert_info"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Documents" name="documents">
+                            <field name="document_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="sha256_origin"/>
+                                    <field name="pades_level"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Audit Trail" name="audit">
+                            <field name="event_ids" readonly="1">
+                                <list>
+                                    <field name="create_date"/>
+                                    <field name="etype"/>
+                                    <field name="actor"/>
+                                    <field name="event_hash"/>
+                                </list>
+                            </field>
+                            <field name="validation_report"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_qes_envelope" model="ir.actions.act_window">
+        <field name="name">Envelopes</field>
+        <field name="res_model">qes.envelope</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

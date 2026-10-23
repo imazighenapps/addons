@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mat_pet" model="rep.material"><field name="name">PET</field><field name="family">plastic</field><field name="resin">PET</field></record>
+    <record id="mat_pehd" model="rep.material"><field name="name">PE-HD</field><field name="family">plastic</field><field name="resin">PE-HD</field></record>
+    <record id="mat_pp" model="rep.material"><field name="name">PP</field><field name="family">plastic</field><field name="resin">PP</field></record>
+    <record id="mat_plastic_other" model="rep.material"><field name="name">Other Plastics</field><field name="family">plastic</field></record>
+    <record id="mat_cardboard" model="rep.material"><field name="name">Corrugated Cardboard</field><field name="family">cardboard</field></record>
+    <record id="mat_carton_flat" model="rep.material"><field name="name">Flat Carton</field><field name="family">cardboard</field></record>
+    <record id="mat_glass" model="rep.material"><field name="name">Glass</field><field name="family">glass</field></record>
+    <record id="mat_steel" model="rep.material"><field name="name">Steel</field><field name="family">steel</field></record>
+    <record id="mat_alu" model="rep.material"><field name="name">Aluminium</field><field name="family">aluminium</field></record>
+    <record id="mat_wood" model="rep.material"><field name="name">Wood</field><field name="family">wood</field></record>
+    <record id="mat_paper" model="rep.material"><field name="name">Paper</field><field name="family">paper</field></record>
+    <!-- 2026 household tariffs (€/t, Citeo scheme, indicative defaults) -->
+    <record id="tariff_pet_2026" model="rep.tariff"><field name="material_id" ref="mat_pet"/><field name="eco_org">citeo</field><field name="year">2026</field><field name="price_per_t">339.71</field></record>
+    <record id="tariff_pehd_2026" model="rep.tariff"><field name="material_id" ref="mat_pehd"/><field name="eco_org">citeo</field><field name="year">2026</field><field name="price_per_t">339.71</field></record>
+    <record id="tariff_pp_2026" model="rep.tariff"><field name="material_id" ref="mat_pp"/><field name="eco_org">citeo</field><field name="year">2026</field><field name="price_per_t">339.71</field></record>
+    <record id="tariff_cardboard_2026" model="rep.tariff"><field name="material_id" ref="mat_cardboard"/><field name="eco_org">citeo</field><field name="year">2026</field><field name="price_per_t">148.69</field></record>
+    <record id="tariff_carton_flat_2026" model="rep.tariff"><field name="material_id" ref="mat_carton_flat"/><field name="eco_org">citeo</field><field name="year">2026</field><field name="price_per_t">234.94</field></record>
+    <record id="tariff_glass_2026" model="rep.tariff"><field name="material_id" ref="mat_glass"/><field name="eco_org">citeo</field><field name="year">2026</field><field name="price_per_t">7.61</field></record>
+    <record id="tariff_steel_2026" model="rep.tariff"><field name="material_id" ref="mat_steel"/><field name="eco_org">citeo</field><field name="year">2026</field><field name="price_per_t">26.73</field></record>
+    <record id="tariff_alu_2026" model="rep.tariff"><field name="material_id" ref="mat_alu"/><field name="eco_org">citeo</field><field name="year">2026</field><field name="price_per_t">79.75</field></record>
+    <record id="tariff_wood_2026" model="rep.tariff"><field name="material_id" ref="mat_wood"/><field name="eco_org">citeo</field><field name="year">2026</field><field name="price_per_t">32.31</field></record>
+    <record id="tariff_paper_2026" model="rep.tariff"><field name="material_id" ref="mat_paper"/><field name="eco_org">citeo</field><field name="year">2026</field><field name="price_per_t">107.75</field></record>
+    <!-- 2026 professional tariffs (€/t, indicative defaults) -->
+    <record id="tariff_plastic_pro_2026" model="rep.tariff"><field name="material_id" ref="mat_pet"/><field name="eco_org">citeo_pro</field><field name="year">2026</field><field name="price_per_t">217.80</field></record>
+    <record id="tariff_cardboard_pro_2026" model="rep.tariff"><field name="material_id" ref="mat_cardboard"/><field name="eco_org">citeo_pro</field><field name="year">2026</field><field name="price_per_t">34.70</field></record>
+    <record id="tariff_wood_pro_2026" model="rep.tariff"><field name="material_id" ref="mat_wood"/><field name="eco_org">citeo_pro</field><field name="year">2026</field><field name="price_per_t">8.50</field></record>
+    <record id="tariff_steel_pro_2026" model="rep.tariff"><field name="material_id" ref="mat_steel"/><field name="eco_org">citeo_pro</field><field name="year">2026</field><field name="price_per_t">8.00</field></record>
+</odoo>

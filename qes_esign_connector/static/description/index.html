@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO BANNER
+═══════════════════════════════════════════════════════════════ -->
+<section class="container-fluid"
+         style="background-color:#05080f;
+                padding:60px 20px 50px;text-align:center;border-radius:8px;margin-bottom:0;">
+
+    <!-- Module badge -->
+    <div class="mb-3">
+        <span style="background-color:rgba(61,155,255,0.15);color:#3d9bff;
+                     border:1px solid rgba(61,155,255,0.4);
+                     padding:6px 18px;border-radius:20px;
+                     font-size:12px;font-weight:700;letter-spacing:2px;
+                     text-transform:uppercase;">
+            ✍ &nbsp; eIDAS · Odoo 20
+        </span>
+    </div>
+
+    <h1 style="color:#ffffff;font-size:2.8rem;font-weight:900;
+               letter-spacing:-1px;margin-bottom:16px;line-height:1.15;">
+        QES eSignature Connector
+    </h1>
+
+    <p style="color:rgba(255,255,255,0.65);font-size:1.15rem;
+              max-width:620px;margin:0 auto 30px;line-height:1.7;">
+        Bring qualified electronic signatures to Odoo 20 Community —
+        SES / AdES / QES levels per participant, multi-provider framework
+        with working demo, hash-chained audit trail and evidence export.
+    </p>
+
+    <!-- Key stats row -->
+    <div class="d-flex justify-content-center flex-wrap"
+         style="gap:12px;margin-bottom:36px;">
+        <span style="background-color:rgba(255,255,255,0.08);color:#ffffff;
+                     border:1px solid rgba(255,255,255,0.15);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;">
+            ✍ &nbsp; SES / AdES / QES
+        </span>
+        <span style="background-color:rgba(255,255,255,0.08);color:#ffffff;
+                     border:1px solid rgba(255,255,255,0.15);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;">
+            🔗 &nbsp; Universign Ready
+        </span>
+        <span style="background-color:rgba(255,255,255,0.08);color:#ffffff;
+                     border:1px solid rgba(255,255,255,0.15);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;">
+            🔒 &nbsp; Hash-Chained Audit
+        </span>
+        <span style="background-color:rgba(255,255,255,0.08);color:#ffffff;
+                     border:1px solid rgba(255,255,255,0.15);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;">
+            🌐 &nbsp; 5 Languages
+        </span>
+        <span style="background-color:rgba(61,155,255,0.2);color:#3d9bff;
+                     border:1px solid rgba(61,155,255,0.4);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:700;">
+            ✅ &nbsp; Odoo 20 Ready
+        </span>
+    </div>
+
+    <!-- SCREENSHOT 1 — Envelope -->
+    <div style="max-width:752px;margin:0 auto;">
+        <img src="screenshot_01_envelope.png"
+             alt="QES eSignature Connector — Envelope with Participants and Levels"
+             style="width:100%;border-radius:10px;
+                    border:1px solid rgba(255,255,255,0.12);
+                    box-shadow:0 20px 60px rgba(0,0,0,0.5);"
+             class="img-fluid"/>
+        <p style="color:rgba(255,255,255,0.35);font-size:12px;margin-top:10px;
+                  text-align:center;letter-spacing:1px;text-transform:uppercase;">
+            Envelope with participants, required / obtained levels and signing state
+        </p>
+    </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     WHY QES
+═══════════════════════════════════════════════════════════════ -->
+<section class="container mt-5 mb-4">
+    <div class="text-center mb-4">
+        <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;">
+            Only QES Equals Handwritten Signature
+        </h2>
+        <p class="text-muted" style="max-width:560px;margin:8px auto 0;font-size:15px;">
+            Under eIDAS, only the qualified signature has full legal effect EU-wide.
+            Odoo Sign only does simple signatures — this module bridges the gap.
+        </p>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-6 col-md-4 mb-3">
+            <div style="background-color:#f8faff;border:1px solid #e0e7ff;
+                        border-radius:12px;padding:20px 12px;">
+                <div style="font-size:2rem;margin-bottom:8px;">✍</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;">SES Simple</div>
+                <div style="font-size:13px;color:#6b7280;">Checkbox, drawn, email link</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 mb-3">
+            <div style="background-color:#f8faff;border:1px solid #e0e7ff;
+                        border-radius:12px;padding:20px 12px;">
+                <div style="font-size:2rem;margin-bottom:8px;">🔐</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;">AdES Advanced</div>
+                <div style="font-size:13px;color:#6b7280;">Certificate + tamper evidence</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 mb-3">
+            <div style="background-color:#f0fdf4;border:1px solid #6ee7b7;
+                        border-radius:12px;padding:20px 12px;">
+                <div style="font-size:2rem;margin-bottom:8px;">🏛</div>
+                <div style="font-weight:700;font-size:14px;color:#065f46;">QES Qualified</div>
+                <div style="font-size:13px;color:#065f46;">QTSP + QSCD, full legal effect</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURE 1 — LEVELS PER PARTICIPANT
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#f8faff;border-radius:12px;padding:48px 40px;margin-bottom:8px;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-5 mb-4 mb-md-0">
+                <span style="background-color:#eff6ff;color:#3b82f6;
+                             border:1px solid rgba(59,130,246,.3);
+                             padding:4px 14px;border-radius:20px;
+                             font-size:11px;font-weight:700;letter-spacing:1.5px;
+                             text-transform:uppercase;display:inline-block;margin-bottom:16px;">
+                    Feature 01
+                </span>
+                <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;
+                           margin-bottom:14px;line-height:1.3;">
+                    Signature Level per Participant
+                </h2>
+                <p class="text-muted" style="font-size:14px;line-height:1.7;margin-bottom:16px;">
+                    The client signs qualified (QES), sales signs simple (SES),
+                    legal visas advanced (AdES) — all in one envelope, with the
+                    obtained level recorded for each participant.
+                </p>
+                <ul style="list-style:none;padding:0;margin:0;font-size:14px;">
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Roles: signer, visa, copy, sealer
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Signing order + authentication means
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Obtained level + certificate info stored
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7">
+                <!-- SCREENSHOT 1 repeated? use providers -->
+                <img src="screenshot_02_providers.png"
+                     alt="QES eSignature Connector — Providers"
+                     style="width:100%;border-radius:10px;
+                            border:1px solid #dbe4ff;
+                            box-shadow:0 8px 32px rgba(59,130,246,0.12);"
+                     class="img-fluid"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURE 2 — AUDIT TRAIL
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#ffffff;border-radius:12px;padding:48px 40px;
+                border:1px solid #e9ecef;margin-bottom:8px;">
+    <div class="container">
+        <div class="row align-items-center flex-row-reverse">
+            <div class="col-md-5 mb-4 mb-md-0 pl-md-4">
+                <span style="background-color:#f0fdf4;color:#10b981;
+                             border:1px solid rgba(16,185,129,.3);
+                             padding:4px 14px;border-radius:20px;
+                             font-size:11px;font-weight:700;letter-spacing:1.5px;
+                             text-transform:uppercase;display:inline-block;margin-bottom:16px;">
+                    Feature 02
+                </span>
+                <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;
+                           margin-bottom:14px;line-height:1.3;">
+                    Hash-Chained Audit Trail
+                </h2>
+                <p class="text-muted" style="font-size:14px;line-height:1.7;margin-bottom:16px;">
+                    Every event is hashed and chained to the previous one.
+                    Append-only: nobody can rewrite history, not even admins.
+                </p>
+                <ul style="list-style:none;padding:0;margin:0;font-size:14px;">
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        SHA256 chain over all envelope events
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Actor, IP, timestamps recorded
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        One-click JSON evidence export
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7">
+                <!-- SCREENSHOT 3 — Audit -->
+                <img src="screenshot_03_audit.png"
+                     alt="QES eSignature Connector — Hash-Chained Audit Trail"
+                     style="width:100%;border-radius:10px;
+                            border:1px solid #d1fae5;
+                            box-shadow:0 8px 32px rgba(16,185,129,0.12);"
+                     class="img-fluid"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURE 3 — PROVIDERS + ACCOUNTS
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#f8faff;border-radius:12px;padding:48px 40px;margin-bottom:8px;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-5 mb-4 mb-md-0">
+                <span style="background-color:#fff7ed;color:#f59e0b;
+                             border:1px solid rgba(245,158,11,.3);
+                             padding:4px 14px;border-radius:20px;
+                             font-size:11px;font-weight:700;letter-spacing:1.5px;
+                             text-transform:uppercase;display:inline-block;margin-bottom:16px;">
+                    Feature 03
+                </span>
+                <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;
+                           margin-bottom:14px;line-height:1.3;">
+                    Multi-Provider Framework
+                </h2>
+                <p class="text-muted" style="font-size:14px;line-height:1.7;margin-bottom:16px;">
+                    Test everything today with the local demo provider, then switch
+                    to Universign REST for real qualified signatures. Webhooks with
+                    idempotency plus hourly polling keep states in sync.
+                </p>
+                <ul style="list-style:none;padding:0;margin:0;font-size:14px;">
+                    <li class="mb-2">
+                        <span style="color:#f59e0b;font-weight:700;margin-right:8px;">✓</span>
+                        Demo provider works without credentials
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#f59e0b;font-weight:700;margin-right:8px;">✓</span>
+                        Universign transactions via REST API
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#f59e0b;font-weight:700;margin-right:8px;">✓</span>
+                        Signed PDF retrieval + archive export
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7">
+                <!-- SCREENSHOT 4 — Accounts -->
+                <img src="screenshot_04_accounts.png"
+                     alt="QES eSignature Connector — Provider Accounts"
+                     style="width:100%;border-radius:10px;
+                            border:1px solid #fde68a;
+                            box-shadow:0 8px 32px rgba(245,158,11,0.12);"
+                     class="img-fluid"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     COMPLETE FEATURE LIST
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#ffffff;border-radius:12px;padding:48px 40px;
+                border:1px solid #e9ecef;margin-bottom:8px;">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;margin-bottom:8px;">
+                Everything Included
+            </h2>
+            <p class="text-muted" style="font-size:14px;">
+                No add-ons, no hidden costs. All features are included in one module.
+            </p>
+        </div>
+        <div class="row">
+
+            <!-- Column 1 -->
+            <div class="col-md-4 mb-4">
+                <h5 style="font-weight:800;color:#1a1a2e;font-size:14px;
+                           text-transform:uppercase;letter-spacing:1px;
+                           border-bottom:2px solid #3b82f6;padding-bottom:8px;margin-bottom:14px;">
+                    ✍ Envelopes
+                </h5>
+                <ul style="list-style:none;padding:0;margin:0;font-size:13px;color:#4b5563;">
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>SES / AdES / QES per participant</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Signer, visa, copy, sealer roles</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Signing order + deadlines</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Field placement (anchor, page, X/Y)</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>10-state pipeline with statusbar</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>PAdES B-B / B-T / B-LT / B-LTA targets</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Document SHA256 fingerprinting</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Multi-company support</li>
+                </ul>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="col-md-4 mb-4">
+                <h5 style="font-weight:800;color:#1a1a2e;font-size:14px;
+                           text-transform:uppercase;letter-spacing:1px;
+                           border-bottom:2px solid #10b981;padding-bottom:8px;margin-bottom:14px;">
+                    🔗 Providers
+                </h5>
+                <ul style="list-style:none;padding:0;margin:0;font-size:13px;color:#4b5563;">
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Local demo provider included</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Universign REST mapping</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Pre-prod / production environments</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>HMAC webhook endpoint + idempotency</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Hourly status polling cron</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Signed PDF retrieval</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>JSON evidence export</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Archive workflow</li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="col-md-4 mb-4">
+                <h5 style="font-weight:800;color:#1a1a2e;font-size:14px;
+                           text-transform:uppercase;letter-spacing:1px;
+                           border-bottom:2px solid #8b5cf6;padding-bottom:8px;margin-bottom:14px;">
+                    ⚙ Administration
+                </h5>
+                <ul style="list-style:none;padding:0;margin:0;font-size:13px;color:#4b5563;">
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Append-only audit (no delete)</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>User / Manager groups</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Full chatter history</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>5 automated tests included</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>100% Odoo Community</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>No Enterprise Sign required</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>No external service required</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Demo-ready in minutes</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     MULTILINGUAL
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#ffffff;border-radius:12px;padding:40px;
+                border:1px solid #e9ecef;margin-bottom:8px;">
+    <div class="container text-center">
+        <h2 style="font-weight:800;color:#1a1a2e;font-size:1.5rem;margin-bottom:8px;">
+            🌐 Available in 5 Languages
+        </h2>
+        <p class="text-muted mb-4" style="font-size:14px;">
+            The full module interface is translated by native-quality professionals.
+        </p>
+        <div class="d-flex justify-content-center flex-wrap" style="gap:10px;">
+            <span style="background-color:#f8faff;border:1px solid #dbe4ff;
+                         padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;">
+                🇬🇧 English
+            </span>
+            <span style="background-color:#f8faff;border:1px solid #dbe4ff;
+                         padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;">
+                🇫🇷 Français
+            </span>
+            <span style="background-color:#f8faff;border:1px solid #dbe4ff;
+                         padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;">
+                🇪🇸 Español
+            </span>
+            <span style="background-color:#f8faff;border:1px solid #dbe4ff;
+                         padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;">
+                🇩🇪 Deutsch
+            </span>
+            <span style="background-color:#f8faff;border:1px solid #dbe4ff;
+                         padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;">
+                🇧🇷 Português
+            </span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TECHNICAL SPECS
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#f8faff;border-radius:12px;padding:40px;margin-bottom:8px;">
+    <div class="container">
+        <h2 style="font-weight:800;color:#1a1a2e;font-size:1.5rem;
+                   text-align:center;margin-bottom:28px;">
+            Technical Specifications
+        </h2>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <table style="width:100%;font-size:13px;border-collapse:collapse;">
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;width:45%;">Odoo Version</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">20.0 (Community &amp; Enterprise)</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">License</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">OPL-1 (Odoo Proprietary)</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Module Type</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Standalone Application</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Dependencies</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">base, mail</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">External Services</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Optional (Universign, your credentials)</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6 mb-3">
+                <table style="width:100%;font-size:13px;border-collapse:collapse;">
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;width:45%;">Audit</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">SHA256 hash chain, append-only</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Backend Tech</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Python 3 · Odoo ORM</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Security</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">User / Manager groups</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Automated Tests</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">5 tests included</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Honest Scope</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Demo is not qualified; QES needs a QTSP</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HOW IT WORKS — 4 STEPS
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#ffffff;border-radius:12px;padding:48px 40px;
+                border:1px solid #e9ecef;margin-bottom:8px;">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;margin-bottom:8px;">
+                Up and Running in 4 Steps
+            </h2>
+        </div>
+        <div class="row text-center">
+            <div class="col-6 col-md-3 mb-4">
+                <div style="width:52px;height:52px;background-color:#eff6ff;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#3b82f6;
+                            border:2px solid rgba(59,130,246,.3);">1</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;">
+                    Install the module
+                </div>
+                <div style="font-size:13px;color:#6b7280;">
+                    Copy to your addons folder and install from Settings → Apps
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <div style="width:52px;height:52px;background-color:#f0fdf4;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#10b981;
+                            border:2px solid rgba(16,185,129,.3);">2</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;">
+                    Create an account
+                </div>
+                <div style="font-size:13px;color:#6b7280;">
+                    Demo for tests, Universign for qualified signatures
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <div style="width:52px;height:52px;background-color:#fff7ed;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#f59e0b;
+                            border:2px solid rgba(245,158,11,.3);">3</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;">
+                    Build the envelope
+                </div>
+                <div style="font-size:13px;color:#6b7280;">
+                    Documents, participants, levels and field placement
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <div style="width:52px;height:52px;background-color:#fdf4ff;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#8b5cf6;
+                            border:2px solid rgba(139,92,246,.3);">4</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;">
+                    Sign &amp; prove
+                </div>
+                <div style="font-size:13px;color:#6b7280;">
+                    Collect signatures, export the evidence file
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SUPPORT BLOCK
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#0d1b35;
+                border-radius:12px;padding:48px 40px;text-align:center;">
+    <div class="container">
+        <h2 style="color:#ffffff;font-weight:800;font-size:1.6rem;margin-bottom:12px;">
+            Professional Support Included
+        </h2>
+        <p style="color:rgba(255,255,255,0.6);font-size:15px;
+                  max-width:520px;margin:0 auto 28px;line-height:1.7;">
+            Purchase includes full support, bug fixes, and updates.
+            We respond quickly and take pride in helping every customer
+            get the most out of QES eSignature Connector.
+        </p>
+        <div class="d-flex justify-content-center flex-wrap" style="gap:16px;">
+            <div style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+                        border-radius:10px;padding:16px 24px;min-width:140px;">
+                <div style="font-size:1.8rem;margin-bottom:6px;">📧</div>
+                <div style="color:#ffffff;font-weight:700;font-size:13px;">imazighenapps@gmail.com</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:12px;margin-top:2px;">
+                    Fast response
+                </div>
+            </div>
+            <div style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+                        border-radius:10px;padding:16px 24px;min-width:140px;">
+                <div style="font-size:1.8rem;margin-bottom:6px;">🔄</div>
+                <div style="color:#ffffff;font-weight:700;font-size:13px;">Free Updates</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:12px;margin-top:2px;">
+                    Ongoing improvements
+                </div>
+            </div>
+            <div style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+                        border-radius:10px;padding:16px 24px;min-width:140px;">
+                <div style="font-size:1.8rem;margin-bottom:6px;">📖</div>
+                <div style="color:#ffffff;font-weight:700;font-size:13px;">User Manual</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:12px;margin-top:2px;">
+                    5 languages included
+                </div>
+            </div>
+            <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+                        border-radius:10px;padding:16px 24px;min-width:140px;">
+                <div style="font-size:1.8rem;margin-bottom:6px;">🧪</div>
+                <div style="color:#ffffff;font-weight:700;font-size:13px;">Tested</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:12px;margin-top:2px;">
+                    5 automated tests pass
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

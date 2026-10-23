@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_nis2_risk_list" model="ir.ui.view">
+        <field name="name">nis2.risk.list</field>
+        <field name="model">nis2.risk</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="inherent"/>
+                <field name="residual"/>
+                <field name="state" widget="badge" decoration-success="state == 'closed'" decoration-info="state == 'accepted'" decoration-warning="state == 'review'"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_nis2_risk_form" model="ir.ui.view">
+        <field name="name">nis2.risk.form</field>
+        <field name="model">nis2.risk</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,review,accepted,closed"/>
+                </header>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group string="Inherent Risk">
+                            <field name="likelihood"/>
+                            <field name="impact"/>
+                            <field name="inherent"/>
+                        </group>
+                        <group string="Residual Risk">
+                            <field name="residual_likelihood"/>
+                            <field name="residual_impact"/>
+                            <field name="residual"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="asset_ids" widget="many2many_tags"/>
+                        <field name="control_ids" widget="many2many_tags"/>
+                        <field name="acceptance_by"/>
+                        <field name="acceptance_date"/>
+                        <field name="company_id"/>
+                    </group>
+                    <field name="treatment"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_nis2_risk" model="ir.actions.act_window">
+        <field name="name">Risks</field>
+        <field name="res_model">nis2.risk</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,11 @@
+id,name,model_id,group_id/id,operation,domain
+access_rma_reason_user,RMA Reason User,rma.reason,rma_returns_portal.group_rma_user,r,
+access_rma_reason_manager,RMA Reason Manager,rma.reason,rma_returns_portal.group_rma_manager,crud,
+access_rma_grade_user,RMA Grade User,rma.grade,rma_returns_portal.group_rma_user,r,
+access_rma_grade_manager,RMA Grade Manager,rma.grade,rma_returns_portal.group_rma_manager,crud,
+access_rma_request_user,RMA Request User,rma.request,rma_returns_portal.group_rma_user,cru,
+access_rma_request_manager,RMA Request Manager,rma.request,rma_returns_portal.group_rma_manager,crud,
+access_rma_line_user,RMA Line User,rma.request.line,rma_returns_portal.group_rma_user,cru,
+access_rma_line_manager,RMA Line Manager,rma.request.line,rma_returns_portal.group_rma_manager,crud,
+access_rma_config_manager,RMA Config Manager,rma.config,rma_returns_portal.group_rma_manager,crud,
+access_rma_request_portal,RMA Request Portal,rma.request,base.group_portal,r,"[('partner_id','child_of',[user.commercial_partner_id.id])]"

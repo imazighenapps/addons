@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_haccp_allergen_list" model="ir.ui.view">
+        <field name="name">haccp.allergen.list</field>
+        <field name="model">haccp.allergen</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_haccp_nc_list" model="ir.ui.view">
+        <field name="name">haccp.nonconformity.list</field>
+        <field name="model">haccp.nonconformity</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="severity" widget="badge" decoration-danger="severity == 'critical'" decoration-warning="severity == 'major'"/>
+                <field name="state"/>
+                <field name="ccp_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_haccp_nc_form" model="ir.ui.view">
+        <field name="name">haccp.nonconformity.form</field>
+        <field name="model">haccp.nonconformity</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_open" string="Open" type="object"/>
+                    <button name="action_start" string="Start Action" type="object"/>
+                    <button name="action_verify" string="Verify" type="object"/>
+                    <button name="action_close" string="Close" type="object" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,open,action,verify,closed"/>
+                </header>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <field name="severity"/>
+                        <field name="ccp_id"/>
+                        <field name="reading_id"/>
+                        <field name="company_id"/>
+                        <field name="closed_date"/>
+                        <field name="closed_by_id"/>
+                    </group>
+                    <field name="lot_ids" widget="many2many_tags"/>
+                    <field name="immediate_action"/>
+                    <field name="cause"/>
+                    <field name="corrective_action"/>
+                    <field name="verification"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_haccp_nc" model="ir.actions.act_window">
+        <field name="name">Non-Conformities</field>
+        <field name="res_model">haccp.nonconformity</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="view_haccp_alert_list" model="ir.ui.view">
+        <field name="name">haccp.expiry.alert.list</field>
+        <field name="model">haccp.expiry.alert</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="lot_id"/>
+                <field name="days_left"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_haccp_alert" model="ir.actions.act_window">
+        <field name="name">Expiry Alerts</field>
+        <field name="res_model">haccp.expiry.alert</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

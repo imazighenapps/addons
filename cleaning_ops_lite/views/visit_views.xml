@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cvisit_list" model="ir.ui.view">
+        <field name="name">cleaning.visit.list</field>
+        <field name="model">cleaning.visit</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="scheduled_date"/>
+                <field name="site_id"/>
+                <field name="agent_id"/>
+                <field name="check_in"/>
+                <field name="check_out"/>
+                <field name="duration_hours"/>
+                <field name="price" widget="monetary"/>
+                <field name="state" widget="badge" decoration-success="state in ('done','invoiced')" decoration-info="state == 'in_progress'" decoration-warning="state == 'planned'" decoration-muted="state == 'invoiced'"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_cvisit_form" model="ir.ui.view">
+        <field name="name">cleaning.visit.form</field>
+        <field name="model">cleaning.visit</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_check_in" string="Check In" type="object" class="btn-primary"/>
+                    <button name="action_check_out" string="Check Out" type="object" class="btn-primary"/>
+                    <button name="action_create_invoice" string="Invoice" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="planned,in_progress,done,invoiced"/>
+                </header>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group string="Visit">
+                            <field name="site_id"/>
+                            <field name="plan_id"/>
+                            <field name="agent_id"/>
+                            <field name="scheduled_date"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group string="Timing">
+                            <field name="check_in"/>
+                            <field name="check_out"/>
+                            <field name="duration_hours"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="price" widget="monetary"/>
+                            <field name="invoice_id"/>
+                        </group>
+                    </group>
+                    <group string="Quality">
+                        <field name="qc_score" widget="progressbar"/>
+                    </group>
+                    <field name="checklist" placeholder="One task per line"/>
+                    <field name="qc_notes"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_cvisit" model="ir.actions.act_window">
+        <field name="name">Visits</field>
+        <field name="res_model">cleaning.visit</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

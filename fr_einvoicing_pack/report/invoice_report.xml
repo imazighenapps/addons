@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_invoice_fr_mentions" model="ir.ui.view">
+        <field name="name">report.invoice.fr.mentions</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.report_invoice_document"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='informations']" position="after">
+                <div id="fr_einvoicing_mentions" class="row mt-2" t-if="o.move_type in ('out_invoice', 'out_refund')">
+                    <div class="col-12">
+                        <strong>E-Invoicing mentions:</strong>
+                        <span t-if="o.commercial_partner_id.fr_siren"> Customer SIREN: <t t-out="o.commercial_partner_id.fr_siren"/>.</span>
+                        <span t-if="o.partner_shipping_id and o.partner_shipping_id != o.partner_id"> Delivery address differs from billing address (see delivery order).</span>
+                        <span t-if="o.fr_operation_type == 'goods'"> Operations exclusively consist of goods delivery.</span>
+                        <span t-if="o.fr_operation_type == 'services'"> Operations exclusively consist of services.</span>
+                        <span t-if="o.fr_operation_type == 'mixed'"> Operations consist of goods delivery and services.</span>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

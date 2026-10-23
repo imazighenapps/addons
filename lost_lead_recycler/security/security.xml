@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_recycle_user" model="res.groups">
+        <field name="name">Lead Recycler User</field>
+        <field name="comment">Run recycling rules.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="group_recycle_manager" model="res.groups">
+        <field name="name">Lead Recycler Manager</field>
+        <field name="comment">Configure recycling rules.</field>
+        <field name="implied_ids" eval="[(4, ref('lost_lead_recycler.group_recycle_user'))]"/>
+        <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

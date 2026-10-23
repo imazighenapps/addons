@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_template_haccp" model="ir.ui.view">
+        <field name="name">product.template.haccp</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='inventory']" position="inside">
+                <group string="Allergens (EU 1169/2011)" name="haccp_allergens">
+                    <field name="allergen_ids" widget="many2many_tags"/>
+                    <field name="may_contain_ids" widget="many2many_tags"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

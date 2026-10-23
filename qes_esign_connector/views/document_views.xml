@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qes_document_list" model="ir.ui.view">
+        <field name="name">qes.document.list</field>
+        <field name="model">qes.document</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="envelope_id"/>
+                <field name="pades_level"/>
+                <field name="sha256_origin"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qes_document_form" model="ir.ui.view">
+        <field name="name">qes.document.form</field>
+        <field name="model">qes.document</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <field name="envelope_id"/>
+                        <field name="attachment_id"/>
+                        <field name="provider_doc_id"/>
+                        <field name="pades_level"/>
+                        <field name="sha256_origin"/>
+                    </group>
+                    <field name="field_ids">
+                        <list>
+                            <field name="participant_id"/>
+                            <field name="ftype"/>
+                            <field name="page"/>
+                            <field name="anchor"/>
+                            <field name="mandatory" widget="boolean_toggle"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_qes_document" model="ir.actions.act_window">
+        <field name="name">Documents</field>
+        <field name="res_model">qes.document</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

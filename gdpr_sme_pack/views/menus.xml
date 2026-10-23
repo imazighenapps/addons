@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_gdpr_root" name="GDPR Pack" sequence="58"/>
+    <menuitem id="menu_gdpr_register" name="Register" parent="menu_gdpr_root" action="action_gdpr_activity" sequence="10"/>
+    <menuitem id="menu_gdpr_requests" name="Requests" parent="menu_gdpr_root" sequence="20"/>
+    <menuitem id="menu_gdpr_dsar" name="DSAR" parent="menu_gdpr_requests" action="action_gdpr_dsar" sequence="10"/>
+    <menuitem id="menu_gdpr_dpia" name="DPIA" parent="menu_gdpr_requests" action="action_gdpr_dpia" sequence="20"/>
+    <menuitem id="menu_gdpr_breach" name="Breaches" parent="menu_gdpr_requests" action="action_gdpr_breach" sequence="30"/>
+    <menuitem id="menu_gdpr_anonym" name="Anonymization Log" parent="menu_gdpr_root" action="action_gdpr_anonym" sequence="30"/>
+</odoo>

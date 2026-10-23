@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_doc_scan" model="ir.sequence">
+        <field name="name">Storage Scan</field>
+        <field name="code">doc.storage.scan</field>
+        <field name="prefix">SCAN-</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="cron_doc_weekly" model="ir.cron">
+        <field name="name">Storage: weekly scan</field>
+        <field name="model_id" ref="model_doc_storage_scan"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_weekly_scan()</field>
+        <field name="interval_number">7</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+</odoo>

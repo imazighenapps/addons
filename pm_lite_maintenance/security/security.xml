@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_pm_user" model="res.groups">
+        <field name="name">PM Lite User</field>
+        <field name="comment">Take readings and acknowledge alerts.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="group_pm_manager" model="res.groups">
+        <field name="name">PM Lite Manager</field>
+        <field name="comment">Configure counters, thresholds and API.</field>
+        <field name="implied_ids" eval="[(4, ref('pm_lite_maintenance.group_pm_user'))]"/>
+        <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

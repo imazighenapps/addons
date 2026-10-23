@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="menu_fr_einvoicing_root" model="ir.ui.menu">
+        <field name="name">E-Invoicing FR</field>
+        <field name="parent_id" ref="account.menu_finance"/>
+        <field name="sequence">60</field>
+    </record>
+    <record id="menu_fr_ereport_lines" model="ir.ui.menu">
+        <field name="name">E-Reporting Register</field>
+        <field name="parent_id" ref="fr_einvoicing_pack.menu_fr_einvoicing_root"/>
+        <field name="action" ref="fr_einvoicing_pack.action_fr_ereport_lines"/>
+        <field name="sequence">10</field>
+    </record>
+</odoo>

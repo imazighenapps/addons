@@ -1,0 +1,11 @@
+id,name,model_id,group_id/id,operation,domain
+access_bradford_spell_user,Bradford Spell User,bradford.spell,bradford_absenteeism.group_bradford_user,r,"[('employee_id.user_id','=',user.id)]"
+access_bradford_spell_manager,Bradford Spell Manager,bradford.spell,bradford_absenteeism.group_bradford_manager,crud
+access_bradford_history_user,Bradford History User,bradford.score.history,bradford_absenteeism.group_bradford_user,r,"[('employee_id.user_id','=',user.id)]"
+access_bradford_history_manager,Bradford History Manager,bradford.score.history,bradford_absenteeism.group_bradford_manager,crud
+access_bradford_threshold_user,Bradford Threshold User,bradford.threshold,bradford_absenteeism.group_bradford_user,r
+access_bradford_threshold_manager,Bradford Threshold Manager,bradford.threshold,bradford_absenteeism.group_bradford_manager,crud
+access_bradford_alert_user,Bradford Alert User,bradford.alert,bradford_absenteeism.group_bradford_user,r,"[('employee_id.user_id','=',user.id)]"
+access_bradford_alert_manager,Bradford Alert Manager,bradford.alert,bradford_absenteeism.group_bradford_manager,crud
+access_bradford_rtw_user,Bradford RTW User,hr.rtw.interview,bradford_absenteeism.group_bradford_user,r,"[('employee_id.user_id','=',user.id)]"
+access_bradford_rtw_manager,Bradford RTW Manager,hr.rtw.interview,bradford_absenteeism.group_bradford_manager,crud

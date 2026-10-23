@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO BANNER
+═══════════════════════════════════════════════════════════════ -->
+<section class="container-fluid"
+         style="background-color:#05080f;
+                padding:60px 20px 50px;text-align:center;border-radius:8px;margin-bottom:0;">
+
+    <!-- Module badge -->
+    <div class="mb-3">
+        <span style="background-color:rgba(61,155,255,0.15);color:#3d9bff;
+                     border:1px solid rgba(61,155,255,0.4);
+                     padding:6px 18px;border-radius:20px;
+                     font-size:12px;font-weight:700;letter-spacing:2px;
+                     text-transform:uppercase;">
+            🇫🇷 &nbsp; E-Invoicing · Odoo 20
+        </span>
+    </div>
+
+    <h1 style="color:#ffffff;font-size:2.8rem;font-weight:900;
+               letter-spacing:-1px;margin-bottom:16px;line-height:1.15;">
+        FR E-Invoicing Pack
+    </h1>
+
+    <p style="color:rgba(255,255,255,0.65);font-size:1.15rem;
+              max-width:620px;margin:0 auto 30px;line-height:1.7;">
+        The professional French e-invoicing toolkit for Odoo 20 Community —
+        readiness control, EN16931 validation, Factur-X export,
+        e-reporting register and Chorus Pro connector.
+    </p>
+
+    <!-- Key stats row -->
+    <div class="d-flex justify-content-center flex-wrap"
+         style="gap:12px;margin-bottom:36px;">
+        <span style="background-color:rgba(255,255,255,0.08);color:#ffffff;
+                     border:1px solid rgba(255,255,255,0.15);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;">
+            ✅ &nbsp; EN16931 Validation
+        </span>
+        <span style="background-color:rgba(255,255,255,0.08);color:#ffffff;
+                     border:1px solid rgba(255,255,255,0.15);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;">
+            📄 &nbsp; Factur-X Export
+        </span>
+        <span style="background-color:rgba(255,255,255,0.08);color:#ffffff;
+                     border:1px solid rgba(255,255,255,0.15);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;">
+            🏛 &nbsp; Chorus Pro
+        </span>
+        <span style="background-color:rgba(255,255,255,0.08);color:#ffffff;
+                     border:1px solid rgba(255,255,255,0.15);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;">
+            🌐 &nbsp; 5 Languages
+        </span>
+        <span style="background-color:rgba(61,155,255,0.2);color:#3d9bff;
+                     border:1px solid rgba(61,155,255,0.4);
+                     padding:8px 20px;border-radius:8px;font-size:13px;font-weight:700;">
+            ✅ &nbsp; Odoo 20 Ready
+        </span>
+    </div>
+
+    <!-- SCREENSHOT 1 — Invoice E-Invoicing tab -->
+    <div style="max-width:752px;margin:0 auto;">
+        <img src="screenshot_01_invoice_tab.png"
+             alt="FR E-Invoicing Pack — Invoice E-Invoicing Tab"
+             style="width:100%;border-radius:10px;
+                    border:1px solid rgba(255,255,255,0.12);
+                    box-shadow:0 20px 60px rgba(0,0,0,0.5);"
+             class="img-fluid"/>
+        <p style="color:rgba(255,255,255,0.35);font-size:12px;margin-top:10px;
+                  text-align:center;letter-spacing:1px;text-transform:uppercase;">
+            E-Invoicing tab on the invoice — compliance, transmission and one-click actions
+        </p>
+    </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     WHY — REFORM DATES
+═══════════════════════════════════════════════════════════════ -->
+<section class="container mt-5 mb-4">
+    <div class="text-center mb-4">
+        <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;">
+            Built for the 2026–2027 Reform
+        </h2>
+        <p class="text-muted" style="max-width:560px;margin:8px auto 0;font-size:15px;">
+            Mandatory e-invoicing is here. This pack gives Odoo 20 Community
+            the French layer it is missing.
+        </p>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-6 col-md-3 mb-3">
+            <div style="background-color:#f8faff;border:1px solid #e0e7ff;
+                        border-radius:12px;padding:20px 12px;">
+                <div style="font-size:2rem;margin-bottom:8px;">📥</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;">Reception for all</div>
+                <div style="font-size:13px;color:#6b7280;">Since 1 Sept 2026</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+            <div style="background-color:#f8faff;border:1px solid #e0e7ff;
+                        border-radius:12px;padding:20px 12px;">
+                <div style="font-size:2rem;margin-bottom:8px;">📤</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;">Issuance GE &amp; ETI</div>
+                <div style="font-size:13px;color:#6b7280;">Since 1 Sept 2026</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+            <div style="background-color:#f8faff;border:1px solid #e0e7ff;
+                        border-radius:12px;padding:20px 12px;">
+                <div style="font-size:2rem;margin-bottom:8px;">🏪</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;">Issuance SMEs</div>
+                <div style="font-size:13px;color:#6b7280;">1 Sept 2027</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+            <div style="background-color:#fef2f2;border:1px solid #fca5a5;
+                        border-radius:12px;padding:20px 12px;">
+                <div style="font-size:2rem;margin-bottom:8px;">⚠️</div>
+                <div style="font-weight:700;font-size:14px;color:#991b1b;">€50 / invoice</div>
+                <div style="font-size:13px;color:#7f1d1d;">Penalty per invoice</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURE 1 — EN16931 VALIDATION
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#f8faff;border-radius:12px;padding:48px 40px;margin-bottom:8px;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-5 mb-4 mb-md-0">
+                <span style="background-color:#eff6ff;color:#3b82f6;
+                             border:1px solid rgba(59,130,246,.3);
+                             padding:4px 14px;border-radius:20px;
+                             font-size:11px;font-weight:700;letter-spacing:1.5px;
+                             text-transform:uppercase;display:inline-block;margin-bottom:16px;">
+                    Feature 01
+                </span>
+                <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;
+                           margin-bottom:14px;line-height:1.3;">
+                    EN16931 Validation, Blocking on Posting
+                </h2>
+                <p class="text-muted" style="font-size:14px;line-height:1.7;margin-bottom:16px;">
+                    Every customer invoice is checked before posting: new legal mentions,
+                    one tax per line, totals consistency, identifiers. Non-compliant
+                    invoices are <strong>blocked</strong> with a precise report.
+                </p>
+                <ul style="list-style:none;padding:0;margin:0;font-size:14px;">
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Customer SIREN, operation type, delivery address
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Exactly one tax per invoice line
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Untaxed + tax = total consistency check
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Blocking behavior configurable in settings
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7">
+                <!-- SCREENSHOT 4 — Non-compliant draft -->
+                <img src="screenshot_04_validation.png"
+                     alt="FR E-Invoicing Pack — Non-Compliant Invoice Report"
+                     style="width:100%;border-radius:10px;
+                            border:1px solid #dbe4ff;
+                            box-shadow:0 8px 32px rgba(59,130,246,0.12);"
+                     class="img-fluid"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURE 2 — PARTNER READINESS
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#ffffff;border-radius:12px;padding:48px 40px;
+                border:1px solid #e9ecef;margin-bottom:8px;">
+    <div class="container">
+        <div class="row align-items-center flex-row-reverse">
+            <div class="col-md-5 mb-4 mb-md-0 pl-md-4">
+                <span style="background-color:#f0fdf4;color:#10b981;
+                             border:1px solid rgba(16,185,129,.3);
+                             padding:4px 14px;border-radius:20px;
+                             font-size:11px;font-weight:700;letter-spacing:1.5px;
+                             text-transform:uppercase;display:inline-block;margin-bottom:16px;">
+                    Feature 02
+                </span>
+                <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;
+                           margin-bottom:14px;line-height:1.3;">
+                    Partner Readiness Score
+                </h2>
+                <p class="text-muted" style="font-size:14px;line-height:1.7;margin-bottom:16px;">
+                    SIREN / SIRET with Luhn checksum, French VAT format check,
+                    automatic SIREN completion from SIRET. Know instantly which
+                    customers are ready for e-invoicing.
+                </p>
+                <ul style="list-style:none;padding:0;margin:0;font-size:14px;">
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Luhn validation on SIREN (9) and SIRET (14)
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        French VAT key check (FR + key + SIREN)
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        Ready flag + issues list per partner
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#10b981;font-weight:700;margin-right:8px;">✓</span>
+                        SIRET must start with the partner SIREN
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7">
+                <!-- SCREENSHOT 3 — Partner readiness -->
+                <img src="screenshot_03_partner.png"
+                     alt="FR E-Invoicing Pack — Partner Readiness"
+                     style="width:100%;border-radius:10px;
+                            border:1px solid #d1fae5;
+                            box-shadow:0 8px 32px rgba(16,185,129,0.12);"
+                     class="img-fluid"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURE 3 — E-REPORTING REGISTER
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#f8faff;border-radius:12px;padding:48px 40px;margin-bottom:8px;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-5 mb-4 mb-md-0">
+                <span style="background-color:#fff7ed;color:#f59e0b;
+                             border:1px solid rgba(245,158,11,.3);
+                             padding:4px 14px;border-radius:20px;
+                             font-size:11px;font-weight:700;letter-spacing:1.5px;
+                             text-transform:uppercase;display:inline-block;margin-bottom:16px;">
+                    Feature 03
+                </span>
+                <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;
+                           margin-bottom:14px;line-height:1.3;">
+                    E-Reporting Register
+                </h2>
+                <p class="text-muted" style="font-size:14px;line-height:1.7;margin-bottom:16px;">
+                    Every posted invoice feeds the register automatically: B2B e-invoices,
+                    B2C and international e-reporting flows. Follow statuses,
+                    export CSV, and let the daily cron flag errors.
+                </p>
+                <ul style="list-style:none;padding:0;margin:0;font-size:14px;">
+                    <li class="mb-2">
+                        <span style="color:#f59e0b;font-weight:700;margin-right:8px;">✓</span>
+                        Automatic feed on invoice posting
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#f59e0b;font-weight:700;margin-right:8px;">✓</span>
+                        Ready / Sent / Completed / Error workflow
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#f59e0b;font-weight:700;margin-right:8px;">✓</span>
+                        One-click CSV export per invoice
+                    </li>
+                    <li class="mb-2">
+                        <span style="color:#f59e0b;font-weight:700;margin-right:8px;">✓</span>
+                        Daily control of lines in error
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7">
+                <!-- SCREENSHOT 2 — Register list -->
+                <img src="screenshot_02_ereport_list.png"
+                     alt="FR E-Invoicing Pack — E-Reporting Register"
+                     style="width:100%;border-radius:10px;
+                            border:1px solid #fde68a;
+                            box-shadow:0 8px 32px rgba(245,158,11,0.12);"
+                     class="img-fluid"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURE 4 — FACTUR-X + CHORUS PRO + SETTINGS
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#ffffff;border-radius:12px;padding:48px 40px;
+                border:1px solid #e9ecef;margin-bottom:8px;">
+    <div class="container">
+        <div class="text-center mb-4">
+            <span style="background-color:#fdf4ff;color:#8b5cf6;
+                         border:1px solid rgba(139,92,246,.3);
+                         padding:4px 14px;border-radius:20px;
+                         font-size:11px;font-weight:700;letter-spacing:1.5px;
+                         text-transform:uppercase;display:inline-block;margin-bottom:14px;">
+                Feature 04
+            </span>
+            <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;margin-bottom:10px;">
+                Factur-X, Chorus Pro &amp; Simple Setup
+            </h2>
+            <p class="text-muted" style="max-width:560px;margin:0 auto;font-size:14px;line-height:1.7;">
+                Generate the Factur-X EN16931 XML for any invoice, submit public-sector
+                invoices to Chorus Pro, and configure everything in one settings block.
+            </p>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 col-md-4 mb-3">
+                <div style="border-radius:10px;padding:20px;height:100%;
+                            background-color:#f9fafb;border-top:3px solid #3b82f6;
+                            border-left:1px solid #e5e7eb;border-right:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;">
+                    <div style="font-size:1.5rem;margin-bottom:8px;">📄</div>
+                    <div style="font-weight:800;font-size:14px;color:#1a1a2e;margin-bottom:6px;">
+                        Factur-X XML
+                    </div>
+                    <div style="font-size:13px;color:#6b7280;line-height:1.5;">
+                        EN16931-profile CII syntax, attached to the invoice in one click.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 mb-3">
+                <div style="border-radius:10px;padding:20px;height:100%;
+                            background-color:#f0fdf4;border-top:3px solid #10b981;
+                            border-left:1px solid #d1fae5;border-right:1px solid #d1fae5;border-bottom:1px solid #d1fae5;">
+                    <div style="font-size:1.5rem;margin-bottom:8px;">🏛</div>
+                    <div style="font-weight:800;font-size:14px;color:#065f46;margin-bottom:6px;">
+                        Chorus Pro
+                    </div>
+                    <div style="font-size:13px;color:#065f46;line-height:1.5;">
+                        Submission payload + status tracking for public-sector invoices.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 mb-3">
+                <div style="border-radius:10px;padding:20px;height:100%;
+                            background-color:#fffbeb;border-top:3px solid #f59e0b;
+                            border-left:1px solid #fde68a;border-right:1px solid #fde68a;border-bottom:1px solid #fde68a;">
+                    <div style="font-size:1.5rem;margin-bottom:8px;">⚙</div>
+                    <div style="font-weight:800;font-size:14px;color:#92400e;margin-bottom:6px;">
+                        One Settings Block
+                    </div>
+                    <div style="font-size:13px;color:#78350f;line-height:1.5;">
+                        Register, blocking mode and Chorus Pro credentials in Accounting settings.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <!-- SCREENSHOT 5 — Settings -->
+                <img src="screenshot_05_settings.png"
+                     alt="FR E-Invoicing Pack — Accounting Settings"
+                     style="width:100%;border-radius:8px;
+                            border:1px solid #e0e7ff;"
+                     class="img-fluid"/>
+                <p class="text-muted text-center mt-2" style="font-size:12px;">
+                    Accounting settings — e-reporting register, blocking mode, Chorus Pro endpoint
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     COMPLETE FEATURE LIST
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#f8faff;border-radius:12px;padding:48px 40px;margin-bottom:8px;">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;margin-bottom:8px;">
+                Everything Included
+            </h2>
+            <p class="text-muted" style="font-size:14px;">
+                No add-ons, no hidden costs. All features are included in one module.
+            </p>
+        </div>
+        <div class="row">
+
+            <!-- Column 1 -->
+            <div class="col-md-4 mb-4">
+                <h5 style="font-weight:800;color:#1a1a2e;font-size:14px;
+                           text-transform:uppercase;letter-spacing:1px;
+                           border-bottom:2px solid #3b82f6;padding-bottom:8px;margin-bottom:14px;">
+                    ✅ Compliance
+                </h5>
+                <ul style="list-style:none;padding:0;margin:0;font-size:13px;color:#4b5563;">
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>SIREN / SIRET Luhn control</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>French VAT key control</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>New legal mentions check</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>One tax per line rule</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Totals consistency check</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Blocking on posting</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>New mentions on PDF report</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Partner readiness flag</li>
+                </ul>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="col-md-4 mb-4">
+                <h5 style="font-weight:800;color:#1a1a2e;font-size:14px;
+                           text-transform:uppercase;letter-spacing:1px;
+                           border-bottom:2px solid #10b981;padding-bottom:8px;margin-bottom:14px;">
+                    📡 Transmission
+                </h5>
+                <ul style="list-style:none;padding:0;margin:0;font-size:13px;color:#4b5563;">
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Factur-X EN16931 XML export</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>E-reporting register (4 flows)</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>CSV export per invoice</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Chorus Pro submission</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Chorus status tracking</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Daily error control cron</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Sent / Completed workflow</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Multi-company support</li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="col-md-4 mb-4">
+                <h5 style="font-weight:800;color:#1a1a2e;font-size:14px;
+                           text-transform:uppercase;letter-spacing:1px;
+                           border-bottom:2px solid #8b5cf6;padding-bottom:8px;margin-bottom:14px;">
+                    ⚙ Administration
+                </h5>
+                <ul style="list-style:none;padding:0;margin:0;font-size:13px;color:#4b5563;">
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>One settings block</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>User / Manager groups</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>E-Invoicing FR menu</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Reform dates as parameters</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>6 automated tests included</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>100% Odoo Community</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>No external service required</li>
+                    <li class="mb-2"><i class="fa fa-check text-success mr-2"></i>Demo-ready in minutes</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     MULTILINGUAL
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#ffffff;border-radius:12px;padding:40px;
+                border:1px solid #e9ecef;margin-bottom:8px;">
+    <div class="container text-center">
+        <h2 style="font-weight:800;color:#1a1a2e;font-size:1.5rem;margin-bottom:8px;">
+            🌐 Available in 5 Languages
+        </h2>
+        <p class="text-muted mb-4" style="font-size:14px;">
+            The full module interface is translated by native-quality professionals.
+        </p>
+        <div class="d-flex justify-content-center flex-wrap" style="gap:10px;">
+            <span style="background-color:#f8faff;border:1px solid #dbe4ff;
+                         padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;">
+                🇬🇧 English
+            </span>
+            <span style="background-color:#f8faff;border:1px solid #dbe4ff;
+                         padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;">
+                🇫🇷 Français
+            </span>
+            <span style="background-color:#f8faff;border:1px solid #dbe4ff;
+                         padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;">
+                🇪🇸 Español
+            </span>
+            <span style="background-color:#f8faff;border:1px solid #dbe4ff;
+                         padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;">
+                🇩🇪 Deutsch
+            </span>
+            <span style="background-color:#f8faff;border:1px solid #dbe4ff;
+                         padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;color:#374151;">
+                🇧🇷 Português
+            </span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TECHNICAL SPECS
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#f8faff;border-radius:12px;padding:40px;margin-bottom:8px;">
+    <div class="container">
+        <h2 style="font-weight:800;color:#1a1a2e;font-size:1.5rem;
+                   text-align:center;margin-bottom:28px;">
+            Technical Specifications
+        </h2>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <table style="width:100%;font-size:13px;border-collapse:collapse;">
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;width:45%;">Odoo Version</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">20.0 (Community &amp; Enterprise)</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">License</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">OPL-1 (Odoo Proprietary)</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Module Type</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Functional Addon</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Dependencies</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">base, account</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">External Services</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Chorus Pro (optional, your credentials)</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6 mb-3">
+                <table style="width:100%;font-size:13px;border-collapse:collapse;">
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;width:45%;">XML Syntax</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">CII D16B (EN16931 profile)</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Backend Tech</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Python 3 · Odoo ORM</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Security</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">User / Manager groups + record rules ready</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Automated Tests</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">6 tests included (Luhn, VAT, posting, XML, register)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px 0;color:#6b7280;font-weight:600;">Demo Data</td>
+                        <td style="padding:10px 0;color:#1a1a2e;font-weight:700;">Install and test in minutes</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HOW IT WORKS — 4 STEPS
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#ffffff;border-radius:12px;padding:48px 40px;
+                border:1px solid #e9ecef;margin-bottom:8px;">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;margin-bottom:8px;">
+                Up and Running in 4 Steps
+            </h2>
+        </div>
+        <div class="row text-center">
+            <div class="col-6 col-md-3 mb-4">
+                <div style="width:52px;height:52px;background-color:#eff6ff;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#3b82f6;
+                            border:2px solid rgba(59,130,246,.3);">1</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;">
+                    Install the module
+                </div>
+                <div style="font-size:13px;color:#6b7280;">
+                    Copy to your addons folder and install from Settings → Apps
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <div style="width:52px;height:52px;background-color:#f0fdf4;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#10b981;
+                            border:2px solid rgba(16,185,129,.3);">2</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;">
+                    Enter identifiers
+                </div>
+                <div style="font-size:13px;color:#6b7280;">
+                    Company SIRET and customer SIREN, VAT and operation type
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <div style="width:52px;height:52px;background-color:#fff7ed;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#f59e0b;
+                            border:2px solid rgba(245,158,11,.3);">3</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;">
+                    Post with control
+                </div>
+                <div style="font-size:13px;color:#6b7280;">
+                    Non-compliant invoices are blocked with a precise report
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4">
+                <div style="width:52px;height:52px;background-color:#fdf4ff;border-radius:50%;
+                            display:flex;align-items:center;justify-content:center;
+                            margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#8b5cf6;
+                            border:2px solid rgba(139,92,246,.3);">4</div>
+                <div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;">
+                    Transmit &amp; track
+                </div>
+                <div style="font-size:13px;color:#6b7280;">
+                    Factur-X, Chorus Pro and e-reporting register follow-up
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SUPPORT BLOCK
+═══════════════════════════════════════════════════════════════ -->
+<section style="background-color:#0d1b35;
+                border-radius:12px;padding:48px 40px;text-align:center;">
+    <div class="container">
+        <h2 style="color:#ffffff;font-weight:800;font-size:1.6rem;margin-bottom:12px;">
+            Professional Support Included
+        </h2>
+        <p style="color:rgba(255,255,255,0.6);font-size:15px;
+                  max-width:520px;margin:0 auto 28px;line-height:1.7;">
+            Purchase includes full support, bug fixes, and updates.
+            We respond quickly and take pride in helping every customer
+            get the most out of FR E-Invoicing Pack.
+        </p>
+        <div class="d-flex justify-content-center flex-wrap" style="gap:16px;">
+            <div style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+                        border-radius:10px;padding:16px 24px;min-width:140px;">
+                <div style="font-size:1.8rem;margin-bottom:6px;">📧</div>
+                <div style="color:#ffffff;font-weight:700;font-size:13px;">imazighenapps@gmail.com</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:12px;margin-top:2px;">
+                    Fast response
+                </div>
+            </div>
+            <div style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+                        border-radius:10px;padding:16px 24px;min-width:140px;">
+                <div style="font-size:1.8rem;margin-bottom:6px;">🔄</div>
+                <div style="color:#ffffff;font-weight:700;font-size:13px;">Free Updates</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:12px;margin-top:2px;">
+                    Ongoing improvements
+                </div>
+            </div>
+            <div style="background-color:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+                        border-radius:10px;padding:16px 24px;min-width:140px;">
+                <div style="font-size:1.8rem;margin-bottom:6px;">📖</div>
+                <div style="color:#ffffff;font-weight:700;font-size:13px;">User Manual</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:12px;margin-top:2px;">
+                    5 languages included
+                </div>
+            </div>
+            <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);
+                        border-radius:10px;padding:16px 24px;min-width:140px;">
+                <div style="font-size:1.8rem;margin-bottom:6px;">🧪</div>
+                <div style="color:#ffffff;font-weight:700;font-size:13px;">Tested</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:12px;margin-top:2px;">
+                    6 automated tests pass
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

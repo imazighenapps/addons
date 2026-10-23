@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_form_qrpay" model="ir.ui.view">
+        <field name="name">account.move.form.qrpay</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_info']" position="inside">
+                <group string="Payment QR Pro" name="qrpay">
+                    <field name="qr_pay_reference_type"/>
+                    <field name="qr_pay_reference"/>
+                    <field name="qr_pay_purpose"/>
+                    <field name="qr_pay_valid"/>
+                    <field name="qr_pay_error"/>
+                </group>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="action_qr_pay_assign_rf" string="Assign RF" type="object"/>
+                <button name="action_qr_pay_assign_qrr" string="Assign QRR" type="object"/>
+                <button name="action_qr_pay_preview_epc" string="EPC Preview" type="object"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_qrpay_config_list" model="ir.ui.view">
+        <field name="name">qrpay.config.list</field>
+        <field name="model">qrpay.config</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="rf_prefix"/>
+                <field name="default_purpose"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qrpay_config_form" model="ir.ui.view">
+        <field name="name">qrpay.config.form</field>
+        <field name="model">qrpay.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <field name="company_id"/>
+                        <field name="rf_prefix"/>
+                        <field name="rf_sequence_id"/>
+                        <field name="qrr_sequence_id"/>
+                        <field name="default_purpose"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_qrpay_config" model="ir.actions.act_window">
+        <field name="name">QR Pay Configuration</field>
+        <field name="res_model">qrpay.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="view_qrpay_cockpit_list" model="ir.ui.view">
+        <field name="name">qrpay.cockpit.list</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="qr_pay_reference_type"/>
+                <field name="qr_pay_reference"/>
+                <field name="qr_pay_valid" widget="boolean_toggle"/>
+                <field name="qr_pay_error"/>
+                <field name="amount_total"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_qrpay_cockpit" model="ir.actions.act_window">
+        <field name="name">QR Compliance Cockpit</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_qrpay_cockpit_list"/>
+        <field name="domain">[("move_type", "in", ("out_invoice", "in_invoice")), ("state", "=", "posted")]</field>
+    </record>
+</odoo>

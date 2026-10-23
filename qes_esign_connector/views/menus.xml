@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_qes_root" name="E-Signature QES" sequence="55"/>
+    <menuitem id="menu_qes_envelopes" name="Envelopes" parent="menu_qes_root" action="action_qes_envelope" sequence="10"/>
+    <menuitem id="menu_qes_documents" name="Documents" parent="menu_qes_root" action="action_qes_document" sequence="20"/>
+    <menuitem id="menu_qes_audit" name="Audit Trail" parent="menu_qes_root" action="action_qes_event" sequence="30"/>
+    <menuitem id="menu_qes_config" name="Configuration" parent="menu_qes_root" sequence="40"/>
+    <menuitem id="menu_qes_providers" name="Providers" parent="menu_qes_config" action="action_qes_provider" sequence="10"/>
+    <menuitem id="menu_qes_accounts" name="Accounts" parent="menu_qes_config" action="action_qes_account" sequence="20"/>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id,group_id/id,operation,domain
+access_referral_camp_user,Campaign User,referral.campaign,referral_bonus.group_referral_user,r,
+access_referral_camp_manager,Campaign Manager,referral.campaign,referral_bonus.group_referral_manager,crud,
+access_referral_case_user,Referral User,referral.case,referral_bonus.group_referral_user,cru,"[('referrer_id.user_id','=',user.id)]"
+access_referral_case_manager,Referral Manager,referral.case,referral_bonus.group_referral_manager,crud,

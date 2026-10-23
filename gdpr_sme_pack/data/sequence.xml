@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_gdpr_dsar" model="ir.sequence">
+        <field name="name">GDPR DSAR</field>
+        <field name="code">gdpr.dsar</field>
+        <field name="prefix">DSAR-</field>
+        <field name="padding">5</field>
+    </record>
+    <record id="seq_gdpr_breach" model="ir.sequence">
+        <field name="name">GDPR Breach</field>
+        <field name="code">gdpr.breach</field>
+        <field name="prefix">BREACH-</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="seq_gdpr_anonym" model="ir.sequence">
+        <field name="name">GDPR Anonymization</field>
+        <field name="code">gdpr.anonym</field>
+        <field name="prefix">ANON-</field>
+        <field name="padding">5</field>
+    </record>
+    <record id="cron_gdpr_dsar_sla" model="ir.cron">
+        <field name="name">GDPR: check DSAR deadlines</field>
+        <field name="model_id" ref="model_gdpr_dsar"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_check_sla()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qrpay_camt_form" model="ir.ui.view">
+        <field name="name">qrpay.camt.import.form</field>
+        <field name="model">qrpay.camt.import</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="data_file" filename="filename"/>
+                    <field name="filename" invisible="1"/>
+                    <field name="line_count"/>
+                    <field name="note"/>
+                </sheet>
+                <footer>
+                    <button name="action_parse" string="Parse" type="object" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_qrpay_camt" model="ir.actions.act_window">
+        <field name="name">Import camt.053</field>
+        <field name="res_model">qrpay.camt.import</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record id="view_qrpay_preview_form" model="ir.ui.view">
+        <field name="name">qrpay.payload.preview.form</field>
+        <field name="model">qrpay.payload.preview</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="payload"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

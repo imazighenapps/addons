@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_fr_einvoicing" model="ir.ui.view">
+        <field name="name">res.config.settings.view.fr.einvoicing</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='account']" position="inside">
+                <block title="French E-Invoicing" name="fr_einvoicing_settings">
+                    <setting string="E-Reporting Register" help="Fill the e-reporting register on invoice posting.">
+                        <field name="fr_ereport_enabled"/>
+                    </setting>
+                    <setting string="Block Non-Compliant Invoices" help="Prevent posting customer invoices that fail EN16931 validation.">
+                        <field name="fr_block_noncompliant"/>
+                    </setting>
+                    <setting string="Chorus Pro" help="Submission endpoint (test or production) and login.">
+                        <div class="content-group">
+                            <div>
+                                <field name="fr_chorus_url" class="w-100"/>
+                            </div>
+                            <div class="mt16">
+                                <field name="fr_chorus_login"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

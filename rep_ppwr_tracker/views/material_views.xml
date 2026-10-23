@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_rep_material_list" model="ir.ui.view">
+        <field name="name">rep.material.list</field>
+        <field name="model">rep.material</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="family"/>
+                <field name="resin"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_rep_material_form" model="ir.ui.view">
+        <field name="name">rep.material.form</field>
+        <field name="model">rep.material</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <field name="family"/>
+                        <field name="resin"/>
+                        <field name="dangerous"/>
+                        <field name="recyclable_default"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_rep_tariff_list" model="ir.ui.view">
+        <field name="name">rep.tariff.list</field>
+        <field name="model">rep.tariff</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="material_id"/>
+                <field name="eco_org"/>
+                <field name="year"/>
+                <field name="price_per_t"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_rep_tariff_form" model="ir.ui.view">
+        <field name="name">rep.tariff.form</field>
+        <field name="model">rep.tariff</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="material_id"/>
+                    <group>
+                        <field name="eco_org"/>
+                        <field name="year"/>
+                        <field name="price_per_t"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rep_material" model="ir.actions.act_window">
+        <field name="name">Materials</field>
+        <field name="res_model">rep.material</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_rep_tariff" model="ir.actions.act_window">
+        <field name="name">Tariffs</field>
+        <field name="res_model">rep.tariff</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

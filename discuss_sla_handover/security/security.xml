@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_sla_user" model="res.groups">
+        <field name="name">Discuss SLA User</field>
+        <field name="comment">Handle SLA cases and handovers.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="group_sla_manager" model="res.groups">
+        <field name="name">Discuss SLA Manager</field>
+        <field name="comment">Configure SLA policies and archiving rules.</field>
+        <field name="implied_ids" eval="[(4, ref('discuss_sla_handover.group_sla_user'))]"/>
+        <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>
