@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_rep_deposit_list" model="ir.ui.view">
+        <field name="name">rep.deposit.list</field>
+        <field name="model">rep.deposit</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="amount"/>
+                <field name="target_rate"/>
+                <field name="return_rate"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_rep_deposit_form" model="ir.ui.view">
+        <field name="name">rep.deposit.form</field>
+        <field name="model">rep.deposit</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <field name="amount"/>
+                        <field name="product_id"/>
+                        <field name="target_rate"/>
+                        <field name="units_out"/>
+                        <field name="units_back"/>
+                        <field name="return_rate"/>
+                        <field name="active"/>
+                    </group>
+                    <field name="packaging_ids" widget="many2many_tags"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rep_deposit" model="ir.actions.act_window">
+        <field name="name">Deposits</field>
+        <field name="res_model">rep.deposit</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

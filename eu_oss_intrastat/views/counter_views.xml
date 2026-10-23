@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ossc_list" model="ir.ui.view">
+        <field name="name">oss.country.counter.list</field>
+        <field name="model">oss.country.counter</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="country_id"/>
+                <field name="year"/>
+                <field name="oss_amount" widget="monetary"/>
+                <field name="oss_limit"/>
+                <field name="oss_ratio" widget="progressbar"/>
+                <field name="move_count"/>
+                <field name="state" widget="badge" decoration-success="state == 'clear'" decoration-warning="state == 'near'" decoration-danger="state in ('oss_due','ioss_due')"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_ossc_form" model="ir.ui.view">
+        <field name="name">oss.country.counter.form</field>
+        <field name="model">oss.country.counter</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group string="Country">
+                            <field name="country_id"/>
+                            <field name="year"/>
+                            <field name="company_id"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="move_count"/>
+                        </group>
+                        <group string="OSS (goods)">
+                            <field name="oss_amount" widget="monetary"/>
+                            <field name="oss_limit"/>
+                            <field name="oss_ratio" widget="percentage"/>
+                            <field name="oss_threshold_id"/>
+                        </group>
+                        <group string="IOSS (distance sales)">
+                            <field name="ioss_amount" widget="monetary"/>
+                            <field name="ioss_limit"/>
+                            <field name="ioss_ratio" widget="percentage"/>
+                            <field name="ioss_threshold_id"/>
+                        </group>
+                        <group string="Result">
+                            <field name="state"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_ossc" model="ir.actions.act_window">
+        <field name="name">Country Thresholds</field>
+        <field name="res_model">oss.country.counter</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

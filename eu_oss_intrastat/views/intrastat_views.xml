@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_intrastat_list" model="ir.ui.view">
+        <field name="name">intrastat.line.list</field>
+        <field name="model">intrastat.line</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="period"/>
+                <field name="direction" widget="badge" decoration-info="direction == 'dispatch'" decoration-warning="direction == 'arrival'"/>
+                <field name="move_id"/>
+                <field name="country_code"/>
+                <field name="product_code" optional="show"/>
+                <field name="amount" widget="monetary"/>
+                <field name="state" widget="badge" decoration-success="state == 'declared'" decoration-info="state == 'ready'" decoration-muted="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_intrastat_form" model="ir.ui.view">
+        <field name="name">intrastat.line.form</field>
+        <field name="model">intrastat.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_mark_ready" string="Mark Ready" type="object"/>
+                    <button name="action_mark_declared" string="Mark Declared" type="object" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,ready,declared"/>
+                </header>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group string="Declaration">
+                            <field name="period"/>
+                            <field name="direction"/>
+                            <field name="company_id"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group string="Details">
+                            <field name="move_id"/>
+                            <field name="partner_country_id"/>
+                            <field name="country_code"/>
+                            <field name="partner_code"/>
+                            <field name="product_code"/>
+                            <field name="amount" widget="monetary"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_intrastat" model="ir.actions.act_window">
+        <field name="name">Intrastat Lines</field>
+        <field name="res_model">intrastat.line</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

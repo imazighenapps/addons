@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_haccp_plan_list" model="ir.ui.view">
+        <field name="name">haccp.plan.list</field>
+        <field name="model">haccp.plan</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="version"/>
+                <field name="state" widget="badge" decoration-success="state == 'validated'" decoration-warning="state == 'draft'" decoration-muted="state == 'archived'"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_haccp_plan_form" model="ir.ui.view">
+        <field name="name">haccp.plan.form</field>
+        <field name="model">haccp.plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_validate" string="Validate" type="object" class="btn-primary"/>
+                    <button name="action_archive" string="Archive" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,validated,archived"/>
+                </header>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group string="Plan">
+                            <field name="version"/>
+                            <field name="company_id"/>
+                            <field name="date_valid_from"/>
+                            <field name="date_valid_to"/>
+                            <field name="validated_by_id"/>
+                            <field name="validated_on"/>
+                        </group>
+                        <field name="team_ids" widget="many2many_tags"/>
+                    </group>
+                    <field name="diagram_note"/>
+                    <field name="ccp_ids">
+                        <list>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="hazard_type"/>
+                            <field name="reading_count"/>
+                        </list>
+                    </field>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_haccp_plan" model="ir.actions.act_window">
+        <field name="name">HACCP Plans</field>
+        <field name="res_model">haccp.plan</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_rma_config_form" model="ir.ui.view">
+        <field name="name">rma.config.form</field>
+        <field name="model">rma.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="return_window_days"/>
+                        <field name="warranty_days"/>
+                        <field name="auto_approve_amount"/>
+                    </group>
+                    <field name="withdrawal_text"/>
+                </sheet>
+                <footer>
+                    <button name="action_save" string="Save" type="object" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_rma_config" model="ir.actions.act_window">
+        <field name="name">RMA Configuration</field>
+        <field name="res_model">rma.config</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

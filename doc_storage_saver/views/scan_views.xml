@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_doc_scan_list" model="ir.ui.view">
+        <field name="name">doc.storage.scan.list</field>
+        <field name="model">doc.storage.scan</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="total_files"/>
+                <field name="wasted_bytes"/>
+                <field name="orphan_bytes"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_doc_scan_form" model="ir.ui.view">
+        <field name="name">doc.storage.scan.form</field>
+        <field name="model">doc.storage.scan</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_run" string="Run Scan" type="object" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <field name="date"/>
+                        <field name="min_size_kb"/>
+                        <field name="total_files"/>
+                        <field name="total_bytes"/>
+                        <field name="wasted_bytes"/>
+                        <field name="orphan_bytes"/>
+                    </group>
+                    <notebook>
+                        <page string="Duplicates" name="dups">
+                            <field name="duplicate_ids">
+                                <list>
+                                    <field name="checksum"/>
+                                    <field name="count"/>
+                                    <field name="wasted_bytes"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Orphans" name="orphans">
+                            <field name="orphan_ids">
+                                <list>
+                                    <field name="attachment_id"/>
+                                    <field name="reason"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_doc_scan" model="ir.actions.act_window">
+        <field name="name">Storage Scans</field>
+        <field name="res_model">doc.storage.scan</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

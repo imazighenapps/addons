@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rma_reason_user,RMA Reason User,model_rma_reason,rma_returns_portal.group_rma_user,1,0,0,0
+access_rma_reason_manager,RMA Reason Manager,model_rma_reason,rma_returns_portal.group_rma_manager,1,1,1,1
+access_rma_grade_user,RMA Grade User,model_rma_grade,rma_returns_portal.group_rma_user,1,0,0,0
+access_rma_grade_manager,RMA Grade Manager,model_rma_grade,rma_returns_portal.group_rma_manager,1,1,1,1
+access_rma_request_user,RMA Request User,model_rma_request,rma_returns_portal.group_rma_user,1,1,1,0
+access_rma_request_manager,RMA Request Manager,model_rma_request,rma_returns_portal.group_rma_manager,1,1,1,1
+access_rma_line_user,RMA Line User,model_rma_request_line,rma_returns_portal.group_rma_user,1,1,1,0
+access_rma_line_manager,RMA Line Manager,model_rma_request_line,rma_returns_portal.group_rma_manager,1,1,1,1
+access_rma_config_manager,RMA Config Manager,model_rma_config,rma_returns_portal.group_rma_manager,1,1,1,1
+access_rma_request_portal,RMA Request Portal,model_rma_request,base.group_portal,1,0,0,0

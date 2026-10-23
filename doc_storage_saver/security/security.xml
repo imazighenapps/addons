@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_docstore_user" model="res.groups">
+        <field name="name">Storage Saver User</field>
+        <field name="comment">Run scans and review results.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="group_docstore_manager" model="res.groups">
+        <field name="name">Storage Saver Manager</field>
+        <field name="comment">Delete duplicates and orphans.</field>
+        <field name="implied_ids" eval="[(4, ref('doc_storage_saver.group_docstore_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

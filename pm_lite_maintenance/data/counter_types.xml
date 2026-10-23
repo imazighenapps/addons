@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ctype_hours" model="pm.counter.type"><field name="name">Operating Hours</field><field name="code">hours</field><field name="unit">h</field></record>
+    <record id="ctype_cycles" model="pm.counter.type"><field name="name">Cycles</field><field name="code">cycles</field><field name="unit">cycles</field></record>
+    <record id="ctype_km" model="pm.counter.type"><field name="name">Distance</field><field name="code">km</field><field name="unit">km</field></record>
+    <record id="ctype_parts" model="pm.counter.type"><field name="name">Parts Produced</field><field name="code">parts</field><field name="unit">pcs</field></record>
+    <record id="cron_pm_evaluate" model="ir.cron">
+        <field name="name">PM Lite: evaluate thresholds</field>
+        <field name="model_id" ref="model_pm_threshold"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_evaluate_all()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+</odoo>

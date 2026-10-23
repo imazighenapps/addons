@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_intrastat_line" model="ir.sequence">
+        <field name="name">Intrastat Line</field>
+        <field name="code">intrastat.line</field>
+        <field name="prefix">IN-</field>
+        <field name="padding">5</field>
+    </record>
+    <record id="cron_oss_refresh" model="ir.cron">
+        <field name="name">OSS / IOSS: refresh country counters</field>
+        <field name="model_id" ref="model_oss_country_counter"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_refresh()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="cron_intrastat_prepare" model="ir.cron">
+        <field name="name">Intrastat: prepare declaration lines</field>
+        <field name="model_id" ref="model_intrastat_line"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_prepare()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+</odoo>

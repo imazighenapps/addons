@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_channel_sla" model="ir.ui.view">
+        <field name="name">discuss.channel.sla</field>
+        <field name="model">discuss.channel</field>
+        <field name="inherit_id" ref="mail.discuss_channel_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="SLA &amp; Handover" name="sla">
+                    <field name="open_sla_case_count"/>
+                    <field name="last_activity_date"/>
+                    <field name="archive_after_days"/>
+                    <button name="action_open_sla_case" string="Open SLA Case"
+                            type="object" class="btn-link"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

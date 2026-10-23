@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_maintenance_equipment_pm" model="ir.ui.view">
+        <field name="name">maintenance.equipment.pm</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Predictive Lite" name="pm_lite">
+                    <field name="pm_health"/>
+                    <field name="pm_health_detail"/>
+                    <field name="pm_last_reading_date"/>
+                    <field name="pm_stale"/>
+                </group>
+                <field name="pm_counter_ids">
+                    <list>
+                        <field name="type_id"/>
+                        <field name="last_value"/>
+                        <field name="next_due_value"/>
+                    </list>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

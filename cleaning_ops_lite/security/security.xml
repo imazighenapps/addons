@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_cleanops_user" model="res.groups">
+        <field name="name">Cleaning Ops User</field>
+        <field name="comment">Perform visits and check in/out.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="group_cleanops_manager" model="res.groups">
+        <field name="name">Cleaning Ops Manager</field>
+        <field name="comment">Manage sites, plans, agents and billing.</field>
+        <field name="implied_ids" eval="[(4, ref('cleaning_ops_lite.group_cleanops_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

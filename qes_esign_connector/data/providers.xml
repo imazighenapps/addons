@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="provider_demo" model="qes.provider">
+        <field name="name">Demo Provider (local)</field>
+        <field name="code">demo</field>
+        <field name="auth_type">none</field>
+        <field name="note">Local test provider. Signatures are NOT qualified.</field>
+    </record>
+    <record id="provider_universign" model="qes.provider">
+        <field name="name">Universign</field>
+        <field name="code">universign</field>
+        <field name="api_base">https://api.universign.com/v1</field>
+        <field name="auth_type">apikey</field>
+        <field name="qcert_esig">True</field>
+    </record>
+    <record id="provider_docusign" model="qes.provider">
+        <field name="name">DocuSign (stub)</field>
+        <field name="code">docusign</field>
+        <field name="auth_type">oauth</field>
+        <field name="qcert_esig">True</field>
+        <field name="note">Stub in this version.</field>
+    </record>
+    <record id="cron_qes_poll" model="ir.cron">
+        <field name="name">QES: poll provider statuses</field>
+        <field name="model_id" ref="model_qes_envelope"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_poll_status()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(hours=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+</odoo>

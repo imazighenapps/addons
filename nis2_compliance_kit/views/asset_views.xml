@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_nis2_asset_list" model="ir.ui.view">
+        <field name="name">nis2.asset.list</field>
+        <field name="model">nis2.asset</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="asset_type"/>
+                <field name="owner_id"/>
+                <field name="hosting"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_nis2_asset_form" model="ir.ui.view">
+        <field name="name">nis2.asset.form</field>
+        <field name="model">nis2.asset</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group string="Asset">
+                            <field name="asset_type"/>
+                            <field name="owner_id"/>
+                            <field name="hosting"/>
+                            <field name="supplier_id"/>
+                            <field name="company_id"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Criticality (C.I.A.)">
+                            <field name="confidentiality"/>
+                            <field name="integrity"/>
+                            <field name="availability"/>
+                        </group>
+                    </group>
+                    <field name="description"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_nis2_asset" model="ir.actions.act_window">
+        <field name="name">Assets</field>
+        <field name="res_model">nis2.asset</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

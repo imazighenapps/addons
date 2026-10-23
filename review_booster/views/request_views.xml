@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_review_request_list" model="ir.ui.view">
+        <field name="name">review.request.list</field>
+        <field name="model">review.request</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="state" widget="badge" decoration-success="state in ('clicked', 'reviewed')" decoration-info="state == 'sent'" decoration-warning="state == 'pending'" decoration-muted="state == 'optout'"/>
+                <field name="send_on"/>
+                <field name="sent_on"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_review_request_form" model="ir.ui.view">
+        <field name="name">review.request.form</field>
+        <field name="model">review.request</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_send" string="Send Now" type="object" class="btn-primary"/>
+                    <button name="action_mark_reviewed" string="Reviewed" type="object"/>
+                    <button name="action_optout" string="Opt Out" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,sent,clicked,reviewed"/>
+                </header>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <field name="campaign_id"/>
+                        <field name="partner_id"/>
+                        <field name="move_id"/>
+                        <field name="picking_id"/>
+                        <field name="token"/>
+                        <field name="send_on"/>
+                        <field name="sent_on"/>
+                        <field name="clicked_on"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_review_request" model="ir.actions.act_window">
+        <field name="name">Review Requests</field>
+        <field name="res_model">review.request</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

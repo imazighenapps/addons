@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fr_einvoicing_reception_date" model="ir.config_parameter">
+        <field name="key">fr_einvoicing_pack.reception_date</field>
+        <field name="value">2026-09-01</field>
+    </record>
+    <record id="fr_einvoicing_emission_ge_date" model="ir.config_parameter">
+        <field name="key">fr_einvoicing_pack.emission_ge_date</field>
+        <field name="value">2026-09-01</field>
+    </record>
+    <record id="fr_einvoicing_emission_pme_date" model="ir.config_parameter">
+        <field name="key">fr_einvoicing_pack.emission_pme_date</field>
+        <field name="value">2027-09-01</field>
+    </record>
+    <record id="fr_cron_check_stale_lines" model="ir.cron">
+        <field name="name">E-Reporting: daily control of lines in error</field>
+        <field name="model_id" ref="model_fr_ereport_line"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_check_stale_lines()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

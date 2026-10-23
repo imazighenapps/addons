@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_gdpr_anonym_list" model="ir.ui.view">
+        <field name="name">gdpr.anonymization.log.list</field>
+        <field name="model">gdpr.anonymization.log</field>
+        <field name="arch" type="xml">
+            <list create="0" delete="0">
+                <field name="name"/>
+                <field name="model_name"/>
+                <field name="record_ref"/>
+                <field name="by_user_id"/>
+                <field name="date"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_gdpr_anonym" model="ir.actions.act_window">
+        <field name="name">Anonymization Log</field>
+        <field name="res_model">gdpr.anonymization.log</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_bradford_user" model="res.groups">
+        <field name="name">Bradford User</field>
+        <field name="comment">View own score and interviews.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="group_bradford_manager" model="res.groups">
+        <field name="name">Bradford Manager</field>
+        <field name="comment">HR administration of scores, alerts and interviews.</field>
+        <field name="implied_ids" eval="[(4, ref('bradford_absenteeism.group_bradford_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

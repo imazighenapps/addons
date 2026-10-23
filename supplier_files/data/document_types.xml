@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_supplier_doc" model="ir.sequence">
+        <field name="name">Supplier Document</field>
+        <field name="code">supplier.document</field>
+        <field name="prefix">SD-</field>
+        <field name="padding">5</field>
+    </record>
+    <record id="dtype_registration" model="supplier.document.type">
+        <field name="name">Company Registration (KBIS / RCS)</field>
+        <field name="code">REGISTRATION</field>
+        <field name="sequence">10</field>
+        <field name="has_expiry">False</field>
+        <field name="blocking">True</field>
+    </record>
+    <record id="dtype_vat" model="supplier.document.type">
+        <field name="name">VAT Number</field>
+        <field name="code">VAT</field>
+        <field name="sequence">20</field>
+        <field name="has_expiry">False</field>
+        <field name="blocking">True</field>
+    </record>
+    <record id="dtype_bank" model="supplier.document.type">
+        <field name="name">Bank Details (RIB / IBAN)</field>
+        <field name="code">BANK</field>
+        <field name="sequence">30</field>
+        <field name="has_expiry">False</field>
+        <field name="blocking">True</field>
+    </record>
+    <record id="dtype_insurance" model="supplier.document.type">
+        <field name="name">Liability Insurance</field>
+        <field name="code">INSURANCE</field>
+        <field name="sequence">40</field>
+        <field name="has_expiry">True</field>
+        <field name="expiry_warning_days">30</field>
+        <field name="blocking">True</field>
+    </record>
+    <record id="dtype_vigilance" model="supplier.document.type">
+        <field name="name">Vigilance Attestation</field>
+        <field name="code">VIGILANCE</field>
+        <field name="sequence">50</field>
+        <field name="has_expiry">True</field>
+        <field name="expiry_warning_days">15</field>
+        <field name="blocking">False</field>
+    </record>
+    <record id="dtype_social" model="supplier.document.type">
+        <field name="name">Social Security / URSSAF</field>
+        <field name="code">SOCIAL</field>
+        <field name="sequence">60</field>
+        <field name="has_expiry">True</field>
+        <field name="expiry_warning_days">30</field>
+        <field name="blocking">False</field>
+    </record>
+    <record id="cron_supplier_files" model="ir.cron">
+        <field name="name">Supplier files: check completeness</field>
+        <field name="model_id" ref="model_supplier_file_status"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_check_all()</field>
+        <field name="interval_number">7</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+</odoo>

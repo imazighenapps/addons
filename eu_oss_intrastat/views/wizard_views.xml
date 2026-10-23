@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_intrastat_export_form" model="ir.ui.view">
+        <field name="name">intrastat.export.form</field>
+        <field name="model">intrastat.export</field>
+        <field name="arch" type="xml">
+            <form string="Export Declaration">
+                <header>
+                    <button name="action_export" string="Export CSV" type="object" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="period"/>
+                        <field name="direction"/>
+                        <field name="only_ready"/>
+                        <field name="filename" readonly="1"/>
+                    </group>
+                    <group string="Lines to export">
+                        <field name="line_ids" nolabel="1">
+                            <list>
+                                <field name="name"/>
+                                <field name="period"/>
+                                <field name="country_code"/>
+                                <field name="amount" widget="monetary"/>
+                                <field name="state"/>
+                            </list>
+                        </field>
+                    </group>
+                    <field name="file_data" filename="filename" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_intrastat_export" model="ir.actions.act_window">
+        <field name="name">Export Declaration</field>
+        <field name="res_model">intrastat.export</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

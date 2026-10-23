@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_recycle_rule_list" model="ir.ui.view">
+        <field name="name">lead.recycling.rule.list</field>
+        <field name="model">lead.recycling.rule</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="inactivity_days"/>
+                <field name="target_stage_id"/>
+                <field name="recycled_total"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_recycle_rule_form" model="ir.ui.view">
+        <field name="name">lead.recycling.rule.form</field>
+        <field name="model">lead.recycling.rule</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_run_now" string="Run Now" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <field name="company_id"/>
+                        <field name="inactivity_days"/>
+                        <field name="include_lost"/>
+                        <field name="target_stage_id"/>
+                        <field name="assignee_id"/>
+                        <field name="max_recycles"/>
+                        <field name="active"/>
+                        <field name="last_run"/>
+                        <field name="recycled_total"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_recycle_rule" model="ir.actions.act_window">
+        <field name="name">Recycling Rules</field>
+        <field name="res_model">lead.recycling.rule</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

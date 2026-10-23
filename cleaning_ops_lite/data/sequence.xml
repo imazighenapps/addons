@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_cleaning_visit" model="ir.sequence">
+        <field name="name">Cleaning Visit</field>
+        <field name="code">cleaning.visit</field>
+        <field name="prefix">VIS-</field>
+        <field name="padding">5</field>
+    </record>
+    <record id="product_visit_service" model="product.product">
+        <field name="name">Cleaning Visit</field>
+        <field name="type">service</field>
+        <field name="invoice_policy">order</field>
+        <field name="list_price">0.0</field>
+    </record>
+    <record id="cron_cleaning_visits" model="ir.cron">
+        <field name="name">Cleaning: generate daily visits</field>
+        <field name="model_id" ref="model_cleaning_visit"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_generate_visits()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+</odoo>

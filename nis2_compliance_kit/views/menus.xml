@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_nis2_root" name="NIS2 Compliance" sequence="50"/>
+    <menuitem id="menu_nis2_governance" name="Governance" parent="menu_nis2_root" sequence="10"/>
+    <menuitem id="menu_nis2_profile" name="Applicability Profiles" parent="menu_nis2_governance" action="action_nis2_profile" sequence="10"/>
+    <menuitem id="menu_nis2_review" name="Management Reviews" parent="menu_nis2_governance" action="action_nis2_review" sequence="20"/>
+    <menuitem id="menu_nis2_training" name="Training Register" parent="menu_nis2_governance" action="action_nis2_training" sequence="30"/>
+    <menuitem id="menu_nis2_security" name="Security" parent="menu_nis2_root" sequence="20"/>
+    <menuitem id="menu_nis2_asset" name="Assets" parent="menu_nis2_security" action="action_nis2_asset" sequence="10"/>
+    <menuitem id="menu_nis2_control" name="Article 21 Controls" parent="menu_nis2_security" action="action_nis2_control" sequence="20"/>
+    <menuitem id="menu_nis2_risk" name="Risks" parent="menu_nis2_security" action="action_nis2_risk" sequence="30"/>
+    <menuitem id="menu_nis2_supplier" name="Supplier Reviews" parent="menu_nis2_security" action="action_nis2_supplier" sequence="40"/>
+    <menuitem id="menu_nis2_response" name="Response" parent="menu_nis2_root" sequence="30"/>
+    <menuitem id="menu_nis2_incident" name="Incidents" parent="menu_nis2_response" action="action_nis2_incident" sequence="10"/>
+    <menuitem id="menu_nis2_action" name="Corrective Actions" parent="menu_nis2_response" action="action_nis2_action" sequence="20"/>
+    <menuitem id="menu_nis2_evidence" name="Evidence Vault" parent="menu_nis2_response" action="action_nis2_evidence" sequence="30"/>
+</odoo>

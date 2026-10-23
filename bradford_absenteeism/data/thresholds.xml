@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="threshold_watch" model="bradford.threshold">
+        <field name="name">Watch (50+)</field><field name="sequence">10</field>
+        <field name="min_score">50</field><field name="action">Basic monitoring</field>
+        <field name="role_notified">manager</field>
+    </record>
+    <record id="threshold_review" model="bradford.threshold">
+        <field name="name">Informal Review (125+)</field><field name="sequence">20</field>
+        <field name="min_score">125</field><field name="action">Informal review meeting</field>
+        <field name="role_notified">manager</field>
+    </record>
+    <record id="threshold_support" model="bradford.threshold">
+        <field name="name">Support Interview (200+)</field><field name="sequence">30</field>
+        <field name="min_score">200</field><field name="action">Support interview required</field>
+        <field name="role_notified">both</field>
+    </record>
+    <record id="threshold_deep" model="bradford.threshold">
+        <field name="name">In-depth Review (500+)</field><field name="sequence">40</field>
+        <field name="min_score">500</field><field name="action">In-depth review with HR</field>
+        <field name="role_notified">both</field>
+    </record>
+    <record id="cron_bradford_recompute" model="ir.cron">
+        <field name="name">Bradford: daily recompute</field>
+        <field name="model_id" ref="model_bradford_threshold"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_recompute_all()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+</odoo>

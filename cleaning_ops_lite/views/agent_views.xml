@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cagent_list" model="ir.ui.view">
+        <field name="name">cleaning.agent.list</field>
+        <field name="model">cleaning.agent</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="hourly_rate"/>
+                <field name="monthly_salary"/>
+                <field name="sites_count"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_cagent_form" model="ir.ui.view">
+        <field name="name">cleaning.agent.form</field>
+        <field name="model">cleaning.agent</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group string="Contact">
+                            <field name="partner_id"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="company_id"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Cost">
+                            <field name="hourly_rate"/>
+                            <field name="monthly_salary"/>
+                            <field name="sites_count"/>
+                        </group>
+                    </group>
+                    <field name="visit_ids">
+                        <list>
+                            <field name="name"/>
+                            <field name="scheduled_date"/>
+                            <field name="site_id"/>
+                            <field name="duration_hours"/>
+                            <field name="qc_score"/>
+                            <field name="state"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_cagent" model="ir.actions.act_window">
+        <field name="name">Agents</field>
+        <field name="res_model">cleaning.agent</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

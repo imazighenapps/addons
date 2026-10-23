@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_doc_dup_list" model="ir.ui.view">
+        <field name="name">doc.storage.duplicate.list</field>
+        <field name="model">doc.storage.duplicate</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="scan_id"/>
+                <field name="count"/>
+                <field name="file_size"/>
+                <field name="wasted_bytes"/>
+                <field name="state" widget="badge" decoration-success="state == 'kept'" decoration-muted="state == 'ignored'" decoration-warning="state == 'new'"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_doc_dup_form" model="ir.ui.view">
+        <field name="name">doc.storage.duplicate.form</field>
+        <field name="model">doc.storage.duplicate</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_clean_keep_newest" string="Delete All but Newest" type="object" class="btn-primary"/>
+                    <button name="action_ignore" string="Ignore" type="object"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="scan_id"/>
+                        <field name="checksum"/>
+                        <field name="file_size"/>
+                        <field name="count"/>
+                        <field name="wasted_bytes"/>
+                        <field name="state"/>
+                    </group>
+                    <field name="attachment_ids">
+                        <list>
+                            <field name="name"/>
+                            <field name="res_model"/>
+                            <field name="create_date"/>
+                            <field name="file_size"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_doc_dup" model="ir.actions.act_window">
+        <field name="name">Duplicates</field>
+        <field name="res_model">doc.storage.duplicate</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

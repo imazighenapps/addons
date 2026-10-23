@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qes_event_list" model="ir.ui.view">
+        <field name="name">qes.event.list</field>
+        <field name="model">qes.event</field>
+        <field name="arch" type="xml">
+            <list create="0" delete="0">
+                <field name="create_date"/>
+                <field name="envelope_id"/>
+                <field name="etype"/>
+                <field name="actor"/>
+                <field name="event_hash"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_qes_event" model="ir.actions.act_window">
+        <field name="name">Audit Trail</field>
+        <field name="res_model">qes.event</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>

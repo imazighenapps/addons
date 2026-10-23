@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_oss_root" name="OSS &amp; Intrastat" parent="account.menu_finance_entries" sequence="90"/>
+    <menuitem id="menu_oss_counters" name="Country Thresholds" parent="menu_oss_root" action="action_ossc" sequence="10"/>
+    <menuitem id="menu_intrastat_lines" name="Declaration Lines" parent="menu_oss_root" action="action_intrastat" sequence="20"/>
+    <menuitem id="menu_intrastat_export" name="Export" parent="menu_oss_root" action="action_intrastat_export" sequence="30"/>
+    <menuitem id="menu_oss_thresholds" name="Thresholds" parent="menu_oss_root" action="action_osst" sequence="40"/>
+</odoo>
