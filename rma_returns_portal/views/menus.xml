@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_rma_root" name="RMA Returns" sequence="57"/>
+    <menuitem id="menu_rma_requests" name="Return Requests" parent="menu_rma_root" action="action_rma_request" sequence="10"/>
+    <menuitem id="menu_rma_config_menu" name="Configuration" parent="menu_rma_root" sequence="20"/>
+    <menuitem id="menu_rma_reasons" name="Reasons" parent="menu_rma_config_menu" action="action_rma_reason" sequence="10"/>
+    <menuitem id="menu_rma_settings" name="Settings" parent="menu_rma_config_menu" action="action_rma_config" sequence="20"/>
+</odoo>

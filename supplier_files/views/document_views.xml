@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sdoc_list" model="ir.ui.view">
+        <field name="name">supplier.document.list</field>
+        <field name="model">supplier.document</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="type_id"/>
+                <field name="reference" optional="show"/>
+                <field name="expiry_date"/>
+                <field name="verified" widget="boolean_toggle"/>
+                <field name="state" widget="badge" decoration-success="state == 'valid'" decoration-warning="state == 'expiring'" decoration-danger="state == 'expired'" decoration-muted="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_sdoc_form" model="ir.ui.view">
+        <field name="name">supplier.document.form</field>
+        <field name="model">supplier.document</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_verify" string="Verify" type="object" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,valid,expiring,expired"/>
+                </header>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group string="Document">
+                            <field name="partner_id"/>
+                            <field name="type_id"/>
+                            <field name="reference"/>
+                            <field name="verified"/>
+                        </group>
+                        <group string="Validity">
+                            <field name="issue_date"/>
+                            <field name="expiry_date"/>
+                            <field name="file_id"/>
+                        </group>
+                    </group>
+                    <field name="note"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_sdoc" model="ir.actions.act_window">
+        <field name="name">Supplier Documents</field>
+        <field name="res_model">supplier.document</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

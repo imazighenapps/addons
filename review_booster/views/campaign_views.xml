@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_review_campaign_list" model="ir.ui.view">
+        <field name="name">review.campaign.list</field>
+        <field name="model">review.campaign</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="trigger"/>
+                <field name="delay_days"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_review_campaign_form" model="ir.ui.view">
+        <field name="name">review.campaign.form</field>
+        <field name="model">review.campaign</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <field name="company_id"/>
+                        <field name="google_url"/>
+                        <field name="trigger"/>
+                        <field name="delay_days"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_review_campaign" model="ir.actions.act_window">
+        <field name="name">Campaigns</field>
+        <field name="res_model">review.campaign</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

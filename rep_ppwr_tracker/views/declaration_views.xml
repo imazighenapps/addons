@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_rep_declaration_list" model="ir.ui.view">
+        <field name="name">rep.declaration.list</field>
+        <field name="model">rep.declaration</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="year"/>
+                <field name="eco_org"/>
+                <field name="total_tonnage"/>
+                <field name="total_amount"/>
+                <field name="state" widget="badge" decoration-success="state == 'closed'" decoration-warning="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_rep_declaration_form" model="ir.ui.view">
+        <field name="name">rep.declaration.form</field>
+        <field name="model">rep.declaration</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_compute" string="Compute" type="object" class="btn-primary"/>
+                    <button name="action_export_csv" string="Export CSV" type="object"/>
+                    <button name="action_close" string="Close" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,closed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="year"/>
+                        <field name="eco_org"/>
+                        <field name="company_id"/>
+                        <field name="total_tonnage"/>
+                        <field name="total_amount"/>
+                    </group>
+                    <field name="line_ids">
+                        <list>
+                            <field name="material_id"/>
+                            <field name="tonnage"/>
+                            <field name="amount"/>
+                        </list>
+                    </field>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_rep_declaration" model="ir.actions.act_window">
+        <field name="name">Declarations</field>
+        <field name="res_model">rep.declaration</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_nis2_review_list" model="ir.ui.view">
+        <field name="name">nis2.review.list</field>
+        <field name="model">nis2.review</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="review_date"/>
+                <field name="approved" widget="boolean_toggle"/>
+                <field name="next_date"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_nis2_review_form" model="ir.ui.view">
+        <field name="name">nis2.review.form</field>
+        <field name="model">nis2.review</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <field name="review_date"/>
+                        <field name="approved"/>
+                        <field name="next_date"/>
+                        <field name="company_id"/>
+                    </group>
+                    <field name="attendees"/>
+                    <field name="decisions"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_nis2_review" model="ir.actions.act_window">
+        <field name="name">Management Reviews</field>
+        <field name="res_model">nis2.review</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

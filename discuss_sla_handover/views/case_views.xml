@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sla_case_list" model="ir.ui.view">
+        <field name="name">discuss.sla.case.list</field>
+        <field name="model">discuss.sla.case</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="channel_id"/>
+                <field name="priority" widget="badge" decoration-danger="priority == 'high'" decoration-info="priority == 'normal'" decoration-muted="priority == 'low'"/>
+                <field name="level" widget="badge" decoration-danger="level == 'breach'" decoration-warning="level == 'warn'" decoration-success="level == 'ok'"/>
+                <field name="first_response_date"/>
+                <field name="resolution_deadline"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_sla_case_form" model="ir.ui.view">
+        <field name="name">discuss.sla.case.form</field>
+        <field name="model">discuss.sla.case</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_set_response" string="First Response" type="object"/>
+                    <button name="action_resolve" string="Resolve" type="object" class="btn-primary"/>
+                    <button name="action_reopen" string="Reopen" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,responded,resolved"/>
+                </header>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group string="Case">
+                            <field name="channel_id"/>
+                            <field name="policy_id"/>
+                            <field name="priority"/>
+                            <field name="company_id"/>
+                            <field name="level"/>
+                            <field name="breach"/>
+                        </group>
+                        <group string="Timers">
+                            <field name="open_date"/>
+                            <field name="first_response_date"/>
+                            <field name="response_deadline"/>
+                            <field name="close_date"/>
+                            <field name="resolution_deadline"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_sla_case" model="ir.actions.act_window">
+        <field name="name">SLA Cases</field>
+        <field name="res_model">discuss.sla.case</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

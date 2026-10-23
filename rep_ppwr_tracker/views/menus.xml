@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_rep_root" name="REP &amp; PPWR" sequence="56"/>
+    <menuitem id="menu_rep_sheets" name="Packaging" parent="menu_rep_root" sequence="10"/>
+    <menuitem id="menu_rep_packaging" name="Packaging Sheets" parent="menu_rep_sheets" action="action_rep_packaging" sequence="10"/>
+    <menuitem id="menu_rep_material" name="Materials" parent="menu_rep_sheets" action="action_rep_material" sequence="20"/>
+    <menuitem id="menu_rep_tariff" name="Tariffs" parent="menu_rep_sheets" action="action_rep_tariff" sequence="30"/>
+    <menuitem id="menu_rep_deposit" name="Deposits" parent="menu_rep_sheets" action="action_rep_deposit" sequence="40"/>
+    <menuitem id="menu_rep_decl" name="Declarations" parent="menu_rep_root" sequence="20"/>
+    <menuitem id="menu_rep_ledger" name="Ledger" parent="menu_rep_decl" action="action_rep_ledger" sequence="10"/>
+    <menuitem id="menu_rep_declaration" name="Declarations" parent="menu_rep_decl" action="action_rep_declaration" sequence="20"/>
+</odoo>

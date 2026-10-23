@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_supplier_files" model="ir.ui.view">
+        <field name="name">res.partner.supplier.files</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Supplier File" name="supplier_files">
+                    <group>
+                        <group string="Completeness">
+                            <field name="supplier_file_score"/>
+                            <field name="supplier_file_complete"/>
+                            <field name="supplier_doc_count_missing"/>
+                            <field name="supplier_file_blocking"/>
+                        </group>
+                        <group string="Payment Control">
+                            <field name="supplier_block_payments"/>
+                        </group>
+                    </group>
+                    <button name="action_open_file" string="Open Supplier File"
+                            type="object" class="btn-primary"/>
+                    <field name="supplier_doc_ids" class="mt-2">
+                        <list>
+                            <field name="name"/>
+                            <field name="type_id"/>
+                            <field name="expiry_date"/>
+                            <field name="verified" widget="boolean_toggle"/>
+                            <field name="state" widget="badge" decoration-success="state == 'valid'" decoration-warning="state == 'expiring'" decoration-danger="state == 'expired'" decoration-muted="state == 'draft'"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

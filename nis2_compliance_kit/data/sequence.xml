@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_nis2_incident" model="ir.sequence">
+        <field name="name">NIS2 Incident</field>
+        <field name="code">nis2.incident</field>
+        <field name="prefix">NIS2-INC-</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="cron_nis2_supplier_expiry" model="ir.cron">
+        <field name="name">NIS2: flag expired supplier reviews</field>
+        <field name="model_id" ref="model_nis2_supplier"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_flag_expired()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+</odoo>

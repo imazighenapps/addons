@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_rtw_list" model="ir.ui.view">
+        <field name="name">hr.rtw.interview.list</field>
+        <field name="model">hr.rtw.interview</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="employee_id"/>
+                <field name="date_return"/>
+                <field name="fitness_confirmed" widget="boolean_toggle"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'" decoration-warning="state == 'todo'" decoration-muted="state == 'waived'"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_rtw_form" model="ir.ui.view">
+        <field name="name">hr.rtw.interview.form</field>
+        <field name="model">hr.rtw.interview</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_done" string="Done" type="object" class="btn-primary"/>
+                    <button name="action_waive" string="Waive" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="todo,done,waived"/>
+                </header>
+                <sheet>
+                    <field name="employee_id"/>
+                    <group>
+                        <field name="spell_id"/>
+                        <field name="leave_id"/>
+                        <field name="date_return"/>
+                        <field name="interviewer_id"/>
+                        <field name="fitness_confirmed"/>
+                        <field name="company_id"/>
+                    </group>
+                    <field name="declared_reason"/>
+                    <field name="adjustments"/>
+                    <field name="next_step"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_rtw" model="ir.actions.act_window">
+        <field name="name">Return-to-Work Interviews</field>
+        <field name="res_model">hr.rtw.interview</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

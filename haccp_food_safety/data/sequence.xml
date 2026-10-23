@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_haccp_nc" model="ir.sequence">
+        <field name="name">HACCP Non-Conformity</field>
+        <field name="code">haccp.nc</field>
+        <field name="prefix">NC-</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="allergen_gluten" model="haccp.allergen"><field name="name">Gluten (wheat, rye, barley, oats)</field><field name="code">GLUTEN</field></record>
+    <record id="allergen_crustaceans" model="haccp.allergen"><field name="name">Crustaceans</field><field name="code">CRUST</field></record>
+    <record id="allergen_eggs" model="haccp.allergen"><field name="name">Eggs</field><field name="code">EGGS</field></record>
+    <record id="allergen_fish" model="haccp.allergen"><field name="name">Fish</field><field name="code">FISH</field></record>
+    <record id="allergen_peanuts" model="haccp.allergen"><field name="name">Peanuts</field><field name="code">PEANUT</field></record>
+    <record id="allergen_soy" model="haccp.allergen"><field name="name">Soy</field><field name="code">SOY</field></record>
+    <record id="allergen_milk" model="haccp.allergen"><field name="name">Milk (incl. lactose)</field><field name="code">MILK</field></record>
+    <record id="allergen_nuts" model="haccp.allergen"><field name="name">Tree Nuts</field><field name="code">NUTS</field></record>
+    <record id="allergen_celery" model="haccp.allergen"><field name="name">Celery</field><field name="code">CELERY</field></record>
+    <record id="allergen_mustard" model="haccp.allergen"><field name="name">Mustard</field><field name="code">MUSTARD</field></record>
+    <record id="allergen_sesame" model="haccp.allergen"><field name="name">Sesame</field><field name="code">SESAME</field></record>
+    <record id="allergen_sulphites" model="haccp.allergen"><field name="name">Sulphites (≥10mg/kg)</field><field name="code">SULPH</field></record>
+    <record id="allergen_lupin" model="haccp.allergen"><field name="name">Lupin</field><field name="code">LUPIN</field></record>
+    <record id="allergen_molluscs" model="haccp.allergen"><field name="name">Molluscs</field><field name="code">MOLL</field></record>
+    <record id="cron_haccp_expiry" model="ir.cron">
+        <field name="name">HACCP: check lot expiry</field>
+        <field name="model_id" ref="model_haccp_expiry_alert"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_check_expiry()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+</odoo>

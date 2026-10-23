@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_review_request" model="ir.sequence">
+        <field name="name">Review Request</field>
+        <field name="code">review.request</field>
+        <field name="prefix">REV-</field>
+        <field name="padding">5</field>
+    </record>
+    <record id="mail_review_request" model="mail.template">
+        <field name="name">Review request: please rate us on Google</field>
+        <field name="model_id" ref="model_review_request"/>
+        <field name="subject">How was your experience with us?</field>
+        <field name="body_html"><![CDATA[
+<p>Hello <t t-out="object.partner_id.name"/>,</p>
+<p>Thank you for your business! Could you take 30 seconds to
+<a t-att-href="object.review_link()">rate us on Google</a>?</p>
+<p>Your review really helps a small business like ours.</p>
+<p>Not happy? Simply reply to this email and we will make it right.</p>
+        ]]></field>
+    </record>
+    <record id="cron_review_send" model="ir.cron">
+        <field name="name">Reviews: send due requests</field>
+        <field name="model_id" ref="model_review_request"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_send_due()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+</odoo>

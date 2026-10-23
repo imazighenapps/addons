@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_review" model="ir.ui.view">
+        <field name="name">res.partner.review</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='accounting']" position="inside">
+                <group string="Review Requests" name="review_optin">
+                    <field name="review_optin"/>
+                    <field name="review_optin_date"/>
+                    <field name="review_optin_proof"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

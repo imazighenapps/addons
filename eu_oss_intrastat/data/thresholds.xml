@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="threshold_oss" model="oss.threshold">
+        <field name="name">OSS Threshold (EUR 10,000)</field>
+        <field name="scheme">oss</field>
+        <field name="limit">10000.0</field>
+        <field name="warn_ratio">0.8</field>
+    </record>
+    <record id="threshold_ioss" model="oss.threshold">
+        <field name="name">IOSS Threshold (EUR 150)</field>
+        <field name="scheme">ioss</field>
+        <field name="limit">150.0</field>
+        <field name="warn_ratio">0.8</field>
+    </record>
+</odoo>

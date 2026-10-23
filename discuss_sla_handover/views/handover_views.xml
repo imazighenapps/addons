@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_handover_list" model="ir.ui.view">
+        <field name="name">discuss.handover.log.list</field>
+        <field name="model">discuss.handover.log</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="from_user_id"/>
+                <field name="to_user_id"/>
+                <field name="open_cases"/>
+                <field name="breached_cases" widget="badge" decoration-danger="breached_cases &gt; 0" decoration-success="breached_cases == 0"/>
+                <field name="state" widget="badge" decoration-success="state == 'received'" decoration-info="state == 'given'" decoration-warning="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_handover_form" model="ir.ui.view">
+        <field name="name">discuss.handover.log.form</field>
+        <field name="model">discuss.handover.log</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_snapshot_cases" string="Snapshot Open Cases" type="object"/>
+                    <button name="action_give" string="Hand Over" type="object"/>
+                    <button name="action_receive" string="Confirm Receipt" type="object" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,given,received"/>
+                </header>
+                <sheet>
+                    <field name="name"/>
+                    <group>
+                        <group string="Handover">
+                            <field name="date"/>
+                            <field name="from_user_id"/>
+                            <field name="to_user_id"/>
+                        </group>
+                        <group string="Snapshot">
+                            <field name="open_cases"/>
+                            <field name="breached_cases"/>
+                        </group>
+                    </group>
+                    <field name="channel_ids" widget="many2many_tags"/>
+                    <field name="summary" placeholder="Where are we on each open case?"/>
+                    <field name="pending_actions" placeholder="What must the next shift do?"/>
+                    <field name="risks" placeholder="What could go wrong if nobody acts?"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_handover" model="ir.actions.act_window">
+        <field name="name">Handover Logs</field>
+        <field name="res_model">discuss.handover.log</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

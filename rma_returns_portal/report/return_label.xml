@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_return_label" model="ir.actions.report">
+        <field name="name">Return Shipping Label</field>
+        <field name="model">rma.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">rma_returns_portal.report_return_label_document</field>
+        <field name="binding_model_id" ref="model_rma_request"/>
+    </record>
+    <template id="report_return_label_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="page" style="border:2px dashed #333;padding:24px;">
+                    <h2>Return Label — <t t-out="o.name"/></h2>
+                    <p>From: <t t-out="o.partner_id.name"/></p>
+                    <p>To: <t t-out="o.company_id.name"/></p>
+                    <p>Reason: <t t-out="o.reason_id.name or ''"/></p>
+                    <table class="table">
+                        <tr><th>Product</th><th>Qty</th></tr>
+                        <t t-foreach="o.line_ids" t-as="l">
+                            <tr><td><t t-out="l.product_id.display_name"/></td><td><t t-out="l.qty_requested"/></td></tr>
+                        </t>
+                    </table>
+                    <t t-if="o.tracking_ref">
+                        <p>Tracking: <strong><t t-out="o.tracking_ref"/></strong></p>
+                    </t>
+                    <p>Stick this label on the parcel. Keep a proof of shipment.</p>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

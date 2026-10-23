@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fr_ereport_line_list" model="ir.ui.view">
+        <field name="name">fr.ereport.line.list</field>
+        <field name="model">fr.ereport.line</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="move_id"/>
+                <field name="partner_id"/>
+                <field name="flow"/>
+                <field name="amount_total"/>
+                <field name="status" widget="badge" decoration-success="status == 'done'" decoration-info="status == 'sent'" decoration-warning="status == 'ready'" decoration-danger="status == 'error'"/>
+                <field name="sent_on"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_fr_ereport_line_form" model="ir.ui.view">
+        <field name="name">fr.ereport.line.form</field>
+        <field name="model">fr.ereport.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_mark_sent" string="Mark Sent" type="object"/>
+                    <button name="action_mark_done" string="Mark Completed" type="object"/>
+                    <button name="action_reset_ready" string="Reset" type="object"/>
+                    <field name="status" widget="statusbar" statusbar_visible="ready,sent,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="flow"/>
+                        <field name="move_id"/>
+                        <field name="partner_id"/>
+                        <field name="company_id"/>
+                        <field name="amount_total"/>
+                        <field name="currency_id"/>
+                        <field name="sent_on"/>
+                    </group>
+                    <field name="message"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_fr_ereport_line_search" model="ir.ui.view">
+        <field name="name">fr.ereport.line.search</field>
+        <field name="model">fr.ereport.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <separator/>
+                <filter string="Ready" name="ready" domain="[('status', '=', 'ready')]"/>
+                <filter string="Errors" name="errors" domain="[('status', '=', 'error')]"/>
+                <filter string="Sent" name="sent" domain="[('status', 'in', ('sent', 'done'))]"/>
+                <separator/>
+                <filter string="Flow" name="flow" context="{'group_by': 'flow'}"/>
+                <filter string="Status" name="status" context="{'group_by': 'status'}"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_fr_ereport_lines" model="ir.actions.act_window">
+        <field name="name">E-Reporting Register</field>
+        <field name="res_model">fr.ereport.line</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

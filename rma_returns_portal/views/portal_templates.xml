@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_returns_list" name="My Returns">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar"/>
+            <h3>Return Requests</h3>
+            <t t-if="not requests">
+                <p>No return request yet.</p>
+            </t>
+            <t t-foreach="requests" t-as="r">
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <a t-attf-href="/my/returns/#{r.id}"><t t-out="r.name"/></a>
+                        <span class="badge" t-out="r.state"/>
+                        <span class="float-end" t-out="r.amount_to_refund"/>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_return_detail" name="Return Detail">
+        <t t-call="portal.portal_layout">
+            <h3><t t-out="rma.name"/></h3>
+            <p>Status: <t t-out="rma.state"/> — Resolution: <t t-out="rma.resolution or ''"/></p>
+            <table class="table">
+                <tr><th>Product</th><th>Requested</th><th>Accepted</th><th>Grade</th></tr>
+                <t t-foreach="rma.line_ids" t-as="l">
+                    <tr>
+                        <td><t t-out="l.product_id.display_name"/></td>
+                        <td><t t-out="l.qty_requested"/></td>
+                        <td><t t-out="l.qty_accepted"/></td>
+                        <td><t t-out="l.grade_id.name or ''"/></td>
+                    </tr>
+                </t>
+            </table>
+            <t t-if="rma.tracking_ref">
+                <p>Tracking: <t t-out="rma.tracking_ref"/></p>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_return_new" name="New Return Request">
+        <t t-call="portal.portal_layout">
+            <h3>New return for <t t-out="order.name"/></h3>
+            <t t-if="error">
+                <div class="alert alert-danger"><t t-out="error"/></div>
+            </t>
+            <form method="post">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <div class="mb-2">
+                    <label>Type</label>
+                    <select name="request_type" class="form-control">
+                        <option value="withdrawal">Withdrawal 14d</option>
+                        <option value="warranty">Legal Warranty</option>
+                        <option value="goodwill">Goodwill</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label>Reason</label>
+                    <select name="reason_id" class="form-control">
+                        <t t-foreach="reasons" t-as="reason">
+                            <option t-att-value="reason.id"><t t-out="reason.name"/></option>
+                        </t>
+                    </select>
+                </div>
+                <table class="table">
+                    <tr><th>Product</th><th>Delivered</th><th>Return Qty</th></tr>
+                    <t t-foreach="order.order_line" t-as="line">
+                        <tr>
+                            <td><t t-out="line.product_id.display_name"/></td>
+                            <td><t t-out="line.qty_delivered"/></td>
+                            <td><input type="number" min="0" step="1" value="0" t-attf-name="qty_#{line.id}" class="form-control"/></td>
+                        </tr>
+                    </t>
+                </table>
+                <button type="submit" class="btn btn-primary">Submit Return</button>
+            </form>
+        </t>
+    </template>
+</odoo>
