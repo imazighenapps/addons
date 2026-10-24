@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_forge" model="report.paperformat">
+        <field name="name">Report Forge A4</field>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">18</field>
+        <field name="margin_bottom">18</field>
+        <field name="margin_left">15</field>
+        <field name="margin_right">15</field>
+        <field name="header_line" eval="False"/>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_report_forge" model="ir.actions.report">
+        <field name="name">Generated Document</field>
+        <field name="model">report.forge.document</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">report_forge.report_forge</field>
+        <field name="paperformat_id" ref="paperformat_forge"/>
+        <field name="print_report_name">'%s' % object.name</field>
+    </record>
+
+    <template id="report_forge">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div t-out="o.rendered_html"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

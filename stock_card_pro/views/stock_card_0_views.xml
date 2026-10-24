@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_stock_card_list" model="ir.ui.view">
+        <field name="name">stock.card.list</field>
+        <field name="model">stock.card</field>
+        <field name="arch" type="xml">
+            <list string="Stock Cards">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="location_id"/>
+                <field name="lot_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="opening_qty"/>
+                <field name="in_qty" sum="Total In Qty"/>
+                <field name="out_qty" sum="Total Out Qty"/>
+                <field name="closing_qty"/>
+                <field name="closing_value" sum="Total Closing Value"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_stock_card_form" model="ir.ui.view">
+        <field name="name">stock.card.form</field>
+        <field name="model">stock.card</field>
+        <field name="arch" type="xml">
+            <form string="Stock Cards">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Product">
+    <field name="product_id"/>
+    <field name="lot_id"/>
+    <field name="location_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Period">
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="unit_cost"/>
+                        </group>
+                        <group string="Totals">
+    <field name="opening_qty"/>
+    <field name="in_qty"/>
+    <field name="out_qty"/>
+    <field name="closing_qty"/>
+    <field name="opening_value"/>
+    <field name="in_value"/>
+    <field name="out_value"/>
+    <field name="closing_value"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Movements" name="lineids">
+                            <field name="line_ids" readonly="1"><list><field name="date"/><field name="reference"/><field name="partner_id"/><field name="qty_in" sum="Total In"/><field name="qty_out" sum="Total Out"/><field name="balance"/><field name="unit_cost"/><field name="value" sum="Total Value"/><field name="currency_id" column_invisible="1"/></list></field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_stock_card_search" model="ir.ui.view">
+        <field name="name">stock.card.search</field>
+        <field name="model">stock.card</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="location_id"/>
+                <filter name="this_month" string="This Month" domain="[('date_from','&gt;=',(context_today().strftime('%Y-%m-01')))]"/>
+                <separator/>
+                <filter name="group_product" string="Product" context="{'group_by': 'product_id'}"/>
+                <filter name="group_location" string="Location" context="{'group_by': 'location_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_stock_card" model="ir.actions.act_window">
+        <field name="name">Stock Cards</field>
+        <field name="res_model">stock.card</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Generate a valued stock card for a product and a period.</p>
+        </field>
+    </record>
+
+</odoo>

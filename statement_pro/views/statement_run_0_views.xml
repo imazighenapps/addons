@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_statement_run_list" model="ir.ui.view">
+        <field name="name">statement.run.list</field>
+        <field name="model">statement.run</field>
+        <field name="arch" type="xml">
+            <list string="Statements" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="opening_balance" sum="Total Opening Balance"/>
+                <field name="total_debit" sum="Total Total Debit"/>
+                <field name="total_credit" sum="Total Total Credit"/>
+                <field name="closing_balance" sum="Total Closing Balance"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_statement_run_form" model="ir.ui.view">
+        <field name="name">statement.run.form</field>
+        <field name="model">statement.run</field>
+        <field name="arch" type="xml">
+            <form string="Statements">
+                <header>
+                    <button name="action_generate" type="object" string="Generate" class="btn-primary" invisible="state == 'sent'"/>
+                    <button name="action_send" type="object" string="Mark as Sent" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_print" type="object" string="Print PDF" class="btn-secondary" invisible="not line_ids"/>
+                    <button name="action_reset" type="object" string="Reset" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Partner">
+    <field name="partner_id"/>
+    <field name="company_id"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+                        </group>
+                        <group string="Balances">
+    <field name="opening_balance"/>
+    <field name="total_debit"/>
+    <field name="total_credit"/>
+    <field name="closing_balance"/>
+    <field name="overdue_amount"/>
+    <field name="sent_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Movements" name="lineids">
+                            <field name="line_ids" readonly="1"><list><field name="date"/><field name="reference"/><field name="label"/><field name="debit" sum="Total Debit"/><field name="credit" sum="Total Credit"/><field name="balance"/><field name="date_maturity"/><field name="currency_id" column_invisible="1"/></list></field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_statement_run_search" model="ir.ui.view">
+        <field name="name">statement.run.search</field>
+        <field name="model">statement.run</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="sent" string="Sent" domain="[('state','=','sent')]"/>
+                <filter name="overdue" string="With Overdue" domain="[('overdue_amount','&gt;',0)]"/>
+                <separator/>
+                <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_statement_run" model="ir.actions.act_window">
+        <field name="name">Statements</field>
+        <field name="res_model">statement.run</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Generate a statement for a customer or a supplier.</p>
+        </field>
+    </record>
+
+</odoo>

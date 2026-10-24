@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_credit_profile_list" model="ir.ui.view">
+        <field name="name">credit.profile.list</field>
+        <field name="model">credit.profile</field>
+        <field name="arch" type="xml">
+            <list string="Credit Profiles" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="partner_id"/>
+                <field name="credit_limit" sum="Total Credit Limit"/>
+                <field name="exposure" sum="Total Exposure"/>
+                <field name="available" sum="Total Available"/>
+                <field name="overdue_amount" sum="Total Overdue Amount"/>
+                <field name="overdue_days"/>
+                <field name="usage" string="Used %"/>
+                <field name="block_mode"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_credit_profile_form" model="ir.ui.view">
+        <field name="name">credit.profile.form</field>
+        <field name="model">credit.profile</field>
+        <field name="arch" type="xml">
+            <form string="Credit Profiles">
+                <header>
+                    <button name="action_block" type="object" string="Block" class="btn-secondary" invisible="state == 'blocked'"/>
+                    <button name="action_unblock" type="object" string="Unblock" class="btn-primary" invisible="state == 'active'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="active,blocked"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="partner_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Customer">
+    <field name="partner_id"/>
+    <field name="company_id"/>
+    <field name="state"/>
+    <field name="block_mode"/>
+                        </group>
+                        <group string="Credit">
+    <field name="credit_limit"/>
+    <field name="exposure"/>
+    <field name="available"/>
+    <field name="usage"/>
+    <field name="overdue_amount"/>
+    <field name="overdue_days"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note" placeholder="Payment agreement, guarantee, insurance..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_credit_profile_search" model="ir.ui.view">
+        <field name="name">credit.profile.search</field>
+        <field name="model">credit.profile</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="partner_id"/>
+                <filter name="blocked" string="Blocked" domain="[('state','=','blocked')]"/>
+                <filter name="over" string="Over Limit" domain="[('available','&lt;',0)]"/>
+                <filter name="overdue" string="With Overdue" domain="[('overdue_amount','&gt;',0)]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_mode" string="Control Mode" context="{'group_by': 'block_mode'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_credit_profile" model="ir.actions.act_window">
+        <field name="name">Credit Profiles</field>
+        <field name="res_model">credit.profile</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a credit profile for each customer you sell to on credit.</p>
+        </field>
+    </record>
+
+</odoo>

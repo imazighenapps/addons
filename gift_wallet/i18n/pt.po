@@ -1,0 +1,368 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* gift_wallet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: gift_wallet
+#. odoo-python
+#: code:addons/gift_wallet/models/gift_wallet.py:0
+msgid "%(amount).2f redeemed. New balance: %(balance).2f."
+msgstr "%(valor).2f resgatado. Novo saldo: %(saldo).2f."
+
+#. module: gift_wallet
+#. odoo-python
+#: code:addons/gift_wallet/models/gift_wallet.py:0
+msgid "A cancelled card cannot be reloaded."
+msgstr "Um cartão cancelado não pode ser recarregado."
+
+#. module: gift_wallet
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_form
+msgid "Activate"
+msgstr "Ativar"
+
+#. module: gift_wallet
+#: model:ir.model.fields.selection,name:gift_wallet.selection__gift_card__state__active
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_search
+msgid "Active"
+msgstr "Ativo"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_redeem_wizard__amount
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_transaction__amount
+msgid "Amount"
+msgstr "Montante"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_redeem_wizard__available
+msgid "Available Balance"
+msgstr "Saldo disponível"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__balance
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_form
+msgid "Balance"
+msgstr "Saldo"
+
+#. module: gift_wallet
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_form
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_redeem_wizard_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: gift_wallet
+#: model:ir.model.fields.selection,name:gift_wallet.selection__gift_card__state__cancelled
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_redeem_wizard__card_id
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_transaction__card_id
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_form
+msgid "Card"
+msgstr "Cartão"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__name
+msgid "Card Code"
+msgstr "Código do cartão"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: gift_wallet
+#: model:res.groups,comment:gift_wallet.group_giftwallet_manager
+msgid "Configure and administer the module."
+msgstr "Configure e administre o módulo."
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__create_uid
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_redeem_wizard__create_uid
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_transaction__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__create_date
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_redeem_wizard__create_date
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_transaction__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__currency_id
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_redeem_wizard__currency_id
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_transaction__currency_id
+msgid "Currency"
+msgstr "Moeda"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__partner_id
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_transaction__date
+msgid "Date"
+msgstr "Data"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__display_name
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_redeem_wizard__display_name
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_transaction__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: gift_wallet
+#: model:ir.model.fields.selection,name:gift_wallet.selection__gift_card__state__draft
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: gift_wallet
+#: model:ir.model.fields.selection,name:gift_wallet.selection__gift_card__state__expired
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_search
+msgid "Expired"
+msgstr "Expirado"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__expiry_date
+msgid "Expiry Date"
+msgstr "Data de validade"
+
+#. module: gift_wallet
+#: model:ir.model,name:gift_wallet.model_gift_card
+msgid "Gift Card"
+msgstr "Vale-presente"
+
+#. module: gift_wallet
+#: model:ir.model,name:gift_wallet.model_gift_transaction
+msgid "Gift Card Transaction"
+msgstr "Transação de vale-presente"
+
+#. module: gift_wallet
+#: model:ir.actions.act_window,name:gift_wallet.action_gift_card
+#: model:ir.ui.menu,name:gift_wallet.menu_gift_cards
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_form
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_list
+msgid "Gift Cards"
+msgstr "Cartões presente"
+
+#. module: gift_wallet
+#: model:ir.ui.menu,name:gift_wallet.menu_gift_root
+msgid "Gift Wallet"
+msgstr "Carteira de presente"
+
+#. module: gift_wallet
+#: model:res.groups,name:gift_wallet.group_giftwallet_manager
+msgid "Gift Wallet Manager"
+msgstr "Gerenciador de carteira de presentes"
+
+#. module: gift_wallet
+#: model:res.groups,name:gift_wallet.group_giftwallet_user
+msgid "Gift Wallet User"
+msgstr "Usuário da carteira de presentes"
+
+#. module: gift_wallet
+#: model:ir.module.module,shortdesc:base.module_gift_wallet
+msgid "GiftWallet - Gift Cards and Store Credit"
+msgstr "GiftWallet - Cartões-presente e crédito na loja"
+
+#. module: gift_wallet
+#: model:ir.actions.server,name:gift_wallet.cron_gift_expire_ir_actions_server
+msgid "GiftWallet: expire gift cards"
+msgstr "GiftWallet: cartões-presente expiram"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__initial_amount
+msgid "Initial Amount"
+msgstr "Valor Inicial"
+
+#. module: gift_wallet
+#. odoo-python
+#: code:addons/gift_wallet/models/gift_wallet.py:0
+msgid "Initial issue"
+msgstr "Edição inicial"
+
+#. module: gift_wallet
+#: model:ir.model.fields.selection,name:gift_wallet.selection__gift_transaction__type__issue
+msgid "Issue"
+msgstr "Emitir"
+
+#. module: gift_wallet
+#: model:ir.module.module,summary:base.module_gift_wallet
+msgid "Issue gift cards with a unique code, redeem partially, reload, track the balance and expire them automatically."
+msgstr "Emita vales-presente com código único, resgate parcialmente, recarregue, acompanhe o saldo e expire automaticamente."
+
+#. module: gift_wallet
+#: model_terms:ir.actions.act_window,help:gift_wallet.action_gift_card
+msgid "Issue your first gift card."
+msgstr "Emita seu primeiro vale-presente."
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__write_uid
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_redeem_wizard__write_uid
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_transaction__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__write_date
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_redeem_wizard__write_date
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_transaction__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: gift_wallet
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: gift_wallet
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_redeem_wizard_form
+msgid "Redeem"
+msgstr "Resgatar"
+
+#. module: gift_wallet
+#: model:ir.actions.act_window,name:gift_wallet.action_gift_redeem_wizard
+#: model:ir.model,name:gift_wallet.model_gift_redeem_wizard
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_redeem_wizard_form
+msgid "Redeem Gift Card"
+msgstr "Resgatar vale-presente"
+
+#. module: gift_wallet
+#: model:ir.ui.menu,name:gift_wallet.menu_gift_redeem
+msgid "Redeem a Card"
+msgstr "Resgatar um cartão"
+
+#. module: gift_wallet
+#. odoo-python
+#: code:addons/gift_wallet/models/gift_wallet.py:0
+#: model:ir.model.fields.selection,name:gift_wallet.selection__gift_transaction__type__redeem
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_redeem_wizard_form
+msgid "Redemption"
+msgstr "Redenção"
+
+#. module: gift_wallet
+#: model:ir.model.fields.selection,name:gift_wallet.selection__gift_transaction__type__refund
+msgid "Refund"
+msgstr "Reembolso"
+
+#. module: gift_wallet
+#. odoo-python
+#: code:addons/gift_wallet/models/gift_wallet.py:0
+#: model:ir.model.fields.selection,name:gift_wallet.selection__gift_transaction__type__reload
+msgid "Reload"
+msgstr "Recarregar"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__state
+msgid "State"
+msgstr "Estado"
+
+#. module: gift_wallet
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: gift_wallet
+#. odoo-python
+#: code:addons/gift_wallet/models/gift_wallet.py:0
+msgid "The amount cannot be negative."
+msgstr "O valor não pode ser negativo."
+
+#. module: gift_wallet
+#. odoo-python
+#: code:addons/gift_wallet/models/gift_wallet.py:0
+msgid "The amount exceeds the available balance (%s)."
+msgstr "O valor excede o saldo disponível (%s)."
+
+#. module: gift_wallet
+#. odoo-python
+#: code:addons/gift_wallet/models/gift_wallet.py:0
+msgid "The amount must be greater than zero."
+msgstr "O valor deve ser maior que zero."
+
+#. module: gift_wallet
+#. odoo-python
+#: code:addons/gift_wallet/models/gift_wallet.py:0
+msgid "This card has expired."
+msgstr "Este cartão expirou."
+
+#. module: gift_wallet
+#. odoo-python
+#: code:addons/gift_wallet/models/gift_wallet.py:0
+msgid "This card has no balance left."
+msgstr "Este cartão não tem saldo restante."
+
+#. module: gift_wallet
+#. odoo-python
+#: code:addons/gift_wallet/models/gift_wallet.py:0
+msgid "This card is not usable."
+msgstr "Este cartão não é utilizável."
+
+#. module: gift_wallet
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_form
+msgid "Total"
+msgstr "Total"
+
+#. module: gift_wallet
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_list
+msgid "Total Balance"
+msgstr "Saldo total"
+
+#. module: gift_wallet
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_list
+msgid "Total Initial Amount"
+msgstr "Valor Inicial Total"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__transaction_count
+msgid "Transaction Count"
+msgstr "Contagem de transações"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_card__transaction_ids
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_form
+msgid "Transactions"
+msgstr "Transações"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_transaction__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: gift_wallet
+#: model:ir.model.fields.selection,name:gift_wallet.selection__gift_card__state__used
+#: model_terms:ir.ui.view,arch_db:gift_wallet.view_gift_card_search
+msgid "Used"
+msgstr "Usada Usado"
+
+#. module: gift_wallet
+#: model:ir.model.fields,field_description:gift_wallet.field_gift_transaction__user_id
+msgid "User"
+msgstr "Usuária Usuário"
+
+#. module: gift_wallet
+#: model:res.groups,comment:gift_wallet.group_giftwallet_user
+msgid "View and use the module."
+msgstr "Visualize e use o módulo."

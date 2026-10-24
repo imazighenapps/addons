@@ -1,0 +1,340 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* expense_guard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: expense_guard
+#. odoo-python
+#: code:addons/expense_guard/models/expense_guard.py:0
+msgid "A receipt is required."
+msgstr "Eine Quittung ist erforderlich."
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__active
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_policy_search
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: expense_guard
+#. odoo-python
+#: code:addons/expense_guard/models/expense_guard.py:0
+msgid "Amount %(amount).2f exceeds the cap of %(cap).2f."
+msgstr "Betrag %(amount).2f überschreitet die Obergrenze von %(cap).2f."
+
+#. module: expense_guard
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_policy_search
+msgid "Archived"
+msgstr "Archiviert"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__block_mode
+msgid "Block Mode"
+msgstr "Blockmodus"
+
+#. module: expense_guard
+#: model:ir.model.fields.selection,name:expense_guard.selection__expense_policy__block_mode__block
+msgid "Block submission"
+msgstr "Einreichung blockieren"
+
+#. module: expense_guard
+#: model:ir.model.fields.selection,name:expense_guard.selection__expense_audit__level__block
+#: model:ir.model.fields.selection,name:expense_guard.selection__hr_expense__policy_state__blocked
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_audit_search
+msgid "Blocked"
+msgstr "Blockiert"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_audit__company_id
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__company_id
+msgid "Company"
+msgstr "Firma"
+
+#. module: expense_guard
+#: model:ir.model.fields.selection,name:expense_guard.selection__hr_expense__policy_state__ok
+msgid "Compliant"
+msgstr "Konform"
+
+#. module: expense_guard
+#: model:res.groups,comment:expense_guard.group_expenseguard_manager
+msgid "Configure and administer the module."
+msgstr "Konfigurieren und verwalten Sie das Modul."
+
+#. module: expense_guard
+#: model:ir.module.module,summary:base.module_expense_guard
+msgid "Control expense claims against your own policy: amount caps, receipt required, maximum age, duplicate check, block or warn, with an audit trail."
+msgstr "Kontrollieren Sie Spesenabrechnungen anhand Ihrer eigenen Police: Betragsobergrenzen, erforderliche Quittung, Höchstalter, Duplikatprüfung, Sperrung oder Warnung, mit Prüfprotokoll."
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_audit__create_uid
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_audit__create_date
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__currency_id
+msgid "Currency"
+msgstr "Währung"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_audit__date
+msgid "Date"
+msgstr "Datum"
+
+#. module: expense_guard
+#: model_terms:ir.actions.act_window,help:expense_guard.action_expense_policy
+msgid "Define the amount cap, the receipt rule and the maximum age."
+msgstr "Definieren Sie die Betragsobergrenze, die Empfangsregel und das Höchstalter."
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_audit__display_name
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__display_name
+#: model:ir.model.fields,field_description:expense_guard.field_hr_expense__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_audit__employee_id
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_audit_search
+msgid "Employee"
+msgstr "Mitarbeiterin Mitarbeiter"
+
+#. module: expense_guard
+#: model:ir.model,name:expense_guard.model_hr_expense
+#: model:ir.model.fields,field_description:expense_guard.field_expense_audit__expense_id
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_audit_form
+msgid "Expense"
+msgstr "Ausgabe"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__categ_id
+msgid "Expense Category"
+msgstr "Ausgabenkategorie"
+
+#. module: expense_guard
+#: model:ir.ui.menu,name:expense_guard.menu_expenseguard_root
+msgid "Expense Control"
+msgstr "Kostenkontrolle"
+
+#. module: expense_guard
+#: model:res.groups,name:expense_guard.group_expenseguard_manager
+msgid "Expense Guard Manager"
+msgstr "Expense Guard Manager"
+
+#. module: expense_guard
+#: model:res.groups,name:expense_guard.group_expenseguard_user
+msgid "Expense Guard User"
+msgstr "Expense Guard-Benutzer"
+
+#. module: expense_guard
+#: model:ir.actions.act_window,name:expense_guard.action_expense_policy
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_policy_form
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_policy_list
+msgid "Expense Policies"
+msgstr "Spesenrichtlinien"
+
+#. module: expense_guard
+#: model:ir.model,name:expense_guard.model_expense_policy
+msgid "Expense Policy"
+msgstr "Spesenpolitik"
+
+#. module: expense_guard
+#: model:ir.model,name:expense_guard.model_expense_audit
+msgid "Expense Policy Violation"
+msgstr "Verstoß gegen die Spesenrichtlinien"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__product_id
+msgid "Expense Product"
+msgstr "Spesenprodukt"
+
+#. module: expense_guard
+#. odoo-python
+#: code:addons/expense_guard/models/expense_guard.py:0
+msgid "Expense policy warning:\n%s"
+msgstr "Warnung zur Spesenrichtlinie: \n%s"
+
+#. module: expense_guard
+#: model:ir.module.module,shortdesc:base.module_expense_guard
+msgid "ExpenseGuard - Expense Policy Compliance"
+msgstr "ExpenseGuard – Einhaltung von Spesenrichtlinien"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_audit__write_uid
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_audit__write_date
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: expense_guard
+#: model:ir.model.fields,help:expense_guard.field_expense_policy__categ_id
+msgid "Leave empty to apply to every expense category."
+msgstr "Lassen Sie das Feld leer, um es auf jede Ausgabenkategorie anzuwenden."
+
+#. module: expense_guard
+#: model:ir.model.fields,help:expense_guard.field_expense_policy__product_id
+msgid "Leave empty to apply to every product."
+msgstr "Lassen Sie das Feld leer, um es auf jedes Produkt anzuwenden."
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_audit__level
+msgid "Level"
+msgstr "Ebene"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__max_age_days
+msgid "Max Age Days"
+msgstr "Maximales Alter in Tagen"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__max_amount
+msgid "Max Amount"
+msgstr "Maximaler Betrag"
+
+#. module: expense_guard
+#: model:ir.model.fields,help:expense_guard.field_expense_policy__max_age_days
+msgid "Maximum number of days between the expense date and the submission. Zero disables the check."
+msgstr "Maximale Anzahl von Tagen zwischen dem Spesendatum und der Einreichung. Null deaktiviert die Prüfung."
+
+#. module: expense_guard
+#: model:ir.model.fields,help:expense_guard.field_expense_policy__max_amount
+msgid "Maximum reimbursable amount. Zero means no cap."
+msgstr "Maximaler erstattungsfähiger Betrag. Null bedeutet keine Obergrenze."
+
+#. module: expense_guard
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_policy_search
+msgid "Mode"
+msgstr "Modus"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_audit__name
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__name
+msgid "Name"
+msgstr "Name"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__note
+msgid "Note"
+msgstr "Notiz"
+
+#. module: expense_guard
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_policy_form
+msgid "Notes"
+msgstr "Notizen"
+
+#. module: expense_guard
+#: model:ir.ui.menu,name:expense_guard.menu_expenseguard_policies
+msgid "Policies"
+msgstr "Richtlinien"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_audit__policy_id
+#: model:ir.model.fields,field_description:expense_guard.field_hr_expense__policy_state
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_audit_search
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_policy_form
+msgid "Policy"
+msgstr "Richtlinie"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_hr_expense__policy_note
+msgid "Policy Messages"
+msgstr "Richtliniennachrichten"
+
+#. module: expense_guard
+#: model:ir.actions.act_window,name:expense_guard.action_expense_audit
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_audit_form
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_audit_list
+msgid "Policy Violations"
+msgstr "Richtlinienverstöße"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__require_receipt
+msgid "Require Receipt"
+msgstr "Quittung erforderlich"
+
+#. module: expense_guard
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_policy_form
+msgid "Rules"
+msgstr "Regeln"
+
+#. module: expense_guard
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_policy_form
+msgid "Scope"
+msgstr "Umfang"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_policy__sequence
+msgid "Sequence"
+msgstr "Sequenz"
+
+#. module: expense_guard
+#. odoo-python
+#: code:addons/expense_guard/models/expense_guard.py:0
+msgid "The expense is %(age)s days old, the maximum is %(max)s."
+msgstr "Die Ausgabe ist %(age)s Tage alt, das Maximum beträgt %(max)s."
+
+#. module: expense_guard
+#. odoo-python
+#: code:addons/expense_guard/models/expense_guard.py:0
+msgid "This expense does not comply with your policy:\n%s"
+msgstr "Diese Ausgabe entspricht nicht Ihrer Richtlinie: \n%s"
+
+#. module: expense_guard
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_policy_list
+msgid "Total Max Amount"
+msgstr "Gesamtmaximalbetrag"
+
+#. module: expense_guard
+#: model:ir.model.fields,field_description:expense_guard.field_expense_audit__user_id
+msgid "User"
+msgstr "Benutzer"
+
+#. module: expense_guard
+#: model:res.groups,comment:expense_guard.group_expenseguard_user
+msgid "View and use the module."
+msgstr "Sehen Sie sich das Modul an und nutzen Sie es."
+
+#. module: expense_guard
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_audit_form
+msgid "Violation"
+msgstr "Verstoß"
+
+#. module: expense_guard
+#: model:ir.ui.menu,name:expense_guard.menu_expenseguard_audits
+msgid "Violations"
+msgstr "Verstöße"
+
+#. module: expense_guard
+#: model:ir.model.fields.selection,name:expense_guard.selection__expense_policy__block_mode__warn
+msgid "Warn the approver"
+msgstr "Warnen Sie den Genehmiger"
+
+#. module: expense_guard
+#: model:ir.model.fields.selection,name:expense_guard.selection__expense_audit__level__warning
+#: model:ir.model.fields.selection,name:expense_guard.selection__hr_expense__policy_state__warned
+msgid "Warning"
+msgstr "Warnung"
+
+#. module: expense_guard
+#: model_terms:ir.ui.view,arch_db:expense_guard.view_expense_audit_search
+msgid "Warnings"
+msgstr "Warnungen"

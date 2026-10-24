@@ -1,0 +1,625 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* close_flow
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "\"%s\" cannot be completed before: %s"
+msgstr "\"%s\" não pode ser concluído antes: %s"
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "%s task(s) are still open. Complete them first."
+msgstr "As tarefas %s ainda estão abertas. Complete-os primeiro."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "%s tasks generated from template %s."
+msgstr "Tarefas %s geradas a partir do modelo %s."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "A task can only depend on a task of the same period."
+msgstr "Uma tarefa só pode depender de uma tarefa do mesmo período."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "A task cannot depend on itself."
+msgstr "Uma tarefa não pode depender de si mesma."
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_template__active
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_search
+msgid "Active"
+msgstr "Ativo"
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_search
+msgid "Archived"
+msgstr "Arquivada Arquivado"
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "Attach the evidence before completing \"%s\"."
+msgstr "Anexe as evidências antes de completar \"%s\"."
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_form
+msgid "Block"
+msgstr "Bloquear"
+
+#. module: close_flow
+#: model:ir.model.fields.selection,name:close_flow.selection__close_task__state__blocked
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_search
+msgid "Blocked"
+msgstr "Bloqueado"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_task__blocked_reason
+msgid "Blocked Reason"
+msgstr "Motivo de bloqueio"
+
+#. module: close_flow
+#: model_terms:ir.actions.act_window,help:close_flow.action_close_template
+msgid "Build your checklist once and reuse it every month."
+msgstr "Crie sua lista de verificação uma vez e reutilize-a todos os meses."
+
+#. module: close_flow
+#: model:ir.ui.menu,name:close_flow.menu_closeflow_root
+msgid "Close Flow"
+msgstr "Fechar fluxo"
+
+#. module: close_flow
+#: model:res.groups,name:close_flow.group_closeflow_manager
+msgid "Close Flow Manager"
+msgstr "Fechar gerenciador de fluxo"
+
+#. module: close_flow
+#: model:res.groups,name:close_flow.group_closeflow_user
+msgid "Close Flow User"
+msgstr "Fechar usuário do fluxo"
+
+#. module: close_flow
+#: model:ir.actions.act_window,name:close_flow.action_close_period
+#: model:ir.ui.menu,name:close_flow.menu_closeflow_periods
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_form
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_list
+msgid "Close Periods"
+msgstr "Períodos de fecho"
+
+#. module: close_flow
+#: model:ir.actions.act_window,name:close_flow.action_close_task
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_form
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_list
+msgid "Close Tasks"
+msgstr "Tarefas de fecho"
+
+#. module: close_flow
+#: model:ir.model,name:close_flow.model_close_template_line
+msgid "Close Template Task"
+msgstr "Fechar tarefa de modelo"
+
+#. module: close_flow
+#: model:ir.actions.act_window,name:close_flow.action_close_template
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_form
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_list
+msgid "Close Templates"
+msgstr "Fechar modelos"
+
+#. module: close_flow
+#: model:ir.module.module,shortdesc:base.module_close_flow
+msgid "CloseFlow - Month-End Close Checklist"
+msgstr "CloseFlow - Lista de verificação de fechamento do mês"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__company_id
+#: model:ir.model.fields,field_description:close_flow.field_close_task__company_id
+#: model:ir.model.fields,field_description:close_flow.field_close_template__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_form
+msgid "Complete"
+msgstr "Completa Completo"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_task__completed_by
+msgid "Completed By"
+msgstr "Concluído por"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_task__completed_on
+msgid "Completed On"
+msgstr "Concluído em"
+
+#. module: close_flow
+#: model:res.groups,comment:close_flow.group_closeflow_manager
+msgid "Configure and administer the module."
+msgstr "Configure e administre o módulo."
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_form
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_line_form
+msgid "Control"
+msgstr "Controlar"
+
+#. module: close_flow
+#: model_terms:ir.actions.act_window,help:close_flow.action_close_period
+msgid "Create the period, generate the tasks, then follow the progress."
+msgstr "Crie o período, gere as tarefas e acompanhe o andamento."
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__create_uid
+#: model:ir.model.fields,field_description:close_flow.field_close_task__create_uid
+#: model:ir.model.fields,field_description:close_flow.field_close_template__create_uid
+#: model:ir.model.fields,field_description:close_flow.field_close_template_line__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__create_date
+#: model:ir.model.fields,field_description:close_flow.field_close_task__create_date
+#: model:ir.model.fields,field_description:close_flow.field_close_template__create_date
+#: model:ir.model.fields,field_description:close_flow.field_close_template_line__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__date_end
+msgid "Date End"
+msgstr "Data final"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__date_start
+msgid "Date Start"
+msgstr "Data de início"
+
+#. module: close_flow
+#: model:ir.model.fields,help:close_flow.field_close_template_line__due_day
+msgid "Day of the month following the period end."
+msgstr "Dia do mês seguinte ao término do período."
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_template_line__user_id
+msgid "Default Owner"
+msgstr "Proprietário padrão"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_task__dependency_count
+msgid "Dependency Count"
+msgstr "Contagem de Dependências"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_task__dependency_ids
+#: model:ir.model.fields,field_description:close_flow.field_close_template_line__dependency_ids
+msgid "Depends On"
+msgstr "Depende de"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__display_name
+#: model:ir.model.fields,field_description:close_flow.field_close_task__display_name
+#: model:ir.model.fields,field_description:close_flow.field_close_template__display_name
+#: model:ir.model.fields,field_description:close_flow.field_close_template_line__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: close_flow
+#: model:ir.model.fields.selection,name:close_flow.selection__close_period__state__done
+#: model:ir.model.fields.selection,name:close_flow.selection__close_task__state__done
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_search
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_search
+msgid "Done"
+msgstr "Concluído"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__done_count
+msgid "Done Count"
+msgstr "Contagem concluída"
+
+#. module: close_flow
+#: model:ir.model.fields.selection,name:close_flow.selection__close_period__state__draft
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_search
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_task__due_date
+msgid "Due Date"
+msgstr "Data de vencimento"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_template_line__due_day
+msgid "Due Day"
+msgstr "Dia de Vencimento"
+
+#. module: close_flow
+#: model_terms:ir.actions.act_window,help:close_flow.action_close_template_line
+msgid "Each line becomes a task when the period is generated."
+msgstr "Cada linha se torna uma tarefa quando o período é gerado."
+
+#. module: close_flow
+#: model_terms:ir.actions.act_window,help:close_flow.action_close_task
+msgid "Every task of the close, with its owner, deadline and proof."
+msgstr "Cada tarefa do fechamento, com seu dono, prazo e comprovante."
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_task__attachment_ids
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_form
+msgid "Evidence"
+msgstr "Evidência"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_task__evidence_required
+#: model:ir.model.fields,field_description:close_flow.field_close_template_line__evidence_required
+msgid "Evidence Required"
+msgstr "Evidência necessária"
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "Explain why the task is blocked."
+msgstr "Explique por que a tarefa está bloqueada."
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_form
+msgid "Generate Tasks"
+msgstr "Gerar tarefas"
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "Generate the tasks before closing."
+msgstr "Gere as tarefas antes de fechar."
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__has_message
+#: model:ir.model.fields,field_description:close_flow.field_close_task__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: close_flow
+#: model:ir.model.fields.selection,name:close_flow.selection__close_period__state__in_progress
+#: model:ir.model.fields.selection,name:close_flow.selection__close_task__state__in_progress
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_search
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_search
+msgid "In Progress"
+msgstr "Em andamento"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_task__instruction
+#: model:ir.model.fields,field_description:close_flow.field_close_template_line__instruction
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_form
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_line_form
+msgid "Instruction"
+msgstr "Instrução"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__write_uid
+#: model:ir.model.fields,field_description:close_flow.field_close_task__write_uid
+#: model:ir.model.fields,field_description:close_flow.field_close_template__write_uid
+#: model:ir.model.fields,field_description:close_flow.field_close_template_line__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__write_date
+#: model:ir.model.fields,field_description:close_flow.field_close_task__write_date
+#: model:ir.model.fields,field_description:close_flow.field_close_template__write_date
+#: model:ir.model.fields,field_description:close_flow.field_close_template_line__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_template__line_count
+msgid "Line Count"
+msgstr "Contagem de linhas"
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_form
+msgid "Lock"
+msgstr "Trancar"
+
+#. module: close_flow
+#: model:ir.model.fields.selection,name:close_flow.selection__close_period__state__locked
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_search
+msgid "Locked"
+msgstr "Bloqueado"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__locked_by
+msgid "Locked By"
+msgstr "Bloqueado por"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__locked_on
+msgid "Locked On"
+msgstr "Bloqueado"
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_form
+msgid "Mark Done"
+msgstr "Marcar como concluído"
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "Mark the period as done before locking it."
+msgstr "Marque o período como concluído antes de bloqueá-lo."
+
+#. module: close_flow
+#: model:ir.model,name:close_flow.model_close_period
+msgid "Month-End Close Period"
+msgstr "Período de encerramento do mês"
+
+#. module: close_flow
+#: model:ir.model,name:close_flow.model_close_task
+msgid "Month-End Close Task"
+msgstr "Tarefa de encerramento do mês"
+
+#. module: close_flow
+#: model:ir.model,name:close_flow.model_close_template
+msgid "Month-End Close Template"
+msgstr "Modelo de fechamento de fim de mês"
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "Month-end close completed."
+msgstr "Fechamento de final de mês concluído."
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__my_activity_date_deadline
+#: model:ir.model.fields,field_description:close_flow.field_close_task__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Prazo da minha atividade"
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_search
+msgid "My Tasks"
+msgstr "Minhas tarefas"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__name
+#: model:ir.model.fields,field_description:close_flow.field_close_template__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__note
+#: model:ir.model.fields,field_description:close_flow.field_close_template__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_form
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "Only a close manager can unlock a period."
+msgstr "Apenas um gestor próximo pode desbloquear um período."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "Only a draft period can be started."
+msgstr "Apenas um período de rascunho pode ser iniciado."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "Only an open period can be marked as done."
+msgstr "Somente um período aberto pode ser marcado como concluído."
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_task__user_id
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_form
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_search
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_line_search
+msgid "Owner"
+msgstr "Proprietário"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_task__period_id
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_form
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_search
+msgid "Period"
+msgstr "Período"
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "Period locked by %s."
+msgstr "Período bloqueado por %s."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "Period unlocked by %s."
+msgstr "Período desbloqueado por %s."
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_form
+msgid "Progress"
+msgstr "Progresso"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__progress
+msgid "Progress (%)"
+msgstr "Progresso (%)"
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_form
+msgid "Reopen"
+msgstr "Reabrir"
+
+#. module: close_flow
+#: model:ir.module.module,summary:base.module_close_flow
+msgid "Run the monthly close with a reusable checklist: owners, deadlines, dependencies, evidence, progress dashboard and a locked audit trail."
+msgstr "Execute o fechamento mensal com uma lista de verificação reutilizável: proprietários, prazos, dependências, evidências, painel de progresso e trilha de auditoria bloqueada."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "Select a template first."
+msgstr "Selecione um modelo primeiro."
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_task__sequence
+#: model:ir.model.fields,field_description:close_flow.field_close_template_line__sequence
+msgid "Sequence"
+msgstr "Sequência"
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_form
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_form
+msgid "Start"
+msgstr "Começar"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__state
+#: model:ir.model.fields,field_description:close_flow.field_close_task__state
+msgid "State"
+msgstr "Estado"
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_search
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_task__name
+#: model:ir.model.fields,field_description:close_flow.field_close_template_line__name
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_form
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_line_form
+msgid "Task"
+msgstr "Tarefa"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__task_count
+msgid "Task Count"
+msgstr "Contagem de tarefas"
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "Task completed."
+msgstr "Tarefa concluída."
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__task_ids
+#: model:ir.model.fields,field_description:close_flow.field_close_template__line_ids
+#: model:ir.ui.menu,name:close_flow.menu_closeflow_tasks
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_form
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_form
+msgid "Tasks"
+msgstr "Tarefas"
+
+#. module: close_flow
+#: model:ir.model.fields,field_description:close_flow.field_close_period__template_id
+#: model:ir.model.fields,field_description:close_flow.field_close_template_line__template_id
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_search
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_form
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_line_search
+msgid "Template"
+msgstr "Modelo"
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+#: model:ir.actions.act_window,name:close_flow.action_close_template_line
+#: model:ir.ui.menu,name:close_flow.menu_closeflow_template_lines
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_line_form
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_template_line_list
+msgid "Template Tasks"
+msgstr "Tarefas de modelo"
+
+#. module: close_flow
+#: model:ir.ui.menu,name:close_flow.menu_closeflow_templates
+msgid "Templates"
+msgstr "Modelos"
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "The end date must be after the start date."
+msgstr "A data de término deve ser posterior à data de início."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "The period is locked. Ask a manager to unlock it."
+msgstr "O período está bloqueado. Peça a um gerente para desbloqueá-lo."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "This period is locked."
+msgstr "Este período está bloqueado."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "This period is locked. Ask a manager to unlock it."
+msgstr "Este período está bloqueado. Peça a um gerente para desbloqueá-lo."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "This period is not locked."
+msgstr "Este período não está bloqueado."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "This task cannot be started."
+msgstr "Esta tarefa não pode ser iniciada."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "This task is already done."
+msgstr "Esta tarefa já está feita."
+
+#. module: close_flow
+#: model:ir.model.fields.selection,name:close_flow.selection__close_task__state__todo
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_task_search
+msgid "To Do"
+msgstr "Pendência"
+
+#. module: close_flow
+#: model_terms:ir.ui.view,arch_db:close_flow.view_close_period_form
+msgid "Unlock"
+msgstr "Desbloquear"
+
+#. module: close_flow
+#: model:res.groups,comment:close_flow.group_closeflow_user
+msgid "View and use the module."
+msgstr "Visualize e use o módulo."
+
+#. module: close_flow
+#. odoo-python
+#: code:addons/close_flow/models/close_flow.py:0
+msgid "template_id"
+msgstr "modelo_id"

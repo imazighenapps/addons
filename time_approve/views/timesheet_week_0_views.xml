@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_timesheet_week_list" model="ir.ui.view">
+        <field name="name">timesheet.week.list</field>
+        <field name="model">timesheet.week</field>
+        <field name="arch" type="xml">
+            <list string="Timesheet Weeks" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="total_hours" sum="Total Total Hours"/>
+                <field name="state" widget="badge"/>
+                <field name="approved_by"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_timesheet_week_form" model="ir.ui.view">
+        <field name="name">timesheet.week.form</field>
+        <field name="model">timesheet.week</field>
+        <field name="arch" type="xml">
+            <form string="Timesheet Weeks">
+                <header>
+                    <button name="action_generate" type="object" string="Load Timesheets" class="btn-secondary" invisible="state not in ('draft', 'rejected')"/>
+                    <button name="action_submit" type="object" string="Submit" class="btn-primary" invisible="state not in ('draft', 'rejected')"/>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'submitted'"/>
+                    <button name="action_reject" type="object" string="Reject" class="btn-secondary" invisible="state != 'submitted'"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-link" invisible="state != 'approved'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved,rejected"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Week">
+    <field name="user_id"/>
+    <field name="date_start"/>
+    <field name="date_end"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Approval">
+    <field name="total_hours"/>
+    <field name="submitted_on"/>
+    <field name="approved_by"/>
+    <field name="approved_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Timesheets" name="lineids">
+                            <field name="line_ids" readonly="1"><list><field name="date"/><field name="name"/><field name="unit_amount" sum="Total Hours"/><field name="user_id"/><field name="week_state"/></list></field>
+                        </page>
+                        <page string="Comment" name="comment">
+                            <field name="comment"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_timesheet_week_search" model="ir.ui.view">
+        <field name="name">timesheet.week.search</field>
+        <field name="model">timesheet.week</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="user_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="submitted" string="To Approve" domain="[('state','=','submitted')]"/>
+                <filter name="approved" string="Approved" domain="[('state','=','approved')]"/>
+                <filter name="rejected" string="Rejected" domain="[('state','=','rejected')]"/>
+                <separator/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'user_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_timesheet_week" model="ir.actions.act_window">
+        <field name="name">Timesheet Weeks</field>
+        <field name="res_model">timesheet.week</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a week, load the timesheets, then submit it for approval.</p>
+        </field>
+    </record>
+
+</odoo>

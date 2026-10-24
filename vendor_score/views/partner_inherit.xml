@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_vendor_score" model="ir.ui.view">
+        <field name="name">res.partner.form.vendor.score</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="before">
+                <page string="Supplier Score" name="vendor_score">
+                    <group>
+                        <field name="vendor_score"/>
+                        <field name="vendor_rating"/>
+                    </group>
+                    <field name="vendor_review_ids" readonly="1">
+                        <list>
+                            <field name="name"/>
+                            <field name="period_start"/>
+                            <field name="period_end"/>
+                            <field name="score"/>
+                            <field name="rating"/>
+                            <field name="state"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
