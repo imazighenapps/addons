@@ -1,0 +1,659 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* commission_desk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: commission_desk
+#. odoo-python
+#: code:addons/commission_desk/models/commission_desk.py:0
+msgid "A paid statement cannot be reset."
+msgstr "Un relevé payé ne peut pas être réinitialisé."
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__active
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_rule_search
+msgid "Active"
+msgstr "Actif"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_form
+msgid "Add Clawbacks"
+msgstr "Ajouter des récupérations"
+
+#. module: commission_desk
+#. odoo-python
+#: code:addons/commission_desk/models/commission_desk.py:0
+msgid "Add at least one commission line before submitting."
+msgstr "Ajoutez au moins une ligne de commission avant de soumettre."
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__amount
+msgid "Amount"
+msgstr "Montant"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_form
+msgid "Approval comments, exceptions, payment reference..."
+msgstr "Commentaires d'approbation, exceptions, référence de paiement..."
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_form
+msgid "Approve"
+msgstr "Approuver"
+
+#. module: commission_desk
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_line__state__approved
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_statement__state__approved
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_search
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_search
+msgid "Approved"
+msgstr "Approuvé"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__approved_by
+msgid "Approved By"
+msgstr "Approuvé par"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__approved_date
+msgid "Approved Date"
+msgstr "Date d'approbation"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_rule_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__base_amount
+msgid "Base Amount"
+msgstr "Montant de base"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__basis
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_rule_search
+msgid "Basis"
+msgstr "Base"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_form
+msgid "Beneficiary"
+msgstr "Bénéficiaire"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__use_margin
+msgid "Calculate on Margin"
+msgstr "Calculer sur la marge"
+
+#. module: commission_desk
+#: model:ir.module.module,summary:base.module_commission_desk
+msgid "Calculate, validate and pay sales commissions from orders, invoices and payments, with automatic clawback."
+msgstr "Calculez, validez et payez les commissions de vente sur les commandes, les factures et les paiements, avec récupération automatique."
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_form
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_rule_form
+msgid "Calculation"
+msgstr "Calcul"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: commission_desk
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_line__state__cancelled
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_statement__state__cancelled
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: commission_desk
+#: model_terms:ir.actions.act_window,help:commission_desk.action_commission_rule
+msgid "Choose who earns the commission, on which base, and at which rate."
+msgstr "Choisissez qui gagne la commission, sur quelle base et à quel taux."
+
+#. module: commission_desk
+#. odoo-python
+#: code:addons/commission_desk/models/commission_desk.py:0
+msgid "Clawback: %s"
+msgstr "Récupération : %s"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_sale_order__commission_total
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_order_form_commission
+msgid "Commission"
+msgstr "Commission"
+
+#. module: commission_desk
+#: model:ir.model,name:commission_desk.model_commission_line
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_form
+msgid "Commission Line"
+msgstr "Ligne de commission"
+
+#. module: commission_desk
+#: model:ir.actions.act_window,name:commission_desk.action_commission_line
+#: model:ir.model.fields,field_description:commission_desk.field_sale_order__commission_line_ids
+#: model:ir.ui.menu,name:commission_desk.menu_commission_line
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_list
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_form
+msgid "Commission Lines"
+msgstr "Lignes de commission"
+
+#. module: commission_desk
+#: model:res.groups,name:commission_desk.group_commission_manager
+msgid "Commission Manager"
+msgstr "Gestionnaire des commissions"
+
+#. module: commission_desk
+#: model:ir.model,name:commission_desk.model_commission_rule
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_rule_form
+msgid "Commission Rule"
+msgstr "Règle de commission"
+
+#. module: commission_desk
+#: model:ir.actions.act_window,name:commission_desk.action_commission_rule
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_rule_list
+msgid "Commission Rules"
+msgstr "Règles de commission"
+
+#. module: commission_desk
+#: model:ir.model,name:commission_desk.model_commission_statement
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_form
+msgid "Commission Statement"
+msgstr "Déclaration de la Commission"
+
+#. module: commission_desk
+#: model:ir.actions.act_window,name:commission_desk.action_commission_statement
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_list
+msgid "Commission Statements"
+msgstr "Relevés de commission"
+
+#. module: commission_desk
+#: model:res.groups,name:commission_desk.group_commission_user
+msgid "Commission User"
+msgstr "Utilisateur de commissions"
+
+#. module: commission_desk
+#: model:ir.model,name:commission_desk.model_commission_tier
+msgid "Commission Volume Tier"
+msgstr "Niveau de volume de commission"
+
+#. module: commission_desk
+#: model:ir.module.module,shortdesc:base.module_commission_desk
+msgid "CommissionDesk — Sales Commission Engine"
+msgstr "CommissionDesk — Moteur de commission de vente"
+
+#. module: commission_desk
+#: model:ir.ui.menu,name:commission_desk.menu_commission_root
+msgid "Commissions"
+msgstr "Commissions"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__company_id
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__company_id
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: commission_desk
+#: model:res.groups,comment:commission_desk.group_commission_manager
+msgid "Configure rules, approve and pay statements."
+msgstr "Configurez les règles, approuvez et payez les relevés."
+
+#. module: commission_desk
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_rule__basis__order
+msgid "Confirmed Order"
+msgstr "Commande confirmée"
+
+#. module: commission_desk
+#: model_terms:ir.actions.act_window,help:commission_desk.action_commission_statement
+msgid "Create a monthly commission statement"
+msgstr "Créer un relevé de commission mensuel"
+
+#. module: commission_desk
+#: model_terms:ir.actions.act_window,help:commission_desk.action_commission_rule
+msgid "Create your first commission rule"
+msgstr "Créez votre première règle de commission"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__create_uid
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__create_uid
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__create_uid
+#: model:ir.model.fields,field_description:commission_desk.field_commission_tier__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__create_date
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__create_date
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__create_date
+#: model:ir.model.fields,field_description:commission_desk.field_commission_tier__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__currency_id
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__currency_id
+#: model:ir.model.fields,field_description:commission_desk.field_commission_tier__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__partner_id
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__partner_id
+msgid "Customer"
+msgstr "Client"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__date
+msgid "Date"
+msgstr "Date"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__date_end
+msgid "Date End"
+msgstr "Date de fin"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__date_from
+msgid "Date From"
+msgstr "Dater de"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__date_start
+msgid "Date Start"
+msgstr "Date de début"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__date_to
+msgid "Date To"
+msgstr "Date de"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__display_name
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__display_name
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__display_name
+#: model:ir.model.fields,field_description:commission_desk.field_commission_tier__display_name
+#: model:ir.model.fields,field_description:commission_desk.field_sale_order__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: commission_desk
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_line__state__draft
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_statement__state__draft
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_search
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_search
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: commission_desk
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_rule__rate_type__fixed
+msgid "Fixed Amount"
+msgstr "Montant fixe"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_form
+msgid "Generate Lines"
+msgstr "Générer des lignes"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_rule_form
+msgid "Internal notes, exceptions, approval reference..."
+msgstr "Notes internes, exceptions, référence d'approbation..."
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__invoice_id
+msgid "Invoice / Credit Note"
+msgstr "Facture / Note de crédit"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__write_uid
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__write_uid
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__write_uid
+#: model:ir.model.fields,field_description:commission_desk.field_commission_tier__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__write_date
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__write_date
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__write_date
+#: model:ir.model.fields,field_description:commission_desk.field_commission_tier__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: commission_desk
+#: model:ir.model.fields,help:commission_desk.field_commission_tier__max_amount
+msgid "Leave empty for no upper limit."
+msgstr "Laissez vide sans limite supérieure."
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_rule_form
+msgid "Leave the maximum empty for no upper limit.\n                                The tier rate replaces the rule rate for the matching range."
+msgstr "Laissez le maximum vide sans limite supérieure. \nLe taux de niveau remplace le taux de règle pour la plage correspondante."
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__line_ids
+msgid "Lines"
+msgstr "Lignes"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_form
+msgid "Mark as Paid"
+msgstr "Marquer comme payé"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_tier__max_amount
+msgid "Max Amount"
+msgstr "Montant maximum"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_tier__min_amount
+msgid "Min Amount"
+msgstr "Montant minimum"
+
+#. module: commission_desk
+#: model:ir.model.fields,help:commission_desk.field_commission_rule__basis
+msgid "Moment when the commission is earned."
+msgstr "Moment où la commission est gagnée."
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_search
+msgid "Month"
+msgstr "Mois"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Date limite de mon activité"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__name
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__name
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: commission_desk
+#. odoo-python
+#: code:addons/commission_desk/models/commission_desk.py:0
+msgid "No commission line was found for this period. Check the rules, the salesperson and the dates."
+msgstr "Aucune ligne de commission n'a été trouvée pour cette période. Vérifiez le règlement, le vendeur et les dates."
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__note
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__note
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__note
+msgid "Note"
+msgstr "Note"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_rule_form
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: commission_desk
+#. odoo-python
+#: code:addons/commission_desk/models/commission_desk.py:0
+msgid "Only a submitted statement can be approved."
+msgstr "Seule une déclaration soumise peut être approuvée."
+
+#. module: commission_desk
+#. odoo-python
+#: code:addons/commission_desk/models/commission_desk.py:0
+msgid "Only an approved statement can be marked as paid."
+msgstr "Seul un relevé approuvé peut être marqué comme payé."
+
+#. module: commission_desk
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_line__state__paid
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_statement__state__paid
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_search
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_search
+msgid "Paid"
+msgstr "Payé"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__payment_id
+msgid "Payment"
+msgstr "Paiement"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__payment_date
+msgid "Payment Date"
+msgstr "Date de paiement"
+
+#. module: commission_desk
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_rule__rate_type__percent
+msgid "Percentage"
+msgstr "Pourcentage"
+
+#. module: commission_desk
+#: model:ir.model.fields,help:commission_desk.field_commission_rule__rate
+msgid "Percentage of the base, or fixed amount per document."
+msgstr "Pourcentage de la base, ou montant forfaitaire par document."
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_form
+msgid "Period"
+msgstr "Période"
+
+#. module: commission_desk
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_rule__basis__invoice
+msgid "Posted Invoice"
+msgstr "Facture validée"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__product_category_id
+msgid "Product Category"
+msgstr "Catégorie de produit"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__rate
+msgid "Rate"
+msgstr "Taux"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_tier__rate
+msgid "Rate (%)"
+msgstr "Taux (%)"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__rate
+msgid "Rate / Amount"
+msgstr "Tarif / Montant"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__rate_type
+msgid "Rate Type"
+msgstr "Type de taux"
+
+#. module: commission_desk
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_rule__basis__payment
+msgid "Registered Payment"
+msgstr "Paiement recommandé"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_form
+msgid "Reset to Draft"
+msgstr "Réinitialiser au brouillon"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__rule_id
+#: model:ir.model.fields,field_description:commission_desk.field_commission_tier__rule_id
+msgid "Rule"
+msgstr "Règle"
+
+#. module: commission_desk
+#: model:ir.ui.menu,name:commission_desk.menu_commission_rule
+msgid "Rules"
+msgstr "Règles"
+
+#. module: commission_desk
+#: model:ir.model,name:commission_desk.model_sale_order
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__sale_order_id
+msgid "Sales Order"
+msgstr "Commande client"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__team_id
+msgid "Sales Team"
+msgstr "Équipe de vente"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__user_id
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__user_id
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__user_id
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_search
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_rule_search
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_search
+msgid "Salesperson"
+msgstr "Vendeuse Vendeur"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_rule_form
+msgid "Scope"
+msgstr "Portée Porté"
+
+#. module: commission_desk
+#: model_terms:ir.actions.act_window,help:commission_desk.action_commission_statement
+msgid "Select a salesperson and a period, then generate the lines in one click."
+msgstr "Sélectionnez un commercial et une période, puis générez les lignes en un clic."
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_form
+msgid "Source"
+msgstr "Source"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__state
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__state
+msgid "State"
+msgstr "Statut"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_line__statement_id
+msgid "Statement"
+msgstr "Relevé"
+
+#. module: commission_desk
+#: model:ir.ui.menu,name:commission_desk.menu_commission_statement
+msgid "Statements"
+msgstr "Relevés"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_search
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_form
+msgid "Submit"
+msgstr "Soumettre"
+
+#. module: commission_desk
+#: model:ir.model.fields.selection,name:commission_desk.selection__commission_statement__state__submitted
+msgid "Submitted"
+msgstr "Soumis"
+
+#. module: commission_desk
+#. odoo-python
+#: code:addons/commission_desk/models/commission_desk.py:0
+msgid "The commission rate cannot be negative."
+msgstr "Le taux de commission ne peut pas être négatif."
+
+#. module: commission_desk
+#. odoo-python
+#: code:addons/commission_desk/models/commission_desk.py:0
+msgid "The minimum amount cannot exceed the maximum amount."
+msgstr "Le montant minimum ne peut pas dépasser le montant maximum."
+
+#. module: commission_desk
+#. odoo-python
+#: code:addons/commission_desk/models/commission_desk.py:0
+msgid "The start date must be before the end date."
+msgstr "La date de début doit être antérieure à la date de fin."
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_search
+msgid "This Month"
+msgstr "Ce mois-ci"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_search
+msgid "To Approve"
+msgstr "Pour approuver"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__total_amount
+msgid "Total Amount"
+msgstr "Montant total"
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_statement__total_base
+msgid "Total Base"
+msgstr "Base totale"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_list
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_list
+msgid "Total base"
+msgstr "Assiette totale"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_line_list
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_list
+msgid "Total commission"
+msgstr "Commission totale"
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_statement_form
+msgid "Totals"
+msgstr "Totaux"
+
+#. module: commission_desk
+#: model:ir.model.fields,help:commission_desk.field_commission_rule__use_margin
+msgid "Use the margin (sale price minus product cost) instead of the revenue."
+msgstr "Utilisez la marge (prix de vente moins le coût du produit) au lieu des revenus."
+
+#. module: commission_desk
+#: model:res.groups,comment:commission_desk.group_commission_user
+msgid "View commission lines and statements."
+msgstr "Consultez les lignes de commission et les relevés."
+
+#. module: commission_desk
+#: model:ir.model.fields,field_description:commission_desk.field_commission_rule__tier_ids
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_rule_form
+msgid "Volume Tiers"
+msgstr "Niveaux de volume"
+
+#. module: commission_desk
+#. odoo-python
+#: code:addons/commission_desk/models/commission_desk.py:0
+msgid "You can only generate lines on a draft statement."
+msgstr "Vous ne pouvez générer des lignes que sur un brouillon de relevé."
+
+#. module: commission_desk
+#: model_terms:ir.ui.view,arch_db:commission_desk.view_commission_rule_form
+msgid "e.g. EMEA Sales Team 2026"
+msgstr "par ex. Équipe commerciale EMEA 2026"

@@ -1,0 +1,343 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* dupli_pay
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dupli_pay
+#. odoo-python
+#: code:addons/dupli_pay/models/dupli_pay.py:0
+msgid "%s new alerts found."
+msgstr "%s nuevas alertas encontradas."
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_rule__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: dupli_pay
+#: model_terms:ir.actions.act_window,help:dupli_pay.action_dupli_rule
+msgid "Adjust the tolerance to reduce false positives."
+msgstr "Ajuste la tolerancia para reducir los falsos positivos."
+
+#. module: dupli_pay
+#: model:ir.ui.menu,name:dupli_pay.menu_dupli_alerts
+msgid "Alerts"
+msgstr "Alertas"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__amount
+msgid "Amount"
+msgstr "Importe"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_rule__amount_tolerance
+msgid "Amount Tolerance"
+msgstr "Tolerancia de cantidad"
+
+#. module: dupli_pay
+#: model:res.groups,comment:dupli_pay.group_duplipay_manager
+msgid "Configure and administer the module."
+msgstr "Configurar y administrar el módulo."
+
+#. module: dupli_pay
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_alert_form
+msgid "Confirm Duplicate"
+msgstr "Confirmar duplicado"
+
+#. module: dupli_pay
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_alert_search
+msgid "Confirmed"
+msgstr "Confirmada Confirmado"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__create_uid
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_rule__create_uid
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_scanner__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__create_date
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_rule__create_date
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_scanner__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_rule__day_tolerance
+msgid "Day Tolerance"
+msgstr "Tolerancia diurna"
+
+#. module: dupli_pay
+#: model:ir.module.module,summary:base.module_dupli_pay
+msgid "Detect duplicate invoices, bills and payments before payment, with a tolerance on amount and date and a documented decision."
+msgstr "Detectar facturas, recibos y pagos duplicados antes del pago, con tolerancia en importe y fecha y decisión documentada."
+
+#. module: dupli_pay
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_alert_form
+msgid "Detection"
+msgstr "Detección"
+
+#. module: dupli_pay
+#: model:ir.actions.act_window,name:dupli_pay.action_dupli_rule
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_rule_form
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_rule_list
+msgid "Detection Rules"
+msgstr "Reglas de detección"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__display_name
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_rule__display_name
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_scanner__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__record_name
+msgid "Document"
+msgstr "Documento"
+
+#. module: dupli_pay
+#: model:res.groups,name:dupli_pay.group_duplipay_manager
+msgid "Dupli Pay Manager"
+msgstr "Gerente de pago Dupli"
+
+#. module: dupli_pay
+#: model:res.groups,name:dupli_pay.group_duplipay_user
+msgid "Dupli Pay User"
+msgstr "Usuario de pago Dupli"
+
+#. module: dupli_pay
+#: model:ir.module.module,shortdesc:base.module_dupli_pay
+msgid "DupliPay - Duplicate Invoice and Payment Detection"
+msgstr "DupliPay - Detección de pagos y facturas duplicadas"
+
+#. module: dupli_pay
+#: model:ir.actions.server,name:dupli_pay.cron_dupli_scan_ir_actions_server
+msgid "DupliPay: scan duplicates"
+msgstr "DupliPay: escanea duplicados"
+
+#. module: dupli_pay
+#: model:ir.model,name:dupli_pay.model_dupli_alert
+msgid "Duplicate Alert"
+msgstr "Alerta duplicada"
+
+#. module: dupli_pay
+#. odoo-python
+#: code:addons/dupli_pay/models/dupli_pay.py:0
+#: model:ir.actions.act_window,name:dupli_pay.action_dupli_alert
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_alert_form
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_alert_list
+msgid "Duplicate Alerts"
+msgstr "Alertas de duplicado"
+
+#. module: dupli_pay
+#: model:ir.model.fields.selection,name:dupli_pay.selection__dupli_alert__state__duplicate
+msgid "Duplicate Confirmed"
+msgstr "Duplicado confirmado"
+
+#. module: dupli_pay
+#: model:ir.ui.menu,name:dupli_pay.menu_dupli_root
+msgid "Duplicate Control"
+msgstr "Control duplicado"
+
+#. module: dupli_pay
+#: model:ir.model,name:dupli_pay.model_dupli_rule
+msgid "Duplicate Detection Rule"
+msgstr "Regla de detección de duplicados"
+
+#. module: dupli_pay
+#: model:ir.model,name:dupli_pay.model_dupli_scanner
+msgid "Duplicate Scanner"
+msgstr "Escáner duplicado"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_rule__check_invoices
+msgid "Invoices and Bills"
+msgstr "Facturas y recibos"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__write_uid
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_rule__write_uid
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_scanner__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__write_date
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_rule__write_date
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_scanner__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: dupli_pay
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_alert_form
+msgid "Match"
+msgstr "Fósforo"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__matched_name
+msgid "Matched Document"
+msgstr "Documento coincidente"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__matched_id
+msgid "Matched ID"
+msgstr "ID coincidente"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__matched_model
+msgid "Matched Model"
+msgstr "Modelo emparejado"
+
+#. module: dupli_pay
+#: model:ir.model.fields,help:dupli_pay.field_dupli_rule__amount_tolerance
+msgid "Maximum difference on the total amount."
+msgstr "Diferencia máxima sobre el importe total."
+
+#. module: dupli_pay
+#: model:ir.model.fields,help:dupli_pay.field_dupli_rule__day_tolerance
+msgid "Maximum number of days between two documents."
+msgstr "Número máximo de días entre dos documentos."
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__model_name
+msgid "Model"
+msgstr "Modelo"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__name
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_rule__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: dupli_pay
+#: model:ir.model.fields.selection,name:dupli_pay.selection__dupli_alert__state__ignored
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_alert_form
+msgid "Not a Duplicate"
+msgstr "No es un duplicado"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__note
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_rule__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: dupli_pay
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_alert_form
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_rule_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__partner_id
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_alert_search
+msgid "Partner"
+msgstr "Contacto"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_rule__check_payments
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__res_id
+msgid "Record ID"
+msgstr "ID de registro"
+
+#. module: dupli_pay
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_alert_form
+msgid "Reopen"
+msgstr "Reabrir"
+
+#. module: dupli_pay
+#: model_terms:ir.actions.act_window,help:dupli_pay.action_dupli_alert
+msgid "Review the pairs detected by DupliPay."
+msgstr "Revisa los pares detectados por DupliPay."
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__rule_id
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_rule_form
+msgid "Rule"
+msgstr "Regla"
+
+#. module: dupli_pay
+#: model:ir.ui.menu,name:dupli_pay.menu_dupli_rules
+msgid "Rules"
+msgstr "Reglas"
+
+#. module: dupli_pay
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_rule_form
+msgid "Scope"
+msgstr "Alcance"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_rule__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__score
+msgid "Similarity (%)"
+msgstr "Similitud (%)"
+
+#. module: dupli_pay
+#: model:ir.model.fields,field_description:dupli_pay.field_dupli_alert__state
+msgid "State"
+msgstr "Estado"
+
+#. module: dupli_pay
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_alert_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: dupli_pay
+#: model:ir.model.fields.selection,name:dupli_pay.selection__dupli_alert__state__open
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_alert_search
+msgid "To Review"
+msgstr "Para revisar"
+
+#. module: dupli_pay
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_rule_form
+msgid "Tolerance"
+msgstr "Tolerancia"
+
+#. module: dupli_pay
+#: model_terms:ir.ui.view,arch_db:dupli_pay.view_dupli_alert_list
+msgid "Total Amount"
+msgstr "Monto total"
+
+#. module: dupli_pay
+#: model:res.groups,comment:dupli_pay.group_duplipay_user
+msgid "View and use the module."
+msgstr "Ver y utilizar el módulo."
+
+#. module: dupli_pay
+#. odoo-python
+#: code:addons/dupli_pay/models/dupli_pay.py:0
+msgid "state"
+msgstr "estado"

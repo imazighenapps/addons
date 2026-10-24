@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_expense_policy_list" model="ir.ui.view">
+        <field name="name">expense.policy.list</field>
+        <field name="model">expense.policy</field>
+        <field name="arch" type="xml">
+            <list string="Expense Policies">
+                <field name="sequence"/>
+                <field name="name"/>
+                <field name="categ_id"/>
+                <field name="max_amount" sum="Total Max Amount"/>
+                <field name="require_receipt"/>
+                <field name="max_age_days"/>
+                <field name="block_mode"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_expense_policy_form" model="ir.ui.view">
+        <field name="name">expense.policy.form</field>
+        <field name="model">expense.policy</field>
+        <field name="arch" type="xml">
+            <form string="Expense Policies">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Policy">
+    <field name="name"/>
+    <field name="sequence"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Scope">
+    <field name="categ_id"/>
+    <field name="product_id"/>
+                        </group>
+                        <group string="Rules">
+    <field name="max_amount"/>
+    <field name="currency_id"/>
+    <field name="require_receipt"/>
+    <field name="max_age_days"/>
+    <field name="block_mode"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_expense_policy_search" model="ir.ui.view">
+        <field name="name">expense.policy.search</field>
+        <field name="model">expense.policy</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="active" string="Active" domain="[('active','=',True)]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_mode" string="Mode" context="{'group_by': 'block_mode'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_expense_policy" model="ir.actions.act_window">
+        <field name="name">Expense Policies</field>
+        <field name="res_model">expense.policy</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Define the amount cap, the receipt rule and the maximum age.</p>
+        </field>
+    </record>
+
+</odoo>

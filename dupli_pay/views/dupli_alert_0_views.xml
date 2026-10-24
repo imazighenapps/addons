@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_dupli_alert_list" model="ir.ui.view">
+        <field name="name">dupli.alert.list</field>
+        <field name="model">dupli.alert</field>
+        <field name="arch" type="xml">
+            <list string="Duplicate Alerts" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="record_name"/>
+                <field name="matched_name"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="score"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_dupli_alert_form" model="ir.ui.view">
+        <field name="name">dupli.alert.form</field>
+        <field name="model">dupli.alert</field>
+        <field name="arch" type="xml">
+            <form string="Duplicate Alerts">
+                <header>
+                    <button name="action_ignore" type="object" string="Not a Duplicate" class="btn-secondary" invisible="state != 'open'"/>
+                    <button name="action_confirm" type="object" string="Confirm Duplicate" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_reset" type="object" string="Reopen" class="btn-link" invisible="state == 'open'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,ignored,duplicate"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Detection">
+    <field name="partner_id"/>
+    <field name="date"/>
+    <field name="amount"/>
+    <field name="score"/>
+    <field name="model_name"/>
+    <field name="record_name"/>
+                        </group>
+                        <group string="Match">
+    <field name="matched_model"/>
+    <field name="matched_name"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_dupli_alert_search" model="ir.ui.view">
+        <field name="name">dupli.alert.search</field>
+        <field name="model">dupli.alert</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="record_name"/>
+                <filter name="open" string="To Review" domain="[('state','=','open')]"/>
+                <filter name="duplicate" string="Confirmed" domain="[('state','=','duplicate')]"/>
+                <separator/>
+                <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_dupli_alert" model="ir.actions.act_window">
+        <field name="name">Duplicate Alerts</field>
+        <field name="res_model">dupli.alert</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Review the pairs detected by DupliPay.</p>
+        </field>
+    </record>
+
+</odoo>

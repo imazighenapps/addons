@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_gift_redeem_wizard_form" model="ir.ui.view">
+        <field name="name">gift.redeem.wizard.form</field>
+        <field name="model">gift.redeem.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Redeem Gift Card">
+                <sheet>
+                    <group>
+                        <group string="Redemption">
+    <field name="card_id"/>
+    <field name="available"/>
+    <field name="amount"/>
+    <field name="reference"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer><button name="action_redeem" type="object" string="Redeem" class="btn-primary"/><button special="cancel" string="Cancel" class="btn-secondary"/></footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gift_redeem_wizard" model="ir.actions.act_window">
+        <field name="name">Redeem Gift Card</field>
+        <field name="res_model">gift.redeem.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

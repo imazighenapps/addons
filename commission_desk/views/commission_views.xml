@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Commission Rule -->
+    <record id="view_commission_rule_list" model="ir.ui.view">
+        <field name="name">commission.rule.list</field>
+        <field name="model">commission.rule</field>
+        <field name="arch" type="xml">
+            <list string="Commission Rules">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="team_id"/>
+                <field name="partner_id" optional="hide"/>
+                <field name="product_category_id" optional="hide"/>
+                <field name="basis"/>
+                <field name="rate_type"/>
+                <field name="rate"/>
+                <field name="date_start" optional="hide"/>
+                <field name="date_end" optional="hide"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_commission_rule_form" model="ir.ui.view">
+        <field name="name">commission.rule.form</field>
+        <field name="model">commission.rule</field>
+        <field name="arch" type="xml">
+            <form string="Commission Rule">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="e.g. EMEA Sales Team 2026"/></h1>
+                    </div>
+                    <group>
+                        <group string="Scope">
+                            <field name="user_id"/>
+                            <field name="team_id"/>
+                            <field name="partner_id"/>
+                            <field name="product_category_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Calculation">
+                            <field name="basis"/>
+                            <field name="rate_type"/>
+                            <field name="rate"/>
+                            <field name="use_margin"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Volume Tiers" name="tiers">
+                            <field name="tier_ids">
+                                <list editable="bottom">
+                                    <field name="min_amount"/>
+                                    <field name="max_amount"/>
+                                    <field name="rate"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                </list>
+                            </field>
+                            <p class="text-muted mt-2">
+                                Leave the maximum empty for no upper limit.
+                                The tier rate replaces the rule rate for the matching range.
+                            </p>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Internal notes, exceptions, approval reference..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_commission_rule_search" model="ir.ui.view">
+        <field name="name">commission.rule.search</field>
+        <field name="model">commission.rule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="team_id"/>
+                <filter name="active" string="Active" domain="[('active','=',True)]"/>
+                <filter name="inactive" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_user" string="Salesperson" context="{'group_by':'user_id'}"/>
+                <filter name="group_basis" string="Basis" context="{'group_by':'basis'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_commission_rule" model="ir.actions.act_window">
+        <field name="name">Commission Rules</field>
+        <field name="res_model">commission.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first commission rule</p>
+            <p>Choose who earns the commission, on which base, and at which rate.</p>
+        </field>
+    </record>
+
+    <!-- Commission Line -->
+    <record id="view_commission_line_list" model="ir.ui.view">
+        <field name="name">commission.line.list</field>
+        <field name="model">commission.line</field>
+        <field name="arch" type="xml">
+            <list string="Commission Lines" decoration-muted="state == 'cancelled'">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="partner_id"/>
+                <field name="sale_order_id" optional="show"/>
+                <field name="invoice_id" optional="hide"/>
+                <field name="payment_id" optional="hide"/>
+                <field name="base_amount" sum="Total base"/>
+                <field name="rate"/>
+                <field name="amount" sum="Total commission"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'paid'"
+                       decoration-info="state == 'approved'"
+                       decoration-warning="state == 'submitted'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_commission_line_form" model="ir.ui.view">
+        <field name="name">commission.line.form</field>
+        <field name="model">commission.line</field>
+        <field name="arch" type="xml">
+            <form string="Commission Line">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Beneficiary">
+                            <field name="user_id"/>
+                            <field name="partner_id"/>
+                            <field name="date"/>
+                            <field name="state"/>
+                        </group>
+                        <group string="Calculation">
+                            <field name="rule_id"/>
+                            <field name="base_amount"/>
+                            <field name="rate"/>
+                            <field name="amount"/>
+                            <field name="currency_id" groups="base.group_multi_currency"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group string="Source">
+                        <field name="sale_order_id"/>
+                        <field name="invoice_id"/>
+                        <field name="payment_id"/>
+                        <field name="statement_id"/>
+                        <field name="note"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_commission_line_search" model="ir.ui.view">
+        <field name="name">commission.line.search</field>
+        <field name="model">commission.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="partner_id"/>
+                <field name="sale_order_id"/>
+                <field name="invoice_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="approved" string="Approved" domain="[('state','=','approved')]"/>
+                <filter name="paid" string="Paid" domain="[('state','=','paid')]"/>
+                <separator/>
+                <filter name="this_month" string="This Month"
+                        domain="[('date','&gt;=',(context_today().strftime('%Y-%m-01')))]"/>
+                <separator/>
+                <filter name="group_user" string="Salesperson" context="{'group_by':'user_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by':'state'}"/>
+                <filter name="group_month" string="Month" context="{'group_by':'date:month'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_commission_line" model="ir.actions.act_window">
+        <field name="name">Commission Lines</field>
+        <field name="res_model">commission.line</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Commission Statement -->
+    <record id="view_commission_statement_list" model="ir.ui.view">
+        <field name="name">commission.statement.list</field>
+        <field name="model">commission.statement</field>
+        <field name="arch" type="xml">
+            <list string="Commission Statements"
+                  decoration-muted="state == 'cancelled'"
+                  decoration-success="state == 'paid'">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="total_base" sum="Total base"/>
+                <field name="total_amount" sum="Total commission"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'paid'"
+                       decoration-info="state == 'approved'"
+                       decoration-warning="state == 'submitted'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_commission_statement_form" model="ir.ui.view">
+        <field name="name">commission.statement.form</field>
+        <field name="model">commission.statement</field>
+        <field name="arch" type="xml">
+            <form string="Commission Statement">
+                <header>
+                    <button name="action_generate_lines" type="object"
+                            string="Generate Lines" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_clawback" type="object"
+                            string="Add Clawbacks"
+                            invisible="state not in ('draft', 'submitted')"/>
+                    <button name="action_submit" type="object"
+                            string="Submit" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object"
+                            string="Approve" class="btn-primary"
+                            invisible="state != 'submitted'"/>
+                    <button name="action_pay" type="object"
+                            string="Mark as Paid" class="btn-primary"
+                            invisible="state != 'approved'"/>
+                    <button name="action_cancel" type="object"
+                            string="Cancel"
+                            invisible="state in ('paid', 'cancelled')"/>
+                    <button name="action_reset" type="object"
+                            string="Reset to Draft"
+                            invisible="state not in ('submitted', 'approved', 'cancelled')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,submitted,approved,paid"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Period">
+                            <field name="user_id"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Totals">
+                            <field name="total_base"/>
+                            <field name="total_amount"/>
+                            <field name="currency_id" groups="base.group_multi_currency"/>
+                            <field name="approved_by" invisible="not approved_by"/>
+                            <field name="approved_date" invisible="not approved_date"/>
+                            <field name="payment_date" invisible="not payment_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Commission Lines" name="lines">
+                            <field name="line_ids" readonly="state != 'draft'">
+                                <list editable="bottom">
+                                    <field name="date"/>
+                                    <field name="name" readonly="1"/>
+                                    <field name="rule_id"/>
+                                    <field name="partner_id"/>
+                                    <field name="sale_order_id"/>
+                                    <field name="invoice_id"/>
+                                    <field name="base_amount"/>
+                                    <field name="rate"/>
+                                    <field name="amount"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="note"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Approval comments, exceptions, payment reference..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_commission_statement_search" model="ir.ui.view">
+        <field name="name">commission.statement.search</field>
+        <field name="model">commission.statement</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="user_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="to_approve" string="To Approve" domain="[('state','=','submitted')]"/>
+                <filter name="approved" string="Approved" domain="[('state','=','approved')]"/>
+                <filter name="paid" string="Paid" domain="[('state','=','paid')]"/>
+                <separator/>
+                <filter name="group_user" string="Salesperson" context="{'group_by':'user_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by':'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_commission_statement" model="ir.actions.act_window">
+        <field name="name">Commission Statements</field>
+        <field name="res_model">commission.statement</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a monthly commission statement</p>
+            <p>Select a salesperson and a period, then generate the lines in one click.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_vies" model="ir.ui.view">
+        <field name="name">res.partner.form.vies</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="before">
+                <page string="VIES" name="vies">
+                    <group>
+                        <group string="VAT Validation">
+                            <field name="vies_is_eu"/>
+                            <field name="vies_state"/>
+                            <field name="vies_checked_on"/>
+                            <field name="vies_trader_name"/>
+                        </group>
+                        <group string="VIES Answer">
+                            <field name="vies_message"/>
+                            <field name="vies_trader_address"/>
+                        </group>
+                    </group>
+                    <div>
+                        <button name="action_vies_check" type="object"
+                                string="Check Now" class="btn-primary"/>
+                        <button name="action_view_vies_checks" type="object"
+                                string="Check History" class="btn-secondary"/>
+                    </div>
+                    <field name="vies_check_ids" readonly="1">
+                        <list>
+                            <field name="name"/>
+                            <field name="check_date"/>
+                            <field name="state"/>
+                            <field name="source"/>
+                            <field name="trader_name"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_company_form_vies" model="ir.ui.view">
+        <field name="name">res.company.form.vies</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="VIES" name="vies">
+                    <group>
+                        <group string="Automatic Check">
+                            <field name="vies_auto_check"/>
+                            <field name="vies_recheck_days"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

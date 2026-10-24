@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_forge_template_list" model="ir.ui.view">
+        <field name="name">report.forge.template.list</field>
+        <field name="model">report.forge.template</field>
+        <field name="arch" type="xml">
+            <list string="Templates">
+                <field name="sequence"/>
+                <field name="name"/>
+                <field name="model_name"/>
+                <field name="version"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_forge_template_form" model="ir.ui.view">
+        <field name="name">report.forge.template.form</field>
+        <field name="model">report.forge.template</field>
+        <field name="arch" type="xml">
+            <form string="Templates">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Template">
+    <field name="name"/>
+    <field name="model_name"/>
+    <field name="version"/>
+    <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Header" name="headerhtml">
+                            <field name="header_html"/>
+                        </page>
+                        <page string="Body" name="bodyhtml">
+                            <field name="body_html"/>
+                        </page>
+                        <page string="Footer" name="footerhtml">
+                            <field name="footer_html"/>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_forge_template_search" model="ir.ui.view">
+        <field name="name">report.forge.template.search</field>
+        <field name="model">report.forge.template</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <separator/>
+                <filter name="group_model" string="Applies To" context="{'group_by': 'model_name'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_forge_template" model="ir.actions.act_window">
+        <field name="name">Templates</field>
+        <field name="res_model">report.forge.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Write your template once, reuse it for every customer.</p>
+        </field>
+    </record>
+
+</odoo>

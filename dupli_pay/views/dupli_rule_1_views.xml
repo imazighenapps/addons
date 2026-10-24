@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_dupli_rule_list" model="ir.ui.view">
+        <field name="name">dupli.rule.list</field>
+        <field name="model">dupli.rule</field>
+        <field name="arch" type="xml">
+            <list string="Detection Rules">
+                <field name="sequence"/>
+                <field name="name"/>
+                <field name="day_tolerance"/>
+                <field name="amount_tolerance"/>
+                <field name="check_invoices"/>
+                <field name="check_payments"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_dupli_rule_form" model="ir.ui.view">
+        <field name="name">dupli.rule.form</field>
+        <field name="model">dupli.rule</field>
+        <field name="arch" type="xml">
+            <form string="Detection Rules">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Rule">
+    <field name="name"/>
+    <field name="sequence"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Tolerance">
+    <field name="day_tolerance"/>
+    <field name="amount_tolerance"/>
+                        </group>
+                        <group string="Scope">
+    <field name="check_invoices"/>
+    <field name="check_payments"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_dupli_rule_search" model="ir.ui.view">
+        <field name="name">dupli.rule.search</field>
+        <field name="model">dupli.rule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_dupli_rule" model="ir.actions.act_window">
+        <field name="name">Detection Rules</field>
+        <field name="res_model">dupli.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Adjust the tolerance to reduce false positives.</p>
+        </field>
+    </record>
+
+</odoo>

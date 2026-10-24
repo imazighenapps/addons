@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_pdf_batch" model="report.paperformat">
+        <field name="name">PDF Batch A4</field>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">12</field>
+        <field name="margin_bottom">12</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_report_pdf_batch" model="ir.actions.report">
+        <field name="name">PDF Batch</field>
+        <field name="model">pdf.batch</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pdf_batch.report_pdf_batch</field>
+        <field name="paperformat_id" ref="paperformat_pdf_batch"/>
+        <field name="print_report_name">'Batch - %s' % object.name</field>
+    </record>
+
+    <template id="report_pdf_batch">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page" t-if="o.cover_page">
+                        <h1 class="text-center mt-5">Document Batch</h1>
+                        <h3 class="text-center text-muted" t-field="o.name"/>
+                        <div class="text-center mt-4">
+                            <p><strong>Customer:</strong>
+                                <span t-field="o.partner_id.name"/></p>
+                            <p><strong>Documents:</strong> <span t-field="o.invoice_count"/></p>
+                            <p><strong>Total:</strong>
+                                <span t-field="o.total_amount"
+                                      t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></p>
+                            <p><strong>Generated on:</strong> <span t-field="o.date"/></p>
+                        </div>
+                        <div t-if="o.watermark" class="text-center mt-5 text-muted">
+                            <h2 t-field="o.watermark"/>
+                        </div>
+                    </div>
+                    <div class="page" t-foreach="o.invoice_ids" t-as="inv"
+                         style="page-break-before: always;">
+                        <div t-if="o.watermark"
+                             style="position:absolute;top:40%;left:10%;font-size:90px;color:#dddddd;transform:rotate(-30deg);opacity:0.5;">
+                            <span t-field="o.watermark"/>
+                        </div>
+                        <h3>Invoice <span t-field="inv.name"/></h3>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <strong>Customer</strong><br/>
+                                <span t-field="inv.partner_id.name"/><br/>
+                                <span t-field="inv.partner_id.street"/><br/>
+                                <span t-field="inv.partner_id.city"/>
+                            </div>
+                            <div class="col-6 text-end">
+                                <div>Invoice date: <span t-field="inv.invoice_date"/></div>
+                                <div>Due date: <span t-field="inv.invoice_date_due"/></div>
+                                <div>Reference: <span t-field="inv.payment_reference"/></div>
+                            </div>
+                        </div>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr><th>Description</th><th class="text-end">Qty</th>
+                                    <th class="text-end">Unit</th>
+                                    <th class="text-end">Subtotal</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="inv.invoice_line_ids" t-as="line">
+                                    <td><span t-field="line.name"/></td>
+                                    <td class="text-end"><span t-field="line.quantity"/></td>
+                                    <td class="text-end"><span t-field="line.price_unit"/></td>
+                                    <td class="text-end"><span t-field="line.price_subtotal"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="text-end">
+                            <div>Untaxed: <span t-field="inv.amount_untaxed"/></div>
+                            <div>Tax: <span t-field="inv.amount_tax"/></div>
+                            <div class="fw-bold">Total: <span t-field="inv.amount_total"/></div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

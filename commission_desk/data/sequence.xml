@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_commission_statement" model="ir.sequence">
+        <field name="name">Commission Statement</field>
+        <field name="code">commission.statement</field>
+        <field name="prefix">COM/%(year)s/</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="seq_commission_line" model="ir.sequence">
+        <field name="name">Commission Line</field>
+        <field name="code">commission.line</field>
+        <field name="prefix">CL-</field>
+        <field name="padding">6</field>
+    </record>
+</odoo>

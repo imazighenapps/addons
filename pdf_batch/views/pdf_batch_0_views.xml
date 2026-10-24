@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_pdf_batch_list" model="ir.ui.view">
+        <field name="name">pdf.batch.list</field>
+        <field name="model">pdf.batch</field>
+        <field name="arch" type="xml">
+            <list string="PDF Batches" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="invoice_count"/>
+                <field name="total_amount" sum="Total Total Amount"/>
+                <field name="watermark"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pdf_batch_form" model="ir.ui.view">
+        <field name="name">pdf.batch.form</field>
+        <field name="model">pdf.batch</field>
+        <field name="arch" type="xml">
+            <form string="PDF Batches">
+                <header>
+                    <button name="action_generate" type="object" string="Generate PDF" class="btn-primary" invisible="not invoice_ids"/>
+                    <button name="action_preview" type="object" string="Preview" class="btn-secondary" invisible="not invoice_ids"/>
+                    <button name="action_reset" type="object" string="Reset" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Batch">
+    <field name="partner_id"/>
+    <field name="date"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="company_id"/>
+    <field name="watermark"/>
+    <field name="cover_page"/>
+                        </group>
+                        <group string="Result">
+    <field name="invoice_count"/>
+    <field name="total_amount"/>
+    <field name="attachment_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Documents" name="invoiceids">
+                            <field name="invoice_ids"><list><field name="name"/><field name="invoice_date"/><field name="partner_id"/><field name="amount_total" sum="Total"/><field name="state" widget="badge"/></list></field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pdf_batch_search" model="ir.ui.view">
+        <field name="name">pdf.batch.search</field>
+        <field name="model">pdf.batch</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="done" string="Generated" domain="[('state','=','done')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_pdf_batch" model="ir.actions.act_window">
+        <field name="name">PDF Batches</field>
+        <field name="res_model">pdf.batch</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Select invoices, then merge them into a single PDF.</p>
+        </field>
+    </record>
+
+</odoo>

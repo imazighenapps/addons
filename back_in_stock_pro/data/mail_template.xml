@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mail_template_stock_alert" model="mail.template">
+        <field name="name">Back in Stock Alert</field>
+        <field name="model_id" ref="model_stock_alert_request"/>
+        <field name="subject">Back in stock: ${object.product_id.name}</field>
+        <field name="email_from">${object.company_id.email or ''}</field>
+        <field name="email_to">${object.email}</field>
+        <field name="body_html" type="html">
+            <div style="margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;">
+                <p>Hello,</p>
+                <p>Good news: <strong>${object.product_id.name}</strong>
+                   is back in stock.</p>
+                <p>Order it before it runs out again.</p>
+                <p style="color:#888;font-size:12px;">
+                   You received this email because you asked to be notified.
+                   Reply STOP to unsubscribe.</p>
+            </div>
+        </field>
+    </record>
+
+    <record id="view_product_template_stock_alert" model="ir.ui.view">
+        <field name="name">product.template.form.stock.alert</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_alerts" type="object"
+                        class="oe_stat_button" icon="fa-bell">
+                    <field name="alert_request_count" widget="statinfo"
+                           string="Stock Alerts"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="cron_stock_alert" model="ir.cron">
+        <field name="name">BackInStock: send pending alerts</field>
+        <field name="model_id" ref="model_stock_alert_request"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_notify()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(hours=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>

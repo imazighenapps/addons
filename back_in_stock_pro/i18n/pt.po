@@ -1,0 +1,268 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* back_in_stock_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: back_in_stock_pro
+#: model:mail.template,body_html:back_in_stock_pro.mail_template_stock_alert
+msgid "<div style=\"margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;\">\n                <p>Hello,</p>\n                <p>Good news: <strong>${object.product_id.name}</strong>\n                   is back in stock.</p>\n                <p>Order it before it runs out again.</p>\n                <p style=\"color:#888;font-size:12px;\">\n                   You received this email because you asked to be notified.\n                   Reply STOP to unsubscribe.</p>\n            </div>\n        "
+msgstr "<div style=\"margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;\"> \n<p>Olá, </p> \n<p>Boas notícias: <strong>${object.product_id.name}</strong> \nestá de volta em estoque.</p> \n<p>Encomende antes que acabe novamente.</p> \n<p style=\"color:#888;font-size:12px;\"> \nVocê recebeu este e-mail porque solicitou ser notificado. \nResponda STOP para cancelar a assinatura.</p> \n</div>"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: back_in_stock_pro
+#: model:res.groups,name:back_in_stock_pro.group_backinstockp_manager
+msgid "Back In Stock Pro Manager"
+msgstr "Gerenciador Pro de volta ao estoque"
+
+#. module: back_in_stock_pro
+#: model:res.groups,name:back_in_stock_pro.group_backinstockp_user
+msgid "Back In Stock Pro User"
+msgstr "Usuário Pro de volta ao estoque"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields.selection,name:back_in_stock_pro.selection__stock_alert_request__source__manual
+msgid "Back Office"
+msgstr "Backoffice"
+
+#. module: back_in_stock_pro
+#: model:mail.template,name:back_in_stock_pro.mail_template_stock_alert
+msgid "Back in Stock Alert"
+msgstr "Alerta de volta ao estoque"
+
+#. module: back_in_stock_pro
+#: model:ir.model,name:back_in_stock_pro.model_stock_alert_request
+msgid "Back in Stock Request"
+msgstr "Solicitação de retorno ao estoque"
+
+#. module: back_in_stock_pro
+#: model:mail.template,subject:back_in_stock_pro.mail_template_stock_alert
+msgid "Back in stock: ${object.product_id.name}"
+msgstr "De volta ao estoque: ${object.product_id.name}"
+
+#. module: back_in_stock_pro
+#. odoo-python
+#: code:addons/back_in_stock_pro/models/back_in_stock_pro.py:0
+msgid "Back-in-stock email sent to %s."
+msgstr "E-mail de estoque enviado para %s."
+
+#. module: back_in_stock_pro
+#: model:ir.module.module,shortdesc:base.module_back_in_stock_pro
+msgid "BackInStock Pro - Back in Stock Alerts"
+msgstr "BackInStock Pro - Alertas de volta ao estoque"
+
+#. module: back_in_stock_pro
+#: model:ir.actions.server,name:back_in_stock_pro.cron_stock_alert_ir_actions_server
+msgid "BackInStock: send pending alerts"
+msgstr "BackInStock: envie alertas pendentes"
+
+#. module: back_in_stock_pro
+#: model_terms:ir.ui.view,arch_db:back_in_stock_pro.view_stock_alert_request_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields.selection,name:back_in_stock_pro.selection__stock_alert_request__state__cancelled
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: back_in_stock_pro
+#: model:ir.module.module,summary:base.module_back_in_stock_pro
+msgid "Capture out-of-stock demand, send automatic back-in-stock emails, and measure how much revenue you recover."
+msgstr "Capture a demanda por falta de estoque, envie e-mails automáticos sobre falta de estoque e avalie quanta receita você recupera."
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: back_in_stock_pro
+#: model:res.groups,comment:back_in_stock_pro.group_backinstockp_manager
+msgid "Configure and administer the module."
+msgstr "Configure e administre o módulo."
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__consent_date
+msgid "Consent Date"
+msgstr "Data de consentimento"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__partner_id
+msgid "Contact"
+msgstr "Contato"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: back_in_stock_pro
+#: model_terms:ir.actions.act_window,help:back_in_stock_pro.action_stock_alert_request
+msgid "Customers waiting for a product to come back."
+msgstr "Clientes esperando a volta de um produto."
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_product_template__display_name
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: back_in_stock_pro
+#. odoo-python
+#: code:addons/back_in_stock_pro/models/back_in_stock_pro.py:0
+msgid "Invalid email address: %s"
+msgstr "Endereço de e-mail inválido: %s"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: back_in_stock_pro
+#: model_terms:ir.ui.view,arch_db:back_in_stock_pro.view_stock_alert_request_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields.selection,name:back_in_stock_pro.selection__stock_alert_request__state__notified
+#: model_terms:ir.ui.view,arch_db:back_in_stock_pro.view_stock_alert_request_search
+msgid "Notified"
+msgstr "Notificada Notificado"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__notified_date
+msgid "Notified Date"
+msgstr "Data Notificada"
+
+#. module: back_in_stock_pro
+#: model_terms:ir.ui.view,arch_db:back_in_stock_pro.view_stock_alert_request_form
+msgid "Notify Now"
+msgstr "Notifique agora"
+
+#. module: back_in_stock_pro
+#. odoo-python
+#: code:addons/back_in_stock_pro/models/back_in_stock_pro.py:0
+msgid "Please enter a valid email address."
+msgstr "Insira um endereço de e-mail válido."
+
+#. module: back_in_stock_pro
+#. odoo-python
+#: code:addons/back_in_stock_pro/models/back_in_stock_pro.py:0
+#: model:ir.model,name:back_in_stock_pro.model_product_template
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__product_id
+#: model_terms:ir.ui.view,arch_db:back_in_stock_pro.view_stock_alert_request_search
+msgid "Product"
+msgstr "Produto"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__product_tmpl_id
+msgid "Product Template"
+msgstr "Modelo de produto"
+
+#. module: back_in_stock_pro
+#: model_terms:ir.ui.view,arch_db:back_in_stock_pro.view_stock_alert_request_form
+msgid "Request"
+msgstr "Solicitar"
+
+#. module: back_in_stock_pro
+#: model_terms:ir.ui.view,arch_db:back_in_stock_pro.view_stock_alert_request_form
+msgid "Reset"
+msgstr "Repor"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__source
+msgid "Source"
+msgstr "Fonte"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_stock_alert_request__state
+msgid "State"
+msgstr "Estado"
+
+#. module: back_in_stock_pro
+#: model_terms:ir.ui.view,arch_db:back_in_stock_pro.view_stock_alert_request_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: back_in_stock_pro
+#. odoo-python
+#: code:addons/back_in_stock_pro/models/back_in_stock_pro.py:0
+#: model:ir.actions.act_window,name:back_in_stock_pro.action_stock_alert_request
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_product_product__alert_request_count
+#: model:ir.model.fields,field_description:back_in_stock_pro.field_product_template__alert_request_count
+#: model:ir.ui.menu,name:back_in_stock_pro.menu_stockalert_root
+#: model_terms:ir.ui.view,arch_db:back_in_stock_pro.view_product_template_stock_alert
+#: model_terms:ir.ui.view,arch_db:back_in_stock_pro.view_stock_alert_request_form
+#: model_terms:ir.ui.view,arch_db:back_in_stock_pro.view_stock_alert_request_list
+msgid "Stock Alerts"
+msgstr "Alertas de reposição"
+
+#. module: back_in_stock_pro
+#. odoo-python
+#: code:addons/back_in_stock_pro/models/back_in_stock_pro.py:0
+msgid "Unknown product."
+msgstr "Produto desconhecido."
+
+#. module: back_in_stock_pro
+#: model:res.groups,comment:back_in_stock_pro.group_backinstockp_user
+msgid "View and use the module."
+msgstr "Visualize e use o módulo."
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields.selection,name:back_in_stock_pro.selection__stock_alert_request__state__pending
+#: model_terms:ir.ui.view,arch_db:back_in_stock_pro.view_stock_alert_request_search
+msgid "Waiting"
+msgstr "Esperando"
+
+#. module: back_in_stock_pro
+#: model:ir.ui.menu,name:back_in_stock_pro.menu_stockalert_all
+msgid "Waiting List"
+msgstr "Lista de espera"
+
+#. module: back_in_stock_pro
+#: model:ir.model.fields.selection,name:back_in_stock_pro.selection__stock_alert_request__source__api
+msgid "Website"
+msgstr "Site"
+
+#. module: back_in_stock_pro
+#. odoo-python
+#: code:addons/back_in_stock_pro/models/back_in_stock_pro.py:0
+msgid "product_tmpl_id"
+msgstr "produto_tmpl_id"
