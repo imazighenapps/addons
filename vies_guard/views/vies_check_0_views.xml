@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vies_check_list" model="ir.ui.view">
+        <field name="name">vies.check.list</field>
+        <field name="model">vies.check</field>
+        <field name="arch" type="xml">
+            <list string="VAT Checks" create="0" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="check_date"/>
+                <field name="partner_id"/>
+                <field name="vat"/>
+                <field name="state" widget="badge"/>
+                <field name="trader_name"/>
+                <field name="source"/>
+                <field name="user_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_vies_check_form" model="ir.ui.view">
+        <field name="name">vies.check.form</field>
+        <field name="model">vies.check</field>
+        <field name="arch" type="xml">
+            <form string="VAT Checks">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Check">
+    <field name="name"/>
+    <field name="check_date"/>
+    <field name="source"/>
+    <field name="user_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Partner">
+    <field name="partner_id"/>
+    <field name="vat"/>
+    <field name="state"/>
+                        </group>
+                        <group string="VIES Answer">
+    <field name="trader_name"/>
+    <field name="message"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_vies_check_search" model="ir.ui.view">
+        <field name="name">vies.check.search</field>
+        <field name="model">vies.check</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="vat"/>
+                <field name="trader_name"/>
+                <filter name="valid" string="Valid" domain="[('state','=','valid')]"/>
+                <filter name="invalid" string="Invalid" domain="[('state','=','invalid')]"/>
+                <filter name="unavailable" string="Unavailable" domain="[('state','=','unavailable')]"/>
+                <filter name="manual" string="Manual" domain="[('source','=','manual')]"/>
+                <separator/>
+                <filter name="group_state" string="Result" context="{'group_by': 'state'}"/>
+                <filter name="group_source" string="Source" context="{'group_by': 'source'}"/>
+                <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_vies_check" model="ir.actions.act_window">
+        <field name="name">VAT Checks</field>
+        <field name="res_model">vies.check</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every VIES check is recorded here with its date and result.</p>
+        </field>
+    </record>
+
+</odoo>

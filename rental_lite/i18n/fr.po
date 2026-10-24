@@ -1,0 +1,493 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* rental_lite
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "%(product)s - %(days)s day(s) from %(start)s"
+msgstr "%(product)s - %(days)s jour(s) à partir de %(start)s"
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "%(product)s is not available on this period: %(booked)s already booked, %(owned)s owned."
+msgstr "%(product)s n'est pas disponible sur cette période : %(booked)s déjà réservé, %(owned)s en propriété."
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "%s is not marked as rentable."
+msgstr "%s n’est pas marqué comme louable."
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "Add at least one equipment line."
+msgstr "Ajoutez au moins une ligne d'équipement."
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_form
+msgid "Amounts"
+msgstr "Montants"
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "An invoiced contract cannot be cancelled."
+msgstr "Un contrat facturé ne peut être annulé."
+
+#. module: rental_lite
+#: model:ir.model.fields,help:rental_lite.field_product_product__is_rental
+#: model:ir.model.fields,help:rental_lite.field_product_template__is_rental
+msgid "Can be rented by the day."
+msgstr "Peut être loué à la journée."
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: rental_lite
+#: model:ir.model.fields.selection,name:rental_lite.selection__rental_contract__state__cancelled
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: rental_lite
+#: model:res.groups,comment:rental_lite.group_rentallite_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_form
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "Confirm or return the contract before invoicing it."
+msgstr "Confirmez ou retournez le contrat avant de le facturer."
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "Confirm the contract first."
+msgstr "Confirmez d'abord le contrat."
+
+#. module: rental_lite
+#: model:ir.model.fields.selection,name:rental_lite.selection__rental_contract__state__confirmed
+msgid "Confirmed"
+msgstr "Confirmé"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract_line__contract_id
+msgid "Contract"
+msgstr "Contrat"
+
+#. module: rental_lite
+#: model_terms:ir.actions.act_window,help:rental_lite.action_rental_contract
+msgid "Create your first rental contract: customer, period, equipment."
+msgstr "Créez votre premier contrat de location : client, période, matériel."
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__create_uid
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__create_date
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract_line__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__currency_id
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract_line__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__partner_id
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_form
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_search
+msgid "Customer"
+msgstr "Client"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract_line__unit_price
+msgid "Daily Price"
+msgstr "Prix ​​journalier"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_product_product__rental_price
+#: model:ir.model.fields,field_description:rental_lite.field_product_template__rental_price
+msgid "Daily Rental Price"
+msgstr "Prix ​​de location journalier"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__damage_fee
+msgid "Damage Fee"
+msgstr "Frais de dommages"
+
+#. module: rental_lite
+#: model:ir.model.fields.selection,name:rental_lite.selection__rental_contract__return_condition__damaged
+msgid "Damaged"
+msgstr "Endommagé"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__date_end
+msgid "Date End"
+msgstr "Date de fin"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__date_start
+msgid "Date Start"
+msgstr "Date de début"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__day_count
+msgid "Day Count"
+msgstr "Nombre de jours"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_product_product__rental_deposit
+#: model:ir.model.fields,field_description:rental_lite.field_product_template__rental_deposit
+msgid "Default Deposit"
+msgstr "Dépôt par défaut"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__deposit_amount
+msgid "Deposit Amount"
+msgstr "Montant du dépôt"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__deposit_refund
+msgid "Deposit Refund"
+msgstr "Remboursement du dépôt"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract_line__description
+msgid "Description"
+msgstr "Description"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_product_template__display_name
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__display_name
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract_line__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: rental_lite
+#: model:ir.model.fields.selection,name:rental_lite.selection__rental_contract__state__draft
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_search
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__line_ids
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract_line__product_id
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_form
+msgid "Equipment"
+msgstr "Équipement"
+
+#. module: rental_lite
+#: model:ir.model.fields.selection,name:rental_lite.selection__rental_contract__return_condition__good
+msgid "Good"
+msgstr "Bien"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_search
+msgid "In Progress"
+msgstr "En cours"
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__invoice_id
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_form
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "Invoice %s created."
+msgstr "Facture %s créée."
+
+#. module: rental_lite
+#: model:ir.model.fields.selection,name:rental_lite.selection__rental_contract__state__invoiced
+msgid "Invoiced"
+msgstr "Facturé"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__is_overdue
+msgid "Is Overdue"
+msgstr "Est en retard"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__write_uid
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract_line__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__write_date
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract_line__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: rental_lite
+#: model:ir.model.fields.selection,name:rental_lite.selection__rental_contract__return_condition__lost
+msgid "Lost"
+msgstr "Perdue Perdu"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Date limite de mon activité"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "No sales journal found."
+msgstr "Aucun journal des ventes trouvé."
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__note
+msgid "Note"
+msgstr "Note"
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: rental_lite
+#: model:ir.model.fields,help:rental_lite.field_product_product__rental_stock
+#: model:ir.model.fields,help:rental_lite.field_product_template__rental_stock
+msgid "Number of units available for rental."
+msgstr "Nombre d'unités disponibles à la location."
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "Only a draft contract can be confirmed."
+msgstr "Seul un projet de contrat peut être confirmé."
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "Only a picked-up contract can be returned."
+msgstr "Seul un contrat récupéré peut être retourné."
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_search
+msgid "Overdue"
+msgstr "En retard"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_product_product__rental_stock
+#: model:ir.model.fields,field_description:rental_lite.field_product_template__rental_stock
+msgid "Owned Units"
+msgstr "Unités détenues"
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_form
+msgid "Period"
+msgstr "Période"
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_form
+msgid "Pick Up"
+msgstr "Ramasser"
+
+#. module: rental_lite
+#: model:ir.model.fields.selection,name:rental_lite.selection__rental_contract__state__picked_up
+msgid "Picked Up"
+msgstr "Ramassé"
+
+#. module: rental_lite
+#: model:ir.model,name:rental_lite.model_product_template
+msgid "Product"
+msgstr "Produit"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract_line__quantity
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "Refundable deposit"
+msgstr "Dépôt remboursable"
+
+#. module: rental_lite
+#: model:ir.module.module,summary:base.module_rental_lite
+msgid "Rent equipment with availability control, deposit, contract, return inspection and invoicing, without the Enterprise Rental app."
+msgstr "Louez du matériel avec contrôle de disponibilité, caution, contrat, inspection des retours et facturation, sans l'application Enterprise Rental."
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_product_product__is_rental
+#: model:ir.model.fields,field_description:rental_lite.field_product_template__is_rental
+msgid "Rentable"
+msgstr "Louable"
+
+#. module: rental_lite
+#: model:ir.ui.menu,name:rental_lite.menu_rental_root
+msgid "Rental"
+msgstr "De location"
+
+#. module: rental_lite
+#: model:ir.model,name:rental_lite.model_rental_contract
+msgid "Rental Contract"
+msgstr "Contrat de location"
+
+#. module: rental_lite
+#: model:ir.model,name:rental_lite.model_rental_contract_line
+msgid "Rental Contract Line"
+msgstr "Ligne de contrat de location"
+
+#. module: rental_lite
+#: model:ir.actions.act_window,name:rental_lite.action_rental_contract
+#: model:ir.ui.menu,name:rental_lite.menu_rental_contracts
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_form
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_list
+msgid "Rental Contracts"
+msgstr "Contrats de location"
+
+#. module: rental_lite
+#: model:res.groups,name:rental_lite.group_rentallite_manager
+msgid "Rental Lite Manager"
+msgstr "Gestionnaire de location Lite"
+
+#. module: rental_lite
+#: model:res.groups,name:rental_lite.group_rentallite_user
+msgid "Rental Lite User"
+msgstr "Utilisateur de location Lite"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__rental_total
+msgid "Rental Total"
+msgstr "Location totale"
+
+#. module: rental_lite
+#: model:ir.module.module,shortdesc:base.module_rental_lite
+msgid "RentalLite - Equipment Rental for Odoo Community"
+msgstr "RentalLite - Location d'équipement pour la communauté Odoo"
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_form
+msgid "Return"
+msgstr "Retour"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__return_condition
+msgid "Return Condition"
+msgstr "Conditions de retour"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__return_date
+msgid "Return Date"
+msgstr "Date de retour"
+
+#. module: rental_lite
+#: model:ir.model.fields.selection,name:rental_lite.selection__rental_contract__state__returned
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_search
+msgid "Returned"
+msgstr "Retourné"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract_line__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__state
+msgid "State"
+msgstr "Statut"
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract_line__subtotal
+msgid "Subtotal"
+msgstr "Total"
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "The end date must be after the start date."
+msgstr "La date de fin doit être postérieure à la date de début."
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "The quantity must be positive."
+msgstr "La quantité doit être positive."
+
+#. module: rental_lite
+#. odoo-python
+#: code:addons/rental_lite/models/rental_lite.py:0
+msgid "This contract is already invoiced."
+msgstr "Ce contrat est déjà facturé."
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_form
+msgid "Total"
+msgstr "Total"
+
+#. module: rental_lite
+#: model:ir.model.fields,field_description:rental_lite.field_rental_contract__total_amount
+msgid "Total Amount"
+msgstr "Montant total"
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_list
+msgid "Total Deposit Amount"
+msgstr "Montant total du dépôt"
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_list
+msgid "Total Rental Total"
+msgstr "Total Location Total"
+
+#. module: rental_lite
+#: model_terms:ir.ui.view,arch_db:rental_lite.view_rental_contract_form
+msgid "View Invoice"
+msgstr "Afficher la facture"
+
+#. module: rental_lite
+#: model:res.groups,comment:rental_lite.group_rentallite_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_stock_card" model="report.paperformat">
+        <field name="name">Stock Card A4</field>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">15</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_report_stock_card" model="ir.actions.report">
+        <field name="name">Stock Card</field>
+        <field name="model">stock.card</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stock_card_pro.report_stock_card</field>
+        <field name="paperformat_id" ref="paperformat_stock_card"/>
+        <field name="print_report_name">'Stock Card - %s' % object.product_id.name</field>
+    </record>
+
+    <template id="report_stock_card">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="mt-0">Stock Card</h2>
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <div><strong>Product:</strong>
+                                    <span t-field="o.product_id.display_name"/></div>
+                                <div><strong>Location:</strong>
+                                    <span t-field="o.location_id.display_name"/></div>
+                                <div t-if="o.lot_id"><strong>Lot / Serial:</strong>
+                                    <span t-field="o.lot_id.name"/></div>
+                            </div>
+                            <div class="col-6 text-end">
+                                <div><strong>Card:</strong> <span t-field="o.name"/></div>
+                                <div><strong>Period:</strong>
+                                    <span t-field="o.date_from"/> -
+                                    <span t-field="o.date_to"/></div>
+                                <div><strong>Unit cost:</strong>
+                                    <span t-field="o.unit_cost"/></div>
+                            </div>
+                        </div>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Date</th><th>Reference</th><th>Partner</th>
+                                    <th class="text-end">In</th>
+                                    <th class="text-end">Out</th>
+                                    <th class="text-end">Balance</th>
+                                    <th class="text-end">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="fw-bold">
+                                    <td colspan="5">Opening quantity</td>
+                                    <td class="text-end"><span t-field="o.opening_qty"/></td>
+                                    <td class="text-end"><span t-field="o.opening_value"/></td>
+                                </tr>
+                                <t t-foreach="o.line_ids" t-as="line">
+                                    <tr>
+                                        <td><span t-field="line.date"/></td>
+                                        <td><span t-field="line.reference"/></td>
+                                        <td><span t-field="line.partner_id.name"/></td>
+                                        <td class="text-end"><span t-field="line.qty_in"/></td>
+                                        <td class="text-end"><span t-field="line.qty_out"/></td>
+                                        <td class="text-end"><span t-field="line.balance"/></td>
+                                        <td class="text-end"><span t-field="line.value"/></td>
+                                    </tr>
+                                </t>
+                                <tr class="fw-bold border-top">
+                                    <td colspan="3">Totals</td>
+                                    <td class="text-end"><span t-field="o.in_qty"/></td>
+                                    <td class="text-end"><span t-field="o.out_qty"/></td>
+                                    <td class="text-end"><span t-field="o.closing_qty"/></td>
+                                    <td class="text-end"><span t-field="o.closing_value"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

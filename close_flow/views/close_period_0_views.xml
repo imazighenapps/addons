@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_close_period_list" model="ir.ui.view">
+        <field name="name">close.period.list</field>
+        <field name="model">close.period</field>
+        <field name="arch" type="xml">
+            <list string="Close Periods" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="template_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="task_count"/>
+                <field name="done_count"/>
+                <field name="progress" widget="progressbar"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_close_period_form" model="ir.ui.view">
+        <field name="name">close.period.form</field>
+        <field name="model">close.period</field>
+        <field name="arch" type="xml">
+            <form string="Close Periods">
+                <header>
+                    <button name="action_generate" type="object" string="Generate Tasks" class="btn-primary" invisible="state in ('done', 'locked')"/>
+                    <button name="action_start" type="object" string="Start" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_done" type="object" string="Mark Done" class="btn-primary" invisible="state not in ('draft', 'in_progress')"/>
+                    <button name="action_lock" type="object" string="Lock" class="btn-secondary" invisible="state != 'done'"/>
+                    <button name="action_unlock" type="object" string="Unlock" class="btn-link" invisible="state != 'locked'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,done,locked"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Period">
+    <field name="name"/>
+    <field name="template_id"/>
+    <field name="company_id"/>
+    <field name="date_start"/>
+    <field name="date_end"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Progress">
+    <field name="task_count"/>
+    <field name="done_count"/>
+    <field name="progress"/>
+                        </group>
+                        <group string="Lock">
+    <field name="locked_on"/>
+    <field name="locked_by"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Tasks" name="taskids">
+                            <field name="task_ids" readonly="1"><list><field name="sequence" widget="handle"/><field name="name"/><field name="user_id"/><field name="due_date"/><field name="dependency_ids" widget="many2many_tags"/><field name="evidence_required"/><field name="state" widget="badge"/></list></field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_close_period_search" model="ir.ui.view">
+        <field name="name">close.period.search</field>
+        <field name="model">close.period</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="template_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="progress" string="In Progress" domain="[('state','=','in_progress')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="locked" string="Locked" domain="[('state','=','locked')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_template" string="Template" context="{'group_by': 'template_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_close_period" model="ir.actions.act_window">
+        <field name="name">Close Periods</field>
+        <field name="res_model">close.period</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the period, generate the tasks, then follow the progress.</p>
+        </field>
+    </record>
+
+</odoo>

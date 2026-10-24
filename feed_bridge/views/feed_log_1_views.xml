@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_feed_log_list" model="ir.ui.view">
+        <field name="name">feed.log.list</field>
+        <field name="model">feed.log</field>
+        <field name="arch" type="xml">
+            <list string="Validation Report" create="0">
+                <field name="channel_id"/>
+                <field name="level"/>
+                <field name="product_name"/>
+                <field name="field_name"/>
+                <field name="message"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_feed_log_form" model="ir.ui.view">
+        <field name="name">feed.log.form</field>
+        <field name="model">feed.log</field>
+        <field name="arch" type="xml">
+            <form string="Validation Report">
+                <sheet>
+                    <group>
+                        <group string="Problem">
+    <field name="channel_id"/>
+    <field name="level"/>
+    <field name="field_name"/>
+    <field name="product_id"/>
+    <field name="product_name"/>
+                        </group>
+                        <group string="Message">
+    <field name="message"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_feed_log_search" model="ir.ui.view">
+        <field name="name">feed.log.search</field>
+        <field name="model">feed.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_name"/>
+                <field name="message"/>
+                <filter name="errors" string="Errors" domain="[('level','=','error')]"/>
+                <filter name="warnings" string="Warnings" domain="[('level','=','warning')]"/>
+                <separator/>
+                <filter name="group_channel" string="Channel" context="{'group_by': 'channel_id'}"/>
+                <filter name="group_level" string="Level" context="{'group_by': 'level'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_feed_log" model="ir.actions.act_window">
+        <field name="name">Validation Report</field>
+        <field name="res_model">feed.log</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

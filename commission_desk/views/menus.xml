@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_commission_root" name="Commissions" sequence="65"/>
+    <menuitem id="menu_commission_statement" name="Statements"
+              parent="menu_commission_root"
+              action="action_commission_statement" sequence="10"/>
+    <menuitem id="menu_commission_line" name="Commission Lines"
+              parent="menu_commission_root"
+              action="action_commission_line" sequence="20"/>
+    <menuitem id="menu_commission_rule" name="Rules"
+              parent="menu_commission_root"
+              action="action_commission_rule" sequence="30"/>
+</odoo>

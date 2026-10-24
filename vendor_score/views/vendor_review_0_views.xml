@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vendor_review_list" model="ir.ui.view">
+        <field name="name">vendor.review.list</field>
+        <field name="model">vendor.review</field>
+        <field name="arch" type="xml">
+            <list string="Supplier Reviews" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <field name="on_time_rate"/>
+                <field name="fill_rate"/>
+                <field name="quality_rate"/>
+                <field name="score"/>
+                <field name="rating"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_vendor_review_form" model="ir.ui.view">
+        <field name="name">vendor.review.form</field>
+        <field name="model">vendor.review</field>
+        <field name="arch" type="xml">
+            <form string="Supplier Reviews">
+                <header>
+                    <button name="action_compute" type="object" string="Compute from Data" class="btn-primary" invisible="state == 'validated'"/>
+                    <button name="action_validate" type="object" string="Validate Review" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_reset" type="object" string="Reset" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,validated"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Supplier">
+    <field name="partner_id"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Period">
+    <field name="period_start"/>
+    <field name="period_end"/>
+    <field name="order_count"/>
+                        </group>
+                        <group string="Performance">
+    <field name="on_time_rate"/>
+    <field name="fill_rate"/>
+    <field name="quality_rate"/>
+    <field name="price_variance"/>
+                        </group>
+                        <group string="Score">
+    <field name="score"/>
+    <field name="rating"/>
+    <field name="action_count"/>
+    <field name="validated_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Improvement Plan" name="actionids">
+                            <field name="action_ids"><list editable="bottom"><field name="name"/><field name="user_id"/><field name="deadline"/><field name="done"/><field name="result"/></list></field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_vendor_review_search" model="ir.ui.view">
+        <field name="name">vendor.review.search</field>
+        <field name="model">vendor.review</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="validated" string="Validated" domain="[('state','=','validated')]"/>
+                <filter name="risk" string="At Risk" domain="[('rating','=','d')]"/>
+                <separator/>
+                <filter name="group_partner" string="Supplier" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_rating" string="Rating" context="{'group_by': 'rating'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_vendor_review" model="ir.actions.act_window">
+        <field name="name">Supplier Reviews</field>
+        <field name="res_model">vendor.review</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a review for the period, then compute the score from purchase data.</p>
+        </field>
+    </record>
+
+</odoo>

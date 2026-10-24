@@ -1,0 +1,487 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* warranty_track
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: warranty_track
+#: model:ir.model.fields,help:warranty_track.field_warranty_claim__goodwill
+msgid "Accept the claim even if not covered."
+msgstr "Aceite a reclamação mesmo que não esteja coberta."
+
+#. module: warranty_track
+#: model:ir.model.fields.selection,name:warranty_track.selection__warranty_registration__state__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: warranty_track
+#. odoo-python
+#: code:addons/warranty_track/models/warranty_track.py:0
+msgid "Amounts cannot be negative."
+msgstr "Os valores não podem ser negativos."
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_form
+msgid "Approve"
+msgstr "Aprovar"
+
+#. module: warranty_track
+#. odoo-python
+#: code:addons/warranty_track/models/warranty_track.py:0
+msgid "Approve the claim before closing it."
+msgstr "Aprove a reivindicação antes de fechá-la."
+
+#. module: warranty_track
+#: model:ir.model.fields.selection,name:warranty_track.selection__warranty_claim__state__approved
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_search
+msgid "Approved"
+msgstr "Aprovado"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__claim_count
+msgid "Claim Count"
+msgstr "Contagem de reivindicações"
+
+#. module: warranty_track
+#. odoo-python
+#: code:addons/warranty_track/models/warranty_track.py:0
+msgid "Claim closed: %(resolution)s, cost %(cost).2f, supplier recovery %(recovery).2f."
+msgstr "Reclamação encerrada: %(resolution)s, custo %(custo).2f, recuperação do fornecedor %(recuperação).2f."
+
+#. module: warranty_track
+#. odoo-python
+#: code:addons/warranty_track/models/warranty_track.py:0
+#: model:ir.actions.act_window,name:warranty_track.action_warranty_claim
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__claim_ids
+#: model:ir.ui.menu,name:warranty_track.menu_warranty_claims
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_form
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_list
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_form
+msgid "Claims"
+msgstr "Reclamações"
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_form
+msgid "Close"
+msgstr "Fechar"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__company_id
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: warranty_track
+#: model:res.groups,comment:warranty_track.group_warrantytrac_manager
+msgid "Configure and administer the module."
+msgstr "Configure e administre o módulo."
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_form
+msgid "Costs"
+msgstr "Custos"
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_form
+msgid "Coverage"
+msgstr "Cobertura"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__is_covered
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_search
+msgid "Covered"
+msgstr "Abordada Abordado"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__covered
+msgid "Covered at Creation"
+msgstr "Coberto na Criação"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__create_uid
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__create_date
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__currency_id
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__currency_id
+msgid "Currency"
+msgstr "Moeda"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__partner_id
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__partner_id
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_form
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__date
+msgid "Date"
+msgstr "Data"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__date_start
+msgid "Date Start"
+msgstr "Data de início"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_sale_order__display_name
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__display_name
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: warranty_track
+#: model:ir.model.fields.selection,name:warranty_track.selection__warranty_claim__state__done
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_search
+msgid "Done"
+msgstr "Concluído"
+
+#. module: warranty_track
+#: model:ir.model.fields.selection,name:warranty_track.selection__warranty_claim__state__draft
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_search
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__duration_months
+msgid "Duration Months"
+msgstr "Meses de Duração"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__date_end
+msgid "End Date"
+msgstr "Data de término"
+
+#. module: warranty_track
+#: model:ir.model.fields.selection,name:warranty_track.selection__warranty_registration__state__expired
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_search
+msgid "Expired"
+msgstr "Expirado"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__goodwill
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_search
+msgid "Goodwill"
+msgstr "Boa vontade"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__has_message
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__invoice_id
+msgid "Invoice"
+msgstr "Fatura"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__issue
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_form
+msgid "Issue"
+msgstr "Emitir"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__write_uid
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__write_date
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__lot_id
+msgid "Lot / Serial Record"
+msgstr "Registro de lote/série"
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_form
+msgid "Mark Expired"
+msgstr "Marca expirada"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__my_activity_date_deadline
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Prazo da minha atividade"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__name
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: warranty_track
+#. odoo-python
+#: code:addons/warranty_track/models/warranty_track.py:0
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_form
+msgid "New Claim"
+msgstr "Nova reivindicação"
+
+#. module: warranty_track
+#: model:ir.model.fields.selection,name:warranty_track.selection__warranty_claim__resolution__none
+msgid "No Action"
+msgstr "Nenhuma ação"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__note
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_form
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: warranty_track
+#. odoo-python
+#: code:addons/warranty_track/models/warranty_track.py:0
+msgid "Only a draft claim can be approved."
+msgstr "Apenas um projeto de reivindicação pode ser aprovado."
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__product_id
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__product_id
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_form
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_search
+msgid "Product"
+msgstr "Produto"
+
+#. module: warranty_track
+#: model:ir.model,name:warranty_track.model_warranty_registration
+msgid "Product Warranty"
+msgstr "Garantia do produto"
+
+#. module: warranty_track
+#: model_terms:ir.actions.act_window,help:warranty_track.action_warranty_claim
+msgid "Record a warranty claim and its real cost."
+msgstr "Registre uma reclamação de garantia e seu custo real."
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_form
+msgid "Recovered"
+msgstr "Recuperada Recuperado"
+
+#. module: warranty_track
+#: model:ir.model.fields.selection,name:warranty_track.selection__warranty_claim__resolution__refund
+msgid "Refund"
+msgstr "Reembolso"
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_form
+msgid "Refuse"
+msgstr "Recusar"
+
+#. module: warranty_track
+#: model:ir.model.fields.selection,name:warranty_track.selection__warranty_claim__state__refused
+msgid "Refused"
+msgstr "Recusada Recusado"
+
+#. module: warranty_track
+#: model_terms:ir.actions.act_window,help:warranty_track.action_warranty_registration
+msgid "Register the warranty of a product and its serial number."
+msgstr "Cadastre a garantia de um produto e seu número de série."
+
+#. module: warranty_track
+#: model:ir.module.module,summary:base.module_warranty_track
+msgid "Register the warranty of every serial number, check coverage at claim time, record repair or replacement cost and recover from the supplier."
+msgstr "Registre a garantia de cada número de série, verifique a cobertura no momento da reclamação, registre o custo de reparo ou substituição e recupere junto ao fornecedor."
+
+#. module: warranty_track
+#: model:ir.model.fields.selection,name:warranty_track.selection__warranty_claim__resolution__repair
+msgid "Repair"
+msgstr "Reparar"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__cost
+msgid "Repair Cost"
+msgstr "Custo de reparo"
+
+#. module: warranty_track
+#: model:ir.model.fields.selection,name:warranty_track.selection__warranty_claim__resolution__replace
+msgid "Replacement"
+msgstr "Substituição"
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_form
+msgid "Reset"
+msgstr "Repor"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__resolution
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_form
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_search
+msgid "Resolution"
+msgstr "Resolução"
+
+#. module: warranty_track
+#: model:ir.model,name:warranty_track.model_sale_order
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__sale_order_id
+msgid "Sales Order"
+msgstr "Pedido de venda"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__serial_number
+msgid "Serial Number"
+msgstr "Número de série"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__state
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__state
+msgid "State"
+msgstr "Estado"
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_search
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__supplier_id
+msgid "Supplier"
+msgstr "Fornecedor"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__vendor_recovery
+msgid "Supplier Recovery"
+msgstr "Recuperação de Fornecedores"
+
+#. module: warranty_track
+#. odoo-python
+#: code:addons/warranty_track/models/warranty_track.py:0
+msgid "The supplier recovery cannot exceed the repair cost."
+msgstr "A recuperação do fornecedor não pode exceder o custo do reparo."
+
+#. module: warranty_track
+#. odoo-python
+#: code:addons/warranty_track/models/warranty_track.py:0
+msgid "The warranty duration must be at least one month."
+msgstr "A duração da garantia deve ser de pelo menos um mês."
+
+#. module: warranty_track
+#. odoo-python
+#: code:addons/warranty_track/models/warranty_track.py:0
+msgid "This product is no longer under warranty. Tick Goodwill to accept the claim anyway."
+msgstr "Este produto não está mais na garantia. Marque Goodwill para aceitar a reivindicação de qualquer maneira."
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_registration__total_claim_cost
+msgid "Total Claim Cost"
+msgstr "Custo total da reclamação"
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_list
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_form
+msgid "Total Cost"
+msgstr "Custo total"
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_list
+msgid "Total Total Claim Cost"
+msgstr "Custo total total da reclamação"
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_list
+msgid "Total Vendor Recovery"
+msgstr "Recuperação total do fornecedor"
+
+#. module: warranty_track
+#: model:res.groups,comment:warranty_track.group_warrantytrac_user
+msgid "View and use the module."
+msgstr "Visualize e use o módulo."
+
+#. module: warranty_track
+#: model:ir.model.fields.selection,name:warranty_track.selection__warranty_registration__state__void
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_form
+msgid "Void"
+msgstr "Vazia Vazio"
+
+#. module: warranty_track
+#. odoo-python
+#: code:addons/warranty_track/models/warranty_track.py:0
+#: model:ir.actions.act_window,name:warranty_track.action_warranty_registration
+#: model:ir.model.fields,field_description:warranty_track.field_sale_order__warranty_ids
+#: model:ir.ui.menu,name:warranty_track.menu_warranty_registrations
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_sale_order_form_warranty
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_form
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_list
+msgid "Warranties"
+msgstr "Garantias"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_warranty_claim__registration_id
+#: model:ir.ui.menu,name:warranty_track.menu_warranty_root
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_claim_form
+msgid "Warranty"
+msgstr "Garantia"
+
+#. module: warranty_track
+#: model:ir.model,name:warranty_track.model_warranty_claim
+msgid "Warranty Claim"
+msgstr "Reivindicação de garantia"
+
+#. module: warranty_track
+#: model:ir.model.fields,field_description:warranty_track.field_sale_order__warranty_count
+msgid "Warranty Count"
+msgstr "Contagem de garantia"
+
+#. module: warranty_track
+#: model:res.groups,name:warranty_track.group_warrantytrac_manager
+msgid "Warranty Track Manager"
+msgstr "Gerenciador de rastreamento de garantia"
+
+#. module: warranty_track
+#: model:res.groups,name:warranty_track.group_warrantytrac_user
+msgid "Warranty Track User"
+msgstr "Usuário de rastreamento de garantia"
+
+#. module: warranty_track
+#: model:ir.module.module,shortdesc:base.module_warranty_track
+msgid "WarrantyTrack - Product Warranty and Claims"
+msgstr "WarrantyTrack - Garantia e Reclamações do Produto"
+
+#. module: warranty_track
+#: model:ir.actions.server,name:warranty_track.cron_warranty_expire_ir_actions_server
+msgid "WarrantyTrack: expire warranties"
+msgstr "WarrantyTrack: expiram as garantias"
+
+#. module: warranty_track
+#: model_terms:ir.ui.view,arch_db:warranty_track.view_warranty_registration_search
+msgid "With Claims"
+msgstr "Com reivindicações"
+
+#. module: warranty_track
+#. odoo-python
+#: code:addons/warranty_track/models/warranty_track.py:0
+msgid "registration_id"
+msgstr "ID_de_registro"
+
+#. module: warranty_track
+#. odoo-python
+#: code:addons/warranty_track/models/warranty_track.py:0
+msgid "sale_order_id"
+msgstr "ID_pedido_de_venda"

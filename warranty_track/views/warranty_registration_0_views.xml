@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_warranty_registration_list" model="ir.ui.view">
+        <field name="name">warranty.registration.list</field>
+        <field name="model">warranty.registration</field>
+        <field name="arch" type="xml">
+            <list string="Warranties" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="product_id"/>
+                <field name="serial_number"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="is_covered"/>
+                <field name="total_claim_cost" sum="Total Total Claim Cost"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_warranty_registration_form" model="ir.ui.view">
+        <field name="name">warranty.registration.form</field>
+        <field name="model">warranty.registration</field>
+        <field name="arch" type="xml">
+            <form string="Warranties">
+                <header>
+                    <button name="action_new_claim" type="object" string="New Claim" class="btn-primary" invisible="state != 'active'"/>
+                    <button name="action_view_claims" type="object" string="Claims" class="btn-secondary" invisible="not claim_count"/>
+                    <button name="action_expire" type="object" string="Mark Expired" class="btn-secondary" invisible="state != 'active'"/>
+                    <button name="action_void" type="object" string="Void" class="btn-link" invisible="state == 'void'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="active,expired,void"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Customer">
+    <field name="partner_id"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Product">
+    <field name="product_id"/>
+    <field name="serial_number"/>
+    <field name="lot_id"/>
+    <field name="sale_order_id"/>
+    <field name="invoice_id"/>
+                        </group>
+                        <group string="Coverage">
+    <field name="date_start"/>
+    <field name="duration_months"/>
+    <field name="date_end"/>
+    <field name="is_covered"/>
+                        </group>
+                        <group string="Claims">
+    <field name="claim_count"/>
+    <field name="total_claim_cost"/>
+    <field name="currency_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Claims" name="claimids">
+                            <field name="claim_ids" readonly="1"><list><field name="name"/><field name="date"/><field name="resolution"/><field name="cost" sum="Total Cost"/><field name="vendor_recovery" sum="Recovered"/><field name="state" widget="badge"/></list></field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_warranty_registration_search" model="ir.ui.view">
+        <field name="name">warranty.registration.search</field>
+        <field name="model">warranty.registration</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="serial_number"/>
+                <field name="partner_id"/>
+                <field name="product_id"/>
+                <filter name="covered" string="Covered" domain="[('is_covered','=',True)]"/>
+                <filter name="expired" string="Expired" domain="[('state','=','expired')]"/>
+                <filter name="claims" string="With Claims" domain="[('claim_ids','!=',False)]"/>
+                <separator/>
+                <filter name="group_product" string="Product" context="{'group_by': 'product_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_warranty_registration" model="ir.actions.act_window">
+        <field name="name">Warranties</field>
+        <field name="res_model">warranty.registration</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register the warranty of a product and its serial number.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_expense_form_policy" model="ir.ui.view">
+        <field name="name">hr.expense.form.policy</field>
+        <field name="model">hr.expense</field>
+        <field name="inherit_id" ref="hr_expense.hr_expense_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="policy_state" readonly="1"/>
+                <field name="policy_note" readonly="1"
+                       invisible="not policy_note"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

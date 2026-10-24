@@ -1,0 +1,346 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* time_approve
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: time_approve
+#. odoo-python
+#: code:addons/time_approve/models/time_approve.py:0
+msgid "%(hours).2f hours approved."
+msgstr "%(horas).2f horas aprobadas."
+
+#. module: time_approve
+#. odoo-python
+#: code:addons/time_approve/models/time_approve.py:0
+msgid "%s timesheet lines added to the week."
+msgstr "Se agregaron líneas de la hoja de horas %s a la semana."
+
+#. module: time_approve
+#: model:ir.model.constraint,message:time_approve.constraint_timesheet_week_week_user_uniq
+msgid "A timesheet week already exists for this employee and this week."
+msgstr "Ya existe una semana de hoja de horas para este empleado y esta semana."
+
+#. module: time_approve
+#. odoo-python
+#: code:addons/time_approve/models/time_approve.py:0
+msgid "Add a comment explaining why the week is rejected."
+msgstr "Agregue un comentario que explique por qué se rechaza la semana."
+
+#. module: time_approve
+#: model:ir.model,name:time_approve.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Línea Analítica"
+
+#. module: time_approve
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_form
+msgid "Approval"
+msgstr "Aprobación"
+
+#. module: time_approve
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_form
+msgid "Approve"
+msgstr "Aprobar"
+
+#. module: time_approve
+#: model:ir.model.fields.selection,name:time_approve.selection__timesheet_week__state__approved
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_search
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__approved_by
+msgid "Approved By"
+msgstr "Aprobado por"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__approved_on
+msgid "Approved On"
+msgstr "Aprobado el"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__comment
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_form
+msgid "Comment"
+msgstr "Comentario"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: time_approve
+#: model:res.groups,comment:time_approve.group_timeapprove_manager
+msgid "Configure and administer the module."
+msgstr "Configurar y administrar el módulo."
+
+#. module: time_approve
+#: model_terms:ir.actions.act_window,help:time_approve.action_timesheet_week
+msgid "Create a week, load the timesheets, then submit it for approval."
+msgstr "Cree una semana, cargue las hojas de horas y luego envíelas para su aprobación."
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_account_analytic_line__display_name
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: time_approve
+#: model:ir.model.fields.selection,name:time_approve.selection__timesheet_week__state__draft
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_search
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__user_id
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_search
+msgid "Employee"
+msgstr "Empleada Empleado"
+
+#. module: time_approve
+#. odoo-python
+#: code:addons/time_approve/models/time_approve.py:0
+msgid "Generate the week before submitting it."
+msgstr "Genera la semana antes de enviarlo."
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: time_approve
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_form
+msgid "Load Timesheets"
+msgstr "Cargar hojas de horas"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Fecha límite de mi actividad"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: time_approve
+#. odoo-python
+#: code:addons/time_approve/models/time_approve.py:0
+msgid "No timesheet line found for %(employee)s between %(start)s and %(end)s."
+msgstr "No se encontró ninguna línea del parte de horas para %(employee)s entre %(start)s y %(end)s."
+
+#. module: time_approve
+#. odoo-python
+#: code:addons/time_approve/models/time_approve.py:0
+msgid "Only a draft or rejected week can be submitted."
+msgstr "Sólo se puede enviar un borrador o una semana rechazada."
+
+#. module: time_approve
+#. odoo-python
+#: code:addons/time_approve/models/time_approve.py:0
+msgid "Only a submitted week can be approved."
+msgstr "Sólo se puede aprobar una semana enviada."
+
+#. module: time_approve
+#. odoo-python
+#: code:addons/time_approve/models/time_approve.py:0
+msgid "Only a submitted week can be rejected."
+msgstr "Sólo se puede rechazar una semana enviada."
+
+#. module: time_approve
+#. odoo-python
+#: code:addons/time_approve/models/time_approve.py:0
+msgid "Only an administrator can reopen an approved week."
+msgstr "Solo una administradora puede reabrir una semana aprobada. Solo un administrador puede reabrir una semana aprobada."
+
+#. module: time_approve
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_form
+msgid "Reject"
+msgstr "Rechazar"
+
+#. module: time_approve
+#: model:ir.model.fields.selection,name:time_approve.selection__timesheet_week__state__rejected
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_search
+msgid "Rejected"
+msgstr "Rechazado"
+
+#. module: time_approve
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_form
+msgid "Reopen"
+msgstr "Reabrir"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__state
+msgid "State"
+msgstr "Estado"
+
+#. module: time_approve
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: time_approve
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_form
+msgid "Submit"
+msgstr "Entregar"
+
+#. module: time_approve
+#: model:ir.model.fields.selection,name:time_approve.selection__timesheet_week__state__submitted
+msgid "Submitted"
+msgstr "Presentado"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__submitted_on
+msgid "Submitted On"
+msgstr "Enviado el"
+
+#. module: time_approve
+#. odoo-python
+#: code:addons/time_approve/models/time_approve.py:0
+msgid "This timesheet belongs to an approved week and cannot be modified. Ask an administrator to reopen the week."
+msgstr "Esta hoja de horas pertenece a una semana aprobada y no se puede modificar. Pídale a un administrador que reabra la semana."
+
+#. module: time_approve
+#: model:res.groups,name:time_approve.group_timeapprove_manager
+msgid "Time Approve Manager"
+msgstr "Gerente de aprobación de tiempo"
+
+#. module: time_approve
+#: model:res.groups,name:time_approve.group_timeapprove_user
+msgid "Time Approve User"
+msgstr "Usuario de aprobación de tiempo"
+
+#. module: time_approve
+#: model:ir.module.module,shortdesc:base.module_time_approve
+msgid "TimeApprove - Weekly Timesheet Approval"
+msgstr "TimeApprove - Aprobación de parte de horas semanales"
+
+#. module: time_approve
+#: model:ir.actions.server,name:time_approve.cron_timesheet_remind_ir_actions_server
+msgid "TimeApprove: remind pending weeks"
+msgstr "TimeApprove: recuerda las semanas pendientes"
+
+#. module: time_approve
+#: model:ir.ui.menu,name:time_approve.menu_timeapprove_root
+msgid "Timesheet Approval"
+msgstr "Aprobación de la hoja de horas"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_account_analytic_line__timesheet_week_id
+msgid "Timesheet Week"
+msgstr "Semana de la hoja de horas"
+
+#. module: time_approve
+#: model:ir.actions.act_window,name:time_approve.action_timesheet_week
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_form
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_list
+msgid "Timesheet Weeks"
+msgstr "Semanas de partes de horas"
+
+#. module: time_approve
+#. odoo-python
+#: code:addons/time_approve/models/time_approve.py:0
+msgid "Timesheet week %s still not approved"
+msgstr "Semana de hoja de horas %s aún no aprobada"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__line_ids
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_form
+msgid "Timesheets"
+msgstr "Hojas de tiempo"
+
+#. module: time_approve
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_search
+msgid "To Approve"
+msgstr "Para aprobar"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__total_hours
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_form
+msgid "Total Hours"
+msgstr "Horas totales"
+
+#. module: time_approve
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_list
+msgid "Total Total Hours"
+msgstr "Total Total de horas"
+
+#. module: time_approve
+#: model:res.groups,comment:time_approve.group_timeapprove_user
+msgid "View and use the module."
+msgstr "Ver y utilizar el módulo."
+
+#. module: time_approve
+#: model_terms:ir.ui.view,arch_db:time_approve.view_timesheet_week_form
+msgid "Week"
+msgstr "Semana"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__date_end
+msgid "Week End"
+msgstr "Fin de semana"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_timesheet_week__date_start
+msgid "Week Start"
+msgstr "Inicio de semana"
+
+#. module: time_approve
+#: model:ir.model.fields,field_description:time_approve.field_account_analytic_line__week_state
+msgid "Week Status"
+msgstr "Estado de la semana"
+
+#. module: time_approve
+#. odoo-python
+#: code:addons/time_approve/models/time_approve.py:0
+msgid "Week rejected: %s"
+msgstr "Semana rechazada: %s"
+
+#. module: time_approve
+#. odoo-python
+#: code:addons/time_approve/models/time_approve.py:0
+msgid "Week submitted for approval."
+msgstr "Semana enviada para aprobación."
+
+#. module: time_approve
+#: model:ir.model,name:time_approve.model_timesheet_week
+msgid "Weekly Timesheet"
+msgstr "Hoja de horas semanal"
+
+#. module: time_approve
+#: model:ir.ui.menu,name:time_approve.menu_timeapprove_weeks
+msgid "Weekly Timesheets"
+msgstr "Hojas de horas semanales"
+
+#. module: time_approve
+#: model:ir.module.module,summary:base.module_time_approve
+msgid "Weekly timesheet submission, manager approval, rejection comments and locking, so approved hours can no longer be edited."
+msgstr "Envío de hojas de horas semanales, aprobación del gerente, comentarios de rechazo y bloqueo, por lo que las horas aprobadas ya no se pueden editar."
