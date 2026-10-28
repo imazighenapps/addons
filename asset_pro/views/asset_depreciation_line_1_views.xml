@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_asset_depreciation_line_list" model="ir.ui.view">
+        <field name="name">asset.depreciation.line.list</field>
+        <field name="model">asset.depreciation.line</field>
+        <field name="arch" type="xml">
+            <list string="Depreciation Schedule">
+                <field name="asset_id"/>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="posted" widget="boolean"/>
+                <field name="posted_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_asset_depreciation_line_form" model="ir.ui.view">
+        <field name="name">asset.depreciation.line.form</field>
+        <field name="model">asset.depreciation.line</field>
+        <field name="arch" type="xml">
+            <form string="Depreciation Schedule">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Period">
+    <field name="asset_id"/>
+    <field name="sequence"/>
+    <field name="name"/>
+    <field name="date"/>
+    <field name="amount"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Posting">
+    <field name="posted"/>
+    <field name="posted_date"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_asset_depreciation_line_search" model="ir.ui.view">
+        <field name="name">asset.depreciation.line.search</field>
+        <field name="model">asset.depreciation.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="asset_id"/>
+                <filter name="posted" string="Posted" domain="[('posted','=',True)]"/>
+                <filter name="todo" string="Not Posted" domain="[('posted','=',False)]"/>
+                <separator/>
+                <filter name="group_asset" string="Asset" context="{'group_by': 'asset_id'}"/>
+                <filter name="group_posted" string="Posted" context="{'group_by': 'posted'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_asset_depreciation_line" model="ir.actions.act_window">
+        <field name="name">Depreciation Schedule</field>
+        <field name="res_model">asset.depreciation.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every depreciation period of every asset, posted or not.</p>
+        </field>
+    </record>
+
+</odoo>

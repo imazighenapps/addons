@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_maint_request_list" model="ir.ui.view">
+        <field name="name">maint.request.list</field>
+        <field name="model">maint.request</field>
+        <field name="arch" type="xml">
+            <list string="Maintenance Requests" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="type"/>
+                <field name="priority"/>
+                <field name="scheduled_date"/>
+                <field name="technician_id"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_maint_request_form" model="ir.ui.view">
+        <field name="name">maint.request.form</field>
+        <field name="model">maint.request</field>
+        <field name="arch" type="xml">
+            <form string="Maintenance Requests">
+                <header>
+                    <button name="action_plan" type="object" string="Plan" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_start" type="object" string="Start" class="btn-primary" invisible="state != 'planned'"/>
+                    <button name="action_done" type="object" string="Done" class="btn-primary" invisible="state not in ('planned', 'in_progress')"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state not in ('draft', 'planned', 'in_progress')"/>
+                    <button name="action_reset" type="object" string="Reset" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,planned,in_progress,done,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Request reference"/></h1>
+                    </div>
+                    <group>
+                        <group string="Request">
+    <field name="equipment_id"/>
+    <field name="plan_id"/>
+    <field name="type"/>
+    <field name="priority"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Assignment">
+    <field name="reported_by"/>
+    <field name="technician_id"/>
+                        </group>
+                        <group string="Schedule">
+    <field name="request_date"/>
+    <field name="scheduled_date"/>
+    <field name="done_date"/>
+                        </group>
+                        <group string="Intervention">
+    <field name="duration_hours"/>
+    <field name="cost"/>
+    <field name="currency_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_maint_request_search" model="ir.ui.view">
+        <field name="name">maint.request.search</field>
+        <field name="model">maint.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="technician_id"/>
+                <field name="reported_by"/>
+                <filter name="open" string="Open" domain="[('state','in',['draft','planned','in_progress'])]"/>
+                <filter name="planned" string="Planned" domain="[('state','=','planned')]"/>
+                <filter name="in_progress" string="In Progress" domain="[('state','=','in_progress')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="mine" string="My Requests" domain="[('technician_id','=',uid)]"/>
+                <separator/>
+                <filter name="group_equipment" string="Equipment" context="{'group_by': 'equipment_id'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_technician" string="Technician" context="{'group_by': 'technician_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_maint_request" model="ir.actions.act_window">
+        <field name="name">Maintenance Requests</field>
+        <field name="res_model">maint.request</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Report a breakdown, plan the intervention and record the downtime and the cost.</p>
+        </field>
+    </record>
+
+</odoo>

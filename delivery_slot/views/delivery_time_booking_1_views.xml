@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_delivery_time_booking_list" model="ir.ui.view">
+        <field name="name">delivery.time.booking.list</field>
+        <field name="model">delivery.time.booking</field>
+        <field name="arch" type="xml">
+            <list string="Bookings" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="slot_id"/>
+                <field name="partner_id"/>
+                <field name="reference"/>
+                <field name="user_id"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_delivery_time_booking_form" model="ir.ui.view">
+        <field name="name">delivery.time.booking.form</field>
+        <field name="model">delivery.time.booking</field>
+        <field name="arch" type="xml">
+            <form string="Bookings">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_done" type="object" string="Mark as Done" class="btn-primary" invisible="state != 'confirmed'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-link" invisible="state not in ('draft', 'confirmed')"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Booking">
+    <field name="name"/>
+    <field name="slot_id"/>
+    <field name="date"/>
+    <field name="partner_id"/>
+    <field name="reference"/>
+                        </group>
+                        <group string="Follow-up">
+    <field name="user_id"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_delivery_time_booking_search" model="ir.ui.view">
+        <field name="name">delivery.time.booking.search</field>
+        <field name="model">delivery.time.booking</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="slot_id"/>
+                <field name="reference"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <filter name="today" string="Today" domain="[('date','=',context_today().strftime('%Y-%m-%d'))]"/>
+                <filter name="mine" string="My Bookings" domain="[('user_id','=',uid)]"/>
+                <separator/>
+                <filter name="group_slot" string="Time Slot" context="{'group_by': 'slot_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_date" string="Date" context="{'group_by': 'date'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_delivery_time_booking" model="ir.actions.act_window">
+        <field name="name">Bookings</field>
+        <field name="res_model">delivery.time.booking</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Book a customer into a slot, then confirm, deliver or cancel it.</p>
+        </field>
+    </record>
+
+</odoo>

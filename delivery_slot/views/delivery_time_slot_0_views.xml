@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_delivery_time_slot_list" model="ir.ui.view">
+        <field name="name">delivery.time.slot.list</field>
+        <field name="model">delivery.time.slot</field>
+        <field name="arch" type="xml">
+            <list string="Time Slots">
+                <field name="name"/>
+                <field name="weekday"/>
+                <field name="start_hour" widget="float_time"/>
+                <field name="end_hour" widget="float_time"/>
+                <field name="capacity"/>
+                <field name="booking_count"/>
+                <field name="available_count"/>
+                <field name="location"/>
+                <field name="active" widget="boolean"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_delivery_time_slot_form" model="ir.ui.view">
+        <field name="name">delivery.time.slot.form</field>
+        <field name="model">delivery.time.slot</field>
+        <field name="arch" type="xml">
+            <form string="Time Slots">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Slot">
+    <field name="name"/>
+    <field name="weekday"/>
+    <field name="location"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Hours">
+    <field name="start_hour" widget="float_time"/>
+    <field name="end_hour" widget="float_time"/>
+                        </group>
+                        <group string="Capacity">
+    <field name="capacity"/>
+    <field name="booking_count"/>
+    <field name="available_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Bookings" name="bookingids">
+                            <field name="booking_ids">
+                        <list decoration-muted="state == 'cancelled'"
+                              decoration-success="state == 'done'"
+                              decoration-info="state == 'confirmed'">
+                            <field name="date"/>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="reference"/>
+                            <field name="state" widget="badge"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                    <div class="oe_button_box" name="button_box"><button name="action_activate" type="object" class="oe_stat_button" icon="fa-check-circle"><div class="o_stat_info"><span class="o_stat_text">Activate</span></div></button><button name="action_archive" type="object" class="oe_stat_button" icon="fa-archive"><div class="o_stat_info"><span class="o_stat_text">Archive</span></div></button></div>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_delivery_time_slot_search" model="ir.ui.view">
+        <field name="name">delivery.time.slot.search</field>
+        <field name="model">delivery.time.slot</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="location"/>
+                <filter name="active" string="Active" domain="[('active','=',True)]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_weekday" string="Weekday" context="{'group_by': 'weekday'}"/>
+                <filter name="group_location" string="Location" context="{'group_by': 'location'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_delivery_time_slot" model="ir.actions.act_window">
+        <field name="name">Time Slots</field>
+        <field name="res_model">delivery.time.slot</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Define the delivery windows of the week, their capacity and the dock they use.</p>
+        </field>
+    </record>
+
+</odoo>
