@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="view_delivery_time_slot_list" model="ir.ui.view">
-        <field name="name">delivery.time.slot.list</field>
-        <field name="model">delivery.time.slot</field>
+    <record id="view_dock_slot_list" model="ir.ui.view">
+        <field name="name">dock.slot.list</field>
+        <field name="model">dock.slot</field>
         <field name="arch" type="xml">
             <list string="Time Slots">
                 <field name="name"/>
@@ -19,9 +19,9 @@
         </field>
     </record>
 
-    <record id="view_delivery_time_slot_form" model="ir.ui.view">
-        <field name="name">delivery.time.slot.form</field>
-        <field name="model">delivery.time.slot</field>
+    <record id="view_dock_slot_form" model="ir.ui.view">
+        <field name="name">dock.slot.form</field>
+        <field name="model">dock.slot</field>
         <field name="arch" type="xml">
             <form string="Time Slots">
                 <sheet>
@@ -71,9 +71,9 @@
         </field>
     </record>
 
-    <record id="view_delivery_time_slot_search" model="ir.ui.view">
-        <field name="name">delivery.time.slot.search</field>
-        <field name="model">delivery.time.slot</field>
+    <record id="view_dock_slot_search" model="ir.ui.view">
+        <field name="name">dock.slot.search</field>
+        <field name="model">dock.slot</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
@@ -88,9 +88,9 @@
         </field>
     </record>
 
-    <record id="action_delivery_time_slot" model="ir.actions.act_window">
+    <record id="action_dock_slot" model="ir.actions.act_window">
         <field name="name">Time Slots</field>
-        <field name="res_model">delivery.time.slot</field>
+        <field name="res_model">dock.slot</field>
         <field name="view_mode">list,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Define the delivery windows of the week, their capacity and the dock they use.</p>
