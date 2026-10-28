@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_expiry_log_list" model="ir.ui.view">
+        <field name="name">expiry.log.list</field>
+        <field name="model">expiry.log</field>
+        <field name="arch" type="xml">
+            <list string="Renewal History">
+                <field name="date"/>
+                <field name="document_id"/>
+                <field name="action" widget="badge"/>
+                <field name="old_expiry"/>
+                <field name="new_expiry"/>
+                <field name="user_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_expiry_log_form" model="ir.ui.view">
+        <field name="name">expiry.log.form</field>
+        <field name="model">expiry.log</field>
+        <field name="arch" type="xml">
+            <form string="Renewal History">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="document_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="History">
+    <field name="document_id"/>
+    <field name="date"/>
+    <field name="action"/>
+    <field name="user_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Dates">
+    <field name="old_expiry"/>
+    <field name="new_expiry"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_expiry_log_search" model="ir.ui.view">
+        <field name="name">expiry.log.search</field>
+        <field name="model">expiry.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="document_id"/>
+                <field name="note"/>
+                <filter name="renewed" string="Renewed" domain="[('action','=','renewed')]"/>
+                <filter name="reminder" string="Reminder" domain="[('action','=','reminder')]"/>
+                <filter name="archived" string="Archived" domain="[('action','=','archived')]"/>
+                <separator/>
+                <filter name="group_action" string="Action" context="{'group_by': 'action'}"/>
+                <filter name="group_document" string="Document" context="{'group_by': 'document_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_expiry_log" model="ir.actions.act_window">
+        <field name="name">Renewal History</field>
+        <field name="res_model">expiry.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every creation, renewal, reminder and archive action, with the previous and the new expiry date.</p>
+        </field>
+    </record>
+
+</odoo>

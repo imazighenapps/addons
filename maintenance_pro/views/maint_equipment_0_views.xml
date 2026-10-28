@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_maint_equipment_list" model="ir.ui.view">
+        <field name="name">maint.equipment.list</field>
+        <field name="model">maint.equipment</field>
+        <field name="arch" type="xml">
+            <list string="Equipment" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="category"/>
+                <field name="location"/>
+                <field name="criticality"/>
+                <field name="state" widget="badge"/>
+                <field name="open_request_count" string="Open Requests"/>
+                <field name="total_cost" string="Maintenance Cost" sum="Total Maintenance Cost"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_maint_equipment_form" model="ir.ui.view">
+        <field name="name">maint.equipment.form</field>
+        <field name="model">maint.equipment</field>
+        <field name="arch" type="xml">
+            <form string="Equipment">
+                <header>
+                    <button name="action_stop" type="object" string="Stop" class="btn-secondary" invisible="state != 'running'"/>
+                    <button name="action_start" type="object" string="Start" class="btn-primary" invisible="state != 'stopped'"/>
+                    <button name="action_retire" type="object" string="Retire" class="btn-secondary" invisible="state == 'retired'"/>
+                    <button name="action_reinstate" type="object" string="Reinstate" class="btn-primary" invisible="state != 'retired'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="running,stopped,retired"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Equipment name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Equipment">
+    <field name="code"/>
+    <field name="category"/>
+    <field name="serial_number"/>
+    <field name="location"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Assignment">
+    <field name="technician_id"/>
+    <field name="partner_id"/>
+    <field name="criticality"/>
+                        </group>
+                        <group string="Warranty">
+    <field name="purchase_date"/>
+    <field name="warranty_end"/>
+                        </group>
+                        <group string="Maintenance">
+    <field name="open_request_count"/>
+    <field name="last_intervention_date"/>
+    <field name="total_cost"/>
+    <field name="currency_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Preventive Plans" name="planids">
+                            <field name="plan_ids"><list><field name="name"/><field name="period_days"/><field name="last_date"/><field name="next_date"/><field name="technician_id"/><field name="state" widget="badge"/></list></field>
+                        </page>
+                        <page string="Requests" name="requestids">
+                            <field name="request_ids"><list><field name="name"/><field name="type"/><field name="priority"/><field name="scheduled_date"/><field name="technician_id"/><field name="duration_hours"/><field name="cost" sum="Total Cost"/><field name="state" widget="badge"/><field name="currency_id" column_invisible="1"/></list></field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_maint_equipment_search" model="ir.ui.view">
+        <field name="name">maint.equipment.search</field>
+        <field name="model">maint.equipment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="serial_number"/>
+                <field name="location"/>
+                <filter name="running" string="Running" domain="[('state','=','running')]"/>
+                <filter name="stopped" string="Stopped" domain="[('state','=','stopped')]"/>
+                <filter name="retired" string="Retired" domain="[('state','=','retired')]"/>
+                <filter name="critical" string="High Criticality" domain="[('criticality','=','high')]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_category" string="Category" context="{'group_by': 'category'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_technician" string="Technician" context="{'group_by': 'technician_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_maint_equipment" model="ir.actions.act_window">
+        <field name="name">Equipment</field>
+        <field name="res_model">maint.equipment</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register your machines, vehicles and tools, then plan their maintenance.</p>
+        </field>
+    </record>
+
+</odoo>

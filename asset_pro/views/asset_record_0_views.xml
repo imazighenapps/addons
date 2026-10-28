@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_asset_record_list" model="ir.ui.view">
+        <field name="name">asset.record.list</field>
+        <field name="model">asset.record</field>
+        <field name="arch" type="xml">
+            <list string="Assets" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="category_id"/>
+                <field name="partner_id"/>
+                <field name="acquisition_date"/>
+                <field name="gross_value" sum="Total Gross Value"/>
+                <field name="residual_value" sum="Total Residual Value"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_asset_record_form" model="ir.ui.view">
+        <field name="name">asset.record.form</field>
+        <field name="model">asset.record</field>
+        <field name="arch" type="xml">
+            <form string="Assets">
+                <header>
+                    <button name="action_validate" type="object" string="Validate" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_post_depreciation" type="object" string="Post Depreciation" class="btn-primary" invisible="state != 'running'"/>
+                    <button name="action_dispose" type="object" string="Dispose" class="btn-secondary" invisible="state not in ('running', 'closed')"/>
+                    <button name="action_reset" type="object" string="Reset" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,running,closed,disposed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Asset">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="category_id"/>
+    <field name="partner_id"/>
+    <field name="location"/>
+    <field name="responsible_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Acquisition">
+    <field name="acquisition_date"/>
+    <field name="in_service_date"/>
+    <field name="gross_value"/>
+    <field name="salvage_value"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Depreciation">
+    <field name="method"/>
+    <field name="duration_months"/>
+    <field name="declining_rate"/>
+    <field name="posted_depreciation"/>
+    <field name="residual_value"/>
+    <field name="remaining_depreciable"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Disposal">
+    <field name="disposal_date"/>
+    <field name="disposal_value"/>
+    <field name="disposal_gain_loss"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Schedule" name="depreciationlineids">
+                            <field name="depreciation_line_ids"><list editable="bottom"><field name="sequence" widget="handle"/><field name="name"/><field name="date"/><field name="amount" sum="Total"/><field name="posted" readonly="1"/><field name="posted_date" readonly="1"/></list></field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_asset_record_search" model="ir.ui.view">
+        <field name="name">asset.record.search</field>
+        <field name="model">asset.record</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="partner_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="running" string="Running" domain="[('state','=','running')]"/>
+                <filter name="closed" string="Fully Depreciated" domain="[('state','=','closed')]"/>
+                <filter name="disposed" string="Disposed" domain="[('state','=','disposed')]"/>
+                <separator/>
+                <filter name="group_category" string="Category" context="{'group_by': 'category_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_partner" string="Supplier" context="{'group_by': 'partner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_asset_record" model="ir.actions.act_window">
+        <field name="name">Assets</field>
+        <field name="res_model">asset.record</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the asset, validate it, then post the depreciation periods as they become due.</p>
+        </field>
+    </record>
+
+</odoo>

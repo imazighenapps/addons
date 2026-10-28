@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_margin_line_list" model="ir.ui.view">
+        <field name="name">margin.line.list</field>
+        <field name="model">margin.line</field>
+        <field name="arch" type="xml">
+            <list string="Cost and Revenue Lines">
+                <field name="project_id"/>
+                <field name="date"/>
+                <field name="line_type" widget="badge"/>
+                <field name="category"/>
+                <field name="description"/>
+                <field name="partner_id"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="invoice_ref"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_margin_line_form" model="ir.ui.view">
+        <field name="name">margin.line.form</field>
+        <field name="model">margin.line</field>
+        <field name="arch" type="xml">
+            <form string="Cost and Revenue Lines">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="description" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Line">
+    <field name="project_id"/>
+    <field name="sequence"/>
+    <field name="date"/>
+    <field name="line_type"/>
+    <field name="category"/>
+    <field name="description"/>
+                        </group>
+                        <group string="Amount">
+    <field name="amount"/>
+    <field name="currency_id"/>
+    <field name="partner_id"/>
+    <field name="invoice_ref"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_margin_line_search" model="ir.ui.view">
+        <field name="name">margin.line.search</field>
+        <field name="model">margin.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="description"/>
+                <field name="project_id"/>
+                <field name="partner_id"/>
+                <field name="invoice_ref"/>
+                <filter name="revenue" string="Revenue" domain="[('line_type','=','revenue')]"/>
+                <filter name="cost" string="Cost" domain="[('line_type','=','cost')]"/>
+                <separator/>
+                <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'line_type'}"/>
+                <filter name="group_category" string="Category" context="{'group_by': 'category'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_margin_line" model="ir.actions.act_window">
+        <field name="name">Cost and Revenue Lines</field>
+        <field name="res_model">margin.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every cost and revenue line of every project, in one place.</p>
+        </field>
+    </record>
+
+</odoo>

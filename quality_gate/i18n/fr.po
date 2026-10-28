@@ -1,0 +1,875 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* quality_gate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "%(count)s checkpoint(s) loaded from plan %(plan)s."
+msgstr "Point(s) de contrôle %(count)s chargé(s) à partir du plan %(plan)s."
+
+#. module: quality_gate
+#: model:ir.model.constraint,message:quality_gate.constraint_quality_inspection_result_point_uniq
+msgid "A checkpoint can only be evaluated once per inspection."
+msgstr "Un point de contrôle ne peut être évalué qu’une seule fois par inspection."
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Add at least one control point before starting the plan."
+msgstr "Ajoutez au moins un point de contrôle avant de démarrer le plan."
+
+#. module: quality_gate
+#: model:ir.model.fields,help:quality_gate.field_quality_inspection_point__required
+msgid "An inspection cannot pass without this result."
+msgstr "Une inspection ne peut pas réussir sans ce résultat."
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_form
+msgid "Analysis & Action"
+msgstr "Analyse & Action"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: quality_gate
+#: model_terms:ir.actions.act_window,help:quality_gate.action_quality_inspection_plan
+msgid "Build a control plan once, then reuse it on every inspection."
+msgstr "Créez un plan de contrôle une fois, puis réutilisez-le à chaque inspection."
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection__state__cancelled
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__check_type
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_result__check_type
+msgid "Check Type"
+msgstr "Type de chèque"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__name
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_result__point_id
+msgid "Checkpoint"
+msgstr "Point de contrôle"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Checkpoint \"%s\" cannot pass: the measured value must be between %s and %s."
+msgstr "Le point de contrôle \"%s\" ne peut pas passer : la valeur mesurée doit être comprise entre %s et %s."
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__result_ids
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_form
+msgid "Checkpoints"
+msgstr "Points de contrôle"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_form
+msgid "Close"
+msgstr "Fermer"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_issue__state__closed
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_search
+msgid "Closed"
+msgstr "Clôturé"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__closed_date
+msgid "Closed Date"
+msgstr "Date de fermeture"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__code
+msgid "Code"
+msgstr "Code"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__company_id
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__company_id
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: quality_gate
+#: model:res.groups,comment:quality_gate.group_qualitygate_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__plan_id
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__plan_id
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_search
+msgid "Control Plan"
+msgstr "Plan de contrôle"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__point_ids
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_form
+msgid "Control Points"
+msgstr "Points de contrôle"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__corrective_action
+msgid "Corrective Action"
+msgstr "Action Corrective"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__create_uid
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__create_uid
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__create_uid
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_result__create_uid
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__create_date
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__create_date
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__create_date
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_result__create_date
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_issue__severity__critical
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_search
+msgid "Critical"
+msgstr "Critique"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__date
+msgid "Date"
+msgstr "Date"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Describe the corrective action before closing a major or critical non-conformity."
+msgstr "Décrire l'action corrective avant de clôturer une non-conformité majeure ou critique."
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__description
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_form
+msgid "Description"
+msgstr "Description"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__display_name
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__display_name
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__display_name
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_result__display_name
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection__state__draft
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection_plan__state__draft
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_search
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_form
+msgid "Fail"
+msgstr "Échouer"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection__state__failed
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_search
+msgid "Failed"
+msgstr "Échoué"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_form
+msgid "Follow-up"
+msgstr "Suivi"
+
+#. module: quality_gate
+#: model:ir.model.fields,help:quality_gate.field_quality_inspection_result__passed
+msgid "For pass/fail and text checkpoints the inspector decides. For measure and range checkpoints the verdict is computed from the measured value and the acceptance limits."
+msgstr "Pour les points de contrôle réussite/échec et texte, l'inspecteur décide. Pour les points de contrôle de mesure et de plage, le verdict est calculé à partir de la valeur mesurée et des limites d'acceptation."
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__has_message
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__has_message
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_issue__state__analysis
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_search
+msgid "In Analysis"
+msgstr "En analyse"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection__state__in_progress
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_search
+msgid "In Progress"
+msgstr "En cours"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection_plan__operation__incoming
+msgid "Incoming"
+msgstr "Entrante Entrant"
+
+#. module: quality_gate
+#: model:ir.model.fields,help:quality_gate.field_quality_inspection__quantity
+msgid "Inspected quantity."
+msgstr "Quantité inspectée."
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_result__inspection_id
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__inspection_id
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_form
+msgid "Inspection"
+msgstr "Inspection"
+
+#. module: quality_gate
+#: model:ir.actions.act_window,name:quality_gate.action_quality_inspection_plan
+#: model:ir.ui.menu,name:quality_gate.menu_quality_plans
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_form
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_list
+msgid "Inspection Plans"
+msgstr "Plans d'inspection"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Inspection failed: %s checkpoint(s) not passed."
+msgstr "Échec de l’inspection : le(s) point(s) de contrôle %s n’ont pas été réussis."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Inspection passed by %s."
+msgstr "Inspection passée par %s."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Inspection reset to draft by %s."
+msgstr "Inspection réinitialisée au brouillon par %s."
+
+#. module: quality_gate
+#: model:ir.actions.act_window,name:quality_gate.action_quality_inspection
+#: model:ir.ui.menu,name:quality_gate.menu_quality_inspections
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_form
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_list
+msgid "Inspections"
+msgstr "Inspections"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__instruction
+msgid "Instruction"
+msgstr "Instruction"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection_plan__operation__internal
+msgid "Internal Transfer"
+msgstr "Transfert interne"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__write_uid
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__write_uid
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__write_uid
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_result__write_uid
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__write_date
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__write_date
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__write_date
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_result__write_date
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: quality_gate
+#: model:ir.model.fields,help:quality_gate.field_quality_inspection_plan__product_category_id
+msgid "Leave empty to apply the plan to every category."
+msgstr "Laissez vide pour appliquer le plan à chaque catégorie."
+
+#. module: quality_gate
+#: model:ir.model.fields,help:quality_gate.field_quality_inspection_plan__product_id
+msgid "Leave empty to apply the plan to every product."
+msgstr "Laissez vide pour appliquer le plan à chaque produit."
+
+#. module: quality_gate
+#: model_terms:ir.actions.act_window,help:quality_gate.action_quality_issue
+msgid "Log what went wrong, analyse the cause and close it with a corrective action."
+msgstr "Enregistrez ce qui n'a pas fonctionné, analysez la cause et corrigez-le avec une action corrective."
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__lot_id
+msgid "Lot / Serial Number"
+msgstr "Numéro de lot/série"
+
+#. module: quality_gate
+#: model:ir.model.fields,help:quality_gate.field_quality_inspection_point__min_value
+msgid "Lower acceptance limit."
+msgstr "Limite d'acceptation inférieure."
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_issue__severity__major
+msgid "Major"
+msgstr "Majeure Majeur"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__max_value
+msgid "Maximum"
+msgstr "Maximum"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection_point__check_type__measure
+msgid "Measure"
+msgstr "Mesure"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_result__value_float
+msgid "Measured Value"
+msgstr "Valeur mesurée"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Measured values are outside the acceptance limits for: %s. Correct the values or fail the inspection."
+msgstr "Les valeurs mesurées se situent en dehors des limites d'acceptation pour : %s. Corrigez les valeurs ou échouez à l'inspection."
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__min_value
+msgid "Minimum"
+msgstr "Minimum"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_issue__severity__minor
+msgid "Minor"
+msgstr "Mineure"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_search
+msgid "My Inspections"
+msgstr "Mes contrôles"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__name
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__name
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "No result recorded for the required checkpoint(s): %s."
+msgstr "Aucun résultat enregistré pour le(s) point(s) de contrôle requis : %s."
+
+#. module: quality_gate
+#: model:ir.actions.act_window,name:quality_gate.action_quality_issue
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__issue_ids
+#: model:ir.ui.menu,name:quality_gate.menu_quality_issues
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_form
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_form
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_list
+msgid "Non-Conformities"
+msgstr "Non-conformités"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_form
+msgid "Non-Conformity"
+msgstr "Non-conformité"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Non-conformity closed by %s."
+msgstr "Non-conformité clôturée par %s."
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__failed_count
+msgid "Not Passed"
+msgstr "Non réussi"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__note
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__note
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_result__note
+msgid "Note"
+msgstr "Note"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_form
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_result__value_text
+msgid "Observation"
+msgstr "Observation"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "On control point \"%s\", the maximum value must be greater than the minimum value."
+msgstr "Au point de contrôle « %s », la valeur maximale doit être supérieure à la valeur minimale."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Only a closed non-conformity can be reopened."
+msgstr "Seule une non-conformité fermée peut être rouverte."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Only a draft inspection can be started."
+msgstr "Seule une inspection de projet peut être lancée."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Only a draft plan can be started."
+msgstr "Seul un projet de plan peut être lancé."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Only a paused plan can be resumed."
+msgstr "Seul un plan suspendu peut être repris."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Only a running plan can be paused."
+msgstr "Seul un plan en cours peut être mis en pause."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Only an inspection in progress can be passed."
+msgstr "Seule une inspection en cours peut être réussie."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Only an open inspection can be failed."
+msgstr "Seule une inspection ouverte peut échouer."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Only an open non-conformity can be analysed."
+msgstr "Seule une non-conformité ouverte peut être analysée."
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_issue__state__open
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_search
+msgid "Open"
+msgstr "Ouvrir"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__operation
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_search
+msgid "Operation"
+msgstr "Opération"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection_plan__operation__outgoing
+msgid "Outgoing"
+msgstr "Sortante Sortant"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__owner_id
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_search
+msgid "Owner"
+msgstr "Propriétaire"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__partner_id
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__partner_id
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_form
+msgid "Pass"
+msgstr "Passer"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection_point__check_type__pass_fail
+msgid "Pass / Fail"
+msgstr "Réussite/Échec"
+
+#. module: quality_gate
+#: model:ir.model.fields,help:quality_gate.field_quality_inspection_point__check_type
+#: model:ir.model.fields,help:quality_gate.field_quality_inspection_result__check_type
+msgid "Pass/fail and text are judged by the inspector. Measure and range compare the measured value with the acceptance limits."
+msgstr "La réussite/l'échec et le texte sont jugés par l'inspecteur. La mesure et la plage comparent la valeur mesurée aux limites d'acceptation."
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_result__passed
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection__state__passed
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_search
+msgid "Passed"
+msgstr "Passé"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_form
+msgid "Pause"
+msgstr "Pause"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Pause the plan before resetting it to draft."
+msgstr "Mettez le plan en pause avant de le réinitialiser au statut de brouillon."
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection_plan__state__paused
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_search
+msgid "Paused"
+msgstr "En pause"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_form
+msgid "Plan"
+msgstr "Plan"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Plan started with %s control point(s)."
+msgstr "Plan démarré avec le(s) point(s) de contrôle %s."
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__point_count
+msgid "Point Count"
+msgstr "Nombre de points"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__product_id
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__product_id
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__product_id
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_search
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_search
+msgid "Product"
+msgstr "Produit"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__product_category_id
+msgid "Product Category"
+msgstr "Catégorie de produit"
+
+#. module: quality_gate
+#: model:ir.ui.menu,name:quality_gate.menu_quality_root
+msgid "Quality"
+msgstr "Qualité"
+
+#. module: quality_gate
+#: model:ir.model,name:quality_gate.model_quality_inspection_plan
+msgid "Quality Control Plan"
+msgstr "Plan de contrôle qualité"
+
+#. module: quality_gate
+#: model:ir.model,name:quality_gate.model_quality_inspection_point
+msgid "Quality Control Point"
+msgstr "Point de contrôle qualité"
+
+#. module: quality_gate
+#: model:res.groups,name:quality_gate.group_qualitygate_manager
+msgid "Quality Gate Manager"
+msgstr "Responsable du portail qualité"
+
+#. module: quality_gate
+#: model:res.groups,name:quality_gate.group_qualitygate_user
+msgid "Quality Gate User"
+msgstr "Utilisateur du portail de qualité"
+
+#. module: quality_gate
+#: model:ir.model,name:quality_gate.model_quality_inspection
+msgid "Quality Inspection"
+msgstr "Contrôle qualité"
+
+#. module: quality_gate
+#: model:ir.model,name:quality_gate.model_quality_inspection_result
+msgid "Quality Inspection Result"
+msgstr "Résultat du contrôle qualité"
+
+#. module: quality_gate
+#: model:ir.model,name:quality_gate.model_quality_issue
+msgid "Quality Non-Conformity"
+msgstr "Non-conformité qualité"
+
+#. module: quality_gate
+#: model:ir.module.module,shortdesc:base.module_quality_gate
+msgid "QualityGate - Quality Control and Inspections"
+msgstr "QualityGate - Contrôle qualité et inspections"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__quantity
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection_point__check_type__range
+msgid "Range"
+msgstr "Gamme"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Record at least one failed checkpoint or explain the failure in the notes before failing this inspection."
+msgstr "Enregistrez au moins un point de contrôle échoué ou expliquez l'échec dans les notes avant d'échouer à cette inspection."
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_form
+msgid "Reopen"
+msgstr "Rouvrir"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__required
+msgid "Required"
+msgstr "Requis"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_form
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_form
+msgid "Reset to Draft"
+msgstr "Réinitialiser au brouillon"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__responsible_id
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__result_count
+msgid "Result Count"
+msgstr "Nombre de résultats"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_form
+msgid "Results"
+msgstr "Résultats"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_form
+msgid "Resume"
+msgstr "CV"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__root_cause
+msgid "Root Cause"
+msgstr "Cause première"
+
+#. module: quality_gate
+#: model:ir.module.module,summary:base.module_quality_gate
+msgid "Run incoming, in-process and outgoing quality inspections with reusable control plans, measured checkpoints and tracked non-conformities."
+msgstr "Exécutez des inspections qualité entrantes, en cours et sortantes avec des plans de contrôle réutilisables, des points de contrôle mesurés et des non-conformités suivies."
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection_plan__state__running
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_search
+msgid "Running"
+msgstr "En cours"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_form
+msgid "Scope"
+msgstr "Portée Porté"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Set the acceptance limits on control point \"%s\": the maximum must be greater than the minimum."
+msgstr "Fixer les limites d'acceptation sur le point de contrôle \"%s\" : le maximum doit être supérieur au minimum."
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__severity
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_search
+msgid "Severity"
+msgstr "Gravité"
+
+#. module: quality_gate
+#: model:ir.model.fields,help:quality_gate.field_quality_inspection_plan__code
+msgid "Short reference of the plan, for example QP-IN-01."
+msgstr "Courte référence du plan, par exemple QP-IN-01."
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_form
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_form
+msgid "Start"
+msgstr "Commencer"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_form
+msgid "Start Analysis"
+msgstr "Démarrer l'analyse"
+
+#. module: quality_gate
+#: model_terms:ir.actions.act_window,help:quality_gate.action_quality_inspection
+msgid "Start an inspection, fill the checkpoints, then pass or fail it."
+msgstr "Commencez une inspection, remplissez les points de contrôle, puis réussissez ou échouez."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "Start the control plan \"%s\" before inspecting."
+msgstr "Démarrez le plan de contrôle \"%s\" avant d'inspecter."
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__state
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_plan__state
+#: model:ir.model.fields,field_description:quality_gate.field_quality_issue__state
+msgid "State"
+msgstr "Statut"
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_search
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_search
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_form
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: quality_gate
+#: model:ir.model.fields,help:quality_gate.field_quality_inspection_plan__operation
+msgid "Step of the flow controlled by this plan."
+msgstr "Étape du flux contrôlée par ce plan."
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_plan_form
+msgid "Summary"
+msgstr "Résumé"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection_point__check_type__text
+msgid "Text"
+msgstr "Texte"
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "The checkpoint \"%s\" does not belong to the control plan of this inspection."
+msgstr "Le point de contrôle « %s » n'appartient pas au plan de contrôle de cette inspection."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "The control plan \"%s\" has no control point."
+msgstr "Le plan de contrôle « %s » ne comporte aucun point de contrôle."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "The control plan cannot be changed once the inspection has started."
+msgstr "Le plan de contrôle ne peut plus être modifié une fois l'inspection commencée."
+
+#. module: quality_gate
+#: model:ir.model.constraint,message:quality_gate.constraint_quality_inspection_plan_code_company_uniq
+msgid "The plan code must be unique per company."
+msgstr "Le code du plan doit être unique par entreprise."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "The required checkpoint(s) did not pass: %s. Use the Fail button to record a non-conformity."
+msgstr "Le(s) point(s) de contrôle requis n'ont pas réussi : %s. Utilisez le bouton Echec pour enregistrer une non-conformité."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "This inspection is already cancelled."
+msgstr "Cette inspection est déjà annulée."
+
+#. module: quality_gate
+#. odoo-python
+#: code:addons/quality_gate/models/quality_gate.py:0
+msgid "This non-conformity is already closed."
+msgstr "Cette non-conformité est déjà close."
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_inspection_search
+msgid "To Do"
+msgstr "Faire"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection__picking_id
+msgid "Transfer"
+msgstr "Transfert"
+
+#. module: quality_gate
+#: model:ir.model.fields,field_description:quality_gate.field_quality_inspection_point__uom_id
+msgid "Unit of Measure"
+msgstr "Unité de mesure"
+
+#. module: quality_gate
+#: model:ir.model.fields,help:quality_gate.field_quality_inspection_point__uom_id
+msgid "Unit of the measured value, for example mm or kg."
+msgstr "Unité de la valeur mesurée, par exemple mm ou kg."
+
+#. module: quality_gate
+#: model:ir.model.fields,help:quality_gate.field_quality_inspection_point__max_value
+msgid "Upper acceptance limit."
+msgstr "Limite supérieure d’acceptation."
+
+#. module: quality_gate
+#: model:res.groups,comment:quality_gate.group_qualitygate_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_form
+msgid "What prevents it from happening again?"
+msgstr "Qu’est-ce qui empêche que cela se reproduise ?"
+
+#. module: quality_gate
+#: model:ir.model.fields,help:quality_gate.field_quality_inspection_point__instruction
+msgid "What the inspector has to do or look at."
+msgstr "Ce que l'inspecteur doit faire ou regarder."
+
+#. module: quality_gate
+#: model_terms:ir.ui.view,arch_db:quality_gate.view_quality_issue_form
+msgid "Why did it happen?"
+msgstr "Pourquoi est-ce arrivé ?"
+
+#. module: quality_gate
+#: model:ir.model.fields.selection,name:quality_gate.selection__quality_inspection_plan__operation__workshop
+msgid "Workshop"
+msgstr "Atelier"

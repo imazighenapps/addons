@@ -1,0 +1,548 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* delivery_slot
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_form
+msgid "<span class=\"o_stat_text\">Activate</span>"
+msgstr "<span class=\"o_stat_text\">Activar</span>"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_form
+msgid "<span class=\"o_stat_text\">Archive</span>"
+msgstr "<span class=\"o_stat_text\">Archivo</span>"
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "A blackout day already exists on %(date)s for \"%(slot)s\"."
+msgstr "Ya existe un día sin disponibilidad en %(date)s para \"%(slot)s\"."
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_blackout__active
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__active
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_search
+msgid "Active"
+msgstr "Activo"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_blackout_search
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_search
+msgid "Archived"
+msgstr "Archivada Archivado"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_blackout_form
+msgid "Blackout"
+msgstr "Apagón"
+
+#. module: delivery_slot
+#: model:ir.actions.act_window,name:delivery_slot.action_delivery_time_blackout
+#: model:ir.ui.menu,name:delivery_slot.menu_delivery_slot_blackouts
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_blackout_form
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_blackout_list
+msgid "Blackout Days"
+msgstr "Días de bloqueo"
+
+#. module: delivery_slot
+#: model_terms:ir.actions.act_window,help:delivery_slot.action_delivery_time_booking
+msgid "Book a customer into a slot, then confirm, deliver or cancel it."
+msgstr "Reserve un cliente en un espacio y luego confírmelo, entréguelo o cancélelo."
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__user_id
+msgid "Booked by"
+msgstr "Reservado por"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_form
+msgid "Booking"
+msgstr "Reserva"
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "Booking cancelled by %s."
+msgstr "Reserva cancelada por %s."
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "Booking confirmed for %(date)s on %(slot)s."
+msgstr "Reserva confirmada para %(date)s en %(slot)s."
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "Booking reset to draft by %s."
+msgstr "Reserva restablecida al borrador por %s."
+
+#. module: delivery_slot
+#: model:ir.actions.act_window,name:delivery_slot.action_delivery_time_booking
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__booking_ids
+#: model:ir.ui.menu,name:delivery_slot.menu_delivery_slot_bookings
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_form
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_list
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_form
+msgid "Bookings"
+msgstr "Reservas"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: delivery_slot
+#: model:ir.model.fields.selection,name:delivery_slot.selection__delivery_time_booking__state__cancelled
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_search
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__capacity
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_form
+msgid "Capacity"
+msgstr "Capacidad"
+
+#. module: delivery_slot
+#: model:ir.model.fields,help:delivery_slot.field_delivery_time_slot__available_count
+msgid "Capacity minus the bookings confirmed for today."
+msgstr "Capacidad menos las reservas confirmadas para hoy."
+
+#. module: delivery_slot
+#: model_terms:ir.actions.act_window,help:delivery_slot.action_delivery_time_blackout
+msgid "Close the warehouse or a single dock for a stocktake, a holiday or a maintenance."
+msgstr "Cierre el almacén o un único muelle para un inventario, unas vacaciones o un mantenimiento."
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_blackout__company_id
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__company_id
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__company_id
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_blackout_search
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_search
+msgid "Company"
+msgstr "Compañía"
+
+#. module: delivery_slot
+#: model:res.groups,comment:delivery_slot.group_deliveryslot_manager
+msgid "Configure and administer the module."
+msgstr "Configurar y administrar el módulo."
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_form
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: delivery_slot
+#: model:ir.model.fields.selection,name:delivery_slot.selection__delivery_time_booking__state__confirmed
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_search
+msgid "Confirmed"
+msgstr "Confirmada Confirmado"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_blackout__create_uid
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__create_uid
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_blackout__create_date
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__create_date
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__partner_id
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_search
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_blackout__date
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__date
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_blackout_search
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_search
+msgid "Date"
+msgstr "Fecha"
+
+#. module: delivery_slot
+#: model:ir.model.fields,help:delivery_slot.field_delivery_time_slot__weekday
+msgid "Day of the week this window is open."
+msgstr "Día de la semana esta ventana está abierta."
+
+#. module: delivery_slot
+#: model_terms:ir.actions.act_window,help:delivery_slot.action_delivery_time_slot
+msgid "Define the delivery windows of the week, their capacity and the dock they use."
+msgstr "Defina las ventanas de entrega de la semana, su capacidad y el muelle que utilizan."
+
+#. module: delivery_slot
+#: model:ir.model,name:delivery_slot.model_delivery_time_blackout
+msgid "Delivery Blackout Day"
+msgstr "Día de restricción de entrega"
+
+#. module: delivery_slot
+#: model:ir.model,name:delivery_slot.model_delivery_time_booking
+msgid "Delivery Booking"
+msgstr "Reserva de entrega"
+
+#. module: delivery_slot
+#: model:res.groups,name:delivery_slot.group_deliveryslot_manager
+msgid "Delivery Slot Manager"
+msgstr "Administrador de espacios de entrega"
+
+#. module: delivery_slot
+#: model:res.groups,name:delivery_slot.group_deliveryslot_user
+msgid "Delivery Slot User"
+msgstr "Usuario del espacio de entrega"
+
+#. module: delivery_slot
+#: model:ir.ui.menu,name:delivery_slot.menu_delivery_slot_root
+msgid "Delivery Slots"
+msgstr "Ranuras de entrega"
+
+#. module: delivery_slot
+#: model:ir.model,name:delivery_slot.model_delivery_time_slot
+msgid "Delivery Time Slot"
+msgstr "Franja horaria de entrega"
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "Delivery unloaded and booking closed."
+msgstr "Entrega descargada y reserva cerrada."
+
+#. module: delivery_slot
+#: model:ir.module.module,shortdesc:base.module_delivery_slot
+msgid "DeliverySlot - Delivery Time Slots and Capacity Planning"
+msgstr "DeliverySlot: franjas horarias de entrega y planificación de capacidad"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_blackout__display_name
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__display_name
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: delivery_slot
+#: model:ir.model.fields,help:delivery_slot.field_delivery_time_slot__location
+msgid "Dock or warehouse where the delivery is unloaded."
+msgstr "Muelle o almacén donde se descarga la entrega."
+
+#. module: delivery_slot
+#: model:ir.model.fields.selection,name:delivery_slot.selection__delivery_time_booking__state__done
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_search
+msgid "Done"
+msgstr "Hecho"
+
+#. module: delivery_slot
+#: model:ir.model.fields.selection,name:delivery_slot.selection__delivery_time_booking__state__draft
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_search
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: delivery_slot
+#: model:ir.model.fields,help:delivery_slot.field_delivery_time_slot__booking_count
+msgid "Draft, confirmed and done bookings of this slot."
+msgstr "Reservas preliminares, confirmadas y realizadas de este espacio."
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__end_hour
+msgid "End Hour"
+msgstr "Hora final"
+
+#. module: delivery_slot
+#: model:ir.model.fields,help:delivery_slot.field_delivery_time_slot__end_hour
+msgid "End of the window, for example 12.0 = 12:00."
+msgstr "Fin de la ventana, por ejemplo 12.0 = 12:00."
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_form
+msgid "Follow-up"
+msgstr "Hacer un seguimiento"
+
+#. module: delivery_slot
+#: model:ir.model.fields.selection,name:delivery_slot.selection__delivery_time_slot__weekday__4
+msgid "Friday"
+msgstr "Viernes"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__has_message
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_form
+msgid "Hours"
+msgstr "Horas"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_blackout__write_uid
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__write_uid
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_blackout__write_date
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__write_date
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: delivery_slot
+#: model:ir.model.fields,help:delivery_slot.field_delivery_time_blackout__slot_id
+msgid "Leave empty to close the whole day, whatever the slot."
+msgstr "Dejar vacía para cerrar todo el día, sea cual sea la ranura. Dejar vacío para cerrar todo el día, sea cual sea la ranura."
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__location
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_search
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_form
+msgid "Mark as Done"
+msgstr "Marcar como hecha Marcar como hecho"
+
+#. module: delivery_slot
+#: model:ir.model.fields,help:delivery_slot.field_delivery_time_slot__capacity
+msgid "Maximum number of bookings per date."
+msgstr "Número máximo de reservas por fecha."
+
+#. module: delivery_slot
+#: model:ir.model.fields.selection,name:delivery_slot.selection__delivery_time_slot__weekday__0
+msgid "Monday"
+msgstr "Lunes"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_search
+msgid "My Bookings"
+msgstr "Mis Reservas"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_blackout__name
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__name
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__note
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_form
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "On slot \"%s\", the capacity must be strictly positive."
+msgstr "En la ranura \"%s\", la capacidad debe ser estrictamente positiva."
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "On slot \"%s\", the end hour cannot be after 24:00."
+msgstr "En el slot \"%s\", la hora de finalización no puede ser posterior a las 24:00."
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "On slot \"%s\", the end hour must be after the start hour."
+msgstr "En el slot \"%s\", la hora de finalización debe ser posterior a la hora de inicio."
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "On slot \"%s\", the start hour must be between 0:00 and 24:00."
+msgstr "En el slot \"%s\", la hora de inicio debe ser entre las 0:00 y las 24:00."
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "Only a cancelled booking can be reset to draft."
+msgstr "Sólo una reserva cancelada se puede restablecer como borrador."
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "Only a confirmed booking can be marked as done."
+msgstr "Sólo una reserva confirmada puede marcarse como realizada."
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "Only a draft booking can be confirmed."
+msgstr "Sólo se puede confirmar un borrador de reserva."
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "Only a draft or confirmed booking can be cancelled."
+msgstr "Sólo se puede cancelar un borrador o una reserva confirmada."
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__booking_count
+msgid "Open Bookings"
+msgstr "Reservas abiertas"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_blackout_search
+msgid "Past"
+msgstr "Pasado"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__available_count
+msgid "Places Left Today"
+msgstr "Lugares que quedan hoy"
+
+#. module: delivery_slot
+#: model:ir.module.module,summary:base.module_delivery_slot
+msgid "Plan weekly delivery windows with a capacity, book customers into a slot, close blackout days and stop the dock from being overloaded."
+msgstr "Planifique ventanas de entrega semanales con capacidad, reserve a los clientes en una franja horaria, cierre los días sin restricciones y evite que el muelle se sobrecargue."
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_blackout__reason
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_blackout_form
+msgid "Reason"
+msgstr "Razón"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_form
+msgid "Reset to Draft"
+msgstr "Restablecer al borrador"
+
+#. module: delivery_slot
+#: model:ir.model.fields,help:delivery_slot.field_delivery_time_booking__reference
+msgid "Sale order or delivery reference, for example S00042."
+msgstr "Orden de venta o referencia de entrega, por ejemplo S00042."
+
+#. module: delivery_slot
+#: model:ir.model.fields.selection,name:delivery_slot.selection__delivery_time_slot__weekday__5
+msgid "Saturday"
+msgstr "Sábado"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_form
+msgid "Slot"
+msgstr "Ranura"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__start_hour
+msgid "Start Hour"
+msgstr "Hora de inicio"
+
+#. module: delivery_slot
+#: model:ir.model.fields,help:delivery_slot.field_delivery_time_slot__start_hour
+msgid "Start of the window, for example 8.5 = 08:30."
+msgstr "Inicio de la ventana, por ejemplo 8,5 = 08:30."
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__state
+msgid "State"
+msgstr "Estado"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: delivery_slot
+#: model:ir.model.fields.selection,name:delivery_slot.selection__delivery_time_slot__weekday__6
+msgid "Sunday"
+msgstr "Domingo"
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "The date %(date)s is a %(day)s: the slot \"%(slot)s\" is only open on %(slot_day)s."
+msgstr "La fecha %(date)s es una %(day)s: la ranura \"%(slot)s\" solo está abierta en %(slot_day)s. La fecha %(date)s es un %(day)s: la ranura \"%(slot)s\" solo está abierta en %(slot_day)s."
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "The date %(date)s is a blackout day for \"%(slot)s\" (%(name)s)."
+msgstr "La fecha %(date)s es un día sin disponibilidad para \"%(slot)s\" (%(name)s)."
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "The slot \"%(slot)s\" is full on %(date)s: %(count)s booking(s) already confirmed for a capacity of %(capacity)s."
+msgstr "El espacio \"%(slot)s\" está lleno en %(date)s: reservas de %(count)s ya confirmadas para una capacidad de %(capacity)s."
+
+#. module: delivery_slot
+#: model:ir.model.fields.selection,name:delivery_slot.selection__delivery_time_slot__weekday__3
+msgid "Thursday"
+msgstr "Jueves"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_blackout__slot_id
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_booking__slot_id
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_blackout_search
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_search
+msgid "Time Slot"
+msgstr "Franja horaria"
+
+#. module: delivery_slot
+#: model:ir.actions.act_window,name:delivery_slot.action_delivery_time_slot
+#: model:ir.ui.menu,name:delivery_slot.menu_delivery_slot_time_slots
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_form
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_list
+msgid "Time Slots"
+msgstr "Franjas horarias"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_booking_search
+msgid "Today"
+msgstr "Hoy"
+
+#. module: delivery_slot
+#: model:ir.model.fields.selection,name:delivery_slot.selection__delivery_time_slot__weekday__1
+msgid "Tuesday"
+msgstr "Martes"
+
+#. module: delivery_slot
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_blackout_search
+msgid "Upcoming"
+msgstr "Próxima Próximo"
+
+#. module: delivery_slot
+#: model:res.groups,comment:delivery_slot.group_deliveryslot_user
+msgid "View and use the module."
+msgstr "Ver y utilizar el módulo."
+
+#. module: delivery_slot
+#: model:ir.model.fields.selection,name:delivery_slot.selection__delivery_time_slot__weekday__2
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#. module: delivery_slot
+#: model:ir.model.fields,field_description:delivery_slot.field_delivery_time_slot__weekday
+#: model_terms:ir.ui.view,arch_db:delivery_slot.view_delivery_time_slot_search
+msgid "Weekday"
+msgstr "Día laborable"
+
+#. module: delivery_slot
+#. odoo-python
+#: code:addons/delivery_slot/models/delivery_slot.py:0
+msgid "the whole day"
+msgstr "todo el dia"

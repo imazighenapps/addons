@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_quality_issue_list" model="ir.ui.view">
+        <field name="name">quality.issue.list</field>
+        <field name="model">quality.issue</field>
+        <field name="arch" type="xml">
+            <list string="Non-Conformities" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="inspection_id"/>
+                <field name="product_id"/>
+                <field name="partner_id"/>
+                <field name="severity" widget="badge"/>
+                <field name="owner_id"/>
+                <field name="state" widget="badge"/>
+                <field name="closed_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_quality_issue_form" model="ir.ui.view">
+        <field name="name">quality.issue.form</field>
+        <field name="model">quality.issue</field>
+        <field name="arch" type="xml">
+            <form string="Non-Conformities">
+                <header>
+                    <button name="action_analyse" type="object" string="Start Analysis" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_close" type="object" string="Close" class="btn-primary" invisible="state == 'closed'"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-link" invisible="state != 'closed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,analysis,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Non-Conformity">
+    <field name="inspection_id"/>
+    <field name="product_id"/>
+    <field name="partner_id"/>
+    <field name="severity"/>
+    <field name="owner_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Status">
+    <field name="state"/>
+    <field name="closed_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Analysis &amp; Action" name="rootcause">
+                            <group>
+                        <field name="root_cause"
+                               placeholder="Why did it happen?"/>
+                        <field name="corrective_action"
+                               placeholder="What prevents it from happening again?"/>
+                    </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_quality_issue_search" model="ir.ui.view">
+        <field name="name">quality.issue.search</field>
+        <field name="model">quality.issue</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="product_id"/>
+                <field name="partner_id"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="analysis" string="In Analysis" domain="[('state','=','analysis')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <filter name="critical" string="Critical" domain="[('severity','=','critical')]"/>
+                <separator/>
+                <filter name="group_severity" string="Severity" context="{'group_by': 'severity'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_owner" string="Owner" context="{'group_by': 'owner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_quality_issue" model="ir.actions.act_window">
+        <field name="name">Non-Conformities</field>
+        <field name="res_model">quality.issue</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Log what went wrong, analyse the cause and close it with a corrective action.</p>
+        </field>
+    </record>
+
+</odoo>
