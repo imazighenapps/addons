@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cycle_count_plan_list" model="ir.ui.view">
+        <field name="name">cycle.count.plan.list</field>
+        <field name="model">cycle.count.plan</field>
+        <field name="arch" type="xml">
+            <list string="Count Plans" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="warehouse_id"/>
+                <field name="responsible_id"/>
+                <field name="product_count" string="Products"/>
+                <field name="frequency_days"/>
+                <field name="next_date"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cycle_count_plan_form" model="ir.ui.view">
+        <field name="name">cycle.count.plan.form</field>
+        <field name="model">cycle.count.plan</field>
+        <field name="arch" type="xml">
+            <form string="Count Plans">
+                <header>
+                    <button name="action_start" type="object" string="Start Plan" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_pause" type="object" string="Pause" class="btn-secondary" invisible="state != 'running'"/>
+                    <button name="action_resume" type="object" string="Resume" class="btn-secondary" invisible="state != 'paused'"/>
+                    <button name="action_new_session" type="object" string="New Session" class="btn-success" invisible="state != 'running'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,running,paused"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Plan">
+    <field name="name"/>
+    <field name="warehouse_id"/>
+    <field name="responsible_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Schedule">
+    <field name="frequency_days"/>
+    <field name="next_date"/>
+    <field name="last_session_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Products" name="lineids">
+                            <field name="line_ids"><list editable="bottom"><field name="sequence" widget="handle"/><field name="product_id"/><field name="location_id"/><field name="note"/></list></field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cycle_count_plan_search" model="ir.ui.view">
+        <field name="name">cycle.count.plan.search</field>
+        <field name="model">cycle.count.plan</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="warehouse_id"/>
+                <field name="responsible_id"/>
+                <filter name="running" string="Running" domain="[('state','=','running')]"/>
+                <filter name="due" string="Due Today" domain="[('next_date','&lt;=', context_today().strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="group_warehouse" string="Warehouse" context="{'group_by': 'warehouse_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_cycle_count_plan" model="ir.actions.act_window">
+        <field name="name">Count Plans</field>
+        <field name="res_model">cycle.count.plan</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Define which products to count, where and how often.</p>
+        </field>
+    </record>
+
+</odoo>

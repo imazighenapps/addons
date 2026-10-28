@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_renewal_contract_list" model="ir.ui.view">
+        <field name="name">renewal.contract.list</field>
+        <field name="model">renewal.contract</field>
+        <field name="arch" type="xml">
+            <list string="Contracts" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="contract_type"/>
+                <field name="end_date"/>
+                <field name="renewal_date"/>
+                <field name="days_left"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="owner_id"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_renewal_contract_form" model="ir.ui.view">
+        <field name="name">renewal.contract.form</field>
+        <field name="model">renewal.contract</field>
+        <field name="arch" type="xml">
+            <form string="Contracts">
+                <header>
+                    <button name="action_activate" type="object" string="Activate" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_mark_to_renew" type="object" string="Mark to Renew" class="btn-secondary" invisible="state != 'active'"/>
+                    <button name="action_renew" type="object" string="Renew" class="btn-primary" invisible="state in ('draft', 'churned')"/>
+                    <button name="action_churn" type="object" string="Churn" class="btn-secondary" invisible="state in ('draft', 'churned')"/>
+                    <button name="action_expire" type="object" string="Expire" class="btn-link" invisible="state not in ('active', 'to_renew')"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,to_renew,renewed,churned,expired"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Contract reference"/></h1>
+                    </div>
+                    <group>
+                        <group string="Contract">
+    <field name="partner_id"/>
+    <field name="contract_type"/>
+    <field name="owner_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Term">
+    <field name="start_date"/>
+    <field name="end_date"/>
+    <field name="notice_days"/>
+    <field name="renewal_date"/>
+    <field name="days_left"/>
+    <field name="term_months"/>
+    <field name="auto_renew"/>
+                        </group>
+                        <group string="Amount">
+    <field name="amount"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Renewal">
+    <field name="state"/>
+    <field name="last_renewal_date"/>
+    <field name="renewal_count"/>
+    <field name="is_expiring"/>
+    <field name="churn_reason"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Renewal History" name="logids">
+                            <field name="log_ids" readonly="1"><list><field name="date"/><field name="action"/><field name="user_id"/><field name="note"/></list></field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_renewal_contract_search" model="ir.ui.view">
+        <field name="name">renewal.contract.search</field>
+        <field name="model">renewal.contract</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="owner_id"/>
+                <filter name="expiring" string="Expiring in 30 Days" domain="[('days_left','&lt;=',30),('state','in',['active','to_renew'])]"/>
+                <filter name="notice" string="In Notice Period" domain="[('is_expiring','=',True)]"/>
+                <filter name="to_renew" string="To Renew" domain="[('state','=','to_renew')]"/>
+                <filter name="churned" string="Churned" domain="[('state','=','churned')]"/>
+                <filter name="expired" string="Expired" domain="[('state','=','expired')]"/>
+                <separator/>
+                <filter name="group_owner" string="Owner" context="{'group_by': 'owner_id'}"/>
+                <filter name="group_type" string="Contract Type" context="{'group_by': 'contract_type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_renewal_contract" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="res_model">renewal.contract</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first contract: customer, term, end date and notice period.</p>
+        </field>
+    </record>
+
+</odoo>
