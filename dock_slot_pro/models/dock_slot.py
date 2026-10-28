@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from datetime import timedelta
+
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError, ValidationError
 
@@ -16,7 +18,7 @@ WEEKDAY_LABELS = dict(WEEKDAYS)
 
 
 class DeliveryTimeSlot(models.Model):
-    _name = "delivery.time.slot"
+    _name = "dock.slot"
     _description = "Delivery Time Slot"
     _inherit = ["mail.thread"]
     _order = "weekday, start_hour, id"
@@ -38,30 +40,42 @@ class DeliveryTimeSlot(models.Model):
         help="Dock or warehouse where the delivery is unloaded.")
     active = fields.Boolean(default=True)
     booking_ids = fields.One2many(
-        "delivery.time.booking", "slot_id", string="Bookings", copy=False)
+        "dock.booking", "slot_id", string="Bookings", copy=False)
     booking_count = fields.Integer(
-        string="Open Bookings", compute="_compute_counts",
-        help="Draft, confirmed and done bookings of this slot.")
+        string="Booked", compute="_compute_counts",
+        help="Draft, confirmed and done bookings recorded for the next "
+             "occurrence of this weekday.")
     available_count = fields.Integer(
-        string="Places Left Today", compute="_compute_counts",
-        help="Capacity minus the bookings confirmed for today.")
+        string="Places Left", compute="_compute_counts",
+        help="Capacity minus the bookings already confirmed for the next "
+             "occurrence of this weekday.")
     note = fields.Text()
     company_id = fields.Many2one(
         "res.company", default=lambda self: self.env.company, required=True)
 
-    @api.depends("booking_ids.state", "booking_ids.date", "capacity")
+    @api.depends("booking_ids.state", "booking_ids.date", "capacity",
+                 "weekday")
     def _compute_counts(self):
         today = fields.Date.context_today(self)
         for slot in self:
-            bookings = slot.booking_ids
+            target = slot._next_date(today)
+            bookings = slot.booking_ids.filtered(
+                lambda booking: booking.date == target)
             open_bookings = bookings.filtered(
                 lambda booking: booking.state in
                 ("draft", "confirmed", "done"))
-            confirmed_today = bookings.filtered(
-                lambda booking: booking.state == "confirmed"
-                and booking.date == today)
+            confirmed = bookings.filtered(
+                lambda booking: booking.state == "confirmed")
             slot.booking_count = len(open_bookings)
-            slot.available_count = slot.capacity - len(confirmed_today)
+            slot.available_count = slot.capacity - len(confirmed)
+
+    def _next_date(self, today):
+        """Return the next date (today included) matching the slot weekday."""
+        self.ensure_one()
+        if self.weekday is False or self.weekday is None:
+            return today
+        delta = (int(self.weekday) - today.weekday()) % 7
+        return today + timedelta(days=delta)
 
     @api.constrains("start_hour", "end_hour")
     def _check_hours(self):
@@ -101,7 +115,7 @@ class DeliveryTimeSlot(models.Model):
 
 
 class DeliveryTimeBooking(models.Model):
-    _name = "delivery.time.booking"
+    _name = "dock.booking"
     _description = "Delivery Booking"
     _inherit = ["mail.thread"]
     _order = "date desc, id desc"
@@ -109,7 +123,7 @@ class DeliveryTimeBooking(models.Model):
     name = fields.Char(
         default="/", required=True, copy=False, tracking=True)
     slot_id = fields.Many2one(
-        "delivery.time.slot", string="Time Slot", required=True,
+        "dock.slot", string="Time Slot", required=True,
         ondelete="restrict", tracking=True, index=True)
     date = fields.Date(
         required=True, default=fields.Date.context_today, tracking=True)
@@ -132,7 +146,7 @@ class DeliveryTimeBooking(models.Model):
         for vals in vals_list:
             if vals.get("name", "/") == "/":
                 vals["name"] = self.env["ir.sequence"].next_by_code(
-                    "delivery.time.booking") or "/"
+                    "dock.booking") or "/"
         return super().create(vals_list)
 
     @api.constrains("date", "slot_id")
@@ -158,7 +172,7 @@ class DeliveryTimeBooking(models.Model):
         if not slot or not self.date:
             return None
         # A blackout closes the physical dock: it applies to every company.
-        blackout = self.env["delivery.time.blackout"].search([
+        blackout = self.env["dock.blackout"].search([
             ("date", "=", self.date),
             ("active", "=", True),
             "|",
@@ -170,7 +184,7 @@ class DeliveryTimeBooking(models.Model):
                 "The date %(date)s is a blackout day for \"%(slot)s\" "
                 "(%(name)s).",
                 date=self.date, slot=slot.name, name=blackout.name)
-        confirmed = self.env["delivery.time.booking"].search_count([
+        confirmed = self.env["dock.booking"].search_count([
             ("slot_id", "=", slot.id),
             ("date", "=", self.date),
             ("state", "=", "confirmed"),
@@ -240,7 +254,7 @@ class DeliveryTimeBooking(models.Model):
 
 
 class DeliveryTimeBlackout(models.Model):
-    _name = "delivery.time.blackout"
+    _name = "dock.blackout"
     _description = "Delivery Blackout Day"
     _order = "date desc, id desc"
 
@@ -248,7 +262,7 @@ class DeliveryTimeBlackout(models.Model):
     date = fields.Date(
         required=True, default=fields.Date.context_today)
     slot_id = fields.Many2one(
-        "delivery.time.slot", string="Time Slot", ondelete="cascade",
+        "dock.slot", string="Time Slot", ondelete="cascade",
         help="Leave empty to close the whole day, whatever the slot.")
     reason = fields.Text()
     company_id = fields.Many2one(

@@ -1,4 +1,4 @@
-# DeliverySlot - Delivery Time Slots and Capacity Planning
+# DockSlotPro - Delivery Time Slots and Capacity Planning
 
 ## The problem
 
@@ -15,7 +15,7 @@ Plan weekly delivery windows with a capacity, book customers into a slot, close 
 - Bookings per customer, date and reference.
 - Weekday control on every booking.
 - Blackout days per warehouse or per slot.
-- Places left for today, always visible.
+- Places left for the next window, always visible.
 - Confirm, done, cancel and reset workflow.
 - Chatter, multi-company, no Enterprise dependency.
 
