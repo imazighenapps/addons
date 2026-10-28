@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_petty_cash_fund_list" model="ir.ui.view">
+        <field name="name">petty.cash.fund.list</field>
+        <field name="model">petty.cash.fund</field>
+        <field name="arch" type="xml">
+            <list string="Petty Cash Funds" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="responsible_id"/>
+                <field name="opened_date"/>
+                <field name="float_amount" string="Initial Float" sum="Total Initial Float"/>
+                <field name="balance" sum="Total Balance"/>
+                <field name="total_expenses" string="Expenses" sum="Total Expenses"/>
+                <field name="currency_id" optional="hide"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_petty_cash_fund_form" model="ir.ui.view">
+        <field name="name">petty.cash.fund.form</field>
+        <field name="model">petty.cash.fund</field>
+        <field name="arch" type="xml">
+            <form string="Petty Cash Funds">
+                <header>
+                    <button name="action_new_transaction" type="object" string="New Transaction" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_new_reconciliation" type="object" string="Reconcile" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_close" type="object" string="Close Fund" class="btn-secondary" invisible="state != 'open'"/>
+                    <button name="action_reopen" type="object" string="Reopen Fund" class="btn-link" invisible="state != 'closed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Head Office Petty Cash"/></h1>
+                    </div>
+                    <group>
+                        <group string="Fund">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="responsible_id"/>
+    <field name="company_id"/>
+    <field name="currency_id"/>
+    <field name="opened_date"/>
+    <field name="closed_date"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="float_amount"/>
+    <field name="total_topups"/>
+    <field name="total_expenses"/>
+    <field name="balance"/>
+    <field name="transaction_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Transactions" name="transactionids">
+                            <field name="transaction_ids" readonly="1"><list><field name="date"/><field name="type"/><field name="name"/><field name="category"/><field name="amount" sum="Total"/><field name="state" widget="badge"/><field name="currency_id" column_invisible="1"/></list></field>
+                        </page>
+                        <page string="Reconciliations" name="reconciliationids">
+                            <field name="reconciliation_ids" readonly="1"><list><field name="date"/><field name="theoretical_balance"/><field name="counted_cash"/><field name="difference"/><field name="state" widget="badge"/><field name="currency_id" column_invisible="1"/></list></field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_petty_cash_fund_search" model="ir.ui.view">
+        <field name="name">petty.cash.fund.search</field>
+        <field name="model">petty.cash.fund</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="responsible_id"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_responsible" string="Responsible" context="{'group_by': 'responsible_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_petty_cash_fund" model="ir.actions.act_window">
+        <field name="name">Petty Cash Funds</field>
+        <field name="res_model">petty.cash.fund</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the cash box, record its transactions, then reconcile and close it.</p>
+        </field>
+    </record>
+
+</odoo>

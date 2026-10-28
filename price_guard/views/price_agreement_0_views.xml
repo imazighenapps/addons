@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_price_agreement_list" model="ir.ui.view">
+        <field name="name">price.agreement.list</field>
+        <field name="model">price.agreement</field>
+        <field name="arch" type="xml">
+            <list string="Price Agreements" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="product_id"/>
+                <field name="price" sum="Total Price"/>
+                <field name="min_qty"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="tolerance_percent"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_price_agreement_form" model="ir.ui.view">
+        <field name="name">price.agreement.form</field>
+        <field name="model">price.agreement</field>
+        <field name="arch" type="xml">
+            <form string="Price Agreements">
+                <header>
+                    <button name="action_activate" type="object" string="Activate" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_expire" type="object" string="Expire" class="btn-secondary" invisible="state == 'expired'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,running,expired"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Agreement reference"/></h1>
+                    </div>
+                    <group>
+                        <group string="Agreement">
+    <field name="partner_id"/>
+    <field name="product_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Price">
+    <field name="price"/>
+    <field name="currency_id"/>
+    <field name="min_qty"/>
+    <field name="tolerance_percent"/>
+                        </group>
+                        <group string="Validity">
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Price Checks" name="checkids">
+                            <field name="check_ids" readonly="1"><list><field name="name"/><field name="date"/><field name="invoice_id"/><field name="quantity"/><field name="invoice_price"/><field name="agreed_price"/><field name="difference_percent"/><field name="status" widget="badge"/></list></field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_price_agreement_search" model="ir.ui.view">
+        <field name="name">price.agreement.search</field>
+        <field name="model">price.agreement</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="product_id"/>
+                <filter name="running" string="Running" domain="[('state','=','running')]"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="expired" string="Expired" domain="[('state','=','expired')]"/>
+                <separator/>
+                <filter name="group_partner" string="Supplier" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_price_agreement" model="ir.actions.act_window">
+        <field name="name">Price Agreements</field>
+        <field name="res_model">price.agreement</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record the unit price negotiated with each supplier.</p>
+        </field>
+    </record>
+
+</odoo>

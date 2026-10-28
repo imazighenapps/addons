@@ -1,0 +1,453 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* price_guard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: price_guard
+#. odoo-python
+#: code:addons/price_guard/models/price_guard.py:0
+msgid "%s new price check(s) created."
+msgstr "%s nouveau(x) contrôle(s) de prix créé(s)."
+
+#. module: price_guard
+#: model:ir.model.fields,help:price_guard.field_price_agreement__tolerance_percent
+msgid "A price above the agreed price by up to this percentage is accepted. Up to twice this value a warning is raised, above that the check is a breach."
+msgstr "Un prix supérieur au prix convenu jusqu'à ce pourcentage est accepté. Jusqu'à deux fois cette valeur, un avertissement est émis, au-delà, le contrôle constitue une infraction."
+
+#. module: price_guard
+#: model:ir.model.constraint,message:price_guard.constraint_price_check_invoice_line_agreement_uniq
+msgid "A price check already exists for this invoice line and agreement."
+msgstr "Un contrôle de prix existe déjà pour cette ligne de facture et cet accord."
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_form
+msgid "Activate"
+msgstr "Activer"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__price
+#: model:ir.model.fields,field_description:price_guard.field_price_check__agreed_price
+msgid "Agreed Price"
+msgstr "Prix ​​convenu"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_check__agreement_id
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_form
+msgid "Agreement"
+msgstr "Accord"
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_form
+msgid "Agreement reference"
+msgstr "Référence de l'accord"
+
+#. module: price_guard
+#: model:ir.ui.menu,name:price_guard.menu_priceguard_agreements
+msgid "Agreements"
+msgstr "Accords"
+
+#. module: price_guard
+#: model:ir.model.fields.selection,name:price_guard.selection__price_check__status__breach
+msgid "Breach"
+msgstr "Enfreindre"
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_search
+msgid "Breaches"
+msgstr "Violations"
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_form
+msgid "Check"
+msgstr "Vérifier"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: price_guard
+#: model:ir.model.fields.selection,name:price_guard.selection__price_check__status__ok
+msgid "Compliant"
+msgstr "Conforme"
+
+#. module: price_guard
+#: model:res.groups,comment:price_guard.group_priceguard_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: price_guard
+#: model:ir.module.module,summary:base.module_price_guard
+msgid "Control supplier price agreements and flag vendor bills whose price exceeds the agreed price or tolerance."
+msgstr "Contrôlez les accords sur les prix des fournisseurs et signalez les factures des fournisseurs dont le prix dépasse le prix ou la tolérance convenue."
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__create_uid
+#: model:ir.model.fields,field_description:price_guard.field_price_check__create_uid
+#: model:ir.model.fields,field_description:price_guard.field_price_scanner__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__create_date
+#: model:ir.model.fields,field_description:price_guard.field_price_check__create_date
+#: model:ir.model.fields,field_description:price_guard.field_price_scanner__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__currency_id
+#: model:ir.model.fields,field_description:price_guard.field_price_check__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_check__date
+msgid "Date"
+msgstr "Date"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__date_from
+msgid "Date From"
+msgstr "Dater de"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__date_to
+msgid "Date To"
+msgstr "Date de"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_check__difference_percent
+msgid "Difference (%)"
+msgstr "Différence (%)"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__display_name
+#: model:ir.model.fields,field_description:price_guard.field_price_check__display_name
+#: model:ir.model.fields,field_description:price_guard.field_price_scanner__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: price_guard
+#: model:ir.model.fields.selection,name:price_guard.selection__price_agreement__state__draft
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_search
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_form
+msgid "Expire"
+msgstr "Expirer"
+
+#. module: price_guard
+#: model:ir.model.fields.selection,name:price_guard.selection__price_agreement__state__expired
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_search
+msgid "Expired"
+msgstr "Expiré"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_form
+msgid "Ignore"
+msgstr "Ignorer"
+
+#. module: price_guard
+#: model:ir.model.fields.selection,name:price_guard.selection__price_check__status__ignored
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_search
+msgid "Ignored"
+msgstr "Ignorée Ignoré"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_check__invoice_line_id
+msgid "Invoice Line"
+msgstr "Ligne de facture"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_check__invoice_price
+msgid "Invoiced Price"
+msgstr "Prix ​​facturé"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__write_uid
+#: model:ir.model.fields,field_description:price_guard.field_price_check__write_uid
+#: model:ir.model.fields,field_description:price_guard.field_price_scanner__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__write_date
+#: model:ir.model.fields,field_description:price_guard.field_price_check__write_date
+#: model:ir.model.fields,field_description:price_guard.field_price_scanner__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__min_qty
+msgid "Minimum Quantity"
+msgstr "Quantité minimale"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Date limite de mon activité"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__name
+#: model:ir.model.fields,field_description:price_guard.field_price_check__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__note
+#: model:ir.model.fields,field_description:price_guard.field_price_check__note
+msgid "Note"
+msgstr "Note"
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_form
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: price_guard
+#. odoo-python
+#: code:addons/price_guard/models/price_guard.py:0
+msgid "Only a draft agreement can be activated."
+msgstr "Seul un projet d'accord peut être activé."
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_form
+msgid "Price"
+msgstr "Prix"
+
+#. module: price_guard
+#: model:ir.actions.act_window,name:price_guard.action_price_agreement
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_form
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_list
+msgid "Price Agreements"
+msgstr "Accords de prix"
+
+#. module: price_guard
+#. odoo-python
+#: code:addons/price_guard/models/price_guard.py:0
+#: model:ir.actions.act_window,name:price_guard.action_price_check
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__check_ids
+#: model:ir.ui.menu,name:price_guard.menu_priceguard_checks
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_form
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_form
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_list
+msgid "Price Checks"
+msgstr "Vérifications des prix"
+
+#. module: price_guard
+#: model:ir.ui.menu,name:price_guard.menu_priceguard_root
+msgid "Price Guard"
+msgstr "Garde-prix"
+
+#. module: price_guard
+#: model:res.groups,name:price_guard.group_priceguard_manager
+msgid "Price Guard Manager"
+msgstr "Responsable de la garde des prix"
+
+#. module: price_guard
+#: model:res.groups,name:price_guard.group_priceguard_user
+msgid "Price Guard User"
+msgstr "Utilisateur de Price Guard"
+
+#. module: price_guard
+#: model:ir.module.module,shortdesc:base.module_price_guard
+msgid "PriceGuard - Purchase Price Compliance"
+msgstr "PriceGuard - Conformité du prix d'achat"
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_form
+msgid "Prices"
+msgstr "Tarifs"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__product_id
+#: model:ir.model.fields,field_description:price_guard.field_price_check__product_id
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_search
+msgid "Product"
+msgstr "Produit"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_check__quantity
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: price_guard
+#: model:ir.model.fields,help:price_guard.field_price_check__state
+msgid "Read-only alias of the status, used by the status bar."
+msgstr "Alias ​​en lecture seule du statut, utilisé par la barre d'état."
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_form
+msgid "Recalculate"
+msgstr "Recalculer"
+
+#. module: price_guard
+#: model_terms:ir.actions.act_window,help:price_guard.action_price_agreement
+msgid "Record the unit price negotiated with each supplier."
+msgstr "Enregistrez le prix unitaire négocié avec chaque fournisseur."
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_form
+msgid "Reset to Draft"
+msgstr "Réinitialiser au brouillon"
+
+#. module: price_guard
+#: model_terms:ir.actions.act_window,help:price_guard.action_price_check
+msgid "Review the price differences found on vendor bills."
+msgstr "Examinez les différences de prix trouvées sur les factures des fournisseurs."
+
+#. module: price_guard
+#: model:ir.model.fields.selection,name:price_guard.selection__price_agreement__state__running
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_search
+msgid "Running"
+msgstr "En cours"
+
+#. module: price_guard
+#: model:ir.actions.server,name:price_guard.action_price_scan
+#: model:ir.ui.menu,name:price_guard.menu_priceguard_scan
+msgid "Scan Purchase Prices"
+msgstr "Scanner les prix d'achat"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__state
+msgid "State"
+msgstr "Statut"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_check__state
+#: model:ir.model.fields,field_description:price_guard.field_price_check__status
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_search
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__partner_id
+#: model:ir.model.fields,field_description:price_guard.field_price_check__partner_id
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_search
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_form
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_search
+msgid "Supplier"
+msgstr "Fournisseur"
+
+#. module: price_guard
+#: model:ir.model,name:price_guard.model_price_agreement
+msgid "Supplier Price Agreement"
+msgstr "Accord sur les prix des fournisseurs"
+
+#. module: price_guard
+#: model:ir.model,name:price_guard.model_price_check
+msgid "Supplier Price Check"
+msgstr "Vérification des prix des fournisseurs"
+
+#. module: price_guard
+#: model:ir.model,name:price_guard.model_price_scanner
+msgid "Supplier Price Scanner"
+msgstr "Scanner de prix des fournisseurs"
+
+#. module: price_guard
+#. odoo-python
+#: code:addons/price_guard/models/price_guard.py:0
+msgid "The agreed price must be greater than zero."
+msgstr "Le prix convenu doit être supérieur à zéro."
+
+#. module: price_guard
+#: model:ir.model.fields,help:price_guard.field_price_agreement__min_qty
+msgid "The agreement applies from this quantity."
+msgstr "L'accord s'applique à partir de cette quantité."
+
+#. module: price_guard
+#. odoo-python
+#: code:addons/price_guard/models/price_guard.py:0
+msgid "The end date must be on or after the start date."
+msgstr "La date de fin doit être identique ou postérieure à la date de début."
+
+#. module: price_guard
+#. odoo-python
+#: code:addons/price_guard/models/price_guard.py:0
+msgid "The tolerance cannot be negative."
+msgstr "La tolérance ne peut pas être négative."
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_search
+msgid "To Review"
+msgstr "À réviser"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_agreement__tolerance_percent
+msgid "Tolerance (%)"
+msgstr "Tolérance (%)"
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_list
+msgid "Total Agreed Price"
+msgstr "Prix ​​total convenu"
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_list
+msgid "Total Invoice Price"
+msgstr "Prix ​​total facturé"
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_list
+msgid "Total Price"
+msgstr "Prix ​​total"
+
+#. module: price_guard
+#: model:ir.model.fields,help:price_guard.field_price_agreement__price
+msgid "Unit price negotiated with the supplier, in the company currency."
+msgstr "Prix ​​unitaire négocié avec le fournisseur, dans la devise de l'entreprise."
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_agreement_form
+msgid "Validity"
+msgstr "Validité"
+
+#. module: price_guard
+#: model:ir.model.fields,field_description:price_guard.field_price_check__invoice_id
+msgid "Vendor Bill"
+msgstr "Facture du fournisseur"
+
+#. module: price_guard
+#: model:res.groups,comment:price_guard.group_priceguard_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: price_guard
+#: model:ir.model.fields.selection,name:price_guard.selection__price_check__status__warning
+msgid "Warning"
+msgstr "Avertissement"
+
+#. module: price_guard
+#: model_terms:ir.ui.view,arch_db:price_guard.view_price_check_search
+msgid "Warnings"
+msgstr "Avertissements"
+
+#. module: price_guard
+#. odoo-python
+#: code:addons/price_guard/models/price_guard.py:0
+msgid "status"
+msgstr "statut"

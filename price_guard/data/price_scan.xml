@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_price_scan" model="ir.actions.server">
+        <field name="name">Scan Purchase Prices</field>
+        <field name="model_id" ref="model_price_scanner"/>
+        <field name="state">code</field>
+        <field name="code">count = model.action_scan(); action = {"type": "ir.actions.client", "tag": "display_notification", "params": {"title": "Price scan finished", "message": "%s price check(s) created." % count, "type": "success" if count else "info", "sticky": False}}</field>
+    </record>
+    <menuitem id="menu_priceguard_scan" name="Scan Purchase Prices"
+              parent="menu_priceguard_root" action="action_price_scan"
+              sequence="30"/>
+</odoo>
