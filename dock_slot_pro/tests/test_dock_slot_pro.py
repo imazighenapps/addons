@@ -7,21 +7,21 @@ from odoo.tests import TransactionCase, tagged
 
 
 @tagged("post_install", "-at_install")
-class TestDeliverySlot(TransactionCase):
+class TestDockSlotPro(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.partner = cls.env["res.partner"].create({
-            "name": "DeliverySlot Test Customer",
+            "name": "DockSlotPro Test Customer",
         })
         cls.other_partner = cls.env["res.partner"].create({
-            "name": "DeliverySlot Second Customer",
+            "name": "DockSlotPro Second Customer",
         })
         # 2026-01-05 is a Monday, so it matches the weekday "0" slots.
         cls.monday = date(2026, 1, 5)
         cls.next_monday = date(2026, 1, 12)
         cls.third_monday = date(2026, 1, 19)
-        cls.slot = cls.env["delivery.time.slot"].create({
+        cls.slot = cls.env["dock.slot"].create({
             "name": "Monday morning dock A",
             "weekday": "0",
             "start_hour": 8.0,
@@ -29,7 +29,7 @@ class TestDeliverySlot(TransactionCase):
             "capacity": 2,
             "location": "Dock A",
         })
-        cls.roomy_slot = cls.env["delivery.time.slot"].create({
+        cls.roomy_slot = cls.env["dock.slot"].create({
             "name": "Monday afternoon dock B",
             "weekday": "0",
             "start_hour": 14.0,
@@ -47,7 +47,7 @@ class TestDeliverySlot(TransactionCase):
             "capacity": 2,
         }
         values.update(kwargs)
-        return self.env["delivery.time.slot"].create(values)
+        return self.env["dock.slot"].create(values)
 
     def _booking(self, slot=None, day=None, partner=None, **kwargs):
         values = {
@@ -56,12 +56,12 @@ class TestDeliverySlot(TransactionCase):
             "partner_id": (partner or self.partner).id,
         }
         values.update(kwargs)
-        return self.env["delivery.time.booking"].create(values)
+        return self.env["dock.booking"].create(values)
 
     def test_01_sequence_and_weekday(self):
         first = self._booking()
         second = self._booking(partner=self.other_partner)
-        self.assertTrue(first.name.startswith("DSL/"), first.name)
+        self.assertTrue(first.name.startswith("DCK/"), first.name)
         self.assertNotEqual(first.name, second.name)
         self.assertEqual(first.state, "draft")
         self.assertEqual(first.slot_id.weekday, "0")
@@ -77,7 +77,7 @@ class TestDeliverySlot(TransactionCase):
             booking.date = tuesday
 
     def test_03_capacity_limit(self):
-        bookings = self.env["delivery.time.booking"]
+        bookings = self.env["dock.booking"]
         for _index in range(3):
             bookings |= self._booking()
         self.assertEqual(len(bookings), 3)
@@ -120,7 +120,7 @@ class TestDeliverySlot(TransactionCase):
         self.assertEqual(other.state, "cancelled")
 
     def test_05_blackout_blocks_confirmation(self):
-        whole_day = self.env["delivery.time.blackout"].create({
+        whole_day = self.env["dock.blackout"].create({
             "name": "Annual stocktake",
             "date": self.next_monday,
             "reason": "Warehouse closed all day.",
@@ -133,11 +133,11 @@ class TestDeliverySlot(TransactionCase):
         with self.assertRaises(ValidationError):
             self._booking(day=self.next_monday, state="confirmed")
         with self.assertRaises(ValidationError):
-            self.env["delivery.time.blackout"].create({
+            self.env["dock.blackout"].create({
                 "name": "Duplicate stocktake",
                 "date": self.next_monday,
             })
-        self.env["delivery.time.blackout"].create({
+        self.env["dock.blackout"].create({
             "name": "Dock A maintenance",
             "date": self.third_monday,
             "slot_id": self.slot.id,
@@ -195,7 +195,7 @@ class TestDeliverySlot(TransactionCase):
         self.assertTrue(slot.active)
         self.assertTrue(slot.action_archive())
         self.assertFalse(slot.active)
-        self.assertNotIn(slot, self.env["delivery.time.slot"].search([]))
+        self.assertNotIn(slot, self.env["dock.slot"].search([]))
         self.assertTrue(slot.action_activate())
         self.assertTrue(slot.active)
-        self.assertIn(slot, self.env["delivery.time.slot"].search([]))
+        self.assertIn(slot, self.env["dock.slot"].search([]))

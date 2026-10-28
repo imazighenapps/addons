@@ -1,0 +1,548 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* dock_slot_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_form
+msgid "<span class=\"o_stat_text\">Activate</span>"
+msgstr "<span class=\"o_stat_text\">Ativar</span>"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_form
+msgid "<span class=\"o_stat_text\">Archive</span>"
+msgstr "<span class=\"o_stat_text\">Arquivo</span>"
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "A blackout day already exists on %(date)s for \"%(slot)s\"."
+msgstr "Já existe um dia de blackout em %(date)s para \"%(slot)s\"."
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_blackout__active
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__active
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_search
+msgid "Active"
+msgstr "Ativo"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_blackout_search
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_search
+msgid "Archived"
+msgstr "Arquivada Arquivado"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_blackout_form
+msgid "Blackout"
+msgstr "Apagão"
+
+#. module: dock_slot_pro
+#: model:ir.actions.act_window,name:dock_slot_pro.action_dock_blackout
+#: model:ir.ui.menu,name:dock_slot_pro.menu_dock_slot_pro_blackouts
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_blackout_form
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_blackout_list
+msgid "Blackout Days"
+msgstr "Dias de apagão"
+
+#. module: dock_slot_pro
+#: model_terms:ir.actions.act_window,help:dock_slot_pro.action_dock_booking
+msgid "Book a customer into a slot, then confirm, deliver or cancel it."
+msgstr "Reserve um cliente em um slot e, em seguida, confirme, entregue ou cancele."
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__booking_count
+msgid "Booked"
+msgstr "Reservada Reservado"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__user_id
+msgid "Booked by"
+msgstr "Reservado por"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_form
+msgid "Booking"
+msgstr "Reserva"
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "Booking cancelled by %s."
+msgstr "Reserva cancelada por %s."
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "Booking confirmed for %(date)s on %(slot)s."
+msgstr "Reserva confirmada para %(date)s em %(slot)s."
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "Booking reset to draft by %s."
+msgstr "Reserva redefinida para rascunho por %s."
+
+#. module: dock_slot_pro
+#: model:ir.actions.act_window,name:dock_slot_pro.action_dock_booking
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__booking_ids
+#: model:ir.ui.menu,name:dock_slot_pro.menu_dock_slot_pro_bookings
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_form
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_list
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_form
+msgid "Bookings"
+msgstr "Reservas"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields.selection,name:dock_slot_pro.selection__dock_booking__state__cancelled
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_search
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__capacity
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_form
+msgid "Capacity"
+msgstr "Capacidade"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,help:dock_slot_pro.field_dock_slot__available_count
+msgid "Capacity minus the bookings already confirmed for the next occurrence of this weekday."
+msgstr "Capacidade menos as reservas já confirmadas para a próxima ocorrência deste dia útil."
+
+#. module: dock_slot_pro
+#: model_terms:ir.actions.act_window,help:dock_slot_pro.action_dock_blackout
+msgid "Close the warehouse or a single dock for a stocktake, a holiday or a maintenance."
+msgstr "Fechar o armazém ou uma única doca para um inventário, férias ou manutenção."
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_blackout__company_id
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__company_id
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__company_id
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_blackout_search
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_search
+msgid "Company"
+msgstr "Empresa"
+
+#. module: dock_slot_pro
+#: model:res.groups,comment:dock_slot_pro.group_dockslotpro_manager
+msgid "Configure and administer the module."
+msgstr "Configure e administre o módulo."
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_form
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields.selection,name:dock_slot_pro.selection__dock_booking__state__confirmed
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_search
+msgid "Confirmed"
+msgstr "Confirmada Confirmado"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_blackout__create_uid
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__create_uid
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_blackout__create_date
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__create_date
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__partner_id
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_search
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_blackout__date
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__date
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_blackout_search
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_search
+msgid "Date"
+msgstr "Data"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,help:dock_slot_pro.field_dock_slot__weekday
+msgid "Day of the week this window is open."
+msgstr "Dia da semana em que esta janela está aberta."
+
+#. module: dock_slot_pro
+#: model_terms:ir.actions.act_window,help:dock_slot_pro.action_dock_slot
+msgid "Define the delivery windows of the week, their capacity and the dock they use."
+msgstr "Defina as janelas de entrega da semana, sua capacidade e o cais que utilizam."
+
+#. module: dock_slot_pro
+#: model:ir.model,name:dock_slot_pro.model_dock_blackout
+msgid "Delivery Blackout Day"
+msgstr "Dia de indisponibilidade de entrega"
+
+#. module: dock_slot_pro
+#: model:ir.model,name:dock_slot_pro.model_dock_booking
+msgid "Delivery Booking"
+msgstr "Reserva de entrega"
+
+#. module: dock_slot_pro
+#: model:ir.ui.menu,name:dock_slot_pro.menu_dock_slot_pro_root
+msgid "Delivery Slots"
+msgstr "Espaços de entrega"
+
+#. module: dock_slot_pro
+#: model:ir.model,name:dock_slot_pro.model_dock_slot
+msgid "Delivery Time Slot"
+msgstr "Horário de entrega"
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "Delivery unloaded and booking closed."
+msgstr "Entrega descarregada e reserva encerrada."
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_blackout__display_name
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__display_name
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: dock_slot_pro
+#: model:res.groups,name:dock_slot_pro.group_dockslotpro_manager
+msgid "Dock Slot Pro Manager"
+msgstr "Gerenciador Dock Slot Pro"
+
+#. module: dock_slot_pro
+#: model:res.groups,name:dock_slot_pro.group_dockslotpro_user
+msgid "Dock Slot Pro User"
+msgstr "Usuário do Dock Slot Pro"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,help:dock_slot_pro.field_dock_slot__location
+msgid "Dock or warehouse where the delivery is unloaded."
+msgstr "Doca ou armazém onde a entrega é descarregada."
+
+#. module: dock_slot_pro
+#: model:ir.module.module,shortdesc:base.module_dock_slot_pro
+msgid "DockSlotPro - Delivery Time Slots and Capacity Planning"
+msgstr "DockSlotPro - Slots de tempo de entrega e planejamento de capacidade"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields.selection,name:dock_slot_pro.selection__dock_booking__state__done
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_search
+msgid "Done"
+msgstr "Concluído"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields.selection,name:dock_slot_pro.selection__dock_booking__state__draft
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_search
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,help:dock_slot_pro.field_dock_slot__booking_count
+msgid "Draft, confirmed and done bookings recorded for the next occurrence of this weekday."
+msgstr "Reservas rascunhadas, confirmadas e concluídas registradas para a próxima ocorrência deste dia da semana."
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__end_hour
+msgid "End Hour"
+msgstr "Hora final"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,help:dock_slot_pro.field_dock_slot__end_hour
+msgid "End of the window, for example 12.0 = 12:00."
+msgstr "Fim da janela, por exemplo 12.0 = 12:00."
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_form
+msgid "Follow-up"
+msgstr "Seguir"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields.selection,name:dock_slot_pro.selection__dock_slot__weekday__4
+msgid "Friday"
+msgstr "Sexta-feira"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__has_message
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_form
+msgid "Hours"
+msgstr "Horas"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_blackout__write_uid
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__write_uid
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_blackout__write_date
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__write_date
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,help:dock_slot_pro.field_dock_blackout__slot_id
+msgid "Leave empty to close the whole day, whatever the slot."
+msgstr "Deixe vazio para fechar o dia todo, seja qual for o horário."
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__location
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_search
+msgid "Location"
+msgstr "Localização"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_form
+msgid "Mark as Done"
+msgstr "Marcar como concluído"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,help:dock_slot_pro.field_dock_slot__capacity
+msgid "Maximum number of bookings per date."
+msgstr "Número máximo de reservas por data."
+
+#. module: dock_slot_pro
+#: model:ir.model.fields.selection,name:dock_slot_pro.selection__dock_slot__weekday__0
+msgid "Monday"
+msgstr "Segunda-feira"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_search
+msgid "My Bookings"
+msgstr "Minhas reservas"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_blackout__name
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__name
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__note
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_form
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "On slot \"%s\", the capacity must be strictly positive."
+msgstr "No slot “%s”, a capacidade deve ser estritamente positiva."
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "On slot \"%s\", the end hour cannot be after 24:00."
+msgstr "No slot \"%s\", o horário de término não pode ser após as 24h."
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "On slot \"%s\", the end hour must be after the start hour."
+msgstr "No slot \"%s\", a hora final deve ser posterior à hora inicial."
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "On slot \"%s\", the start hour must be between 0:00 and 24:00."
+msgstr "No slot \"%s\", a hora de início deve ser entre 0h00 e 24h00."
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "Only a cancelled booking can be reset to draft."
+msgstr "Apenas uma reserva cancelada pode ser redefinida para rascunho."
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "Only a confirmed booking can be marked as done."
+msgstr "Apenas uma reserva confirmada pode ser marcada como concluída."
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "Only a draft booking can be confirmed."
+msgstr "Apenas um rascunho de reserva pode ser confirmado."
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "Only a draft or confirmed booking can be cancelled."
+msgstr "Somente um rascunho ou reserva confirmada pode ser cancelada."
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_blackout_search
+msgid "Past"
+msgstr "Passado"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__available_count
+msgid "Places Left"
+msgstr "Lugares restantes"
+
+#. module: dock_slot_pro
+#: model:ir.module.module,summary:base.module_dock_slot_pro
+msgid "Plan weekly delivery windows with a capacity, book customers into a slot, close blackout days and stop the dock from being overloaded."
+msgstr "Planeje janelas de entrega semanais com capacidade, reserve clientes em um slot, feche os dias de blackout e evite que a doca fique sobrecarregada."
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_blackout__reason
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_blackout_form
+msgid "Reason"
+msgstr "Razão"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_form
+msgid "Reset to Draft"
+msgstr "Redefinir para rascunho"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,help:dock_slot_pro.field_dock_booking__reference
+msgid "Sale order or delivery reference, for example S00042."
+msgstr "Ordem de venda ou referência de entrega, por exemplo S00042."
+
+#. module: dock_slot_pro
+#: model:ir.model.fields.selection,name:dock_slot_pro.selection__dock_slot__weekday__5
+msgid "Saturday"
+msgstr "Sábado"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_form
+msgid "Slot"
+msgstr "Slot"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__start_hour
+msgid "Start Hour"
+msgstr "Hora de início"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,help:dock_slot_pro.field_dock_slot__start_hour
+msgid "Start of the window, for example 8.5 = 08:30."
+msgstr "Início da janela, por exemplo 8,5 = 08:30."
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__state
+msgid "State"
+msgstr "Estado"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields.selection,name:dock_slot_pro.selection__dock_slot__weekday__6
+msgid "Sunday"
+msgstr "Domingo"
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "The date %(date)s is a %(day)s: the slot \"%(slot)s\" is only open on %(slot_day)s."
+msgstr "A data %(date)s é %(day)s: o slot \"%(slot)s\" só está aberto no %(slot_day)s."
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "The date %(date)s is a blackout day for \"%(slot)s\" (%(name)s)."
+msgstr "A data %(date)s é um dia de blackout para \"%(slot)s\" (%(name)s)."
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "The slot \"%(slot)s\" is full on %(date)s: %(count)s booking(s) already confirmed for a capacity of %(capacity)s."
+msgstr "O slot \"%(slot)s\" está lotado em %(date)s: reserva(s) de %(count)s já confirmada(s) para uma capacidade de %(capacity)s."
+
+#. module: dock_slot_pro
+#: model:ir.model.fields.selection,name:dock_slot_pro.selection__dock_slot__weekday__3
+msgid "Thursday"
+msgstr "Quinta-feira"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_blackout__slot_id
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_booking__slot_id
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_blackout_search
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_search
+msgid "Time Slot"
+msgstr "Horário"
+
+#. module: dock_slot_pro
+#: model:ir.actions.act_window,name:dock_slot_pro.action_dock_slot
+#: model:ir.ui.menu,name:dock_slot_pro.menu_dock_slot_pro_time_slots
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_form
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_list
+msgid "Time Slots"
+msgstr "Horários"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_booking_search
+msgid "Today"
+msgstr "Hoje"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields.selection,name:dock_slot_pro.selection__dock_slot__weekday__1
+msgid "Tuesday"
+msgstr "Terça-feira"
+
+#. module: dock_slot_pro
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_blackout_search
+msgid "Upcoming"
+msgstr "Por vir"
+
+#. module: dock_slot_pro
+#: model:res.groups,comment:dock_slot_pro.group_dockslotpro_user
+msgid "View and use the module."
+msgstr "Visualize e use o módulo."
+
+#. module: dock_slot_pro
+#: model:ir.model.fields.selection,name:dock_slot_pro.selection__dock_slot__weekday__2
+msgid "Wednesday"
+msgstr "Quarta-feira"
+
+#. module: dock_slot_pro
+#: model:ir.model.fields,field_description:dock_slot_pro.field_dock_slot__weekday
+#: model_terms:ir.ui.view,arch_db:dock_slot_pro.view_dock_slot_search
+msgid "Weekday"
+msgstr "Dia da semana"
+
+#. module: dock_slot_pro
+#. odoo-python
+#: code:addons/dock_slot_pro/models/dock_slot.py:0
+msgid "the whole day"
+msgstr "o dia inteiro"
