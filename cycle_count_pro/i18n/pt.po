@@ -1,0 +1,545 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* cycle_count_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cycle_count_pro
+#. odoo-python
+#: code:addons/cycle_count_pro/models/cycle_count.py:0
+msgid "%s line(s) are not counted yet. Count every line or remove it from the session."
+msgstr "A(s) linha(s) %s ainda não são contadas. Conte cada linha ou remova-a da sessão."
+
+#. module: cycle_count_pro
+#: model:ir.model.constraint,message:cycle_count_pro.constraint_cycle_count_line_unique_product
+msgid "A product can only appear once per location in a session."
+msgstr "Um produto só pode aparecer uma vez por local em uma sessão."
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: cycle_count_pro
+#. odoo-python
+#: code:addons/cycle_count_pro/models/cycle_count.py:0
+msgid "Add at least one product to the plan."
+msgstr "Adicione pelo menos um produto ao plano."
+
+#. module: cycle_count_pro
+#: model:ir.model.fields.selection,name:cycle_count_pro.selection__cycle_count_line__state__adjusted
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_line_search
+msgid "Adjusted"
+msgstr "Ajustada Ajustado"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields.selection,name:cycle_count_pro.selection__cycle_count_session__state__cancelled
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__company_id
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: cycle_count_pro
+#: model:res.groups,comment:cycle_count_pro.group_cyclecountpr_manager
+msgid "Configure and administer the module."
+msgstr "Configure e administre o módulo."
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__line_ids
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_form
+msgid "Count Lines"
+msgstr "Linhas de contagem"
+
+#. module: cycle_count_pro
+#: model:ir.actions.act_window,name:cycle_count_pro.action_cycle_count_plan
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_form
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_list
+msgid "Count Plans"
+msgstr "Planos de contagem"
+
+#. module: cycle_count_pro
+#: model:ir.actions.act_window,name:cycle_count_pro.action_cycle_count_session
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_form
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_list
+msgid "Count Sessions"
+msgstr "Contar sessões"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__counted_qty
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__is_counted
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_list
+msgid "Counted"
+msgstr "Contada Contado"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__counted_count
+msgid "Counted Count"
+msgstr "Contagem contada"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields.selection,name:cycle_count_pro.selection__cycle_count_session__state__counting
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_search
+msgid "Counting"
+msgstr "Contando"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__create_uid
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__create_uid
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan_line__create_uid
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__create_date
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__create_date
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan_line__create_date
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__currency_id
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__currency_id
+msgid "Currency"
+msgstr "Moeda"
+
+#. module: cycle_count_pro
+#: model:ir.model,name:cycle_count_pro.model_cycle_count_line
+msgid "Cycle Count Line"
+msgstr "Linha de contagem de ciclos"
+
+#. module: cycle_count_pro
+#: model:ir.model,name:cycle_count_pro.model_cycle_count_plan
+msgid "Cycle Count Plan"
+msgstr "Plano de contagem cíclica"
+
+#. module: cycle_count_pro
+#: model:ir.model,name:cycle_count_pro.model_cycle_count_plan_line
+msgid "Cycle Count Plan Line"
+msgstr "Linha do plano de contagem cíclica"
+
+#. module: cycle_count_pro
+#: model:res.groups,name:cycle_count_pro.group_cyclecountpr_manager
+msgid "Cycle Count Pro Manager"
+msgstr "Gerenciador de contagem de ciclos Pro"
+
+#. module: cycle_count_pro
+#: model:res.groups,name:cycle_count_pro.group_cyclecountpr_user
+msgid "Cycle Count Pro User"
+msgstr "Usuário do Cycle Count Pro"
+
+#. module: cycle_count_pro
+#. odoo-python
+#: code:addons/cycle_count_pro/models/cycle_count.py:0
+#: model:ir.model,name:cycle_count_pro.model_cycle_count_session
+msgid "Cycle Count Session"
+msgstr "Sessão de contagem cíclica"
+
+#. module: cycle_count_pro
+#: model:ir.ui.menu,name:cycle_count_pro.menu_cycle_root
+msgid "Cycle Counting"
+msgstr "Contagem de Ciclo"
+
+#. module: cycle_count_pro
+#: model:ir.module.module,shortdesc:base.module_cycle_count_pro
+msgid "CycleCountPro - Inventory Cycle Counting"
+msgstr "CycleCountPro - Contagem cíclica de estoque"
+
+#. module: cycle_count_pro
+#: model:ir.actions.server,name:cycle_count_pro.cron_cycle_count_ir_actions_server
+msgid "CycleCountPro: create due sessions"
+msgstr "CycleCountPro: crie sessões de vencimento"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__date
+msgid "Date"
+msgstr "Data"
+
+#. module: cycle_count_pro
+#: model_terms:ir.actions.act_window,help:cycle_count_pro.action_cycle_count_plan
+msgid "Define which products to count, where and how often."
+msgstr "Defina quais produtos contar, onde e com que frequência."
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__display_name
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__display_name
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan_line__display_name
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields.selection,name:cycle_count_pro.selection__cycle_count_session__state__done
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_search
+msgid "Done"
+msgstr "Concluído"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields.selection,name:cycle_count_pro.selection__cycle_count_plan__state__draft
+#: model:ir.model.fields.selection,name:cycle_count_pro.selection__cycle_count_session__state__draft
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_search
+msgid "Due Today"
+msgstr "Vencimento hoje"
+
+#. module: cycle_count_pro
+#: model_terms:ir.actions.act_window,help:cycle_count_pro.action_cycle_count_line
+msgid "Every counted line, with its variance and value."
+msgstr "Cada linha contada, com sua variação e valor."
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__frequency_days
+msgid "Frequency (days)"
+msgstr "Frequência (dias)"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__has_message
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__last_session_id
+msgid "Last Session"
+msgstr "Última sessão"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__write_uid
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__write_uid
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan_line__write_uid
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__write_date
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__write_date
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan_line__write_date
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,help:cycle_count_pro.field_cycle_count_plan_line__location_id
+msgid "Leave empty to use the stock location of the warehouse."
+msgstr "Deixe em branco para utilizar o local de estoque do armazém."
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_line_form
+msgid "Line"
+msgstr "Linha"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__line_count
+msgid "Line Count"
+msgstr "Contagem de linhas"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_list
+msgid "Lines"
+msgstr "Linhas"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__location_id
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan_line__location_id
+msgid "Location"
+msgstr "Localização"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__name
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_form
+msgid "New Session"
+msgstr "Nova sessão"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__next_date
+msgid "Next Count"
+msgstr "Próxima contagem"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__note
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__note
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan_line__note
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_line_form
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_form
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: cycle_count_pro
+#. odoo-python
+#: code:addons/cycle_count_pro/models/cycle_count.py:0
+msgid "Only a draft session can be started."
+msgstr "Somente uma sessão de rascunho pode ser iniciada."
+
+#. module: cycle_count_pro
+#. odoo-python
+#: code:addons/cycle_count_pro/models/cycle_count.py:0
+msgid "Only a running session can be finished."
+msgstr "Apenas uma sessão em execução pode ser concluída."
+
+#. module: cycle_count_pro
+#. odoo-python
+#: code:addons/cycle_count_pro/models/cycle_count.py:0
+msgid "Only a session to review can be validated."
+msgstr "Apenas uma sessão para revisão pode ser validada."
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_form
+msgid "Pause"
+msgstr "Pausa"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields.selection,name:cycle_count_pro.selection__cycle_count_plan__state__paused
+msgid "Paused"
+msgstr "Em pausa"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields.selection,name:cycle_count_pro.selection__cycle_count_line__state__pending
+msgid "Pending"
+msgstr "Pendente"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan_line__plan_id
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__plan_id
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_form
+msgid "Plan"
+msgstr "Plano"
+
+#. module: cycle_count_pro
+#: model:ir.module.module,summary:base.module_cycle_count_pro
+msgid "Plan ABC cycle counts, count by location, control variances and post stock adjustments without freezing the warehouse."
+msgstr "Planeje contagens de ciclo ABC, contagem por localização, controle de variações e pós ajustes de estoque sem congelar o armazém."
+
+#. module: cycle_count_pro
+#: model:ir.ui.menu,name:cycle_count_pro.menu_cycle_plans
+msgid "Plans"
+msgstr "Planos"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__product_id
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan_line__product_id
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_line_search
+msgid "Product"
+msgstr "Produto"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__product_count
+msgid "Product Count"
+msgstr "Contagem de produtos"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__line_ids
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_form
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_list
+msgid "Products"
+msgstr "Produtos"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_line_form
+msgid "Quantities"
+msgstr "Quantidades"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__total_difference
+msgid "Quantity Variance"
+msgstr "Variação de quantidade"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__responsible_id
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__responsible_id
+msgid "Responsible"
+msgstr "Responsável"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_form
+msgid "Resume"
+msgstr "Retomar"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields.selection,name:cycle_count_pro.selection__cycle_count_plan__state__running
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_search
+msgid "Running"
+msgstr "Em curso"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_form
+msgid "Schedule"
+msgstr "Agendar"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_form
+msgid "Send to Review"
+msgstr "Enviar para revisão"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan_line__sequence
+msgid "Sequence"
+msgstr "Sequência"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__session_id
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_line_search
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_form
+msgid "Session"
+msgstr "Sessão"
+
+#. module: cycle_count_pro
+#: model:ir.ui.menu,name:cycle_count_pro.menu_cycle_sessions
+msgid "Sessions"
+msgstr "Sessões"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_form
+msgid "Start Counting"
+msgstr "Comece a contar"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_form
+msgid "Start Plan"
+msgstr "Iniciar plano"
+
+#. module: cycle_count_pro
+#: model_terms:ir.actions.act_window,help:cycle_count_pro.action_cycle_count_session
+msgid "Start a session from a plan, count, review and post."
+msgstr "Inicie uma sessão a partir de um plano, conte, revise e publique."
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__state
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__state
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__state
+msgid "State"
+msgstr "Estado"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: cycle_count_pro
+#. odoo-python
+#: code:addons/cycle_count_pro/models/cycle_count.py:0
+msgid "The session has no product to count."
+msgstr "A sessão não tem produto para contar."
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__theoretical_qty
+msgid "Theoretical"
+msgstr "Teórica Teórico"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields.selection,name:cycle_count_pro.selection__cycle_count_session__state__review
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_search
+msgid "To Review"
+msgstr "Para revisar"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_line_list
+msgid "Total Counted Qty"
+msgstr "Quantidade total contada"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_line_list
+msgid "Total Difference"
+msgstr "Diferença total"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_line_list
+msgid "Total Theoretical Qty"
+msgstr "Quantidade Teórica Total"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_line_list
+msgid "Total Value Difference"
+msgstr "Diferença de valor total"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_list
+msgid "Total Value Variance"
+msgstr "Variação do valor total"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_list
+msgid "Total Variance"
+msgstr "Variância Total"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__unit_cost
+msgid "Unit Cost"
+msgstr "Custo Unitário"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_form
+msgid "Validate and Adjust"
+msgstr "Validar e ajustar"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__value_difference
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__variance_value
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_list
+msgid "Value Variance"
+msgstr "Variação de valor"
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_line__difference
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_form
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_list
+msgid "Variance"
+msgstr "Variância"
+
+#. module: cycle_count_pro
+#: model:ir.actions.act_window,name:cycle_count_pro.action_cycle_count_line
+#: model:ir.ui.menu,name:cycle_count_pro.menu_cycle_lines
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_line_form
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_line_list
+msgid "Variance Lines"
+msgstr "Linhas de Variância"
+
+#. module: cycle_count_pro
+#: model:res.groups,comment:cycle_count_pro.group_cyclecountpr_user
+msgid "View and use the module."
+msgstr "Visualize e use o módulo."
+
+#. module: cycle_count_pro
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_plan__warehouse_id
+#: model:ir.model.fields,field_description:cycle_count_pro.field_cycle_count_session__warehouse_id
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_plan_search
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_session_search
+msgid "Warehouse"
+msgstr "Armazém"
+
+#. module: cycle_count_pro
+#: model_terms:ir.ui.view,arch_db:cycle_count_pro.view_cycle_count_line_search
+msgid "With Variance"
+msgstr "Com variação"

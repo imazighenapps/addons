@@ -1,0 +1,455 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* deposit_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__allocated_amount
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_list
+msgid "Allocated"
+msgstr "Zugewiesen"
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_deposit_allocation_form
+msgid "Allocation"
+msgstr "Zuweisung"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__allocation_count
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__allocation_ids
+#: model:ir.ui.menu,name:deposit_pro.menu_deposit_allocations
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_form
+msgid "Allocations"
+msgstr "Zuteilungen"
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "Allocations cannot be added to a refunded deposit."
+msgstr "Zuteilungen können nicht zu einer rückerstatteten Anzahlung hinzugefügt werden."
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "Allocations cannot be changed after the deposit is refunded."
+msgstr "Nach Rückerstattung der Anzahlung können die Zuteilungen nicht mehr geändert werden."
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "Allocations cannot be deleted after the deposit is refunded."
+msgstr "Zuweisungen können nach Rückerstattung der Anzahlung nicht mehr gelöscht werden."
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__amount
+#: model:ir.model.fields,field_description:deposit_pro.field_deposit_allocation__amount
+msgid "Amount"
+msgstr "Betrag"
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_form
+msgid "Amounts"
+msgstr "Beträge"
+
+#. module: deposit_pro
+#: model:ir.model.fields.selection,name:deposit_pro.selection__customer_deposit__payment_method__bank
+msgid "Bank Transfer"
+msgstr "Banküberweisung"
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_form
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: deposit_pro
+#: model:ir.model.fields.selection,name:deposit_pro.selection__customer_deposit__state__cancelled
+msgid "Cancelled"
+msgstr "Storniert"
+
+#. module: deposit_pro
+#: model:ir.model.fields.selection,name:deposit_pro.selection__customer_deposit__payment_method__cash
+msgid "Cash"
+msgstr "Kasse"
+
+#. module: deposit_pro
+#: model:ir.model.fields.selection,name:deposit_pro.selection__customer_deposit__payment_method__cheque
+msgid "Cheque"
+msgstr "Überprüfen"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__company_id
+msgid "Company"
+msgstr "Firma"
+
+#. module: deposit_pro
+#: model:res.groups,comment:deposit_pro.group_depositpro_manager
+msgid "Configure and administer the module."
+msgstr "Konfigurieren und verwalten Sie das Modul."
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_form
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "Confirm the deposit before allocating it to an invoice."
+msgstr "Bestätigen Sie die Anzahlung, bevor Sie sie einer Rechnung zuordnen."
+
+#. module: deposit_pro
+#: model:ir.model.fields.selection,name:deposit_pro.selection__customer_deposit__state__confirmed
+msgid "Confirmed"
+msgstr "Bestätigt"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__create_uid
+#: model:ir.model.fields,field_description:deposit_pro.field_deposit_allocation__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__create_date
+#: model:ir.model.fields,field_description:deposit_pro.field_deposit_allocation__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: deposit_pro
+#: model:ir.model.fields.selection,name:deposit_pro.selection__customer_deposit__payment_method__card
+msgid "Credit Card"
+msgstr "Kreditkarte"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__currency_id
+#: model:ir.model.fields,field_description:deposit_pro.field_deposit_allocation__currency_id
+msgid "Currency"
+msgstr "Währung"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__partner_id
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_form
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_search
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: deposit_pro
+#: model:ir.model,name:deposit_pro.model_customer_deposit
+msgid "Customer Deposit"
+msgstr "Kundeneinzahlung"
+
+#. module: deposit_pro
+#: model:ir.actions.act_window,name:deposit_pro.action_customer_deposit
+#: model:ir.ui.menu,name:deposit_pro.menu_deposit_customers
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_form
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_list
+msgid "Customer Deposits"
+msgstr "Kundeneinlagen"
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_form
+msgid "DEP/2026/0001"
+msgstr "DEP/2026/0001"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__date
+#: model:ir.model.fields,field_description:deposit_pro.field_deposit_allocation__date
+msgid "Date"
+msgstr "Datum"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__name
+#: model:ir.model.fields,field_description:deposit_pro.field_deposit_allocation__deposit_id
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_list
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_deposit_allocation_search
+msgid "Deposit"
+msgstr "Kaution"
+
+#. module: deposit_pro
+#: model:ir.model,name:deposit_pro.model_deposit_allocation
+msgid "Deposit Allocation"
+msgstr "Einlagenzuteilung"
+
+#. module: deposit_pro
+#: model:ir.actions.act_window,name:deposit_pro.action_deposit_allocation
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_deposit_allocation_form
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_deposit_allocation_list
+msgid "Deposit Allocations"
+msgstr "Einlagenzuweisungen"
+
+#. module: deposit_pro
+#: model:res.groups,name:deposit_pro.group_depositpro_manager
+msgid "Deposit Pro Manager"
+msgstr "Deposit Pro Manager"
+
+#. module: deposit_pro
+#: model:res.groups,name:deposit_pro.group_depositpro_user
+msgid "Deposit Pro User"
+msgstr "Deposit Pro-Benutzer"
+
+#. module: deposit_pro
+#: model:ir.module.module,shortdesc:base.module_deposit_pro
+msgid "DepositPro - Customer Deposits and Prepayments"
+msgstr "DepositPro – Kundeneinlagen und Vorauszahlungen"
+
+#. module: deposit_pro
+#: model:ir.ui.menu,name:deposit_pro.menu_deposit_root
+msgid "Deposits"
+msgstr "Einlagen"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__display_name
+#: model:ir.model.fields,field_description:deposit_pro.field_deposit_allocation__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: deposit_pro
+#: model:ir.model.fields.selection,name:deposit_pro.selection__customer_deposit__state__draft
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: deposit_pro
+#: model_terms:ir.actions.act_window,help:deposit_pro.action_deposit_allocation
+msgid "Every deposit applied to an invoice, with its date and amount."
+msgstr "Jede auf eine Rechnung angewendete Anzahlung mit Datum und Betrag."
+
+#. module: deposit_pro
+#: model:ir.model.fields.selection,name:deposit_pro.selection__customer_deposit__state__applied
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_search
+msgid "Fully Applied"
+msgstr "Vollständig angewendet"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__has_message
+msgid "Has Message"
+msgstr "Hat Nachricht"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_deposit_allocation__invoice_id
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__journal_id
+msgid "Journal"
+msgstr "Zeitschrift"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__write_uid
+#: model:ir.model.fields,field_description:deposit_pro.field_deposit_allocation__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__write_date
+#: model:ir.model.fields,field_description:deposit_pro.field_deposit_allocation__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__note
+#: model:ir.model.fields,field_description:deposit_pro.field_deposit_allocation__note
+msgid "Note"
+msgstr "Notiz"
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_form
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_deposit_allocation_form
+msgid "Notes"
+msgstr "Notizen"
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "Only a confirmed deposit with a remaining balance can be refunded."
+msgstr "Es kann nur eine bestätigte Anzahlung mit einem Restbetrag zurückerstattet werden."
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "Only a draft deposit can be confirmed."
+msgstr "Es kann nur eine Wechseleinzahlung bestätigt werden."
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "Only a posted invoice can receive a deposit allocation."
+msgstr "Nur eine gebuchte Rechnung kann eine Anzahlungszuweisung erhalten."
+
+#. module: deposit_pro
+#: model:ir.model.fields.selection,name:deposit_pro.selection__customer_deposit__state__partial
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_search
+msgid "Partially Applied"
+msgstr "Teilweise angewendet"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__payment_method
+msgid "Payment Method"
+msgstr "Zahlungsmethode"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__reference
+msgid "Payment Reference"
+msgstr "Zahlungsreferenz"
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_form
+msgid "Refund"
+msgstr "Erstattung"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__refund_date
+msgid "Refund Date"
+msgstr "Rückerstattungsdatum"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__refund_reason
+msgid "Refund Reason"
+msgstr "Rückerstattungsgrund"
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_form
+msgid "Refund Remaining"
+msgstr "Verbleibende Rückerstattung"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__refund_amount
+#: model:ir.model.fields.selection,name:deposit_pro.selection__customer_deposit__state__refunded
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_search
+msgid "Refunded"
+msgstr "Erstattet"
+
+#. module: deposit_pro
+#: model_terms:ir.actions.act_window,help:deposit_pro.action_customer_deposit
+msgid "Register a customer deposit, confirm it, then apply it to the invoices."
+msgstr "Registrieren Sie eine Kundenzahlung, bestätigen Sie sie und wenden Sie sie dann auf die Rechnungen an."
+
+#. module: deposit_pro
+#: model:ir.module.module,summary:base.module_deposit_pro
+msgid "Register customer deposits and prepayments, apply them to posted invoices, track the remaining balance, refund it and report on it."
+msgstr "Erfassen Sie Kundeneinlagen und Vorauszahlungen, wenden Sie sie auf gebuchte Rechnungen an, verfolgen Sie den Restbetrag, erstatten Sie ihn zurück und erstellen Sie Berichte darüber."
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__remaining_amount
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_list
+msgid "Remaining"
+msgstr "Übrig"
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "Remaining balance of %(amount).2f refunded."
+msgstr "Restbetrag von %(Betrag).2f zurückerstattet."
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "Remove the allocations and the refund before cancelling this deposit."
+msgstr "Entfernen Sie die Zuweisungen und die Rückerstattung, bevor Sie diese Anzahlung stornieren."
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "Remove the allocations and the refund before resetting this deposit."
+msgstr "Entfernen Sie die Zuweisungen und die Rückerstattung, bevor Sie diese Anzahlung zurücksetzen."
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_form
+msgid "Reset to Draft"
+msgstr "Zurücksetzen auf Entwurf"
+
+#. module: deposit_pro
+#: model:ir.model.fields,field_description:deposit_pro.field_customer_deposit__state
+msgid "State"
+msgstr "Status"
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_form
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_search
+msgid "Status"
+msgstr "Status"
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "The allocated amount must be greater than zero."
+msgstr "Der zugewiesene Betrag muss größer als Null sein."
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "The allocated and refunded amount (%(total).2f) cannot exceed the deposit amount (%(amount).2f)."
+msgstr "Der zugewiesene und zurückerstattete Betrag (%(total).2f) darf den Anzahlungsbetrag (%(amount).2f) nicht überschreiten."
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "The deposit amount cannot be lower than the allocated and refunded amount (%s)."
+msgstr "Der Einzahlungsbetrag darf nicht niedriger sein als der zugewiesene und zurückerstattete Betrag (%s)."
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "The deposit amount must be greater than zero."
+msgstr "Der Einzahlungsbetrag muss größer als Null sein."
+
+#. module: deposit_pro
+#: model:ir.model.constraint,message:deposit_pro.constraint_customer_deposit_name_uniq
+msgid "The deposit reference must be unique."
+msgstr "Die Einzahlungsreferenz muss eindeutig sein."
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "The invoice must belong to the same customer as the deposit."
+msgstr "Die Rechnung muss demselben Kunden gehören wie die Anzahlung."
+
+#. module: deposit_pro
+#. odoo-python
+#: code:addons/deposit_pro/models/deposit.py:0
+msgid "There is nothing left to refund on this deposit."
+msgstr "Für diese Anzahlung gibt es keine Rückerstattung mehr."
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_deposit_allocation_search
+msgid "This Month"
+msgstr "Diesen Monat"
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_search
+msgid "To Apply"
+msgstr "Zur Bewerbung"
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_form
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_list
+msgid "Total Allocated"
+msgstr "Insgesamt zugewiesen"
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_deposit_allocation_list
+msgid "Total Amount"
+msgstr "Gesamtbetrag"
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_list
+msgid "Total Deposit"
+msgstr "Gesamteinzahlung"
+
+#. module: deposit_pro
+#: model_terms:ir.ui.view,arch_db:deposit_pro.view_customer_deposit_list
+msgid "Total Remaining"
+msgstr "Insgesamt verbleibend"
+
+#. module: deposit_pro
+#: model:res.groups,comment:deposit_pro.group_depositpro_user
+msgid "View and use the module."
+msgstr "Sehen Sie sich das Modul an und nutzen Sie es."

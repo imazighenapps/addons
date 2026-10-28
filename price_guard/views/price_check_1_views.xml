@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_price_check_list" model="ir.ui.view">
+        <field name="name">price.check.list</field>
+        <field name="model">price.check</field>
+        <field name="arch" type="xml">
+            <list string="Price Checks" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="invoice_id"/>
+                <field name="product_id"/>
+                <field name="quantity"/>
+                <field name="invoice_price" sum="Total Invoice Price"/>
+                <field name="agreed_price" sum="Total Agreed Price"/>
+                <field name="difference_percent"/>
+                <field name="status" widget="badge"/>
+                <field name="state" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_price_check_form" model="ir.ui.view">
+        <field name="name">price.check.form</field>
+        <field name="model">price.check</field>
+        <field name="arch" type="xml">
+            <form string="Price Checks">
+                <header>
+                    <button name="action_ignore" type="object" string="Ignore" class="btn-secondary" invisible="status == 'ignored'"/>
+                    <button name="action_reset" type="object" string="Recalculate" class="btn-link" invisible="status != 'ignored'"/>
+                    <field name="status" widget="statusbar" statusbar_visible="ok,warning,breach,ignored"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Check">
+    <field name="name"/>
+    <field name="date"/>
+    <field name="status"/>
+    <field name="agreement_id"/>
+    <field name="invoice_id"/>
+    <field name="invoice_line_id"/>
+                        </group>
+                        <group string="Supplier">
+    <field name="partner_id"/>
+    <field name="product_id"/>
+    <field name="quantity"/>
+                        </group>
+                        <group string="Prices">
+    <field name="invoice_price"/>
+    <field name="agreed_price"/>
+    <field name="difference_percent"/>
+    <field name="currency_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_price_check_search" model="ir.ui.view">
+        <field name="name">price.check.search</field>
+        <field name="model">price.check</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="invoice_id"/>
+                <field name="product_id"/>
+                <filter name="breach" string="Breaches" domain="[('status','=','breach')]"/>
+                <filter name="warning" string="Warnings" domain="[('status','=','warning')]"/>
+                <filter name="review" string="To Review" domain="[('status','in',['warning','breach'])]"/>
+                <filter name="ignored" string="Ignored" domain="[('status','=','ignored')]"/>
+                <separator/>
+                <filter name="group_partner" string="Supplier" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                <filter name="group_product" string="Product" context="{'group_by': 'product_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_price_check" model="ir.actions.act_window">
+        <field name="name">Price Checks</field>
+        <field name="res_model">price.check</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Review the price differences found on vendor bills.</p>
+        </field>
+    </record>
+
+</odoo>
