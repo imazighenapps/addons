@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_quality_inspection_list" model="ir.ui.view">
+        <field name="name">quality.inspection.list</field>
+        <field name="model">quality.inspection</field>
+        <field name="arch" type="xml">
+            <list string="Inspections" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="plan_id"/>
+                <field name="product_id"/>
+                <field name="lot_id"/>
+                <field name="quantity"/>
+                <field name="responsible_id"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_quality_inspection_form" model="ir.ui.view">
+        <field name="name">quality.inspection.form</field>
+        <field name="model">quality.inspection</field>
+        <field name="arch" type="xml">
+            <form string="Inspections">
+                <header>
+                    <button name="action_start" type="object" string="Start" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_pass" type="object" string="Pass" class="btn-primary" invisible="state != 'in_progress'"/>
+                    <button name="action_fail" type="object" string="Fail" class="btn-danger" invisible="state not in ('draft', 'in_progress')"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-link" invisible="state == 'cancelled'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,passed,failed,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Inspection">
+    <field name="plan_id"/>
+    <field name="product_id"/>
+    <field name="lot_id"/>
+    <field name="picking_id"/>
+    <field name="quantity"/>
+                        </group>
+                        <group string="Follow-up">
+    <field name="partner_id"/>
+    <field name="responsible_id"/>
+    <field name="date"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Results">
+    <field name="result_count"/>
+    <field name="failed_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Checkpoints" name="resultids">
+                            <field name="result_ids"
+                             readonly="state not in ('draft', 'in_progress')">
+                        <list editable="bottom">
+                            <field name="point_id"/>
+                            <field name="check_type"/>
+                            <field name="value_float"
+                                   invisible="check_type not in ('measure', 'range')"/>
+                            <field name="value_text"
+                                   invisible="check_type not in ('pass_fail', 'text')"/>
+                            <field name="passed"/>
+                            <field name="note"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Non-Conformities" name="issueids">
+                            <field name="issue_ids">
+                        <list>
+                            <field name="name"/>
+                            <field name="severity" widget="badge"/>
+                            <field name="owner_id"/>
+                            <field name="state" widget="badge"/>
+                            <field name="closed_date"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_quality_inspection_search" model="ir.ui.view">
+        <field name="name">quality.inspection.search</field>
+        <field name="model">quality.inspection</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="plan_id"/>
+                <field name="product_id"/>
+                <field name="lot_id"/>
+                <filter name="draft" string="To Do" domain="[('state','=','draft')]"/>
+                <filter name="progress" string="In Progress" domain="[('state','=','in_progress')]"/>
+                <filter name="passed" string="Passed" domain="[('state','=','passed')]"/>
+                <filter name="failed" string="Failed" domain="[('state','=','failed')]"/>
+                <filter name="mine" string="My Inspections" domain="[('responsible_id','=',uid)]"/>
+                <separator/>
+                <filter name="group_plan" string="Control Plan" context="{'group_by': 'plan_id'}"/>
+                <filter name="group_product" string="Product" context="{'group_by': 'product_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_quality_inspection" model="ir.actions.act_window">
+        <field name="name">Inspections</field>
+        <field name="res_model">quality.inspection</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Start an inspection, fill the checkpoints, then pass or fail it.</p>
+        </field>
+    </record>
+
+</odoo>
