@@ -1,4 +1,6 @@
-# StockValPro - Stock Valuation Report for Month-End Closing
+# StockValPro
+
+Stock Valuation Report for Month-End Closing
 
 ## The problem
 

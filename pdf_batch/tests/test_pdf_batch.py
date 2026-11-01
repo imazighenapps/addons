@@ -54,3 +54,14 @@ class TestPdfBatch(TransactionCase):
     def test_04_sequence(self):
         batch = self.env["pdf.batch"].create({"partner_id": self.partner.id})
         self.assertTrue(batch.name.startswith("BATCH/"))
+
+    def test_05_reset(self):
+        batch = self.env["pdf.batch"].create({
+            "partner_id": self.partner.id,
+            "invoice_ids": [(6, 0, [self._invoice(50.0).id])],
+        })
+        batch.action_generate()
+        self.assertEqual(batch.state, "done")
+        batch.action_reset()
+        self.assertEqual(batch.state, "draft")
+        self.assertFalse(batch.attachment_id)

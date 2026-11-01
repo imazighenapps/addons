@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'PriceGuard - Purchase Price Compliance',
+    'name': 'PriceGuard',
     'version': '18.0.1.0.0',
     'summary': 'Control supplier price agreements and flag vendor bills whose price exceeds the agreed price or tolerance.',
     'description': '''PriceGuard - Purchase Price Compliance
@@ -24,7 +24,8 @@ with a documented decision, and is never created twice.
 * Multi-company and multi-currency ready.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
-    'category': 'Purchase/Purchase',
+    'support': 'imazighenapps@gmail.com',
+    'category': 'Inventory/Purchase',
     'license': 'OPL-1',
     'price': 69.0,
     'currency': 'EUR',

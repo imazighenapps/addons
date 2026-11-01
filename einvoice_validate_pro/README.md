@@ -1,4 +1,6 @@
-# EInvoiceValidatePro - E-Invoicing Checks for CII and UBL Future mandats
+# EInvoiceValidatePro
+
+E-Invoicing Checks for CII and UBL Future mandates
 
 ## The problem
 

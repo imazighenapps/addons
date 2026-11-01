@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'ApprovalDeskPro - Multi-Level Approval Workflow',
+    'name': 'ApprovalDeskPro',
     'version': '18.0.1.0.0',
     'summary': 'Route any record through a multi-level approval chain: one approver per amount threshold, strict step-by-step sign-off, dated decisions and a full chatter trail.',
     'description': '''ApprovalDeskPro - Multi-Level Approval Workflow
@@ -37,7 +37,8 @@ the request currency and each company only sees its own requests.
 * Multi-company and multi-currency, no dependency on other applications.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
-    'category': 'Productivity/Productivity',
+    'support': 'imazighenapps@gmail.com',
+    'category': 'Productivity',
     'license': 'OPL-1',
     'price': 79.0,
     'currency': 'EUR',

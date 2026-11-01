@@ -1,4 +1,6 @@
-# FxRevalPro - Period-End Currency Revaluation
+# FxRevalPro
+
+Period-End Currency Revaluation
 
 ## The problem
 

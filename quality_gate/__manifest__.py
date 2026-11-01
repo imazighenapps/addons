@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'QualityGate - Quality Control and Inspections',
+    'name': 'QualityGate',
     'version': '18.0.1.0.0',
     'summary': 'Run incoming, in-process and outgoing quality inspections with reusable control plans, measured checkpoints and tracked non-conformities.',
     'description': '''QualityGate - Quality Control and Inspections
@@ -28,6 +28,7 @@ chatter.
 * Full audit trail, multi-company, no Enterprise dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Manufacturing/Manufacturing',
     'license': 'OPL-1',
     'price': 79.0,

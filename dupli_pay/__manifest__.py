@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'DupliPay - Duplicate Invoice and Payment Detection',
+    'name': 'DupliPay',
     'version': '18.0.1.0.0',
     'summary': 'Detect duplicate invoices, bills and payments before payment, with a tolerance on amount and date and a documented decision.',
     'description': '''DupliPay - Duplicate Invoice and Payment Detection
@@ -20,6 +20,7 @@ Every decision is traced.
 * Full audit trail with the user and the date.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 59.0,

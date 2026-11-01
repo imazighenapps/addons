@@ -1,4 +1,6 @@
-# CommissionDesk — Sales Commission Engine
+# CommissionDesk
+
+Sales Commission Engine
 
 ## The problem
 

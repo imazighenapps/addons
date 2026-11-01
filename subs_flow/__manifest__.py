@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'SubsFlow - Subscriptions and Recurring Invoicing',
+    'name': 'SubsFlow',
     'version': '18.0.1.0.0',
     'summary': 'Recurring subscriptions for Odoo Community: plans, periods, prorata, automatic invoices, pause, MRR and churn.',
     'description': '''SubsFlow - Subscriptions and Recurring Invoicing
@@ -21,6 +21,7 @@ on the dashboard.
 * Multi-company and multi-currency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Sales/Sales',
     'license': 'OPL-1',
     'price': 79.0,

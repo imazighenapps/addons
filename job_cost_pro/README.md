@@ -1,4 +1,6 @@
-# JobCostPro - Job Costing, Committed Costs and Real Margin
+# JobCostPro
+
+Job Costing, Committed Costs and Real Margin
 
 ## The problem
 

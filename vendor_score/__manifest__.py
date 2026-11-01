@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'VendorScore - Objective Supplier Rating',
+    'name': 'VendorScore',
     'version': '18.0.1.0.0',
     'summary': 'Score every supplier automatically on on-time delivery, fill rate, price variance and quality, then drive a documented improvement plan.',
     'description': '''VendorScore - Objective Supplier Rating
@@ -21,6 +21,7 @@ clear label, and an improvement plan with owners and deadlines.
 * Review history per supplier.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Inventory/Purchase',
     'license': 'OPL-1',
     'price': 69.0,

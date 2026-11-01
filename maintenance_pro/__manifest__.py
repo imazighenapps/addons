@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'MaintenancePro - Equipment Maintenance Management',
+    'name': 'MaintenancePro',
     'version': '18.0.1.0.0',
     'summary': 'Keep an equipment register, plan preventive maintenance and track corrective requests with downtime, costs and full history.',
     'description': '''MaintenancePro - Equipment Maintenance Management
@@ -30,6 +30,7 @@ intervention date and total maintenance cost.
 * Multi-company equipment register and requests.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Manufacturing/Manufacturing',
     'license': 'OPL-1',
     'price': 69.0,

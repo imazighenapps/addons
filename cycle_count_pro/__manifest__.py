@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'CycleCountPro - Inventory Cycle Counting',
+    'name': 'CycleCountPro',
     'version': '18.0.1.0.0',
     'summary': 'Plan ABC cycle counts, count by location, control variances and post stock adjustments without freezing the warehouse.',
     'description': '''CycleCountPro - Inventory Cycle Counting
@@ -21,6 +21,7 @@ goes up, your operations never stop.
 * Scheduled session creation with a cron.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Inventory/Inventory',
     'license': 'OPL-1',
     'price': 79.0,

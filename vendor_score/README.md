@@ -1,4 +1,6 @@
-# VendorScore - Objective Supplier Rating
+# VendorScore
+
+Objective Supplier Rating
 
 ## The problem
 

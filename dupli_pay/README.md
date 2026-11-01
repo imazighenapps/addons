@@ -1,4 +1,6 @@
-# DupliPay - Duplicate Invoice and Payment Detection
+# DupliPay
+
+Duplicate Invoice and Payment Detection
 
 ## The problem
 

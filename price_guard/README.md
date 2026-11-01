@@ -1,4 +1,6 @@
-# PriceGuard - Purchase Price Compliance
+# PriceGuard
+
+Purchase Price Compliance
 
 ## The problem
 

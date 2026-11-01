@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'ReportForge - No-Code Document Templates',
+    'name': 'ReportForge',
     'version': '18.0.1.0.0',
     'summary': 'Build your own PDF documents with placeholders, no QWeb developer needed: quotes, invoices, letters and product sheets.',
     'description': '''ReportForge - No-Code Document Templates
@@ -21,7 +21,8 @@ is versioned and archived, so you always know which template produced it.
 * Works with Odoo Community and Enterprise.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
-    'category': 'Productivity/Productivity',
+    'support': 'imazighenapps@gmail.com',
+    'category': 'Productivity',
     'license': 'OPL-1',
     'price': 129.0,
     'currency': 'EUR',

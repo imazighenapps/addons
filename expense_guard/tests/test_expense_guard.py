@@ -30,9 +30,6 @@ class TestExpenseGuard(TransactionCase):
             "taxes_id": [(5, 0, 0)],
             "supplier_taxes_id": [(5, 0, 0)],
         })
-        # A demo database may already contain policies: disable them so the
-        # tests only exercise the policy created below (rolled back after).
-        cls.env["expense.policy"].search([]).write({"active": False})
         cls.policy = cls.env["expense.policy"].create({
             "name": "Travel cap",
             "product_id": cls.product.id,
@@ -67,9 +64,7 @@ class TestExpenseGuard(TransactionCase):
         self._receipt(expense)
         expense.action_submit()
         self.assertEqual(expense.policy_state, "ok")
-        approval = getattr(expense, "approval_state", False)
-        if approval:
-            self.assertIn(approval, ("submitted", "approved"))
+        self.assertIn(expense.approval_state, ("submitted", "approved"))
 
     def test_02_amount_cap_blocks(self):
         expense = self._expense(150.0)

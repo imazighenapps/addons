@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'StockCard Pro - Valued Stock Card',
+    'name': 'StockCard Pro',
     'version': '18.0.1.0.0',
     'summary': 'Audit-ready stock card per product, warehouse and lot: opening, inbound, outbound, closing quantity and value, with PDF.',
     'description': '''StockCard Pro - Valued Stock Card
@@ -21,6 +21,7 @@ audit file.
 * Full traceability: every line links back to the stock move.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Inventory/Inventory',
     'license': 'OPL-1',
     'price': 39.0,

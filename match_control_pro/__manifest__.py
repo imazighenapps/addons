@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'MatchControlPro - Three-Way Match for Purchase Orders, Receipts and Vendor Bills',
+    'name': 'MatchControlPro',
     'version': '18.0.1.0.0',
     'summary': 'Compare purchase orders, receipts and vendor bills line by line, flag quantity and price variances outside tolerance, and force a written reason before validating an exception.',
     'description': '''MatchControlPro - Three-Way Match for Purchase Orders, Receipts and Vendor Bills
@@ -35,6 +35,7 @@ whole history of runs, reasons and decisions is kept in the chatter.
 * Multi-company ready, no Enterprise dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 99.0,

@@ -1,4 +1,6 @@
-# MaintenancePro - Equipment Maintenance Management
+# MaintenancePro
+
+Equipment Maintenance Management
 
 ## The problem
 

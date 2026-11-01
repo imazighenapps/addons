@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'DeferralPro - Prepaid Expenses and Deferred Revenue',
+    'name': 'DeferralPro',
     'version': '18.0.1.0.0',
     'summary': 'Spread prepaid expenses and deferred revenue over their real period, post one month or the whole schedule, and keep posted and remaining amounts exact.',
     'description': '''DeferralPro - Prepaid Expenses and Deferred Revenue
@@ -37,6 +37,7 @@ and traced in the chatter.
 * Multi-company, multi-currency, no Enterprise dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 119.0,

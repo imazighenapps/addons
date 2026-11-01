@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'WarrantyTrack - Product Warranty and Claims',
+    'name': 'WarrantyTrack',
     'version': '18.0.1.0.0',
     'summary': 'Register the warranty of every serial number, check coverage at claim time, record repair or replacement cost and recover from the supplier.',
     'description': '''WarrantyTrack - Product Warranty and Claims
@@ -22,6 +22,7 @@ supplier.
 * Expiry scheduler for the warranty list.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Services/Field Service',
     'license': 'OPL-1',
     'price': 79.0,

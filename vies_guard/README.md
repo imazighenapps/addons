@@ -1,4 +1,6 @@
-# VIESGuard - EU VAT Number Validation
+# VIESGuard
+
+EU VAT Number Validation
 
 ## The problem
 

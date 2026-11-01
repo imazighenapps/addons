@@ -1,4 +1,6 @@
-# BudgetCtlPro - Budget Control with Commitments
+# BudgetCtlPro
+
+Budget Control with Commitments
 
 ## The problem
 

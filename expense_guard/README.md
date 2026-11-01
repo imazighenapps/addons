@@ -1,4 +1,6 @@
-# ExpenseGuard - Expense Policy Compliance
+# ExpenseGuard
+
+Expense Policy Compliance
 
 ## The problem
 

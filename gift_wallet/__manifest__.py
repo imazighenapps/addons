@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'GiftWallet - Gift Cards and Store Credit',
+    'name': 'GiftWallet',
     'version': '18.0.1.0.0',
     'summary': 'Issue gift cards with a unique code, redeem partially, reload, track the balance and expire them automatically.',
     'description': '''GiftWallet - Gift Cards and Store Credit
@@ -21,6 +21,7 @@ liability at any time.
 * Multi-company and multi-currency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Sales/Sales',
     'license': 'OPL-1',
     'price': 69.0,

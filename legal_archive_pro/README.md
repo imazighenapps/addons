@@ -1,4 +1,6 @@
-# LegalArchivePro - Tamper-Evident Legal Document Archive
+# LegalArchivePro
+
+Tamper-Evident Legal Document Archive
 
 ## The problem
 

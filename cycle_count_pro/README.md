@@ -1,4 +1,6 @@
-# CycleCountPro - Inventory Cycle Counting
+# CycleCountPro
+
+Inventory Cycle Counting
 
 ## The problem
 

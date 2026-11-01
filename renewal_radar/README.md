@@ -1,4 +1,6 @@
-# RenewalRadar - Contract Renewal Management
+# RenewalRadar
+
+Contract Renewal Management
 
 ## The problem
 

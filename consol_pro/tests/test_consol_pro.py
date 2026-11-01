@@ -5,7 +5,6 @@ from unittest import SkipTest
 from odoo import Command
 from odoo.exceptions import UserError, ValidationError
 from odoo.tests import TransactionCase, tagged
-# ---SPLIT2---
 @tagged("post_install", "-at_install")
 class TestConsolPro(TransactionCase):
     @classmethod
@@ -190,7 +189,6 @@ class TestConsolPro(TransactionCase):
         self.assertAlmostEqual(self.run_main.total_credit, 200.0, places=2)
         with self.assertRaises(UserError):
             self.run_main.action_eliminate()
-# ---SPLIT3---
     def test_05_compute_on_an_empty_period(self):
         empty = self._run(
             [self.company1],

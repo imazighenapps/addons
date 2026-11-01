@@ -1,4 +1,6 @@
-# StockCard Pro - Valued Stock Card
+# StockCard Pro
+
+Valued Stock Card
 
 ## The problem
 
