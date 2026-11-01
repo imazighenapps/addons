@@ -1,4 +1,6 @@
-# WarrantyTrack - Product Warranty and Claims
+# WarrantyTrack
+
+Product Warranty and Claims
 
 ## The problem
 

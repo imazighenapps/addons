@@ -1,4 +1,6 @@
-# BackInStock Pro - Back in Stock Alerts
+# BackInStock Pro
+
+Back in Stock Alerts
 
 ## The problem
 

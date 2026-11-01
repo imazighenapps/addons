@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'ConsolPro - Multi-Company Consolidation and Eliminations',
+    'name': 'ConsolPro',
     'version': '19.0.1.0.0',
     'summary': 'Aggregate the posted balances of several companies by account code, zero the tagged intercompany lines and lock the consolidation once it is posted.',
     'description': '''ConsolPro - Multi-Company Consolidation and Eliminations
@@ -41,6 +41,7 @@ traces every step in the chatter and needs no Enterprise dependency.
   dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 179.0,

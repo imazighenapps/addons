@@ -1,4 +1,6 @@
-# AssetPro - Fixed Asset Register and Depreciation
+# AssetPro
+
+Fixed Asset Register and Depreciation
 
 ## The problem
 

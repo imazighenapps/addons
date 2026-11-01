@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'VIESGuard - EU VAT Number Validation',
+    'name': 'VIESGuard',
     'version': '19.0.1.0.0',
     'summary': 'Check every EU VAT number against the official VIES service, keep a dated proof, re-check automatically and audit every result.',
     'description': '''VIESGuard - EU VAT Number Validation
@@ -24,6 +24,7 @@ customers in one click, and a scheduler re-checks the old results.
 * Works with Odoo Community and Enterprise, multi-company.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Localizations',
     'license': 'OPL-1',
     'price': 39.0,

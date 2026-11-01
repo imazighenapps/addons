@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'RentalLite - Equipment Rental for Odoo Community',
+    'name': 'RentalLite',
     'version': '19.0.1.0.0',
     'summary': 'Rent equipment with availability control, deposit, contract, return inspection and invoicing, without the Enterprise Rental app.',
     'description': '''RentalLite - Equipment Rental for Odoo Community
@@ -22,6 +22,7 @@ deposit, a return with inspection and damage fee, and an invoice in one click.
 * Multi-company and multi-currency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Sales/Sales',
     'license': 'OPL-1',
     'price': 149.0,

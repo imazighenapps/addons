@@ -1,4 +1,6 @@
-# QualityGate - Quality Control and Inspections
+# QualityGate
+
+Quality Control and Inspections
 
 ## The problem
 

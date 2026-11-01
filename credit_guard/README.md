@@ -1,4 +1,6 @@
-# CreditGuard - Customer Credit Control
+# CreditGuard
+
+Customer Credit Control
 
 ## The problem
 

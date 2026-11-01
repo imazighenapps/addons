@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'FeedBridge - Google and Meta Product Feeds',
+    'name': 'FeedBridge',
     'version': '19.0.1.0.0',
     'summary': 'Generate validated Google Merchant and Meta product feeds in XML or CSV, with a public URL, error report and automatic refresh.',
     'description': '''FeedBridge - Google and Meta Product Feeds
@@ -21,6 +21,7 @@ report, so you fix the product instead of guessing why Google rejects it.
 * Works with Odoo Community and Enterprise.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Website/Website',
     'license': 'OPL-1',
     'price': 99.0,

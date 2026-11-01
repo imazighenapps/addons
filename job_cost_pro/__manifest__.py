@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'JobCostPro - Job Costing, Committed Costs and Real Margin',
+    'name': 'JobCostPro',
     'version': '19.0.1.0.0',
     'summary': 'Compare the budget of every job with its actual and committed costs, cap the progress at 100 percent and flag the job before an overrun destroys the margin.',
     'description': '''JobCostPro - Job Costing, Committed Costs and Real Margin
@@ -34,6 +34,7 @@ stays in the chatter.
   dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Services/Project',
     'license': 'OPL-1',
     'price': 149.0,

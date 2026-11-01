@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'BankImportPro - Bank Statement Parsing, Rules and Duplicate Detection',
+    'name': 'BankImportPro',
     'version': '19.0.1.0.0',
     'summary': 'Parse CSV and CAMT bank statement files into statement lines, assign partners and accounts with matching rules, and flag transactions already imported.',
     'description': '''BankImportPro - Bank Statement Parsing, Rules and Duplicate Detection
@@ -36,6 +36,7 @@ no external dependency and no Enterprise module.
 * Chatter audit trail, multi-company, no Enterprise dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 119.0,

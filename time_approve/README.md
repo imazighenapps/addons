@@ -1,4 +1,6 @@
-# TimeApprove - Weekly Timesheet Approval
+# TimeApprove
+
+Weekly Timesheet Approval
 
 ## The problem
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'EInvoiceValidatePro - E-Invoicing Checks for CII and UBL Future mandats',
+    'name': 'EInvoiceValidatePro',
     'version': '19.0.1.0.0',
     'summary': 'Generate a compliant e-invoicing XML document from every posted customer invoice and run plain compliance checks before the new e-invoicing mandates.',
     'description': '''EInvoiceValidatePro - E-Invoicing Checks for CII and UBL Future mandats
@@ -39,6 +39,7 @@ and the chatter keeps the full audit trail of what was checked and when.
 * Multi-company, no external Python dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 99.0,

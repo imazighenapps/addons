@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'ProjectMargin - Project Profitability and Budget Control',
+    'name': 'ProjectMargin',
     'version': '19.0.1.0.0',
     'summary': 'Track budgeted and actual revenue and cost per project, watch the margin rate and get flagged before a cost overrun eats the profit.',
     'description': '''ProjectMargin - Project Profitability and Budget Control
@@ -30,6 +30,7 @@ its lines, and the whole story stays in the chatter.
 * Multi-company, multi-currency, no Enterprise dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Services/Project',
     'license': 'OPL-1',
     'price': 79.0,

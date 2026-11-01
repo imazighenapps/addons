@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'StatementPro - Customer and Supplier Statements',
+    'name': 'StatementPro',
     'version': '19.0.1.0.0',
     'summary': 'Consolidated account statements per partner: opening balance, movements, aging, PDF and batch sending.',
     'description': '''StatementPro - Customer and Supplier Statements
@@ -21,6 +21,7 @@ one statement per partner for the whole month.
 * Full audit trail on generation and sending.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 69.0,

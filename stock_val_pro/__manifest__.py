@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'StockValPro - Stock Valuation Report for Month-End Closing',
+    'name': 'StockValPro',
     'version': '19.0.1.0.0',
     'summary': 'Month-end stock valuation per product from done moves, valued at cost, with totals, slow movers and a confirm lock for the closing file.',
     'description': '''StockValPro - Stock Valuation Report for Month-End Closing
@@ -35,7 +35,8 @@ five-minute check instead of a spreadsheet archaeology project.
 * Multi-company, optional location filter, no Enterprise dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
-    'category': 'Inventory/Inventory',
+    'support': 'imazighenapps@gmail.com',
+    'category': 'Supply Chain/Inventory',
     'license': 'OPL-1',
     'price': 129.0,
     'currency': 'EUR',

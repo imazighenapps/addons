@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'FxRevalPro - Period-End Currency Revaluation',
+    'name': 'FxRevalPro',
     'version': '19.0.1.0.0',
     'summary': 'Revalue open receivables and payables in a foreign currency at the closing rate, book the unrealized gain or loss in a balanced entry and keep the trail.',
     'description': '''FxRevalPro - Period-End Currency Revaluation
@@ -36,6 +36,7 @@ reset to draft, and every step is logged in the chatter.
 * Multi-company, multi-currency, no Enterprise dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 99.0,

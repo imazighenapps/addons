@@ -1,4 +1,6 @@
-# DepositPro - Customer Deposits and Prepayments
+# DepositPro
+
+Customer Deposits and Prepayments
 
 ## The problem
 

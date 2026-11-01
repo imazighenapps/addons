@@ -1,4 +1,6 @@
-# DocExpiry - Document Expiry and Renewal Tracking
+# DocExpiry
+
+Document Expiry and Renewal Tracking
 
 ## The problem
 

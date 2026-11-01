@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'BudgetCtlPro - Budget Control with Commitments',
+    'name': 'BudgetCtlPro',
     'version': '19.0.1.0.0',
     'summary': 'Compare planned, actual and committed amounts line by line, see what is really left to spend, and freeze the budget once the period is closed.',
     'description': '''BudgetCtlPro - Budget Control with Commitments
@@ -35,6 +35,7 @@ multi-company, multi-currency and works on Community as well as Enterprise.
 * Multi-company, multi-currency, no Enterprise dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 129.0,

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'DocExpiry - Document Expiry and Renewal Tracking',
+    'name': 'DocExpiry',
     'version': '19.0.1.0.0',
     'summary': 'Keep every contract, insurance policy, certificate and licence in one register with automatic expiry status, reminder dates and one-click renewals.',
     'description': '''DocExpiry - Document Expiry and Renewal Tracking
@@ -28,6 +28,7 @@ forward, and the old and new dates stay in the renewal history.
 * Multi-company, searchable and free of any Enterprise dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Productivity/Documents',
     'license': 'OPL-1',
     'price': 59.0,

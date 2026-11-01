@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'AssetPro - Fixed Asset Register and Depreciation',
+    'name': 'AssetPro',
     'version': '19.0.1.0.0',
     'summary': 'Keep a fixed asset register, generate linear or declining depreciation schedules, post periods and record disposals with gain or loss.',
     'description': '''AssetPro - Fixed Asset Register and Depreciation
@@ -27,6 +27,7 @@ loss is computed against the net book value.
 * Multi-company and multi-currency ready.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 89.0,

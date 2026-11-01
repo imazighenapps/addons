@@ -1,4 +1,6 @@
-# ProjectMargin - Project Profitability and Budget Control
+# ProjectMargin
+
+Project Profitability and Budget Control
 
 ## The problem
 

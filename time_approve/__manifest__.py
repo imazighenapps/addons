@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'TimeApprove - Weekly Timesheet Approval',
+    'name': 'TimeApprove',
     'version': '19.0.1.0.0',
     'summary': 'Weekly timesheet submission, manager approval, rejection comments and locking, so approved hours can no longer be edited.',
     'description': '''TimeApprove - Weekly Timesheet Approval
@@ -21,6 +21,7 @@ that is still waiting.
 * Works with the standard Odoo timesheet lines.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Services/Timesheets',
     'license': 'OPL-1',
     'price': 49.0,

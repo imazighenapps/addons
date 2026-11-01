@@ -153,10 +153,4 @@ class HrExpense(models.Model):
             if any(line for line in (expense.policy_note or "").splitlines()):
                 expense.message_post(body=_(
                     "Expense policy warning:\n%s", expense.policy_note))
-        # Odoo 18 submits an expense through ``action_submit_expenses``.
-        parent = super()
-        if hasattr(parent, "action_submit"):
-            return parent.action_submit()
-        if hasattr(parent, "action_submit_expenses"):
-            return parent.action_submit_expenses()
-        return True
+        return super().action_submit()

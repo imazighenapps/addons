@@ -1,4 +1,6 @@
-# DockSlotPro - Delivery Time Slots and Capacity Planning
+# DockSlotPro
+
+Delivery Time Slots and Capacity Planning
 
 ## The problem
 

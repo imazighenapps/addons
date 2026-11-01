@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'RenewalRadar - Contract Renewal Management',
+    'name': 'RenewalRadar',
     'version': '19.0.1.0.0',
     'summary': 'Track contract end dates, notice periods and renewals, with automatic alerts, renewal history and churn reasons.',
     'description': '''RenewalRadar - Contract Renewal Management
@@ -25,6 +25,7 @@ churn reason is recorded so that management can act on it.
 * Search filters and grouped views per owner, type and status.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Sales/Sales',
     'license': 'OPL-1',
     'price': 89.0,

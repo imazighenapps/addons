@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'CloseFlow - Month-End Close Checklist',
+    'name': 'CloseFlow',
     'version': '19.0.1.0.0',
     'summary': 'Run the monthly close with a reusable checklist: owners, deadlines, dependencies, evidence, progress dashboard and a locked audit trail.',
     'description': '''CloseFlow - Month-End Close Checklist
@@ -25,6 +25,7 @@ trail.
 * Multi-company.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 79.0,

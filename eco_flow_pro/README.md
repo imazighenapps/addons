@@ -1,4 +1,6 @@
-# EcoFlowPro - Engineering Change Orders on Bills of Materials
+# EcoFlowPro
+
+Engineering Change Orders on Bills of Materials
 
 ## The problem
 

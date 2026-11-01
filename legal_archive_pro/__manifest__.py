@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'LegalArchivePro - Tamper-Evident Legal Document Archive',
+    'name': 'LegalArchivePro',
     'version': '19.0.1.0.0',
     'summary': 'Keep invoices, bills, contracts and payslips in a tamper-evident archive with SHA-256 hash chaining, retention expiry dates and a complete audit log.',
     'description': '''LegalArchivePro - Tamper-Evident Legal Document Archive
@@ -38,6 +38,7 @@ no Enterprise module.
   dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Productivity/Document Management',
     'license': 'OPL-1',
     'price': 139.0,

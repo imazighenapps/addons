@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'ExpenseGuard - Expense Policy Compliance',
+    'name': 'ExpenseGuard',
     'version': '19.0.1.0.0',
     'summary': 'Control expense claims against your own policy: amount caps, receipt required, maximum age, duplicate check, block or warn, with an audit trail.',
     'description': '''ExpenseGuard - Expense Policy Compliance
@@ -21,6 +21,7 @@ claim or warns the approver, and records every violation in an audit trail.
 * Works with the standard Odoo expense module.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Human Resources/Expenses',
     'license': 'OPL-1',
     'price': 49.0,

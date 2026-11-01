@@ -1,4 +1,6 @@
-# ReportForge - No-Code Document Templates
+# ReportForge
+
+No-Code Document Templates
 
 ## The problem
 
