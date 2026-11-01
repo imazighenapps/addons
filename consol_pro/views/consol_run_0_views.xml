@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_consol_run_list" model="ir.ui.view">
+        <field name="name">consol.run.list</field>
+        <field name="model">consol.run</field>
+        <field name="arch" type="xml">
+            <list string="Consolidation Runs" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="company_ids" widget="many2many_tags"/>
+                <field name="total_debit" sum="Total Total Debit"/>
+                <field name="total_credit" sum="Total Total Credit"/>
+                <field name="state" widget="badge"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_consol_run_form" model="ir.ui.view">
+        <field name="name">consol.run.form</field>
+        <field name="model">consol.run</field>
+        <field name="arch" type="xml">
+            <form string="Consolidation Runs">
+                <header>
+                    <button name="action_compute" type="object" string="Compute Balances" class="btn-primary" invisible="state == 'posted'"/>
+                    <button name="action_eliminate" type="object" string="Eliminate Mapped Lines" class="btn-primary" invisible="state != 'computed'"/>
+                    <button name="action_post" type="object" string="Post" class="btn-primary" invisible="state != 'computed'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state not in ('computed', 'posted')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,computed,posted"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Run">
+    <field name="name"/>
+    <field name="company_ids"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Period">
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Totals">
+    <field name="total_debit"/>
+    <field name="total_credit"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Consolidation Lines" name="lineids">
+                            <field name="line_ids" readonly="state == 'posted'">
+                        <list editable="bottom">
+                            <field name="company_id"/>
+                            <field name="account_code"/>
+                            <field name="account_name"/>
+                            <field name="mapping" optional="show"/>
+                            <field name="debit" sum="Total Debit"/>
+                            <field name="credit" sum="Total Credit"/>
+                            <field name="balance" sum="Total Balance"/>
+                            <field name="eliminated" widget="boolean"
+                                   readonly="1"/>
+                            <button name="action_eliminate" type="object"
+                                    string="Eliminate" icon="fa-ban"
+                                    invisible="eliminated or parent.state != 'computed'"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_consol_run_search" model="ir.ui.view">
+        <field name="name">consol.run.search</field>
+        <field name="model">consol.run</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="company_ids"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="computed" string="Computed" domain="[('state','=','computed')]"/>
+                <filter name="posted" string="Posted" domain="[('state','=','posted')]"/>
+                <filter name="mapped" string="With Mappings" domain="[('line_ids.mapping','!=','')]"/>
+                <filter name="eliminated" string="With Eliminations" domain="[('line_ids.eliminated','=',True)]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_ids'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_consol_run" model="ir.actions.act_window">
+        <field name="name">Consolidation Runs</field>
+        <field name="res_model">consol.run</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Pick the companies and the period, compute the posted balances, tag the intercompany lines with a mapping and eliminate them.</p>
+        </field>
+    </record>
+
+</odoo>

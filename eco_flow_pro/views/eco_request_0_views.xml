@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_eco_request_list" model="ir.ui.view">
+        <field name="name">eco.request.list</field>
+        <field name="model">eco.request</field>
+        <field name="arch" type="xml">
+            <list string="Engineering Changes" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="title"/>
+                <field name="product_tmpl_id"/>
+                <field name="bom_id"/>
+                <field name="eco_type" widget="badge"/>
+                <field name="requested_by"/>
+                <field name="approver_id"/>
+                <field name="date_effectivity"/>
+                <field name="line_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eco_request_form" model="ir.ui.view">
+        <field name="name">eco.request.form</field>
+        <field name="model">eco.request</field>
+        <field name="arch" type="xml">
+            <form string="Engineering Changes">
+                <header>
+                    <button name="action_submit" type="object" string="Submit for Review" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'review'"/>
+                    <button name="action_refuse" type="object" string="Refuse" class="btn-danger" invisible="state != 'review'"/>
+                    <button name="action_apply" type="object" string="Apply to BOM" class="btn-success" invisible="state != 'approved'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state not in ('applied', 'refused')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,review,approved,applied,refused"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="title" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Request">
+    <field name="name"/>
+    <field name="title"/>
+    <field name="eco_type"/>
+    <field name="product_tmpl_id"/>
+    <field name="bom_id"/>
+    <field name="date_effectivity"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Workflow">
+    <field name="state"/>
+    <field name="requested_by"/>
+    <field name="approver_id"/>
+    <field name="line_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Change Lines" name="lineids">
+                            <field name="line_ids" readonly="state not in ('draft', 'review')">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="change_type"/>
+                            <field name="component_id"/>
+                            <field name="old_qty"/>
+                            <field name="new_qty"
+                                   invisible="change_type == 'remove'"/>
+                            <field name="note" optional="show"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Reason" name="reason">
+                            <field name="reason"/>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eco_request_search" model="ir.ui.view">
+        <field name="name">eco.request.search</field>
+        <field name="model">eco.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="title"/>
+                <field name="product_tmpl_id"/>
+                <field name="bom_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="review" string="In Review" domain="[('state','=','review')]"/>
+                <filter name="approved" string="Approved" domain="[('state','=','approved')]"/>
+                <filter name="applied" string="Applied" domain="[('state','=','applied')]"/>
+                <filter name="refused" string="Refused" domain="[('state','=','refused')]"/>
+                <filter name="mine" string="My Requests" domain="[('requested_by','=',uid)]"/>
+                <separator/>
+                <filter name="group_type" string="Type" context="{'group_by': 'eco_type'}"/>
+                <filter name="group_product" string="Product" context="{'group_by': 'product_tmpl_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_eco_request" model="ir.actions.act_window">
+        <field name="name">Engineering Changes</field>
+        <field name="res_model">eco.request</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Describe the change on the BOM lines, submit it, then apply it once it is approved.</p>
+        </field>
+    </record>
+
+</odoo>

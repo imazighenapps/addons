@@ -1,0 +1,492 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* approval_desk_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Add at least one approver with a minimum amount before submitting the request."
+msgstr "Adicione pelo menos um aprovador com valor mínimo antes de enviar a solicitação."
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__amount
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_form
+msgid "Amount"
+msgstr "Montante"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,help:approval_desk_pro.field_approval_desk_request__amount
+msgid "Amount submitted to the approval chain. It selects the approvers whose threshold is reached."
+msgstr "Valor submetido à cadeia de aprovação. Ele seleciona os aprovadores cujo limite foi atingido."
+
+#. module: approval_desk_pro
+#: model:ir.model.constraint,message:approval_desk_pro.constraint_approval_desk_step_request_approver_uniq
+msgid "An approver can only appear once in the approval chain."
+msgstr "Um aprovador só pode aparecer uma vez na cadeia de aprovação."
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_form
+msgid "Approval"
+msgstr "Aprovação"
+
+#. module: approval_desk_pro
+#: model:res.groups,name:approval_desk_pro.group_approvaldesk_manager
+msgid "Approval Desk Pro Manager"
+msgstr "Gerente Pro do Balcão de Aprovação"
+
+#. module: approval_desk_pro
+#: model:res.groups,name:approval_desk_pro.group_approvaldesk_user
+msgid "Approval Desk Pro User"
+msgstr "Usuário do Approval Desk Pro"
+
+#. module: approval_desk_pro
+#: model:ir.model,name:approval_desk_pro.model_approval_desk_request
+msgid "Approval Request"
+msgstr "Solicitação de aprovação"
+
+#. module: approval_desk_pro
+#: model:ir.actions.act_window,name:approval_desk_pro.action_approval_desk_request
+#: model:ir.ui.menu,name:approval_desk_pro.menu_apprdesk_requests
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_form
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_list
+msgid "Approval Requests"
+msgstr "Solicitações de aprovação"
+
+#. module: approval_desk_pro
+#: model:ir.model,name:approval_desk_pro.model_approval_desk_step
+msgid "Approval Step"
+msgstr "Etapa de aprovação"
+
+#. module: approval_desk_pro
+#: model:ir.actions.act_window,name:approval_desk_pro.action_approval_desk_step
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__step_ids
+#: model:ir.ui.menu,name:approval_desk_pro.menu_apprdesk_steps
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_form
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_form
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_list
+msgid "Approval Steps"
+msgstr "Etapas de aprovação"
+
+#. module: approval_desk_pro
+#: model:ir.module.module,shortdesc:base.module_approval_desk_pro
+msgid "ApprovalDeskPro - Multi-Level Approval Workflow"
+msgstr "ApprovalDeskPro - Fluxo de trabalho de aprovação multinível"
+
+#. module: approval_desk_pro
+#: model:ir.ui.menu,name:approval_desk_pro.menu_apprdesk_root
+msgid "Approvals"
+msgstr "Aprovações"
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_form
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_form
+msgid "Approve"
+msgstr "Aprovar"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields.selection,name:approval_desk_pro.selection__approval_desk_request__state__approved
+#: model:ir.model.fields.selection,name:approval_desk_pro.selection__approval_desk_step__state__approved
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_search
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_search
+msgid "Approved"
+msgstr "Aprovado"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__approver_id
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_search
+msgid "Approver"
+msgstr "Aprovadora Aprovador"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__comment
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_form
+msgid "Comment"
+msgstr "Comentário"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: approval_desk_pro
+#: model:res.groups,comment:approval_desk_pro.group_approvaldesk_manager
+msgid "Configure and administer the module."
+msgstr "Configure e administre o módulo."
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__create_uid
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__create_date
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__currency_id
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__currency_id
+msgid "Currency"
+msgstr "Moeda"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__current_step
+msgid "Current Step"
+msgstr "Etapa atual"
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_form
+msgid "Decision"
+msgstr "Decisão"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__decision_date
+msgid "Decision Date"
+msgstr "Data da Decisão"
+
+#. module: approval_desk_pro
+#: model_terms:ir.actions.act_window,help:approval_desk_pro.action_approval_desk_request
+msgid "Describe what must be approved, add one approver per amount threshold, then submit the request."
+msgstr "Descreva o que deve ser aprovado, adicione um aprovador por limite de valor e envie a solicitação."
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__display_name
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__res_name
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_form
+msgid "Document"
+msgstr "Documento"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__res_id
+msgid "Document ID"
+msgstr "ID do documento"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__model_name
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_search
+msgid "Document Model"
+msgstr "Modelo de documento"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields.selection,name:approval_desk_pro.selection__approval_desk_request__state__draft
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_search
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: approval_desk_pro
+#: model_terms:ir.actions.act_window,help:approval_desk_pro.action_approval_desk_step
+msgid "Every step of every approval chain, with its approver, threshold and decision."
+msgstr "Cada etapa de cada cadeia de aprovação, com seu aprovador, limite e decisão."
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,help:approval_desk_pro.field_approval_desk_request__current_step
+msgid "First pending step of the chain: the one that must sign now."
+msgstr "Primeira etapa pendente da cadeia: aquela que deve assinar agora."
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__has_message
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__write_uid
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__write_date
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__min_amount
+msgid "Minimum Amount"
+msgstr "Quantidade Mínima"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Prazo da minha atividade"
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_search
+msgid "My Requests"
+msgstr "Meus pedidos"
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_search
+msgid "My Steps"
+msgstr "Meus passos"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "No approver matches the amount %(amount).2f %(currency)s. Lower a threshold or add an approver."
+msgstr "Nenhum aprovador corresponde ao valor %(valor).2f %(currency)s. Reduza um limite ou adicione um aprovador."
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Only %(approver)s or the requester can refuse this request."
+msgstr "Somente %(approver)s ou o solicitante podem recusar esta solicitação."
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Only a draft or waiting request can be refused."
+msgstr "Apenas um rascunho ou pedido em espera pode ser recusado."
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Only a draft request can be submitted for approval."
+msgstr "Apenas um rascunho de solicitação pode ser submetido para aprovação."
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Only a request waiting for approval can be approved."
+msgstr "Somente uma solicitação aguardando aprovação poderá ser aprovada."
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Only the current pending step of the chain can be approved."
+msgstr "Somente a etapa pendente atual da cadeia pode ser aprovada."
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Only the current pending step of the chain can be refused."
+msgstr "Apenas a etapa pendente atual da cadeia pode ser recusada."
+
+#. module: approval_desk_pro
+#: model:ir.model.fields.selection,name:approval_desk_pro.selection__approval_desk_step__state__pending
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_search
+msgid "Pending"
+msgstr "Pendente"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,help:approval_desk_pro.field_approval_desk_request__res_name
+msgid "Readable name of the record being approved, kept as a snapshot so the request stays meaningful even if the record changes."
+msgstr "Nome legível do registro que está sendo aprovado, mantido como um instantâneo para que a solicitação permaneça significativa mesmo se o registro for alterado."
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,help:approval_desk_pro.field_approval_desk_request__name
+msgid "Reference of the request, generated from the APR/ sequence."
+msgstr "Referência da solicitação, gerada a partir da APR/sequência."
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_form
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_form
+msgid "Refuse"
+msgstr "Recusar"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields.selection,name:approval_desk_pro.selection__approval_desk_request__state__refused
+#: model:ir.model.fields.selection,name:approval_desk_pro.selection__approval_desk_step__state__refused
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_search
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_search
+msgid "Refused"
+msgstr "Recusada Recusado"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__request_id
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_form
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_search
+msgid "Request"
+msgstr "Solicitar"
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Request approved by %s."
+msgstr "Solicitação aprovada por %s."
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Request refused by %s."
+msgstr "Pedido recusado por %s."
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Request reset to draft: the approval steps were cleared."
+msgstr "Solicitação redefinida para rascunho: as etapas de aprovação foram apagadas."
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Request submitted for %(count)s approval step(s), first approver: %(approver)s."
+msgstr "Solicitação enviada para etapa(s) de aprovação de %(count)s, primeiro aprovador: %(approver)s."
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__requester_id
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_search
+msgid "Requester"
+msgstr "Solicitante"
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_form
+msgid "Reset to Draft"
+msgstr "Redefinir para rascunho"
+
+#. module: approval_desk_pro
+#: model:ir.module.module,summary:base.module_approval_desk_pro
+msgid "Route any record through a multi-level approval chain: one approver per amount threshold, strict step-by-step sign-off, dated decisions and a full chatter trail."
+msgstr "Encaminhe qualquer registro por meio de uma cadeia de aprovação de vários níveis: um aprovador por limite de valor, aprovação rigorosa passo a passo, decisões datadas e um histórico completo de conversas."
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__sequence
+msgid "Sequence"
+msgstr "Sequência"
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Set the document model when a document ID is given."
+msgstr "Defina o modelo do documento quando um ID do documento for fornecido."
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_request__state
+#: model:ir.model.fields,field_description:approval_desk_pro.field_approval_desk_step__state
+msgid "State"
+msgstr "Estado"
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_search
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_form
+msgid "Step"
+msgstr "Etapa"
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Step %(sequence)s approved by %(approver)s. Next approver: %(next)s."
+msgstr "Etapa %(sequence)s aprovada por %(approver)s. Próximo aprovador: %(next)s."
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "Step %(sequence)s of this request must be approved by %(approver)s, not by %(user)s."
+msgstr "A etapa %(sequence)s desta solicitação deve ser aprovada por %(approver)s, não por %(user)s."
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_form
+msgid "Submit"
+msgstr "Enviar"
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,help:approval_desk_pro.field_approval_desk_request__model_name
+msgid "Technical name of the model of the record to approve, for example res.partner or account.move."
+msgstr "Nome técnico do modelo do registro a ser aprovado, por exemplo res.partner ou account.move."
+
+#. module: approval_desk_pro
+#: model:ir.model.constraint,message:approval_desk_pro.constraint_approval_desk_request_amount_positive
+msgid "The amount of an approval request cannot be negative."
+msgstr "O valor de uma solicitação de aprovação não pode ser negativo."
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "The approval chain of \"%s\" is already submitted. Reset the request to draft first."
+msgstr "A cadeia de homologação do \"%s\" já foi submetida. Redefina a solicitação para rascunho primeiro."
+
+#. module: approval_desk_pro
+#: model:ir.model.constraint,message:approval_desk_pro.constraint_approval_desk_request_name_company_uniq
+msgid "The approval request reference must be unique per company."
+msgstr "A referência da solicitação de aprovação deve ser exclusiva por empresa."
+
+#. module: approval_desk_pro
+#: model:ir.model.constraint,message:approval_desk_pro.constraint_approval_desk_step_min_amount_positive
+msgid "The minimum amount of an approval step cannot be negative."
+msgstr "O valor mínimo de uma etapa de aprovação não pode ser negativo."
+
+#. module: approval_desk_pro
+#: model:ir.model.fields,help:approval_desk_pro.field_approval_desk_step__min_amount
+msgid "The step applies when the request amount reaches this value."
+msgstr "A etapa se aplica quando o valor da solicitação atinge esse valor."
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "This request has no pending approval step."
+msgstr "Esta solicitação não possui nenhuma etapa de aprovação pendente."
+
+#. module: approval_desk_pro
+#. odoo-python
+#: code:addons/approval_desk_pro/models/approval_desk_pro.py:0
+msgid "This request is already in draft."
+msgstr "Este pedido já está em rascunho."
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_list
+msgid "Total Amount"
+msgstr "Montante total"
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_step_list
+msgid "Total Min Amount"
+msgstr "Valor mínimo total"
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_form
+msgid "Total Threshold"
+msgstr "Limite total"
+
+#. module: approval_desk_pro
+#: model:res.groups,comment:approval_desk_pro.group_approvaldesk_user
+msgid "View and use the module."
+msgstr "Visualize e use o módulo."
+
+#. module: approval_desk_pro
+#: model:ir.model.fields.selection,name:approval_desk_pro.selection__approval_desk_request__state__waiting
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_search
+msgid "Waiting Approval"
+msgstr "Aguardando aprovação"
+
+#. module: approval_desk_pro
+#: model_terms:ir.ui.view,arch_db:approval_desk_pro.view_approval_desk_request_search
+msgid "Waiting for Me"
+msgstr "Esperando por mim"

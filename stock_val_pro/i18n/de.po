@@ -1,0 +1,504 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* stock_val_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,help:stock_val_pro.field_stock_val_report_line__balance_value
+msgid "(Quantity in - quantity out) x unit cost of the line."
+msgstr "(Eingehende Menge – ausgehende Menge) x Stückkosten der Zeile."
+
+#. module: stock_val_pro
+#: model:ir.model.constraint,message:stock_val_pro.constraint_stock_val_report_line_report_product_uniq
+msgid "A product can only appear once per valuation report."
+msgstr "Ein Produkt kann pro Bewertungsgutachten nur einmal erscheinen."
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__balance_qty
+msgid "Balance Qty"
+msgstr "Saldomenge"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__balance_value
+msgid "Balance Value"
+msgstr "Saldowert"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_search
+msgid "Category"
+msgstr "Kategorie"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__company_id
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_search
+msgid "Company"
+msgstr "Firma"
+
+#. module: stock_val_pro
+#: model:res.groups,comment:stock_val_pro.group_stockvalpro_manager
+msgid "Configure and administer the module."
+msgstr "Konfigurieren und verwalten Sie das Modul."
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#. module: stock_val_pro
+#: model:ir.model.fields.selection,name:stock_val_pro.selection__stock_val_report__state__confirmed
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_search
+msgid "Confirmed"
+msgstr "Bestätigt"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__create_uid
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__create_date
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__currency_id
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__currency_id
+msgid "Currency"
+msgstr "Währung"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__date_from
+msgid "Date From"
+msgstr "Stammen aus"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__date_to
+msgid "Date To"
+msgstr "Datum bis"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__display_name
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: stock_val_pro
+#: model:ir.model.fields.selection,name:stock_val_pro.selection__stock_val_report__state__draft
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_search
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: stock_val_pro
+#: model_terms:ir.actions.act_window,help:stock_val_pro.action_stock_val_report_line
+msgid "Every valuation line of every report, with its cost and its net balance."
+msgstr "Jede Bewertungszeile jedes Berichts mit ihren Kosten und ihrem Nettosaldo."
+
+#. module: stock_val_pro
+#: model:ir.model.fields,help:stock_val_pro.field_stock_val_report__date_from
+msgid "First day of the closing period, included in the report."
+msgstr "Erster Tag der Abschlussfrist, im Bericht enthalten."
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+msgid "Generate"
+msgstr "Erzeugen"
+
+#. module: stock_val_pro
+#. odoo-python
+#: code:addons/stock_val_pro/models/stock_val_pro.py:0
+msgid "Generate the valuation lines of \"%s\" before confirming it."
+msgstr "Generieren Sie vor der Bestätigung die Bewertungszeilen von „%s“."
+
+#. module: stock_val_pro
+#: model_terms:ir.actions.act_window,help:stock_val_pro.action_stock_val_report
+msgid "Generate the valuation of a closing period, check the lines, then confirm the report to freeze it."
+msgstr "Erstellen Sie die Bewertung einer Abschlussperiode, überprüfen Sie die Zeilen und bestätigen Sie dann den Bericht, um ihn einzufrieren."
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__has_message
+msgid "Has Message"
+msgstr "Hat Nachricht"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__write_uid
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__write_date
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,help:stock_val_pro.field_stock_val_report__date_to
+msgid "Last day of the closing period, included in the report."
+msgstr "Letzter Tag der Abschlussperiode, im Bericht enthalten."
+
+#. module: stock_val_pro
+#: model:ir.model.fields,help:stock_val_pro.field_stock_val_report__location_id
+msgid "Leave empty to value every internal location of the company. Set a location to value the flows in and out of it only."
+msgstr "Lassen Sie das Feld leer, um jeden internen Standort des Unternehmens zu bewerten. Legen Sie einen Ort fest, an dem nur die Zu- und Abflüsse bewertet werden."
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_form
+msgid "Line"
+msgstr "Linie"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__location_id
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_search
+msgid "Location"
+msgstr "Standort"
+
+#. module: stock_val_pro
+#: model:ir.module.module,summary:base.module_stock_val_pro
+msgid "Month-end stock valuation per product from done moves, valued at cost, with totals, slow movers and a confirm lock for the closing file."
+msgstr "Bestandsbewertung am Monatsende pro Produkt aus durchgeführten Bewegungen, bewertet zu Anschaffungskosten, mit Gesamtbeträgen, langsamen Lagerbeständen und einer Bestätigungssperre für die Abschlussdatei."
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__name
+msgid "Name"
+msgstr "Name"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_search
+msgid "Negative Balance"
+msgstr "Negativer Saldo"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,help:stock_val_pro.field_stock_val_report__total_value
+msgid "Net value of the report: the sum of the balance value of every line, at the cost captured on the line."
+msgstr "Nettowert des Berichts: die Summe des Saldowerts jeder Zeile zu den in der Zeile erfassten Kosten."
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__note
+msgid "Note"
+msgstr "Notiz"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+msgid "Notes"
+msgstr "Notizen"
+
+#. module: stock_val_pro
+#. odoo-python
+#: code:addons/stock_val_pro/models/stock_val_pro.py:0
+msgid "Only a confirmed report can be reset to draft."
+msgstr "Nur ein bestätigter Bericht kann auf den Entwurf zurückgesetzt werden."
+
+#. module: stock_val_pro
+#. odoo-python
+#: code:addons/stock_val_pro/models/stock_val_pro.py:0
+msgid "Only a draft report can be confirmed."
+msgstr "Es kann nur ein Berichtsentwurf bestätigt werden."
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+msgid "Period"
+msgstr "Periode"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__product_id
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_search
+msgid "Product"
+msgstr "Produkt"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__categ_id
+msgid "Product Category"
+msgstr "Produktkategorie"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__qty_in
+msgid "Qty In"
+msgstr "Menge in"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__qty_out
+msgid "Qty Out"
+msgstr "Ausverkaufte Menge"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_form
+msgid "Quantities"
+msgstr "Mengen"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__report_id
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_search
+msgid "Report"
+msgstr "Bericht"
+
+#. module: stock_val_pro
+#. odoo-python
+#: code:addons/stock_val_pro/models/stock_val_pro.py:0
+msgid "Report confirmed with %(count)s line(s) for a net value of %(value)s."
+msgstr "Bericht mit %(count)s-Zeile(n) für einen Nettowert von %(value)s bestätigt."
+
+#. module: stock_val_pro
+#. odoo-python
+#: code:addons/stock_val_pro/models/stock_val_pro.py:0
+msgid "Report reset to draft."
+msgstr "Bericht auf Entwurf zurückgesetzt."
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+msgid "Reset to Draft"
+msgstr "Zurücksetzen auf Entwurf"
+
+#. module: stock_val_pro
+#. odoo-python
+#: code:addons/stock_val_pro/models/stock_val_pro.py:0
+msgid "Set the start and the end date first."
+msgstr "Legen Sie zunächst das Start- und Enddatum fest."
+
+#. module: stock_val_pro
+#: model:ir.model.fields,help:stock_val_pro.field_stock_val_report_line__slow_mover
+msgid "Set when the product was received in the period but never issued. It can be adjusted by hand before the confirmation."
+msgstr "Wird festgelegt, wenn das Produkt in der Periode empfangen, aber nie ausgegeben wurde. Es kann vor der Bestätigung manuell angepasst werden."
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__slow_mover
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_list
+msgid "Slow Mover"
+msgstr "Langsamer Mover"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_search
+msgid "Slow Movers"
+msgstr "Langsame Mover"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,help:stock_val_pro.field_stock_val_report_line__unit_cost
+msgid "Standard cost captured when the report is generated. It is stored on the line so the report stays stable when the product cost changes afterwards."
+msgstr "Standardkosten werden erfasst, wenn der Bericht erstellt wird. Es wird auf der Linie gespeichert, sodass der Bericht stabil bleibt, wenn sich die Produktkosten nachträglich ändern."
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__state
+msgid "State"
+msgstr "Status"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_search
+msgid "Status"
+msgstr "Status"
+
+#. module: stock_val_pro
+#: model:res.groups,name:stock_val_pro.group_stockvalpro_manager
+msgid "Stock Val Pro Manager"
+msgstr "Stock Val Pro Manager"
+
+#. module: stock_val_pro
+#: model:res.groups,name:stock_val_pro.group_stockvalpro_user
+msgid "Stock Val Pro User"
+msgstr "Stock Val Pro-Benutzer"
+
+#. module: stock_val_pro
+#: model:ir.ui.menu,name:stock_val_pro.menu_stockval_root
+msgid "Stock Valuation"
+msgstr "Aktienbewertung"
+
+#. module: stock_val_pro
+#: model:ir.model,name:stock_val_pro.model_stock_val_report
+msgid "Stock Valuation Report"
+msgstr "Aktienbewertungsbericht"
+
+#. module: stock_val_pro
+#: model:ir.model,name:stock_val_pro.model_stock_val_report_line
+msgid "Stock Valuation Report Line"
+msgstr "Zeile des Aktienbewertungsberichts"
+
+#. module: stock_val_pro
+#: model:ir.module.module,shortdesc:base.module_stock_val_pro
+msgid "StockValPro - Stock Valuation Report for Month-End Closing"
+msgstr "StockValPro – Aktienbewertungsbericht für den Monatsabschluss"
+
+#. module: stock_val_pro
+#. odoo-python
+#: code:addons/stock_val_pro/models/stock_val_pro.py:0
+msgid "The end date cannot be before the start date."
+msgstr "Das Enddatum darf nicht vor dem Startdatum liegen."
+
+#. module: stock_val_pro
+#. odoo-python
+#: code:addons/stock_val_pro/models/stock_val_pro.py:0
+msgid "The quantities of the line \"%s\" cannot be negative."
+msgstr "Die Mengen der Zeile „%s“ dürfen nicht negativ sein."
+
+#. module: stock_val_pro
+#. odoo-python
+#: code:addons/stock_val_pro/models/stock_val_pro.py:0
+msgid "The report \"%s\" is confirmed and can no longer be regenerated. Reset it to draft first."
+msgstr "Der Report „%s“ ist bestätigt und kann nicht mehr neu generiert werden. Setzen Sie es zunächst auf „Entwurf“ zurück."
+
+#. module: stock_val_pro
+#. odoo-python
+#: code:addons/stock_val_pro/models/stock_val_pro.py:0
+msgid "The report \"%s\" is confirmed: its period and its location can no longer be changed. Reset it to draft first."
+msgstr "Der Bericht „%s“ ist bestätigt: Sein Zeitraum und sein Standort können nicht mehr geändert werden. Setzen Sie es zunächst auf „Entwurf“ zurück."
+
+#. module: stock_val_pro
+#. odoo-python
+#: code:addons/stock_val_pro/models/stock_val_pro.py:0
+msgid "The report \"%s\" is confirmed: its valuation lines can no longer be changed."
+msgstr "Der Report „%s“ ist bestätigt: Seine Bewertungszeilen können nicht mehr geändert werden."
+
+#. module: stock_val_pro
+#. odoo-python
+#: code:addons/stock_val_pro/models/stock_val_pro.py:0
+msgid "The report \"%s\" is confirmed: no valuation line can be added to it."
+msgstr "Der Report „%s“ ist bestätigt: Es kann keine Bewertungszeile hinzugefügt werden."
+
+#. module: stock_val_pro
+#: model:ir.model.constraint,message:stock_val_pro.constraint_stock_val_report_name_company_uniq
+msgid "The report reference must be unique per company."
+msgstr "Die Berichtsreferenz muss pro Unternehmen eindeutig sein."
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_search
+msgid "This Month"
+msgstr "Diesen Monat"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+msgid "Total Balance"
+msgstr "Gesamtsaldo"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_list
+msgid "Total Balance Qty"
+msgstr "Gesamtsaldomenge"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_list
+msgid "Total Balance Value"
+msgstr "Gesamtsaldowert"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+msgid "Total In"
+msgstr "Gesamteingang"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__total_in_qty
+msgid "Total In Qty"
+msgstr "Gesamtmenge"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+msgid "Total In Value"
+msgstr "Gesamtwert"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+msgid "Total Out"
+msgstr "Total aus"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__total_out_qty
+msgid "Total Out Qty"
+msgstr "Gesamtausverkaufsmenge"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+msgid "Total Out Value"
+msgstr "Gesamtausgangswert"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_list
+msgid "Total Qty In"
+msgstr "Gesamtmenge in"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_list
+msgid "Total Qty Out"
+msgstr "Gesamtmenge ausverkauft"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_list
+msgid "Total Total In Qty"
+msgstr "Gesamt Gesamt in Menge"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_list
+msgid "Total Total Out Qty"
+msgstr "Gesamt Gesamtausgangsmenge"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_list
+msgid "Total Total Value"
+msgstr "Gesamter Gesamtwert"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__total_value
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+msgid "Total Value"
+msgstr "Gesamtwert"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+msgid "Totals"
+msgstr "Summen"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__unit_cost
+msgid "Unit Cost"
+msgstr "Stückkosten"
+
+#. module: stock_val_pro
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_form
+msgid "Valuation"
+msgstr "Bewertung"
+
+#. module: stock_val_pro
+#: model:ir.actions.act_window,name:stock_val_pro.action_stock_val_report_line
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report__line_ids
+#: model:ir.ui.menu,name:stock_val_pro.menu_stockval_lines
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_form
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_line_list
+msgid "Valuation Lines"
+msgstr "Bewertungslinien"
+
+#. module: stock_val_pro
+#: model:ir.actions.act_window,name:stock_val_pro.action_stock_val_report
+#: model:ir.ui.menu,name:stock_val_pro.menu_stockval_reports
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_form
+#: model_terms:ir.ui.view,arch_db:stock_val_pro.view_stock_val_report_list
+msgid "Valuation Reports"
+msgstr "Bewertungsberichte"
+
+#. module: stock_val_pro
+#. odoo-python
+#: code:addons/stock_val_pro/models/stock_val_pro.py:0
+msgid "Valuation generated for the period %(start)s - %(end)s: %(count)s product(s), %(in)s in and %(out)s out."
+msgstr "Für den Zeitraum %(start)s - %(end)s generierte Bewertung: %(count)s-Produkt(e), %(in)s-Eingang und %(out)s-Ausgang."
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__value_in
+msgid "Value In"
+msgstr "Wert In"
+
+#. module: stock_val_pro
+#: model:ir.model.fields,field_description:stock_val_pro.field_stock_val_report_line__value_out
+msgid "Value Out"
+msgstr "Wert raus"
+
+#. module: stock_val_pro
+#: model:res.groups,comment:stock_val_pro.group_stockvalpro_user
+msgid "View and use the module."
+msgstr "Sehen Sie sich das Modul an und nutzen Sie es."

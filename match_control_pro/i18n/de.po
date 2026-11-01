@@ -1,0 +1,530 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* match_control_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: match_control_pro
+#: model:ir.model.constraint,message:match_control_pro.constraint_match_check_bill_company_uniq
+msgid "A three-way match check already exists for this vendor bill in this company. Open the existing check instead of creating a second one."
+msgstr "Für diese Kreditorenrechnung ist in diesem Unternehmen bereits eine dreiseitige Übereinstimmungsprüfung vorhanden. Öffnen Sie den vorhandenen Scheck, anstatt einen zweiten zu erstellen."
+
+#. module: match_control_pro
+#: model:ir.model.fields,help:match_control_pro.field_match_check__tolerance_pct
+msgid "Accepted variance, in percent, on quantities and unit prices. Zero means a strict match."
+msgstr "Akzeptierte Abweichung in Prozent von Mengen und Stückpreisen. Null bedeutet eine strikte Übereinstimmung."
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "An exception reason is required to flag the check \"%s\"."
+msgstr "Um die Prüfung als „%s“ zu kennzeichnen, ist ein Ausnahmegrund erforderlich."
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__price_billed
+msgid "Billed Price"
+msgstr "In Rechnung gestellter Preis"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__qty_billed
+msgid "Billed Qty"
+msgstr "In Rechnung gestellte Menge"
+
+#. module: match_control_pro
+#: model:ir.model.fields,help:match_control_pro.field_match_check__total_billed
+msgid "Billed quantity multiplied by the billed unit price."
+msgstr "In Rechnung gestellte Menge multipliziert mit dem in Rechnung gestellten Stückpreis."
+
+#. module: match_control_pro
+#: model:ir.model.fields,help:match_control_pro.field_match_check__variance_amount
+msgid "Billed total minus ordered total. Positive means the vendor bills more than was ordered."
+msgstr "Fakturierte Gesamtsumme minus bestellte Gesamtsumme. Positiv bedeutet, dass der Lieferant mehr in Rechnung stellt, als bestellt wurde."
+
+#. module: match_control_pro
+#: model:ir.actions.act_window,name:match_control_pro.action_match_check_line
+#: model:ir.ui.menu,name:match_control_pro.menu_match_lines
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_line_form
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_line_list
+msgid "Check Lines"
+msgstr "Überprüfen Sie die Linien"
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "Check reset to draft."
+msgstr "Aktivieren Sie „Auf Entwurf zurücksetzen“."
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "Check validated with a variance of %(variance).2f."
+msgstr "Scheck validiert mit einer Varianz von %(variance).2f."
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__company_id
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_search
+msgid "Company"
+msgstr "Firma"
+
+#. module: match_control_pro
+#: model:ir.module.module,summary:base.module_match_control_pro
+msgid "Compare purchase orders, receipts and vendor bills line by line, flag quantity and price variances outside tolerance, and force a written reason before validating an exception."
+msgstr "Vergleichen Sie Bestellungen, Quittungen und Lieferantenrechnungen Zeile für Zeile, kennzeichnen Sie Mengen- und Preisabweichungen außerhalb der Toleranz und erzwingen Sie eine schriftliche Begründung, bevor Sie eine Ausnahme validieren."
+
+#. module: match_control_pro
+#: model:ir.model.fields.selection,name:match_control_pro.selection__match_check_line__status__ok
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_line_search
+msgid "Compliant"
+msgstr "Konform"
+
+#. module: match_control_pro
+#: model:ir.model.fields,help:match_control_pro.field_match_check_line__status
+msgid "Compliant when every quantity and the unit price stay within the tolerance of the check."
+msgstr "Konform, wenn jede Menge und der Stückpreis innerhalb der Toleranz der Prüfung bleiben."
+
+#. module: match_control_pro
+#: model:res.groups,comment:match_control_pro.group_matchcontrol_manager
+msgid "Configure and administer the module."
+msgstr "Konfigurieren und verwalten Sie das Modul."
+
+#. module: match_control_pro
+#: model_terms:ir.actions.act_window,help:match_control_pro.action_match_check
+msgid "Create a check for a vendor bill, then run the match against the purchase order and the receipt."
+msgstr "Erstellen Sie einen Scheck für eine Lieferantenrechnung und führen Sie dann den Abgleich mit der Bestellung und der Quittung durch."
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__create_uid
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__create_date
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__currency_id
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__currency_id
+msgid "Currency"
+msgstr "Währung"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__date
+msgid "Date"
+msgstr "Datum"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__display_name
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_form
+msgid "Documents"
+msgstr "Unterlagen"
+
+#. module: match_control_pro
+#: model:ir.model.fields.selection,name:match_control_pro.selection__match_check__state__draft
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_search
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: match_control_pro
+#: model_terms:ir.actions.act_window,help:match_control_pro.action_match_check_line
+msgid "Every matched product line of every three-way check."
+msgstr "Jede passende Produktlinie jedes Drei-Wege-Checks."
+
+#. module: match_control_pro
+#: model:ir.model.fields.selection,name:match_control_pro.selection__match_check__state__exception
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_form
+msgid "Exception"
+msgstr "Ausnahme"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__exception_reason
+msgid "Exception Reason"
+msgstr "Ausnahmegrund"
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "Exception flagged: %s"
+msgstr "Ausnahme gekennzeichnet: %s"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_search
+msgid "Exceptions"
+msgstr "Ausnahmen"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_form
+msgid "Flag Exception"
+msgstr "Ausnahme markieren"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__has_message
+msgid "Has Message"
+msgstr "Hat Nachricht"
+
+#. module: match_control_pro
+#: model:ir.model.fields,help:match_control_pro.field_match_check__exception_reason
+msgid "Justification required before an exception can be validated."
+msgstr "Eine Begründung ist erforderlich, bevor eine Ausnahme validiert werden kann."
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__write_uid
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__write_date
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_line_form
+msgid "Line"
+msgstr "Linie"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__check_id
+msgid "Match Check"
+msgstr "Übereinstimmungsprüfung"
+
+#. module: match_control_pro
+#: model:ir.ui.menu,name:match_control_pro.menu_match_root
+msgid "Match Control"
+msgstr "Spielkontrolle"
+
+#. module: match_control_pro
+#: model:res.groups,name:match_control_pro.group_matchcontrol_manager
+msgid "Match Control Pro Manager"
+msgstr "Match Control Pro Manager"
+
+#. module: match_control_pro
+#: model:res.groups,name:match_control_pro.group_matchcontrol_user
+msgid "Match Control Pro User"
+msgstr "Match Control Pro-Benutzer"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__line_ids
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_form
+msgid "Match Lines"
+msgstr "Übereinstimmungslinien"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_form
+msgid "Match check reference"
+msgstr "Referenz zur Übereinstimmungsprüfung"
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "Match run on %(count)s line(s): ordered %(ordered).2f, received %(received).2f, billed %(billed).2f."
+msgstr "Matchlauf auf %(count)s-Leitung(en): bestellt %(ordered).2f, erhalten %(received).2f, in Rechnung gestellt %(billed).2f."
+
+#. module: match_control_pro
+#: model:ir.module.module,shortdesc:base.module_match_control_pro
+msgid "MatchControlPro - Three-Way Match for Purchase Orders, Receipts and Vendor Bills"
+msgstr "MatchControlPro – Drei-Wege-Abgleich für Bestellungen, Quittungen und Lieferantenrechnungen"
+
+#. module: match_control_pro
+#: model:ir.model.fields.selection,name:match_control_pro.selection__match_check__state__ok
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_search
+msgid "Matched"
+msgstr "Passend"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Meine Aktivitätsfrist"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__name
+msgid "Name"
+msgstr "Name"
+
+#. module: match_control_pro
+#: model:ir.model.fields,help:match_control_pro.field_match_check__purchase_id
+msgid "Order that defines the quantities and prices the vendor committed to."
+msgstr "Auftrag, der die Mengen und Preise definiert, zu denen sich der Lieferant verpflichtet hat."
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__price_ordered
+msgid "Ordered Price"
+msgstr "Bestellter Preis"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__qty_ordered
+msgid "Ordered Qty"
+msgstr "Bestellte Menge"
+
+#. module: match_control_pro
+#: model:ir.model.fields,help:match_control_pro.field_match_check__total_ordered
+msgid "Ordered quantity multiplied by the ordered unit price."
+msgstr "Bestellte Menge multipliziert mit dem bestellten Stückpreis."
+
+#. module: match_control_pro
+#: model:ir.model.fields.selection,name:match_control_pro.selection__match_check_line__status__price
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_line_search
+msgid "Price Variance"
+msgstr "Preisabweichung"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_line_form
+msgid "Prices"
+msgstr "Preise"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__product_id
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_line_search
+msgid "Product"
+msgstr "Produkt"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__purchase_id
+msgid "Purchase Order"
+msgstr "Auftragsbestätigung"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_line_form
+msgid "Quantities"
+msgstr "Mengen"
+
+#. module: match_control_pro
+#: model:ir.model.fields.selection,name:match_control_pro.selection__match_check_line__status__qty
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_line_search
+msgid "Quantity Variance"
+msgstr "Mengenabweichung"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__picking_id
+msgid "Receipt"
+msgstr "Quittung"
+
+#. module: match_control_pro
+#: model:ir.model.fields,help:match_control_pro.field_match_check__picking_id
+msgid "Receipt whose done stock moves prove what was actually delivered. Leave empty to use every done move of the order."
+msgstr "Quittung, deren durchgeführte Lagerbewegungen belegen, was tatsächlich geliefert wurde. Lassen Sie das Feld leer, um jeden ausgeführten Zug des Befehls zu verwenden."
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__qty_received
+msgid "Received Qty"
+msgstr "Erhaltene Menge"
+
+#. module: match_control_pro
+#: model:ir.model.fields,help:match_control_pro.field_match_check__total_received
+msgid "Received quantity valued at the ordered unit price."
+msgstr "Erhaltene Menge im Wert des bestellten Stückpreises."
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_form
+msgid "Reset to Draft"
+msgstr "Zurücksetzen auf Entwurf"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_form
+msgid "Result"
+msgstr "Ergebnis"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_form
+msgid "Run Match"
+msgstr "Match ausführen"
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "Run the match on the check \"%s\" before validating it."
+msgstr "Führen Sie den Abgleich mit dem Scheck „%s“ durch, bevor Sie ihn validieren."
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "Select a purchase order and a vendor bill before running the match."
+msgstr "Wählen Sie eine Bestellung und eine Lieferantenrechnung aus, bevor Sie den Abgleich ausführen."
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__state
+msgid "State"
+msgstr "Status"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check_line__status
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_line_search
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_search
+msgid "Status"
+msgstr "Status"
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "The bill \"%(bill)s\" is already checked by \"%(check)s\"."
+msgstr "Die Rechnung „%(bill)s“ ist bereits von „%(check)s“ geprüft."
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "The check \"%s\" is already validated."
+msgstr "Der Scheck „%s“ ist bereits validiert."
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "The check \"%s\" is in exception: write an exception reason before validating it."
+msgstr "Die Prüfung „%s“ ist eine Ausnahme: Schreiben Sie einen Ausnahmegrund, bevor Sie sie validieren."
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "The check \"%s\" is validated: reset it to draft before flagging an exception."
+msgstr "Die Prüfung „%s“ ist validiert: Setzen Sie sie auf „Entwurf“ zurück, bevor Sie eine Ausnahme markieren."
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "The check \"%s\" is validated: reset it to draft before running the match again."
+msgstr "Die Prüfung „%s“ ist validiert: Setzen Sie sie auf „Draft“ zurück, bevor Sie das Spiel erneut ausführen."
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "The purchase order, the receipt and the vendor bill of the check \"%s\" share no product line."
+msgstr "Die Bestellung, die Quittung und die Lieferantenrechnung des Schecks „%s“ teilen sich keine Produktlinie."
+
+#. module: match_control_pro
+#. odoo-python
+#: code:addons/match_control_pro/models/match_control_pro.py:0
+msgid "The tolerance of the check \"%s\" must be between 0 and 100 percent."
+msgstr "Die Toleranz der Prüfung „%s“ muss zwischen 0 und 100 Prozent liegen."
+
+#. module: match_control_pro
+#: model:ir.actions.act_window,name:match_control_pro.action_match_check
+#: model:ir.ui.menu,name:match_control_pro.menu_match_checks
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_form
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_list
+msgid "Three-Way Checks"
+msgstr "Drei-Wege-Schecks"
+
+#. module: match_control_pro
+#: model:ir.model,name:match_control_pro.model_match_check
+msgid "Three-Way Match Check"
+msgstr "Drei-Wege-Match-Check"
+
+#. module: match_control_pro
+#: model:ir.model,name:match_control_pro.model_match_check_line
+msgid "Three-Way Match Line"
+msgstr "Drei-Wege-Match-Linie"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__tolerance_pct
+msgid "Tolerance (%)"
+msgstr "Toleranz (%)"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__total_billed
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_form
+msgid "Total Billed"
+msgstr "Gesamtabrechnung"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__total_ordered
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_form
+msgid "Total Ordered"
+msgstr "Insgesamt bestellt"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_line_list
+msgid "Total Qty Billed"
+msgstr "Gesamtmenge in Rechnung gestellt"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_line_list
+msgid "Total Qty Ordered"
+msgstr "Gesamtbestellte Menge"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_line_list
+msgid "Total Qty Received"
+msgstr "Gesamtmenge erhalten"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__total_received
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_form
+msgid "Total Received"
+msgstr "Insgesamt erhalten"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_list
+msgid "Total Total Billed"
+msgstr "Gesamtsumme In Rechnung gestellt"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_list
+msgid "Total Total Ordered"
+msgstr "Gesamtsumme bestellt"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_list
+msgid "Total Total Received"
+msgstr "Gesamtsumme erhalten"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_list
+msgid "Total Variance Amount"
+msgstr "Gesamtabweichungsbetrag"
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_form
+msgid "Validate"
+msgstr "Validieren"
+
+#. module: match_control_pro
+#: model:ir.model.fields.selection,name:match_control_pro.selection__match_check__state__validated
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_search
+msgid "Validated"
+msgstr "Validiert"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__variance_amount
+msgid "Variance"
+msgstr "Varianz"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__partner_id
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_search
+msgid "Vendor"
+msgstr "Verkäuferin Verkäufer"
+
+#. module: match_control_pro
+#: model:ir.model.fields,field_description:match_control_pro.field_match_check__bill_id
+msgid "Vendor Bill"
+msgstr "Lieferantenrechnung"
+
+#. module: match_control_pro
+#: model:ir.model.fields,help:match_control_pro.field_match_check__bill_id
+msgid "Vendor bill being checked. One check per bill and per company."
+msgstr "Lieferantenrechnung wird geprüft. Ein Scheck pro Rechnung und pro Unternehmen."
+
+#. module: match_control_pro
+#: model:res.groups,comment:match_control_pro.group_matchcontrol_user
+msgid "View and use the module."
+msgstr "Sehen Sie sich das Modul an und nutzen Sie es."
+
+#. module: match_control_pro
+#: model_terms:ir.ui.view,arch_db:match_control_pro.view_match_check_search
+msgid "With Variance"
+msgstr "Mit Varianz"
