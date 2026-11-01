@@ -1,4 +1,6 @@
-# BankImportPro - Bank Statement Parsing, Rules and Duplicate Detection
+# BankImportPro
+
+Bank Statement Parsing, Rules and Duplicate Detection
 
 ## The problem
 

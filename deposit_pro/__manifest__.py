@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'DepositPro - Customer Deposits and Prepayments',
+    'name': 'DepositPro',
     'version': '20.0.1.0.0',
     'summary': 'Register customer deposits and prepayments, apply them to posted invoices, track the remaining balance, refund it and report on it.',
     'description': '''DepositPro - Customer Deposits and Prepayments
@@ -24,6 +24,7 @@ date and a reason.
 * Multi-company and multi-currency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 69.0,

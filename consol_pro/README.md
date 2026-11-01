@@ -1,4 +1,6 @@
-# ConsolPro - Multi-Company Consolidation and Eliminations
+# ConsolPro
+
+Multi-Company Consolidation and Eliminations
 
 ## The problem
 

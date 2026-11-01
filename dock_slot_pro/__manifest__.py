@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'DockSlotPro - Delivery Time Slots and Capacity Planning',
+    'name': 'DockSlotPro',
     'version': '20.0.1.0.0',
     'summary': 'Plan weekly delivery windows with a capacity, book customers into a slot, close blackout days and stop the dock from being overloaded.',
     'description': '''DockSlotPro - Delivery Time Slots and Capacity Planning
@@ -29,7 +29,8 @@ to draft.
 * Multi-company, no Enterprise dependency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
-    'category': 'Inventory/Inventory',
+    'support': 'imazighenapps@gmail.com',
+    'category': 'Supply Chain/Inventory',
     'license': 'OPL-1',
     'price': 59.0,
     'currency': 'EUR',

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "CommissionDesk — Sales Commission Engine",
+    "name": "CommissionDesk",
     "version": "20.0.1.0.0",
     "summary": "Calculate, validate and pay sales commissions from orders, invoices and payments, with automatic clawback.",
     "description": """
-CommissionDesk — Sales Commission Engine
-========================================
+CommissionDesk
+==============
 Stop calculating sales commissions in spreadsheets.
 
 CommissionDesk turns Odoo orders, invoices and payments into clear,
@@ -23,6 +23,7 @@ statement in one click, validate it, and pay the right amount every time.
     """,
     "author": "Farid SLIMANI",
     "website": "https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI",
+    "support": "imazighenapps@gmail.com",
     "category": "Sales/Sales",
     "license": "OPL-1",
     "price": 89.0,

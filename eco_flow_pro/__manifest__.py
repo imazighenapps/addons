@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'EcoFlowPro - Engineering Change Orders on Bills of Materials',
+    'name': 'EcoFlowPro',
     'version': '20.0.1.0.0',
     'summary': 'Turn every bill of materials correction into a tracked engineering change request with review, approval and one-click application on the BOM.',
     'description': '''EcoFlowPro - Engineering Change Orders on Bills of Materials
@@ -36,7 +36,8 @@ mail and mrp, and needs no Enterprise module.
 * Multi-company, no Enterprise dependency, no external Python library.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
-    'category': 'Manufacturing/Manufacturing',
+    'support': 'imazighenapps@gmail.com',
+    'category': 'Supply Chain/Manufacturing',
     'license': 'OPL-1',
     'price': 149.0,
     'currency': 'EUR',

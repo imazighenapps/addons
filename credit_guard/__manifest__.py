@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'CreditGuard - Customer Credit Control',
+    'name': 'CreditGuard',
     'version': '20.0.1.0.0',
     'summary': 'Live credit limits for every customer, with automatic blocking of over-limit orders and a controlled override workflow.',
     'description': '''CreditGuard - Customer Credit Control
@@ -21,6 +21,7 @@ to take the risk, a documented override is requested, approved and traced.
 * Multi-company and multi-currency ready.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 79.0,

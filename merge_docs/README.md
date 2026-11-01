@@ -1,4 +1,6 @@
-# MergeDocs - Customer Document Dossier
+# MergeDocs
+
+Customer Document Dossier
 
 ## The problem
 

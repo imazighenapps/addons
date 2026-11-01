@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'PdfBatch - Batch PDF Printing',
+    'name': 'PdfBatch',
     'version': '20.0.1.0.0',
     'summary': 'Select invoices, preview, merge them into one numbered PDF and archive the result, instead of printing one document at a time.',
     'description': '''PdfBatch - Batch PDF Printing
@@ -21,6 +21,7 @@ so you can download or email it later.
 * Multi-company.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Accounting/Accounting',
     'license': 'OPL-1',
     'price': 39.0,

@@ -64,7 +64,7 @@ class DupliAlert(models.Model):
         self.write({"state": "open"})
 
 
-class DupliScanner(models.Model):
+class DupliScanner(models.AbstractModel):
     _name = "dupli.scanner"
     _description = "Duplicate Scanner"
 

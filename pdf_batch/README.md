@@ -1,4 +1,6 @@
-# PdfBatch - Batch PDF Printing
+# PdfBatch
+
+Batch PDF Printing
 
 ## The problem
 

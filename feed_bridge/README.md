@@ -1,4 +1,6 @@
-# FeedBridge - Google and Meta Product Feeds
+# FeedBridge
+
+Google and Meta Product Feeds
 
 ## The problem
 

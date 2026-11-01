@@ -1,4 +1,6 @@
-# GiftWallet - Gift Cards and Store Credit
+# GiftWallet
+
+Gift Cards and Store Credit
 
 ## The problem
 

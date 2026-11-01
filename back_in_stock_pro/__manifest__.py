@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'BackInStock Pro - Back in Stock Alerts',
+    'name': 'BackInStock Pro',
     'version': '20.0.1.0.0',
     'summary': 'Capture out-of-stock demand, send automatic back-in-stock emails, and measure how much revenue you recover.',
     'description': '''BackInStock Pro - Back in Stock Alerts
@@ -22,6 +22,7 @@ per product and the conversion.
 * Export the waiting list to CSV.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Website/Website',
     'license': 'OPL-1',
     'price': 29.0,

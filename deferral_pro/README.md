@@ -1,4 +1,6 @@
-# DeferralPro - Prepaid Expenses and Deferred Revenue
+# DeferralPro
+
+Prepaid Expenses and Deferred Revenue
 
 ## The problem
 

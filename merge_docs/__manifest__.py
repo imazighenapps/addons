@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'MergeDocs - Customer Document Dossier',
+    'name': 'MergeDocs',
     'version': '20.0.1.0.0',
     'summary': 'Merge quotations, orders, delivery notes and invoices for one customer into a single PDF dossier with a cover page.',
     'description': '''MergeDocs - Customer Document Dossier
@@ -20,6 +20,7 @@ the dossier for audit and for your customer portal.
 * Multi-company and multi-currency.''',
     'author': 'Farid SLIMANI',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Farid%20SLIMANI',
+    'support': 'imazighenapps@gmail.com',
     'category': 'Productivity/Documents',
     'license': 'OPL-1',
     'price': 49.0,

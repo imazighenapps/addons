@@ -1,4 +1,6 @@
-# MatchControlPro - Three-Way Match for Purchase Orders, Receipts and Vendor Bills
+# MatchControlPro
+
+Three-Way Match for Purchase Orders, Receipts and Vendor Bills
 
 ## The problem
 

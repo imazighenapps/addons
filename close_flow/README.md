@@ -1,4 +1,6 @@
-# CloseFlow - Month-End Close Checklist
+# CloseFlow
+
+Month-End Close Checklist
 
 ## The problem
 

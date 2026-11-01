@@ -20,10 +20,15 @@ class TestDupliPay(TransactionCase):
             [("account_type", "=", "expense"),
              ("company_ids", "in", cls.env.company.id)], limit=1)
 
-    def _bill(self, amount, bill_date):
+    def _partner(self, name):
+        return self.env["res.partner"].create({
+            "name": name, "supplier_rank": 1})
+
+    def _bill(self, amount, bill_date, partner=None):
+        partner = partner or self.partner
         bill = self.env["account.move"].create({
             "move_type": "in_invoice",
-            "partner_id": self.partner.id,
+            "partner_id": partner.id,
             "journal_id": self.journal.id,
             "invoice_date": bill_date,
             "invoice_line_ids": [(0, 0, {
@@ -35,49 +40,50 @@ class TestDupliPay(TransactionCase):
         bill.action_post()
         return bill
 
-    def _alerts(self):
-        """Only the alerts raised for the partner used by these tests.
-
-        The database may already contain demo bills, so a global search
-        would be polluted by pre-existing duplicates.
-        """
-        return self.env["dupli.alert"].search(
-            [("partner_id", "=", self.partner.id)])
-
     def test_01_scan_detects_duplicate(self):
-        self._bill(100.0, date(2026, 1, 5))
-        self._bill(100.0, date(2026, 1, 7))
-        created = self.env["dupli.scanner"].action_scan()
-        self.assertGreaterEqual(created, 1)
-        alerts = self._alerts()
-        self.assertTrue(alerts)
-        self.assertAlmostEqual(alerts[0].amount, 100.0, places=2)
+        partner = self._partner("Dupli Case 01")
+        self._bill(100.0, date(2026, 1, 5), partner)
+        self._bill(100.0, date(2026, 1, 7), partner)
+        self.env["dupli.scanner"].action_scan()
+        alerts = self.env["dupli.alert"].search([
+            ("partner_id", "=", partner.id)])
+        self.assertEqual(len(alerts), 1)
+        self.assertAlmostEqual(alerts.amount, 100.0, places=2)
 
     def test_02_no_duplicate_when_amount_differs(self):
-        self._bill(100.0, date(2026, 2, 5))
-        self._bill(140.0, date(2026, 2, 6))
+        partner = self._partner("Dupli Case 02")
+        self._bill(100.0, date(2026, 2, 5), partner)
+        self._bill(140.0, date(2026, 2, 6), partner)
         self.env["dupli.scanner"].action_scan()
-        self.assertFalse(self._alerts())
+        self.assertFalse(self.env["dupli.alert"].search([
+            ("partner_id", "=", partner.id)]))
 
     def test_03_no_duplicate_when_dates_too_far(self):
-        self._bill(100.0, date(2026, 3, 1))
-        self._bill(100.0, date(2026, 4, 1))
+        partner = self._partner("Dupli Case 03")
+        self._bill(100.0, date(2026, 3, 1), partner)
+        self._bill(100.0, date(2026, 4, 1), partner)
         self.env["dupli.scanner"].action_scan()
-        self.assertFalse(self._alerts())
+        self.assertFalse(self.env["dupli.alert"].search([
+            ("partner_id", "=", partner.id)]))
 
     def test_04_alert_not_duplicated(self):
-        self._bill(100.0, date(2026, 5, 5))
-        self._bill(100.0, date(2026, 5, 6))
+        partner = self._partner("Dupli Case 04")
+        self._bill(100.0, date(2026, 5, 5), partner)
+        self._bill(100.0, date(2026, 5, 6), partner)
         self.env["dupli.scanner"].action_scan()
-        count = len(self._alerts())
+        alerts = self.env["dupli.alert"].search([
+            ("partner_id", "=", partner.id)])
         self.env["dupli.scanner"].action_scan()
-        self.assertEqual(len(self._alerts()), count)
+        self.assertEqual(len(alerts), self.env["dupli.alert"].search_count([
+            ("partner_id", "=", partner.id)]))
 
     def test_05_workflow(self):
-        self._bill(100.0, date(2026, 6, 5))
-        self._bill(100.0, date(2026, 6, 6))
+        partner = self._partner("Dupli Case 05")
+        self._bill(100.0, date(2026, 6, 5), partner)
+        self._bill(100.0, date(2026, 6, 6), partner)
         self.env["dupli.scanner"].action_scan()
-        alert = self._alerts()[:1]
+        alert = self.env["dupli.alert"].search([
+            ("partner_id", "=", partner.id)], limit=1)
         alert.action_ignore()
         self.assertEqual(alert.state, "ignored")
         alert.action_reset()

@@ -1,4 +1,6 @@
-# RentalLite - Equipment Rental for Odoo Community
+# RentalLite
+
+Equipment Rental for Odoo Community
 
 ## The problem
 

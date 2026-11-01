@@ -1,4 +1,6 @@
-# StatementPro - Customer and Supplier Statements
+# StatementPro
+
+Customer and Supplier Statements
 
 ## The problem
 

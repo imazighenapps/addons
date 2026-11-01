@@ -1,4 +1,6 @@
-# ApprovalDeskPro - Multi-Level Approval Workflow
+# ApprovalDeskPro
+
+Multi-Level Approval Workflow
 
 ## The problem
 

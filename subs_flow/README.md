@@ -1,4 +1,6 @@
-# SubsFlow - Subscriptions and Recurring Invoicing
+# SubsFlow
+
+Subscriptions and Recurring Invoicing
 
 ## The problem
 
