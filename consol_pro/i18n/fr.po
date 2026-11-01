@@ -1,0 +1,487 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* consol_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "%(count)s line(s) eliminated and zeroed out of the consolidation."
+msgstr "Ligne(s) %(count)s supprimée(s) et mise(s) à zéro de la consolidation."
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__account_code
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_search
+msgid "Account Code"
+msgstr "Code de compte"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__account_name
+msgid "Account Name"
+msgstr "Nom du compte"
+
+#. module: consol_pro
+#: model:ir.module.module,summary:base.module_consol_pro
+msgid "Aggregate the posted balances of several companies by account code, zero the tagged intercompany lines and lock the consolidation once it is posted."
+msgstr "Agrégez les soldes comptabilisés de plusieurs sociétés par code compte, mettez à zéro les lignes intersociétés étiquetées et verrouillez la consolidation une fois comptabilisée."
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_form
+msgid "Amounts"
+msgstr "Montants"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__balance
+msgid "Balance"
+msgstr "Solde"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__company_ids
+msgid "Companies"
+msgstr "Entreprises"
+
+#. module: consol_pro
+#: model:ir.model.fields,help:consol_pro.field_consol_run__company_ids
+msgid "Companies whose posted entries are consolidated. Leave with the current company alone to consolidate one single ledger."
+msgstr "Entreprises dont les écritures comptabilisées sont consolidées. Partez seul avec l’entreprise actuelle pour consolider un seul grand livre."
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__company_id
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_search
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_search
+msgid "Company"
+msgstr "Société"
+
+#. module: consol_pro
+#: model:ir.model.fields,help:consol_pro.field_consol_line__company_id
+msgid "Company whose ledger produced this balance."
+msgstr "Entreprise dont le grand livre a produit ce solde."
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+msgid "Compute Balances"
+msgstr "Calculer les soldes"
+
+#. module: consol_pro
+#: model:ir.model.fields.selection,name:consol_pro.selection__consol_run__state__computed
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_search
+msgid "Computed"
+msgstr "Calculé"
+
+#. module: consol_pro
+#: model:res.groups,comment:consol_pro.group_consolpro_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: consol_pro
+#: model:res.groups,name:consol_pro.group_consolpro_manager
+msgid "Consol Pro Manager"
+msgstr "Gestionnaire de console Pro"
+
+#. module: consol_pro
+#: model:res.groups,name:consol_pro.group_consolpro_user
+msgid "Consol Pro User"
+msgstr "Utilisateur de Console Pro"
+
+#. module: consol_pro
+#: model:ir.module.module,shortdesc:base.module_consol_pro
+msgid "ConsolPro - Multi-Company Consolidation and Eliminations"
+msgstr "ConsolPro - Consolidation et Eliminations Multi-Entreprises"
+
+#. module: consol_pro
+#: model:ir.ui.menu,name:consol_pro.menu_consol_root
+msgid "Consolidation"
+msgstr "Consolidation"
+
+#. module: consol_pro
+#: model:ir.model,name:consol_pro.model_consol_line
+msgid "Consolidation Line"
+msgstr "Ligne de consolidation"
+
+#. module: consol_pro
+#: model:ir.actions.act_window,name:consol_pro.action_consol_line
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__line_ids
+#: model:ir.ui.menu,name:consol_pro.menu_consol_lines
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_form
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_list
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+msgid "Consolidation Lines"
+msgstr "Lignes de consolidation"
+
+#. module: consol_pro
+#: model:ir.model,name:consol_pro.model_consol_run
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__run_id
+msgid "Consolidation Run"
+msgstr "Exécution de consolidation"
+
+#. module: consol_pro
+#: model:ir.actions.act_window,name:consol_pro.action_consol_run
+#: model:ir.ui.menu,name:consol_pro.menu_consol_runs
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_list
+msgid "Consolidation Runs"
+msgstr "Exécutions de consolidation"
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "Consolidation computed for %(companies)s between %(date_from)s and %(date_to)s: %(count)s line(s), %(debit).2f debit and %(credit).2f credit."
+msgstr "Consolidation calculée pour %(companies)s entre %(date_from)s et %(date_to)s : ligne(s) %(count)s, %(debit).2f débit et %(credit).2f crédit."
+
+#. module: consol_pro
+#: model:ir.model.fields,help:consol_pro.field_consol_line__mapping
+msgid "Consolidation mapping of the account. Type the same reference on two reciprocal intercompany lines so the elimination can zero them together. Preserved when the run is recomputed."
+msgstr "Mappage de consolidation du compte. Tapez la même référence sur deux lignes intersociétés réciproques afin que l'élimination puisse les remettre à zéro ensemble. Conservé lorsque l'exécution est recalculée."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "Consolidation run posted: the compute and the elimination are now locked."
+msgstr "Exécution de consolidation publiée : le calcul et l'élimination sont désormais verrouillés."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "Consolidation run reset to draft; its lines were cleared."
+msgstr "L'exécution de consolidation est réinitialisée à l'état de brouillon ; ses lignes ont été dégagées."
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__create_uid
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__create_date
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__credit
+msgid "Credit"
+msgstr "Crédit"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__currency_id
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__debit
+msgid "Debit"
+msgstr "Débit"
+
+#. module: consol_pro
+#: model:ir.model.fields,help:consol_pro.field_consol_line__balance
+msgid "Debit minus credit."
+msgstr "Débit moins crédit."
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__display_name
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: consol_pro
+#: model:ir.model.fields.selection,name:consol_pro.selection__consol_run__state__draft
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_search
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+msgid "Eliminate"
+msgstr "Éliminer"
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+msgid "Eliminate Mapped Lines"
+msgstr "Éliminer les lignes cartographiées"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__eliminated
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_search
+msgid "Eliminated"
+msgstr "Éliminé"
+
+#. module: consol_pro
+#: model_terms:ir.actions.act_window,help:consol_pro.action_consol_line
+msgid "Every consolidation line of every run, account by account and company by company."
+msgstr "Chaque ligne de consolidation de chaque exécution, compte par compte et société par société."
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__date_from
+msgid "From Date"
+msgstr "À partir de la date"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__write_uid
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__write_date
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_form
+msgid "Line"
+msgstr "Doubler"
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "Line of account %(code)s eliminated from the consolidation."
+msgstr "Ligne de compte %(code)s éliminée de la consolidation."
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_search
+msgid "Mapped"
+msgstr "Cartographié"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_line__mapping
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_search
+msgid "Mapping"
+msgstr "Cartographie"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_search
+msgid "Not Eliminated"
+msgstr "Non éliminé"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__note
+msgid "Note"
+msgstr "Note"
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: consol_pro
+#: model:ir.model.constraint,message:consol_pro.constraint_consol_line_run_line_uniq
+msgid "One consolidation line per company, account code and mapping in a run."
+msgstr "Une ligne de consolidation par société, code compte et mappage en une seule fois."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "Only a computed consolidation run can be posted."
+msgstr "Seule une exécution de consolidation calculée peut être validée."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "Only a computed or a posted consolidation run can be reset to draft."
+msgstr "Seule une exécution de consolidation calculée ou validée peut être réinitialisée à l'état de brouillon."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "Only the lines of a computed consolidation run can be eliminated."
+msgstr "Seules les lignes d'un cycle de consolidation calculé peuvent être éliminées."
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+msgid "Period"
+msgstr "Période"
+
+#. module: consol_pro
+#: model_terms:ir.actions.act_window,help:consol_pro.action_consol_run
+msgid "Pick the companies and the period, compute the posted balances, tag the intercompany lines with a mapping and eliminate them."
+msgstr "Sélectionnez les sociétés et la période, calculez les soldes comptabilisés, étiquetez les lignes intersociétés avec un mappage et éliminez-les."
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+msgid "Post"
+msgstr "Poste"
+
+#. module: consol_pro
+#: model:ir.model.fields.selection,name:consol_pro.selection__consol_run__state__posted
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_search
+msgid "Posted"
+msgstr "Publié"
+
+#. module: consol_pro
+#: model:ir.model.fields,help:consol_pro.field_consol_run__name
+msgid "Reference of the consolidation run. Generated from the CON/ sequence when left empty."
+msgstr "Référence du cycle de consolidation. Généré à partir de la séquence CON/ lorsqu'il est laissé vide."
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+msgid "Reset to Draft"
+msgstr "Réinitialiser au brouillon"
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_search
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+msgid "Run"
+msgstr "Courir"
+
+#. module: consol_pro
+#: model:ir.model.fields,help:consol_pro.field_consol_line__eliminated
+msgid "Set when the line was eliminated from the consolidation: its debit and credit are zeroed."
+msgstr "Fixé à quel moment la ligne a été éliminée de la consolidation : son débit et son crédit sont remis à zéro."
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__state
+msgid "State"
+msgstr "Statut"
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "Tag the intercompany lines of the run \"%s\" with a mapping before running the elimination."
+msgstr "Balisez les lignes intersociétés du run \"%s\" avec un mapping avant de lancer l'élimination."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "The consolidation run \"%s\" is posted: its lines can no longer be changed."
+msgstr "Le cycle de consolidation \"%s\" est comptabilisé : ses lignes ne sont plus modifiables."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "The consolidation run \"%s\" is posted: its lines can no longer be deleted."
+msgstr "Le cycle de consolidation \"%s\" est comptabilisé : ses lignes ne peuvent plus être supprimées."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "The consolidation run \"%s\" is posted: no line can be added to it."
+msgstr "Le cycle de consolidation \"%s\" est comptabilisé : aucune ligne ne peut y être ajoutée."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "The consolidation run \"%s\" must be computed before its lines can be eliminated."
+msgstr "Le cycle de consolidation \"%s\" doit être calculé avant que ses lignes puissent être éliminées."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "The consolidation run name \"%s\" is already used by another run."
+msgstr "Le nom de l'exécution de consolidation « %s » est déjà utilisé par une autre exécution."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "The consolidation run name \"%s\" is used twice in the same batch."
+msgstr "Le nom d'exécution de consolidation « %s » est utilisé deux fois dans le même lot."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "The debit and the credit of a consolidation line cannot be negative."
+msgstr "Le débit et le crédit d'une ligne de consolidation ne peuvent pas être négatifs."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "The end date of the consolidation run \"%s\" cannot be before its start date."
+msgstr "La date de fin du cycle de consolidation « %s » ne peut pas être antérieure à sa date de début."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "The line \"%s\" of account %s is already eliminated."
+msgstr "La ligne « %s » du compte %s est déjà supprimée."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "The period and the companies of the posted consolidation run \"%s\" can no longer be changed. Reset it to draft first."
+msgstr "La période et les sociétés du cycle de consolidation comptabilisé \"%s\" ne peuvent plus être modifiées. Réinitialisez-le d'abord en brouillon."
+
+#. module: consol_pro
+#. odoo-python
+#: code:addons/consol_pro/models/consol_pro.py:0
+msgid "The posted consolidation run \"%s\" is locked; reset it to draft first."
+msgstr "Le cycle de consolidation comptabilisé \"%s\" est bloqué ; réinitialisez-le d'abord au brouillon."
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__date_to
+msgid "To Date"
+msgstr "À ce jour"
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_list
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+msgid "Total Balance"
+msgstr "Solde total"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__total_credit
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_list
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+msgid "Total Credit"
+msgstr "Crédit total"
+
+#. module: consol_pro
+#: model:ir.model.fields,field_description:consol_pro.field_consol_run__total_debit
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_line_list
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+msgid "Total Debit"
+msgstr "Débit total"
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_list
+msgid "Total Total Credit"
+msgstr "Crédit Total Total"
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_list
+msgid "Total Total Debit"
+msgstr "Total Débit total"
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_form
+msgid "Totals"
+msgstr "Totaux"
+
+#. module: consol_pro
+#: model:res.groups,comment:consol_pro.group_consolpro_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_search
+msgid "With Eliminations"
+msgstr "Avec éliminations"
+
+#. module: consol_pro
+#: model_terms:ir.ui.view,arch_db:consol_pro.view_consol_run_search
+msgid "With Mappings"
+msgstr "Avec des mappages"

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_archive_document_list" model="ir.ui.view">
+        <field name="name">archive.document.list</field>
+        <field name="model">archive.document</field>
+        <field name="arch" type="xml">
+            <list string="Documents" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="reference"/>
+                <field name="name"/>
+                <field name="document_type"/>
+                <field name="partner_id"/>
+                <field name="document_date"/>
+                <field name="expiry_date"/>
+                <field name="file_name"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_archive_document_form" model="ir.ui.view">
+        <field name="name">archive.document.form</field>
+        <field name="model">archive.document</field>
+        <field name="arch" type="xml">
+            <form string="Documents">
+                <header>
+                    <button name="action_seal" type="object" string="Seal" class="btn-primary" invisible="state != 'active'"/>
+                    <button name="action_verify" type="object" string="Verify" class="btn-secondary" invisible="not hash"/>
+                    <button name="action_archive" type="object" string="Archive" class="btn-primary" invisible="state != 'active'"/>
+                    <button name="action_purge" type="object" string="Purge File" class="btn-secondary" invisible="state != 'archived'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="active,archived,purged"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Document">
+    <field name="name"/>
+    <field name="document_type"/>
+    <field name="partner_id"/>
+    <field name="reference"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Retention">
+    <field name="document_date"/>
+    <field name="retention_years"/>
+    <field name="expiry_date"/>
+    <field name="state"/>
+                        </group>
+                        <group string="File">
+    <field name="file_data"/>
+    <field name="file_name"/>
+                        </group>
+                        <group string="Integrity">
+    <field name="hash"/>
+    <field name="previous_hash"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Audit Log" name="logids">
+                            <field name="log_ids" readonly="1">
+                        <list create="0" delete="0">
+                            <field name="date"/>
+                            <field name="action" widget="badge"/>
+                            <field name="user_id"/>
+                            <field name="note"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_archive_document_search" model="ir.ui.view">
+        <field name="name">archive.document.search</field>
+        <field name="model">archive.document</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="reference"/>
+                <field name="partner_id"/>
+                <field name="file_name"/>
+                <filter name="active" string="Active" domain="[('state','=','active')]"/>
+                <filter name="archived" string="Archived" domain="[('state','=','archived')]"/>
+                <filter name="purged" string="Purged" domain="[('state','=','purged')]"/>
+                <filter name="sealed" string="Sealed" domain="[('hash','!=',False)]"/>
+                <filter name="unsealed" string="Not Sealed" domain="[('hash','=',False)]"/>
+                <filter name="expired" string="Retention Over" domain="[('expiry_date','!=',False),('expiry_date','&lt;=',context_today())]"/>
+                <separator/>
+                <filter name="group_type" string="Type" context="{'group_by': 'document_type'}"/>
+                <filter name="group_partner" string="Counterparty" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_archive_document" model="ir.actions.act_window">
+        <field name="name">Documents</field>
+        <field name="res_model">archive.document</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register a legal document, seal it to freeze its hash and verify it at any time during the retention period.</p>
+        </field>
+    </record>
+
+</odoo>

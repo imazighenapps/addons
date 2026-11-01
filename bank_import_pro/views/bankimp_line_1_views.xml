@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_bankimp_line_list" model="ir.ui.view">
+        <field name="name">bank.import.line.list</field>
+        <field name="model">bank.import.line</field>
+        <field name="arch" type="xml">
+            <list string="Transactions">
+                <field name="batch_id"/>
+                <field name="date"/>
+                <field name="label"/>
+                <field name="reference"/>
+                <field name="partner_id"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="matched" widget="boolean"/>
+                <field name="duplicate" widget="boolean"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_bankimp_line_form" model="ir.ui.view">
+        <field name="name">bank.import.line.form</field>
+        <field name="model">bank.import.line</field>
+        <field name="arch" type="xml">
+            <form string="Transactions">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="label" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Transaction">
+    <field name="batch_id"/>
+    <field name="date"/>
+    <field name="label"/>
+    <field name="reference"/>
+                        </group>
+                        <group string="Matching">
+    <field name="partner_id"/>
+    <field name="account_id"/>
+    <field name="matched"/>
+    <field name="duplicate"/>
+                        </group>
+                        <group string="Amount">
+    <field name="amount"/>
+    <field name="currency_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bankimp_line_search" model="ir.ui.view">
+        <field name="name">bank.import.line.search</field>
+        <field name="model">bank.import.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="label"/>
+                <field name="reference"/>
+                <field name="batch_id"/>
+                <field name="partner_id"/>
+                <filter name="matched" string="Rule Matched" domain="[('matched','=',True)]"/>
+                <filter name="unmatched" string="To Match" domain="[('matched','=',False)]"/>
+                <filter name="duplicate" string="Duplicates" domain="[('duplicate','=',True)]"/>
+                <separator/>
+                <filter name="group_batch" string="Batch" context="{'group_by': 'batch_id'}"/>
+                <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_date" string="Date" context="{'group_by': 'date'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_bankimp_line" model="ir.actions.act_window">
+        <field name="name">Transactions</field>
+        <field name="res_model">bank.import.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every parsed bank transaction, with its matching result and its duplicate flag.</p>
+        </field>
+    </record>
+
+</odoo>

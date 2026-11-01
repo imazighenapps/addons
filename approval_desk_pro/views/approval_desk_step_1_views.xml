@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_approval_desk_step_list" model="ir.ui.view">
+        <field name="name">approval.desk.step.list</field>
+        <field name="model">approval.desk.step</field>
+        <field name="arch" type="xml">
+            <list string="Approval Steps" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="request_id"/>
+                <field name="sequence"/>
+                <field name="approver_id"/>
+                <field name="min_amount" sum="Total Min Amount"/>
+                <field name="state" widget="badge"/>
+                <field name="decision_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_approval_desk_step_form" model="ir.ui.view">
+        <field name="name">approval.desk.step.form</field>
+        <field name="model">approval.desk.step</field>
+        <field name="arch" type="xml">
+            <form string="Approval Steps">
+                <header>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'pending'"/>
+                    <button name="action_refuse" type="object" string="Refuse" class="btn-secondary" invisible="state != 'pending'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,approved,refused"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="request_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Step">
+    <field name="request_id"/>
+    <field name="sequence"/>
+    <field name="approver_id"/>
+    <field name="min_amount"/>
+    <field name="currency_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Decision">
+    <field name="decision_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Comment" name="comment">
+                            <field name="comment"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_approval_desk_step_search" model="ir.ui.view">
+        <field name="name">approval.desk.step.search</field>
+        <field name="model">approval.desk.step</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="request_id"/>
+                <field name="approver_id"/>
+                <filter name="pending" string="Pending" domain="[('state','=','pending')]"/>
+                <filter name="approved" string="Approved" domain="[('state','=','approved')]"/>
+                <filter name="refused" string="Refused" domain="[('state','=','refused')]"/>
+                <filter name="mine" string="My Steps" domain="[('approver_id','=',uid)]"/>
+                <separator/>
+                <filter name="group_approver" string="Approver" context="{'group_by': 'approver_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_request" string="Request" context="{'group_by': 'request_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_approval_desk_step" model="ir.actions.act_window">
+        <field name="name">Approval Steps</field>
+        <field name="res_model">approval.desk.step</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every step of every approval chain, with its approver, threshold and decision.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,500 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* budget_ctl_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__actual
+msgid "Actual"
+msgstr "Tatsächlich"
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "Add at least one budget line before starting the budget \"%s\"."
+msgstr "Fügen Sie mindestens eine Budgetzeile hinzu, bevor Sie mit dem Budget „%s“ beginnen."
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,help:budget_ctl_pro.field_budget_ctl_line__committed
+msgid "Amount already engaged by a purchase order or a signed commitment but not invoiced yet."
+msgstr "Betrag, der bereits durch eine Bestellung oder eine unterzeichnete Verpflichtung in Anspruch genommen, aber noch nicht in Rechnung gestellt wurde."
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,help:budget_ctl_pro.field_budget_ctl_line__actual
+msgid "Amount already invoiced or booked on this line. A negative value records a credit or a reversal."
+msgstr "In dieser Zeile bereits in Rechnung gestellter oder gebuchter Betrag. Ein negativer Wert erfasst eine Gutschrift oder eine Stornierung."
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,help:budget_ctl_pro.field_budget_ctl_line__planned
+msgid "Amount granted to this line for the budget period."
+msgstr "Dieser Zeile für den Budgetzeitraum gewährter Betrag."
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_line_form
+msgid "Amounts"
+msgstr "Beträge"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__analytic_account_id
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_search
+msgid "Analytic Account"
+msgstr "Analytisches Konto"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,help:budget_ctl_pro.field_budget_ctl__analytic_account_id
+msgid "Analytic account covered by this budget. Leave empty for a budget that covers the whole company."
+msgstr "Analysekonto, das von diesem Budget abgedeckt wird. Lassen Sie das Feld leer, um ein Budget zu erhalten, das das gesamte Unternehmen abdeckt."
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_search
+msgid "Archived"
+msgstr "Archiviert"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__available
+msgid "Available"
+msgstr "Verfügbar"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__budget_id
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_form
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_line_search
+msgid "Budget"
+msgstr "Budget"
+
+#. module: budget_ctl_pro
+#: model:ir.model,name:budget_ctl_pro.model_budget_ctl
+#: model:ir.ui.menu,name:budget_ctl_pro.menu_budgetctl_root
+msgid "Budget Control"
+msgstr "Budgetkontrolle"
+
+#. module: budget_ctl_pro
+#: model:ir.model,name:budget_ctl_pro.model_budget_ctl_line
+msgid "Budget Control Line"
+msgstr "Haushaltskontrolllinie"
+
+#. module: budget_ctl_pro
+#: model:res.groups,name:budget_ctl_pro.group_budgetctlpro_manager
+msgid "Budget Ctl Pro Manager"
+msgstr "Budget Ctl Pro Manager"
+
+#. module: budget_ctl_pro
+#: model:res.groups,name:budget_ctl_pro.group_budgetctlpro_user
+msgid "Budget Ctl Pro User"
+msgstr "Budget Ctl Pro-Benutzer"
+
+#. module: budget_ctl_pro
+#: model:ir.actions.act_window,name:budget_ctl_pro.action_budgetctl_budget_line
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__line_ids
+#: model:ir.ui.menu,name:budget_ctl_pro.menu_budgetctl_lines
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_form
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_line_form
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_line_list
+msgid "Budget Lines"
+msgstr "Haushaltslinien"
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "Budget closed with %(available).2f still available on %(planned).2f planned."
+msgstr "Das Budget wurde abgeschlossen, %(available).2f ist noch verfügbar am %(planned).2f geplant."
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "Budget reset to draft."
+msgstr "Budget auf Entwurf zurückgesetzt."
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "Budget started with %(planned).2f planned, %(actual).2f actual and %(committed).2f committed."
+msgstr "Das Budget begann mit %(geplant).2f geplant, %(tatsächlich).2f tatsächlich und %(festgelegt).2f festgeschrieben."
+
+#. module: budget_ctl_pro
+#: model:ir.module.module,shortdesc:base.module_budget_ctl_pro
+msgid "BudgetCtlPro - Budget Control with Commitments"
+msgstr "BudgetCtlPro – Budgetkontrolle mit Verpflichtungen"
+
+#. module: budget_ctl_pro
+#: model:ir.actions.act_window,name:budget_ctl_pro.action_budgetctl_budget
+#: model:ir.ui.menu,name:budget_ctl_pro.menu_budgetctl_budgets
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_form
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_list
+msgid "Budgets"
+msgstr "Budgets"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_form
+msgid "Close"
+msgstr "Schließen"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields.selection,name:budget_ctl_pro.selection__budget_ctl__state__closed
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_search
+msgid "Closed"
+msgstr "Geschlossen"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__code
+msgid "Code"
+msgstr "Code"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__committed
+msgid "Committed"
+msgstr "Engagiert"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__company_id
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__company_id
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_search
+msgid "Company"
+msgstr "Firma"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_search
+msgid "Company Wide"
+msgstr "Unternehmensweit"
+
+#. module: budget_ctl_pro
+#: model:ir.module.module,summary:base.module_budget_ctl_pro
+msgid "Compare planned, actual and committed amounts line by line, see what is really left to spend, and freeze the budget once the period is closed."
+msgstr "Vergleichen Sie geplante, tatsächliche und zugesagte Beträge Zeile für Zeile, sehen Sie, was wirklich noch ausgegeben werden muss, und frieren Sie das Budget ein, sobald der Zeitraum abgeschlossen ist."
+
+#. module: budget_ctl_pro
+#: model:res.groups,comment:budget_ctl_pro.group_budgetctlpro_manager
+msgid "Configure and administer the module."
+msgstr "Konfigurieren und verwalten Sie das Modul."
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__create_uid
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__create_date
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__currency_id
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__currency_id
+msgid "Currency"
+msgstr "Währung"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__date_end
+msgid "Date End"
+msgstr "Datum Ende"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__date_start
+msgid "Date Start"
+msgstr "Datum Beginn"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__name
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__display_name
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields.selection,name:budget_ctl_pro.selection__budget_ctl__state__draft
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_search
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.actions.act_window,help:budget_ctl_pro.action_budgetctl_budget_line
+msgid "Every budget line of every budget, with its planned, actual, committed and available amounts."
+msgstr "Jede Budgetlinie jedes Budgets mit ihren geplanten, tatsächlichen, zugesagten und verfügbaren Beträgen."
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__has_message
+msgid "Has Message"
+msgstr "Hat Nachricht"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__write_uid
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__write_date
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_line_form
+msgid "Line"
+msgstr "Linie"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__name
+msgid "Name"
+msgstr "Name"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__note
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__note
+msgid "Note"
+msgstr "Notiz"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_form
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_line_form
+msgid "Notes"
+msgstr "Notizen"
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "Only a closed budget can be reset to draft."
+msgstr "Nur ein abgeschlossenes Budget kann auf den Entwurf zurückgesetzt werden."
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "Only a draft budget can be started."
+msgstr "Es kann nur mit einem Haushaltsentwurf begonnen werden."
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "Only a running budget can be closed."
+msgstr "Es kann nur ein laufender Haushalt abgeschlossen werden."
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__is_overspent
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_list
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_search
+msgid "Overspent"
+msgstr "Zu viel ausgegeben"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_line_search
+msgid "Overspent Lines"
+msgstr "Zu viel ausgegebene Leitungen"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_form
+msgid "Period"
+msgstr "Periode"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__planned
+msgid "Planned"
+msgstr "Geplant"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,help:budget_ctl_pro.field_budget_ctl__total_available
+msgid "Planned minus actual minus committed, summed over the lines."
+msgstr "Geplant minus Ist minus Zugesagt, summiert über die Zeilen."
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,help:budget_ctl_pro.field_budget_ctl_line__available
+msgid "Planned minus actual minus committed."
+msgstr "Geplant minus Ist minus Zusage."
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_form
+msgid "Reset to Draft"
+msgstr "Zurücksetzen auf Entwurf"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields.selection,name:budget_ctl_pro.selection__budget_ctl__state__running
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_search
+msgid "Running"
+msgstr "Laufend"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl_line__sequence
+msgid "Sequence"
+msgstr "Sequenz"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.actions.act_window,help:budget_ctl_pro.action_budgetctl_budget
+msgid "Set the planned amount per line, record the actual and committed amounts, and watch what is left to spend."
+msgstr "Legen Sie den geplanten Betrag pro Zeile fest, erfassen Sie die tatsächlichen und zugesagten Beträge und beobachten Sie, was noch ausgegeben werden muss."
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,help:budget_ctl_pro.field_budget_ctl__is_overspent
+msgid "Set when the available amount of the budget is negative."
+msgstr "Wird festgelegt, wenn der verfügbare Betrag des Budgets negativ ist."
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,help:budget_ctl_pro.field_budget_ctl__code
+msgid "Short reference of the budget. Generated from the BGT/ sequence when left empty."
+msgstr "Kurze Referenz zum Budget. Wird aus der BGT/-Sequenz generiert, wenn sie leer bleibt."
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_form
+msgid "Start"
+msgstr "Start"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__state
+msgid "State"
+msgstr "Status"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_search
+msgid "Status"
+msgstr "Status"
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "The budget \"%s\" is closed: its lines can no longer be changed."
+msgstr "Das Budget „%s“ ist geschlossen: seine Zeilen können nicht mehr geändert werden."
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "The budget \"%s\" is closed: its lines can no longer be deleted."
+msgstr "Das Budget „%s“ ist geschlossen: seine Zeilen können nicht mehr gelöscht werden."
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "The budget \"%s\" is closed: no budget line can be added to it."
+msgstr "Das Budget „%s“ ist geschlossen: Es kann keine Budgetzeile hinzugefügt werden."
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "The budget \"%s\" is closed: no line can be moved to it."
+msgstr "Das Budget „%s“ ist geschlossen: Es kann keine Zeile dorthin verschoben werden."
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "The budget code \"%s\" is already used by the budget \"%s\" of the same company."
+msgstr "Der Budgetcode „%s“ wird bereits vom Budget „%s“ desselben Unternehmens verwendet."
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "The budget code \"%s\" is used twice in the same company."
+msgstr "Der Budgetcode „%s“ wird im selben Unternehmen zweimal verwendet."
+
+#. module: budget_ctl_pro
+#: model:ir.model.constraint,message:budget_ctl_pro.constraint_budget_ctl_code_company_uniq
+msgid "The budget code must be unique per company."
+msgstr "Der Budgetcode muss pro Unternehmen eindeutig sein."
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "The committed amount of the line \"%s\" cannot be negative."
+msgstr "Der zugesagte Betrag der Zeile „%s“ darf nicht negativ sein."
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "The end date of the budget \"%s\" cannot be before its start date."
+msgstr "Das Enddatum des Budgets „%s“ darf nicht vor seinem Startdatum liegen."
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "The period and the analytic scope of the closed budget \"%s\" can no longer be changed. Reset it to draft first."
+msgstr "Der Zeitraum und der Analyseumfang des abgeschlossenen Budgets „%s“ können nicht mehr geändert werden. Setzen Sie es zunächst auf „Entwurf“ zurück."
+
+#. module: budget_ctl_pro
+#. odoo-python
+#: code:addons/budget_ctl_pro/models/budget_ctl_pro.py:0
+msgid "The planned amount of the line \"%s\" cannot be negative."
+msgstr "Der Planbetrag der Zeile „%s“ darf nicht negativ sein."
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__total_actual
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_form
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_line_list
+msgid "Total Actual"
+msgstr "Insgesamt tatsächlich"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__total_available
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_form
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_line_list
+msgid "Total Available"
+msgstr "Insgesamt verfügbar"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__total_committed
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_form
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_line_list
+msgid "Total Committed"
+msgstr "Insgesamt zugesagt"
+
+#. module: budget_ctl_pro
+#: model:ir.model.fields,field_description:budget_ctl_pro.field_budget_ctl__total_planned
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_form
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_line_list
+msgid "Total Planned"
+msgstr "Insgesamt geplant"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_list
+msgid "Total Total Actual"
+msgstr "Gesamtsumme Ist"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_list
+msgid "Total Total Available"
+msgstr "Gesamtsumme verfügbar"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_list
+msgid "Total Total Committed"
+msgstr "Gesamtsumme der zugesagten Gesamtsumme"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_list
+msgid "Total Total Planned"
+msgstr "Gesamtsumme geplant"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_form
+msgid "Totals"
+msgstr "Summen"
+
+#. module: budget_ctl_pro
+#: model:res.groups,comment:budget_ctl_pro.group_budgetctlpro_user
+msgid "View and use the module."
+msgstr "Sehen Sie sich das Modul an und nutzen Sie es."
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_line_search
+msgid "With Actuals"
+msgstr "Mit Ist-Werten"
+
+#. module: budget_ctl_pro
+#: model_terms:ir.ui.view,arch_db:budget_ctl_pro.view_budgetctl_budget_line_search
+msgid "With Commitments"
+msgstr "Mit Verpflichtungen"

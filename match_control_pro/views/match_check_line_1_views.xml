@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_match_check_line_list" model="ir.ui.view">
+        <field name="name">match.check.line.list</field>
+        <field name="model">match.check.line</field>
+        <field name="arch" type="xml">
+            <list string="Check Lines">
+                <field name="check_id"/>
+                <field name="product_id"/>
+                <field name="qty_ordered" sum="Total Qty Ordered"/>
+                <field name="qty_received" sum="Total Qty Received"/>
+                <field name="qty_billed" sum="Total Qty Billed"/>
+                <field name="price_ordered"/>
+                <field name="price_billed"/>
+                <field name="status" widget="badge"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_match_check_line_form" model="ir.ui.view">
+        <field name="name">match.check.line.form</field>
+        <field name="model">match.check.line</field>
+        <field name="arch" type="xml">
+            <form string="Check Lines">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="product_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Line">
+    <field name="check_id"/>
+    <field name="product_id"/>
+                        </group>
+                        <group string="Quantities">
+    <field name="qty_ordered"/>
+    <field name="qty_received"/>
+    <field name="qty_billed"/>
+                        </group>
+                        <group string="Prices">
+    <field name="price_ordered"/>
+    <field name="price_billed"/>
+    <field name="currency_id"/>
+    <field name="status"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_match_check_line_search" model="ir.ui.view">
+        <field name="name">match.check.line.search</field>
+        <field name="model">match.check.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_id"/>
+                <field name="check_id"/>
+                <filter name="ok" string="Compliant" domain="[('status','=','ok')]"/>
+                <filter name="qty" string="Quantity Variance" domain="[('status','=','qty')]"/>
+                <filter name="price" string="Price Variance" domain="[('status','=','price')]"/>
+                <separator/>
+                <filter name="group_product" string="Product" context="{'group_by': 'product_id'}"/>
+                <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_match_check_line" model="ir.actions.act_window">
+        <field name="name">Check Lines</field>
+        <field name="res_model">match.check.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every matched product line of every three-way check.</p>
+        </field>
+    </record>
+
+</odoo>

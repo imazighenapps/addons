@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_job_cost_line_list" model="ir.ui.view">
+        <field name="name">job.cost.line.list</field>
+        <field name="model">job.cost.line</field>
+        <field name="arch" type="xml">
+            <list string="Cost Lines">
+                <field name="job_id"/>
+                <field name="date"/>
+                <field name="cost_type" widget="badge"/>
+                <field name="description"/>
+                <field name="partner_id"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="is_committed" widget="boolean"/>
+                <field name="invoice_ref"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_job_cost_line_form" model="ir.ui.view">
+        <field name="name">job.cost.line.form</field>
+        <field name="model">job.cost.line</field>
+        <field name="arch" type="xml">
+            <form string="Cost Lines">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="description" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Line">
+    <field name="job_id"/>
+    <field name="sequence"/>
+    <field name="date"/>
+    <field name="cost_type"/>
+    <field name="description"/>
+                        </group>
+                        <group string="Amount">
+    <field name="amount"/>
+    <field name="currency_id"/>
+    <field name="partner_id"/>
+    <field name="invoice_ref"/>
+                        </group>
+                        <group string="Status">
+    <field name="is_committed"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_job_cost_line_search" model="ir.ui.view">
+        <field name="name">job.cost.line.search</field>
+        <field name="model">job.cost.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="description"/>
+                <field name="job_id"/>
+                <field name="partner_id"/>
+                <field name="invoice_ref"/>
+                <filter name="labor" string="Labor" domain="[('cost_type','=','labor')]"/>
+                <filter name="material" string="Material" domain="[('cost_type','=','material')]"/>
+                <filter name="subcontract" string="Subcontract" domain="[('cost_type','=','subcontract')]"/>
+                <filter name="overhead" string="Overhead" domain="[('cost_type','=','overhead')]"/>
+                <filter name="committed" string="Committed" domain="[('is_committed','=',True)]"/>
+                <filter name="actual" string="Invoiced" domain="[('is_committed','=',False)]"/>
+                <separator/>
+                <filter name="group_job" string="Job" context="{'group_by': 'job_id'}"/>
+                <filter name="group_type" string="Cost Type" context="{'group_by': 'cost_type'}"/>
+                <filter name="group_committed" string="Committed" context="{'group_by': 'is_committed'}"/>
+                <filter name="group_partner" string="Vendor" context="{'group_by': 'partner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_job_cost_line" model="ir.actions.act_window">
+        <field name="name">Cost Lines</field>
+        <field name="res_model">job.cost.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every actual and committed cost line of every job, in one place.</p>
+        </field>
+    </record>
+
+</odoo>

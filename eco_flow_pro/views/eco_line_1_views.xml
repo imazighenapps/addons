@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_eco_line_list" model="ir.ui.view">
+        <field name="name">eco.line.list</field>
+        <field name="model">eco.line</field>
+        <field name="arch" type="xml">
+            <list string="Change Lines">
+                <field name="eco_id"/>
+                <field name="change_type" widget="badge"/>
+                <field name="component_id"/>
+                <field name="old_qty" sum="Total Old Qty"/>
+                <field name="new_qty" sum="Total New Qty"/>
+                <field name="note" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_eco_line_form" model="ir.ui.view">
+        <field name="name">eco.line.form</field>
+        <field name="model">eco.line</field>
+        <field name="arch" type="xml">
+            <form string="Change Lines">
+                <sheet>
+                    <group>
+                        <group string="Line">
+    <field name="eco_id"/>
+    <field name="sequence"/>
+    <field name="change_type"/>
+    <field name="component_id"/>
+                        </group>
+                        <group string="Quantities">
+    <field name="old_qty"/>
+    <field name="new_qty"/>
+    <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_eco_line_search" model="ir.ui.view">
+        <field name="name">eco.line.search</field>
+        <field name="model">eco.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="eco_id"/>
+                <field name="component_id"/>
+                <field name="note"/>
+                <filter name="add" string="Add" domain="[('change_type','=','add')]"/>
+                <filter name="remove" string="Remove" domain="[('change_type','=','remove')]"/>
+                <filter name="change" string="Change" domain="[('change_type','=','change')]"/>
+                <separator/>
+                <filter name="group_change_request" string="Engineering Change" context="{'group_by': 'eco_id'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'change_type'}"/>
+                <filter name="group_component" string="Component" context="{'group_by': 'component_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_eco_line" model="ir.actions.act_window">
+        <field name="name">Change Lines</field>
+        <field name="res_model">eco.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every add, remove and change line of every engineering change, in one place.</p>
+        </field>
+    </record>
+
+</odoo>

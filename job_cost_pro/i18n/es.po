@@ -1,0 +1,646 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* job_cost_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost__alert_threshold
+msgid "Accepted overrun, in percent of the budget cost, before the job is flagged as over budget."
+msgstr "Exceso aceptado, en porcentaje del costo presupuestado, antes de que el trabajo se marque como por encima del presupuesto."
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__actual_cost
+msgid "Actual Cost"
+msgstr "Costo real"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__actual_revenue
+msgid "Actual Revenue"
+msgstr "Ingresos reales"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost__progress_pct
+msgid "Actual plus committed cost as a percentage of the budget cost, bounded between 0 and 100. Computed automatically, and editable when the physical progress of the job differs from its cost consumption."
+msgstr "Costo real más comprometido como porcentaje del costo presupuestado, limitado entre 0 y 100. Se calcula automáticamente y se puede editar cuando el progreso físico del trabajo difiere de su consumo de costos."
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost__margin
+msgid "Actual revenue minus actual cost minus committed cost."
+msgstr "Ingresos reales menos costo real menos costo comprometido."
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_form
+msgid "Actuals"
+msgstr "Datos reales"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__alert_threshold
+msgid "Alert Threshold (%)"
+msgstr "Umbral de alerta (%)"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__amount
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_form
+msgid "Amount"
+msgstr "Importe"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_search
+msgid "Archived"
+msgstr "Archivada Archivado"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_form
+msgid "Budget"
+msgstr "Presupuesto"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__budget_cost
+msgid "Budget Cost"
+msgstr "Costo del presupuesto"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__budget_revenue
+msgid "Budget Revenue"
+msgstr "Ingresos presupuestarios"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_form
+msgid "Close"
+msgstr "Cerca"
+
+#. module: job_cost_pro
+#: model:ir.model.fields.selection,name:job_cost_pro.selection__job_cost__state__closed
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_search
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__code
+msgid "Code"
+msgstr "Código"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__is_committed
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_search
+msgid "Committed"
+msgstr "Comprometida Comprometido"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__committed_cost
+msgid "Committed Cost"
+msgstr "Costo comprometido"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__company_id
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: job_cost_pro
+#: model:ir.module.module,summary:base.module_job_cost_pro
+msgid "Compare the budget of every job with its actual and committed costs, cap the progress at 100 percent and flag the job before an overrun destroys the margin."
+msgstr "Compare el presupuesto de cada trabajo con sus costos reales y comprometidos, limite el progreso al 100 por ciento y marque el trabajo antes de que un exceso destruya el margen."
+
+#. module: job_cost_pro
+#: model:res.groups,comment:job_cost_pro.group_jobcostpro_manager
+msgid "Configure and administer the module."
+msgstr "Configurar y administrar el módulo."
+
+#. module: job_cost_pro
+#: model:ir.actions.act_window,name:job_cost_pro.action_job_cost_line
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__line_ids
+#: model:ir.ui.menu,name:job_cost_pro.menu_jobcost_lines
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_form
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_form
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_list
+msgid "Cost Lines"
+msgstr "Líneas de costo"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__cost_type
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_search
+msgid "Cost Type"
+msgstr "Tipo de costo"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost__committed_cost
+msgid "Cost already engaged but not invoiced yet: the sum of the committed cost lines."
+msgstr "Costo ya comprometido pero aún no facturado: la suma de las líneas de costo comprometidas."
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__create_uid
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__create_date
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__currency_id
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__partner_id
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_search
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost__partner_id
+msgid "Customer who ordered the job and pays its revenue."
+msgstr "Cliente que ordenó el trabajo y paga sus ingresos."
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__date_end
+msgid "Date End"
+msgstr "Fecha de finalización"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__date_start
+msgid "Date Start"
+msgstr "Fecha de inicio"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__display_name
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: job_cost_pro
+#: model:ir.model.fields.selection,name:job_cost_pro.selection__job_cost__state__draft
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_search
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: job_cost_pro
+#: model_terms:ir.actions.act_window,help:job_cost_pro.action_job_cost_line
+msgid "Every actual and committed cost line of every job, in one place."
+msgstr "Cada línea de costos reales y comprometidos de cada trabajo, en un solo lugar."
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__invoice_ref
+msgid "Invoice Reference"
+msgstr "Referencia de factura"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_search
+msgid "Invoiced"
+msgstr "Facturada Facturado"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost__actual_cost
+msgid "Invoiced cost: the sum of the cost lines that are not committed."
+msgstr "Costo facturado: la suma de las líneas de costo que no están comprometidas."
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_form
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_search
+msgid "Job"
+msgstr "Trabajo"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__job_id
+msgid "Job Cost"
+msgstr "Costo del trabajo"
+
+#. module: job_cost_pro
+#: model:ir.model,name:job_cost_pro.model_job_cost_line
+msgid "Job Cost Line"
+msgstr "Línea de costo del trabajo"
+
+#. module: job_cost_pro
+#: model:res.groups,name:job_cost_pro.group_jobcostpro_manager
+msgid "Job Cost Pro Manager"
+msgstr "Gerente de Costos de Trabajo Pro"
+
+#. module: job_cost_pro
+#: model:res.groups,name:job_cost_pro.group_jobcostpro_user
+msgid "Job Cost Pro User"
+msgstr "Usuario de Job Cost Pro"
+
+#. module: job_cost_pro
+#: model:ir.model,name:job_cost_pro.model_job_cost
+msgid "Job Cost Sheet"
+msgstr "Hoja de costos de trabajo"
+
+#. module: job_cost_pro
+#: model:ir.ui.menu,name:job_cost_pro.menu_jobcost_root
+msgid "Job Costing"
+msgstr "Costo del trabajo"
+
+#. module: job_cost_pro
+#: model:ir.actions.act_window,name:job_cost_pro.action_job_cost
+#: model:ir.ui.menu,name:job_cost_pro.menu_jobcost_jobs
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_form
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_list
+msgid "Job Costs"
+msgstr "Costos laborales"
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "Job closed with %(actual)s actual cost, %(committed)s committed cost and a margin of %(margin)s."
+msgstr "Trabajo cerrado con costo real %(actual)s, costo comprometido %(committed)s y un margen de %(margin)s."
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_form
+msgid "Job name"
+msgstr "Nombre del trabajo"
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "Job reopened: the budget and the cost lines are editable again."
+msgstr "Trabajo reabierto: el presupuesto y las líneas de costos se pueden editar nuevamente."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "Job started with a budget of %(revenue)s revenue and %(cost)s cost."
+msgstr "El trabajo comenzó con un presupuesto de ingresos %(revenue)s y costo %(cost)s."
+
+#. module: job_cost_pro
+#: model:ir.module.module,shortdesc:base.module_job_cost_pro
+msgid "JobCostPro - Job Costing, Committed Costs and Real Margin"
+msgstr "JobCostPro: cálculo de costes laborales, costes comprometidos y margen real"
+
+#. module: job_cost_pro
+#: model:ir.model.fields.selection,name:job_cost_pro.selection__job_cost_line__cost_type__labor
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_search
+msgid "Labor"
+msgstr "Mano de obra"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__write_uid
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__write_date
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_form
+msgid "Line"
+msgstr "Línea"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__manager_id
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_search
+msgid "Manager"
+msgstr "Gerente"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__margin
+msgid "Margin"
+msgstr "Margen"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__margin_rate
+msgid "Margin Rate (%)"
+msgstr "Tasa de margen (%)"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost__margin_rate
+msgid "Margin as a percentage of the actual revenue."
+msgstr "Margen como porcentaje de los ingresos reales."
+
+#. module: job_cost_pro
+#: model:ir.model.fields.selection,name:job_cost_pro.selection__job_cost_line__cost_type__material
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_search
+msgid "Material"
+msgstr "Material"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Fecha límite de mi actividad"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_search
+msgid "My Jobs"
+msgstr "Mis trabajos"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost_line__cost_type
+msgid "Nature of the cost: labor, material, subcontract, overhead or other."
+msgstr "Naturaleza del costo: mano de obra, material, subcontratación, gastos generales u otros."
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost__project_id
+msgid "Odoo project whose tasks and timesheets belong to this job."
+msgstr "Proyecto Odoo cuyas tareas y hojas de tiempo pertenecen a este trabajo."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "Only a closed job can be reset to draft, and \"%s\" is not closed."
+msgstr "Sólo se puede restablecer el borrador de un trabajo cerrado y \"%s\" no se cierra."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "Only a draft job can be started, and \"%s\" is not draft."
+msgstr "Sólo se puede iniciar un borrador de trabajo y \"%s\" no es un borrador."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "Only a running job can be closed, and \"%s\" is not running."
+msgstr "Sólo se puede cerrar un trabajo en ejecución y \"%s\" no se está ejecutando."
+
+#. module: job_cost_pro
+#: model:ir.model.fields.selection,name:job_cost_pro.selection__job_cost_line__cost_type__other
+msgid "Other"
+msgstr "Otra Otro"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__is_overrun
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_list
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_search
+msgid "Over Budget"
+msgstr "Por encima del presupuesto"
+
+#. module: job_cost_pro
+#: model:ir.model.fields.selection,name:job_cost_pro.selection__job_cost_line__cost_type__overhead
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_search
+msgid "Overhead"
+msgstr "Arriba"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__progress_pct
+msgid "Progress (%)"
+msgstr "Progreso (%)"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__project_id
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_search
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_form
+msgid "Recompute Totals"
+msgstr "Recalcular totales"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_form
+msgid "Reset to Draft"
+msgstr "Restablecer al borrador"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost__actual_revenue
+msgid "Revenue invoiced or accrued on the job so far. The margin is computed from this amount."
+msgstr "Ingresos facturados o acumulados en el trabajo hasta el momento. El margen se calcula a partir de esta cantidad."
+
+#. module: job_cost_pro
+#: model:ir.model.fields.selection,name:job_cost_pro.selection__job_cost__state__running
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_search
+msgid "Running"
+msgstr "En curso"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_form
+msgid "Schedule"
+msgstr "Cronograma"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "Set a budget revenue or a budget cost on the job \"%s\" before starting it."
+msgstr "Establezca un ingreso presupuestado o un costo presupuestado en el trabajo \"%s\" antes de iniciarlo."
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost_line__is_committed
+msgid "Set for a cost already engaged - purchase order sent, subcontract signed - but not invoiced yet. A committed line feeds the committed cost and the margin, not the actual cost."
+msgstr "Establecido para un costo ya comprometido (orden de compra enviada, subcontrato firmado) pero aún no facturado. Una línea comprometida alimenta el costo comprometido y el margen, no el costo real."
+
+#. module: job_cost_pro
+#: model_terms:ir.actions.act_window,help:job_cost_pro.action_job_cost
+msgid "Set the budget, record the actual and committed costs, and watch the margin before the job is closed."
+msgstr "Establezca el presupuesto, registre los costos reales y comprometidos y observe el margen antes de cerrar el trabajo."
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost__is_overrun
+msgid "Set when actual plus committed cost exceeds the budget cost by more than the alert threshold."
+msgstr "Se establece cuando el costo real más el comprometido excede el costo presupuestado por más del umbral de alerta."
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost__code
+msgid "Short reference of the job, for example JOB/2026/0042."
+msgstr "Breve referencia del trabajo, por ejemplo JOB/2026/0042."
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_form
+msgid "Start"
+msgstr "Comenzar"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost__state
+msgid "State"
+msgstr "Estado"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_form
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: job_cost_pro
+#: model:ir.model.fields.selection,name:job_cost_pro.selection__job_cost_line__cost_type__subcontract
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_search
+msgid "Subcontract"
+msgstr "Subcontratar"
+
+#. module: job_cost_pro
+#: model:ir.model.fields,help:job_cost_pro.field_job_cost_line__invoice_ref
+msgid "Supplier bill or purchase order this cost comes from."
+msgstr "Factura del proveedor u orden de compra de donde proviene este costo."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "The alert threshold of the job \"%s\" cannot be negative."
+msgstr "El umbral de alerta del trabajo \"%s\" no puede ser negativo."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "The amount of the cost line \"%s\" cannot be negative."
+msgstr "El monto de la línea de costo \"%s\" no puede ser negativo."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "The budget of the closed job \"%s\" can no longer be changed. Reset the job to draft first."
+msgstr "El presupuesto del trabajo cerrado \"%s\" ya no se puede modificar. Restablezca el trabajo al borrador primero."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "The budget revenue and the budget cost of the job \"%s\" cannot be negative."
+msgstr "Los ingresos presupuestarios y el coste presupuestario del trabajo \"%s\" no pueden ser negativos."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "The end date of the job \"%s\" cannot be before its start date."
+msgstr "La fecha de finalización del trabajo \"%s\" no puede ser anterior a su fecha de inicio."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "The job \"%s\" is closed: its cost lines can no longer be changed."
+msgstr "El trabajo \"%s\" está cerrado: sus líneas de costo ya no se pueden cambiar."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "The job \"%s\" is closed: its cost lines can no longer be deleted."
+msgstr "El trabajo \"%s\" está cerrado: sus líneas de coste ya no se pueden eliminar."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "The job \"%s\" is closed: no cost line can be added to it."
+msgstr "El trabajo \"%s\" está cerrado: no se le puede agregar ninguna línea de costo."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "The job \"%s\" is closed: no cost line can be moved to it."
+msgstr "El trabajo \"%s\" está cerrado: no se le puede mover ninguna línea de costo."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "The job code \"%s\" is already used by the job \"%s\" of the same company."
+msgstr "El código de trabajo \"%s\" ya lo utiliza el trabajo \"%s\" de la misma empresa."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "The job code \"%s\" is used twice in the same company."
+msgstr "El código de trabajo \"%s\" se utiliza dos veces en la misma empresa."
+
+#. module: job_cost_pro
+#: model:ir.model.constraint,message:job_cost_pro.constraint_job_cost_code_company_uniq
+msgid "The job code must be unique per company."
+msgstr "El código de puesto debe ser único por empresa."
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "The progress of the job \"%s\" must stay between 0 and 100 percent."
+msgstr "El progreso del trabajo \"%s\" debe permanecer entre 0 y 100 por ciento."
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_form
+msgid "Total"
+msgstr "Total"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_list
+msgid "Total Actual Cost"
+msgstr "Costo real total"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_list
+msgid "Total Amount"
+msgstr "Monto total"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_list
+msgid "Total Budget Cost"
+msgstr "Costo total del presupuesto"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_list
+msgid "Total Committed Cost"
+msgstr "Costo total comprometido"
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_list
+msgid "Total Margin"
+msgstr "Margen Total"
+
+#. module: job_cost_pro
+#. odoo-python
+#: code:addons/job_cost_pro/models/job_cost_pro.py:0
+msgid "Totals recomputed from %(count)s cost line(s): %(actual)s actual, %(committed)s committed."
+msgstr "Totales recalculados a partir de las líneas de costos %(count)s: %(actual)s real, %(committed)s comprometido."
+
+#. module: job_cost_pro
+#: model:ir.model.fields,field_description:job_cost_pro.field_job_cost_line__partner_id
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_line_search
+msgid "Vendor"
+msgstr "Proveedora Proveedor"
+
+#. module: job_cost_pro
+#: model:res.groups,comment:job_cost_pro.group_jobcostpro_user
+msgid "View and use the module."
+msgstr "Ver y utilizar el módulo."
+
+#. module: job_cost_pro
+#: model_terms:ir.ui.view,arch_db:job_cost_pro.view_job_cost_search
+msgid "With Commitments"
+msgstr "Con compromisos"

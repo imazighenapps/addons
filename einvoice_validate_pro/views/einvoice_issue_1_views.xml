@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_einvoice_issue_list" model="ir.ui.view">
+        <field name="name">einvoice.issue.list</field>
+        <field name="model">einvoice.issue</field>
+        <field name="arch" type="xml">
+            <list string="E-Invoice Issues" create="0">
+                <field name="check_id"/>
+                <field name="code"/>
+                <field name="severity" widget="badge"/>
+                <field name="message"/>
+                <field name="field_name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_einvoice_issue_form" model="ir.ui.view">
+        <field name="name">einvoice.issue.form</field>
+        <field name="model">einvoice.issue</field>
+        <field name="arch" type="xml">
+            <form string="E-Invoice Issues">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="code" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Issue">
+    <field name="check_id"/>
+    <field name="code"/>
+    <field name="severity"/>
+    <field name="field_name"/>
+                        </group>
+                        <group string="Details">
+    <field name="message"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_einvoice_issue_search" model="ir.ui.view">
+        <field name="name">einvoice.issue.search</field>
+        <field name="model">einvoice.issue</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="code"/>
+                <field name="message"/>
+                <field name="check_id"/>
+                <field name="field_name"/>
+                <filter name="error" string="Errors" domain="[('severity','=','error')]"/>
+                <filter name="warning" string="Warnings" domain="[('severity','=','warning')]"/>
+                <separator/>
+                <filter name="group_severity" string="Severity" context="{'group_by': 'severity'}"/>
+                <filter name="group_check" string="Check" context="{'group_by': 'check_id'}"/>
+                <filter name="group_code" string="Code" context="{'group_by': 'code'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_einvoice_issue" model="ir.actions.act_window">
+        <field name="name">E-Invoice Issues</field>
+        <field name="res_model">einvoice.issue</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every issue raised by the e-invoicing checks, with its code and severity.</p>
+        </field>
+    </record>
+
+</odoo>

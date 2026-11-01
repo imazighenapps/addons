@@ -1,0 +1,623 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* deferral_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: deferral_pro
+#: model:ir.model.fields,help:deferral_pro.field_deferral_schedule__schedule_type
+msgid "A prepaid expense spreads a cost already paid over several months, a deferred revenue spreads an income already invoiced."
+msgstr "Une dépense payée d'avance étale un coût déjà payé sur plusieurs mois, une recette différée étale un revenu déjà facturé."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "A schedule must cover at least one monthly period."
+msgstr "Un planning doit couvrir au moins une période mensuelle."
+
+#. module: deferral_pro
+#: model:ir.model.fields,help:deferral_pro.field_deferral_schedule__account_id
+msgid "Account that receives the monthly expense or revenue."
+msgstr "Compte qui reçoit les dépenses ou les revenus mensuels."
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+msgid "Accounting"
+msgstr "Comptabilité"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "All %(count)s periods are posted: the schedule is complete."
+msgstr "Toutes les périodes %(count)s sont affichées : le planning est complet."
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_line__amount
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__amount
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_line_form
+msgid "Amount"
+msgstr "Montant"
+
+#. module: deferral_pro
+#: model:ir.model.fields,help:deferral_pro.field_deferral_line__amount
+msgid "Amount expensed or recognised on this period."
+msgstr "Montant passé en charge ou reconnu sur cette période."
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+msgid "Amounts"
+msgstr "Montants"
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: deferral_pro
+#: model:ir.model.fields.selection,name:deferral_pro.selection__deferral_schedule__state__cancelled
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_search
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__code
+msgid "Code"
+msgstr "Code"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_line__company_id
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: deferral_pro
+#: model:res.groups,comment:deferral_pro.group_deferralpro_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: deferral_pro
+#: model:ir.model.fields,help:deferral_pro.field_deferral_schedule__offset_account_id
+msgid "Counterpart account used on the monthly journal entry."
+msgstr "Compte de contrepartie utilisé sur l'écriture de journal mensuelle."
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_line__create_uid
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_line__create_date
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_line__currency_id
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_line__date
+msgid "Date"
+msgstr "Date"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__date_end
+msgid "Date End"
+msgstr "Date de fin"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__date_start
+msgid "Date Start"
+msgstr "Date de début"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__account_id
+msgid "Deferral Account"
+msgstr "Compte de report"
+
+#. module: deferral_pro
+#: model:ir.actions.act_window,name:deferral_pro.action_deferral_line
+#: model:ir.ui.menu,name:deferral_pro.menu_deferral_lines
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_line_form
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_line_list
+msgid "Deferral Lines"
+msgstr "Lignes de report"
+
+#. module: deferral_pro
+#: model:res.groups,name:deferral_pro.group_deferralpro_manager
+msgid "Deferral Pro Manager"
+msgstr "Gestionnaire Pro de report"
+
+#. module: deferral_pro
+#: model:res.groups,name:deferral_pro.group_deferralpro_user
+msgid "Deferral Pro User"
+msgstr "Utilisateur Pro du report"
+
+#. module: deferral_pro
+#: model:ir.model,name:deferral_pro.model_deferral_line
+msgid "Deferral Schedule Line"
+msgstr "Ligne de calendrier de report"
+
+#. module: deferral_pro
+#: model:ir.actions.act_window,name:deferral_pro.action_deferral_schedule
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_list
+msgid "Deferral Schedules"
+msgstr "Calendriers de report"
+
+#. module: deferral_pro
+#: model:ir.module.module,shortdesc:base.module_deferral_pro
+msgid "DeferralPro - Prepaid Expenses and Deferred Revenue"
+msgstr "DeferralPro - Dépenses payées d'avance et revenus différés"
+
+#. module: deferral_pro
+#: model:ir.ui.menu,name:deferral_pro.menu_deferral_root
+msgid "Deferrals"
+msgstr "Reports"
+
+#. module: deferral_pro
+#: model:ir.model,name:deferral_pro.model_deferral_schedule
+msgid "Deferred Expense and Revenue Schedule"
+msgstr "Calendrier des dépenses et des revenus reportés"
+
+#. module: deferral_pro
+#: model:ir.model.fields.selection,name:deferral_pro.selection__deferral_schedule__schedule_type__revenue
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_search
+msgid "Deferred Revenue"
+msgstr "Revenus différés"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_line__display_name
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: deferral_pro
+#: model:ir.model.fields.selection,name:deferral_pro.selection__deferral_schedule__state__done
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_search
+msgid "Done"
+msgstr "Terminé"
+
+#. module: deferral_pro
+#: model:ir.model.fields.selection,name:deferral_pro.selection__deferral_line__state__draft
+#: model:ir.model.fields.selection,name:deferral_pro.selection__deferral_schedule__state__draft
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_line_search
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_search
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "Every line of the schedule \"%s\" is already posted."
+msgstr "Chaque ligne du planning « %s » est déjà affichée."
+
+#. module: deferral_pro
+#: model_terms:ir.actions.act_window,help:deferral_pro.action_deferral_line
+msgid "Every period of every schedule, ready to be posted."
+msgstr "Chaque période de chaque planning, prête à être affichée."
+
+#. module: deferral_pro
+#: model:ir.model.fields,help:deferral_pro.field_deferral_schedule__journal_id
+msgid "General journal used for the monthly entries. Leave it empty to post the lines without creating a journal entry."
+msgstr "Journal général utilisé pour les écritures mensuelles. Laissez-le vide pour valider les lignes sans créer d'écriture de journal."
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__invoice_ref
+msgid "Invoice Reference"
+msgstr "Référence de facture"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__journal_id
+msgid "Journal"
+msgstr "Journal"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_line__move_id
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_line_form
+msgid "Journal Entry"
+msgstr "Entrée de journal"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_line__write_uid
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_line__write_date
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+msgid "Mark as Done"
+msgstr "Marquer comme terminé"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__monthly_amount
+msgid "Monthly Amount"
+msgstr "Montant mensuel"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__note
+msgid "Note"
+msgstr "Note"
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: deferral_pro
+#: model:ir.model.fields,help:deferral_pro.field_deferral_schedule__period_count
+msgid "Number of monthly periods covered by the schedule."
+msgstr "Nombre de périodes mensuelles couvertes par le planning."
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__offset_account_id
+msgid "Offset Account"
+msgstr "Compte de compensation"
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "Only a cancelled or a completed schedule can be reset to draft."
+msgstr "Seul un planning annulé ou complété peut être réinitialisé au statut de brouillon."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "Only a draft or a running schedule can be cancelled."
+msgstr "Seul un brouillon ou un planning en cours peut être annulé."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "Only a draft schedule can be started."
+msgstr "Seul un projet de planning peut être démarré."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "Only a running schedule can be closed."
+msgstr "Seul un planning en cours peut être clôturé."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "Only a running schedule can post lines. Start the schedule \"%s\" first."
+msgstr "Seul un planning en cours peut publier des lignes. Démarrez d'abord le planning \"%s\"."
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__partner_id
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_search
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_line_form
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+msgid "Period"
+msgstr "Période"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__period_count
+msgid "Periods"
+msgstr "Périodes"
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+msgid "Post All"
+msgstr "Publier tout"
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_line_form
+msgid "Post Line"
+msgstr "Ligne de publication"
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+msgid "Post Next Period"
+msgstr "Publier la période suivante"
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "Post or remove the remaining draft lines before closing the schedule \"%s\"."
+msgstr "Validez ou supprimez les lignes brouillon restantes avant de clôturer le planning « %s »."
+
+#. module: deferral_pro
+#: model:ir.model.fields.selection,name:deferral_pro.selection__deferral_line__state__posted
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_line_search
+msgid "Posted"
+msgstr "Publié"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__posted_amount
+msgid "Posted Amount"
+msgstr "Montant comptabilisé"
+
+#. module: deferral_pro
+#: model:ir.model.fields.selection,name:deferral_pro.selection__deferral_schedule__schedule_type__expense
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_search
+msgid "Prepaid Expense"
+msgstr "Dépense payée d'avance"
+
+#. module: deferral_pro
+#: model:ir.model.fields,help:deferral_pro.field_deferral_schedule__code
+msgid "Reference of the schedule, generated from the DFR sequence when it is left empty."
+msgstr "Référence du planning, généré à partir de la séquence DFR lorsqu'il est laissé vide."
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__remaining_amount
+msgid "Remaining Amount"
+msgstr "Montant restant"
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+msgid "Reset to Draft"
+msgstr "Réinitialiser au brouillon"
+
+#. module: deferral_pro
+#: model:ir.model.fields.selection,name:deferral_pro.selection__deferral_schedule__state__running
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_search
+msgid "Running"
+msgstr "En cours"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_line__schedule_id
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_line_search
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+msgid "Schedule"
+msgstr "Calendrier"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__line_ids
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+msgid "Schedule Lines"
+msgstr "Lignes d'horaire"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__schedule_type
+msgid "Schedule Type"
+msgstr "Type d'horaire"
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "Schedule cancelled."
+msgstr "Programme annulé."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "Schedule closed with %(posted)s posted out of %(amount)s."
+msgstr "Horaire clôturé avec %(posted)s affiché hors de %(amount)s."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "Schedule reset to draft."
+msgstr "Calendrier réinitialisé au brouillon."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "Schedule started: %(count)s monthly line(s) of about %(monthly)s each."
+msgstr "Calendrier démarré : ligne(s) mensuelle(s) %(count)s d'environ %(monthly)s chacune."
+
+#. module: deferral_pro
+#: model:ir.ui.menu,name:deferral_pro.menu_deferral_schedules
+msgid "Schedules"
+msgstr "Horaires"
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_line__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "Set a deferred amount before starting the schedule \"%s\"."
+msgstr "Fixez un montant différé avant de démarrer le planning « %s »."
+
+#. module: deferral_pro
+#: model_terms:ir.actions.act_window,help:deferral_pro.action_deferral_schedule
+msgid "Spread a prepaid expense or a deferred revenue over its real period, then post one month at a time."
+msgstr "Étalez une dépense payée d'avance ou un produit constaté d'avance sur sa période réelle, puis comptabilisez un mois à la fois."
+
+#. module: deferral_pro
+#: model:ir.module.module,summary:base.module_deferral_pro
+msgid "Spread prepaid expenses and deferred revenue over their real period, post one month or the whole schedule, and keep posted and remaining amounts exact."
+msgstr "Répartissez les dépenses payées d'avance et les revenus différés sur leur période réelle, publiez un mois ou l'ensemble du planning et maintenez exacts les montants affichés et restants."
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+msgid "Start"
+msgstr "Commencer"
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "Start the schedule \"%s\" before posting its lines."
+msgstr "Démarrez le planning « %s » avant de poster ses lignes."
+
+#. module: deferral_pro
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_line__state
+#: model:ir.model.fields,field_description:deferral_pro.field_deferral_schedule__state
+msgid "State"
+msgstr "Statut"
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_line_search
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: deferral_pro
+#: model:ir.model.fields,help:deferral_pro.field_deferral_schedule__invoice_ref
+msgid "Supplier bill or customer invoice this schedule comes from."
+msgstr "Facture fournisseur ou facture client dont provient cet échéancier."
+
+#. module: deferral_pro
+#: model:ir.model.fields,help:deferral_pro.field_deferral_schedule__partner_id
+msgid "Supplier of the prepaid expense or customer of the deferred revenue."
+msgstr "Fournisseur de la dépense payée d’avance ou client du revenu différé."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "The amount and the period of the schedule \"%s\" can only be changed while it is in draft."
+msgstr "Le montant et la durée de l'échéancier « %s » ne peuvent être modifiés que lorsqu'il est en projet."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "The deferred amount of \"%s\" must be greater than zero."
+msgstr "Le montant différé de « %s » doit être supérieur à zéro."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "The end date cannot be before the start date."
+msgstr "La date de fin ne peut pas être antérieure à la date de début."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "The line of %(date)s is already posted."
+msgstr "La ligne de %(date)s est déjà affichée."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "The posted line of %(date)s can no longer be changed."
+msgstr "La ligne affichée de %(date)s ne peut plus être modifiée."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "The posted line of %(date)s cannot be deleted."
+msgstr "La ligne publiée de %(date)s ne peut pas être supprimée."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "The schedule \"%s\" already has lines. Remove them before starting it again."
+msgstr "Le planning « %s » comporte déjà des lignes. Retirez-les avant de recommencer."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "The schedule \"%s\" already has posted lines: it can no longer be reset to draft."
+msgstr "Le planning « %s » comporte déjà des lignes postées : il ne peut plus être remis à l'état brouillon."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "The schedule \"%s\" is cancelled: its lines can no longer be posted."
+msgstr "L'horaire \"%s\" est annulé : ses lignes ne peuvent plus être affichées."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "The schedule \"%s\" must cover at least one monthly period."
+msgstr "L'horaire « %s » doit couvrir au moins une période mensuelle."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "The schedule code \"%s\" is already used by the schedule \"%s\" of the same company."
+msgstr "Le code horaire « %s » est déjà utilisé par l’horaire « %s » de la même entreprise."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "The schedule code \"%s\" is used twice in the same company."
+msgstr "Le code horaire « %s » est utilisé deux fois dans la même entreprise."
+
+#. module: deferral_pro
+#: model:ir.model.constraint,message:deferral_pro.constraint_deferral_schedule_code_company_uniq
+msgid "The schedule code must be unique per company."
+msgstr "Le code horaire doit être unique par entreprise."
+
+#. module: deferral_pro
+#. odoo-python
+#: code:addons/deferral_pro/models/deferral_pro.py:0
+msgid "There is no draft line left to post on the schedule \"%s\"."
+msgstr "Il ne reste plus de brouillon de ligne à afficher sur le planning « %s »."
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_form
+msgid "Total"
+msgstr "Total"
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_line_list
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_list
+msgid "Total Amount"
+msgstr "Montant total"
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_list
+msgid "Total Posted Amount"
+msgstr "Montant total comptabilisé"
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_list
+msgid "Total Remaining Amount"
+msgstr "Montant total restant"
+
+#. module: deferral_pro
+#: model:ir.model.fields,help:deferral_pro.field_deferral_schedule__amount
+msgid "Total amount to spread over the whole period."
+msgstr "Montant total à répartir sur toute la période."
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_schedule_search
+msgid "Type"
+msgstr "Taper"
+
+#. module: deferral_pro
+#: model:res.groups,comment:deferral_pro.group_deferralpro_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: deferral_pro
+#: model_terms:ir.ui.view,arch_db:deferral_pro.view_deferral_line_search
+msgid "With Journal Entry"
+msgstr "Avec entrée de journal"

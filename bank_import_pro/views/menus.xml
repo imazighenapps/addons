@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_bankimp_root" name="Bank Import" sequence="60"/>
+    <menuitem id="menu_bankimp_batches" name="Import Batches" parent="menu_bankimp_root" action="action_bankimp_batch" sequence="10"/>
+    <menuitem id="menu_bankimp_lines" name="Transactions" parent="menu_bankimp_root" action="action_bankimp_line" sequence="20"/>
+    <menuitem id="menu_bankimp_rules" name="Matching Rules" parent="menu_bankimp_root" action="action_bankimp_rule" sequence="30"/>
+</odoo>
