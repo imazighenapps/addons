@@ -1,0 +1,448 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* einvoice_validate_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "An e-invoice check can only be attached to a customer invoice, not to a vendor bill or another entry."
+msgstr "Un chèque de facture électronique ne peut être joint qu'à une facture client, et non à une facture fournisseur ou à une autre entrée."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "An e-invoicing document can only be generated for a customer invoice."
+msgstr "Un document de facturation électronique ne peut être généré que pour une facture client."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,help:einvoice_validate_pro.field_einvoice_issue__severity
+msgid "An error makes the check invalid; a warning is recorded without blocking the check."
+msgstr "Une erreur rend le chèque invalide ; un avertissement est enregistré sans bloquer le contrôle."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_issue__check_id
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_issue_search
+msgid "Check"
+msgstr "Vérifier"
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "Check reset to draft: the XML document and the issues have been cleared."
+msgstr "Cochez la réinitialisation au brouillon : le document XML et les problèmes ont été résolus."
+
+#. module: einvoice_validate_pro
+#: model:ir.ui.menu,name:einvoice_validate_pro.menu_einv_checks
+msgid "Checks"
+msgstr "Chèques"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_issue__code
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_issue_search
+msgid "Code"
+msgstr "Code"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__company_id
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_issue__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: einvoice_validate_pro
+#: model:res.groups,comment:einvoice_validate_pro.group_einvoicevali_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__create_uid
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_issue__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__create_date
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_issue__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__partner_id
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_search
+msgid "Customer"
+msgstr "Client"
+
+#. module: einvoice_validate_pro
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_issue_form
+msgid "Details"
+msgstr "Détails"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__display_name
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_issue__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields.selection,name:einvoice_validate_pro.selection__einvoice_check__state__draft
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_search
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: einvoice_validate_pro
+#: model:ir.model,name:einvoice_validate_pro.model_einvoice_check
+msgid "E-Invoice Check"
+msgstr "Vérification des factures électroniques"
+
+#. module: einvoice_validate_pro
+#: model:ir.actions.act_window,name:einvoice_validate_pro.action_einvoice_check
+#: model:ir.ui.menu,name:einvoice_validate_pro.menu_einv_root
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_form
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_list
+msgid "E-Invoice Checks"
+msgstr "Contrôles de factures électroniques"
+
+#. module: einvoice_validate_pro
+#: model:ir.model,name:einvoice_validate_pro.model_einvoice_issue
+msgid "E-Invoice Issue"
+msgstr "Problème de facture électronique"
+
+#. module: einvoice_validate_pro
+#: model:ir.actions.act_window,name:einvoice_validate_pro.action_einvoice_issue
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_issue_form
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_issue_list
+msgid "E-Invoice Issues"
+msgstr "Problèmes de facture électronique"
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "E-invoicing XML generated in format %(format)s."
+msgstr "XML de facturation électronique généré au format %(format)s."
+
+#. module: einvoice_validate_pro
+#: model:ir.module.module,shortdesc:base.module_einvoice_validate_pro
+msgid "EInvoiceValidatePro - E-Invoicing Checks for CII and UBL Future mandats"
+msgstr "EInvoiceValidatePro - Contrôles de facturation électronique pour les futurs mandats CII et UBL"
+
+#. module: einvoice_validate_pro
+#: model:res.groups,name:einvoice_validate_pro.group_einvoicevali_manager
+msgid "Einvoice Validate Pro Manager"
+msgstr "Efacture Valider Pro Manager"
+
+#. module: einvoice_validate_pro
+#: model:res.groups,name:einvoice_validate_pro.group_einvoicevali_user
+msgid "Einvoice Validate Pro User"
+msgstr "Utilisateur Pro de validation de facture électronique"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields.selection,name:einvoice_validate_pro.selection__einvoice_issue__severity__error
+msgid "Error"
+msgstr "Erreur"
+
+#. module: einvoice_validate_pro
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_issue_search
+msgid "Errors"
+msgstr "Erreurs"
+
+#. module: einvoice_validate_pro
+#: model_terms:ir.actions.act_window,help:einvoice_validate_pro.action_einvoice_issue
+msgid "Every issue raised by the e-invoicing checks, with its code and severity."
+msgstr "Chaque problème soulevé par les contrôles de facturation électronique, avec son code et sa gravité."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_issue__field_name
+msgid "Field"
+msgstr "Champ"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__format
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_search
+msgid "Format"
+msgstr "Format"
+
+#. module: einvoice_validate_pro
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_form
+msgid "Generate XML"
+msgstr "Générer du XML"
+
+#. module: einvoice_validate_pro
+#: model:ir.module.module,summary:base.module_einvoice_validate_pro
+msgid "Generate a compliant e-invoicing XML document from every posted customer invoice and run plain compliance checks before the new e-invoicing mandates."
+msgstr "Générez un document XML de facturation électronique conforme à partir de chaque facture client publiée et effectuez des contrôles de conformité simples avant les nouveaux mandats de facturation électronique."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "Generate the XML document before running the validation."
+msgstr "Générez le document XML avant d'exécuter la validation."
+
+#. module: einvoice_validate_pro
+#: model_terms:ir.actions.act_window,help:einvoice_validate_pro.action_einvoice_check
+msgid "Generate the e-invoicing XML of a posted customer invoice and run the compliance checks."
+msgstr "Générez le XML de facturation électronique d'une facture client publiée et exécutez les contrôles de conformité."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields.selection,name:einvoice_validate_pro.selection__einvoice_check__state__generated
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_search
+msgid "Generated"
+msgstr "Généré"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__xml_data
+msgid "Generated XML"
+msgstr "XML généré"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,help:einvoice_validate_pro.field_einvoice_check__state
+msgid "Generated means the XML document exists. Valid means the validation raised no error-class issue; warnings alone do not make a check invalid."
+msgstr "Généré signifie que le document XML existe. Valide signifie que la validation n'a soulevé aucun problème de classe d'erreur ; les avertissements à eux seuls ne rendent pas un chèque invalide."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields.selection,name:einvoice_validate_pro.selection__einvoice_check__state__invalid
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_search
+msgid "Invalid"
+msgstr "Invalide"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__invoice_id
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_form
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: einvoice_validate_pro
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_issue_form
+msgid "Issue"
+msgstr "Problème"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__issue_count
+msgid "Issue Count"
+msgstr "Nombre de problèmes"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__issue_ids
+#: model:ir.ui.menu,name:einvoice_validate_pro.menu_einv_issues
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_form
+msgid "Issues"
+msgstr "Problèmes"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__write_uid
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_issue__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__write_date
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_issue__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__note
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "Only a generated or already validated check can be reset to draft."
+msgstr "Seul un chèque généré ou déjà validé peut être remis à l'état de brouillon."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "Post the customer invoice before generating its e-invoicing XML."
+msgstr "Validez la facture client avant de générer son XML de facturation électronique."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,help:einvoice_validate_pro.field_einvoice_check__invoice_id
+msgid "Posted customer invoice that is checked against the e-invoicing rules."
+msgstr "Facture client publiée qui est vérifiée par rapport aux règles de facturation électronique."
+
+#. module: einvoice_validate_pro
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_form
+msgid "Reset to Draft"
+msgstr "Réinitialiser au brouillon"
+
+#. module: einvoice_validate_pro
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_form
+msgid "Result"
+msgstr "Résultat"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_issue__severity
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_issue_search
+msgid "Severity"
+msgstr "Gravité"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,help:einvoice_validate_pro.field_einvoice_issue__code
+msgid "Short technical code of the issue, for example MISSING_TAX."
+msgstr "Code technique court du problème, par exemple MISSING_TAX."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,field_description:einvoice_validate_pro.field_einvoice_check__state
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,help:einvoice_validate_pro.field_einvoice_check__format
+msgid "Target e-invoicing format of the generated XML document."
+msgstr "Format de facturation électronique cible du document XML généré."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,help:einvoice_validate_pro.field_einvoice_issue__field_name
+msgid "Technical name of the invoice field concerned by the issue."
+msgstr "Nom technique du champ de facture concerné par le problème."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "The XML document does not contain a payable amount."
+msgstr "Le document XML ne contient pas de montant à payer."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "The XML document does not contain the number of the posted invoice."
+msgstr "Le document XML ne contient pas le numéro de la facture validée."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.constraint,message:einvoice_validate_pro.constraint_einvoice_check_name_company_uniq
+msgid "The check reference must be unique per company."
+msgstr "La référence du chèque doit être unique par entreprise."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "The currency of the invoice is not set."
+msgstr "La devise de la facture n'est pas définie."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "The customer carries a VAT number but no tax is collected on this invoice."
+msgstr "Le client porte un numéro de TVA mais aucune taxe n'est collectée sur cette facture."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "The invoice date is missing."
+msgstr "La date de facture est manquante."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "The invoice has no customer, or the customer has no name."
+msgstr "La facture n'a pas de client ou le client n'a pas de nom."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "The invoice has no detail line."
+msgstr "La facture n'a pas de ligne de détail."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "The invoice has no number; every e-invoice must carry the posted invoice reference."
+msgstr "La facture n'a pas de numéro ; chaque facture électronique doit porter la référence de la facture affichée."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "The payable amount of the XML document does not match the total of the invoice."
+msgstr "Le montant à payer du document XML ne correspond pas au total de la facture."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "The sum of the invoice lines does not match the untaxed amount of the invoice."
+msgstr "La somme des lignes de facture ne correspond pas au montant non taxé de la facture."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "The untaxed amount plus the taxes does not match the total of the invoice."
+msgstr "Le montant non taxé plus les taxes ne correspond pas au total de la facture."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields.selection,name:einvoice_validate_pro.selection__einvoice_check__format__ubl
+msgid "UBL"
+msgstr "UBL"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,help:einvoice_validate_pro.field_einvoice_check__xml_data
+msgid "UBL-style XML document generated from the customer invoice."
+msgstr "Document XML de style UBL généré à partir de la facture client."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields,help:einvoice_validate_pro.field_einvoice_check__name
+msgid "Unique reference of the check, for example EINV/2026/00001."
+msgstr "Référence unique du chèque, par exemple EINV/2026/00001."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields.selection,name:einvoice_validate_pro.selection__einvoice_check__state__valid
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_search
+msgid "Valid"
+msgstr "Valide"
+
+#. module: einvoice_validate_pro
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_form
+msgid "Validate"
+msgstr "Valider"
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "Validation failed: %(count)s error(s) and %(warnings)s warning(s) found."
+msgstr "Échec de la validation : erreur(s) %(count)s et avertissement(s) %(warnings)s trouvés."
+
+#. module: einvoice_validate_pro
+#. odoo-python
+#: code:addons/einvoice_validate_pro/models/einvoice_validate.py:0
+msgid "Validation passed: no error, %(warnings)s warning(s) recorded."
+msgstr "Validation réussie : aucune erreur, avertissement(s) %(warnings)s enregistré(s)."
+
+#. module: einvoice_validate_pro
+#: model:res.groups,comment:einvoice_validate_pro.group_einvoicevali_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields.selection,name:einvoice_validate_pro.selection__einvoice_issue__severity__warning
+msgid "Warning"
+msgstr "Avertissement"
+
+#. module: einvoice_validate_pro
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_issue_search
+msgid "Warnings"
+msgstr "Avertissements"
+
+#. module: einvoice_validate_pro
+#: model_terms:ir.ui.view,arch_db:einvoice_validate_pro.view_einvoice_check_form
+msgid "XML Document"
+msgstr "Document XML"
+
+#. module: einvoice_validate_pro
+#: model:ir.model.fields.selection,name:einvoice_validate_pro.selection__einvoice_check__format__xrechnung
+msgid "XRechnung"
+msgstr "XRechnung"

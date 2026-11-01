@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_budgetctl_budget_list" model="ir.ui.view">
+        <field name="name">budget.ctl.list</field>
+        <field name="model">budget.ctl</field>
+        <field name="arch" type="xml">
+            <list string="Budgets" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="analytic_account_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="total_planned" sum="Total Total Planned"/>
+                <field name="total_actual" sum="Total Total Actual"/>
+                <field name="total_committed" sum="Total Total Committed"/>
+                <field name="total_available" sum="Total Total Available"/>
+                <field name="is_overspent" string="Overspent" widget="boolean"/>
+                <field name="state" widget="badge"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_budgetctl_budget_form" model="ir.ui.view">
+        <field name="name">budget.ctl.form</field>
+        <field name="model">budget.ctl</field>
+        <field name="arch" type="xml">
+            <form string="Budgets">
+                <header>
+                    <button name="action_start" type="object" string="Start" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_close" type="object" string="Close" class="btn-primary" invisible="state != 'running'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'closed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,running,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Budget">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="analytic_account_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Period">
+    <field name="date_start"/>
+    <field name="date_end"/>
+    <field name="currency_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Totals">
+    <field name="total_planned"/>
+    <field name="total_actual"/>
+    <field name="total_committed"/>
+    <field name="total_available"/>
+    <field name="is_overspent"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Budget Lines" name="lineids">
+                            <field name="line_ids" readonly="state == 'closed'">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="planned" sum="Total Planned"/>
+                            <field name="actual" sum="Total Actual"/>
+                            <field name="committed" sum="Total Committed"/>
+                            <field name="available" sum="Total Available"/>
+                            <field name="note" optional="hide"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_budgetctl_budget_search" model="ir.ui.view">
+        <field name="name">budget.ctl.search</field>
+        <field name="model">budget.ctl</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="analytic_account_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="running" string="Running" domain="[('state','=','running')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <filter name="overspent" string="Overspent" domain="[('is_overspent','=',True)]"/>
+                <filter name="global" string="Company Wide" domain="[('analytic_account_id','=',False)]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_analytic" string="Analytic Account" context="{'group_by': 'analytic_account_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_budgetctl_budget" model="ir.actions.act_window">
+        <field name="name">Budgets</field>
+        <field name="res_model">budget.ctl</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Set the planned amount per line, record the actual and committed amounts, and watch what is left to spend.</p>
+        </field>
+    </record>
+
+</odoo>

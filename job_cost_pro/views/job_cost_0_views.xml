@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_job_cost_list" model="ir.ui.view">
+        <field name="name">job.cost.list</field>
+        <field name="model">job.cost</field>
+        <field name="arch" type="xml">
+            <list string="Job Costs" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="project_id"/>
+                <field name="manager_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="budget_cost" sum="Total Budget Cost"/>
+                <field name="actual_cost" sum="Total Actual Cost"/>
+                <field name="committed_cost" sum="Total Committed Cost"/>
+                <field name="margin" sum="Total Margin"/>
+                <field name="margin_rate"/>
+                <field name="progress_pct" widget="progressbar"/>
+                <field name="is_overrun" string="Over Budget" widget="boolean"/>
+                <field name="state" widget="badge"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_job_cost_form" model="ir.ui.view">
+        <field name="name">job.cost.form</field>
+        <field name="model">job.cost</field>
+        <field name="arch" type="xml">
+            <form string="Job Costs">
+                <header>
+                    <button name="action_start" type="object" string="Start" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_close" type="object" string="Close" class="btn-primary" invisible="state != 'running'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'closed'"/>
+                    <button name="action_recompute" type="object" string="Recompute Totals" class="btn-secondary" invisible="False"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,running,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Job name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Job">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="project_id"/>
+    <field name="manager_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Schedule">
+    <field name="date_start"/>
+    <field name="date_end"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Budget">
+    <field name="currency_id"/>
+    <field name="budget_revenue"/>
+    <field name="budget_cost"/>
+    <field name="alert_threshold"/>
+                        </group>
+                        <group string="Actuals">
+    <field name="actual_revenue"/>
+    <field name="actual_cost"/>
+    <field name="committed_cost"/>
+    <field name="margin"/>
+    <field name="margin_rate"/>
+    <field name="progress_pct" widget="progressbar"/>
+    <field name="is_overrun"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Cost Lines" name="lineids">
+                            <field name="line_ids" readonly="state == 'closed'">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="date"/>
+                            <field name="cost_type"/>
+                            <field name="description"/>
+                            <field name="partner_id" optional="show"/>
+                            <field name="amount" sum="Total"/>
+                            <field name="is_committed"/>
+                            <field name="invoice_ref" optional="hide"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_job_cost_search" model="ir.ui.view">
+        <field name="name">job.cost.search</field>
+        <field name="model">job.cost</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="project_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="running" string="Running" domain="[('state','=','running')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <filter name="overrun" string="Over Budget" domain="[('is_overrun','=',True)]"/>
+                <filter name="committed" string="With Commitments" domain="[('committed_cost','&gt;',0)]"/>
+                <filter name="mine" string="My Jobs" domain="[('manager_id','=',uid)]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                <filter name="group_manager" string="Manager" context="{'group_by': 'manager_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_job_cost" model="ir.actions.act_window">
+        <field name="name">Job Costs</field>
+        <field name="res_model">job.cost</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Set the budget, record the actual and committed costs, and watch the margin before the job is closed.</p>
+        </field>
+    </record>
+
+</odoo>

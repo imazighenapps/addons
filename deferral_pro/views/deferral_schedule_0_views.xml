@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_deferral_schedule_list" model="ir.ui.view">
+        <field name="name">deferral.schedule.list</field>
+        <field name="model">deferral.schedule</field>
+        <field name="arch" type="xml">
+            <list string="Deferral Schedules" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="schedule_type" widget="badge"/>
+                <field name="partner_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="period_count"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="posted_amount" sum="Total Posted Amount"/>
+                <field name="remaining_amount" sum="Total Remaining Amount"/>
+                <field name="state" widget="badge"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_deferral_schedule_form" model="ir.ui.view">
+        <field name="name">deferral.schedule.form</field>
+        <field name="model">deferral.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Deferral Schedules">
+                <header>
+                    <button name="action_start" type="object" string="Start" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_post_next" type="object" string="Post Next Period" class="btn-primary" invisible="state != 'running'"/>
+                    <button name="action_post_all" type="object" string="Post All" class="btn-secondary" invisible="state != 'running'"/>
+                    <button name="action_done" type="object" string="Mark as Done" class="btn-secondary" invisible="state != 'running'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-link" invisible="state in ('done', 'cancelled')"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state not in ('cancelled', 'done')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,running,done,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Schedule">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="schedule_type"/>
+    <field name="partner_id"/>
+    <field name="invoice_ref"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Period">
+    <field name="date_start"/>
+    <field name="date_end"/>
+    <field name="period_count"/>
+    <field name="monthly_amount"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="currency_id"/>
+    <field name="amount"/>
+    <field name="posted_amount"/>
+    <field name="remaining_amount"/>
+                        </group>
+                        <group string="Accounting">
+    <field name="journal_id"/>
+    <field name="account_id"/>
+    <field name="offset_account_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Schedule Lines" name="lineids">
+                            <field name="line_ids" readonly="state == 'cancelled'">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="date"/>
+                            <field name="amount" sum="Total"/>
+                            <field name="state" widget="badge"/>
+                            <field name="move_id" optional="show"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_deferral_schedule_search" model="ir.ui.view">
+        <field name="name">deferral.schedule.search</field>
+        <field name="model">deferral.schedule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="invoice_ref"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="running" string="Running" domain="[('state','=','running')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <filter name="expense" string="Prepaid Expense" domain="[('schedule_type','=','expense')]"/>
+                <filter name="revenue" string="Deferred Revenue" domain="[('schedule_type','=','revenue')]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'schedule_type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_deferral_schedule" model="ir.actions.act_window">
+        <field name="name">Deferral Schedules</field>
+        <field name="res_model">deferral.schedule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Spread a prepaid expense or a deferred revenue over its real period, then post one month at a time.</p>
+        </field>
+    </record>
+
+</odoo>

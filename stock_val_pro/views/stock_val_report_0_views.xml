@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_stock_val_report_list" model="ir.ui.view">
+        <field name="name">stock.val.report.list</field>
+        <field name="model">stock.val.report</field>
+        <field name="arch" type="xml">
+            <list string="Valuation Reports" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="location_id"/>
+                <field name="total_in_qty" sum="Total Total In Qty"/>
+                <field name="total_out_qty" sum="Total Total Out Qty"/>
+                <field name="total_value" sum="Total Total Value"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_stock_val_report_form" model="ir.ui.view">
+        <field name="name">stock.val.report.form</field>
+        <field name="model">stock.val.report</field>
+        <field name="arch" type="xml">
+            <form string="Valuation Reports">
+                <header>
+                    <button name="action_generate" type="object" string="Generate" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-success" invisible="state != 'draft'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Report">
+    <field name="name"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Period">
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="location_id"/>
+                        </group>
+                        <group string="Totals">
+    <field name="currency_id"/>
+    <field name="total_in_qty"/>
+    <field name="total_out_qty"/>
+    <field name="total_value"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Valuation Lines" name="lineids">
+                            <field name="line_ids" readonly="state == 'confirmed'">
+                        <list editable="bottom">
+                            <field name="product_id"/>
+                            <field name="categ_id" optional="show"/>
+                            <field name="qty_in" sum="Total In"/>
+                            <field name="qty_out" sum="Total Out"/>
+                            <field name="unit_cost"/>
+                            <field name="value_in" sum="Total In Value"/>
+                            <field name="value_out" sum="Total Out Value"/>
+                            <field name="balance_qty" sum="Total Balance"/>
+                            <field name="balance_value" sum="Total Value"/>
+                            <field name="slow_mover" widget="boolean_toggle"
+                                   optional="show"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_stock_val_report_search" model="ir.ui.view">
+        <field name="name">stock.val.report.search</field>
+        <field name="model">stock.val.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="location_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]"/>
+                <filter name="this_month" string="This Month" domain="[('date_to','&gt;=',(context_today().strftime('%Y-%m-01')))]"/>
+                <separator/>
+                <filter name="group_location" string="Location" context="{'group_by': 'location_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_stock_val_report" model="ir.actions.act_window">
+        <field name="name">Valuation Reports</field>
+        <field name="res_model">stock.val.report</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Generate the valuation of a closing period, check the lines, then confirm the report to freeze it.</p>
+        </field>
+    </record>
+
+</odoo>

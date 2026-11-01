@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_einvoice_check_list" model="ir.ui.view">
+        <field name="name">einvoice.check.list</field>
+        <field name="model">einvoice.check</field>
+        <field name="arch" type="xml">
+            <list string="E-Invoice Checks" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="invoice_id"/>
+                <field name="partner_id"/>
+                <field name="format"/>
+                <field name="issue_count"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_einvoice_check_form" model="ir.ui.view">
+        <field name="name">einvoice.check.form</field>
+        <field name="model">einvoice.check</field>
+        <field name="arch" type="xml">
+            <form string="E-Invoice Checks">
+                <header>
+                    <button name="action_generate" type="object" string="Generate XML" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_validate" type="object" string="Validate" class="btn-primary" invisible="state not in ('generated', 'invalid')"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,generated,valid,invalid"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Invoice">
+    <field name="name"/>
+    <field name="invoice_id"/>
+    <field name="partner_id"/>
+    <field name="format"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Result">
+    <field name="state"/>
+    <field name="issue_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Issues" name="issueids">
+                            <field name="issue_ids" readonly="1">
+                        <list>
+                            <field name="code"/>
+                            <field name="severity"/>
+                            <field name="message"/>
+                            <field name="field_name" optional="hide"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="XML Document" name="xmldata">
+                            <field name="xml_data" readonly="1"/>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_einvoice_check_search" model="ir.ui.view">
+        <field name="name">einvoice.check.search</field>
+        <field name="model">einvoice.check</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="invoice_id"/>
+                <field name="partner_id"/>
+                <field name="note"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="generated" string="Generated" domain="[('state','=','generated')]"/>
+                <filter name="valid" string="Valid" domain="[('state','=','valid')]"/>
+                <filter name="invalid" string="Invalid" domain="[('state','=','invalid')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_format" string="Format" context="{'group_by': 'format'}"/>
+                <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_einvoice_check" model="ir.actions.act_window">
+        <field name="name">E-Invoice Checks</field>
+        <field name="res_model">einvoice.check</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Generate the e-invoicing XML of a posted customer invoice and run the compliance checks.</p>
+        </field>
+    </record>
+
+</odoo>

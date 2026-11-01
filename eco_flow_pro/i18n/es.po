@@ -1,0 +1,537 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* eco_flow_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields.selection,name:eco_flow_pro.selection__eco_line__change_type__add
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_line_search
+msgid "Add"
+msgstr "Agregar"
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "Add at least one change line before submitting the engineering change \"%s\"."
+msgstr "Agregue al menos una línea de cambio antes de enviar el cambio de ingeniería \"%s\"."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,help:eco_flow_pro.field_eco_line__change_type
+msgid "Add creates a new BOM line, Change updates the quantity of the existing line, Remove deletes it."
+msgstr "Agregar crea una nueva línea de lista de materiales, Cambiar actualiza la cantidad de la línea existente, Eliminar la elimina."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields.selection,name:eco_flow_pro.selection__eco_request__state__applied
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_search
+msgid "Applied"
+msgstr "Aplicada Aplicado"
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_form
+msgid "Apply to BOM"
+msgstr "Aplicar a la lista de materiales"
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_form
+msgid "Approve"
+msgstr "Aprobar"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields.selection,name:eco_flow_pro.selection__eco_request__state__approved
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_search
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__approver_id
+msgid "Approver"
+msgstr "Aprobadora Aprobador"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields.selection,name:eco_flow_pro.selection__eco_request__eco_type__bom
+msgid "BOM"
+msgstr "lista de materiales"
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "BOM \"%s\" updated: %s quantity change(s), %s line(s) added, %s line(s) removed."
+msgstr "Lista de materiales \"%s\" actualizada: cambios en la cantidad de %s, líneas %s agregadas, líneas %s eliminadas."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,help:eco_flow_pro.field_eco_request__bom_id
+msgid "BOM updated by this change. Leave empty to use the first BOM of the product template."
+msgstr "Lista de materiales actualizada por este cambio. Déjelo vacío para usar la primera lista de materiales de la plantilla del producto."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__bom_id
+msgid "Bill of Materials"
+msgstr "Lista de materiales"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields.selection,name:eco_flow_pro.selection__eco_line__change_type__change
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_line_search
+msgid "Change"
+msgstr "Cambiar"
+
+#. module: eco_flow_pro
+#: model:ir.actions.act_window,name:eco_flow_pro.action_eco_line
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__line_ids
+#: model:ir.ui.menu,name:eco_flow_pro.menu_eco_lines
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_line_form
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_line_list
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_form
+msgid "Change Lines"
+msgstr "Cambiar líneas"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_line__change_type
+msgid "Change Type"
+msgstr "Tipo de cambio"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_line__component_id
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_line_search
+msgid "Component"
+msgstr "Componente"
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "Component \"%s\" is already in the BOM \"%s\": use a Change line to adjust its quantity."
+msgstr "El componente \"%s\" ya está en la lista de materiales \"%s\": utilice una línea de cambio para ajustar su cantidad."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "Component \"%s\" is not in the BOM \"%s\": there is nothing to remove."
+msgstr "El componente \"%s\" no está en la lista de materiales \"%s\": no hay nada que eliminar."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "Component \"%s\" is not in the BOM \"%s\": use an Add change line, not a Change one."
+msgstr "El componente \"%s\" no está en la lista de materiales \"%s\": use una línea Agregar cambio, no una línea de Cambio."
+
+#. module: eco_flow_pro
+#: model:res.groups,comment:eco_flow_pro.group_ecoflowpro_manager
+msgid "Configure and administer the module."
+msgstr "Configurar y administrar el módulo."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_line__create_uid
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_line__create_date
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,help:eco_flow_pro.field_eco_request__date_effectivity
+msgid "Date from which the change is considered effective on the shop floor."
+msgstr "Fecha a partir de la cual el cambio se considera efectivo en planta."
+
+#. module: eco_flow_pro
+#: model_terms:ir.actions.act_window,help:eco_flow_pro.action_eco_request
+msgid "Describe the change on the BOM lines, submit it, then apply it once it is approved."
+msgstr "Describa el cambio en las líneas de la lista de materiales, envíelo y luego aplíquelo una vez que se apruebe."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_line__display_name
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields.selection,name:eco_flow_pro.selection__eco_request__state__draft
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_search
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: eco_flow_pro
+#: model:res.groups,name:eco_flow_pro.group_ecoflowpro_manager
+msgid "Eco Flow Pro Manager"
+msgstr "Gerente Eco Flow Pro"
+
+#. module: eco_flow_pro
+#: model:res.groups,name:eco_flow_pro.group_ecoflowpro_user
+msgid "Eco Flow Pro User"
+msgstr "Usuario Eco Flow Pro"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__eco_type
+msgid "Eco Type"
+msgstr "Tipo ecológico"
+
+#. module: eco_flow_pro
+#: model:ir.module.module,shortdesc:base.module_eco_flow_pro
+msgid "EcoFlowPro - Engineering Change Orders on Bills of Materials"
+msgstr "EcoFlowPro - Órdenes de cambio de ingeniería en listas de materiales"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__date_effectivity
+msgid "Effective Date"
+msgstr "Fecha de vigencia"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_line__eco_id
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_line_search
+msgid "Engineering Change"
+msgstr "Cambio de ingeniería"
+
+#. module: eco_flow_pro
+#: model:ir.model,name:eco_flow_pro.model_eco_line
+msgid "Engineering Change Line"
+msgstr "Línea de cambio de ingeniería"
+
+#. module: eco_flow_pro
+#: model:ir.model,name:eco_flow_pro.model_eco_request
+msgid "Engineering Change Request"
+msgstr "Solicitud de cambio de ingeniería"
+
+#. module: eco_flow_pro
+#: model:ir.actions.act_window,name:eco_flow_pro.action_eco_request
+#: model:ir.ui.menu,name:eco_flow_pro.menu_eco_requests
+#: model:ir.ui.menu,name:eco_flow_pro.menu_eco_root
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_form
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_list
+msgid "Engineering Changes"
+msgstr "Cambios de ingeniería"
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "Engineering change approved by %s."
+msgstr "Cambio de ingeniería aprobado por %s."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,help:eco_flow_pro.field_eco_request__name
+msgid "Engineering change number, generated from the ECO sequence."
+msgstr "Número de cambio de ingeniería, generado a partir de la secuencia ECO."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "Engineering change refused by %s."
+msgstr "Cambio de ingeniería rechazado por %s."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "Engineering change reset to draft by %s."
+msgstr "Cambio de ingeniería restablecido al borrador por %s."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "Engineering change submitted for review by %s with %s line(s)."
+msgstr "Cambio de ingeniería enviado para revisión por %s con línea(s) %s."
+
+#. module: eco_flow_pro
+#: model_terms:ir.actions.act_window,help:eco_flow_pro.action_eco_line
+msgid "Every add, remove and change line of every engineering change, in one place."
+msgstr "Cada línea de adición, eliminación y cambio de cada cambio de ingeniería, en un solo lugar."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields.selection,name:eco_flow_pro.selection__eco_request__state__review
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_search
+msgid "In Review"
+msgstr "En revisión"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_line__write_uid
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_line__write_date
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_line_form
+msgid "Line"
+msgstr "Línea"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__line_count
+msgid "Lines"
+msgstr "Pauta"
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_search
+msgid "My Requests"
+msgstr "Mis solicitudes"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_line__new_qty
+msgid "New Quantity"
+msgstr "Nueva cantidad"
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "No bill of materials found for the product template \"%s\". Select a BOM on the change or create one first."
+msgstr "No se encontró ninguna lista de materiales para la plantilla de producto \"%s\". Seleccione una lista de materiales en el cambio o cree una primero."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_line__note
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_line__old_qty
+msgid "Old Quantity"
+msgstr "Cantidad antigua"
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "Only a draft engineering change can be submitted."
+msgstr "Sólo se puede enviar un borrador de cambio de ingeniería."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "Only an applied or refused engineering change can be reset to draft."
+msgstr "Sólo un cambio de ingeniería aplicado o rechazado se puede restablecer al borrador."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "Only an approved engineering change can be applied to a bill of materials."
+msgstr "Sólo se puede aplicar un cambio de ingeniería aprobado a una lista de materiales."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "Only an engineering change under review can be approved."
+msgstr "Sólo se puede aprobar un cambio de ingeniería bajo revisión."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "Only an engineering change under review can be refused."
+msgstr "Sólo se puede rechazar un cambio de ingeniería bajo revisión."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields.selection,name:eco_flow_pro.selection__eco_request__eco_type__process
+msgid "Process"
+msgstr "Proceso"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields.selection,name:eco_flow_pro.selection__eco_request__eco_type__product
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_search
+msgid "Product"
+msgstr "Producto"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__product_tmpl_id
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_line_form
+msgid "Quantities"
+msgstr "Cantidades"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,help:eco_flow_pro.field_eco_line__old_qty
+msgid "Quantity currently in the BOM, for reference on Change and Remove lines."
+msgstr "Cantidad actualmente en la lista de materiales, como referencia en las líneas Cambiar y Eliminar."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__reason
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_form
+msgid "Reason"
+msgstr "Razón"
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_form
+msgid "Refuse"
+msgstr "Rechazar"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields.selection,name:eco_flow_pro.selection__eco_request__state__refused
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_search
+msgid "Refused"
+msgstr "Rechazada Rechazado"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields.selection,name:eco_flow_pro.selection__eco_line__change_type__remove
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_line_search
+msgid "Remove"
+msgstr "Eliminar"
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_form
+msgid "Request"
+msgstr "Pedido"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__requested_by
+msgid "Requested By"
+msgstr "Solicitado por"
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_form
+msgid "Reset to Draft"
+msgstr "Restablecer al borrador"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,help:eco_flow_pro.field_eco_request__eco_type
+msgid "Scope of the change: a BOM line correction, a process adjustment or a product specification update."
+msgstr "Alcance del cambio: una corrección de la línea de la lista de materiales, un ajuste del proceso o una actualización de las especificaciones del producto."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_line__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__state
+msgid "State"
+msgstr "Estado"
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_form
+msgid "Submit for Review"
+msgstr "Enviar para revisión"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,help:eco_flow_pro.field_eco_line__new_qty
+msgid "Target quantity on the BOM after the change is applied."
+msgstr "Cantidad objetivo en la lista de materiales después de aplicar el cambio."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "The bill of materials \"%s\" does not belong to the product template \"%s\"."
+msgstr "La lista de materiales \"%s\" no pertenece a la plantilla de producto \"%s\"."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "The component %s is already changed by this engineering change: add one change line per component."
+msgstr "El componente %s ya ha sido modificado por este cambio de ingeniería: agregue una línea de cambio por componente."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "The engineering change \"%s\" has already been applied: its lines can no longer be changed."
+msgstr "El cambio de ingeniería \"%s\" ya se aplicó: sus líneas ya no se pueden cambiar."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "The engineering change \"%s\" has already been applied: its target BOM and lines can no longer be changed."
+msgstr "El cambio de ingeniería \"%s\" ya se aplicó: su lista de materiales y líneas objetivo ya no se pueden cambiar."
+
+#. module: eco_flow_pro
+#: model:ir.model.constraint,message:eco_flow_pro.constraint_eco_request_name_company_uniq
+msgid "The engineering change number must be unique per company."
+msgstr "El número de cambio de ingeniería debe ser único por empresa."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "The new quantity of component \"%s\" must be greater than zero on a %s line."
+msgstr "La nueva cantidad de componente \"%s\" debe ser mayor que cero en una línea %s."
+
+#. module: eco_flow_pro
+#. odoo-python
+#: code:addons/eco_flow_pro/models/eco_flow_pro.py:0
+msgid "The quantities of the change line on component \"%s\" cannot be negative."
+msgstr "Las cantidades de la línea de cambio del componente \"%s\" no pueden ser negativas."
+
+#. module: eco_flow_pro
+#: model:ir.model.constraint,message:eco_flow_pro.constraint_eco_line_component_uniq
+msgid "The same component can only appear once per engineering change request."
+msgstr "El mismo componente sólo puede aparecer una vez por solicitud de cambio de ingeniería."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,field_description:eco_flow_pro.field_eco_request__title
+msgid "Title"
+msgstr "Título"
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_line_list
+msgid "Total New Qty"
+msgstr "Cantidad total nueva"
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_line_list
+msgid "Total Old Qty"
+msgstr "Cantidad total antigua"
+
+#. module: eco_flow_pro
+#: model:ir.module.module,summary:base.module_eco_flow_pro
+msgid "Turn every bill of materials correction into a tracked engineering change request with review, approval and one-click application on the BOM."
+msgstr "Convierta cada corrección de la lista de materiales en una solicitud de cambio de ingeniería rastreada con revisión, aprobación y aplicación con un solo clic en la lista de materiales."
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_line_search
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_search
+msgid "Type"
+msgstr "Tipo"
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,help:eco_flow_pro.field_eco_request__approver_id
+msgid "User who approved, applied or refused the request."
+msgstr "Usuario que aprobó, aplicó o rechazó la solicitud."
+
+#. module: eco_flow_pro
+#: model:res.groups,comment:eco_flow_pro.group_ecoflowpro_user
+msgid "View and use the module."
+msgstr "Ver y utilizar el módulo."
+
+#. module: eco_flow_pro
+#: model:ir.model.fields,help:eco_flow_pro.field_eco_request__reason
+msgid "Why this change is needed: supplier substitution, cost review, drawing revision, production feedback..."
+msgstr "Por qué es necesario este cambio: sustitución de proveedores, revisión de costes, revisión de planos, feedback de producción..."
+
+#. module: eco_flow_pro
+#: model_terms:ir.ui.view,arch_db:eco_flow_pro.view_eco_request_form
+msgid "Workflow"
+msgstr "Flujo de trabajo"

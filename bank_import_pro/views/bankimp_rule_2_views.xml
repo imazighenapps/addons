@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_bankimp_rule_list" model="ir.ui.view">
+        <field name="name">bank.import.rule.list</field>
+        <field name="model">bank.import.rule</field>
+        <field name="arch" type="xml">
+            <list string="Matching Rules">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="pattern"/>
+                <field name="partner_id"/>
+                <field name="account_id"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_bankimp_rule_form" model="ir.ui.view">
+        <field name="name">bank.import.rule.form</field>
+        <field name="model">bank.import.rule</field>
+        <field name="arch" type="xml">
+            <form string="Matching Rules">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Rule">
+    <field name="name"/>
+    <field name="pattern"/>
+    <field name="active"/>
+    <field name="sequence"/>
+                        </group>
+                        <group string="Assignment">
+    <field name="partner_id"/>
+    <field name="account_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bankimp_rule_search" model="ir.ui.view">
+        <field name="name">bank.import.rule.search</field>
+        <field name="model">bank.import.rule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="pattern"/>
+                <field name="partner_id"/>
+                <filter name="active" string="Active" domain="[('active','=',True)]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_bankimp_rule" model="ir.actions.act_window">
+        <field name="name">Matching Rules</field>
+        <field name="res_model">bank.import.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Match the recurring label patterns to their supplier and their account once and for all.</p>
+        </field>
+    </record>
+
+</odoo>

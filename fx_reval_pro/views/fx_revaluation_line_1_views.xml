@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_fx_revaluation_line_list" model="ir.ui.view">
+        <field name="name">fx.revaluation.line.list</field>
+        <field name="model">fx.revaluation.line</field>
+        <field name="arch" type="xml">
+            <list string="Revaluation Lines">
+                <field name="revaluation_id"/>
+                <field name="partner_id"/>
+                <field name="reference"/>
+                <field name="amount_currency" sum="Total Amount Currency"/>
+                <field name="balance_company" sum="Total Balance Company"/>
+                <field name="new_balance" sum="Total New Balance"/>
+                <field name="gain_loss" sum="Total Gain Loss"/>
+                <field name="currency_id" optional="hide"/>
+                <field name="company_currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fx_revaluation_line_form" model="ir.ui.view">
+        <field name="name">fx.revaluation.line.form</field>
+        <field name="model">fx.revaluation.line</field>
+        <field name="arch" type="xml">
+            <form string="Revaluation Lines">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="reference" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Open Item">
+    <field name="revaluation_id"/>
+    <field name="partner_id"/>
+    <field name="reference"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="amount_currency"/>
+    <field name="currency_id"/>
+    <field name="balance_company"/>
+    <field name="new_balance"/>
+    <field name="gain_loss"/>
+    <field name="company_currency_id"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fx_revaluation_line_search" model="ir.ui.view">
+        <field name="name">fx.revaluation.line.search</field>
+        <field name="model">fx.revaluation.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="reference"/>
+                <field name="partner_id"/>
+                <field name="revaluation_id"/>
+                <filter name="gain" string="Gains" domain="[('gain_loss','&gt;',0)]"/>
+                <filter name="loss" string="Losses" domain="[('gain_loss','&lt;',0)]"/>
+                <separator/>
+                <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_revaluation" string="Revaluation" context="{'group_by': 'revaluation_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_fx_revaluation_line" model="ir.actions.act_window">
+        <field name="name">Revaluation Lines</field>
+        <field name="res_model">fx.revaluation.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every open item collected by a currency revaluation, with its book value and its revalued balance.</p>
+        </field>
+    </record>
+
+</odoo>

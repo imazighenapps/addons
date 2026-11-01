@@ -1,0 +1,534 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* bank_import_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "%s transaction(s) matched by the import rules."
+msgstr "Transações %s correspondidas pelas regras de importação."
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "A CAMT entry is missing its date or its amount."
+msgstr "Uma entrada CAMT está sem data ou valor."
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "A statement row has no amount."
+msgstr "Uma linha de extrato não tem valor."
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "A statement row has no date."
+msgstr "Uma linha de extrato não tem data."
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__account_id
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_rule__account_id
+msgid "Account"
+msgstr "Conta"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,help:bank_import_pro.field_bank_import_rule__account_id
+msgid "Account assigned to the matched transactions."
+msgstr "Conta atribuída às transações conciliadas."
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_rule__active
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_rule_search
+msgid "Active"
+msgstr "Ativo"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__amount
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_line_form
+msgid "Amount"
+msgstr "Montante"
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_form
+msgid "Apply Rules"
+msgstr "Aplicar regras"
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_rule_search
+msgid "Archived"
+msgstr "Arquivada Arquivado"
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_rule_form
+msgid "Assignment"
+msgstr "Atribuição"
+
+#. module: bank_import_pro
+#: model:ir.ui.menu,name:bank_import_pro.menu_bankimp_root
+msgid "Bank Import"
+msgstr "Importação Bancária"
+
+#. module: bank_import_pro
+#: model:ir.model,name:bank_import_pro.model_bank_import_batch
+msgid "Bank Import Batch"
+msgstr "Lote de importação bancária"
+
+#. module: bank_import_pro
+#: model:res.groups,name:bank_import_pro.group_bankimportpr_manager
+msgid "Bank Import Pro Manager"
+msgstr "Gerente Pro de Importação Bancária"
+
+#. module: bank_import_pro
+#: model:res.groups,name:bank_import_pro.group_bankimportpr_user
+msgid "Bank Import Pro User"
+msgstr "Usuário do Bank Import Pro"
+
+#. module: bank_import_pro
+#: model:ir.model,name:bank_import_pro.model_bank_import_rule
+msgid "Bank Import Rule"
+msgstr "Regra de importação bancária"
+
+#. module: bank_import_pro
+#: model:ir.model,name:bank_import_pro.model_bank_import_line
+msgid "Bank Import Transaction"
+msgstr "Transação de importação bancária"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__journal_id
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_search
+msgid "Bank Journal"
+msgstr "Diário do Banco"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,help:bank_import_pro.field_bank_import_batch__journal_id
+msgid "Bank journal of the statement used for the counterpart entries."
+msgstr "Diário bancário do extrato utilizado para os lançamentos de contrapartida."
+
+#. module: bank_import_pro
+#: model:ir.module.module,shortdesc:base.module_bank_import_pro
+msgid "BankImportPro - Bank Statement Parsing, Rules and Duplicate Detection"
+msgstr "BankImportPro - Análise de extrato bancário, regras e detecção de duplicatas"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__batch_id
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_line_search
+msgid "Batch"
+msgstr "Lote"
+
+#. module: bank_import_pro
+#: model:ir.model.fields.selection,name:bank_import_pro.selection__bank_import_batch__file_type__camt
+msgid "CAMT (XML)"
+msgstr "CAMT (XML)"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__company_id
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: bank_import_pro
+#: model:res.groups,comment:bank_import_pro.group_bankimportpr_manager
+msgid "Configure and administer the module."
+msgstr "Configure e administre o módulo."
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__create_uid
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__create_uid
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_rule__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__create_date
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__create_date
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_rule__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__currency_id
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__currency_id
+msgid "Currency"
+msgstr "Moeda"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__date
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_line_search
+msgid "Date"
+msgstr "Data"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__display_name
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__display_name
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_rule__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: bank_import_pro
+#: model:ir.model.fields.selection,name:bank_import_pro.selection__bank_import_batch__state__draft
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_search
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__duplicate
+msgid "Duplicate"
+msgstr "Duplicada Duplicado"
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "Duplicate check: %s transaction(s) share a date, an amount and a label with a transaction already imported."
+msgstr "Verificação duplicada: as transações %s compartilham uma data, um valor e um rótulo com uma transação já importada."
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_line_search
+msgid "Duplicates"
+msgstr "Duplicatas"
+
+#. module: bank_import_pro
+#: model:ir.model.fields.selection,name:bank_import_pro.selection__bank_import_batch__state__error
+msgid "Error"
+msgstr "Erro"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__error_message
+msgid "Error Message"
+msgstr "Mensagem de erro"
+
+#. module: bank_import_pro
+#: model_terms:ir.actions.act_window,help:bank_import_pro.action_bankimp_line
+msgid "Every parsed bank transaction, with its matching result and its duplicate flag."
+msgstr "Cada transação bancária analisada, com seu resultado correspondente e seu sinalizador duplicado."
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "Expected 4 columns separated by ';' (date;label;reference;amount) but found %s in \"%s\"."
+msgstr "Esperadas 4 colunas separadas por ';' (data;rótulo;referência;quantidade) mas encontrou %s em \"%s\"."
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_form
+msgid "File"
+msgstr "Arquivo"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__file_name
+msgid "File Name"
+msgstr "Nome do arquivo"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__file_type
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_search
+msgid "File Type"
+msgstr "Tipo de arquivo"
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_form
+msgid "Flag Duplicates"
+msgstr "Sinalizar duplicatas"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: bank_import_pro
+#: model:ir.actions.act_window,name:bank_import_pro.action_bankimp_batch
+#: model:ir.ui.menu,name:bank_import_pro.menu_bankimp_batches
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_form
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_list
+msgid "Import Batches"
+msgstr "Importar lotes"
+
+#. module: bank_import_pro
+#: model:ir.model.fields.selection,name:bank_import_pro.selection__bank_import_batch__state__imported
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_search
+msgid "Imported"
+msgstr "Importada Importado"
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_search
+msgid "In Error"
+msgstr "Em erro"
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "Invalid statement amount: %s."
+msgstr "Valor do extrato inválido: %s."
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__label
+msgid "Label"
+msgstr "Rótulo"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__write_uid
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__write_uid
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_rule__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__write_date
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__write_date
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_rule__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: bank_import_pro
+#: model_terms:ir.actions.act_window,help:bank_import_pro.action_bankimp_rule
+msgid "Match the recurring label patterns to their supplier and their account once and for all."
+msgstr "Combine os padrões de etiqueta recorrentes com seu fornecedor e sua conta de uma vez por todas."
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_line_form
+msgid "Matching"
+msgstr "Correspondência"
+
+#. module: bank_import_pro
+#: model:ir.actions.act_window,name:bank_import_pro.action_bankimp_rule
+#: model:ir.ui.menu,name:bank_import_pro.menu_bankimp_rules
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_rule_form
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_rule_list
+msgid "Matching Rules"
+msgstr "Regras de correspondência"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__name
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_rule__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "No active import rule: nothing could be matched."
+msgstr "Nenhuma regra de importação ativa: nada pôde ser correspondido."
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "No entry was found in the CAMT file."
+msgstr "Nenhuma entrada foi encontrada no arquivo CAMT."
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "No transaction was found in the file."
+msgstr "Nenhuma transação foi encontrada no arquivo."
+
+#. module: bank_import_pro
+#: model:ir.model.fields.selection,name:bank_import_pro.selection__bank_import_batch__file_type__ofx
+msgid "OFX"
+msgstr "OFX"
+
+#. module: bank_import_pro
+#: model:ir.module.module,summary:base.module_bank_import_pro
+msgid "Parse CSV and CAMT bank statement files into statement lines, assign partners and accounts with matching rules, and flag transactions already imported."
+msgstr "Analise arquivos de extrato bancário CSV e CAMT em linhas de extrato, atribua parceiros e contas com regras correspondentes e sinalize transações já importadas."
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_form
+msgid "Parse File"
+msgstr "Analisar arquivo"
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "Parsed %s transaction(s) from %s: total %s."
+msgstr "Transações %s analisadas de %s: total de %s."
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "Parsing failed: %s"
+msgstr "Falha na análise: %s"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__partner_id
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_rule__partner_id
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_line_search
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_rule_search
+msgid "Partner"
+msgstr "Contacto"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_rule__pattern
+msgid "Pattern"
+msgstr "Padrão"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__raw_data
+msgid "Raw Content"
+msgstr "Conteúdo Bruto"
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_form
+msgid "Result"
+msgstr "Resultado"
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_rule_form
+msgid "Rule"
+msgstr "Regra"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_line__matched
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_line_search
+msgid "Rule Matched"
+msgstr "Regra correspondente"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_rule__sequence
+msgid "Sequence"
+msgstr "Sequência"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__state
+msgid "State"
+msgstr "Estado"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__date
+msgid "Statement Date"
+msgstr "Data do extrato"
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: bank_import_pro
+#: model_terms:ir.actions.act_window,help:bank_import_pro.action_bankimp_batch
+msgid "Store a bank file, parse it into transactions, apply the matching rules and keep duplicates out."
+msgstr "Armazene um arquivo bancário, analise-o em transações, aplique as regras de correspondência e evite duplicatas."
+
+#. module: bank_import_pro
+#: model:ir.model.fields,help:bank_import_pro.field_bank_import_batch__total_amount
+msgid "Sum of the signed amounts of every transaction of the batch."
+msgstr "Soma dos valores assinados de cada transação do lote."
+
+#. module: bank_import_pro
+#: model:ir.model.fields,help:bank_import_pro.field_bank_import_rule__pattern
+msgid "Text looked for inside the transaction label, case insensitive."
+msgstr "Texto procurado dentro do rótulo da transação, sem distinção entre maiúsculas e minúsculas."
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "The batch \"%s\" has already been imported. Create a new batch to import the file again."
+msgstr "O lote “%s” já foi importado. Crie um novo lote para importar o arquivo novamente."
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "The batch has no raw content to parse."
+msgstr "O lote não tem conteúdo bruto para analisar."
+
+#. module: bank_import_pro
+#: model:ir.model.constraint,message:bank_import_pro.constraint_bank_import_batch_name_company_uniq
+msgid "The batch name must be unique per company."
+msgstr "O nome do lote deve ser exclusivo por empresa."
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "The file is not valid XML: %s."
+msgstr "O arquivo não é XML válido: %s."
+
+#. module: bank_import_pro
+#: model:ir.model.fields,help:bank_import_pro.field_bank_import_line__duplicate
+msgid "The line has the same date, amount and label as a transaction already imported."
+msgstr "A linha possui a mesma data, valor e rótulo de uma transação já importada."
+
+#. module: bank_import_pro
+#: model:ir.model.fields,help:bank_import_pro.field_bank_import_line__matched
+msgid "The line was matched by an import rule."
+msgstr "A linha foi correspondida por uma regra de importação."
+
+#. module: bank_import_pro
+#: model:ir.model.fields,help:bank_import_pro.field_bank_import_batch__file_type
+msgid "The parser is chosen from the content: text is read as CSV and content starting with a tag as CAMT."
+msgstr "O analisador é escolhido a partir do conteúdo: o texto é lido como CSV e o conteúdo começando com uma tag como CAMT."
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "The pattern of the rule \"%s\" cannot be blank."
+msgstr "O padrão da regra “%s” não pode ficar em branco."
+
+#. module: bank_import_pro
+#: model:ir.model.constraint,message:bank_import_pro.constraint_bank_import_rule_pattern_not_empty
+msgid "The rule pattern cannot be empty."
+msgstr "O padrão de regra não pode estar vazio."
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "The statement date of the batch \"%s\" cannot be in the future."
+msgstr "A data de extrato do lote “%s” não pode ser futura."
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_line_search
+msgid "To Match"
+msgstr "Para combinar"
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_form
+msgid "Total"
+msgstr "Total"
+
+#. module: bank_import_pro
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__total_amount
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_line_list
+msgid "Total Amount"
+msgstr "Montante total"
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_list
+msgid "Total Total Amount"
+msgstr "Valor Total Total"
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_line_form
+msgid "Transaction"
+msgstr "Transação"
+
+#. module: bank_import_pro
+#: model:ir.actions.act_window,name:bank_import_pro.action_bankimp_line
+#: model:ir.model.fields,field_description:bank_import_pro.field_bank_import_batch__line_ids
+#: model:ir.ui.menu,name:bank_import_pro.menu_bankimp_lines
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_form
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_line_form
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_line_list
+msgid "Transactions"
+msgstr "Transações"
+
+#. module: bank_import_pro
+#. odoo-python
+#: code:addons/bank_import_pro/models/bank_import_pro.py:0
+msgid "Unrecognized statement date: %s."
+msgstr "Data de declaração não reconhecida: %s."
+
+#. module: bank_import_pro
+#: model:res.groups,comment:bank_import_pro.group_bankimportpr_user
+msgid "View and use the module."
+msgstr "Visualize e use o módulo."
+
+#. module: bank_import_pro
+#: model_terms:ir.ui.view,arch_db:bank_import_pro.view_bankimp_batch_search
+msgid "With Duplicates"
+msgstr "Com duplicatas"

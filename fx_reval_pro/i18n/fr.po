@@ -1,0 +1,552 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* fx_reval_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_line_form
+msgid "Amounts"
+msgstr "Montants"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__amount_currency
+msgid "Balance in Currency"
+msgstr "Solde en devise"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__balance_company
+msgid "Book Value"
+msgstr "Valeur comptable"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__rate
+msgid "Closing Rate"
+msgstr "Taux de clôture"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation__rate
+msgid "Closing rate: one unit of the foreign currency is worth this amount of company currency."
+msgstr "Taux de clôture : une unité de devise étrangère vaut ce montant en devise de l’entreprise."
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__company_id
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__company_currency_id
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__company_currency_id
+msgid "Company Currency"
+msgstr "Devise de l'entreprise"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_form
+msgid "Compute Open Items"
+msgstr "Calculer les postes non soldés"
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "Compute the revaluation before posting it: no open item has been collected yet."
+msgstr "Calculez la réévaluation avant de la comptabiliser : aucune échéance n'a encore été collectée."
+
+#. module: fx_reval_pro
+#: model:res.groups,comment:fx_reval_pro.group_fxrevalpro_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__create_uid
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__create_date
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_search
+msgid "Currency"
+msgstr "Devise"
+
+#. module: fx_reval_pro
+#: model:ir.model,name:fx_reval_pro.model_fx_revaluation
+msgid "Currency Revaluation"
+msgstr "Réévaluation de la monnaie"
+
+#. module: fx_reval_pro
+#: model:ir.model,name:fx_reval_pro.model_fx_revaluation_line
+msgid "Currency Revaluation Line"
+msgstr "Ligne de réévaluation de devise"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation__currency_id
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation_line__currency_id
+msgid "Currency of the open items that are revalued."
+msgstr "Devise des échéances réévaluées."
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__date
+msgid "Date"
+msgstr "Date"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation__date
+msgid "Date of the revaluation, used as the date of the journal entry."
+msgstr "Date de réévaluation, utilisée comme date d'écriture au journal."
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__display_name
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields.selection,name:fx_reval_pro.selection__fx_revaluation__state__draft
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_search
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: fx_reval_pro
+#: model_terms:ir.actions.act_window,help:fx_reval_pro.action_fx_revaluation
+msgid "Enter the foreign currency and the closing rate, compute the open items, then post the revaluation entry."
+msgstr "Saisissez la devise étrangère et le cours de clôture, calculez les échéances, puis enregistrez l'écriture de réévaluation."
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "Every line of the revaluation is zero: there is nothing to post."
+msgstr "Chaque ligne de la réévaluation est nulle : il n'y a rien à comptabiliser."
+
+#. module: fx_reval_pro
+#: model_terms:ir.actions.act_window,help:fx_reval_pro.action_fx_revaluation_line
+msgid "Every open item collected by a currency revaluation, with its book value and its revalued balance."
+msgstr "Chaque échéance encaissée par une réévaluation monétaire, avec sa valeur comptable et son solde réévalué."
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation__loss_account_id
+msgid "Expense account that receives the unrealized exchange losses."
+msgstr "Compte de dépenses qui reçoit les pertes de change latentes."
+
+#. module: fx_reval_pro
+#: model:ir.ui.menu,name:fx_reval_pro.menu_fx_root
+msgid "FX Revaluation"
+msgstr "Réévaluation des devises"
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "FX revaluation %(ref)s at %(rate)s"
+msgstr "Réévaluation FX %(ref)s à %(rate)s"
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "FX revaluation %s"
+msgstr "Réévaluation FX %s"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__currency_id
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__currency_id
+msgid "Foreign Currency"
+msgstr "Devises étrangères"
+
+#. module: fx_reval_pro
+#: model:res.groups,name:fx_reval_pro.group_fxrevalpro_manager
+msgid "Fx Reval Pro Manager"
+msgstr "Gestionnaire Fx Reval Pro"
+
+#. module: fx_reval_pro
+#: model:res.groups,name:fx_reval_pro.group_fxrevalpro_user
+msgid "Fx Reval Pro User"
+msgstr "Utilisateur Fx Reval Pro"
+
+#. module: fx_reval_pro
+#: model:ir.module.module,shortdesc:base.module_fx_reval_pro
+msgid "FxRevalPro - Period-End Currency Revaluation"
+msgstr "FxRevalPro - Réévaluation de la devise de fin de période"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__gain_account_id
+msgid "Gain Account"
+msgstr "Gagner un compte"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_line_search
+msgid "Gains"
+msgstr "Gains"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation__gain_account_id
+msgid "Income account that receives the unrealized exchange gains."
+msgstr "Compte de revenus qui reçoit les gains de change latents."
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__journal_id
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_search
+msgid "Journal"
+msgstr "Journal"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__move_id
+msgid "Journal Entry"
+msgstr "Entrée de journal"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__write_uid
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__write_date
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__loss_account_id
+msgid "Loss Account"
+msgstr "Compte de perte"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_line_search
+msgid "Losses"
+msgstr "Pertes"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation__journal_id
+msgid "Miscellaneous journal that receives the revaluation entry."
+msgstr "Pièce diverses qui reçoit l'écriture de réévaluation."
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_search
+msgid "My Revaluations"
+msgstr "Mes réévaluations"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_search
+msgid "Net Gain"
+msgstr "Gain net"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_search
+msgid "Net Loss"
+msgstr "Perte nette"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__net_gain_loss
+msgid "Net Unrealized Result"
+msgstr "Résultat net non réalisé"
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "No receivable or payable account is set for the partner \"%s\", and the journal \"%s\" has no default account. Set one of them before posting."
+msgstr "Aucun compte à recevoir ou à payer n'est paramétré pour le partenaire « %s », et le journal « %s » n'a pas de compte par défaut. Définissez-en un avant de publier."
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__note
+msgid "Note"
+msgstr "Note"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation_line__reference
+msgid "Number of the journal entry the open item comes from."
+msgstr "Numéro de l'écriture au journal d'où provient l'échéance."
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "Only a draft revaluation can be posted."
+msgstr "Seul un projet de réévaluation peut être comptabilisé."
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "Only a posted revaluation can be reset to draft."
+msgstr "Seule une réévaluation validée peut être réinitialisée à l'état d'ébauche."
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_line_form
+msgid "Open Item"
+msgstr "Article ouvert"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__line_ids
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_form
+msgid "Open Items"
+msgstr "Éléments ouverts"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation_line__balance_company
+msgid "Open amount as it is currently booked in the company currency."
+msgstr "Montant en cours tel qu'il est actuellement comptabilisé dans la devise de l'entreprise."
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation_line__new_balance
+msgid "Open amount converted at the closing rate of the revaluation."
+msgstr "Montant ouvert converti au cours de clôture de la réévaluation."
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation_line__amount_currency
+msgid "Open amount still due, expressed in the foreign currency."
+msgstr "Montant restant dû, exprimé en devise étrangère."
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__partner_id
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_line_search
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_form
+msgid "Post Entry"
+msgstr "Post-entrée"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields.selection,name:fx_reval_pro.selection__fx_revaluation__state__posted
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_search
+msgid "Posted"
+msgstr "Publié"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_form
+msgid "Posting"
+msgstr "Affectation"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation__name
+msgid "Reference of the revaluation, taken from the FXR/ sequence."
+msgstr "Référence de la revalorisation, issue de la séquence FXR/."
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_form
+msgid "Reset to Draft"
+msgstr "Réinitialiser au brouillon"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_form
+msgid "Result"
+msgstr "Résultat"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__revaluation_id
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_form
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_line_search
+msgid "Revaluation"
+msgstr "Réévaluation"
+
+#. module: fx_reval_pro
+#: model:ir.actions.act_window,name:fx_reval_pro.action_fx_revaluation_line
+#: model:ir.ui.menu,name:fx_reval_pro.menu_fx_revaluation_lines
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_line_form
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_line_list
+msgid "Revaluation Lines"
+msgstr "Lignes de réévaluation"
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "Revaluation computed: %(count)s open item(s) in %(currency)s at the closing rate of %(rate)s."
+msgstr "Réévaluation calculée : échéance(s) %(count)s en %(currency)s au cours de clôture de %(rate)s."
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "Revaluation posted on the journal entry %(move)s with a net unrealized result of %(net)s."
+msgstr "Réévaluation enregistrée sur l'écriture au journal %(move)s avec un résultat net latent de %(net)s."
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "Revaluation reset to draft: its journal entry was removed or cancelled."
+msgstr "Réévaluation remise à l'état d'ébauche : son écriture au journal a été supprimée ou annulée."
+
+#. module: fx_reval_pro
+#: model:ir.actions.act_window,name:fx_reval_pro.action_fx_revaluation
+#: model:ir.ui.menu,name:fx_reval_pro.menu_fx_revaluations
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_form
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_list
+msgid "Revaluations"
+msgstr "Réévaluations"
+
+#. module: fx_reval_pro
+#: model:ir.module.module,summary:base.module_fx_reval_pro
+msgid "Revalue open receivables and payables in a foreign currency at the closing rate, book the unrealized gain or loss in a balanced entry and keep the trail."
+msgstr "Réévaluez les créances et dettes ouvertes en devise étrangère au cours de clôture, comptabilisez le gain ou la perte non réalisé dans une écriture équilibrée et conservez la trace."
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__new_balance
+msgid "Revalued Balance"
+msgstr "Solde réévalué"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation_line__gain_loss
+msgid "Revalued balance minus book value: positive is an unrealized gain, negative an unrealized loss."
+msgstr "Solde réévalué moins valeur comptable : positif est un gain latent, négatif une perte latente."
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "Select the journal that receives the revaluation entry before posting."
+msgstr "Sélectionnez le journal qui reçoit l'écriture de réévaluation avant la validation."
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "Set both the gain account and the loss account before posting the revaluation."
+msgstr "Définissez à la fois le compte de gains et le compte de pertes avant de valider la réévaluation."
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__state
+msgid "State"
+msgstr "Statut"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "The closing rate must be strictly positive: one unit of the foreign currency must be worth a positive amount of company currency."
+msgstr "Le cours de clôture doit être strictement positif : une unité de devise étrangère doit valoir un montant positif en devise de l’entreprise."
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "The foreign currency must be different from the company currency."
+msgstr "La devise étrangère doit être différente de la devise de l'entreprise."
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "The posted revaluation \"%s\" can no longer be changed. Reset it to draft first."
+msgstr "La revalorisation affichée « %s » ne peut plus être modifiée. Réinitialisez-le d'abord en brouillon."
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "The revaluation \"%s\" is posted: reset it to draft before computing it again."
+msgstr "La revalorisation « %s » est comptabilisée : remettez-la à l'état d'ébauche avant de la recalculer."
+
+#. module: fx_reval_pro
+#: model:ir.model.constraint,message:fx_reval_pro.constraint_fx_revaluation_name_company_uniq
+msgid "The revaluation reference must be unique per company."
+msgstr "La référence de réévaluation doit être unique par société."
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_line_list
+msgid "Total Amount Currency"
+msgstr "Montant total Devise"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_line_list
+msgid "Total Balance Company"
+msgstr "Société de solde total"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_form
+msgid "Total Book Value"
+msgstr "Valeur comptable totale"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__total_gain
+msgid "Total Gain"
+msgstr "Gain total"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_line_list
+msgid "Total Gain Loss"
+msgstr "Perte totale de gain"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_form
+msgid "Total Gain/Loss"
+msgstr "Gain/Perte Totale"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation__total_loss
+msgid "Total Loss"
+msgstr "Perte totale"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_list
+msgid "Total Net Gain Loss"
+msgstr "Gain net total, perte"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_line_list
+msgid "Total New Balance"
+msgstr "Nouveau solde total"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_form
+msgid "Total Revalued"
+msgstr "Total réévalué"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_list
+msgid "Total Total Gain"
+msgstr "Gain total"
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_list
+msgid "Total Total Loss"
+msgstr "Perte totale totale"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,help:fx_reval_pro.field_fx_revaluation__net_gain_loss
+msgid "Total gain minus total loss: positive is a net gain, negative a net loss."
+msgstr "Gain total moins perte totale : positif est un gain net, négatif une perte nette."
+
+#. module: fx_reval_pro
+#: model_terms:ir.ui.view,arch_db:fx_reval_pro.view_fx_revaluation_form
+msgid "Total in Currency"
+msgstr "Total en devise"
+
+#. module: fx_reval_pro
+#. odoo-python
+#: code:addons/fx_reval_pro/models/fx_reval_pro.py:0
+msgid "Unknown"
+msgstr "Inconnue Inconnu"
+
+#. module: fx_reval_pro
+#: model:ir.model.fields,field_description:fx_reval_pro.field_fx_revaluation_line__gain_loss
+msgid "Unrealized Gain/Loss"
+msgstr "Gain/Perte non réalisé"
+
+#. module: fx_reval_pro
+#: model:res.groups,comment:fx_reval_pro.group_fxrevalpro_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
