@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_field_watch_log_list" model="ir.ui.view">
+        <field name="name">field.watch.log.list</field>
+        <field name="model">field.watch.log</field>
+        <field name="arch" type="xml">
+            <list string="Change Log" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="changed_date"/>
+                <field name="model_name"/>
+                <field name="record_name"/>
+                <field name="field_label"/>
+                <field name="old_value"/>
+                <field name="new_value"/>
+                <field name="changed_by_id"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_field_watch_log_form" model="ir.ui.view">
+        <field name="name">field.watch.log.form</field>
+        <field name="model">field.watch.log</field>
+        <field name="arch" type="xml">
+            <form string="Change Log">
+                <header>
+                    <button name="action_review" type="object" string="Reviewed" class="btn-primary" invisible="state != 'new'"/>
+                    <button name="action_ignore" type="object" string="Ignore" class="btn-secondary" invisible="state != 'new'"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-secondary" invisible="state != 'new'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,reviewed,ignored"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Change">
+    <field name="model_id"/>
+    <field name="record_name"/>
+    <field name="res_id"/>
+    <field name="field_name"/>
+    <field name="field_label"/>
+                        </group>
+                        <group string="Values">
+    <field name="old_value"/>
+    <field name="new_value"/>
+    <field name="changed_by_id"/>
+    <field name="changed_date"/>
+                        </group>
+                        <group string="Trace">
+    <field name="rule_id"/>
+    <field name="company_id"/>
+    <field name="message_id"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_field_watch_log_search" model="ir.ui.view">
+        <field name="name">field.watch.log.search</field>
+        <field name="model">field.watch.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="record_name"/>
+                <field name="changed_by_id"/>
+                <filter name="new" string="New" domain="[('state','=','new')]"/>
+                <filter name="reviewed" string="Reviewed" domain="[('state','=','reviewed')]"/>
+                <separator/>
+                <filter name="group_model" string="Model" context="{'group_by': 'model_name'}"/>
+                <filter name="group_user" string="User" context="{'group_by': 'changed_by_id'}"/>
+                <filter name="group_field" string="Field" context="{'group_by': 'field_name'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_field_watch_log_kanban" model="ir.ui.view">
+        <field name="name">field.watch.log.kanban</field>
+        <field name="model">field.watch.log</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="model_name" sample="1">
+                <field name="model_name"/>
+                <field name="name"/>
+                <field name="changed_date"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="model_name" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="changed_date"/>
+                        <field name="state"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_field_watch_log_graph" model="ir.ui.view">
+        <field name="name">field.watch.log.graph</field>
+        <field name="model">field.watch.log</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="changed_date" interval="month"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_field_watch_log_pivot" model="ir.ui.view">
+        <field name="name">field.watch.log.pivot</field>
+        <field name="model">field.watch.log</field>
+        <field name="arch" type="xml">
+            <pivot sample="1">
+                <field name="model_name" type="row"/>
+                <field name="state" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_field_watch_log" model="ir.actions.act_window">
+        <field name="name">Change Log</field>
+        <field name="res_model">field.watch.log</field>
+        <field name="view_mode">kanban,list,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Collect the changes of a period to see who changed what, from which value to which value.</p>
+        </field>
+    </record>
+
+</odoo>

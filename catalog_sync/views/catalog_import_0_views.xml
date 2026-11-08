@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_catalog_import_list" model="ir.ui.view">
+        <field name="name">catalog.import.list</field>
+        <field name="model">catalog.import</field>
+        <field name="arch" type="xml">
+            <list string="Price Lists" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="supplier_id"/>
+                <field name="date_ref"/>
+                <field name="line_count" sum="Total Line Count"/>
+                <field name="matched_count" sum="Total Matched Count"/>
+                <field name="unmatched_count" sum="Total Unmatched Count"/>
+                <field name="total_old_cost" sum="Total Total Old Cost"/>
+                <field name="total_new_cost" sum="Total Total New Cost"/>
+                <field name="cost_delta" sum="Total Cost Delta"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_catalog_import_form" model="ir.ui.view">
+        <field name="name">catalog.import.form</field>
+        <field name="model">catalog.import</field>
+        <field name="arch" type="xml">
+            <form string="Price Lists">
+                <header>
+                    <button name="action_simulate" type="object" string="Simulate" class="btn-primary" invisible="state == 'applied' or state == 'cancelled'"/>
+                    <button name="action_apply" type="object" string="Apply" class="btn-primary" invisible="state != 'simulated'"/>
+                    <button name="action_reset" type="object" string="Reset" class="btn-secondary" invisible="state == 'applied'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state == 'applied' or state == 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,simulated,applied,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Batch">
+    <field name="name"/>
+    <field name="supplier_id"/>
+    <field name="company_id"/>
+    <field name="date_ref"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Totals">
+    <field name="line_count"/>
+    <field name="matched_count"/>
+    <field name="unmatched_count"/>
+    <field name="total_old_cost"/>
+    <field name="total_new_cost"/>
+    <field name="cost_delta"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" name="lineids">
+                            <field name="line_ids"/>
+                        </page>
+                        <page string="Price List" name="rawtext">
+                            <field name="raw_text"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_catalog_import_search" model="ir.ui.view">
+        <field name="name">catalog.import.search</field>
+        <field name="model">catalog.import</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="supplier_id"/>
+                <filter name="simulated" string="Simulated" domain="[('state','=','simulated')]"/>
+                <filter name="applied" string="Applied" domain="[('state','=','applied')]"/>
+                <filter name="unmatched" string="With Unmatched Lines" domain="[('unmatched_count','&gt;',0)]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_supplier" string="Supplier" context="{'group_by': 'supplier_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_catalog_import_graph" model="ir.ui.view">
+        <field name="name">catalog.import.graph</field>
+        <field name="model">catalog.import</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="supplier_id"/>
+                <field name="total_old_cost" type="measure"/>
+                <field name="total_new_cost" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_catalog_import_pivot" model="ir.ui.view">
+        <field name="name">catalog.import.pivot</field>
+        <field name="model">catalog.import</field>
+        <field name="arch" type="xml">
+            <pivot sample="1">
+                <field name="supplier_id" type="row"/>
+                <field name="state" type="col"/>
+                <field name="cost_delta" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_catalog_import" model="ir.actions.act_window">
+        <field name="name">Price Lists</field>
+        <field name="res_model">catalog.import</field>
+        <field name="view_mode">list,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Paste the supplier list, simulate, check the unmatched references, then apply.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -49,6 +49,7 @@ multi-company, multi-currency and works on Community as well as Enterprise.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/budgetctl_budget_0_views.xml',
         'views/budgetctl_budget_line_1_views.xml',

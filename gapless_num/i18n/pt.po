@@ -1,0 +1,393 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* gapless_num
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: gapless_num
+#: model:ir.model.constraint,message:gapless_num.constraint_gapless_rule_company_journal_uniq
+msgid "A numbering rule already exists for this company and journal."
+msgstr "Já existe uma regra de numeração para esta empresa e periódico."
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_rule__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: gapless_num
+#: model:ir.actions.act_window,name:gapless_num.action_gapless_issue
+#: model:ir.ui.menu,name:gapless_num.menu_gapless_issues
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_issue_form
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_issue_list
+msgid "Anomalies"
+msgstr "Anomalias"
+
+#. module: gapless_num
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_issue_form
+msgid "Anomaly"
+msgstr "Anomalia"
+
+#. module: gapless_num
+#: model:ir.model.fields.selection,name:gapless_num.selection__gapless_rule__mode__block
+msgid "Block manual renumbering"
+msgstr "Bloquear renumeração manual"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__company_id
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_rule__company_id
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_scan__company_id
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_rule_search
+msgid "Company"
+msgstr "Empresa"
+
+#. module: gapless_num
+#: model:res.groups,comment:gapless_num.group_gaplessnum_manager
+msgid "Configure and administer the module."
+msgstr "Configure e administre o módulo."
+
+#. module: gapless_num
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_rule_form
+msgid "Control"
+msgstr "Controlar"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__create_uid
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_rule__create_uid
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_scan__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__create_date
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_rule__create_date
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_scan__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_scan__date_from
+msgid "Date From"
+msgstr "Data de"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_scan__date_to
+msgid "Date To"
+msgstr "Data até"
+
+#. module: gapless_num
+#: model:ir.module.module,summary:base.module_gapless_num
+msgid "Detect, trace and block gaps, duplicates and manual renumbering in legal document sequences, with a dated audit journal per journal and company."
+msgstr "Detecte, rastreie e bloqueie lacunas, duplicatas e renumeração manual em sequências de documentos legais, com um diário de auditoria datado por diário e empresa."
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_account_move__display_name
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__display_name
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_rule__display_name
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_scan__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: gapless_num
+#: model:ir.model.fields.selection,name:gapless_num.selection__gapless_issue__kind__duplicate
+msgid "Duplicate number"
+msgstr "Número duplicado"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__move_id
+msgid "Entry"
+msgstr "Entrada"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__move_name
+msgid "Entry Number"
+msgstr "Número de entrada"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__expected
+msgid "Expected"
+msgstr "Esperada Esperado"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__found
+msgid "Found"
+msgstr "Encontrada Encontrado"
+
+#. module: gapless_num
+#: model:res.groups,name:gapless_num.group_gaplessnum_manager
+msgid "Gapless Num Manager"
+msgstr "Gerenciador Numérico Sem Gapless"
+
+#. module: gapless_num
+#: model:res.groups,name:gapless_num.group_gaplessnum_user
+msgid "Gapless Num User"
+msgstr "Usuário sem intervalos"
+
+#. module: gapless_num
+#: model:ir.module.module,shortdesc:base.module_gapless_num
+msgid "GaplessNum"
+msgstr "GaplessNum"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: gapless_num
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_issue_form
+msgid "Ignore"
+msgstr "Ignorar"
+
+#. module: gapless_num
+#: model:ir.model.fields.selection,name:gapless_num.selection__gapless_issue__state__ignored
+msgid "Ignored"
+msgstr "Ignorada Ignorado"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__issue_date
+msgid "Issue Date"
+msgstr "Data de emissão"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__journal_id
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_rule__journal_id
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_rule_search
+msgid "Journal"
+msgstr "Jornal"
+
+#. module: gapless_num
+#: model:ir.model,name:gapless_num.model_account_move
+msgid "Journal Entry"
+msgstr "Lançamento de diário"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_scan__journal_ids
+msgid "Journals"
+msgstr "Diárias Diários"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__kind
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_issue_search
+msgid "Kind"
+msgstr "Tipo"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__write_uid
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_rule__write_uid
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_scan__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__write_date
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_rule__write_date
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_scan__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: gapless_num
+#: model:ir.model.fields,help:gapless_num.field_gapless_rule__journal_id
+msgid "Leave empty to apply the rule to every journal of the company."
+msgstr "Deixe em branco para aplicar a regra a todos os diários da empresa."
+
+#. module: gapless_num
+#: model:ir.model.fields.selection,name:gapless_num.selection__gapless_issue__kind__manual
+msgid "Manually changed"
+msgstr "Alterado manualmente"
+
+#. module: gapless_num
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_issue_search
+msgid "Missing Numbers"
+msgstr "Números ausentes"
+
+#. module: gapless_num
+#: model:ir.model.fields.selection,name:gapless_num.selection__gapless_issue__kind__gap
+msgid "Missing number"
+msgstr "Número ausente"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_rule__mode
+msgid "Mode"
+msgstr "Modo"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__name
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_rule__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__note
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_rule__note
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_issue_form
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_rule_form
+msgid "Note"
+msgstr "Nota"
+
+#. module: gapless_num
+#: model:ir.model.fields,help:gapless_num.field_gapless_rule__tolerance
+msgid "Number of missing numbers tolerated in a row before an anomaly is reported."
+msgstr "Número de números faltantes tolerados em sequência antes que uma anomalia seja relatada."
+
+#. module: gapless_num
+#: model:ir.ui.menu,name:gapless_num.menu_gapless_root
+msgid "Numbering"
+msgstr "Numeração"
+
+#. module: gapless_num
+#. odoo-python
+#: code:addons/gapless_num/models/gapless_scan.py:0
+msgid "Numbering Anomalies"
+msgstr "Anomalias de numeração"
+
+#. module: gapless_num
+#: model:ir.model,name:gapless_num.model_gapless_issue
+msgid "Numbering Anomaly"
+msgstr "Anomalia de numeração"
+
+#. module: gapless_num
+#: model:ir.model,name:gapless_num.model_gapless_rule
+msgid "Numbering Rule"
+msgstr "Regra de numeração"
+
+#. module: gapless_num
+#: model:ir.model,name:gapless_num.model_gapless_scan
+msgid "Numbering Scan"
+msgstr "Digitalização de numeração"
+
+#. module: gapless_num
+#. odoo-python
+#: code:addons/gapless_num/models/gapless_issue.py:0
+msgid "Numbering anomaly"
+msgstr "Anomalia de numeração"
+
+#. module: gapless_num
+#: model:ir.model.fields.selection,name:gapless_num.selection__gapless_issue__state__open
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_issue_search
+msgid "Open"
+msgstr "Abrir"
+
+#. module: gapless_num
+#: model:ir.model.fields.selection,name:gapless_num.selection__gapless_issue__kind__out_of_order
+msgid "Out of order"
+msgstr "Fora de serviço"
+
+#. module: gapless_num
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_scan_form
+msgid "Period"
+msgstr "Período"
+
+#. module: gapless_num
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_issue_form
+msgid "Reopen"
+msgstr "Reabrir"
+
+#. module: gapless_num
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_issue_form
+msgid "Resolve"
+msgstr "Resolver"
+
+#. module: gapless_num
+#: model:ir.model.fields.selection,name:gapless_num.selection__gapless_issue__state__resolved
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_issue_search
+msgid "Resolved"
+msgstr "Resolvida Resolvido"
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__rule_id
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_scan__rule_id
+msgid "Rule"
+msgstr "Regra"
+
+#. module: gapless_num
+#: model:ir.actions.act_window,name:gapless_num.action_gapless_rule
+#: model:ir.ui.menu,name:gapless_num.menu_gapless_rules
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_rule_form
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_rule_list
+msgid "Rules"
+msgstr "Regras"
+
+#. module: gapless_num
+#: model_terms:ir.actions.act_window,help:gapless_num.action_gapless_issue
+msgid "Run a scan to list every missing, duplicated or manually changed legal number."
+msgstr "Execute uma verificação para listar todos os números legais ausentes, duplicados ou alterados manualmente."
+
+#. module: gapless_num
+#: model:ir.ui.menu,name:gapless_num.menu_gapless_scan
+msgid "Scan"
+msgstr "Digitalizar"
+
+#. module: gapless_num
+#: model:ir.actions.act_window,name:gapless_num.action_gapless_scan
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_scan_form
+msgid "Scan Numbers"
+msgstr "Números de digitalização"
+
+#. module: gapless_num
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_rule_form
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_scan_form
+msgid "Scope"
+msgstr "Escopo"
+
+#. module: gapless_num
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_issue_form
+msgid "Sequence"
+msgstr "Sequência"
+
+#. module: gapless_num
+#: model_terms:ir.actions.act_window,help:gapless_num.action_gapless_rule
+msgid "Set one rule per company or per journal, with a tolerance and a control mode."
+msgstr "Defina uma regra por empresa ou por diário, com tolerância e modo de controle."
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_issue__state
+msgid "State"
+msgstr "Estado"
+
+#. module: gapless_num
+#: model_terms:ir.ui.view,arch_db:gapless_num.view_gapless_issue_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: gapless_num
+#: model:ir.model.fields,help:gapless_num.field_gapless_issue__found
+msgid "The number actually found."
+msgstr "O número realmente encontrado."
+
+#. module: gapless_num
+#. odoo-python
+#: code:addons/gapless_num/models/account_move.py:0
+msgid "The number of a posted entry cannot be changed by hand. Ask an accountant to reverse the entry instead."
+msgstr "O número de uma entrada publicada não pode ser alterado manualmente. Peça a um contador para reverter a entrada."
+
+#. module: gapless_num
+#: model:ir.model.fields,help:gapless_num.field_gapless_issue__expected
+msgid "The number the sequence expected."
+msgstr "O número que a sequência esperava."
+
+#. module: gapless_num
+#: model:ir.model.fields,field_description:gapless_num.field_gapless_rule__tolerance
+msgid "Tolerance"
+msgstr "Tolerância"
+
+#. module: gapless_num
+#: model:res.groups,comment:gapless_num.group_gaplessnum_user
+msgid "View and use the module."
+msgstr "Visualize e use o módulo."
+
+#. module: gapless_num
+#: model:ir.model.fields,help:gapless_num.field_gapless_rule__mode
+msgid "Warn creates an anomaly when a posted number is changed by hand. Block refuses the change."
+msgstr "Avisar cria uma anomalia quando um número postado é alterado manualmente. Block recusa a mudança."
+
+#. module: gapless_num
+#: model:ir.model.fields.selection,name:gapless_num.selection__gapless_rule__mode__warn
+msgid "Warn only"
+msgstr "Avise apenas"

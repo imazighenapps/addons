@@ -1,0 +1,431 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* dead_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dead_stock
+#: model:ir.model.constraint,message:dead_stock.constraint_dead_stock_rule_company_name_uniq
+msgid "A dead stock rule with this name already exists."
+msgstr "Ya existe una regla de existencias muertas con este nombre."
+
+#. module: dead_stock
+#: model:ir.model.fields.selection,name:dead_stock.selection__dead_stock_line__state__actioned
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_form
+msgid "Actioned"
+msgstr "Actuada Actuado"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: dead_stock
+#: model:ir.model.fields,help:dead_stock.field_dead_stock_rule__carrying_rate
+msgid "Annual percentage of the stock value used to compute the cost of holding."
+msgstr "Porcentaje anual del valor de las acciones utilizado para calcular el costo de tenencia."
+
+#. module: dead_stock
+#: model:ir.model.fields.selection,name:dead_stock.selection__dead_stock_line__suggested_action__bundle
+msgid "Bundle"
+msgstr "Manojo"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__carrying_rate
+msgid "Carrying Rate (%)"
+msgstr "Tasa de transporte (%)"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__category_ids
+msgid "Categories"
+msgstr "Categorías"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__company_id
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__company_id
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__company_id
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_rule_search
+msgid "Company"
+msgstr "Compañía"
+
+#. module: dead_stock
+#: model:res.groups,comment:dead_stock.group_deadstock_manager
+msgid "Configure and administer the module."
+msgstr "Configurar y administrar el módulo."
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__create_uid
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__create_uid
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__create_date
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__create_date
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__currency_id
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__currency_id
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__date_ref
+msgid "Date Ref"
+msgstr "Fecha de referencia"
+
+#. module: dead_stock
+#: model:ir.model.fields,help:dead_stock.field_dead_stock_rule__slow_days
+msgid "Days without a customer delivery before a product is dormant."
+msgstr "Días sin entrega a un cliente antes de que un producto quede inactivo."
+
+#. module: dead_stock
+#: model:ir.ui.menu,name:dead_stock.menu_dead_stock_root
+msgid "Dead Stock"
+msgstr "Stock muerto"
+
+#. module: dead_stock
+#: model:res.groups,name:dead_stock.group_deadstock_manager
+msgid "Dead Stock Manager"
+msgstr "Gerente de Stock Muerto"
+
+#. module: dead_stock
+#: model:ir.model,name:dead_stock.model_dead_stock_rule
+msgid "Dead Stock Rule"
+msgstr "Regla de stock muerto"
+
+#. module: dead_stock
+#: model:ir.model,name:dead_stock.model_dead_stock_scan
+msgid "Dead Stock Scan"
+msgstr "Escaneo de stock muerto"
+
+#. module: dead_stock
+#: model:res.groups,name:dead_stock.group_deadstock_user
+msgid "Dead Stock User"
+msgstr "Usuario muerta Usuario muerto"
+
+#. module: dead_stock
+#: model:ir.module.module,shortdesc:base.module_dead_stock
+msgid "DeadStock"
+msgstr "Stock muerto"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_form
+msgid "Decision"
+msgstr "Decisión"
+
+#. module: dead_stock
+#: model:ir.model.fields.selection,name:dead_stock.selection__dead_stock_line__suggested_action__discount
+msgid "Discount"
+msgstr "Descuento"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__display_name
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__display_name
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: dead_stock
+#: model:ir.model.fields.selection,name:dead_stock.selection__dead_stock_scan__state__done
+msgid "Done"
+msgstr "Hecho"
+
+#. module: dead_stock
+#. odoo-python
+#: code:addons/dead_stock/models/dead_stock_scan.py:0
+#: model:ir.actions.act_window,name:dead_stock.action_dead_stock_line
+#: model:ir.ui.menu,name:dead_stock.menu_dead_stock_lines
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_form
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_list
+msgid "Dormant Items"
+msgstr "Artículos inactivos"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__line_ids
+msgid "Dormant Lines"
+msgstr "Líneas inactivas"
+
+#. module: dead_stock
+#: model:ir.model,name:dead_stock.model_dead_stock_line
+msgid "Dormant Stock Line"
+msgstr "Línea de stock inactivo"
+
+#. module: dead_stock
+#. odoo-python
+#: code:addons/dead_stock/models/dead_stock_line.py:0
+msgid "Dormant stock"
+msgstr "Stock inactivo"
+
+#. module: dead_stock
+#: model:ir.model.fields.selection,name:dead_stock.selection__dead_stock_scan__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: dead_stock
+#: model_terms:ir.actions.act_window,help:dead_stock.action_dead_stock_scan
+msgid "Each scan keeps a snapshot: compare the locked cash month after month."
+msgstr "Cada escaneo guarda una instantánea: compara el efectivo bloqueado mes tras mes."
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__carrying_cost
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__total_carrying
+msgid "Holding Cost"
+msgstr "Costo de tenencia"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__days_idle
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__slow_days
+msgid "Idle Days"
+msgstr "Días inactivos"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_form
+msgid "Ignore"
+msgstr "Ignorar"
+
+#. module: dead_stock
+#: model:ir.model.fields,help:dead_stock.field_dead_stock_rule__min_value
+msgid "Ignore dormant stock below this value."
+msgstr "Ignore el stock inactivo por debajo de este valor."
+
+#. module: dead_stock
+#: model:ir.model.fields.selection,name:dead_stock.selection__dead_stock_line__state__ignored
+msgid "Ignored"
+msgstr "Ignorada Ignorado"
+
+#. module: dead_stock
+#: model:ir.model.fields.selection,name:dead_stock.selection__dead_stock_line__suggested_action__keep
+msgid "Keep"
+msgstr "Mantener"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__last_move_date
+msgid "Last Delivery"
+msgstr "Última entrega"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__write_uid
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__write_uid
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__write_date
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__write_date
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_scan_form
+msgid "Lines"
+msgstr "Pauta"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__total_value
+msgid "Locked Cash"
+msgstr "Efectivo bloqueado"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__min_value
+msgid "Minimum Value"
+msgstr "Valor mínimo"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__name
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__name
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__note
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__note
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_form
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_rule_form
+msgid "Note"
+msgstr "Nota"
+
+#. module: dead_stock
+#: model:ir.model.fields.selection,name:dead_stock.selection__dead_stock_line__state__open
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_search
+msgid "Open"
+msgstr "Abierta Abierto"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__product_id
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_form
+msgid "Product"
+msgstr "Producto"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__product_count
+msgid "Products"
+msgstr "Productos"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__qty_available
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_form
+msgid "Reopen"
+msgstr "Reabrir"
+
+#. module: dead_stock
+#: model:ir.model.fields.selection,name:dead_stock.selection__dead_stock_line__suggested_action__return
+msgid "Return to Supplier"
+msgstr "Volver al proveedor"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__rule_id
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__rule_id
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_scan_search
+msgid "Rule"
+msgstr "Regla"
+
+#. module: dead_stock
+#: model:ir.actions.act_window,name:dead_stock.action_dead_stock_rule
+#: model:ir.ui.menu,name:dead_stock.menu_dead_stock_rules
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_rule_form
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_rule_list
+msgid "Rules"
+msgstr "Reglas"
+
+#. module: dead_stock
+#: model_terms:ir.actions.act_window,help:dead_stock.action_dead_stock_line
+msgid "Run a scan to list the stock that no longer moves, then decide what to do with it."
+msgstr "Ejecute un escaneo para enumerar las acciones que ya no se mueven y luego decida qué hacer con ellas."
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__scan_id
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_scan_form
+msgid "Scan"
+msgstr "Escanear"
+
+#. module: dead_stock
+#: model:ir.actions.act_window,name:dead_stock.action_dead_stock_scan
+#: model:ir.ui.menu,name:dead_stock.menu_dead_stock_scans
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_scan_form
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_scan_list
+msgid "Scans"
+msgstr "Escaneos"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_rule_form
+msgid "Scope"
+msgstr "Alcance"
+
+#. module: dead_stock
+#: model:ir.model.fields.selection,name:dead_stock.selection__dead_stock_line__suggested_action__scrap
+msgid "Scrap"
+msgstr "Chatarra"
+
+#. module: dead_stock
+#: model_terms:ir.actions.act_window,help:dead_stock.action_dead_stock_rule
+msgid "Set the idle period, the carrying rate and the minimum value."
+msgstr "Establezca el período de inactividad, la tasa de transporte y el valor mínimo."
+
+#. module: dead_stock
+#: model:ir.module.module,summary:base.module_dead_stock
+msgid "Spot products that no longer move, measure the cash they lock up and the cost of holding them, and decide discount, bundle, return or scrap from one screen."
+msgstr "Detecte productos que ya no se mueven, mida el efectivo que guardan y el costo de conservarlos, y decida descuentos, paquetes, devoluciones o desechos desde una sola pantalla."
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__state
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_scan__state
+msgid "State"
+msgstr "Estado"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_form
+msgid "Stock"
+msgstr "Existencias"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__value
+msgid "Stock Value"
+msgstr "Valor de las acciones"
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_line__suggested_action
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_search
+msgid "Suggested Action"
+msgstr "Acción sugerida"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_rule_form
+msgid "Threshold"
+msgstr "Límite"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_search
+msgid "To Scrap"
+msgstr "Para desechar"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_list
+msgid "Total Carrying Cost"
+msgstr "Costo total de mantenimiento"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_list
+msgid "Total Qty Available"
+msgstr "Cantidad total disponible"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_scan_list
+msgid "Total Total Carrying"
+msgstr "Total Total en transporte"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_scan_list
+msgid "Total Total Value"
+msgstr "Valor total total"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_line_list
+msgid "Total Value"
+msgstr "Valor total"
+
+#. module: dead_stock
+#: model_terms:ir.ui.view,arch_db:dead_stock.view_dead_stock_scan_form
+msgid "Totals"
+msgstr "Totales"
+
+#. module: dead_stock
+#: model:res.groups,comment:dead_stock.group_deadstock_user
+msgid "View and use the module."
+msgstr "Ver y utilizar el módulo."
+
+#. module: dead_stock
+#: model:ir.model.fields,field_description:dead_stock.field_dead_stock_rule__warehouse_id
+msgid "Warehouse Location"
+msgstr "Ubicación del almacén"
+
+#. module: dead_stock
+#. odoo-python
+#: code:addons/dead_stock/models/dead_stock_scan.py:0
+msgid "scan_id"
+msgstr "id_escaneo"

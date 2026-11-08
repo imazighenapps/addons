@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_expiry_category_company" model="ir.rule">
+        <field name="name">expiry.category: own company only</field>
+        <field name="model_id" ref="model_expiry_category"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_expiry_document_company" model="ir.rule">
+        <field name="name">expiry.document: own company only</field>
+        <field name="model_id" ref="model_expiry_document"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_expiry_log_company" model="ir.rule">
+        <field name="name">expiry.log: own company only</field>
+        <field name="model_id" ref="model_expiry_log"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

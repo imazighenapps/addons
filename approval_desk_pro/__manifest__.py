@@ -49,6 +49,7 @@ the request currency and each company only sees its own requests.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/approval_desk_request_0_views.xml',
         'views/approval_desk_step_1_views.xml',

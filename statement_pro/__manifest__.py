@@ -34,6 +34,7 @@ one statement per partner for the whole month.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/statement_run_0_views.xml',
         'views/statement_batch_1_views.xml',

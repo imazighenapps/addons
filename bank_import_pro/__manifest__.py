@@ -49,6 +49,7 @@ no external dependency and no Enterprise module.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'views/bankimp_batch_0_views.xml',
         'views/bankimp_line_1_views.xml',
         'views/bankimp_rule_2_views.xml',

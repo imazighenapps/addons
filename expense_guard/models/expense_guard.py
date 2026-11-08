@@ -143,7 +143,7 @@ class HrExpense(models.Model):
                              for m in expense_warning]
         return blocking, warnings
 
-    def action_submit(self):
+    def action_submit_expenses(self):
         blocking, warnings = self._run_expense_policy()
         if blocking:
             raise UserError(_(
@@ -153,4 +153,4 @@ class HrExpense(models.Model):
             if any(line for line in (expense.policy_note or "").splitlines()):
                 expense.message_post(body=_(
                     "Expense policy warning:\n%s", expense.policy_note))
-        return super().action_submit()
+        return super().action_submit_expenses()

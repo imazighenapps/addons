@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cash_forecast_list" model="ir.ui.view">
+        <field name="name">cash.forecast.list</field>
+        <field name="model">cash.forecast</field>
+        <field name="arch" type="xml">
+            <list string="Forecasts" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date_from"/>
+                <field name="weeks"/>
+                <field name="opening_balance" sum="Total Opening Balance"/>
+                <field name="total_in" sum="Total Total In"/>
+                <field name="total_out" sum="Total Total Out"/>
+                <field name="net_flow" sum="Total Net Flow"/>
+                <field name="min_balance" sum="Total Min Balance"/>
+                <field name="min_week"/>
+                <field name="is_at_risk"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cash_forecast_form" model="ir.ui.view">
+        <field name="name">cash.forecast.form</field>
+        <field name="model">cash.forecast</field>
+        <field name="arch" type="xml">
+            <form string="Forecasts">
+                <header>
+                    <button name="action_compute" type="object" string="Compute" class="btn-primary" invisible="False"/>
+                    <button name="action_reset" type="object" string="Reset" class="btn-secondary" invisible="state != 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,computed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Scenario">
+    <field name="name"/>
+    <field name="company_id"/>
+    <field name="date_from"/>
+    <field name="weeks"/>
+    <field name="delay_days"/>
+                        </group>
+                        <group string="Result">
+    <field name="opening_balance"/>
+    <field name="total_in"/>
+    <field name="total_out"/>
+    <field name="net_flow"/>
+    <field name="min_balance"/>
+    <field name="min_week"/>
+    <field name="is_at_risk"/>
+    <field name="horizon_end"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" name="lineids">
+                            <field name="line_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cash_forecast_search" model="ir.ui.view">
+        <field name="name">cash.forecast.search</field>
+        <field name="model">cash.forecast</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="risk" string="At Risk" domain="[('is_at_risk','=',True)]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_cash_forecast" model="ir.actions.act_window">
+        <field name="name">Forecasts</field>
+        <field name="res_model">cash.forecast</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a scenario, set the opening balance and compute thirteen weeks of cash.</p>
+        </field>
+    </record>
+
+</odoo>

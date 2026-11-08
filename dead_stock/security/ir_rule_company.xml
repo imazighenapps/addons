@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_dead_stock_rule_company" model="ir.rule">
+        <field name="name">dead.stock.rule: own company only</field>
+        <field name="model_id" ref="model_dead_stock_rule"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_dead_stock_line_company" model="ir.rule">
+        <field name="name">dead.stock.line: own company only</field>
+        <field name="model_id" ref="model_dead_stock_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_dead_stock_scan_company" model="ir.rule">
+        <field name="name">dead.stock.scan: own company only</field>
+        <field name="model_id" ref="model_dead_stock_scan"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

@@ -35,6 +35,7 @@ to take the risk, a documented override is requested, approved and traced.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/credit_profile_0_views.xml',
         'views/credit_override_1_views.xml',

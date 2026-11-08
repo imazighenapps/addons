@@ -62,9 +62,9 @@ class TestExpenseGuard(TransactionCase):
     def test_01_compliant_expense(self):
         expense = self._expense(50.0)
         self._receipt(expense)
-        expense.action_submit()
+        expense.action_submit_expenses()
         self.assertEqual(expense.policy_state, "ok")
-        self.assertIn(expense.approval_state, ("submitted", "approved"))
+        self.assertIn(expense.state, ("reported", "submitted", "approved"))
 
     def test_02_amount_cap_blocks(self):
         expense = self._expense(150.0)
@@ -88,13 +88,13 @@ class TestExpenseGuard(TransactionCase):
             20.0, expense_date=date.today() - timedelta(days=60))
         self._receipt(expense)
         with self.assertRaises(UserError):
-            expense.action_submit()
+            expense.action_submit_expenses()
 
     def test_05_warn_mode_allows(self):
         self.policy.block_mode = "warn"
         expense = self._expense(150.0)
         self._receipt(expense)
-        expense.action_submit()
+        expense.action_submit_expenses()
         self.assertEqual(expense.policy_state, "warned")
         self.assertTrue(expense.policy_note)
         self.assertTrue(expense.message_ids)

@@ -40,6 +40,7 @@ forward, and the old and new dates stay in the renewal history.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'views/expiry_document_0_views.xml',
         'views/expiry_category_1_views.xml',
         'views/expiry_log_2_views.xml',

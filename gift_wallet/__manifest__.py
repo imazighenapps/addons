@@ -34,6 +34,7 @@ liability at any time.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'views/gift_card_0_views.xml',
         'views/gift_redeem_wizard_1_views.xml',
         'views/menus.xml',

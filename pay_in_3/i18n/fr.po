@@ -1,0 +1,351 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pay_in_3
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pay_in_3
+#: model:ir.model.fields.selection,name:pay_in_3.selection__payment_plan__state__active
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_search
+msgid "Active"
+msgstr "Actif"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__amount
+msgid "Amount"
+msgstr "Montant"
+
+#. module: pay_in_3
+#. odoo-python
+#: code:addons/pay_in_3/models/payment_plan.py:0
+msgid "An installment is already paid: the plan cannot be recomputed."
+msgstr "Un acompte est déjà payé : le forfait ne peut pas être recalculé."
+
+#. module: pay_in_3
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_form
+msgid "Balance"
+msgstr "Solde"
+
+#. module: pay_in_3
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: pay_in_3
+#: model:ir.model.fields.selection,name:pay_in_3.selection__payment_plan__state__cancelled
+#: model:ir.model.fields.selection,name:pay_in_3.selection__payment_plan_line__state__cancelled
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: pay_in_3
+#: model:res.groups,comment:pay_in_3.group_payin3_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: pay_in_3
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_form
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__create_uid
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__create_date
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__currency_id
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: pay_in_3
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_search
+msgid "Customer"
+msgstr "Client"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_account_move__display_name
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__display_name
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: pay_in_3
+#: model:ir.model.fields.selection,name:pay_in_3.selection__payment_plan__state__done
+msgid "Done"
+msgstr "Terminé"
+
+#. module: pay_in_3
+#: model:ir.model.fields.selection,name:pay_in_3.selection__payment_plan__state__draft
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__due_date
+msgid "Due Date"
+msgstr "Date d'échéance"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__first_due_date
+msgid "First Due Date"
+msgstr "Première date d'échéance"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: pay_in_3
+#. odoo-python
+#: code:addons/pay_in_3/models/payment_plan_line.py:0
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_line_form
+msgid "Installment"
+msgstr "Tranche"
+
+#. module: pay_in_3
+#: model:ir.actions.act_window,name:pay_in_3.action_payment_plan_line
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__installment_count
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__line_ids
+#: model:ir.ui.menu,name:pay_in_3.menu_pay_in_3_lines
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_form
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_line_form
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_line_list
+msgid "Installments"
+msgstr "Versements"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__interval_days
+msgid "Interval (days)"
+msgstr "Intervalle (jours)"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__move_id
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_form
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: pay_in_3
+#: model:ir.model,name:pay_in_3.model_account_move
+msgid "Journal Entry"
+msgstr "Entrée de journal"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__write_uid
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__write_date
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: pay_in_3
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_line_form
+msgid "Mark Paid"
+msgstr "Marquer comme payé"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__name
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__note
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__note
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_form
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_line_form
+msgid "Note"
+msgstr "Note"
+
+#. module: pay_in_3
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_search
+msgid "Nothing Paid"
+msgstr "Rien de payé"
+
+#. module: pay_in_3
+#: model_terms:ir.actions.act_window,help:pay_in_3.action_payment_plan_line
+msgid "One line per installment, with its date, amount and status."
+msgstr "Une ligne par échéance, avec sa date, son montant et son statut."
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__paid_amount
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__paid_amount
+#: model:ir.model.fields.selection,name:pay_in_3.selection__payment_plan_line__state__paid
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_line_search
+msgid "Paid"
+msgstr "Payé"
+
+#. module: pay_in_3
+#: model:ir.model.fields.selection,name:pay_in_3.selection__payment_plan_line__state__partial
+msgid "Partially Paid"
+msgstr "Partiellement payé"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__partner_id
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: pay_in_3
+#: model:res.groups,name:pay_in_3.group_payin3_manager
+msgid "Pay In 3 Manager"
+msgstr "Gestionnaire de paiement en 3"
+
+#. module: pay_in_3
+#: model:res.groups,name:pay_in_3.group_payin3_user
+msgid "Pay In 3 User"
+msgstr "Payer en 3 utilisateurs"
+
+#. module: pay_in_3
+#: model:ir.module.module,shortdesc:base.module_pay_in_3
+msgid "PayIn3"
+msgstr "Payer3"
+
+#. module: pay_in_3
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_line_form
+msgid "Payment"
+msgstr "Paiement"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__payment_date
+msgid "Payment Date"
+msgstr "Date de paiement"
+
+#. module: pay_in_3
+#. odoo-python
+#: code:addons/pay_in_3/models/account_move.py:0
+#: code:addons/pay_in_3/models/payment_plan.py:0
+#: model:ir.model,name:pay_in_3.model_payment_plan
+msgid "Payment Plan"
+msgstr "Plan de paiement"
+
+#. module: pay_in_3
+#: model:ir.model,name:pay_in_3.model_payment_plan_line
+msgid "Payment Plan Installment"
+msgstr "Plan de paiement échelonné"
+
+#. module: pay_in_3
+#: model:ir.actions.act_window,name:pay_in_3.action_payment_plan
+#: model:ir.model.fields,field_description:pay_in_3.field_account_bank_statement_line__payment_plan_ids
+#: model:ir.model.fields,field_description:pay_in_3.field_account_move__payment_plan_ids
+#: model:ir.ui.menu,name:pay_in_3.menu_pay_in_3_plans
+#: model:ir.ui.menu,name:pay_in_3.menu_pay_in_3_root
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_form
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_list
+msgid "Payment Plans"
+msgstr "Plans de paiement"
+
+#. module: pay_in_3
+#: model:ir.model.fields.selection,name:pay_in_3.selection__payment_plan_line__state__pending
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_line_search
+msgid "Pending"
+msgstr "En attente"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__plan_id
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_form
+msgid "Plan"
+msgstr "Plan"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_account_bank_statement_line__payment_plan_count
+#: model:ir.model.fields,field_description:pay_in_3.field_account_move__payment_plan_count
+msgid "Plans"
+msgstr "Forfaits"
+
+#. module: pay_in_3
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_form
+msgid "Recompute"
+msgstr "Recalculer"
+
+#. module: pay_in_3
+#. odoo-python
+#: code:addons/pay_in_3/models/payment_plan_line.py:0
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_line_form
+msgid "Register Payment"
+msgstr "S'inscrire Paiement"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__remaining_amount
+msgid "Remaining"
+msgstr "Restante Restant"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: pay_in_3
+#: model:ir.module.module,summary:base.module_pay_in_3
+msgid "Split a customer invoice into two, three or four dated installments, track what is paid, and register the payment of each installment without leaving the invoice."
+msgstr "Divisez une facture client en deux, trois ou quatre versements datés, suivez ce qui est payé et enregistrez le paiement de chaque versement sans quitter la facture."
+
+#. module: pay_in_3
+#: model_terms:ir.actions.act_window,help:pay_in_3.action_payment_plan
+msgid "Split an invoice into dated installments and follow what is really paid."
+msgstr "Divisez une facture en versements datés et suivez ce qui est réellement payé."
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__state
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan_line__state
+msgid "State"
+msgstr "Statut"
+
+#. module: pay_in_3
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_line_search
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: pay_in_3
+#: model:ir.model.fields,field_description:pay_in_3.field_payment_plan__total_amount
+msgid "Total"
+msgstr "Total"
+
+#. module: pay_in_3
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_line_list
+msgid "Total Amount"
+msgstr "Montant total"
+
+#. module: pay_in_3
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_line_list
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_list
+msgid "Total Paid Amount"
+msgstr "Montant total payé"
+
+#. module: pay_in_3
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_list
+msgid "Total Remaining Amount"
+msgstr "Montant total restant"
+
+#. module: pay_in_3
+#: model_terms:ir.ui.view,arch_db:pay_in_3.view_payment_plan_list
+msgid "Total Total Amount"
+msgstr "Montant total"
+
+#. module: pay_in_3
+#: model:res.groups,comment:pay_in_3.group_payin3_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."

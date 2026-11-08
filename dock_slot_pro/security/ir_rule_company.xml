@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_dock_slot_company" model="ir.rule">
+        <field name="name">dock.slot: own company only</field>
+        <field name="model_id" ref="model_dock_slot"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_dock_booking_company" model="ir.rule">
+        <field name="name">dock.booking: own company only</field>
+        <field name="model_id" ref="model_dock_booking"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_dock_blackout_company" model="ir.rule">
+        <field name="name">dock.blackout: own company only</field>
+        <field name="model_id" ref="model_dock_blackout"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

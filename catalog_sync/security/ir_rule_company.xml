@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_catalog_margin_rule_company" model="ir.rule">
+        <field name="name">catalog.margin.rule: own company only</field>
+        <field name="model_id" ref="model_catalog_margin_rule"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_catalog_import_company" model="ir.rule">
+        <field name="name">catalog.import: own company only</field>
+        <field name="model_id" ref="model_catalog_import"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

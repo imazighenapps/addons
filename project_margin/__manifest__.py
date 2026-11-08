@@ -43,6 +43,7 @@ its lines, and the whole story stays in the chatter.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'views/margin_project_0_views.xml',
         'views/margin_line_1_views.xml',
         'views/menus.xml',

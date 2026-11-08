@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_dead_stock_line_list" model="ir.ui.view">
+        <field name="name">dead.stock.line.list</field>
+        <field name="model">dead.stock.line</field>
+        <field name="arch" type="xml">
+            <list string="Dormant Items" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="qty_available" sum="Total Qty Available"/>
+                <field name="value" sum="Total Value"/>
+                <field name="last_move_date"/>
+                <field name="days_idle"/>
+                <field name="carrying_cost" sum="Total Carrying Cost"/>
+                <field name="suggested_action"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_dead_stock_line_form" model="ir.ui.view">
+        <field name="name">dead.stock.line.form</field>
+        <field name="model">dead.stock.line</field>
+        <field name="arch" type="xml">
+            <form string="Dormant Items">
+                <header>
+                    <button name="action_actioned" type="object" string="Actioned" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_ignore" type="object" string="Ignore" class="btn-secondary" invisible="state != 'open'"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-secondary" invisible="state == 'open'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,actioned,ignored"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Product">
+    <field name="product_id"/>
+    <field name="scan_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Stock">
+    <field name="qty_available"/>
+    <field name="value"/>
+    <field name="last_move_date"/>
+    <field name="days_idle"/>
+    <field name="carrying_cost"/>
+                        </group>
+                        <group string="Decision">
+    <field name="suggested_action"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_dead_stock_line_search" model="ir.ui.view">
+        <field name="name">dead.stock.line.search</field>
+        <field name="model">dead.stock.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_id"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="scrap" string="To Scrap" domain="[('suggested_action','=','scrap')]"/>
+                <separator/>
+                <filter name="group_action" string="Suggested Action" context="{'group_by': 'suggested_action'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_dead_stock_line_kanban" model="ir.ui.view">
+        <field name="name">dead.stock.line.kanban</field>
+        <field name="model">dead.stock.line</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="suggested_action" sample="1">
+                <field name="suggested_action"/>
+                <field name="name"/>
+                <field name="value"/>
+                <field name="days_idle"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="suggested_action" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="value"/>
+                        <field name="days_idle"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_dead_stock_line_graph" model="ir.ui.view">
+        <field name="name">dead.stock.line.graph</field>
+        <field name="model">dead.stock.line</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="product_id"/>
+                <field name="value" type="measure"/>
+                <field name="carrying_cost" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_dead_stock_line_pivot" model="ir.ui.view">
+        <field name="name">dead.stock.line.pivot</field>
+        <field name="model">dead.stock.line</field>
+        <field name="arch" type="xml">
+            <pivot sample="1">
+                <field name="suggested_action" type="row"/>
+                <field name="state" type="col"/>
+                <field name="value" type="measure"/>
+                <field name="carrying_cost" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_dead_stock_line" model="ir.actions.act_window">
+        <field name="name">Dormant Items</field>
+        <field name="res_model">dead.stock.line</field>
+        <field name="view_mode">kanban,list,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Run a scan to list the stock that no longer moves, then decide what to do with it.</p>
+        </field>
+    </record>
+
+</odoo>

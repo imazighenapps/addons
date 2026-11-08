@@ -34,6 +34,7 @@ goes up, your operations never stop.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/cycle_count_session_0_views.xml',
         'views/cycle_count_plan_1_views.xml',

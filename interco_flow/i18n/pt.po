@@ -1,0 +1,554 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* interco_flow
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: interco_flow
+#: model:ir.model.constraint,message:interco_flow.constraint_interco_rule_company_target_uniq
+msgid "A rule already exists between these two companies."
+msgstr "Já existe uma regra entre essas duas empresas."
+
+#. module: interco_flow
+#. odoo-python
+#: code:addons/interco_flow/models/interco_transfer.py:0
+msgid "A vendor partner is required to buy."
+msgstr "É necessário um parceiro fornecedor para comprar."
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_mapping__active
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: interco_flow
+#: model:ir.model.fields,help:interco_flow.field_interco_rule__margin_percent
+msgid "Added to the source price when the policy is a margin."
+msgstr "Adicionado ao preço fonte quando a apólice é uma margem."
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_form
+msgid "Amounts"
+msgstr "Valores"
+
+#. module: interco_flow
+#: model:ir.model.constraint,message:interco_flow.constraint_interco_transfer_sale_order_uniq
+msgid "An intercompany transfer already exists for this sales order."
+msgstr "Já existe uma transferência entre empresas para esta ordem de venda."
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_mapping__target_product_id
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__target_product_id
+msgid "Bought Product"
+msgstr "Produto comprado"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__target_company_id
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__target_company_id
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_rule_search
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_search
+msgid "Buying Company"
+msgstr "Empresa Compradora"
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: interco_flow
+#: model:ir.model.fields.selection,name:interco_flow.selection__interco_transfer__state__cancelled
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_rule_form
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_form
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: interco_flow
+#: model:res.groups,comment:interco_flow.group_intercoflow_manager
+msgid "Configure and administer the module."
+msgstr "Configure e administre o módulo."
+
+#. module: interco_flow
+#: model_terms:ir.actions.act_window,help:interco_flow.action_interco_transfer
+msgid "Confirm a sales order, then open its transfer to buy the same goods in the other company."
+msgstr "Confirme um pedido de venda e abra sua transferência para comprar a mesma mercadoria na outra empresa."
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_form
+msgid "Create Purchase Order"
+msgstr "Criar pedido de compra"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__auto_create_po
+msgid "Create Purchase Order Automatically"
+msgstr "Criar pedido de compra automaticamente"
+
+#. module: interco_flow
+#: model:ir.model.fields,help:interco_flow.field_interco_rule__auto_create_po
+msgid "Create the purchase order as soon as the transfer is built."
+msgstr "Crie o pedido de compra assim que a transferência for construída."
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_mapping__create_uid
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__create_uid
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__create_uid
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_mapping__create_date
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__create_date
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__create_date
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__currency_id
+msgid "Currency"
+msgstr "Moeda"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__partner_id
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_mapping__display_name
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__display_name
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__display_name
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__display_name
+#: model:ir.model.fields,field_description:interco_flow.field_sale_order__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: interco_flow
+#: model:ir.model.fields.selection,name:interco_flow.selection__interco_transfer__state__draft
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_search
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_mapping__price_unit
+msgid "Imposed Price"
+msgstr "Preço imposto"
+
+#. module: interco_flow
+#: model:ir.module.module,shortdesc:base.module_interco_flow
+msgid "InterCo Flow"
+msgstr "Fluxo InterCo"
+
+#. module: interco_flow
+#: model:res.groups,name:interco_flow.group_intercoflow_manager
+msgid "Interco Flow Manager"
+msgstr "Gerente de Fluxo Interco"
+
+#. module: interco_flow
+#: model:res.groups,name:interco_flow.group_intercoflow_user
+msgid "Interco Flow User"
+msgstr "Usuário Interco Flow"
+
+#. module: interco_flow
+#: model:ir.ui.menu,name:interco_flow.menu_interco_root
+msgid "Intercompany"
+msgstr "Intercompanhia"
+
+#. module: interco_flow
+#: model:ir.model,name:interco_flow.model_interco_mapping
+msgid "Intercompany Product Mapping"
+msgstr "Mapeamento de produtos entre empresas"
+
+#. module: interco_flow
+#: model:ir.model,name:interco_flow.model_interco_rule
+msgid "Intercompany Rule"
+msgstr "Regra entre empresas"
+
+#. module: interco_flow
+#. odoo-python
+#: code:addons/interco_flow/models/interco_transfer.py:0
+#: code:addons/interco_flow/models/sale_order.py:0
+#: model:ir.model,name:interco_flow.model_interco_transfer
+msgid "Intercompany Transfer"
+msgstr "Transferência Intercompanhia"
+
+#. module: interco_flow
+#: model:ir.model,name:interco_flow.model_interco_transfer_line
+msgid "Intercompany Transfer Line"
+msgstr "Linha de transferência entre empresas"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_sale_order__interco_transfer_count
+#: model:ir.model.fields,field_description:interco_flow.field_sale_order__interco_transfer_ids
+msgid "Intercompany Transfers"
+msgstr "Transferências entre empresas"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_mapping__write_uid
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__write_uid
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__write_uid
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_mapping__write_date
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__write_date
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__write_date
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: interco_flow
+#: model:ir.model.fields,help:interco_flow.field_interco_mapping__price_unit
+msgid "Leave empty to let the price policy of the rule decide."
+msgstr "Deixe em branco para deixar a política de preços da regra decidir."
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__margin
+msgid "Line Margin"
+msgstr "Margem da linha"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__line_ids
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_form
+msgid "Lines"
+msgstr "Linhas"
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_mapping_form
+msgid "Mapping"
+msgstr "Mapeamento"
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_rule_form
+msgid "Mappings"
+msgstr "Mapeamentos"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__margin_amount
+msgid "Margin"
+msgstr "Margem"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__margin_rate
+msgid "Margin (%)"
+msgstr "Margem (%)"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_mapping__name
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__name
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__name
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: interco_flow
+#. odoo-python
+#: code:addons/interco_flow/models/sale_order.py:0
+msgid "No intercompany rule is configured for this company."
+msgstr "Nenhuma regra intercompanhia está configurada para esta empresa."
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_mapping__note
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__note
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__note
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__note
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_mapping_form
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_rule_form
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_form
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_line_form
+msgid "Note"
+msgstr "Nota"
+
+#. module: interco_flow
+#: model_terms:ir.actions.act_window,help:interco_flow.action_interco_transfer_line
+msgid "One line per sold product, with the target product and the transfer price."
+msgstr "Uma linha por produto vendido, com o produto alvo e o preço de transferência."
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_form
+msgid "Open Purchase Order"
+msgstr "Ordem de compra aberta"
+
+#. module: interco_flow
+#: model:ir.model.fields,help:interco_flow.field_interco_rule__vendor_partner_id
+msgid "Partner used as vendor on the purchase order. Defaults to the partner of the selling company."
+msgstr "Parceiro usado como fornecedor no pedido de compra. O padrão é o parceiro da empresa vendedora."
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_mapping_form
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_rule_form
+msgid "Price"
+msgstr "Preço"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__price_mode
+msgid "Price Mode"
+msgstr "Modo de preço"
+
+#. module: interco_flow
+#: model:ir.actions.act_window,name:interco_flow.action_interco_mapping
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__mapping_ids
+#: model:ir.ui.menu,name:interco_flow.menu_interco_mappings
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_mapping_form
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_mapping_list
+msgid "Product Mappings"
+msgstr "Mapeamentos de produtos"
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_line_form
+msgid "Products"
+msgstr "Produtos"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__amount_purchase
+msgid "Purchase Amount"
+msgstr "Valor da compra"
+
+#. module: interco_flow
+#: model:ir.model.fields.selection,name:interco_flow.selection__interco_transfer__state__created
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_search
+msgid "Purchase Created"
+msgstr "Compra criada"
+
+#. module: interco_flow
+#. odoo-python
+#: code:addons/interco_flow/models/interco_transfer.py:0
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__purchase_order_id
+msgid "Purchase Order"
+msgstr "Ordem de compra"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__subtotal
+msgid "Purchase Subtotal"
+msgstr "Subtotal de compra"
+
+#. module: interco_flow
+#. odoo-python
+#: code:addons/interco_flow/models/interco_transfer.py:0
+msgid "Purchase order %s created in %s."
+msgstr "Pedido de compra %s criado em %s."
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__product_qty
+msgid "Quantity"
+msgstr "Quantidade"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_mapping__rule_id
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__rule_id
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_mapping_search
+msgid "Rule"
+msgstr "Regra"
+
+#. module: interco_flow
+#: model:ir.actions.act_window,name:interco_flow.action_interco_rule
+#: model:ir.ui.menu,name:interco_flow.menu_interco_rules
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_rule_form
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_rule_list
+msgid "Rules"
+msgstr "Regras"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__amount_sale
+msgid "Sale Amount"
+msgstr "Valor da venda"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__subtotal_sale
+msgid "Sale Subtotal"
+msgstr "Subtotal de venda"
+
+#. module: interco_flow
+#: model:ir.model,name:interco_flow.model_sale_order
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__sale_order_id
+msgid "Sales Order"
+msgstr "Pedido de venda"
+
+#. module: interco_flow
+#: model:ir.model.fields.selection,name:interco_flow.selection__interco_rule__price_mode__same
+msgid "Same price"
+msgstr "Mesmo preço"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__company_id
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_rule_search
+msgid "Selling Company"
+msgstr "Empresa Vendedora"
+
+#. module: interco_flow
+#: model_terms:ir.actions.act_window,help:interco_flow.action_interco_rule
+msgid "Set the pair of companies, the transfer price policy and the product mappings."
+msgstr "Defina o par de empresas, a política de preços de transferência e os mapeamentos de produtos."
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_mapping__source_product_id
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__source_product_id
+msgid "Sold Product"
+msgstr "Produto Vendido"
+
+#. module: interco_flow
+#: model:ir.model.fields.selection,name:interco_flow.selection__interco_rule__price_mode__margin
+msgid "Source price + margin"
+msgstr "Preço fonte + margem"
+
+#. module: interco_flow
+#: model:ir.model.fields.selection,name:interco_flow.selection__interco_rule__price_mode__cost
+msgid "Source standard cost"
+msgstr "Custo padrão de origem"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__state
+msgid "State"
+msgstr "Estado"
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: interco_flow
+#. odoo-python
+#: code:addons/interco_flow/models/interco_rule.py:0
+msgid "The order has no line to transfer."
+msgstr "O pedido não tem linha para transferência."
+
+#. module: interco_flow
+#. odoo-python
+#: code:addons/interco_flow/models/interco_rule.py:0
+msgid "The selling company and the buying company must be different."
+msgstr "A empresa vendedora e a empresa compradora devem ser diferentes."
+
+#. module: interco_flow
+#. odoo-python
+#: code:addons/interco_flow/models/interco_transfer.py:0
+msgid "The transfer has no line to purchase."
+msgstr "A transferência não tem linha para compra."
+
+#. module: interco_flow
+#: model:ir.model.constraint,message:interco_flow.constraint_interco_mapping_rule_source_uniq
+msgid "This product is already mapped in the rule."
+msgstr "Este produto já está mapeado na regra."
+
+#. module: interco_flow
+#. odoo-python
+#: code:addons/interco_flow/models/interco_rule.py:0
+msgid "This rule does not apply to the company of the order."
+msgstr "Esta regra não se aplica à empresa do pedido."
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_list
+msgid "Total Amount Purchase"
+msgstr "Valor total da compra"
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_list
+msgid "Total Amount Sale"
+msgstr "Venda de valor total"
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_line_list
+msgid "Total Margin"
+msgstr "Margem total"
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_list
+msgid "Total Margin Amount"
+msgstr "Valor total da margem"
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_line_list
+msgid "Total Product Qty"
+msgstr "Quantidade total do produto"
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_line_list
+msgid "Total Subtotal"
+msgstr "Subtotal total"
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_line_list
+msgid "Total Subtotal Sale"
+msgstr "Venda subtotal total"
+
+#. module: interco_flow
+#. odoo-python
+#: code:addons/interco_flow/models/interco_transfer.py:0
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__transfer_id
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_form
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_line_search
+msgid "Transfer"
+msgstr "Transferir"
+
+#. module: interco_flow
+#: model:ir.actions.act_window,name:interco_flow.action_interco_transfer_line
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_line_form
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_line_list
+msgid "Transfer Lines"
+msgstr "Linhas de transferência"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__margin_percent
+msgid "Transfer Margin (%)"
+msgstr "Margem de transferência (%)"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer_line__price_unit
+msgid "Transfer Price"
+msgstr "Preço de transferência"
+
+#. module: interco_flow
+#: model:ir.actions.act_window,name:interco_flow.action_interco_transfer
+#: model:ir.ui.menu,name:interco_flow.menu_interco_transfers
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_form
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_list
+msgid "Transfers"
+msgstr "Transferências"
+
+#. module: interco_flow
+#: model_terms:ir.actions.act_window,help:interco_flow.action_interco_mapping
+msgid "Translate a product of the selling company into a product of the buying company."
+msgstr "Traduzir um produto da empresa vendedora em um produto da empresa compradora."
+
+#. module: interco_flow
+#: model:ir.module.module,summary:base.module_interco_flow
+msgid "Turn a confirmed sales order into the matching purchase order in another company of the group, with product mapping, transfer margin and a traced link on both sides."
+msgstr "Transforme um pedido de venda confirmado em pedido de compra correspondente em outra empresa do grupo, com mapeamento de produto, margem de transferência e link rastreado em ambos os lados."
+
+#. module: interco_flow
+#: model_terms:ir.ui.view,arch_db:interco_flow.view_interco_transfer_line_form
+msgid "Value"
+msgstr "Valor"
+
+#. module: interco_flow
+#: model:ir.model.fields,field_description:interco_flow.field_interco_rule__vendor_partner_id
+#: model:ir.model.fields,field_description:interco_flow.field_interco_transfer__vendor_partner_id
+msgid "Vendor Partner"
+msgstr "Parceiro fornecedor"
+
+#. module: interco_flow
+#: model:res.groups,comment:interco_flow.group_intercoflow_user
+msgid "View and use the module."
+msgstr "Visualize e use o módulo."

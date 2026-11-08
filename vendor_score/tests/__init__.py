@@ -1,2 +1,3 @@
 # -*- coding: utf-8 -*-
 from . import test_vendor_score
+from . import test_access

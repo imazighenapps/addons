@@ -42,6 +42,7 @@ intervention date and total maintenance cost.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/maint_equipment_0_views.xml',
         'views/maint_plan_1_views.xml',

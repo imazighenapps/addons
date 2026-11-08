@@ -32,6 +32,7 @@ statement in one click, validate it, and pay the right amount every time.
     "data": [
         "security/security.xml",
         "security/ir.model.access.csv",
+        "security/ir_rule_company.xml",
         "data/sequence.xml",
         "views/commission_views.xml",
         "views/sale_order_views.xml",
