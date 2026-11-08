@@ -41,6 +41,7 @@ to draft.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/dock_slot_0_views.xml',
         'views/dock_booking_1_views.xml',

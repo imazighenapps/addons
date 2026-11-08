@@ -54,6 +54,7 @@ traces every step in the chatter and needs no Enterprise dependency.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/consol_run_0_views.xml',
         'views/consol_line_1_views.xml',

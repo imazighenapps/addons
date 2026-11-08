@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_billable_gap_list" model="ir.ui.view">
+        <field name="name">billable.gap.list</field>
+        <field name="model">billable.gap</field>
+        <field name="arch" type="xml">
+            <list string="Unbilled Time" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="hours_logged" sum="Total Hours Logged"/>
+                <field name="hours_invoiced" sum="Total Hours Invoiced"/>
+                <field name="hours_gap" sum="Total Hours Gap"/>
+                <field name="amount_at_risk" sum="Total Amount At Risk"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_billable_gap_form" model="ir.ui.view">
+        <field name="name">billable.gap.form</field>
+        <field name="model">billable.gap</field>
+        <field name="arch" type="xml">
+            <form string="Unbilled Time">
+                <header>
+                    <button name="action_create_invoice" type="object" string="Create Invoice" class="btn-primary" invisible="state != 'open' or not sale_order_id"/>
+                    <button name="action_ignore" type="object" string="Ignore" class="btn-secondary" invisible="state != 'open'"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-secondary" invisible="state == 'open'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,invoiced,ignored"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Scope">
+    <field name="project_id"/>
+    <field name="task_id"/>
+    <field name="employee_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Hours">
+    <field name="hours_logged"/>
+    <field name="hours_invoiced"/>
+    <field name="hours_gap"/>
+    <field name="amount_at_risk"/>
+                        </group>
+                        <group string="Billing">
+    <field name="sale_order_id"/>
+    <field name="sale_line_id"/>
+    <field name="date_from"/>
+    <field name="date_to"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_billable_gap_search" model="ir.ui.view">
+        <field name="name">billable.gap.search</field>
+        <field name="model">billable.gap</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="employee_id"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="ignored" string="Ignored" domain="[('state','=','ignored')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_billable_gap_kanban" model="ir.ui.view">
+        <field name="name">billable.gap.kanban</field>
+        <field name="model">billable.gap</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="hours_gap"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="project_id"/>
+                        <field name="hours_gap"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_billable_gap_graph" model="ir.ui.view">
+        <field name="name">billable.gap.graph</field>
+        <field name="model">billable.gap</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="project_id"/>
+                <field name="hours_gap" type="measure"/>
+                <field name="amount_at_risk" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_billable_gap_pivot" model="ir.ui.view">
+        <field name="name">billable.gap.pivot</field>
+        <field name="model">billable.gap</field>
+        <field name="arch" type="xml">
+            <pivot sample="1">
+                <field name="project_id" type="row"/>
+                <field name="state" type="col"/>
+                <field name="hours_gap" type="measure"/>
+                <field name="amount_at_risk" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_billable_gap" model="ir.actions.act_window">
+        <field name="name">Unbilled Time</field>
+        <field name="res_model">billable.gap</field>
+        <field name="view_mode">kanban,list,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Scan the timesheets of a period to reveal the hours nobody invoiced.</p>
+        </field>
+    </record>
+
+</odoo>

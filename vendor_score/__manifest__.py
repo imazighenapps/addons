@@ -35,6 +35,7 @@ clear label, and an improvement plan with owners and deadlines.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/vendor_review_0_views.xml',
         'views/menus.xml',

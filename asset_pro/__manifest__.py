@@ -40,6 +40,7 @@ loss is computed against the net book value.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'views/asset_record_0_views.xml',
         'views/asset_depreciation_line_1_views.xml',
         'views/asset_category_2_views.xml',

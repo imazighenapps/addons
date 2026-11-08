@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_privacy_request_list" model="ir.ui.view">
+        <field name="name">privacy.request.list</field>
+        <field name="model">privacy.request</field>
+        <field name="arch" type="xml">
+            <list string="Requests" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="request_type" widget="badge"/>
+                <field name="date_request"/>
+                <field name="date_deadline"/>
+                <field name="state" widget="badge"/>
+                <field name="handled_by_id"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_privacy_request_form" model="ir.ui.view">
+        <field name="name">privacy.request.form</field>
+        <field name="model">privacy.request</field>
+        <field name="arch" type="xml">
+            <form string="Requests">
+                <header>
+                    <button name="action_start" type="object" string="Start" class="btn-primary" invisible="state in ('done', 'refused')"/>
+                    <button name="action_done" type="object" string="Done" class="btn-primary" invisible="state in ('done', 'refused')"/>
+                    <button name="action_refuse" type="object" string="Refuse" class="btn-secondary" invisible="state in ('done', 'refused')"/>
+                    <button name="action_anonymize_partner" type="object" string="Anonymize Partner" class="btn-danger" invisible="state in ('done', 'refused')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,in_progress,done,refused"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Request">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="request_type"/>
+    <field name="date_request"/>
+    <field name="date_deadline"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Handling">
+    <field name="handled_by_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Applied Rules">
+    <field name="rule_ids"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Resolution" name="resolutionnote">
+                            <field name="resolution_note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_privacy_request_search" model="ir.ui.view">
+        <field name="name">privacy.request.search</field>
+        <field name="model">privacy.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="handled_by_id"/>
+                <filter name="open" string="Open" domain="[('state','in',['new','in_progress'])]"/>
+                <filter name="new" string="New" domain="[('state','=','new')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="refused" string="Refused" domain="[('state','=','refused')]"/>
+                <filter name="erasure" string="Erasure" domain="[('request_type','=','erasure')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_type" string="Request Type" context="{'group_by': 'request_type'}"/>
+                <filter name="group_partner" string="Data Subject" context="{'group_by': 'partner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_privacy_request_kanban" model="ir.ui.view">
+        <field name="name">privacy.request.kanban</field>
+        <field name="model">privacy.request</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="request_type"/>
+                <field name="date_deadline"/>
+                <field name="handled_by_id"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="request_type"/>
+                        <field name="date_deadline"/>
+                        <field name="handled_by_id"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_privacy_request_graph" model="ir.ui.view">
+        <field name="name">privacy.request.graph</field>
+        <field name="model">privacy.request</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="request_type"/>
+                <field name="state"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_privacy_request_pivot" model="ir.ui.view">
+        <field name="name">privacy.request.pivot</field>
+        <field name="model">privacy.request</field>
+        <field name="arch" type="xml">
+            <pivot sample="1">
+                <field name="request_type" type="row"/>
+                <field name="state" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_privacy_request" model="ir.actions.act_window">
+        <field name="name">Requests</field>
+        <field name="res_model">privacy.request</field>
+        <field name="view_mode">kanban,list,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Track every access, erasure, rectification and portability request with its legal deadline.</p>
+        </field>
+    </record>
+
+</odoo>

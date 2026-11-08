@@ -50,6 +50,7 @@ and traced in the chatter.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/deferral_schedule_0_views.xml',
         'views/deferral_line_1_views.xml',

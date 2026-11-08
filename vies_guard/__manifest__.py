@@ -36,6 +36,7 @@ customers in one click, and a scheduler re-checks the old results.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/vies_check_0_views.xml',
         'views/vies_batch_wizard_1_views.xml',

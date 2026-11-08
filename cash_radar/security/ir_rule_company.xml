@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_cash_forecast_recurrence_company" model="ir.rule">
+        <field name="name">cash.forecast.recurrence: own company only</field>
+        <field name="model_id" ref="model_cash_forecast_recurrence"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_cash_forecast_line_company" model="ir.rule">
+        <field name="name">cash.forecast.line: own company only</field>
+        <field name="model_id" ref="model_cash_forecast_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_cash_forecast_company" model="ir.rule">
+        <field name="name">cash.forecast: own company only</field>
+        <field name="model_id" ref="model_cash_forecast"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

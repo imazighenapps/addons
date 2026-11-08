@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_payment_plan_line_list" model="ir.ui.view">
+        <field name="name">payment.plan.line.list</field>
+        <field name="model">payment.plan.line</field>
+        <field name="arch" type="xml">
+            <list string="Installments" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="plan_id"/>
+                <field name="due_date"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="paid_amount" sum="Total Paid Amount"/>
+                <field name="state" widget="badge"/>
+                <field name="payment_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_payment_plan_line_form" model="ir.ui.view">
+        <field name="name">payment.plan.line.form</field>
+        <field name="model">payment.plan.line</field>
+        <field name="arch" type="xml">
+            <form string="Installments">
+                <header>
+                    <button name="action_register_payment" type="object" string="Register Payment" class="btn-primary" invisible="state in ('paid', 'cancelled')"/>
+                    <button name="action_mark_paid" type="object" string="Mark Paid" class="btn-secondary" invisible="state in ('paid', 'cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,partial,paid,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Installment">
+    <field name="plan_id"/>
+    <field name="sequence"/>
+    <field name="due_date"/>
+    <field name="amount"/>
+                        </group>
+                        <group string="Payment">
+    <field name="paid_amount"/>
+    <field name="payment_date"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_payment_plan_line_search" model="ir.ui.view">
+        <field name="name">payment.plan.line.search</field>
+        <field name="model">payment.plan.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="plan_id"/>
+                <filter name="pending" string="Pending" domain="[('state','=','pending')]"/>
+                <filter name="paid" string="Paid" domain="[('state','=','paid')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_payment_plan_line" model="ir.actions.act_window">
+        <field name="name">Installments</field>
+        <field name="res_model">payment.plan.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">One line per installment, with its date, amount and status.</p>
+        </field>
+    </record>
+
+</odoo>

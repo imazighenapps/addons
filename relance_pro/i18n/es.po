@@ -1,0 +1,391 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* relance_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: relance_pro
+#: model:ir.model.constraint,message:relance_pro.constraint_dunning_level_company_offset_uniq
+msgid "A dunning level already exists at this day offset."
+msgstr "Ya existe un nivel de reclamación en este día de compensación."
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__amount_residual
+msgid "Amount Due"
+msgstr "Monto adeudado"
+
+#. module: relance_pro
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_line_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: relance_pro
+#: model:ir.model.fields.selection,name:relance_pro.selection__dunning_line__state__cancelled
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__company_id
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__company_id
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_run_wizard__company_id
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_level_search
+msgid "Company"
+msgstr "Compañía"
+
+#. module: relance_pro
+#: model:res.groups,comment:relance_pro.group_relancepro_manager
+msgid "Configure and administer the module."
+msgstr "Configurar y administrar el módulo."
+
+#. module: relance_pro
+#: model:ir.model,name:relance_pro.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: relance_pro
+#: model:ir.model.fields,help:relance_pro.field_dunning_run_wizard__dry_run
+msgid "Create the lines but do not send any email."
+msgstr "Crea las líneas pero no envíes ningún correo electrónico."
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__create_uid
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__create_uid
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_run_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__create_date
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__create_date
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_run_wizard__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__currency_id
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__partner_id
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_run_wizard__partner_ids
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_run_wizard__date_ref
+msgid "Date Ref"
+msgstr "Fecha de referencia"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__day_offset
+msgid "Day Offset"
+msgstr "Compensación de día"
+
+#. module: relance_pro
+#: model:ir.model.fields,help:relance_pro.field_dunning_level__day_offset
+msgid "Days after the due date at which this level applies."
+msgstr "Días posteriores a la fecha de vencimiento en la que aplica este nivel."
+
+#. module: relance_pro
+#: model_terms:ir.actions.act_window,help:relance_pro.action_dunning_level
+msgid "Define the ladder once: a day offset, a template and an optional fee."
+msgstr "Defina la escalera una vez: un día de compensación, una plantilla y una tarifa opcional."
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__display_name
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__display_name
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_run_wizard__display_name
+#: model:ir.model.fields,field_description:relance_pro.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: relance_pro
+#: model:ir.model.fields.selection,name:relance_pro.selection__dunning_line__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_run_wizard__dry_run
+msgid "Dry Run"
+msgstr "Ejecución en seco"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__date_due
+msgid "Due Date"
+msgstr "Fecha de vencimiento"
+
+#. module: relance_pro
+#. odoo-python
+#: code:addons/relance_pro/models/dunning_line.py:0
+#: model:ir.ui.menu,name:relance_pro.menu_dunning_root
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_line_form
+msgid "Dunning"
+msgstr "reclamación"
+
+#. module: relance_pro
+#: model:ir.model,name:relance_pro.model_dunning_level
+msgid "Dunning Level"
+msgstr "Nivel de reclamación"
+
+#. module: relance_pro
+#: model:ir.model,name:relance_pro.model_dunning_line
+msgid "Dunning Line"
+msgstr "Línea de reclamación"
+
+#. module: relance_pro
+#. odoo-python
+#: code:addons/relance_pro/models/dunning_wizard.py:0
+#: model:ir.actions.act_window,name:relance_pro.action_dunning_line
+#: model:ir.ui.menu,name:relance_pro.menu_dunning_lines
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_line_form
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_line_list
+msgid "Dunning Lines"
+msgstr "Líneas de reclamación"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_res_partner__dunning_note
+#: model:ir.model.fields,field_description:relance_pro.field_res_users__dunning_note
+msgid "Dunning Note"
+msgstr "Nota de reclamación"
+
+#. module: relance_pro
+#. odoo-python
+#: code:addons/relance_pro/models/dunning_line.py:0
+msgid "Dunning email sent at level %s."
+msgstr "Correo electrónico de reclamación enviado al nivel %s."
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__template_id
+msgid "Email Template"
+msgstr "Plantilla de correo electrónico"
+
+#. module: relance_pro
+#: model:ir.module.module,summary:base.module_relance_pro
+msgid "Escalate overdue customer invoices through dated dunning levels, ready-to-send emails, late fees and a per-customer pause, all traced on the invoice."
+msgstr "Aumente las facturas de clientes vencidas a través de niveles de reclamación con fecha, correos electrónicos listos para enviar, cargos por pagos atrasados ​​y una pausa por cliente, todo ello rastreado en la factura."
+
+#. module: relance_pro
+#: model:ir.model.fields.selection,name:relance_pro.selection__dunning_line__state__failed
+msgid "Failed"
+msgstr "Fallida Fallido"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__fee_product_id
+msgid "Fee Product"
+msgstr "Producto de tarifa"
+
+#. module: relance_pro
+#: model:ir.model.fields,help:relance_pro.field_dunning_level__fee_amount
+msgid "Fee recorded on each dunning line of this level."
+msgstr "Tarifa registrada en cada línea de reclamación de este nivel."
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__move_id
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_line_form
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__write_uid
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__write_uid
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_run_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__write_date
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__write_date
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_run_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__fee_amount
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__fee_amount
+msgid "Late Fee"
+msgstr "Cargo por pago atrasado"
+
+#. module: relance_pro
+#: model:ir.model.fields,help:relance_pro.field_dunning_run_wizard__partner_ids
+msgid "Leave empty to chase every customer of the company."
+msgstr "Déjelo vacío para perseguir a todos los clientes de la empresa."
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__level_id
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_level_form
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_line_search
+msgid "Level"
+msgstr "Nivel"
+
+#. module: relance_pro
+#: model:ir.actions.act_window,name:relance_pro.action_dunning_level
+#: model:ir.ui.menu,name:relance_pro.menu_dunning_levels
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_level_form
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_level_list
+msgid "Levels"
+msgstr "Niveles"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__name
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__note
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_level_form
+msgid "Note"
+msgstr "Nota"
+
+#. module: relance_pro
+#: model:ir.model.fields,help:relance_pro.field_dunning_level__fee_product_id
+msgid "Optional product used when the fee is invoiced separately."
+msgstr "Producto opcional utilizado cuando la tarifa se factura por separado."
+
+#. module: relance_pro
+#: model:ir.model.fields.selection,name:relance_pro.selection__dunning_line__state__paid
+msgid "Paid"
+msgstr "Pagado"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_res_partner__dunning_paused
+#: model:ir.model.fields,field_description:relance_pro.field_res_users__dunning_paused
+msgid "Pause Dunning"
+msgstr "Pausar reclamación"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_res_partner__dunning_pause_until
+#: model:ir.model.fields,field_description:relance_pro.field_res_users__dunning_pause_until
+msgid "Paused Until"
+msgstr "En pausa hasta"
+
+#. module: relance_pro
+#: model:res.groups,name:relance_pro.group_relancepro_manager
+msgid "Relance Pro Manager"
+msgstr "Gerente de Relance Pro"
+
+#. module: relance_pro
+#: model:res.groups,name:relance_pro.group_relancepro_user
+msgid "Relance Pro User"
+msgstr "Usuario profesional de Relance"
+
+#. module: relance_pro
+#: model:ir.module.module,shortdesc:base.module_relance_pro
+msgid "RelancePro"
+msgstr "RelancePro"
+
+#. module: relance_pro
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_level_form
+msgid "Rule"
+msgstr "Regla"
+
+#. module: relance_pro
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_run_form
+msgid "Run"
+msgstr "Correr"
+
+#. module: relance_pro
+#: model:ir.actions.act_window,name:relance_pro.action_dunning_run
+#: model:ir.model,name:relance_pro.model_dunning_run_wizard
+#: model:ir.ui.menu,name:relance_pro.menu_dunning_run
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_run_form
+msgid "Run Dunning"
+msgstr "Ejecutar reclamación"
+
+#. module: relance_pro
+#: model_terms:ir.actions.act_window,help:relance_pro.action_dunning_line
+msgid "Run the ladder to create and send the next dunning email."
+msgstr "Ejecute la escalera para crear y enviar el siguiente correo electrónico de reclamación."
+
+#. module: relance_pro
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_line_form
+msgid "Send"
+msgstr "Enviar"
+
+#. module: relance_pro
+#: model:ir.model.fields.selection,name:relance_pro.selection__dunning_line__state__sent
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_line_search
+msgid "Sent"
+msgstr "Enviada Enviado"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__sent_date
+msgid "Sent Date"
+msgstr "Fecha de envío"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_level__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: relance_pro
+#: model:ir.model.fields,field_description:relance_pro.field_dunning_line__state
+msgid "State"
+msgstr "Estado"
+
+#. module: relance_pro
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_line_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: relance_pro
+#: model:ir.model.fields,help:relance_pro.field_res_partner__dunning_paused
+#: model:ir.model.fields,help:relance_pro.field_res_users__dunning_paused
+msgid "Stop the dunning ladder for this customer."
+msgstr "Detenga la escalera de reclamaciones para este cliente."
+
+#. module: relance_pro
+#: model:ir.model.constraint,message:relance_pro.constraint_dunning_line_move_level_uniq
+msgid "This invoice was already chased at this level."
+msgstr "Esta factura ya fue perseguida a este nivel."
+
+#. module: relance_pro
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_line_search
+msgid "To Send"
+msgstr "Para enviar"
+
+#. module: relance_pro
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_line_list
+msgid "Total Amount Residual"
+msgstr "Monto Total Residual"
+
+#. module: relance_pro
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_level_list
+#: model_terms:ir.ui.view,arch_db:relance_pro.view_dunning_line_list
+msgid "Total Fee Amount"
+msgstr "Monto total de la tarifa"
+
+#. module: relance_pro
+#: model:res.groups,comment:relance_pro.group_relancepro_user
+msgid "View and use the module."
+msgstr "Ver y utilizar el módulo."
+
+#. module: relance_pro
+#: model:ir.model.fields,help:relance_pro.field_res_partner__dunning_pause_until
+#: model:ir.model.fields,help:relance_pro.field_res_users__dunning_pause_until
+msgid "When set, the dunning ladder resumes after this date."
+msgstr "Cuando se establece, la escala de reclamaciones se reanuda después de esta fecha."

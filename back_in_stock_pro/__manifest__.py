@@ -36,6 +36,7 @@ per product and the conversion.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'views/stock_alert_request_0_views.xml',
         'views/menus.xml',
         'data/mail_template.xml',

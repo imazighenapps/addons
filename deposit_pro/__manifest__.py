@@ -37,6 +37,7 @@ date and a reason.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/customer_deposit_0_views.xml',
         'views/deposit_allocation_1_views.xml',

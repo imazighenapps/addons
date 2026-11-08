@@ -38,6 +38,7 @@ churn reason is recorded so that management can act on it.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/renewal_contract_0_views.xml',
         'views/renewal_log_1_views.xml',

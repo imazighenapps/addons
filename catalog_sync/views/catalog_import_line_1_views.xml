@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_catalog_import_line_list" model="ir.ui.view">
+        <field name="name">catalog.import.line.list</field>
+        <field name="model">catalog.import.line</field>
+        <field name="arch" type="xml">
+            <list string="Price List Lines" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="import_id"/>
+                <field name="reference"/>
+                <field name="old_cost"/>
+                <field name="new_cost"/>
+                <field name="cost_delta"/>
+                <field name="old_price"/>
+                <field name="new_price"/>
+                <field name="price_delta"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_catalog_import_line_form" model="ir.ui.view">
+        <field name="name">catalog.import.line.form</field>
+        <field name="model">catalog.import.line</field>
+        <field name="arch" type="xml">
+            <form string="Price List Lines">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="matched,unmatched,applied,ignored"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Product">
+    <field name="import_id"/>
+    <field name="reference"/>
+    <field name="product_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Cost">
+    <field name="old_cost"/>
+    <field name="new_cost"/>
+    <field name="cost_delta"/>
+                        </group>
+                        <group string="Sale Price">
+    <field name="old_price"/>
+    <field name="new_price"/>
+    <field name="price_delta"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_catalog_import_line_search" model="ir.ui.view">
+        <field name="name">catalog.import.line.search</field>
+        <field name="model">catalog.import.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="reference"/>
+                <field name="product_id"/>
+                <filter name="unmatched" string="Unmatched" domain="[('state','=','unmatched')]"/>
+                <separator/>
+                <filter name="group_import" string="Price List" context="{'group_by': 'import_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_catalog_import_line" model="ir.actions.act_window">
+        <field name="name">Price List Lines</field>
+        <field name="res_model">catalog.import.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The simulation line by line: old and new cost, old and new price.</p>
+        </field>
+    </record>
+
+</odoo>

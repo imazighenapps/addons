@@ -34,6 +34,7 @@ so you can download or email it later.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/pdf_batch_0_views.xml',
         'views/menus.xml',

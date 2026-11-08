@@ -37,6 +37,7 @@ deposit, a return with inspection and damage fee, and an invoice in one click.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/rental_contract_0_views.xml',
         'views/menus.xml',

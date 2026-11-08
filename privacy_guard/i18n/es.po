@@ -1,0 +1,559 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* privacy_guard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "%(count)s expired record(s) found, %(updated)s record(s) updated by %(rules)s rule(s)."
+msgstr "Se encontraron registros caducados %(count)s, registros %(updated)s actualizados mediante reglas %(rules)s."
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_scan_form
+msgid "A dry run only counts the expired records. Uncheck it to apply the anonymize, archive or delete action of each rule."
+msgstr "Un simulacro solo cuenta los registros caducados. Desmárquela para aplicar la acción de anonimizar, archivar o eliminar de cada regla."
+
+#. module: privacy_guard
+#: model:ir.model.constraint,message:privacy_guard.constraint_privacy_rule_name_company_uniq
+msgid "A retention rule with this name already exists in this company."
+msgstr "En esta empresa ya existe una regla de retención con este nombre."
+
+#. module: privacy_guard
+#: model:ir.model.fields.selection,name:privacy_guard.selection__privacy_request__request_type__access
+msgid "Access"
+msgstr "Acceso"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__action
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_rule_search
+msgid "Action"
+msgstr "Acción"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__active
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_rule_form
+msgid "Anonymization"
+msgstr "Anonimización"
+
+#. module: privacy_guard
+#: model:ir.model.fields.selection,name:privacy_guard.selection__privacy_rule__action__anonymize
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_rule_search
+msgid "Anonymize"
+msgstr "Anonimizar"
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_form
+msgid "Anonymize Partner"
+msgstr "Anonimizar socio"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__rule_ids
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_form
+msgid "Applied Rules"
+msgstr "Reglas aplicadas"
+
+#. module: privacy_guard
+#: model:ir.model.fields.selection,name:privacy_guard.selection__privacy_rule__action__archive
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_rule_search
+msgid "Archive"
+msgstr "Archivo"
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_rule_search
+msgid "Archived"
+msgstr "Archivada Archivado"
+
+#. module: privacy_guard
+#: model:ir.model.fields,help:privacy_guard.field_privacy_rule__mask_char
+msgid "Character repeated six times to build the anonymization mask."
+msgstr "Personaje repetido seis veces para construir la máscara de anonimización."
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_scan_form
+msgid "Close"
+msgstr "Cerca"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__company_id
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: privacy_guard
+#: model:res.groups,comment:privacy_guard.group_privacyguard_manager
+msgid "Configure and administer the module."
+msgstr "Configurar y administrar el módulo."
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__create_uid
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__create_uid
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_scan__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__create_date
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__create_date
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_scan__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: privacy_guard
+#: model:ir.model,name:privacy_guard.model_privacy_rule
+msgid "Data Retention Rule"
+msgstr "Regla de retención de datos"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__partner_id
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_search
+msgid "Data Subject"
+msgstr "Sujeta de datos Sujeto de datos"
+
+#. module: privacy_guard
+#: model:ir.model,name:privacy_guard.model_privacy_request
+msgid "Data Subject Request"
+msgstr "Solicitud del interesado"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__date_field
+msgid "Date Field"
+msgstr "Campo de fecha"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__date_request
+msgid "Date Request"
+msgstr "Solicitud de fecha"
+
+#. module: privacy_guard
+#: model:ir.model.fields,help:privacy_guard.field_privacy_rule__date_field
+msgid "Date or datetime field used to measure the age of a record, for example create_date."
+msgstr "Campo de fecha o fecha y hora utilizado para medir la antigüedad de un registro, por ejemplo create_date."
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__date_deadline
+msgid "Deadline"
+msgstr "Fecha límite"
+
+#. module: privacy_guard
+#: model_terms:ir.actions.act_window,help:privacy_guard.action_privacy_rule
+msgid "Declare how long each model keeps its records, and what to do once a record is expired."
+msgstr "Declare durante cuánto tiempo cada modelo conserva sus registros y qué hacer una vez que un registro expire."
+
+#. module: privacy_guard
+#: model:ir.model.fields.selection,name:privacy_guard.selection__privacy_rule__action__delete
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_rule_search
+msgid "Delete"
+msgstr "Borrar"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__display_name
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__display_name
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_scan__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: privacy_guard
+#: model:ir.model.fields.selection,name:privacy_guard.selection__privacy_request__state__done
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_form
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_search
+msgid "Done"
+msgstr "Hecho"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_scan__dry_run
+msgid "Dry Run"
+msgstr "Ejecución en seco"
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "Dry run: %(count)s expired record(s) found by %(rules)s rule(s). Nothing was modified."
+msgstr "Ejecución en seco: registros caducados de %(count)s encontrados por las reglas de %(rules)s. No se modificó nada."
+
+#. module: privacy_guard
+#: model:ir.model.fields.selection,name:privacy_guard.selection__privacy_request__request_type__erasure
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_search
+msgid "Erasure"
+msgstr "Borradura"
+
+#. module: privacy_guard
+#: model:ir.model,name:privacy_guard.model_privacy_scan
+msgid "Expired Data Scan"
+msgstr "Escaneo de datos caducados"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__field_list
+msgid "Field List"
+msgstr "Lista de campos"
+
+#. module: privacy_guard
+#: model:ir.model.fields,help:privacy_guard.field_privacy_rule__field_list
+msgid "Fields to anonymize, one per line. Empty means no field."
+msgstr "Campos para anonimizar, uno por línea. Vacío significa que no hay campo."
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__handled_by_id
+msgid "Handled By"
+msgstr "Manejado por"
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_form
+msgid "Handling"
+msgstr "Manejo"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: privacy_guard
+#: model:ir.model.fields.selection,name:privacy_guard.selection__privacy_request__state__in_progress
+msgid "In Progress"
+msgstr "En curso"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__write_uid
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__write_uid
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_scan__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__write_date
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__write_date
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_scan__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: privacy_guard
+#: model:ir.model.fields,help:privacy_guard.field_privacy_request__date_deadline
+msgid "Legal deadline: thirty days after the request date."
+msgstr "Plazo legal: treinta días después de la fecha de solicitud."
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__mask_char
+msgid "Mask Char"
+msgstr "Máscara de carbón"
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_rule_search
+msgid "Model"
+msgstr "Modelo"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__model_name
+msgid "Model Name"
+msgstr "Nombre del modelo"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__name
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: privacy_guard
+#: model:ir.model.fields.selection,name:privacy_guard.selection__privacy_request__state__new
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_search
+msgid "New"
+msgstr "Nuevo"
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "No active anonymization rule targets res.partner.\nCreate one in Privacy > Retention Rules first."
+msgstr "No hay ninguna regla de anonimización activa dirigida a res.partner. \nPrimero cree uno en Privacidad > Reglas de retención."
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_rule_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: privacy_guard
+#: model:ir.model.fields,help:privacy_guard.field_privacy_rule__retention_days
+msgid "Number of days after which a record is considered expired."
+msgstr "Número de días después de los cuales un registro se considera caducado."
+
+#. module: privacy_guard
+#: model:ir.model.fields,help:privacy_guard.field_privacy_scan__dry_run
+msgid "Only count the expired records. Uncheck to apply the actions."
+msgstr "Cuente únicamente los registros caducados. Desmarque para aplicar las acciones."
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_search
+msgid "Open"
+msgstr "Abierta Abierto"
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "Partner \"%s\" anonymized: %s field(s) masked, no record deleted."
+msgstr "Socio \"%s\" anónimo: campos %s enmascarados, ningún registro eliminado."
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "Personal data masked on %(count)s field(s): %(fields)s."
+msgstr "Datos personales enmascarados en el(los) campo(s) %(count)s: %(fields)s."
+
+#. module: privacy_guard
+#: model:ir.model.fields.selection,name:privacy_guard.selection__privacy_request__request_type__portability
+msgid "Portability"
+msgstr "Portabilidad"
+
+#. module: privacy_guard
+#: model:ir.ui.menu,name:privacy_guard.menu_privacy_root
+msgid "Privacy"
+msgstr "Privacidad"
+
+#. module: privacy_guard
+#: model:res.groups,name:privacy_guard.group_privacyguard_manager
+msgid "Privacy Guard Manager"
+msgstr "Gerente de guardia de privacidad"
+
+#. module: privacy_guard
+#: model:res.groups,name:privacy_guard.group_privacyguard_user
+msgid "Privacy Guard User"
+msgstr "Usuario de guardia de privacidad"
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "Privacy scan finished"
+msgstr "Análisis de privacidad finalizado"
+
+#. module: privacy_guard
+#: model:ir.module.module,shortdesc:base.module_privacy_guard
+msgid "PrivacyGuard"
+msgstr "Guardia de privacidad"
+
+#. module: privacy_guard
+#: model:ir.model.fields.selection,name:privacy_guard.selection__privacy_request__request_type__rectification
+msgid "Rectification"
+msgstr "Rectificación"
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_form
+msgid "Refuse"
+msgstr "Rechazar"
+
+#. module: privacy_guard
+#: model:ir.model.fields.selection,name:privacy_guard.selection__privacy_request__state__refused
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_search
+msgid "Refused"
+msgstr "Rechazada Rechazado"
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_form
+msgid "Request"
+msgstr "Pedido"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__request_type
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_search
+msgid "Request Type"
+msgstr "Tipo de solicitud"
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "Request closed as done."
+msgstr "Solicitud cerrada como hecha."
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "Request refused. Reason: %s"
+msgstr "Solicitud rechazada. Razón: %s"
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "Request set in progress, deadline %s."
+msgstr "Solicitud establecida en curso, fecha límite %s."
+
+#. module: privacy_guard
+#: model:ir.actions.act_window,name:privacy_guard.action_privacy_request
+#: model:ir.ui.menu,name:privacy_guard.menu_privacy_requests
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_form
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_list
+msgid "Requests"
+msgstr "Solicitudes"
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_form
+msgid "Resolution"
+msgstr "Resolución"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__resolution_note
+msgid "Resolution Note"
+msgstr "Nota de resolución"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_rule__retention_days
+msgid "Retention Days"
+msgstr "Días de retención"
+
+#. module: privacy_guard
+#: model:ir.actions.act_window,name:privacy_guard.action_privacy_rule
+#: model:ir.ui.menu,name:privacy_guard.menu_privacy_rules
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_rule_form
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_rule_list
+msgid "Retention Rules"
+msgstr "Reglas de retención"
+
+#. module: privacy_guard
+#: model:ir.model.fields,help:privacy_guard.field_privacy_request__rule_ids
+msgid "Retention rules applied to this request. Empty means every active anonymization rule of res.partner."
+msgstr "Se aplicaron reglas de retención a esta solicitud. Vacío significa cada regla de anonimización activa de res.partner."
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_rule_form
+msgid "Rule"
+msgstr "Regla"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_scan__rule_ids
+msgid "Rules"
+msgstr "Reglas"
+
+#. module: privacy_guard
+#: model:ir.model.fields,help:privacy_guard.field_privacy_scan__rule_ids
+msgid "Rules to scan. Empty means every active rule."
+msgstr "Reglas para escanear. Vacío significa cada regla activa."
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_scan_form
+msgid "Run Scan"
+msgstr "Ejecutar escaneo"
+
+#. module: privacy_guard
+#: model:ir.ui.menu,name:privacy_guard.menu_privacy_scan_menu
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_scan_form
+msgid "Scan"
+msgstr "Escanear"
+
+#. module: privacy_guard
+#: model:ir.actions.act_window,name:privacy_guard.action_privacy_scan
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_scan_form
+msgid "Scan Expired Data"
+msgstr "Escanear datos caducados"
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_rule_form
+msgid "Scope"
+msgstr "Alcance"
+
+#. module: privacy_guard
+#: model:ir.module.module,summary:base.module_privacy_guard
+msgid "Set retention periods per model, anonymize sensitive fields, and handle access and erasure requests with dated, auditable proof."
+msgstr "Establezca períodos de retención por modelo, anonimice los campos confidenciales y gestione las solicitudes de acceso y borrado con pruebas auditables y fechadas."
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_form
+msgid "Start"
+msgstr "Comenzar"
+
+#. module: privacy_guard
+#: model:ir.model.fields,field_description:privacy_guard.field_privacy_request__state
+msgid "State"
+msgstr "Estado"
+
+#. module: privacy_guard
+#: model_terms:ir.ui.view,arch_db:privacy_guard.view_privacy_request_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: privacy_guard
+#: model:ir.model.fields,help:privacy_guard.field_privacy_rule__model_name
+msgid "Technical name of the target model, for example res.partner."
+msgstr "Nombre técnico del modelo de destino, por ejemplo res.partner."
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "The field \"%s\" does not exist on the model \"%s\"."
+msgstr "El campo \"%s\" no existe en el modelo \"%s\"."
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "The field \"%s\" of the model \"%s\" is not a date."
+msgstr "El campo \"%s\" del modelo \"%s\" no es una fecha."
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "The model \"%s\" does not exist."
+msgstr "El modelo \"%s\" no existe."
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "The refused request \"%s\" cannot be marked as done."
+msgstr "La solicitud rechazada \"%s\" no se puede marcar como realizada."
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "The request \"%s\" is already closed."
+msgstr "La solicitud \"%s\" ya está cerrada."
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "The request \"%s\" is done and cannot be refused."
+msgstr "La solicitud \"%s\" está realizada y no se puede rechazar."
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "The request has no data subject."
+msgstr "La solicitud no tiene ningún interesado."
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "The retention period must be at least one day."
+msgstr "El período de retención debe ser de al menos un día."
+
+#. module: privacy_guard
+#: model_terms:ir.actions.act_window,help:privacy_guard.action_privacy_request
+msgid "Track every access, erasure, rectification and portability request with its legal deadline."
+msgstr "Seguimiento de cada solicitud de acceso, supresión, rectificación y portabilidad con su plazo legal."
+
+#. module: privacy_guard
+#: model:res.groups,comment:privacy_guard.group_privacyguard_user
+msgid "View and use the module."
+msgstr "Ver y utilizar el módulo."
+
+#. module: privacy_guard
+#: model:ir.model.fields,help:privacy_guard.field_privacy_rule__action
+msgid "What to do with an expired record. A partner is never deleted."
+msgstr "Qué hacer con un registro caducado. Un socio nunca se elimina."
+
+#. module: privacy_guard
+#. odoo-python
+#: code:addons/privacy_guard/models/privacy_guard.py:0
+msgid "not documented"
+msgstr "No documentada No documentado"

@@ -35,6 +35,7 @@ the dossier for audit and for your customer portal.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/doc_merge_0_views.xml',
         'views/menus.xml',

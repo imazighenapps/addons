@@ -35,6 +35,7 @@ report, so you fix the product instead of guessing why Google rejects it.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'views/feed_channel_0_views.xml',
         'views/feed_log_1_views.xml',
         'views/menus.xml',

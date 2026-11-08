@@ -49,6 +49,7 @@ reset to draft, and every step is logged in the chatter.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/fx_revaluation_0_views.xml',
         'views/fx_revaluation_line_1_views.xml',

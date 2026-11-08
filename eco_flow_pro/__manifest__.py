@@ -49,6 +49,7 @@ mail and mrp, and needs no Enterprise module.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/eco_request_0_views.xml',
         'views/eco_line_1_views.xml',

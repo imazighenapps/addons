@@ -35,6 +35,7 @@ is versioned and archived, so you always know which template produced it.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/forge_template_0_views.xml',
         'views/forge_document_1_views.xml',

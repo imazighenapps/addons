@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_dunning_line_list" model="ir.ui.view">
+        <field name="name">dunning.line.list</field>
+        <field name="model">dunning.line</field>
+        <field name="arch" type="xml">
+            <list string="Dunning Lines" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="move_id"/>
+                <field name="level_id"/>
+                <field name="date_due"/>
+                <field name="amount_residual" sum="Total Amount Residual"/>
+                <field name="fee_amount" sum="Total Fee Amount"/>
+                <field name="state" widget="badge"/>
+                <field name="sent_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_dunning_line_form" model="ir.ui.view">
+        <field name="name">dunning.line.form</field>
+        <field name="model">dunning.line</field>
+        <field name="arch" type="xml">
+            <form string="Dunning Lines">
+                <header>
+                    <button name="action_send" type="object" string="Send" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state in ('sent', 'paid')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,paid,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Invoice">
+    <field name="partner_id"/>
+    <field name="move_id"/>
+    <field name="date_due"/>
+    <field name="amount_residual"/>
+                        </group>
+                        <group string="Dunning">
+    <field name="level_id"/>
+    <field name="fee_amount"/>
+    <field name="state"/>
+    <field name="sent_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_dunning_line_search" model="ir.ui.view">
+        <field name="name">dunning.line.search</field>
+        <field name="model">dunning.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="partner_id"/>
+                <field name="move_id"/>
+                <filter name="draft" string="To Send" domain="[('state','=','draft')]"/>
+                <filter name="sent" string="Sent" domain="[('state','=','sent')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_level" string="Level" context="{'group_by': 'level_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_dunning_line_kanban" model="ir.ui.view">
+        <field name="name">dunning.line.kanban</field>
+        <field name="model">dunning.line</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="amount_residual"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="amount_residual"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_dunning_line_graph" model="ir.ui.view">
+        <field name="name">dunning.line.graph</field>
+        <field name="model">dunning.line</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="sent_date" interval="month"/>
+                <field name="amount_residual" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_dunning_line_pivot" model="ir.ui.view">
+        <field name="name">dunning.line.pivot</field>
+        <field name="model">dunning.line</field>
+        <field name="arch" type="xml">
+            <pivot sample="1">
+                <field name="level_id" type="row"/>
+                <field name="state" type="col"/>
+                <field name="amount_residual" type="measure"/>
+                <field name="fee_amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_dunning_line" model="ir.actions.act_window">
+        <field name="name">Dunning Lines</field>
+        <field name="res_model">dunning.line</field>
+        <field name="view_mode">kanban,list,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Run the ladder to create and send the next dunning email.</p>
+        </field>
+    </record>
+
+</odoo>

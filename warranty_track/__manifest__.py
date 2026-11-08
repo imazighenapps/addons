@@ -37,6 +37,7 @@ supplier.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/warranty_registration_0_views.xml',
         'views/warranty_claim_1_views.xml',

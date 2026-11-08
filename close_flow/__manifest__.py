@@ -37,6 +37,7 @@ trail.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/close_period_0_views.xml',
         'views/close_task_1_views.xml',

@@ -52,6 +52,7 @@ and the chatter keeps the full audit trail of what was checked and when.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/einvoice_check_0_views.xml',
         'views/einvoice_issue_1_views.xml',

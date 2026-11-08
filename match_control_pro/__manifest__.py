@@ -49,6 +49,7 @@ whole history of runs, reasons and decisions is kept in the chatter.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/match_check_0_views.xml',
         'views/match_check_line_1_views.xml',

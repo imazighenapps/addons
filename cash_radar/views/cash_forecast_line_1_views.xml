@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cash_forecast_line_list" model="ir.ui.view">
+        <field name="name">cash.forecast.line.list</field>
+        <field name="model">cash.forecast.line</field>
+        <field name="arch" type="xml">
+            <list string="Forecast Lines" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="week_label"/>
+                <field name="week_start"/>
+                <field name="direction"/>
+                <field name="source"/>
+                <field name="partner_id"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cash_forecast_line_form" model="ir.ui.view">
+        <field name="name">cash.forecast.line.form</field>
+        <field name="model">cash.forecast.line</field>
+        <field name="arch" type="xml">
+            <form string="Forecast Lines">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Week">
+    <field name="week_label"/>
+    <field name="week_start"/>
+    <field name="direction"/>
+    <field name="source"/>
+                        </group>
+                        <group string="Source">
+    <field name="partner_id"/>
+    <field name="move_id"/>
+    <field name="recurrence_id"/>
+    <field name="amount"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cash_forecast_line_search" model="ir.ui.view">
+        <field name="name">cash.forecast.line.search</field>
+        <field name="model">cash.forecast.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <separator/>
+                <filter name="group_week" string="Week" context="{'group_by': 'week_start'}"/>
+                <filter name="group_direction" string="Direction" context="{'group_by': 'direction'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_cash_forecast_line_graph" model="ir.ui.view">
+        <field name="name">cash.forecast.line.graph</field>
+        <field name="model">cash.forecast.line</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="week_start"/>
+                <field name="amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_cash_forecast_line_pivot" model="ir.ui.view">
+        <field name="name">cash.forecast.line.pivot</field>
+        <field name="model">cash.forecast.line</field>
+        <field name="arch" type="xml">
+            <pivot sample="1">
+                <field name="week_start" type="row"/>
+                <field name="direction" type="col"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_cash_forecast_line" model="ir.actions.act_window">
+        <field name="name">Forecast Lines</field>
+        <field name="res_model">cash.forecast.line</field>
+        <field name="view_mode">list,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every inflow and outflow, placed in its week.</p>
+        </field>
+    </record>
+
+</odoo>

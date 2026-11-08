@@ -50,6 +50,7 @@ no Enterprise module.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'views/archive_document_0_views.xml',
         'views/archive_log_1_views.xml',
         'views/menus.xml',

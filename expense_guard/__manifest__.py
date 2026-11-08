@@ -34,6 +34,7 @@ claim or warns the approver, and records every violation in an audit trail.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/expense_policy_0_views.xml',
         'views/expense_audit_1_views.xml',

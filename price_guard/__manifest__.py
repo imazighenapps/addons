@@ -38,6 +38,7 @@ with a documented decision, and is never created twice.
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule_company.xml',
         'data/sequence.xml',
         'views/price_agreement_0_views.xml',
         'views/price_check_1_views.xml',
