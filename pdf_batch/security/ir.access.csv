@@ -1,3 +1,4 @@
 id,name,model_id,group_id/id,operation,domain
 access_pdf_batch_user,pdf.batch User,pdf.batch,pdf_batch.group_pdfbatch_user,r,
 access_pdf_batch_manager,pdf.batch Manager,pdf.batch,pdf_batch.group_pdfbatch_manager,crud,
+rule_pdf_batch_company,pdf.batch: own company only,pdf.batch,,crud,"[('company_id', 'in', company_ids + [False])]"

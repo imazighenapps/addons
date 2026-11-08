@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_privacy_rule_list" model="ir.ui.view">
+        <field name="name">privacy.rule.list</field>
+        <field name="model">privacy.rule</field>
+        <field name="arch" type="xml">
+            <list string="Retention Rules">
+                <field name="name"/>
+                <field name="model_name"/>
+                <field name="date_field"/>
+                <field name="retention_days"/>
+                <field name="action" widget="badge"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_privacy_rule_form" model="ir.ui.view">
+        <field name="name">privacy.rule.form</field>
+        <field name="model">privacy.rule</field>
+        <field name="arch" type="xml">
+            <form string="Retention Rules">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Rule">
+    <field name="name"/>
+    <field name="model_name"/>
+    <field name="date_field"/>
+    <field name="retention_days"/>
+    <field name="action"/>
+                        </group>
+                        <group string="Anonymization">
+    <field name="field_list"/>
+    <field name="mask_char"/>
+                        </group>
+                        <group string="Scope">
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_privacy_rule_search" model="ir.ui.view">
+        <field name="name">privacy.rule.search</field>
+        <field name="model">privacy.rule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="model_name"/>
+                <filter name="anonymize" string="Anonymize" domain="[('action','=','anonymize')]"/>
+                <filter name="archive" string="Archive" domain="[('action','=','archive')]"/>
+                <filter name="delete" string="Delete" domain="[('action','=','delete')]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_model" string="Model" context="{'group_by': 'model_name'}"/>
+                <filter name="group_action" string="Action" context="{'group_by': 'action'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_privacy_rule" model="ir.actions.act_window">
+        <field name="name">Retention Rules</field>
+        <field name="res_model">privacy.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Declare how long each model keeps its records, and what to do once a record is expired.</p>
+        </field>
+    </record>
+
+</odoo>

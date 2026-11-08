@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_cash_forecast_user,cash.forecast User,cash.forecast,cash_radar.group_cashradar_user,cr,
+access_cash_forecast_manager,cash.forecast Manager,cash.forecast,cash_radar.group_cashradar_manager,crud,
+access_cash_forecast_line_user,cash.forecast.line User,cash.forecast.line,cash_radar.group_cashradar_user,cr,
+access_cash_forecast_line_manager,cash.forecast.line Manager,cash.forecast.line,cash_radar.group_cashradar_manager,crud,
+access_cash_forecast_recurrence_user,cash.forecast.recurrence User,cash.forecast.recurrence,cash_radar.group_cashradar_user,cr,
+access_cash_forecast_recurrence_manager,cash.forecast.recurrence Manager,cash.forecast.recurrence,cash_radar.group_cashradar_manager,crud,
+rule_cash_forecast_recurrence_company,cash.forecast.recurrence: own company only,cash.forecast.recurrence,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_cash_forecast_line_company,cash.forecast.line: own company only,cash.forecast.line,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_cash_forecast_company,cash.forecast: own company only,cash.forecast,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -5,3 +5,6 @@ access_asset_depreciation_line_user,asset.depreciation.line User,asset.depreciat
 access_asset_depreciation_line_manager,asset.depreciation.line Manager,asset.depreciation.line,asset_pro.group_assetpro_manager,crud,
 access_asset_category_user,asset.category User,asset.category,asset_pro.group_assetpro_user,crud,
 access_asset_category_manager,asset.category Manager,asset.category,asset_pro.group_assetpro_manager,crud,
+rule_asset_category_company,asset.category: own company only,asset.category,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_asset_record_company,asset.record: own company only,asset.record,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_asset_depreciation_line_company,asset.depreciation.line: own company only,asset.depreciation.line,,crud,"[('company_id', 'in', company_ids + [False])]"

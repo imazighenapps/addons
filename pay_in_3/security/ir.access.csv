@@ -1,0 +1,6 @@
+id,name,model_id,group_id/id,operation,domain
+access_payment_plan_user,payment.plan User,payment.plan,pay_in_3.group_payin3_user,cr,
+access_payment_plan_manager,payment.plan Manager,payment.plan,pay_in_3.group_payin3_manager,crud,
+access_payment_plan_line_user,payment.plan.line User,payment.plan.line,pay_in_3.group_payin3_user,cr,
+access_payment_plan_line_manager,payment.plan.line Manager,payment.plan.line,pay_in_3.group_payin3_manager,crud,
+rule_payment_plan_company,payment.plan: own company only,payment.plan,,crud,"[('company_id', 'in', company_ids + [False])]"

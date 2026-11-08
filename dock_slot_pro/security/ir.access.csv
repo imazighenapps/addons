@@ -5,3 +5,6 @@ access_dock_booking_user,dock.booking User,dock.booking,dock_slot_pro.group_dock
 access_dock_booking_manager,dock.booking Manager,dock.booking,dock_slot_pro.group_dockslotpro_manager,crud,
 access_dock_blackout_user,dock.blackout User,dock.blackout,dock_slot_pro.group_dockslotpro_user,crud,
 access_dock_blackout_manager,dock.blackout Manager,dock.blackout,dock_slot_pro.group_dockslotpro_manager,crud,
+rule_dock_slot_company,dock.slot: own company only,dock.slot,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_dock_booking_company,dock.booking: own company only,dock.booking,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_dock_blackout_company,dock.blackout: own company only,dock.blackout,,crud,"[('company_id', 'in', company_ids + [False])]"

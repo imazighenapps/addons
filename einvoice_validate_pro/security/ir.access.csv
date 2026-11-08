@@ -3,3 +3,5 @@ access_einvoice_check_user,einvoice.check User,einvoice.check,einvoice_validate_
 access_einvoice_check_manager,einvoice.check Manager,einvoice.check,einvoice_validate_pro.group_einvoicevali_manager,crud,
 access_einvoice_issue_user,einvoice.issue User,einvoice.issue,einvoice_validate_pro.group_einvoicevali_user,crud,
 access_einvoice_issue_manager,einvoice.issue Manager,einvoice.issue,einvoice_validate_pro.group_einvoicevali_manager,crud,
+rule_einvoice_check_company,einvoice.check: own company only,einvoice.check,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_einvoice_issue_company,einvoice.issue: own company only,einvoice.issue,,crud,"[('company_id', 'in', company_ids + [False])]"

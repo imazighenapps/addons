@@ -3,3 +3,4 @@ access_report_forge_template_user,report.forge.template User,report.forge.templa
 access_report_forge_template_manager,report.forge.template Manager,report.forge.template,report_forge.group_reportforge_manager,crud,
 access_report_forge_document_user,report.forge.document User,report.forge.document,report_forge.group_reportforge_user,r,
 access_report_forge_document_manager,report.forge.document Manager,report.forge.document,report_forge.group_reportforge_manager,crud,
+rule_report_forge_document_company,report.forge.document: own company only,report.forge.document,,crud,"[('company_id', 'in', company_ids + [False])]"

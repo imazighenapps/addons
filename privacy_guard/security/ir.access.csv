@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_privacy_rule_user,privacy.rule User,privacy.rule,privacy_guard.group_privacyguard_user,crud,
+access_privacy_rule_manager,privacy.rule Manager,privacy.rule,privacy_guard.group_privacyguard_manager,crud,
+access_privacy_request_user,privacy.request User,privacy.request,privacy_guard.group_privacyguard_user,crud,
+access_privacy_request_manager,privacy.request Manager,privacy.request,privacy_guard.group_privacyguard_manager,crud,
+access_privacy_scan_user,privacy.scan User,privacy.scan,privacy_guard.group_privacyguard_user,cr,
+access_privacy_scan_manager,privacy.scan Manager,privacy.scan,privacy_guard.group_privacyguard_manager,crud,
+rule_privacy_rule_company,privacy.rule: own company only,privacy.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_privacy_request_company,privacy.request: own company only,privacy.request,,crud,"[('company_id', 'in', company_ids + [False])]"

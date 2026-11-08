@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_gapless_rule_user,gapless.rule User,gapless.rule,gapless_num.group_gaplessnum_user,cr,
+access_gapless_rule_manager,gapless.rule Manager,gapless.rule,gapless_num.group_gaplessnum_manager,crud,
+access_gapless_issue_user,gapless.issue User,gapless.issue,gapless_num.group_gaplessnum_user,cr,
+access_gapless_issue_manager,gapless.issue Manager,gapless.issue,gapless_num.group_gaplessnum_manager,crud,
+access_gapless_scan_user,gapless.scan User,gapless.scan,gapless_num.group_gaplessnum_user,cr,
+access_gapless_scan_manager,gapless.scan Manager,gapless.scan,gapless_num.group_gaplessnum_manager,crud,
+rule_gapless_rule_company,gapless.rule: own company only,gapless.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_gapless_issue_company,gapless.issue: own company only,gapless.issue,,crud,"[('company_id', 'in', company_ids + [False])]"

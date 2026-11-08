@@ -3,3 +3,5 @@ access_margin_project_user,margin.project User,margin.project,project_margin.gro
 access_margin_project_manager,margin.project Manager,margin.project,project_margin.group_projectmargi_manager,crud,
 access_margin_line_user,margin.line User,margin.line,project_margin.group_projectmargi_user,crud,
 access_margin_line_manager,margin.line Manager,margin.line,project_margin.group_projectmargi_manager,crud,
+rule_margin_project_company,margin.project: own company only,margin.project,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_margin_line_company,margin.line: own company only,margin.line,,crud,"[('company_id', 'in', company_ids + [False])]"

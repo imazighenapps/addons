@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_billing_root" name="Billing" sequence="65"/>
+    <menuitem id="menu_billing_gaps" name="Unbilled Time" parent="menu_billing_root" action="action_billable_gap" sequence="10"/>
+    <menuitem id="menu_billing_scan" name="Scan" parent="menu_billing_root" action="action_billable_scan" sequence="20"/>
+</odoo>

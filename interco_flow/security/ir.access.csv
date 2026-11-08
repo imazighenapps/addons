@@ -1,0 +1,11 @@
+id,name,model_id,group_id/id,operation,domain
+access_interco_rule_user,interco.rule User,interco.rule,interco_flow.group_intercoflow_user,cr,
+access_interco_rule_manager,interco.rule Manager,interco.rule,interco_flow.group_intercoflow_manager,crud,
+access_interco_mapping_user,interco.mapping User,interco.mapping,interco_flow.group_intercoflow_user,cr,
+access_interco_mapping_manager,interco.mapping Manager,interco.mapping,interco_flow.group_intercoflow_manager,crud,
+access_interco_transfer_user,interco.transfer User,interco.transfer,interco_flow.group_intercoflow_user,cr,
+access_interco_transfer_manager,interco.transfer Manager,interco.transfer,interco_flow.group_intercoflow_manager,crud,
+access_interco_transfer_line_user,interco.transfer.line User,interco.transfer.line,interco_flow.group_intercoflow_user,cr,
+access_interco_transfer_line_manager,interco.transfer.line Manager,interco.transfer.line,interco_flow.group_intercoflow_manager,crud,
+rule_interco_rule_company,interco.rule: own company only,interco.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_interco_transfer_company,interco.transfer: own company only,interco.transfer,,crud,"[('company_id', 'in', company_ids + [False])]"

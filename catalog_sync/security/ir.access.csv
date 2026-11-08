@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_catalog_import_user,catalog.import User,catalog.import,catalog_sync.group_catalogsync_user,cr,
+access_catalog_import_manager,catalog.import Manager,catalog.import,catalog_sync.group_catalogsync_manager,crud,
+access_catalog_import_line_user,catalog.import.line User,catalog.import.line,catalog_sync.group_catalogsync_user,cr,
+access_catalog_import_line_manager,catalog.import.line Manager,catalog.import.line,catalog_sync.group_catalogsync_manager,crud,
+access_catalog_margin_rule_user,catalog.margin.rule User,catalog.margin.rule,catalog_sync.group_catalogsync_user,cr,
+access_catalog_margin_rule_manager,catalog.margin.rule Manager,catalog.margin.rule,catalog_sync.group_catalogsync_manager,crud,
+rule_catalog_margin_rule_company,catalog.margin.rule: own company only,catalog.margin.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_catalog_import_company,catalog.import: own company only,catalog.import,,crud,"[('company_id', 'in', company_ids + [False])]"

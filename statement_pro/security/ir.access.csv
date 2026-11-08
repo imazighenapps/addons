@@ -5,3 +5,4 @@ access_statement_line_user,statement.line User,statement.line,statement_pro.grou
 access_statement_line_manager,statement.line Manager,statement.line,statement_pro.group_statementpro_manager,crud,
 access_statement_batch_user,statement.batch User,statement.batch,statement_pro.group_statementpro_user,r,
 access_statement_batch_manager,statement.batch Manager,statement.batch,statement_pro.group_statementpro_manager,crud,
+rule_statement_run_company,statement.run: own company only,statement.run,,crud,"[('company_id', 'in', company_ids + [False])]"

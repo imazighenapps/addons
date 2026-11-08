@@ -5,3 +5,5 @@ access_maint_plan_user,maint.plan User,maint.plan,maintenance_pro.group_maintena
 access_maint_plan_manager,maint.plan Manager,maint.plan,maintenance_pro.group_maintenancep_manager,crud,
 access_maint_request_user,maint.request User,maint.request,maintenance_pro.group_maintenancep_user,cru,
 access_maint_request_manager,maint.request Manager,maint.request,maintenance_pro.group_maintenancep_manager,crud,
+rule_maint_equipment_company,maint.equipment: own company only,maint.equipment,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_maint_request_company,maint.request: own company only,maint.request,,crud,"[('company_id', 'in', company_ids + [False])]"

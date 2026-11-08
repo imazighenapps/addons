@@ -7,3 +7,5 @@ access_cycle_count_session_user,cycle.count.session User,cycle.count.session,cyc
 access_cycle_count_session_manager,cycle.count.session Manager,cycle.count.session,cycle_count_pro.group_cyclecountpr_manager,crud,
 access_cycle_count_line_user,cycle.count.line User,cycle.count.line,cycle_count_pro.group_cyclecountpr_user,r,
 access_cycle_count_line_manager,cycle.count.line Manager,cycle.count.line,cycle_count_pro.group_cyclecountpr_manager,crud,
+rule_cycle_count_plan_company,cycle.count.plan: own company only,cycle.count.plan,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_cycle_count_session_company,cycle.count.session: own company only,cycle.count.session,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -3,3 +3,5 @@ access_expense_policy_user,expense.policy User,expense.policy,expense_guard.grou
 access_expense_policy_manager,expense.policy Manager,expense.policy,expense_guard.group_expenseguard_manager,crud,
 access_expense_audit_user,expense.audit User,expense.audit,expense_guard.group_expenseguard_user,r,
 access_expense_audit_manager,expense.audit Manager,expense.audit,expense_guard.group_expenseguard_manager,crud,
+rule_expense_policy_company,expense.policy: own company only,expense.policy,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_expense_audit_company,expense.audit: own company only,expense.audit,,crud,"[('company_id', 'in', company_ids + [False])]"

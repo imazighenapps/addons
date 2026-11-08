@@ -3,3 +3,5 @@ access_deferral_schedule_user,deferral.schedule User,deferral.schedule,deferral_
 access_deferral_schedule_manager,deferral.schedule Manager,deferral.schedule,deferral_pro.group_deferralpro_manager,crud,
 access_deferral_line_user,deferral.line User,deferral.line,deferral_pro.group_deferralpro_user,crud,
 access_deferral_line_manager,deferral.line Manager,deferral.line,deferral_pro.group_deferralpro_manager,crud,
+rule_deferral_schedule_company,deferral.schedule: own company only,deferral.schedule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_deferral_line_company,deferral.line: own company only,deferral.line,,crud,"[('company_id', 'in', company_ids + [False])]"

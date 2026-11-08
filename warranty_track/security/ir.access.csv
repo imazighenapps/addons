@@ -3,3 +3,5 @@ access_warranty_registration_user,warranty.registration User,warranty.registrati
 access_warranty_registration_manager,warranty.registration Manager,warranty.registration,warranty_track.group_warrantytrac_manager,crud,
 access_warranty_claim_user,warranty.claim User,warranty.claim,warranty_track.group_warrantytrac_user,r,
 access_warranty_claim_manager,warranty.claim Manager,warranty.claim,warranty_track.group_warrantytrac_manager,crud,
+rule_warranty_registration_company,warranty.registration: own company only,warranty.registration,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_warranty_claim_company,warranty.claim: own company only,warranty.claim,,crud,"[('company_id', 'in', company_ids + [False])]"

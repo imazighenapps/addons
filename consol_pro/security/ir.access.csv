@@ -3,3 +3,4 @@ access_consol_run_user,consol.run User,consol.run,consol_pro.group_consolpro_use
 access_consol_run_manager,consol.run Manager,consol.run,consol_pro.group_consolpro_manager,crud,
 access_consol_line_user,consol.line User,consol.line,consol_pro.group_consolpro_user,crud,
 access_consol_line_manager,consol.line Manager,consol.line,consol_pro.group_consolpro_manager,crud,
+rule_consol_line_company,consol.line: own company only,consol.line,,crud,"[('company_id', 'in', company_ids + [False])]"

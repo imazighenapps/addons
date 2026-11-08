@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_dead_stock_rule_list" model="ir.ui.view">
+        <field name="name">dead.stock.rule.list</field>
+        <field name="model">dead.stock.rule</field>
+        <field name="arch" type="xml">
+            <list string="Rules">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="warehouse_id"/>
+                <field name="slow_days"/>
+                <field name="carrying_rate"/>
+                <field name="min_value"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_dead_stock_rule_form" model="ir.ui.view">
+        <field name="name">dead.stock.rule.form</field>
+        <field name="model">dead.stock.rule</field>
+        <field name="arch" type="xml">
+            <form string="Rules">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Scope">
+    <field name="name"/>
+    <field name="company_id"/>
+    <field name="warehouse_id"/>
+    <field name="category_ids"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Threshold">
+    <field name="slow_days"/>
+    <field name="carrying_rate"/>
+    <field name="min_value"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_dead_stock_rule_search" model="ir.ui.view">
+        <field name="name">dead.stock.rule.search</field>
+        <field name="model">dead.stock.rule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <separator/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_dead_stock_rule" model="ir.actions.act_window">
+        <field name="name">Rules</field>
+        <field name="res_model">dead.stock.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Set the idle period, the carrying rate and the minimum value.</p>
+        </field>
+    </record>
+
+</odoo>

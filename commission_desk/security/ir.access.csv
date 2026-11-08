@@ -7,3 +7,6 @@ access_commission_line_user,Commission Line User,commission.line,commission_desk
 access_commission_line_manager,Commission Line Manager,commission.line,commission_desk.group_commission_manager,crud,
 access_commission_statement_user,Commission Statement User,commission.statement,commission_desk.group_commission_user,r,
 access_commission_statement_manager,Commission Statement Manager,commission.statement,commission_desk.group_commission_manager,crud,
+rule_commission_rule_company,commission.rule: own company only,commission.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_commission_line_company,commission.line: own company only,commission.line,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_commission_statement_company,commission.statement: own company only,commission.statement,,crud,"[('company_id', 'in', company_ids + [False])]"

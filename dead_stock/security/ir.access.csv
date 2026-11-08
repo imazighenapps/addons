@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_dead_stock_rule_user,dead.stock.rule User,dead.stock.rule,dead_stock.group_deadstock_user,cr,
+access_dead_stock_rule_manager,dead.stock.rule Manager,dead.stock.rule,dead_stock.group_deadstock_manager,crud,
+access_dead_stock_line_user,dead.stock.line User,dead.stock.line,dead_stock.group_deadstock_user,cr,
+access_dead_stock_line_manager,dead.stock.line Manager,dead.stock.line,dead_stock.group_deadstock_manager,crud,
+access_dead_stock_scan_user,dead.stock.scan User,dead.stock.scan,dead_stock.group_deadstock_user,cr,
+access_dead_stock_scan_manager,dead.stock.scan Manager,dead.stock.scan,dead_stock.group_deadstock_manager,crud,
+rule_dead_stock_rule_company,dead.stock.rule: own company only,dead.stock.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_dead_stock_line_company,dead.stock.line: own company only,dead.stock.line,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_dead_stock_scan_company,dead.stock.scan: own company only,dead.stock.scan,,crud,"[('company_id', 'in', company_ids + [False])]"

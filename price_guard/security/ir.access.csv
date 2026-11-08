@@ -5,3 +5,4 @@ access_price_check_user,price.check User,price.check,price_guard.group_priceguar
 access_price_check_manager,price.check Manager,price.check,price_guard.group_priceguard_manager,crud,
 access_price_scanner_user,price.scanner User,price.scanner,price_guard.group_priceguard_user,ru,
 access_price_scanner_manager,price.scanner Manager,price.scanner,price_guard.group_priceguard_manager,crud,
+rule_price_agreement_company,price.agreement: own company only,price.agreement,,crud,"[('company_id', 'in', company_ids + [False])]"

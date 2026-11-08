@@ -3,3 +3,4 @@ access_match_check_user,match.check User,match.check,match_control_pro.group_mat
 access_match_check_manager,match.check Manager,match.check,match_control_pro.group_matchcontrol_manager,crud,
 access_match_check_line_user,match.check.line User,match.check.line,match_control_pro.group_matchcontrol_user,crud,
 access_match_check_line_manager,match.check.line Manager,match.check.line,match_control_pro.group_matchcontrol_manager,crud,
+rule_match_check_company,match.check: own company only,match.check,,crud,"[('company_id', 'in', company_ids + [False])]"

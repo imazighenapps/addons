@@ -3,3 +3,4 @@ access_feed_channel_user,feed.channel User,feed.channel,feed_bridge.group_feedbr
 access_feed_channel_manager,feed.channel Manager,feed.channel,feed_bridge.group_feedbridge_manager,crud,
 access_feed_log_user,feed.log User,feed.log,feed_bridge.group_feedbridge_user,r,
 access_feed_log_manager,feed.log Manager,feed.log,feed_bridge.group_feedbridge_manager,crud,
+rule_feed_channel_company,feed.channel: own company only,feed.channel,,crud,"[('company_id', 'in', company_ids + [False])]"

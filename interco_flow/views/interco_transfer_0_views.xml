@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_interco_transfer_list" model="ir.ui.view">
+        <field name="name">interco.transfer.list</field>
+        <field name="model">interco.transfer</field>
+        <field name="arch" type="xml">
+            <list string="Transfers" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="sale_order_id"/>
+                <field name="amount_sale" sum="Total Amount Sale"/>
+                <field name="amount_purchase" sum="Total Amount Purchase"/>
+                <field name="margin_amount" sum="Total Margin Amount"/>
+                <field name="margin_rate"/>
+                <field name="target_company_id"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_interco_transfer_form" model="ir.ui.view">
+        <field name="name">interco.transfer.form</field>
+        <field name="model">interco.transfer</field>
+        <field name="arch" type="xml">
+            <form string="Transfers">
+                <header>
+                    <button name="action_create_purchase" type="object" string="Create Purchase Order" class="btn-primary" invisible="purchase_order_id"/>
+                    <button name="action_open_purchase" type="object" string="Open Purchase Order" class="btn-secondary" invisible="not purchase_order_id"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state == 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,created,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Transfer">
+    <field name="sale_order_id"/>
+    <field name="partner_id"/>
+    <field name="purchase_order_id"/>
+                        </group>
+                        <group string="Companies">
+    <field name="company_id"/>
+    <field name="target_company_id"/>
+    <field name="vendor_partner_id"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="amount_sale"/>
+    <field name="amount_purchase"/>
+    <field name="margin_amount"/>
+    <field name="margin_rate"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" name="lineids">
+                            <field name="line_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_interco_transfer_search" model="ir.ui.view">
+        <field name="name">interco.transfer.search</field>
+        <field name="model">interco.transfer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="sale_order_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="created" string="Purchase Created" domain="[('state','=','created')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_target" string="Buying Company" context="{'group_by': 'target_company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_interco_transfer_kanban" model="ir.ui.view">
+        <field name="name">interco.transfer.kanban</field>
+        <field name="model">interco.transfer</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="margin_amount"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="margin_amount"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_interco_transfer_graph" model="ir.ui.view">
+        <field name="name">interco.transfer.graph</field>
+        <field name="model">interco.transfer</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="target_company_id"/>
+                <field name="amount_sale" type="measure"/>
+                <field name="margin_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_interco_transfer_pivot" model="ir.ui.view">
+        <field name="name">interco.transfer.pivot</field>
+        <field name="model">interco.transfer</field>
+        <field name="arch" type="xml">
+            <pivot sample="1">
+                <field name="target_company_id" type="row"/>
+                <field name="state" type="col"/>
+                <field name="amount_sale" type="measure"/>
+                <field name="margin_amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_interco_transfer" model="ir.actions.act_window">
+        <field name="name">Transfers</field>
+        <field name="res_model">interco.transfer</field>
+        <field name="view_mode">kanban,list,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Confirm a sales order, then open its transfer to buy the same goods in the other company.</p>
+        </field>
+    </record>
+
+</odoo>

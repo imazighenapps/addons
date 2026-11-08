@@ -3,3 +3,4 @@ access_vies_check_user,vies.check User,vies.check,vies_guard.group_viesguard_use
 access_vies_check_manager,vies.check Manager,vies.check,vies_guard.group_viesguard_manager,crud,
 access_vies_batch_wizard_user,vies.batch.wizard User,vies.batch.wizard,vies_guard.group_viesguard_user,cr,
 access_vies_batch_wizard_manager,vies.batch.wizard Manager,vies.batch.wizard,vies_guard.group_viesguard_manager,crud,
+rule_vies_check_company,vies.check: own company only,vies.check,,crud,"[('company_id', 'in', company_ids + [False])]"

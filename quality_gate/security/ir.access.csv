@@ -9,3 +9,6 @@ access_quality_inspection_result_user,quality.inspection.result User,quality.ins
 access_quality_inspection_result_manager,quality.inspection.result Manager,quality.inspection.result,quality_gate.group_qualitygate_manager,crud,
 access_quality_issue_user,quality.issue User,quality.issue,quality_gate.group_qualitygate_user,crud,
 access_quality_issue_manager,quality.issue Manager,quality.issue,quality_gate.group_qualitygate_manager,crud,
+rule_quality_inspection_plan_company,quality.inspection.plan: own company only,quality.inspection.plan,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_quality_inspection_company,quality.inspection: own company only,quality.inspection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_quality_issue_company,quality.issue: own company only,quality.issue,,crud,"[('company_id', 'in', company_ids + [False])]"

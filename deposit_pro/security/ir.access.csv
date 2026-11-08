@@ -3,3 +3,4 @@ access_customer_deposit_user,customer.deposit User,customer.deposit,deposit_pro.
 access_customer_deposit_manager,customer.deposit Manager,customer.deposit,deposit_pro.group_depositpro_manager,crud,
 access_deposit_allocation_user,deposit.allocation User,deposit.allocation,deposit_pro.group_depositpro_user,crud,
 access_deposit_allocation_manager,deposit.allocation Manager,deposit.allocation,deposit_pro.group_depositpro_manager,crud,
+rule_customer_deposit_company,customer.deposit: own company only,customer.deposit,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -3,3 +3,5 @@ access_fx_revaluation_user,fx.revaluation User,fx.revaluation,fx_reval_pro.group
 access_fx_revaluation_manager,fx.revaluation Manager,fx.revaluation,fx_reval_pro.group_fxrevalpro_manager,crud,
 access_fx_revaluation_line_user,fx.revaluation.line User,fx.revaluation.line,fx_reval_pro.group_fxrevalpro_user,crud,
 access_fx_revaluation_line_manager,fx.revaluation.line Manager,fx.revaluation.line,fx_reval_pro.group_fxrevalpro_manager,crud,
+rule_fx_revaluation_company,fx.revaluation: own company only,fx.revaluation,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_fx_revaluation_line_company,fx.revaluation.line: own company only,fx.revaluation.line,,crud,"[('company_id', 'in', company_ids + [False])]"

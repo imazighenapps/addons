@@ -5,3 +5,5 @@ access_bank_import_line_user,bank.import.line User,bank.import.line,bank_import_
 access_bank_import_line_manager,bank.import.line Manager,bank.import.line,bank_import_pro.group_bankimportpr_manager,crud,
 access_bank_import_rule_user,bank.import.rule User,bank.import.rule,bank_import_pro.group_bankimportpr_user,crud,
 access_bank_import_rule_manager,bank.import.rule Manager,bank.import.rule,bank_import_pro.group_bankimportpr_manager,crud,
+rule_bank_import_batch_company,bank.import.batch: own company only,bank.import.batch,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_bank_import_line_company,bank.import.line: own company only,bank.import.line,,crud,"[('company_id', 'in', company_ids + [False])]"

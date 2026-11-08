@@ -7,3 +7,6 @@ access_close_period_user,close.period User,close.period,close_flow.group_closefl
 access_close_period_manager,close.period Manager,close.period,close_flow.group_closeflow_manager,crud,
 access_close_task_user,close.task User,close.task,close_flow.group_closeflow_user,cru,
 access_close_task_manager,close.task Manager,close.task,close_flow.group_closeflow_manager,crud,
+rule_close_template_company,close.template: own company only,close.template,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_close_period_company,close.period: own company only,close.period,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_close_task_company,close.task: own company only,close.task,,crud,"[('company_id', 'in', company_ids + [False])]"

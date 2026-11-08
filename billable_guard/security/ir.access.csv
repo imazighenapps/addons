@@ -1,0 +1,6 @@
+id,name,model_id,group_id/id,operation,domain
+access_billable_gap_user,billable.gap User,billable.gap,billable_guard.group_billableguar_user,cr,
+access_billable_gap_manager,billable.gap Manager,billable.gap,billable_guard.group_billableguar_manager,crud,
+access_billable_gap_scan_user,billable.gap.scan User,billable.gap.scan,billable_guard.group_billableguar_user,cr,
+access_billable_gap_scan_manager,billable.gap.scan Manager,billable.gap.scan,billable_guard.group_billableguar_manager,crud,
+rule_billable_gap_company,billable.gap: own company only,billable.gap,,crud,"[('company_id', 'in', company_ids + [False])]"

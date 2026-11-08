@@ -3,3 +3,4 @@ access_approval_desk_request_user,approval.desk.request User,approval.desk.reque
 access_approval_desk_request_manager,approval.desk.request Manager,approval.desk.request,approval_desk_pro.group_approvaldesk_manager,crud,
 access_approval_desk_step_user,approval.desk.step User,approval.desk.step,approval_desk_pro.group_approvaldesk_user,crud,
 access_approval_desk_step_manager,approval.desk.step Manager,approval.desk.step,approval_desk_pro.group_approvaldesk_manager,crud,
+rule_approval_desk_request_company,approval.desk.request: own company only,approval.desk.request,,crud,"[('company_id', 'in', company_ids + [False])]"

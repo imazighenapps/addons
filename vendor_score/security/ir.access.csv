@@ -3,3 +3,5 @@ access_vendor_review_user,vendor.review User,vendor.review,vendor_score.group_ve
 access_vendor_review_manager,vendor.review Manager,vendor.review,vendor_score.group_vendorscore_manager,crud,
 access_vendor_action_user,vendor.action User,vendor.action,vendor_score.group_vendorscore_user,r,
 access_vendor_action_manager,vendor.action Manager,vendor.action,vendor_score.group_vendorscore_manager,crud,
+rule_vendor_review_company,vendor.review: own company only,vendor.review,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_vendor_action_company,vendor.action: own company only,vendor.action,,crud,"[('company_id', 'in', company_ids + [False])]"

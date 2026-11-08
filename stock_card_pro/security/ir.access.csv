@@ -3,3 +3,4 @@ access_stock_card_user,stock.card User,stock.card,stock_card_pro.group_stockcard
 access_stock_card_manager,stock.card Manager,stock.card,stock_card_pro.group_stockcardpro_manager,crud,
 access_stock_card_line_user,stock.card.line User,stock.card.line,stock_card_pro.group_stockcardpro_user,r,
 access_stock_card_line_manager,stock.card.line Manager,stock.card.line,stock_card_pro.group_stockcardpro_manager,crud,
+rule_stock_card_company,stock.card: own company only,stock.card,,crud,"[('company_id', 'in', company_ids + [False])]"

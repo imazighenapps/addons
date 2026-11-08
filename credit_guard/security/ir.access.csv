@@ -3,3 +3,5 @@ access_credit_profile_user,credit.profile User,credit.profile,credit_guard.group
 access_credit_profile_manager,credit.profile Manager,credit.profile,credit_guard.group_creditguard_manager,crud,
 access_credit_override_user,credit.override User,credit.override,credit_guard.group_creditguard_user,r,
 access_credit_override_manager,credit.override Manager,credit.override,credit_guard.group_creditguard_manager,crud,
+rule_credit_profile_company,credit.profile: own company only,credit.profile,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_credit_override_company,credit.override: own company only,credit.override,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_field_watch_rule_list" model="ir.ui.view">
+        <field name="name">field.watch.rule.list</field>
+        <field name="model">field.watch.rule</field>
+        <field name="arch" type="xml">
+            <list string="Watch Rules">
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="company_id"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_field_watch_rule_form" model="ir.ui.view">
+        <field name="name">field.watch.rule.form</field>
+        <field name="model">field.watch.rule</field>
+        <field name="arch" type="xml">
+            <form string="Watch Rules">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Scope">
+    <field name="name"/>
+    <field name="model_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Fields">
+    <field name="field_names"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_field_watch_rule_search" model="ir.ui.view">
+        <field name="name">field.watch.rule.search</field>
+        <field name="model">field.watch.rule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="model_id"/>
+                <separator/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_field_watch_rule" model="ir.actions.act_window">
+        <field name="name">Watch Rules</field>
+        <field name="res_model">field.watch.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Choose the models, and optionally the fields, that deserve an audit journal.</p>
+        </field>
+    </record>
+
+</odoo>

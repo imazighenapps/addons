@@ -5,3 +5,6 @@ access_expiry_document_user,expiry.document User,expiry.document,doc_expiry.grou
 access_expiry_document_manager,expiry.document Manager,expiry.document,doc_expiry.group_docexpiry_manager,crud,
 access_expiry_log_user,expiry.log User,expiry.log,doc_expiry.group_docexpiry_user,crud,
 access_expiry_log_manager,expiry.log Manager,expiry.log,doc_expiry.group_docexpiry_manager,crud,
+rule_expiry_category_company,expiry.category: own company only,expiry.category,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_expiry_document_company,expiry.document: own company only,expiry.document,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_expiry_log_company,expiry.log: own company only,expiry.log,,crud,"[('company_id', 'in', company_ids + [False])]"

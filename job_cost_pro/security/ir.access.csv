@@ -3,3 +3,5 @@ access_job_cost_user,job.cost User,job.cost,job_cost_pro.group_jobcostpro_user,c
 access_job_cost_manager,job.cost Manager,job.cost,job_cost_pro.group_jobcostpro_manager,crud,
 access_job_cost_line_user,job.cost.line User,job.cost.line,job_cost_pro.group_jobcostpro_user,crud,
 access_job_cost_line_manager,job.cost.line Manager,job.cost.line,job_cost_pro.group_jobcostpro_manager,crud,
+rule_job_cost_company,job.cost: own company only,job.cost,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_job_cost_line_company,job.cost.line: own company only,job.cost.line,,crud,"[('company_id', 'in', company_ids + [False])]"
