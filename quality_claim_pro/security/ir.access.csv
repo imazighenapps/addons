@@ -1,0 +1,6 @@
+id,name,model_id,group_id/id,operation,domain
+access_quality_claim_user,quality.claim User,quality.claim,quality_claim_pro.group_qualityclaim_user,cr,
+access_quality_claim_manager,quality.claim Manager,quality.claim,quality_claim_pro.group_qualityclaim_manager,crud,
+access_quality_claim_action_user,quality.claim.action User,quality.claim.action,quality_claim_pro.group_qualityclaim_user,cr,
+access_quality_claim_action_manager,quality.claim.action Manager,quality.claim.action,quality_claim_pro.group_qualityclaim_manager,crud,
+rule_quality_claim_company,quality.claim: own company only,quality.claim,,crud,"[('company_id', 'in', company_ids + [False])]"

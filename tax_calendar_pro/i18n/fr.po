@@ -1,0 +1,422 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* tax_calendar_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tax_calendar_pro
+#: model:ir.model.constraint,message:tax_calendar_pro.constraint_tax_deadline_rule_period_company_uniq
+msgid "A deadline already exists for this rule and this period in this company."
+msgstr "Un délai existe déjà pour cette règle et cette période dans cette entreprise."
+
+#. module: tax_calendar_pro
+#: model:ir.model.constraint,message:tax_calendar_pro.constraint_tax_rule_company_type_name_uniq
+msgid "A tax rule with this name and tax type already exists in this company."
+msgstr "Une règle fiscale portant ce nom et ce type de taxe existe déjà dans cette société."
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__amount
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_form
+msgid "Amount"
+msgstr "Montant"
+
+#. module: tax_calendar_pro
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_rule_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: tax_calendar_pro
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_calendar_wizard_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__company_id
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: tax_calendar_pro
+#: model:res.groups,comment:tax_calendar_pro.group_taxcalendarp_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields.selection,name:tax_calendar_pro.selection__tax_rule__tax_type__corporate
+msgid "Corporate Tax"
+msgstr "Impôt sur les sociétés"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_calendar_wizard__create_uid
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__create_uid
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_calendar_wizard__create_date
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__create_date
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__days_left
+msgid "Days Left"
+msgstr "Jours restants"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,help:tax_calendar_pro.field_tax_deadline__days_left
+msgid "Days between today and the due date, negative when overdue."
+msgstr "Jours entre aujourd'hui et la date d'échéance, négatifs en cas de retard."
+
+#. module: tax_calendar_pro
+#: model:ir.actions.act_window,name:tax_calendar_pro.action_tax_deadline
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__deadline_ids
+#: model:ir.ui.menu,name:tax_calendar_pro.menu_tax_calendar_deadlines
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_form
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_list
+msgid "Deadlines"
+msgstr "Délais"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_calendar_wizard__display_name
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__display_name
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields.selection,name:tax_calendar_pro.selection__tax_deadline__state__done
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_search
+msgid "Done"
+msgstr "Terminé"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__done_date
+msgid "Done Date"
+msgstr "Date de réalisation"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__due_date
+msgid "Due Date"
+msgstr "Date d'échéance"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__due_day
+msgid "Due Day"
+msgstr "Jour d'échéance"
+
+#. module: tax_calendar_pro
+#: model_terms:ir.actions.act_window,help:tax_calendar_pro.action_tax_deadline
+msgid "Every tax deadline of the company, from the next one to the one that is already late."
+msgstr "Chaque échéance fiscale de l'entreprise, de la suivante à celle déjà en retard."
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__frequency
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_rule_search
+msgid "Frequency"
+msgstr "Fréquence"
+
+#. module: tax_calendar_pro
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_calendar_wizard_form
+msgid "Generate"
+msgstr "Générer"
+
+#. module: tax_calendar_pro
+#: model:ir.actions.act_window,name:tax_calendar_pro.action_tax_calendar_wizard
+#: model:ir.ui.menu,name:tax_calendar_pro.menu_tax_calendar_generate
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_calendar_wizard_form
+msgid "Generate Deadlines"
+msgstr "Générer des délais"
+
+#. module: tax_calendar_pro
+#: model:ir.model,name:tax_calendar_pro.model_tax_calendar_wizard
+msgid "Generate Tax Deadlines"
+msgstr "Générer des délais fiscaux"
+
+#. module: tax_calendar_pro
+#: model:ir.module.module,summary:base.module_tax_calendar_pro
+msgid "Generate every VAT, corporate tax and payroll deadline from simple recurrence rules, then track what is filed, paid or late in one dated calendar."
+msgstr "Générez chaque échéance de TVA, d'impôt sur les sociétés et de paie à partir de règles de récurrence simples, puis suivez ce qui est déposé, payé ou en retard dans un calendrier daté."
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,help:tax_calendar_pro.field_tax_rule__lead_days
+msgid "How many days before the due date the deadline should be brought to the attention of the accountant."
+msgstr "Combien de jours avant la date d'échéance, le délai doit être porté à la connaissance du comptable."
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,help:tax_calendar_pro.field_tax_rule__frequency
+msgid "How many periods the rule generates per year."
+msgstr "Combien de périodes la règle génère par an."
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,help:tax_calendar_pro.field_tax_deadline__tax_type
+#: model:ir.model.fields,help:tax_calendar_pro.field_tax_rule__tax_type
+msgid "Kind of tax the rule schedules."
+msgstr "Une sorte de taxe sur les horaires des règles."
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_calendar_wizard__write_uid
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__write_uid
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_calendar_wizard__write_date
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__write_date
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields.selection,name:tax_calendar_pro.selection__tax_deadline__state__late
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_search
+msgid "Late"
+msgstr "En retard"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__lead_days
+msgid "Lead Days"
+msgstr "Jours de plomb"
+
+#. module: tax_calendar_pro
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_form
+msgid "Mark Done"
+msgstr "Marquer terminé"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields.selection,name:tax_calendar_pro.selection__tax_rule__frequency__monthly
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_rule_search
+msgid "Monthly"
+msgstr "Mensuelle Mensuel"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_calendar_wizard__name
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__name
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__note
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__note
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_form
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_rule_form
+msgid "Note"
+msgstr "Note"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,help:tax_calendar_pro.field_tax_rule__due_day
+msgid "Number of days between the end of the period and the due date of the deadline."
+msgstr "Nombre de jours entre la fin de la période et la date d'échéance du délai."
+
+#. module: tax_calendar_pro
+#: model_terms:ir.actions.act_window,help:tax_calendar_pro.action_tax_rule
+msgid "One rule per tax and per rhythm: the rule generates the dated deadlines, year after year."
+msgstr "Une règle par impôt et par rythme : la règle génère les échéances datées, année après année."
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields.selection,name:tax_calendar_pro.selection__tax_rule__tax_type__other
+msgid "Other"
+msgstr "Autre"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__is_late
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_list
+msgid "Overdue"
+msgstr "En retard"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields.selection,name:tax_calendar_pro.selection__tax_rule__tax_type__payroll
+msgid "Payroll"
+msgstr "Paie"
+
+#. module: tax_calendar_pro
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_calendar_wizard_form
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_form
+msgid "Period"
+msgstr "Période"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__period_end
+msgid "Period End"
+msgstr "Fin de période"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__period_start
+msgid "Period Start"
+msgstr "Début de la période"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields.selection,name:tax_calendar_pro.selection__tax_rule__frequency__quarterly
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_rule_search
+msgid "Quarterly"
+msgstr "Trimestrielle Trimestriel"
+
+#. module: tax_calendar_pro
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_form
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__rule_id
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_search
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_rule_form
+msgid "Rule"
+msgstr "Règle"
+
+#. module: tax_calendar_pro
+#: model:ir.actions.act_window,name:tax_calendar_pro.action_tax_rule
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_calendar_wizard__rule_ids
+#: model:ir.ui.menu,name:tax_calendar_pro.menu_tax_calendar_rules
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_calendar_wizard_form
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_rule_form
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_rule_list
+msgid "Rules"
+msgstr "Règles"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,help:tax_calendar_pro.field_tax_calendar_wizard__rule_ids
+msgid "Rules to run. Every rule generates its own periods for the selected year."
+msgstr "Règles à exécuter. Chaque règle génère ses propres périodes pour l'année sélectionnée."
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,help:tax_calendar_pro.field_tax_deadline__is_late
+msgid "Set when the due date is passed and the deadline is still upcoming."
+msgstr "Définissez quand la date d'échéance est dépassée et que la date limite est toujours proche."
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__state
+msgid "State"
+msgstr "Statut"
+
+#. module: tax_calendar_pro
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_form
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: tax_calendar_pro
+#: model:ir.ui.menu,name:tax_calendar_pro.menu_tax_calendar_root
+msgid "Tax Calendar"
+msgstr "Calendrier fiscal"
+
+#. module: tax_calendar_pro
+#: model:res.groups,name:tax_calendar_pro.group_taxcalendarp_manager
+msgid "Tax Calendar Pro Manager"
+msgstr "Gestionnaire Pro du Calendrier Fiscal"
+
+#. module: tax_calendar_pro
+#: model:res.groups,name:tax_calendar_pro.group_taxcalendarp_user
+msgid "Tax Calendar Pro User"
+msgstr "Utilisateur Pro du calendrier fiscal"
+
+#. module: tax_calendar_pro
+#: model:ir.model,name:tax_calendar_pro.model_tax_deadline
+msgid "Tax Deadline"
+msgstr "Date limite fiscale"
+
+#. module: tax_calendar_pro
+#: model:ir.model,name:tax_calendar_pro.model_tax_rule
+msgid "Tax Deadline Rule"
+msgstr "Règle de délai fiscal"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_deadline__tax_type
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_rule__tax_type
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_search
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_rule_search
+msgid "Tax Type"
+msgstr "Type de taxe"
+
+#. module: tax_calendar_pro
+#: model:ir.module.module,shortdesc:base.module_tax_calendar_pro
+msgid "TaxCalendar"
+msgstr "Calendrier des impôts"
+
+#. module: tax_calendar_pro
+#. odoo-python
+#: code:addons/tax_calendar_pro/models/tax_calendar_pro.py:0
+msgid "The deadline \"%s\" is already marked as done."
+msgstr "La date limite \"%s\" est déjà marquée comme terminée."
+
+#. module: tax_calendar_pro
+#. odoo-python
+#: code:addons/tax_calendar_pro/models/tax_calendar_pro.py:0
+msgid "The deadline \"%s\" is already upcoming."
+msgstr "La date limite « %s » approche déjà."
+
+#. module: tax_calendar_pro
+#. odoo-python
+#: code:addons/tax_calendar_pro/models/tax_calendar_pro.py:0
+msgid "The due day of the rule \"%s\" cannot be negative."
+msgstr "Le jour d'échéance de la règle « %s » ne peut pas être négatif."
+
+#. module: tax_calendar_pro
+#. odoo-python
+#: code:addons/tax_calendar_pro/models/tax_calendar_pro.py:0
+msgid "The end of the period cannot be before its start on the deadline \"%s\"."
+msgstr "La fin de la période ne peut être antérieure à son début à l'échéance « %s »."
+
+#. module: tax_calendar_pro
+#. odoo-python
+#: code:addons/tax_calendar_pro/models/tax_calendar_pro.py:0
+msgid "The lead days of the rule \"%s\" cannot be negative."
+msgstr "Les jours d'avance de la règle \"%s\" ne peuvent pas être négatifs."
+
+#. module: tax_calendar_pro
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_list
+msgid "Total Amount"
+msgstr "Montant total"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields.selection,name:tax_calendar_pro.selection__tax_deadline__state__upcoming
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_deadline_search
+msgid "Upcoming"
+msgstr "Prochaine Prochain"
+
+#. module: tax_calendar_pro
+#: model:res.groups,comment:tax_calendar_pro.group_taxcalendarp_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields.selection,name:tax_calendar_pro.selection__tax_rule__tax_type__withholding
+msgid "Withholding"
+msgstr "Retenue"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields,field_description:tax_calendar_pro.field_tax_calendar_wizard__year
+msgid "Year"
+msgstr "Année"
+
+#. module: tax_calendar_pro
+#: model:ir.model.fields.selection,name:tax_calendar_pro.selection__tax_rule__frequency__yearly
+#: model_terms:ir.ui.view,arch_db:tax_calendar_pro.view_tax_rule_search
+msgid "Yearly"
+msgstr "Annuelle Annuel"

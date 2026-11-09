@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_bounce_guard_rule_user,bounce.guard.rule User,bounce.guard.rule,email_bounce_pro.group_emailbouncep_user,cr,
+access_bounce_guard_rule_manager,bounce.guard.rule Manager,bounce.guard.rule,email_bounce_pro.group_emailbouncep_manager,crud,
+access_bounce_event_user,bounce.event User,bounce.event,email_bounce_pro.group_emailbouncep_user,cr,
+access_bounce_event_manager,bounce.event Manager,bounce.event,email_bounce_pro.group_emailbouncep_manager,crud,
+access_bounce_scan_wizard_user,bounce.scan.wizard User,bounce.scan.wizard,email_bounce_pro.group_emailbouncep_user,cr,
+access_bounce_scan_wizard_manager,bounce.scan.wizard Manager,bounce.scan.wizard,email_bounce_pro.group_emailbouncep_manager,crud,
+rule_bounce_guard_rule_company,bounce.guard.rule: own company only,bounce.guard.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_bounce_event_company,bounce.event: own company only,bounce.event,,crud,"[('company_id', 'in', company_ids + [False])]"

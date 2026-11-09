@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_price_watch_user,price.watch User,price.watch,purchase_price_watch.group_purchasepric_user,cr,
+access_price_watch_manager,price.watch Manager,price.watch,purchase_price_watch.group_purchasepric_manager,crud,
+access_price_watch_rule_user,price.watch.rule User,price.watch.rule,purchase_price_watch.group_purchasepric_user,cr,
+access_price_watch_rule_manager,price.watch.rule Manager,price.watch.rule,purchase_price_watch.group_purchasepric_manager,crud,
+access_price_scan_wizard_user,price.scan.wizard User,price.scan.wizard,purchase_price_watch.group_purchasepric_user,cr,
+access_price_scan_wizard_manager,price.scan.wizard Manager,price.scan.wizard,purchase_price_watch.group_purchasepric_manager,crud,
+rule_price_watch_rule_company,price.watch.rule: own company only,price.watch.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_price_watch_company,price.watch: own company only,price.watch,,crud,"[('company_id', 'in', company_ids + [False])]"

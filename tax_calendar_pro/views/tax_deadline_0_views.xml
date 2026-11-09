@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_tax_deadline_list" model="ir.ui.view">
+        <field name="name">tax.deadline.list</field>
+        <field name="model">tax.deadline</field>
+        <field name="arch" type="xml">
+            <list string="Deadlines" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="rule_id"/>
+                <field name="tax_type" widget="badge"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <field name="due_date"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="days_left"/>
+                <field name="is_late" string="Overdue" widget="boolean"/>
+                <field name="state" widget="badge"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tax_deadline_form" model="ir.ui.view">
+        <field name="name">tax.deadline.form</field>
+        <field name="model">tax.deadline</field>
+        <field name="arch" type="xml">
+            <form string="Deadlines">
+                <header>
+                    <button name="action_done" type="object" string="Mark Done" class="btn-primary" invisible="state == 'done'"/>
+                    <button name="action_reset" type="object" string="Reset" class="btn-secondary" invisible="state != 'done'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="upcoming,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Period">
+    <field name="name"/>
+    <field name="rule_id"/>
+    <field name="tax_type"/>
+    <field name="company_id"/>
+    <field name="period_start"/>
+    <field name="period_end"/>
+    <field name="due_date"/>
+                        </group>
+                        <group string="Amount">
+    <field name="amount"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Status">
+    <field name="state"/>
+    <field name="done_date"/>
+    <field name="is_late"/>
+    <field name="days_left"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tax_deadline_search" model="ir.ui.view">
+        <field name="name">tax.deadline.search</field>
+        <field name="model">tax.deadline</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="rule_id"/>
+                <filter name="late" string="Late" domain="[('is_late','=',True)]"/>
+                <filter name="upcoming" string="Upcoming" domain="[('state','=','upcoming')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="vat" string="VAT" domain="[('tax_type','=','vat')]"/>
+                <separator/>
+                <filter name="group_tax_type" string="Tax Type" context="{'group_by': 'tax_type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_rule" string="Rule" context="{'group_by': 'rule_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_tax_deadline_graph" model="ir.ui.view">
+        <field name="name">tax.deadline.graph</field>
+        <field name="model">tax.deadline</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_tax_deadline" model="ir.actions.act_window">
+        <field name="name">Deadlines</field>
+        <field name="res_model">tax.deadline</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every tax deadline of the company, from the next one to the one that is already late.</p>
+        </field>
+    </record>
+
+</odoo>

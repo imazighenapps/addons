@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_email_bounce_pro_root" name="Email Bounces" sequence="55"/>
+    <menuitem id="menu_email_bounce_pro_events" name="Bounced Emails" parent="menu_email_bounce_pro_root" action="action_bounce_event" sequence="10"/>
+    <menuitem id="menu_email_bounce_pro_rules" name="Alert Rules" parent="menu_email_bounce_pro_root" action="action_bounce_guard_rule" sequence="20"/>
+    <menuitem id="menu_email_bounce_pro_scan" name="Scan Bounces" parent="menu_email_bounce_pro_root" action="action_bounce_scan_wizard" sequence="30"/>
+</odoo>

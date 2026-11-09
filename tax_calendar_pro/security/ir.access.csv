@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_tax_rule_user,tax.rule User,tax.rule,tax_calendar_pro.group_taxcalendarp_user,cr,
+access_tax_rule_manager,tax.rule Manager,tax.rule,tax_calendar_pro.group_taxcalendarp_manager,crud,
+access_tax_deadline_user,tax.deadline User,tax.deadline,tax_calendar_pro.group_taxcalendarp_user,cr,
+access_tax_deadline_manager,tax.deadline Manager,tax.deadline,tax_calendar_pro.group_taxcalendarp_manager,crud,
+access_tax_calendar_wizard_user,tax.calendar.wizard User,tax.calendar.wizard,tax_calendar_pro.group_taxcalendarp_user,cr,
+access_tax_calendar_wizard_manager,tax.calendar.wizard Manager,tax.calendar.wizard,tax_calendar_pro.group_taxcalendarp_manager,crud,
+rule_tax_rule_company,tax.rule: own company only,tax.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_tax_deadline_company,tax.deadline: own company only,tax.deadline,,crud,"[('company_id', 'in', company_ids + [False])]"

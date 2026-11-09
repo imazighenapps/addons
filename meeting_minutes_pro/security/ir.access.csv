@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_meeting_minute_user,meeting.minute User,meeting.minute,meeting_minutes_pro.group_meetingminut_user,cr,
+access_meeting_minute_manager,meeting.minute Manager,meeting.minute,meeting_minutes_pro.group_meetingminut_manager,crud,
+access_meeting_action_user,meeting.action User,meeting.action,meeting_minutes_pro.group_meetingminut_user,cr,
+access_meeting_action_manager,meeting.action Manager,meeting.action,meeting_minutes_pro.group_meetingminut_manager,crud,
+rule_meeting_minute_company,meeting.minute: own company only,meeting.minute,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_meeting_action_company,meeting.action: own company only,meeting.action,,crud,"[('company_id', 'in', company_ids + [False])]"

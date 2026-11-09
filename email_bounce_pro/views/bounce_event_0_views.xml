@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_bounce_event_list" model="ir.ui.view">
+        <field name="name">bounce.event.list</field>
+        <field name="model">bounce.event</field>
+        <field name="arch" type="xml">
+            <list string="Bounced Emails" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="partner_id"/>
+                <field name="email"/>
+                <field name="bounce_date"/>
+                <field name="reason"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_bounce_event_form" model="ir.ui.view">
+        <field name="name">bounce.event.form</field>
+        <field name="model">bounce.event</field>
+        <field name="arch" type="xml">
+            <form string="Bounced Emails">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="email" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Contact">
+    <field name="partner_id"/>
+    <field name="email"/>
+                        </group>
+                        <group string="Bounce">
+    <field name="bounce_date"/>
+    <field name="reason"/>
+    <field name="message_id"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bounce_event_search" model="ir.ui.view">
+        <field name="name">bounce.event.search</field>
+        <field name="model">bounce.event</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="partner_id"/>
+                <field name="email"/>
+                <field name="reason"/>
+                <filter name="new" string="New" domain="[('state','=','new')]"/>
+                <filter name="handled" string="Handled" domain="[('state','=','handled')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_partner" string="Contact" context="{'group_by': 'partner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_bounce_event_kanban" model="ir.ui.view">
+        <field name="name">bounce.event.kanban</field>
+        <field name="model">bounce.event</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="partner_id"/>
+                <field name="email"/>
+                <field name="bounce_date"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="partner_id"/>
+                        <field name="email"/>
+                        <field name="bounce_date"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_bounce_event" model="ir.actions.act_window">
+        <field name="name">Bounced Emails</field>
+        <field name="res_model">bounce.event</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every address returned by the mail server, dated and explained.</p>
+        </field>
+    </record>
+
+</odoo>

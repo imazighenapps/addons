@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_sales_target_user,sales.target User,sales.target,sales_target_pro.group_salestargetp_user,cr,
+access_sales_target_manager,sales.target Manager,sales.target,sales_target_pro.group_salestargetp_manager,crud,
+rule_sales_target_company,sales.target: own company only,sales.target,,crud,"[('company_id', 'in', company_ids + [False])]"

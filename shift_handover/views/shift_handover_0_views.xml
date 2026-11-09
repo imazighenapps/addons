@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_shift_handover_list" model="ir.ui.view">
+        <field name="name">shift.handover.list</field>
+        <field name="model">shift.handover</field>
+        <field name="arch" type="xml">
+            <list string="Handovers" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="shift" widget="badge"/>
+                <field name="responsible_id"/>
+                <field name="open_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_shift_handover_form" model="ir.ui.view">
+        <field name="name">shift.handover.form</field>
+        <field name="model">shift.handover</field>
+        <field name="arch" type="xml">
+            <form string="Handovers">
+                <header>
+                    <button name="action_done" type="object" string="Done" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-secondary" invisible="state != 'done'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-link" invisible="state == 'done' or state == 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Shift">
+    <field name="date"/>
+    <field name="shift"/>
+    <field name="responsible_id"/>
+    <field name="department_id"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Items">
+    <field name="open_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Items" name="lineids">
+                            <field name="line_ids">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="category"/>
+                            <field name="description"/>
+                            <field name="severity" widget="badge"/>
+                            <field name="assigned_id" optional="show"/>
+                            <field name="follow_up"/>
+                            <field name="resolved"/>
+                            <field name="resolved_date" optional="hide"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_shift_handover_search" model="ir.ui.view">
+        <field name="name">shift.handover.search</field>
+        <field name="model">shift.handover</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="responsible_id"/>
+                <field name="department_id"/>
+                <filter name="open" string="Open" domain="[('state','=','draft')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <filter name="mine" string="My Handovers" domain="[('responsible_id.user_id','=',uid)]"/>
+                <separator/>
+                <filter name="group_shift" string="Shift" context="{'group_by': 'shift'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_responsible" string="Responsible" context="{'group_by': 'responsible_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_shift_handover_kanban" model="ir.ui.view">
+        <field name="name">shift.handover.kanban</field>
+        <field name="model">shift.handover</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="name"/>
+                <field name="responsible_id"/>
+                <field name="open_count"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="name" class="fw-bold"/>
+                        <field name="responsible_id"/>
+                        <field name="open_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_shift_handover" model="ir.actions.act_window">
+        <field name="name">Handovers</field>
+        <field name="res_model">shift.handover</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Write what the next shift must know before the team leaves.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id,group_id/id,operation,domain
+access_visitor_log_user,visitor.log User,visitor.log,visitor_log.group_visitorlog_user,cr,
+access_visitor_log_manager,visitor.log Manager,visitor.log,visitor_log.group_visitorlog_manager,crud,
+access_visitor_purge_wizard_user,visitor.purge.wizard User,visitor.purge.wizard,visitor_log.group_visitorlog_user,cr,
+access_visitor_purge_wizard_manager,visitor.purge.wizard Manager,visitor.purge.wizard,visitor_log.group_visitorlog_manager,crud,
+rule_visitor_log_company,visitor.log: own company only,visitor.log,,crud,"[('company_id', 'in', company_ids + [False])]"
