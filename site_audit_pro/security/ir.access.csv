@@ -1,0 +1,12 @@
+id,name,model_id,group_id/id,operation,domain
+access_site_audit_user,site.audit User,site.audit,site_audit_pro.group_siteauditpro_user,cr,
+access_site_audit_manager,site.audit Manager,site.audit,site_audit_pro.group_siteauditpro_manager,crud,
+access_site_audit_line_user,site.audit.line User,site.audit.line,site_audit_pro.group_siteauditpro_user,cr,
+access_site_audit_line_manager,site.audit.line Manager,site.audit.line,site_audit_pro.group_siteauditpro_manager,crud,
+access_size_audit_template_user,size.audit.template User,size.audit.template,site_audit_pro.group_siteauditpro_user,cr,
+access_size_audit_template_manager,size.audit.template Manager,size.audit.template,site_audit_pro.group_siteauditpro_manager,crud,
+access_site_audit_template_line_user,site.audit.template.line User,site.audit.template.line,site_audit_pro.group_siteauditpro_user,cr,
+access_site_audit_template_line_manager,site.audit.template.line Manager,site.audit.template.line,site_audit_pro.group_siteauditpro_manager,crud,
+rule_site_audit_company,site.audit: own company only,site.audit,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_size_audit_template_company,size.audit.template: own company only,size.audit.template,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_site_audit_line_company,site.audit.line: own company only,site.audit.line,,crud,"[('company_id', 'in', company_ids + [False])]"

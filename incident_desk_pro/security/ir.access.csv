@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_ehs_incident_user,ehs.incident User,ehs.incident,incident_desk_pro.group_incidentdesk_user,cr,
+access_ehs_incident_manager,ehs.incident Manager,ehs.incident,incident_desk_pro.group_incidentdesk_manager,crud,
+access_ehs_action_user,ehs.action User,ehs.action,incident_desk_pro.group_incidentdesk_user,cr,
+access_ehs_action_manager,ehs.action Manager,ehs.action,incident_desk_pro.group_incidentdesk_manager,crud,
+rule_ehs_incident_company,ehs.incident: own company only,ehs.incident,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_ehs_action_company,ehs.action: own company only,ehs.action,,crud,"[('company_id', 'in', company_ids + [False])]"

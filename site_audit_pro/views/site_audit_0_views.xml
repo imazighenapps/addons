@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_site_audit_list" model="ir.ui.view">
+        <field name="name">site.audit.list</field>
+        <field name="model">site.audit</field>
+        <field name="arch" type="xml">
+            <list string="Site Audits" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="audit_date"/>
+                <field name="site_name"/>
+                <field name="template_id"/>
+                <field name="auditor_id"/>
+                <field name="point_count"/>
+                <field name="score_pct" sum="Total Score Pct"/>
+                <field name="failed_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_site_audit_form" model="ir.ui.view">
+        <field name="name">site.audit.form</field>
+        <field name="model">site.audit</field>
+        <field name="arch" type="xml">
+            <form string="Site Audits">
+                <header>
+                    <button name="action_done" type="object" string="Score and Close" class="btn-primary" invisible="state == 'draft'"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-secondary" invisible="state != 'draft'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state == 'draft'"/>
+                    <button name="action_reset" type="object" string="Reset on Template" class="btn-secondary" invisible="state == 'draft' and template_id != False"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="site_name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Audit">
+    <field name="name"/>
+    <field name="site_name"/>
+    <field name="template_id"/>
+    <field name="audit_date"/>
+    <field name="auditor_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Result">
+    <field name="score_pct"/>
+    <field name="point_count"/>
+    <field name="failed_count"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                    <notebook><page string="Scored Points"><field name="line_ids"><list editable="bottom"><field name="sequence" widget="handle"/><field name="name"/><field name="category"/><field name="points_max"/><field name="score"/><field name="scored" column_invisible="1"/><field name="state" widget="badge"/></list></field></page></notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_site_audit_search" model="ir.ui.view">
+        <field name="name">site.audit.search</field>
+        <field name="model">site.audit</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="site_name"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="failed" string="With Failed Points" domain="[('failed_count','&gt;',0)]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_site" string="Site" context="{'group_by': 'site_name'}"/>
+                <filter name="group_auditor" string="Auditor" context="{'group_by': 'auditor_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_site_audit_kanban" model="ir.ui.view">
+        <field name="name">site.audit.kanban</field>
+        <field name="model">site.audit</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="site_name"/>
+                <field name="audit_date"/>
+                <field name="score_pct"/>
+                <field name="failed_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="site_name"/>
+                        <field name="audit_date"/>
+                        <field name="score_pct"/>
+                        <field name="failed_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_site_audit" model="ir.actions.act_window">
+        <field name="name">Site Audits</field>
+        <field name="res_model">site.audit</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Build an audit from a template, score each point on site and let the score speak.</p>
+        </field>
+    </record>
+
+</odoo>

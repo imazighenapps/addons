@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ehs_incident_list" model="ir.ui.view">
+        <field name="name">ehs.incident.list</field>
+        <field name="model">ehs.incident</field>
+        <field name="arch" type="xml">
+            <list string="Incidents" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="date_incident"/>
+                <field name="title"/>
+                <field name="type"/>
+                <field name="severity"/>
+                <field name="location"/>
+                <field name="reported_by"/>
+                <field name="open_action_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ehs_incident_form" model="ir.ui.view">
+        <field name="name">ehs.incident.form</field>
+        <field name="model">ehs.incident</field>
+        <field name="arch" type="xml">
+            <form string="Incidents">
+                <header>
+                    <button name="action_investigate" type="object" string="Investigate" class="btn-primary" invisible="state == 'draft'"/>
+                    <button name="action_close" type="object" string="Close" class="btn-primary" invisible="state == 'investigating'"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-secondary" invisible="state == 'closed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,investigating,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="title" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Incident">
+    <field name="title"/>
+    <field name="name"/>
+    <field name="date_incident"/>
+    <field name="type"/>
+    <field name="severity"/>
+    <field name="location"/>
+    <field name="involved_name"/>
+    <field name="reported_by"/>
+                        </group>
+                        <group string="Investigation">
+    <field name="immediate_action"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Workflow">
+    <field name="state"/>
+    <field name="closed_date"/>
+    <field name="open_action_count"/>
+    <field name="total_action_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ehs_incident_search" model="ir.ui.view">
+        <field name="name">ehs.incident.search</field>
+        <field name="model">ehs.incident</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="title"/>
+                <field name="name"/>
+                <field name="location"/>
+                <field name="involved_name"/>
+                <filter name="open" string="Open Cases" domain="[('state','!=','closed')]"/>
+                <filter name="critical" string="Critical" domain="[('severity','=','critical')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_severity" string="Severity" context="{'group_by': 'severity'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'type'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_ehs_incident_kanban" model="ir.ui.view">
+        <field name="name">ehs.incident.kanban</field>
+        <field name="model">ehs.incident</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="title"/>
+                <field name="type"/>
+                <field name="severity"/>
+                <field name="location"/>
+                <field name="open_action_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="title"/>
+                        <field name="type"/>
+                        <field name="severity"/>
+                        <field name="location"/>
+                        <field name="open_action_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_ehs_incident" model="ir.actions.act_window">
+        <field name="name">Incidents</field>
+        <field name="res_model">ehs.incident</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every reported incident, its severity and the corrective work attached to it.</p>
+        </field>
+    </record>
+
+</odoo>

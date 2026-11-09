@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_hire_check_user,hire.check User,hire.check,hire_check_pro.group_hirecheckpro_user,cr,
+access_hire_check_manager,hire.check Manager,hire.check,hire_check_pro.group_hirecheckpro_manager,crud,
+access_hire_check_line_user,hire.check.line User,hire.check.line,hire_check_pro.group_hirecheckpro_user,cr,
+access_hire_check_line_manager,hire.check.line Manager,hire.check.line,hire_check_pro.group_hirecheckpro_manager,crud,
+rule_hire_check_company,hire.check: own company only,hire.check,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_hire_check_line_company,hire.check.line: own company only,hire.check.line,,crud,"[('company_id', 'in', company_ids + [False])]"

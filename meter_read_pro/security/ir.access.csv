@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_meter_meter_user,meter.meter User,meter.meter,meter_read_pro.group_meterreadpro_user,cr,
+access_meter_meter_manager,meter.meter Manager,meter.meter,meter_read_pro.group_meterreadpro_manager,crud,
+access_meter_reading_user,meter.reading User,meter.reading,meter_read_pro.group_meterreadpro_user,cr,
+access_meter_reading_manager,meter.reading Manager,meter.reading,meter_read_pro.group_meterreadpro_manager,crud,
+rule_meter_meter_company,meter.meter: own company only,meter.meter,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_meter_reading_company,meter.reading: own company only,meter.reading,,crud,"[('company_id', 'in', company_ids + [False])]"

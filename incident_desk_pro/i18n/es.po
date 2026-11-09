@@ -1,0 +1,448 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* incident_desk_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,help:incident_desk_pro.field_ehs_action__kind
+msgid "A corrective action fixes what failed, a preventive one stops it from happening again."
+msgstr "Una acción correctiva soluciona lo que falló, una preventiva evita que vuelva a suceder."
+
+#. module: incident_desk_pro
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_action_form
+msgid "Action"
+msgstr "Acción"
+
+#. module: incident_desk_pro
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_form
+msgid "Close"
+msgstr "Cerca"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_incident__state__closed
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__closed_date
+msgid "Closed Date"
+msgstr "Fecha cerrada"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__company_id
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: incident_desk_pro
+#: model:res.groups,comment:incident_desk_pro.group_incidentdesk_manager
+msgid "Configure and administer the module."
+msgstr "Configurar y administrar el módulo."
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_action__kind__corrective
+msgid "Corrective"
+msgstr "Correctiva Correctivo"
+
+#. module: incident_desk_pro
+#: model:ir.actions.act_window,name:incident_desk_pro.action_ehs_action
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__action_ids
+#: model:ir.ui.menu,name:incident_desk_pro.menu_ehs_actions
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_action_form
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_action_list
+msgid "Corrective Actions"
+msgstr "Acciones correctivas"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__create_uid
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__create_date
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_incident__severity__critical
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_search
+msgid "Critical"
+msgstr "Crítica Crítico"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__date_incident
+msgid "Date"
+msgstr "Fecha"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,help:incident_desk_pro.field_ehs_action__due_date
+msgid "Date the action must be finished by."
+msgstr "Fecha en la que debe finalizar la acción."
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__description
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_form
+msgid "Description"
+msgstr "Descripción"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__display_name
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_action__state__done
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_action_search
+msgid "Done"
+msgstr "Hecho"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__done_date
+msgid "Done On"
+msgstr "Hecho el"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_incident__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__due_date
+msgid "Due Date"
+msgstr "Fecha de vencimiento"
+
+#. module: incident_desk_pro
+#: model:ir.model,name:incident_desk_pro.model_ehs_action
+msgid "EHS Corrective Action"
+msgstr "Acción correctiva sobre medio ambiente, seguridad y salud"
+
+#. module: incident_desk_pro
+#: model:ir.model,name:incident_desk_pro.model_ehs_incident
+msgid "EHS Incident"
+msgstr "Incidente EHS"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_incident__type__environment
+msgid "Environment"
+msgstr "Ambiente"
+
+#. module: incident_desk_pro
+#: model_terms:ir.actions.act_window,help:incident_desk_pro.action_ehs_incident
+msgid "Every reported incident, its severity and the corrective work attached to it."
+msgstr "Cada incidente reportado, su gravedad y los trabajos correctivos que conlleva."
+
+#. module: incident_desk_pro
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_action_form
+msgid "Follow Up"
+msgstr "Hacer un seguimiento"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_incident__severity__high
+msgid "High"
+msgstr "Alta Alto"
+
+#. module: incident_desk_pro
+#. odoo-python
+#: code:addons/incident_desk_pro/models/ehs_incident.py:0
+msgid "INC %s"
+msgstr "INC %s"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__immediate_action
+msgid "Immediate Action"
+msgstr "Acción inmediata"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__incident_id
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_action_search
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_form
+msgid "Incident"
+msgstr "Incidente"
+
+#. module: incident_desk_pro
+#. odoo-python
+#: code:addons/incident_desk_pro/models/ehs_incident.py:0
+msgid "Incident \"%s\" is already closed."
+msgstr "El incidente \"%s\" ya está cerrado."
+
+#. module: incident_desk_pro
+#. odoo-python
+#: code:addons/incident_desk_pro/models/ehs_incident.py:0
+msgid "Incident \"%s\" still has %s corrective action(s) to do."
+msgstr "El incidente \"%s\" aún tiene acciones correctivas para %s por realizar."
+
+#. module: incident_desk_pro
+#: model:ir.ui.menu,name:incident_desk_pro.menu_ehs_root
+msgid "Incident Desk"
+msgstr "Escritorio de incidentes"
+
+#. module: incident_desk_pro
+#: model:res.groups,name:incident_desk_pro.group_incidentdesk_manager
+msgid "Incident Desk Pro Manager"
+msgstr "Gerente profesional de la mesa de incidentes"
+
+#. module: incident_desk_pro
+#: model:res.groups,name:incident_desk_pro.group_incidentdesk_user
+msgid "Incident Desk Pro User"
+msgstr "Usuario de Incident Desk Pro"
+
+#. module: incident_desk_pro
+#: model:ir.module.module,shortdesc:base.module_incident_desk_pro
+msgid "IncidentDesk"
+msgstr "Escritorio de incidentes"
+
+#. module: incident_desk_pro
+#: model:ir.actions.act_window,name:incident_desk_pro.action_ehs_incident
+#: model:ir.ui.menu,name:incident_desk_pro.menu_ehs_incidents
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_form
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_list
+msgid "Incidents"
+msgstr "Incidentes"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_incident__type__injury
+msgid "Injury"
+msgstr "Lesión"
+
+#. module: incident_desk_pro
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_form
+msgid "Investigate"
+msgstr "Investigar"
+
+#. module: incident_desk_pro
+#. odoo-python
+#: code:addons/incident_desk_pro/models/ehs_incident.py:0
+msgid "Investigate incident \"%s\" before closing it."
+msgstr "Investigue el incidente \"%s\" antes de cerrarlo."
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_incident__state__investigating
+msgid "Investigating"
+msgstr "investigando"
+
+#. module: incident_desk_pro
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_form
+msgid "Investigation"
+msgstr "Investigación"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__involved_name
+msgid "Involved Person"
+msgstr "Persona involucrada"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__kind
+msgid "Kind"
+msgstr "Amable"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__write_uid
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__write_date
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__location
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: incident_desk_pro
+#: model:ir.module.module,summary:base.module_incident_desk_pro
+msgid "Log workplace, property and environment incidents with a severity, drive the investigation in Odoo and close each case only when every corrective action is done."
+msgstr "Registre los incidentes en el lugar de trabajo, la propiedad y el medio ambiente con gravedad, impulse la investigación en Odoo y cierre cada caso solo cuando se hayan realizado todas las acciones correctivas."
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_incident__severity__low
+msgid "Low"
+msgstr "Bajo"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_incident__severity__medium
+msgid "Medium"
+msgstr "Medio"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__name
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,help:incident_desk_pro.field_ehs_incident__involved_name
+msgid "Name of the person involved, kept as free text."
+msgstr "Nombre de la persona involucrada, mantenido como texto libre."
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_incident__type__near_miss
+msgid "Near Miss"
+msgstr "Casi accidente"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__note
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__note
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_action_form
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_form
+msgid "Note"
+msgstr "Nota"
+
+#. module: incident_desk_pro
+#. odoo-python
+#: code:addons/incident_desk_pro/models/ehs_incident.py:0
+msgid "Only a new incident can enter the investigation."
+msgstr "Sólo un nuevo incidente puede entrar en la investigación."
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__open_action_count
+msgid "Open Actions"
+msgstr "Acciones abiertas"
+
+#. module: incident_desk_pro
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_search
+msgid "Open Cases"
+msgstr "Casos abiertos"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_incident__type__other
+msgid "Other"
+msgstr "Otra Otro"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_action__kind__preventive
+msgid "Preventive"
+msgstr "Preventiva Preventivo"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_incident__type__property
+msgid "Property Damage"
+msgstr "Daños a la propiedad"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,help:incident_desk_pro.field_ehs_incident__name
+msgid "Reference of the incident, generated at the report."
+msgstr "Referencia del incidente, generada en el informe."
+
+#. module: incident_desk_pro
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_form
+msgid "Reopen"
+msgstr "Reabrir"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__reported_by
+msgid "Reported By"
+msgstr "Reportado por"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__responsible_id
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_action_search
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__severity
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_search
+msgid "Severity"
+msgstr "Gravedad"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_action__state
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__state
+msgid "State"
+msgstr "Estado"
+
+#. module: incident_desk_pro
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: incident_desk_pro
+#. odoo-python
+#: code:addons/incident_desk_pro/models/ehs_incident.py:0
+msgid "The incident has been reopened."
+msgstr "El incidente ha sido reabierto."
+
+#. module: incident_desk_pro
+#. odoo-python
+#: code:addons/incident_desk_pro/models/ehs_incident.py:0
+msgid "The incident is closed with all corrective actions done."
+msgstr "El incidente se cierra con todas las acciones correctivas realizadas."
+
+#. module: incident_desk_pro
+#. odoo-python
+#: code:addons/incident_desk_pro/models/ehs_incident.py:0
+msgid "The investigation of the incident has started."
+msgstr "La investigación del incidente ha comenzado."
+
+#. module: incident_desk_pro
+#: model_terms:ir.actions.act_window,help:incident_desk_pro.action_ehs_action
+msgid "The whole action plan of the company, whatever the incident is."
+msgstr "Todo el plan de acción de la empresa, sea cual sea la incidencia."
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__title
+msgid "Title"
+msgstr "Título"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields.selection,name:incident_desk_pro.selection__ehs_action__state__todo
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_action_search
+msgid "To Do"
+msgstr "Hacer"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__total_action_count
+msgid "Total Actions"
+msgstr "Acciones totales"
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,field_description:incident_desk_pro.field_ehs_incident__type
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_search
+msgid "Type"
+msgstr "Tipo"
+
+#. module: incident_desk_pro
+#: model:res.groups,comment:incident_desk_pro.group_incidentdesk_user
+msgid "View and use the module."
+msgstr "Ver y utilizar el módulo."
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,help:incident_desk_pro.field_ehs_incident__type
+msgid "What kind of event was reported."
+msgstr "Qué tipo de evento se informó."
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,help:incident_desk_pro.field_ehs_incident__immediate_action
+msgid "What was done on the spot, before the investigation."
+msgstr "Lo que se hizo en el acto, antes de la investigación."
+
+#. module: incident_desk_pro
+#: model:ir.model.fields,help:incident_desk_pro.field_ehs_incident__location
+msgid "Where it happened, for example Warehouse 2, loading bay."
+msgstr "Dónde sucedió, por ejemplo Almacén 2, muelle de carga."
+
+#. module: incident_desk_pro
+#: model_terms:ir.ui.view,arch_db:incident_desk_pro.view_ehs_incident_form
+msgid "Workflow"
+msgstr "Flujo de trabajo"

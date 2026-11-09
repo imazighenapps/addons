@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_cold_point_user,cold.point User,cold.point,cold_chain_pro.group_coldchainpro_user,cr,
+access_cold_point_manager,cold.point Manager,cold.point,cold_chain_pro.group_coldchainpro_manager,crud,
+access_cold_reading_user,cold.reading User,cold.reading,cold_chain_pro.group_coldchainpro_user,cr,
+access_cold_reading_manager,cold.reading Manager,cold.reading,cold_chain_pro.group_coldchainpro_manager,crud,
+rule_cold_point_company,cold.point: own company only,cold.point,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_cold_reading_company,cold.reading: own company only,cold.reading,,crud,"[('company_id', 'in', company_ids + [False])]"
