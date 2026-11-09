@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_price_watch_list" model="ir.ui.view">
+        <field name="name">price.watch.list</field>
+        <field name="model">price.watch</field>
+        <field name="arch" type="xml">
+            <list string="Price Alerts" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="product_id"/>
+                <field name="partner_id"/>
+                <field name="date_ref"/>
+                <field name="previous_price"/>
+                <field name="new_price"/>
+                <field name="variation_pct"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_price_watch_form" model="ir.ui.view">
+        <field name="name">price.watch.form</field>
+        <field name="model">price.watch</field>
+        <field name="arch" type="xml">
+            <form string="Price Alerts">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="product_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Product">
+    <field name="product_id"/>
+    <field name="partner_id"/>
+    <field name="date_ref"/>
+    <field name="order_id"/>
+                        </group>
+                        <group string="Variation">
+    <field name="previous_price"/>
+    <field name="new_price"/>
+    <field name="variation_pct"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_price_watch_search" model="ir.ui.view">
+        <field name="name">price.watch.search</field>
+        <field name="model">price.watch</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_id"/>
+                <field name="partner_id"/>
+                <field name="order_id"/>
+                <filter name="new" string="New" domain="[('state','=','new')]"/>
+                <filter name="reviewed" string="Reviewed" domain="[('state','=','reviewed')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_vendor" string="Vendor" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_product" string="Product" context="{'group_by': 'product_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_price_watch_graph" model="ir.ui.view">
+        <field name="name">price.watch.graph</field>
+        <field name="model">price.watch</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="partner_id"/>
+                <field name="variation_pct" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_price_watch" model="ir.actions.act_window">
+        <field name="name">Price Alerts</field>
+        <field name="res_model">price.watch</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every confirmed order line that moved against the threshold.</p>
+        </field>
+    </record>
+
+</odoo>

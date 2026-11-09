@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_quality_claim_list" model="ir.ui.view">
+        <field name="name">quality.claim.list</field>
+        <field name="model">quality.claim</field>
+        <field name="arch" type="xml">
+            <list string="Claims" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="product_id"/>
+                <field name="severity" widget="badge"/>
+                <field name="cost_amount" sum="Total Cost Amount"/>
+                <field name="state" widget="badge"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_quality_claim_form" model="ir.ui.view">
+        <field name="name">quality.claim.form</field>
+        <field name="model">quality.claim</field>
+        <field name="arch" type="xml">
+            <form string="Claims">
+                <header>
+                    <button name="action_open" type="object" string="Open" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_investigate" type="object" string="Investigate" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_plan" type="object" string="Plan Actions" class="btn-primary" invisible="state != 'investigation'"/>
+                    <button name="action_close" type="object" string="Close" class="btn-primary" invisible="state != 'action'"/>
+                    <button name="action_refuse" type="object" string="Refuse" class="btn-secondary" invisible="state not in ('draft', 'open', 'investigation', 'action')"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,open,investigation,action,done,refused"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Claim">
+    <field name="name"/>
+    <field name="claim_type"/>
+    <field name="partner_id"/>
+    <field name="date_claim"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Product">
+    <field name="product_id"/>
+    <field name="lot_ref"/>
+    <field name="quantity"/>
+    <field name="defect_code"/>
+    <field name="severity"/>
+                        </group>
+                        <group string="Cost">
+    <field name="currency_id"/>
+    <field name="cost_amount"/>
+                        </group>
+                        <group string="State">
+    <field name="state"/>
+    <field name="action_count"/>
+    <field name="action_done_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Corrective Actions" name="actionids">
+                            <field name="action_ids">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="user_id"/>
+                            <field name="due_date"/>
+                            <field name="state"/>
+                            <field name="done_date"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Root Cause" name="rootcause">
+                            <field name="root_cause"/>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_quality_claim_search" model="ir.ui.view">
+        <field name="name">quality.claim.search</field>
+        <field name="model">quality.claim</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="product_id"/>
+                <field name="lot_ref"/>
+                <filter name="open" string="Open" domain="[('state','in',['draft','open','investigation','action'])]"/>
+                <filter name="done" string="Done" domain="[('state','in',['done','refused'])]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_severity" string="Severity" context="{'group_by': 'severity'}"/>
+                <filter name="group_claim_type" string="Claim Type" context="{'group_by': 'claim_type'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_quality_claim_kanban" model="ir.ui.view">
+        <field name="name">quality.claim.kanban</field>
+        <field name="model">quality.claim</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="severity"/>
+                <field name="claim_type"/>
+                <field name="cost_amount"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="severity"/>
+                        <field name="claim_type"/>
+                        <field name="cost_amount"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_quality_claim_graph" model="ir.ui.view">
+        <field name="name">quality.claim.graph</field>
+        <field name="model">quality.claim</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="cost_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_quality_claim" model="ir.actions.act_window">
+        <field name="name">Claims</field>
+        <field name="res_model">quality.claim</field>
+        <field name="view_mode">kanban,list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register a claim, investigate the root cause, then follow the corrective actions until they are done.</p>
+        </field>
+    </record>
+
+</odoo>

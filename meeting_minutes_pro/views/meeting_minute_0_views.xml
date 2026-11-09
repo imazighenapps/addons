@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_meeting_minute_list" model="ir.ui.view">
+        <field name="name">meeting.minute.list</field>
+        <field name="model">meeting.minute</field>
+        <field name="arch" type="xml">
+            <list string="Minutes" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date_meeting"/>
+                <field name="chair_id"/>
+                <field name="action_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_meeting_minute_form" model="ir.ui.view">
+        <field name="name">meeting.minute.form</field>
+        <field name="model">meeting.minute</field>
+        <field name="arch" type="xml">
+            <form string="Minutes">
+                <header>
+                    <button name="action_hold" type="object" string="Hold" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_close" type="object" string="Close" class="btn-primary" invisible="state != 'held'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state not in ('draft', 'held')"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,held,closed,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Meeting">
+    <field name="name"/>
+    <field name="date_meeting"/>
+    <field name="location"/>
+    <field name="chair_id"/>
+    <field name="attendee_ids"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Content">
+    <field name="agenda"/>
+    <field name="decisions"/>
+                        </group>
+                        <group string="State">
+    <field name="state"/>
+    <field name="action_count"/>
+    <field name="open_action_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Action Items" name="actionids">
+                            <field name="action_ids">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+                            <field name="user_id"/>
+                            <field name="due_date"/>
+                            <field name="state" widget="badge"/>
+                            <field name="is_overdue" widget="boolean"/>
+                            <field name="done_date" optional="hide"/>
+                            <field name="company_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_meeting_minute_search" model="ir.ui.view">
+        <field name="name">meeting.minute.search</field>
+        <field name="model">meeting.minute</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="chair_id"/>
+                <field name="attendee_ids"/>
+                <field name="location"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="held" string="Held" domain="[('state','=','held')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <filter name="mine" string="My Meetings" domain="[('chair_id','=',uid)]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_chair" string="Chair" context="{'group_by': 'chair_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_meeting_minute_kanban" model="ir.ui.view">
+        <field name="name">meeting.minute.kanban</field>
+        <field name="model">meeting.minute</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="chair_id"/>
+                <field name="date_meeting"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="chair_id"/>
+                        <field name="date_meeting"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_meeting_minute" model="ir.actions.act_window">
+        <field name="name">Minutes</field>
+        <field name="res_model">meeting.minute</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Write the minutes, take the decisions, and give every action an owner and a due date.</p>
+        </field>
+    </record>
+
+</odoo>

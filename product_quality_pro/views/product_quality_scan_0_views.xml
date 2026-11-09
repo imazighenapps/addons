@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_product_quality_scan_list" model="ir.ui.view">
+        <field name="name">product.quality.scan.list</field>
+        <field name="model">product.quality.scan</field>
+        <field name="arch" type="xml">
+            <list string="Scans" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date_ref"/>
+                <field name="product_count" sum="Total Product Count"/>
+                <field name="anomaly_count" sum="Total Anomaly Count"/>
+                <field name="score"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_product_quality_scan_form" model="ir.ui.view">
+        <field name="name">product.quality.scan.form</field>
+        <field name="model">product.quality.scan</field>
+        <field name="arch" type="xml">
+            <form string="Scans">
+                <header>
+                    <button name="action_run" type="object" string="Run Scan" class="btn-primary" invisible="False"/>
+                    <button name="action_reset" type="object" string="Reset" class="btn-link" invisible="state != 'done'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Scan">
+    <field name="date_ref"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Scope">
+    <field name="rule_ids"/>
+    <field name="product_ids"/>
+                        </group>
+                        <group string="Result">
+    <field name="product_count"/>
+    <field name="anomaly_count"/>
+    <field name="score"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Anomalies" name="lineids">
+                            <field name="line_ids" readonly="1">
+                        <list>
+                            <field name="product_id"/>
+                            <field name="field_key" widget="badge"/>
+                            <field name="severity" widget="badge"/>
+                            <field name="message"/>
+                            <field name="state" widget="badge"/>
+                            <field name="rule_id" optional="hide"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_product_quality_scan_search" model="ir.ui.view">
+        <field name="name">product.quality.scan.search</field>
+        <field name="model">product.quality.scan</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="date_ref"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="perfect" string="Score 100" domain="[('score','=',100)]"/>
+                <filter name="anomalies" string="With Anomalies" domain="[('anomaly_count','&gt;',0)]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_date" string="Scan Date" context="{'group_by': 'date_ref'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_product_quality_scan_graph" model="ir.ui.view">
+        <field name="name">product.quality.scan.graph</field>
+        <field name="model">product.quality.scan</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="score" type="measure"/>
+                <field name="anomaly_count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_product_quality_scan_pivot" model="ir.ui.view">
+        <field name="name">product.quality.scan.pivot</field>
+        <field name="model">product.quality.scan</field>
+        <field name="arch" type="xml">
+            <pivot sample="1">
+                <field name="date_ref" type="row"/>
+                <field name="state" type="col"/>
+                <field name="score" type="measure"/>
+                <field name="anomaly_count" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_product_quality_scan" model="ir.actions.act_window">
+        <field name="name">Scans</field>
+        <field name="res_model">product.quality.scan</field>
+        <field name="view_mode">list,form,graph,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Pick the rules, run the scan, and follow the score until the product master data is clean.</p>
+        </field>
+    </record>
+
+</odoo>
