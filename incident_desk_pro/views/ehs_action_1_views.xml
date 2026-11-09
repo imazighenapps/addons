@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ehs_action_list" model="ir.ui.view">
+        <field name="name">ehs.action.list</field>
+        <field name="model">ehs.action</field>
+        <field name="arch" type="xml">
+            <list string="Corrective Actions" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="incident_id"/>
+                <field name="kind"/>
+                <field name="responsible_id"/>
+                <field name="due_date"/>
+                <field name="state" widget="badge"/>
+                <field name="done_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ehs_action_form" model="ir.ui.view">
+        <field name="name">ehs.action.form</field>
+        <field name="model">ehs.action</field>
+        <field name="arch" type="xml">
+            <form string="Corrective Actions">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Action">
+    <field name="name"/>
+    <field name="kind"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="incident_id"/>
+    <field name="responsible_id"/>
+    <field name="due_date"/>
+    <field name="state"/>
+    <field name="done_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ehs_action_search" model="ir.ui.view">
+        <field name="name">ehs.action.search</field>
+        <field name="model">ehs.action</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="incident_id"/>
+                <filter name="todo" string="To Do" domain="[('state','=','todo')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <separator/>
+                <filter name="group_responsible" string="Responsible" context="{'group_by': 'responsible_id'}"/>
+                <filter name="group_incident" string="Incident" context="{'group_by': 'incident_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ehs_action" model="ir.actions.act_window">
+        <field name="name">Corrective Actions</field>
+        <field name="res_model">ehs.action</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The whole action plan of the company, whatever the incident is.</p>
+        </field>
+    </record>
+
+</odoo>

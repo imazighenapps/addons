@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cold_reading_list" model="ir.ui.view">
+        <field name="name">cold.reading.list</field>
+        <field name="model">cold.reading</field>
+        <field name="arch" type="xml">
+            <list string="Temperature Readings">
+                <field name="recorded_at"/>
+                <field name="point_id"/>
+                <field name="temperature"/>
+                <field name="point_min_temp"/>
+                <field name="point_max_temp"/>
+                <field name="status" widget="badge"/>
+                <field name="measured_by"/>
+                <field name="corrected" widget="boolean"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cold_reading_form" model="ir.ui.view">
+        <field name="name">cold.reading.form</field>
+        <field name="model">cold.reading</field>
+        <field name="arch" type="xml">
+            <form string="Temperature Readings">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="point_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Reading">
+    <field name="point_id"/>
+    <field name="temperature"/>
+    <field name="recorded_at"/>
+    <field name="measured_by"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Check">
+    <field name="status"/>
+    <field name="point_min_temp"/>
+    <field name="point_max_temp"/>
+    <field name="corrected"/>
+    <field name="corrected_at"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Correction" name="correctionnote">
+                            <field name="correction_note"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cold_reading_search" model="ir.ui.view">
+        <field name="name">cold.reading.search</field>
+        <field name="model">cold.reading</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="point_id"/>
+                <filter name="breach" string="Out of Range" domain="[('status','=','breach')]"/>
+                <filter name="uncorrected" string="Uncorrected" domain="[('status','=','breach'),('corrected','=',False)]"/>
+                <separator/>
+                <filter name="group_point" string="Cold Point" context="{'group_by': 'point_id'}"/>
+                <filter name="group_measured" string="Measured By" context="{'group_by': 'measured_by'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_cold_reading" model="ir.actions.act_window">
+        <field name="name">Temperature Readings</field>
+        <field name="res_model">cold.reading</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The log your auditor will ask for: every reading with its range check and its correction.</p>
+        </field>
+    </record>
+
+</odoo>

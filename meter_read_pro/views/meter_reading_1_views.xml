@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_meter_reading_list" model="ir.ui.view">
+        <field name="name">meter.reading.list</field>
+        <field name="model">meter.reading</field>
+        <field name="arch" type="xml">
+            <list string="Meter Readings">
+                <field name="reading_date"/>
+                <field name="meter_id"/>
+                <field name="previous_value"/>
+                <field name="value"/>
+                <field name="delta" sum="Total Delta"/>
+                <field name="measured_by"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_meter_reading_form" model="ir.ui.view">
+        <field name="name">meter.reading.form</field>
+        <field name="model">meter.reading</field>
+        <field name="arch" type="xml">
+            <form string="Meter Readings">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="meter_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Reading">
+    <field name="meter_id"/>
+    <field name="reading_date"/>
+    <field name="value"/>
+    <field name="measured_by"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Consumption">
+    <field name="previous_value"/>
+    <field name="delta"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_meter_reading_search" model="ir.ui.view">
+        <field name="name">meter.reading.search</field>
+        <field name="model">meter.reading</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="meter_id"/>
+                <separator/>
+                <filter name="group_meter" string="Meter" context="{'group_by': 'meter_id'}"/>
+                <filter name="group_reader" string="Read By" context="{'group_by': 'measured_by'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_meter_reading_graph" model="ir.ui.view">
+        <field name="name">meter.reading.graph</field>
+        <field name="model">meter.reading</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="reading_date" interval="month"/>
+                <field name="delta" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_meter_reading" model="ir.actions.act_window">
+        <field name="name">Meter Readings</field>
+        <field name="res_model">meter.reading</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The dated history of every reading, each one carrying its consumption since the previous value.</p>
+        </field>
+    </record>
+
+</odoo>
