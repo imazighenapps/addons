@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_meter_list" model="ir.ui.view">
+        <field name="name">meter.meter.list</field>
+        <field name="model">meter.meter</field>
+        <field name="arch" type="xml">
+            <list string="Utility Meters">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="utility"/>
+                <field name="location"/>
+                <field name="unit"/>
+                <field name="reading_count"/>
+                <field name="last_reading_date"/>
+                <field name="last_value"/>
+                <field name="last_delta" sum="Total Last Delta"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_meter_form" model="ir.ui.view">
+        <field name="name">meter.meter.form</field>
+        <field name="model">meter.meter</field>
+        <field name="arch" type="xml">
+            <form string="Utility Meters">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Meter">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="utility"/>
+    <field name="location"/>
+    <field name="unit"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="reading_count"/>
+    <field name="last_reading_date"/>
+    <field name="last_value"/>
+    <field name="last_delta"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_meter_search" model="ir.ui.view">
+        <field name="name">meter.meter.search</field>
+        <field name="model">meter.meter</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="location"/>
+                <separator/>
+                <filter name="group_utility" string="Utility" context="{'group_by': 'utility'}"/>
+                <filter name="group_location" string="Location" context="{'group_by': 'location'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_meter_kanban" model="ir.ui.view">
+        <field name="name">meter.meter.kanban</field>
+        <field name="model">meter.meter</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="utility" sample="1">
+                <field name="utility"/>
+                <field name="name"/>
+                <field name="location"/>
+                <field name="last_reading_date"/>
+                <field name="last_value"/>
+                <field name="last_delta"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="utility" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="location"/>
+                        <field name="last_reading_date"/>
+                        <field name="last_value"/>
+                        <field name="last_delta"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_meter" model="ir.actions.act_window">
+        <field name="name">Utility Meters</field>
+        <field name="res_model">meter.meter</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every meter of the company with its last value and its last period consumption.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_site_audit_template_list" model="ir.ui.view">
+        <field name="name">size.audit.template.list</field>
+        <field name="model">size.audit.template</field>
+        <field name="arch" type="xml">
+            <list string="Templates">
+                <field name="name"/>
+                <field name="point_count"/>
+                <field name="total_weight"/>
+                <field name="company_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_site_audit_template_form" model="ir.ui.view">
+        <field name="name">size.audit.template.form</field>
+        <field name="model">size.audit.template</field>
+        <field name="arch" type="xml">
+            <form string="Templates">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Template">
+    <field name="name"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Score">
+    <field name="point_count"/>
+    <field name="total_weight"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                    <notebook><page string="Points"><field name="line_ids"><list editable="bottom"><field name="sequence" widget="handle"/><field name="name"/><field name="category"/><field name="points_max"/></list></field></page></notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_site_audit_template_search" model="ir.ui.view">
+        <field name="name">size.audit.template.search</field>
+        <field name="model">size.audit.template</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_site_audit_template" model="ir.actions.act_window">
+        <field name="name">Templates</field>
+        <field name="res_model">size.audit.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every reusable inspection template with its weighted points.</p>
+        </field>
+    </record>
+
+</odoo>
