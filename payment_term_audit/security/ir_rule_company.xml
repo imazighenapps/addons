@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_payment_term_audit_company" model="ir.rule">
+        <field name="name">payment.term.audit: own company only</field>
+        <field name="model_id" ref="model_payment_term_audit"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_payment_term_audit_line_company" model="ir.rule">
+        <field name="name">payment.term.audit.line: own company only</field>
+        <field name="model_id" ref="model_payment_term_audit_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

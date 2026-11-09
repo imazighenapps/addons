@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_payment_term_audit_line_list" model="ir.ui.view">
+        <field name="name">payment.term.audit.line.list</field>
+        <field name="model">payment.term.audit.line</field>
+        <field name="arch" type="xml">
+            <list string="Term Anomalies" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="partner_id"/>
+                <field name="move_id"/>
+                <field name="invoice_date"/>
+                <field name="invoice_date_due"/>
+                <field name="expected_days"/>
+                <field name="actual_days"/>
+                <field name="gap_days"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_payment_term_audit_line_form" model="ir.ui.view">
+        <field name="name">payment.term.audit.line.form</field>
+        <field name="model">payment.term.audit.line</field>
+        <field name="arch" type="xml">
+            <form string="Term Anomalies">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="move_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Invoice">
+    <field name="partner_id"/>
+    <field name="move_id"/>
+    <field name="invoice_date"/>
+    <field name="invoice_date_due"/>
+    <field name="amount_residual"/>
+                        </group>
+                        <group string="Gap">
+    <field name="expected_days"/>
+    <field name="actual_days"/>
+    <field name="gap_days"/>
+    <field name="kind"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_payment_term_audit_line_search" model="ir.ui.view">
+        <field name="name">payment.term.audit.line.search</field>
+        <field name="model">payment.term.audit.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="partner_id"/>
+                <field name="move_id"/>
+                <field name="note"/>
+                <filter name="mismatch" string="Term mismatch" domain="[('kind','=','mismatch')]"/>
+                <filter name="missing" string="No payment term" domain="[('kind','=','missing_term')]"/>
+                <filter name="ignored" string="Ignored" domain="[('state','=','ignored')]"/>
+                <separator/>
+                <filter name="group_kind" string="Kind" context="{'group_by': 'kind'}"/>
+                <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_payment_term_audit_line" model="ir.actions.act_window">
+        <field name="name">Term Anomalies</field>
+        <field name="res_model">payment.term.audit.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Invoices whose due date does not match the promised terms.</p>
+        </field>
+    </record>
+
+</odoo>

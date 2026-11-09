@@ -1,0 +1,506 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_quality_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_quality_pro
+#. odoo-python
+#: code:addons/product_quality_pro/models/product_quality.py:0
+msgid "%(product)s: %(issue)s"
+msgstr "%(product)s: %(issue)s"
+
+#. module: product_quality_pro
+#: model:ir.model.constraint,message:product_quality_pro.constraint_product_quality_rule_company_field_uniq
+msgid "A field can only be controlled by one rule per company."
+msgstr "Un campo sólo puede ser controlado por una regla por empresa."
+
+#. module: product_quality_pro
+#: model:ir.model.fields,help:product_quality_pro.field_product_quality_line__severity
+#: model:ir.model.fields,help:product_quality_pro.field_product_quality_rule__severity
+msgid "A warning is a quality issue, an error blocks the clean-up."
+msgstr "Una advertencia es un problema de calidad, un error bloquea la limpieza."
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_rule__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: product_quality_pro
+#: model:ir.actions.act_window,name:product_quality_pro.action_product_quality_line
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__anomaly_count
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__line_ids
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_form
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_list
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_form
+msgid "Anomalies"
+msgstr "Anomalías"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_form
+msgid "Anomaly"
+msgstr "Anomalía"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_rule_search
+msgid "Archived"
+msgstr "Archivada Archivado"
+
+#. module: product_quality_pro
+#: model:ir.model.fields.selection,name:product_quality_pro.selection__product_quality_rule__field_key__barcode
+msgid "Barcode"
+msgstr "Código de barras"
+
+#. module: product_quality_pro
+#: model:ir.model.fields.selection,name:product_quality_pro.selection__product_quality_rule__field_key__category
+msgid "Category"
+msgstr "Categoría"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_line__company_id
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_rule__company_id
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,help:product_quality_pro.field_product_quality_scan__score
+msgid "Completeness of the scanned products, from 0 to 100, weighted by the points of each rule."
+msgstr "Completitud de los productos escaneados, de 0 a 100, ponderados por los puntos de cada regla."
+
+#. module: product_quality_pro
+#: model:res.groups,comment:product_quality_pro.group_productquali_manager
+msgid "Configure and administer the module."
+msgstr "Configurar y administrar el módulo."
+
+#. module: product_quality_pro
+#: model:ir.model.fields.selection,name:product_quality_pro.selection__product_quality_rule__field_key__cost
+msgid "Cost"
+msgstr "Costo"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_line__create_uid
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_rule__create_uid
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_line__create_date
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_rule__create_date
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_line__display_name
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_rule__display_name
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: product_quality_pro
+#: model:ir.model.fields.selection,name:product_quality_pro.selection__product_quality_scan__state__done
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_search
+msgid "Done"
+msgstr "Hecho"
+
+#. module: product_quality_pro
+#: model:ir.model.fields.selection,name:product_quality_pro.selection__product_quality_scan__state__draft
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_search
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: product_quality_pro
+#: model:ir.model.fields.selection,name:product_quality_pro.selection__product_quality_rule__severity__error
+msgid "Error"
+msgstr "Error"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_search
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_rule_search
+msgid "Errors"
+msgstr "Errores"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_line__field_key
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_rule__field_key
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_search
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_rule_search
+msgid "Field"
+msgstr "Campo"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,help:product_quality_pro.field_product_quality_line__field_key
+#: model:ir.model.fields,help:product_quality_pro.field_product_quality_rule__field_key
+msgid "Field of the product sheet controlled by this rule."
+msgstr "Campo de la ficha de producto controlado por esta norma."
+
+#. module: product_quality_pro
+#: model:ir.model.fields.selection,name:product_quality_pro.selection__product_quality_line__state__fixed
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_search
+msgid "Fixed"
+msgstr "Fija Fijo"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_form
+msgid "Follow-up"
+msgstr "Hacer un seguimiento"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_form
+msgid "Ignore"
+msgstr "Ignorar"
+
+#. module: product_quality_pro
+#: model:ir.model.fields.selection,name:product_quality_pro.selection__product_quality_line__state__ignored
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_search
+msgid "Ignored"
+msgstr "Ignorada Ignorado"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_line__write_uid
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_rule__write_uid
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_line__write_date
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_rule__write_date
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,help:product_quality_pro.field_product_quality_scan__product_ids
+msgid "Leave empty to scan every active product of the company."
+msgstr "Déjelo vacío para escanear todos los productos activos de la empresa."
+
+#. module: product_quality_pro
+#: model:ir.model.fields,help:product_quality_pro.field_product_quality_scan__rule_ids
+msgid "Leave empty to use every active rule of the company."
+msgstr "Déjelo vacío para utilizar todas las reglas activas de la empresa."
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_form
+msgid "Mark Fixed"
+msgstr "Marca fija"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_rule__name
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_rule__note
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_rule_form
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: product_quality_pro
+#: model_terms:ir.actions.act_window,help:product_quality_pro.action_product_quality_line
+msgid "One line per missing field, with the rule that caught it and the field to fix on the product sheet."
+msgstr "Una línea por cada campo faltante, con la regla que lo pilló y el campo a arreglar en la ficha del producto."
+
+#. module: product_quality_pro
+#: model_terms:ir.actions.act_window,help:product_quality_pro.action_product_quality_rule
+msgid "One rule per field of the product sheet, with the points it weighs in the score."
+msgstr "Una regla por campo de la ficha de producto, con los puntos que pesa en la puntuación."
+
+#. module: product_quality_pro
+#: model_terms:ir.actions.act_window,help:product_quality_pro.action_product_quality_scan
+msgid "Pick the rules, run the scan, and follow the score until the product master data is clean."
+msgstr "Elija las reglas, ejecute el análisis y siga la puntuación hasta que los datos maestros del producto estén limpios."
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_rule__points
+msgid "Points"
+msgstr "Agujas"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_line__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_quality_pro
+#: model:ir.ui.menu,name:product_quality_pro.menu_product_quality_root
+msgid "Product Quality"
+msgstr "Calidad del producto"
+
+#. module: product_quality_pro
+#: model:ir.model,name:product_quality_pro.model_product_quality_line
+msgid "Product Quality Anomaly"
+msgstr "Anomalía de calidad del producto"
+
+#. module: product_quality_pro
+#: model:res.groups,name:product_quality_pro.group_productquali_manager
+msgid "Product Quality Pro Manager"
+msgstr "Gerente profesional de calidad del producto"
+
+#. module: product_quality_pro
+#: model:res.groups,name:product_quality_pro.group_productquali_user
+msgid "Product Quality Pro User"
+msgstr "Usuario profesional de calidad del producto"
+
+#. module: product_quality_pro
+#: model:ir.model,name:product_quality_pro.model_product_quality_rule
+msgid "Product Quality Rule"
+msgstr "Regla de calidad del producto"
+
+#. module: product_quality_pro
+#: model:ir.model,name:product_quality_pro.model_product_quality_scan
+msgid "Product Quality Scan"
+msgstr "Escaneo de calidad del producto"
+
+#. module: product_quality_pro
+#: model:ir.module.module,shortdesc:base.module_product_quality_pro
+msgid "ProductQuality"
+msgstr "Calidad del producto"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__product_count
+msgid "Products"
+msgstr "Productos"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,help:product_quality_pro.field_product_quality_scan__scanned_product_ids
+msgid "Products covered by the last run of the scan."
+msgstr "Productos cubiertos por la última ejecución del análisis."
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__product_ids
+msgid "Products to Scan"
+msgstr "Productos para escanear"
+
+#. module: product_quality_pro
+#. odoo-python
+#: code:addons/product_quality_pro/models/product_quality.py:0
+msgid "Quality scan %s"
+msgstr "Escaneo de calidad %s"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_form
+msgid "Reset"
+msgstr "Restablecer"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_form
+msgid "Result"
+msgstr "Resultado"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_line__rule_id
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_rule_form
+msgid "Rule"
+msgstr "Regla"
+
+#. module: product_quality_pro
+#: model:ir.actions.act_window,name:product_quality_pro.action_product_quality_rule
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__rule_ids
+#: model:ir.ui.menu,name:product_quality_pro.menu_product_quality_rules
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_rule_form
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_rule_list
+msgid "Rules"
+msgstr "Reglas"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_form
+msgid "Run Scan"
+msgstr "Ejecutar escaneo"
+
+#. module: product_quality_pro
+#: model:ir.model.fields.selection,name:product_quality_pro.selection__product_quality_rule__field_key__sale_price
+msgid "Sale Price"
+msgstr "Precio de venta"
+
+#. module: product_quality_pro
+#: model:ir.model.fields.selection,name:product_quality_pro.selection__product_quality_rule__field_key__description
+msgid "Sales Description"
+msgstr "Descripción de ventas"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_line__scan_id
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_form
+msgid "Scan"
+msgstr "Escanear"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__date_ref
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_search
+msgid "Scan Date"
+msgstr "Fecha de escaneo"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__scanned_product_ids
+msgid "Scanned Products"
+msgstr "Productos escaneados"
+
+#. module: product_quality_pro
+#: model:ir.actions.act_window,name:product_quality_pro.action_product_quality_scan
+#: model:ir.ui.menu,name:product_quality_pro.menu_product_quality_scans
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_form
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_list
+msgid "Scans"
+msgstr "Escaneos"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_form
+msgid "Scope"
+msgstr "Alcance"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__score
+msgid "Score"
+msgstr "Puntaje"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_search
+msgid "Score 100"
+msgstr "Puntuación 100"
+
+#. module: product_quality_pro
+#: model:ir.module.module,summary:base.module_product_quality_pro
+msgid "Score every product sheet against your own completeness rules, list the missing barcodes, weights, costs and categories, and watch the score improve scan after scan."
+msgstr "Califique cada hoja de producto según sus propias reglas de integridad, enumere los códigos de barras, pesos, costos y categorías que faltan, y observe cómo mejora la puntuación escaneo tras escaneo."
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_line__severity
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_rule__severity
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_search
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_rule_search
+msgid "Severity"
+msgstr "Gravedad"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_line__state
+#: model:ir.model.fields,field_description:product_quality_pro.field_product_quality_scan__state
+msgid "State"
+msgstr "Estado"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_search
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: product_quality_pro
+#. odoo-python
+#: code:addons/product_quality_pro/models/product_quality.py:0
+msgid "The points of the rule \"%s\" cannot be negative."
+msgstr "Los puntos de la regla \"%s\" no pueden ser negativos."
+
+#. module: product_quality_pro
+#: model:ir.model.fields.selection,name:product_quality_pro.selection__product_quality_line__state__new
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_search
+msgid "To Fix"
+msgstr "Para arreglar"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_list
+msgid "Total Anomaly Count"
+msgstr "Recuento total de anomalías"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_list
+msgid "Total Product Count"
+msgstr "Recuento total de productos"
+
+#. module: product_quality_pro
+#. odoo-python
+#: code:addons/product_quality_pro/models/product_quality.py:0
+msgid "Unknown product"
+msgstr "Producto desconocido"
+
+#. module: product_quality_pro
+#: model:res.groups,comment:product_quality_pro.group_productquali_user
+msgid "View and use the module."
+msgstr "Ver y utilizar el módulo."
+
+#. module: product_quality_pro
+#: model:ir.model.fields.selection,name:product_quality_pro.selection__product_quality_rule__severity__warning
+msgid "Warning"
+msgstr "Advertencia"
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_line_search
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_rule_search
+msgid "Warnings"
+msgstr "Advertencias"
+
+#. module: product_quality_pro
+#: model:ir.model.fields.selection,name:product_quality_pro.selection__product_quality_rule__field_key__weight
+msgid "Weight"
+msgstr "Peso"
+
+#. module: product_quality_pro
+#: model:ir.model.fields,help:product_quality_pro.field_product_quality_rule__points
+msgid "Weight of the rule in the score of a scan. A missing field removes these points from the total."
+msgstr "Peso de la regla en la puntuación de un escaneo. Un campo faltante elimina estos puntos del total."
+
+#. module: product_quality_pro
+#: model:ir.model.fields,help:product_quality_pro.field_product_quality_rule__note
+msgid "Why the field matters, and what a correct value looks like."
+msgstr "Por qué es importante el campo y cómo se ve un valor correcto."
+
+#. module: product_quality_pro
+#: model_terms:ir.ui.view,arch_db:product_quality_pro.view_product_quality_scan_search
+msgid "With Anomalies"
+msgstr "Con anomalías"
+
+#. module: product_quality_pro
+#. odoo-python
+#: code:addons/product_quality_pro/models/product_quality.py:0
+msgid "barcode is missing"
+msgstr "falta el código de barras"
+
+#. module: product_quality_pro
+#. odoo-python
+#: code:addons/product_quality_pro/models/product_quality.py:0
+msgid "cost is zero"
+msgstr "el costo es cero"
+
+#. module: product_quality_pro
+#. odoo-python
+#: code:addons/product_quality_pro/models/product_quality.py:0
+msgid "data is missing"
+msgstr "faltan datos"
+
+#. module: product_quality_pro
+#. odoo-python
+#: code:addons/product_quality_pro/models/product_quality.py:0
+msgid "product is still on the default category"
+msgstr "El producto todavía está en la categoría predeterminada."
+
+#. module: product_quality_pro
+#. odoo-python
+#: code:addons/product_quality_pro/models/product_quality.py:0
+msgid "sale price is zero"
+msgstr "el precio de venta es cero"
+
+#. module: product_quality_pro
+#. odoo-python
+#: code:addons/product_quality_pro/models/product_quality.py:0
+msgid "sales description is empty"
+msgstr "la descripción de venta está vacía"
+
+#. module: product_quality_pro
+#. odoo-python
+#: code:addons/product_quality_pro/models/product_quality.py:0
+msgid "weight is zero"
+msgstr "el peso es cero"

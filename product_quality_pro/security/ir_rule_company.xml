@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_product_quality_rule_company" model="ir.rule">
+        <field name="name">product.quality.rule: own company only</field>
+        <field name="model_id" ref="model_product_quality_rule"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_product_quality_scan_company" model="ir.rule">
+        <field name="name">product.quality.scan: own company only</field>
+        <field name="model_id" ref="model_product_quality_scan"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_product_quality_line_company" model="ir.rule">
+        <field name="name">product.quality.line: own company only</field>
+        <field name="model_id" ref="model_product_quality_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

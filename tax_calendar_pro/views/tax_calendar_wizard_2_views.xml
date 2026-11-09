@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_tax_calendar_wizard_form" model="ir.ui.view">
+        <field name="name">tax.calendar.wizard.form</field>
+        <field name="model">tax.calendar.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Deadlines">
+                <sheet>
+                    <group>
+                        <group string="Period">
+    <field name="name"/>
+    <field name="year"/>
+                        </group>
+                        <group string="Rules">
+    <field name="rule_ids"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer><button name="action_generate" type="object" string="Generate" class="btn-primary"/><button special="cancel" string="Cancel" class="btn-secondary"/></footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tax_calendar_wizard" model="ir.actions.act_window">
+        <field name="name">Generate Deadlines</field>
+        <field name="res_model">tax.calendar.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
