@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_ppe_item_user,ppe.item User,ppe.item,ppe_log_pro.group_ppelogpro_user,cr,
+access_ppe_item_manager,ppe.item Manager,ppe.item,ppe_log_pro.group_ppelogpro_manager,crud,
+access_ppe_issue_user,ppe.issue User,ppe.issue,ppe_log_pro.group_ppelogpro_user,cr,
+access_ppe_issue_manager,ppe.issue Manager,ppe.issue,ppe_log_pro.group_ppelogpro_manager,crud,
+rule_ppe_item_company,ppe.item: own company only,ppe.item,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_ppe_issue_company,ppe.issue: own company only,ppe.issue,,crud,"[('company_id', 'in', company_ids + [False])]"
