@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_anomaly_rule_company" model="ir.rule">
+        <field name="name">anomaly.rule: own company only</field>
+        <field name="model_id" ref="model_anomaly_rule"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_anomaly_flag_company" model="ir.rule">
+        <field name="name">anomaly.flag: own company only</field>
+        <field name="model_id" ref="model_anomaly_flag"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

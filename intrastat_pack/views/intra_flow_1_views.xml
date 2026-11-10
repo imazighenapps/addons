@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_intra_flow_list" model="ir.ui.view">
+        <field name="name">intra.flow.list</field>
+        <field name="model">intra.flow</field>
+        <field name="arch" type="xml">
+            <list string="Intrastat Flows">
+                <field name="report_id"/>
+                <field name="partner_country_id"/>
+                <field name="commodity_code"/>
+                <field name="product_name"/>
+                <field name="quantity"/>
+                <field name="value" sum="Total Value"/>
+                <field name="weight" sum="Total Weight"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_intra_flow_form" model="ir.ui.view">
+        <field name="name">intra.flow.form</field>
+        <field name="model">intra.flow</field>
+        <field name="arch" type="xml">
+            <form string="Intrastat Flows">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="product_name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Movement">
+    <field name="report_id"/>
+    <field name="partner_country_id"/>
+    <field name="commodity_code"/>
+    <field name="product_name"/>
+                        </group>
+                        <group string="Values">
+    <field name="quantity"/>
+    <field name="value"/>
+    <field name="weight"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_intra_flow_search" model="ir.ui.view">
+        <field name="name">intra.flow.search</field>
+        <field name="model">intra.flow</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_name"/>
+                <field name="commodity_code"/>
+                <field name="report_id"/>
+                <separator/>
+                <filter name="group_report" string="Declaration" context="{'group_by': 'report_id'}"/>
+                <filter name="group_country" string="Country" context="{'group_by': 'partner_country_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_intra_flow" model="ir.actions.act_window">
+        <field name="name">Intrastat Flows</field>
+        <field name="res_model">intra.flow</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every intra-EU movement line, ready to be reviewed before filing.</p>
+        </field>
+    </record>
+
+</odoo>
