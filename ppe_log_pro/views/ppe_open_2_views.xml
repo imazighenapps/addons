@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ppe_open_list" model="ir.ui.view">
+        <field name="name">ppe.issue.list</field>
+        <field name="model">ppe.issue</field>
+        <field name="arch" type="xml">
+            <list string="Open Issues">
+                <field name="expires_on"/>
+                <field name="employee_id"/>
+                <field name="item_id"/>
+                <field name="size"/>
+                <field name="issued_on"/>
+                <field name="signed"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ppe_open_form" model="ir.ui.view">
+        <field name="name">ppe.issue.form</field>
+        <field name="model">ppe.issue</field>
+        <field name="arch" type="xml">
+            <form string="Open Issues">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="employee_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Issue">
+    <field name="name"/>
+    <field name="item_id"/>
+    <field name="employee_id"/>
+    <field name="size"/>
+    <field name="quantity"/>
+    <field name="signed"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="issued_on"/>
+    <field name="expires_on"/>
+    <field name="state"/>
+    <field name="returned_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ppe_open_search" model="ir.ui.view">
+        <field name="name">ppe.issue.search</field>
+        <field name="model">ppe.issue</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id"/>
+                <field name="item_id"/>
+                <separator/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ppe_open" model="ir.actions.act_window">
+        <field name="name">Open Issues</field>
+        <field name="res_model">ppe.issue</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Everything still in service, the list the inspector will ask for.</p>
+        </field>
+    </record>
+
+</odoo>

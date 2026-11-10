@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ppe_issue_list" model="ir.ui.view">
+        <field name="name">ppe.issue.list</field>
+        <field name="model">ppe.issue</field>
+        <field name="arch" type="xml">
+            <list string="Equipment Issues" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="issued_on"/>
+                <field name="employee_id"/>
+                <field name="item_id"/>
+                <field name="size"/>
+                <field name="quantity"/>
+                <field name="expires_on"/>
+                <field name="signed"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ppe_issue_form" model="ir.ui.view">
+        <field name="name">ppe.issue.form</field>
+        <field name="model">ppe.issue</field>
+        <field name="arch" type="xml">
+            <form string="Equipment Issues">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="employee_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Issue">
+    <field name="name"/>
+    <field name="item_id"/>
+    <field name="employee_id"/>
+    <field name="size"/>
+    <field name="quantity"/>
+    <field name="signed"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="issued_on"/>
+    <field name="expires_on"/>
+    <field name="state"/>
+    <field name="returned_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ppe_issue_search" model="ir.ui.view">
+        <field name="name">ppe.issue.search</field>
+        <field name="model">ppe.issue</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="item_id"/>
+                <filter name="signed" string="Signed" domain="[('signed','=',True)]"/>
+                <filter name="unsigned" string="Signature Missing" domain="[('signed','=',False),('state','=','issued')]"/>
+                <separator/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_item" string="Equipment" context="{'group_by': 'item_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_ppe_issue_kanban" model="ir.ui.view">
+        <field name="name">ppe.issue.kanban</field>
+        <field name="model">ppe.issue</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="employee_id"/>
+                <field name="item_id"/>
+                <field name="issued_on"/>
+                <field name="expires_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="employee_id"/>
+                        <field name="item_id"/>
+                        <field name="issued_on"/>
+                        <field name="expires_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_ppe_issue" model="ir.actions.act_window">
+        <field name="name">Equipment Issues</field>
+        <field name="res_model">ppe.issue</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Who received what, in which size, and when it must be renewed.</p>
+        </field>
+    </record>
+
+</odoo>
