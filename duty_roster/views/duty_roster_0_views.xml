@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_duty_roster_list" model="ir.ui.view">
+        <field name="name">duty.roster.list</field>
+        <field name="model">duty.roster</field>
+        <field name="arch" type="xml">
+            <list string="Duty Rosters" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="slot_count"/>
+                <field name="compensation_total"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_duty_roster_form" model="ir.ui.view">
+        <field name="name">duty.roster.form</field>
+        <field name="model">duty.roster</field>
+        <field name="arch" type="xml">
+            <form string="Duty Rosters">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Roster">
+    <field name="name"/>
+    <field name="date_start"/>
+    <field name="date_end"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Totals">
+    <field name="slot_count"/>
+    <field name="compensation_total"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_duty_roster_search" model="ir.ui.view">
+        <field name="name">duty.roster.search</field>
+        <field name="model">duty.roster</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="published" string="Published" domain="[('state','=','published')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_duty_roster_kanban" model="ir.ui.view">
+        <field name="name">duty.roster.kanban</field>
+        <field name="model">duty.roster</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="slot_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="slot_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_duty_roster" model="ir.actions.act_window">
+        <field name="name">Duty Rosters</field>
+        <field name="res_model">duty.roster</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Plan on-call rosters weeks ahead with fair rotations.</p>
+        </field>
+    </record>
+
+</odoo>

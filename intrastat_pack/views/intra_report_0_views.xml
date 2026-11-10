@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_intra_report_list" model="ir.ui.view">
+        <field name="name">intra.report.list</field>
+        <field name="model">intra.report</field>
+        <field name="arch" type="xml">
+            <list string="Intrastat Declarations" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="direction"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <field name="line_count"/>
+                <field name="total_value" sum="Total Total Value"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_intra_report_form" model="ir.ui.view">
+        <field name="name">intra.report.form</field>
+        <field name="model">intra.report</field>
+        <field name="arch" type="xml">
+            <form string="Intrastat Declarations">
+                <header>
+                    <button name="action_review" type="object" string="Send to Review" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_file" type="object" string="File" class="btn-primary" invisible="state != 'review'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'review'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,review,filed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Declaration">
+    <field name="name"/>
+    <field name="direction"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Period">
+    <field name="period_start"/>
+    <field name="period_end"/>
+    <field name="filed_on"/>
+                        </group>
+                        <group string="Totals">
+    <field name="line_count"/>
+    <field name="total_value"/>
+    <field name="total_weight"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Flow Lines" name="lineids">
+                            <field name="line_ids" readonly="state == 'filed'">
+                        <list editable="bottom">
+                            <field name="partner_country_id"/>
+                            <field name="commodity_code"/>
+                            <field name="product_name"/>
+                            <field name="quantity"/>
+                            <field name="value" sum="Total"/>
+                            <field name="weight" sum="Total"/>
+                            <field name="company_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_intra_report_search" model="ir.ui.view">
+        <field name="name">intra.report.search</field>
+        <field name="model">intra.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="dispatch" string="Dispatch" domain="[('direction','=','dispatch')]"/>
+                <filter name="arrival" string="Arrival" domain="[('direction','=','arrival')]"/>
+                <filter name="to_file" string="To File" domain="[('state','in',('draft','review'))]"/>
+                <filter name="filed" string="Filed" domain="[('state','=','filed')]"/>
+                <separator/>
+                <filter name="group_direction" string="Direction" context="{'group_by': 'direction'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_intra_report_kanban" model="ir.ui.view">
+        <field name="name">intra.report.kanban</field>
+        <field name="model">intra.report</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="direction"/>
+                <field name="period_start"/>
+                <field name="total_value"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="direction"/>
+                        <field name="period_start"/>
+                        <field name="total_value"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_intra_report" model="ir.actions.act_window">
+        <field name="name">Intrastat Declarations</field>
+        <field name="res_model">intra.report</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Assemble each period of intra-EU flows before filing the declaration.</p>
+        </field>
+    </record>
+
+</odoo>

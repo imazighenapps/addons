@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_customs_duty_code_company" model="ir.rule">
+        <field name="name">customs.duty.code: own company only</field>
+        <field name="model_id" ref="model_customs_duty_code"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_customs_entry_company" model="ir.rule">
+        <field name="name">customs.entry: own company only</field>
+        <field name="model_id" ref="model_customs_entry"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_customs_entry_line_company" model="ir.rule">
+        <field name="name">customs.entry.line: own company only</field>
+        <field name="model_id" ref="model_customs_entry_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

@@ -1,0 +1,472 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* customs_desk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: customs_desk
+#. odoo-python
+#: code:addons/customs_desk/models/customs_entry_line.py:0
+msgid "A line on a cleared entry cannot be changed."
+msgstr "Une ligne sur une entrée effacée ne peut pas être modifiée."
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_duty_code__active
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_duty_code_search
+msgid "Active"
+msgstr "Actif"
+
+#. module: customs_desk
+#. odoo-python
+#: code:addons/customs_desk/models/customs_entry.py:0
+msgid "Add at least one line before checking %s."
+msgstr "Ajoutez au moins une ligne avant de vérifier %s."
+
+#. module: customs_desk
+#: model_terms:ir.actions.act_window,help:customs_desk.action_customs_entry_line
+msgid "All customs entry lines with their computed duty amount."
+msgstr "Toutes les lignes de saisie en douane avec leur montant de droit calculé."
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_duty_code_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_form
+msgid "Check"
+msgstr "Vérifier"
+
+#. module: customs_desk
+#: model_terms:ir.actions.act_window,help:customs_desk.action_customs_entry
+msgid "Check each import entry against the HS codes before it is cleared."
+msgstr "Vérifiez chaque entrée d'importation par rapport aux codes SH avant qu'elle ne soit effacée."
+
+#. module: customs_desk
+#: model:ir.model.fields.selection,name:customs_desk.selection__customs_entry__state__checked
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_search
+msgid "Checked"
+msgstr "À carreaux"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_form
+msgid "Clear"
+msgstr "Claire Clair"
+
+#. module: customs_desk
+#: model:ir.model.fields.selection,name:customs_desk.selection__customs_entry__state__cleared
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_search
+msgid "Cleared"
+msgstr "Effacée Effacé"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__cleared_on
+msgid "Cleared On"
+msgstr "Effacé le"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_duty_code_form
+msgid "Code"
+msgstr "Code"
+
+#. module: customs_desk
+#: model:ir.model.fields,help:customs_desk.field_customs_duty_code__code
+msgid "Commodity code used on the customs declaration."
+msgstr "Code marchandise utilisé sur la déclaration en douane."
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_duty_code__company_id
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__company_id
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: customs_desk
+#: model:res.groups,comment:customs_desk.group_customsdesk_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_duty_code__create_uid
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__create_uid
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_duty_code__create_date
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__create_date
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__currency_id
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: customs_desk
+#: model:ir.ui.menu,name:customs_desk.menu_customs_root
+msgid "Customs"
+msgstr "Douane"
+
+#. module: customs_desk
+#: model:res.groups,name:customs_desk.group_customsdesk_manager
+msgid "Customs Desk Manager"
+msgstr "Responsable du bureau des douanes"
+
+#. module: customs_desk
+#: model:res.groups,name:customs_desk.group_customsdesk_user
+msgid "Customs Desk User"
+msgstr "Utilisateur du bureau des douanes"
+
+#. module: customs_desk
+#: model:ir.actions.act_window,name:customs_desk.action_customs_entry
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_form
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_list
+msgid "Customs Entries"
+msgstr "Entrées en douane"
+
+#. module: customs_desk
+#: model:ir.model,name:customs_desk.model_customs_entry
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__entry_id
+msgid "Customs Entry"
+msgstr "Entrée en douane"
+
+#. module: customs_desk
+#: model:ir.model,name:customs_desk.model_customs_entry_line
+msgid "Customs Entry Line"
+msgstr "Ligne d'entrée en douane"
+
+#. module: customs_desk
+#: model:ir.model,name:customs_desk.model_customs_duty_code
+msgid "Customs HS Code"
+msgstr "Code SH des douanes"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__customs_value
+msgid "Customs Value"
+msgstr "Valeur en douane"
+
+#. module: customs_desk
+#: model:ir.module.module,shortdesc:base.module_customs_desk
+msgid "CustomsDesk"
+msgstr "Bureau des douanes"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_form
+msgid "Dates"
+msgstr "Dates"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__declaration_date
+msgid "Declaration Date"
+msgstr "Date de déclaration"
+
+#. module: customs_desk
+#: model:ir.model.fields,help:customs_desk.field_customs_entry__name
+msgid "Declaration or entry number provided by the broker."
+msgstr "Numéro de déclaration ou d'entrée fourni par le courtier."
+
+#. module: customs_desk
+#: model:ir.model.fields,help:customs_desk.field_customs_entry_line__customs_value
+msgid "Declared customs value of this line."
+msgstr "Valeur en douane déclarée de cette ligne."
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_duty_code__name
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__description
+msgid "Description"
+msgstr "Description"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_duty_code__display_name
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__display_name
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: customs_desk
+#: model:ir.model.fields.selection,name:customs_desk.selection__customs_entry__state__draft
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_search
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_duty_code_form
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_line_form
+msgid "Duty"
+msgstr "Devoir"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__duty_amount
+msgid "Duty Amount"
+msgstr "Montant des droits"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_duty_code__duty_rate
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__duty_rate
+msgid "Duty Rate (%)"
+msgstr "Taux de droit (%)"
+
+#. module: customs_desk
+#: model:ir.model.fields,help:customs_desk.field_customs_entry_line__duty_amount
+msgid "Duty computed from the customs value and the HS code rate."
+msgstr "Droit calculé à partir de la valeur en douane et du taux du code SH."
+
+#. module: customs_desk
+#: model:ir.ui.menu,name:customs_desk.menu_customs_entries
+msgid "Entries"
+msgstr "Entrées"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_form
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_line_search
+msgid "Entry"
+msgstr "Entrée"
+
+#. module: customs_desk
+#: model:ir.actions.act_window,name:customs_desk.action_customs_entry_line
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__line_ids
+#: model:ir.ui.menu,name:customs_desk.menu_customs_lines
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_line_form
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_line_list
+msgid "Entry Lines"
+msgstr "Lignes d'entrée"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__name
+msgid "Entry Reference"
+msgstr "Référence d'entrée"
+
+#. module: customs_desk
+#. odoo-python
+#: code:addons/customs_desk/models/customs_entry.py:0
+msgid "Entry checked."
+msgstr "Entrée vérifiée."
+
+#. module: customs_desk
+#. odoo-python
+#: code:addons/customs_desk/models/customs_entry.py:0
+msgid "Entry cleared with a total duty of %s."
+msgstr "Entrée dédouanée avec un droit total de %s."
+
+#. module: customs_desk
+#. odoo-python
+#: code:addons/customs_desk/models/customs_entry.py:0
+msgid "Entry reset to draft."
+msgstr "Entrée réinitialisée au brouillon."
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_duty_code__code
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__duty_code_id
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_line_search
+msgid "HS Code"
+msgstr "Code SH"
+
+#. module: customs_desk
+#: model:ir.actions.act_window,name:customs_desk.action_customs_duty_code
+#: model:ir.ui.menu,name:customs_desk.menu_customs_codes
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_duty_code_form
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_duty_code_list
+msgid "HS Codes"
+msgstr "Codes SH"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_duty_code__has_message
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: customs_desk
+#: model:ir.module.module,summary:base.module_customs_desk
+msgid "Keep HS codes and duty rates on your imported products and check every customs entry against them."
+msgstr "Conservez les codes SH et les taux de droits sur vos produits importés et vérifiez chaque entrée en douane par rapport à eux."
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_duty_code__write_uid
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__write_uid
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_duty_code__write_date
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__write_date
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_line_form
+msgid "Line"
+msgstr "Doubler"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__line_count
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_form
+msgid "Lines"
+msgstr "Lignes"
+
+#. module: customs_desk
+#: model_terms:ir.actions.act_window,help:customs_desk.action_customs_duty_code
+msgid "Maintain the HS codes and duty rates used to check each customs entry."
+msgstr "Gérez les codes SH et les taux de droits utilisés pour vérifier chaque entrée en douane."
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_duty_code__note
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__note
+msgid "Note"
+msgstr "Note"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_duty_code_form
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: customs_desk
+#. odoo-python
+#: code:addons/customs_desk/models/customs_entry.py:0
+msgid "Only a checked entry can be cleared."
+msgstr "Seule une entrée cochée peut être effacée."
+
+#. module: customs_desk
+#. odoo-python
+#: code:addons/customs_desk/models/customs_entry.py:0
+msgid "Only a checked entry can be reset to draft."
+msgstr "Seule une entrée cochée peut être réinitialisée au statut de brouillon."
+
+#. module: customs_desk
+#. odoo-python
+#: code:addons/customs_desk/models/customs_entry.py:0
+msgid "Only a draft entry can be checked."
+msgstr "Seul un brouillon d’entrée peut être vérifié."
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__country_id
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_search
+msgid "Origin Country"
+msgstr "Pays d'origine"
+
+#. module: customs_desk
+#: model:ir.model.fields,help:customs_desk.field_customs_duty_code__duty_rate
+#: model:ir.model.fields,help:customs_desk.field_customs_entry_line__duty_rate
+msgid "Percentage of the customs value charged as duty."
+msgstr "Pourcentage de la valeur en douane perçue en droit."
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry_line__quantity
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_form
+msgid "Reset to Draft"
+msgstr "Réinitialiser au brouillon"
+
+#. module: customs_desk
+#: model:ir.model.fields,help:customs_desk.field_customs_duty_code__name
+msgid "Short description of the goods covered by this HS code."
+msgstr "Brève description des marchandises couvertes par ce code SH."
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__state
+msgid "State"
+msgstr "Statut"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__partner_id
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_search
+msgid "Supplier"
+msgstr "Fournisseur"
+
+#. module: customs_desk
+#. odoo-python
+#: code:addons/customs_desk/models/customs_entry.py:0
+msgid "The cleared entry %s cannot be changed."
+msgstr "L'entrée effacée %s ne peut pas être modifiée."
+
+#. module: customs_desk
+#. odoo-python
+#: code:addons/customs_desk/models/customs_entry_line.py:0
+msgid "The cleared entry %s cannot receive new lines."
+msgstr "L'entrée effacée %s ne peut pas recevoir de nouvelles lignes."
+
+#. module: customs_desk
+#. odoo-python
+#: code:addons/customs_desk/models/customs_entry_line.py:0
+msgid "The customs value of %s cannot be negative."
+msgstr "La valeur en douane de %s ne peut pas être négative."
+
+#. module: customs_desk
+#. odoo-python
+#: code:addons/customs_desk/models/customs_duty_code.py:0
+msgid "The duty rate of %s must be between 0 and 100."
+msgstr "Le taux de droit de %s doit être compris entre 0 et 100."
+
+#. module: customs_desk
+#. odoo-python
+#: code:addons/customs_desk/models/customs_entry_line.py:0
+msgid "The quantity of %s must be above zero."
+msgstr "La quantité de %s doit être supérieure à zéro."
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_search
+msgid "To Check"
+msgstr "À vérifier"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_form
+msgid "Total"
+msgstr "Total"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__total_value
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_line_list
+msgid "Total Customs Value"
+msgstr "Valeur totale en douane"
+
+#. module: customs_desk
+#: model:ir.model.fields,field_description:customs_desk.field_customs_entry__total_duty
+msgid "Total Duty"
+msgstr "Droits totaux"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_line_list
+msgid "Total Duty Amount"
+msgstr "Montant total des droits"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_list
+msgid "Total Total Duty"
+msgstr "Total Droits totaux"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_list
+msgid "Total Total Value"
+msgstr "Valeur Valeur totale"
+
+#. module: customs_desk
+#: model_terms:ir.ui.view,arch_db:customs_desk.view_customs_entry_form
+msgid "Totals"
+msgstr "Totaux"
+
+#. module: customs_desk
+#: model:res.groups,comment:customs_desk.group_customsdesk_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."

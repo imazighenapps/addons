@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_earlypay_offer_list" model="ir.ui.view">
+        <field name="name">earlypay.offer.list</field>
+        <field name="model">earlypay.offer</field>
+        <field name="arch" type="xml">
+            <list string="Early Payment Offers" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="invoice_date"/>
+                <field name="discount_deadline"/>
+                <field name="due_date"/>
+                <field name="gross_amount" sum="Total Gross Amount"/>
+                <field name="discount_rate"/>
+                <field name="discount_amount" sum="Total Discount Amount"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_earlypay_offer_form" model="ir.ui.view">
+        <field name="name">earlypay.offer.form</field>
+        <field name="model">earlypay.offer</field>
+        <field name="arch" type="xml">
+            <form string="Early Payment Offers">
+                <header>
+                    <button name="action_capture" type="object" string="Capture Discount" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_miss" type="object" string="Mark Missed" class="btn-secondary" invisible="state != 'open'"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-link" invisible="state == 'open'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,captured,missed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Offer">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Dates">
+    <field name="invoice_date"/>
+    <field name="discount_deadline"/>
+    <field name="due_date"/>
+    <field name="decided_on"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="currency_id"/>
+    <field name="gross_amount"/>
+    <field name="discount_rate"/>
+    <field name="discount_amount"/>
+    <field name="net_amount"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_earlypay_offer_search" model="ir.ui.view">
+        <field name="name">earlypay.offer.search</field>
+        <field name="model">earlypay.offer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="captured" string="Captured" domain="[('state','=','captured')]"/>
+                <filter name="missed" string="Missed" domain="[('state','=','missed')]"/>
+                <separator/>
+                <filter name="group_vendor" string="Vendor" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_earlypay_offer_kanban" model="ir.ui.view">
+        <field name="name">earlypay.offer.kanban</field>
+        <field name="model">earlypay.offer</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="discount_deadline"/>
+                <field name="discount_amount"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="discount_deadline"/>
+                        <field name="discount_amount"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_earlypay_offer" model="ir.actions.act_window">
+        <field name="name">Early Payment Offers</field>
+        <field name="res_model">earlypay.offer</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record every supplier discount offer and decide before the window closes.</p>
+        </field>
+    </record>
+
+</odoo>

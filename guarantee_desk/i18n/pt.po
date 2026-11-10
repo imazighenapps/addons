@@ -1,0 +1,417 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* guarantee_desk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: guarantee_desk
+#. odoo-python
+#: code:addons/guarantee_desk/models/bank_guarantee_renewal.py:0
+msgid "A released guarantee cannot be renewed."
+msgstr "Uma garantia liberada não pode ser renovada."
+
+#. module: guarantee_desk
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_form
+msgid "Activate"
+msgstr "Ativar"
+
+#. module: guarantee_desk
+#: model:ir.model.fields.selection,name:guarantee_desk.selection__bank_guarantee__state__active
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_search
+msgid "Active"
+msgstr "Ativo"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__is_active
+msgid "Active Guarantee"
+msgstr "Garantia Ativa"
+
+#. module: guarantee_desk
+#: model:ir.model.fields.selection,name:guarantee_desk.selection__bank_guarantee__guarantee_type__advance
+msgid "Advance Payment"
+msgstr "Pagamento antecipado"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__amount
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_form
+msgid "Amount"
+msgstr "Montante"
+
+#. module: guarantee_desk
+#: model:ir.model,name:guarantee_desk.model_bank_guarantee
+msgid "Bank Guarantee"
+msgstr "Garantia Bancária"
+
+#. module: guarantee_desk
+#: model:ir.actions.act_window,name:guarantee_desk.action_bank_guarantee
+#: model:ir.ui.menu,name:guarantee_desk.menu_guarantee_letters
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_form
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_list
+msgid "Bank Guarantees"
+msgstr "Garantias Bancárias"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__beneficiary_id
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_search
+msgid "Beneficiary"
+msgstr "Beneficiária Beneficiário"
+
+#. module: guarantee_desk
+#: model:ir.model.fields.selection,name:guarantee_desk.selection__bank_guarantee__guarantee_type__bid
+msgid "Bid Bond"
+msgstr "Garantia de oferta"
+
+#. module: guarantee_desk
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: guarantee_desk
+#: model:ir.model.fields.selection,name:guarantee_desk.selection__bank_guarantee__state__cancelled
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_search
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__company_id
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee_renewal__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: guarantee_desk
+#: model:res.groups,comment:guarantee_desk.group_guaranteedes_manager
+msgid "Configure and administer the module."
+msgstr "Configure e administre o módulo."
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__create_uid
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee_renewal__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__create_date
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee_renewal__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__currency_id
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee_renewal__currency_id
+msgid "Currency"
+msgstr "Moeda"
+
+#. module: guarantee_desk
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_form
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_renewal_form
+msgid "Dates"
+msgstr "Datas"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__display_name
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee_renewal__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: guarantee_desk
+#: model:ir.model.fields.selection,name:guarantee_desk.selection__bank_guarantee__state__draft
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: guarantee_desk
+#: model_terms:ir.actions.act_window,help:guarantee_desk.action_bank_guarantee_renewal
+msgid "Every renewal logged against a guarantee, with its fee and new expiry."
+msgstr "Cada renovação registrada contra garantia, com sua taxa e novo vencimento."
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__expiry_date
+msgid "Expiry Date"
+msgstr "Data de validade"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee_renewal__fee
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_renewal_form
+msgid "Fee"
+msgstr "Taxa"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee_renewal__guarantee_id
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_form
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_renewal_search
+msgid "Guarantee"
+msgstr "Garantia"
+
+#. module: guarantee_desk
+#: model:res.groups,name:guarantee_desk.group_guaranteedes_manager
+msgid "Guarantee Desk Manager"
+msgstr "Gerente de Garantia"
+
+#. module: guarantee_desk
+#: model:res.groups,name:guarantee_desk.group_guaranteedes_user
+msgid "Guarantee Desk User"
+msgstr "Usuário do balcão de garantia"
+
+#. module: guarantee_desk
+#: model:ir.model,name:guarantee_desk.model_bank_guarantee_renewal
+msgid "Guarantee Renewal"
+msgstr "Renovação de Garantia"
+
+#. module: guarantee_desk
+#: model:ir.actions.act_window,name:guarantee_desk.action_bank_guarantee_renewal
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_renewal_form
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_renewal_list
+msgid "Guarantee Renewals"
+msgstr "Renovações de garantia"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__guarantee_type
+msgid "Guarantee Type"
+msgstr "Tipo de garantia"
+
+#. module: guarantee_desk
+#. odoo-python
+#: code:addons/guarantee_desk/models/bank_guarantee.py:0
+msgid "Guarantee activated."
+msgstr "Garantia ativada."
+
+#. module: guarantee_desk
+#. odoo-python
+#: code:addons/guarantee_desk/models/bank_guarantee.py:0
+msgid "Guarantee cancelled."
+msgstr "Garantia cancelada."
+
+#. module: guarantee_desk
+#: model:ir.model.fields,help:guarantee_desk.field_bank_guarantee__name
+msgid "Guarantee or standby letter reference given by the bank."
+msgstr "Referência de garantia ou carta de reserva fornecida pelo banco."
+
+#. module: guarantee_desk
+#. odoo-python
+#: code:addons/guarantee_desk/models/bank_guarantee.py:0
+msgid "Guarantee released."
+msgstr "Garantia liberada."
+
+#. module: guarantee_desk
+#. odoo-python
+#: code:addons/guarantee_desk/models/bank_guarantee_renewal.py:0
+msgid "Guarantee renewed until %s."
+msgstr "Garantia renovada até %s."
+
+#. module: guarantee_desk
+#: model:ir.module.module,shortdesc:base.module_guarantee_desk
+msgid "GuaranteeBook"
+msgstr "GarantiaLivro"
+
+#. module: guarantee_desk
+#: model:ir.ui.menu,name:guarantee_desk.menu_guarantee_root
+msgid "Guarantees"
+msgstr "Garantias"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__issue_date
+msgid "Issue Date"
+msgstr "Data de emissão"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__issuing_bank_id
+msgid "Issuing Bank"
+msgstr "Banco Emissor"
+
+#. module: guarantee_desk
+#: model_terms:ir.actions.act_window,help:guarantee_desk.action_bank_guarantee
+msgid "Keep every guarantee, its expiry and its release in one register."
+msgstr "Mantenha todas as garantias, seu vencimento e sua liberação em um único registro."
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__write_uid
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee_renewal__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__write_date
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee_renewal__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee_renewal__new_expiry
+msgid "New Expiry"
+msgstr "Nova expiração"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__note
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee_renewal__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: guarantee_desk
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: guarantee_desk
+#. odoo-python
+#: code:addons/guarantee_desk/models/bank_guarantee.py:0
+msgid "Only a draft guarantee can be activated."
+msgstr "Apenas um projecto de garantia pode ser ativado."
+
+#. module: guarantee_desk
+#. odoo-python
+#: code:addons/guarantee_desk/models/bank_guarantee.py:0
+msgid "Only a draft or active guarantee can be cancelled."
+msgstr "Apenas um saque ou garantia ativa pode ser cancelado."
+
+#. module: guarantee_desk
+#. odoo-python
+#: code:addons/guarantee_desk/models/bank_guarantee.py:0
+msgid "Only an active guarantee can be released."
+msgstr "Apenas uma garantia ativa pode ser liberada."
+
+#. module: guarantee_desk
+#: model:ir.model.fields.selection,name:guarantee_desk.selection__bank_guarantee__guarantee_type__performance
+msgid "Performance Guarantee"
+msgstr "Garantia de Desempenho"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee_renewal__previous_expiry
+msgid "Previous Expiry"
+msgstr "Expiração anterior"
+
+#. module: guarantee_desk
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_form
+msgid "Release"
+msgstr "Liberar"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__release_date
+msgid "Release Date"
+msgstr "Data de lançamento"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__release_note
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_form
+msgid "Release Note"
+msgstr "Nota de lançamento"
+
+#. module: guarantee_desk
+#: model:ir.model.fields.selection,name:guarantee_desk.selection__bank_guarantee__state__released
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_search
+msgid "Released"
+msgstr "Lançada Lançado"
+
+#. module: guarantee_desk
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_renewal_form
+msgid "Renewal"
+msgstr "Renovação"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__renewal_count
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__renewal_ids
+#: model:ir.ui.menu,name:guarantee_desk.menu_guarantee_renewals
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_form
+msgid "Renewals"
+msgstr "Renovações"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee_renewal__renewed_on
+msgid "Renewed On"
+msgstr "Renovado em"
+
+#. module: guarantee_desk
+#: model:ir.model.fields.selection,name:guarantee_desk.selection__bank_guarantee__guarantee_type__standby
+msgid "Standby Letter of Credit"
+msgstr "Carta de Crédito Espera"
+
+#. module: guarantee_desk
+#: model:ir.model.fields,field_description:guarantee_desk.field_bank_guarantee__state
+msgid "State"
+msgstr "Estado"
+
+#. module: guarantee_desk
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: guarantee_desk
+#. odoo-python
+#: code:addons/guarantee_desk/models/bank_guarantee.py:0
+msgid "The amount of %s must be above zero."
+msgstr "A quantidade de %s deve estar acima de zero."
+
+#. module: guarantee_desk
+#. odoo-python
+#: code:addons/guarantee_desk/models/bank_guarantee.py:0
+msgid "The expiry date of %s cannot be before its issue date."
+msgstr "A data de validade do %s não pode ser anterior à data de emissão."
+
+#. module: guarantee_desk
+#. odoo-python
+#: code:addons/guarantee_desk/models/bank_guarantee_renewal.py:0
+msgid "The new expiry date must be after the previous one."
+msgstr "A nova data de validade deve ser posterior à anterior."
+
+#. module: guarantee_desk
+#. odoo-python
+#: code:addons/guarantee_desk/models/bank_guarantee.py:0
+msgid "The release date of %s cannot be before its issue date."
+msgstr "A data de lançamento do %s não pode ser anterior à data de emissão."
+
+#. module: guarantee_desk
+#. odoo-python
+#: code:addons/guarantee_desk/models/bank_guarantee_renewal.py:0
+msgid "The renewal fee cannot be negative."
+msgstr "A taxa de renovação não pode ser negativa."
+
+#. module: guarantee_desk
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_form
+msgid "Total"
+msgstr "Total"
+
+#. module: guarantee_desk
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_list
+msgid "Total Amount"
+msgstr "Montante total"
+
+#. module: guarantee_desk
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_renewal_list
+msgid "Total Fee"
+msgstr "Taxa total"
+
+#. module: guarantee_desk
+#: model:ir.module.module,summary:base.module_guarantee_desk
+msgid "Track every bank guarantee or standby letter from issue to release and never pay avoidable renewal fees."
+msgstr "Acompanhe todas as garantias bancárias ou cartas de espera desde a emissão até a liberação e nunca pague taxas de renovação evitáveis."
+
+#. module: guarantee_desk
+#: model:ir.model.fields,help:guarantee_desk.field_bank_guarantee__is_active
+msgid "True while the guarantee is active and not yet released."
+msgstr "Verdadeiro enquanto a garantia estiver ativa e ainda não liberada."
+
+#. module: guarantee_desk
+#: model_terms:ir.ui.view,arch_db:guarantee_desk.view_bank_guarantee_search
+msgid "Type"
+msgstr "Tipo"
+
+#. module: guarantee_desk
+#: model:res.groups,comment:guarantee_desk.group_guaranteedes_user
+msgid "View and use the module."
+msgstr "Visualize e use o módulo."
+
+#. module: guarantee_desk
+#: model:ir.model.fields.selection,name:guarantee_desk.selection__bank_guarantee__guarantee_type__warranty
+msgid "Warranty"
+msgstr "Garantia"

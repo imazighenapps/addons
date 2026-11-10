@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_skill_skill_list" model="ir.ui.view">
+        <field name="name">skill.skill.list</field>
+        <field name="model">skill.skill</field>
+        <field name="arch" type="xml">
+            <list string="Skills">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="required_count"/>
+                <field name="holder_count"/>
+                <field name="certified_count"/>
+                <field name="certification_required"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_skill_skill_form" model="ir.ui.view">
+        <field name="name">skill.skill.form</field>
+        <field name="model">skill.skill</field>
+        <field name="arch" type="xml">
+            <form string="Skills">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Skill">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="certification_required"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Coverage">
+    <field name="required_count"/>
+    <field name="holder_count"/>
+    <field name="certified_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_skill_skill_search" model="ir.ui.view">
+        <field name="name">skill.skill.search</field>
+        <field name="model">skill.skill</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <filter name="cert_required" string="Certification Required" domain="[('certification_required','=',True)]"/>
+                <filter name="active" string="Active" domain="[('active','=',True)]"/>
+                <separator/>
+                <filter name="group_cert" string="Certification Required" context="{'group_by': 'certification_required'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_skill_skill_kanban" model="ir.ui.view">
+        <field name="name">skill.skill.kanban</field>
+        <field name="model">skill.skill</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="certification_required" sample="1">
+                <field name="certification_required"/>
+                <field name="name"/>
+                <field name="required_count"/>
+                <field name="certified_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="certification_required" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="required_count"/>
+                        <field name="certified_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_skill_skill" model="ir.actions.act_window">
+        <field name="name">Skills</field>
+        <field name="res_model">skill.skill</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Define the skills and coverage your teams depend on.</p>
+        </field>
+    </record>
+
+</odoo>

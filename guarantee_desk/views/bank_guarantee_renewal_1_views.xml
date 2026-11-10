@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_bank_guarantee_renewal_list" model="ir.ui.view">
+        <field name="name">bank.guarantee.renewal.list</field>
+        <field name="model">bank.guarantee.renewal</field>
+        <field name="arch" type="xml">
+            <list string="Guarantee Renewals">
+                <field name="guarantee_id"/>
+                <field name="renewed_on"/>
+                <field name="previous_expiry"/>
+                <field name="new_expiry"/>
+                <field name="fee" sum="Total Fee"/>
+                <field name="note"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_bank_guarantee_renewal_form" model="ir.ui.view">
+        <field name="name">bank.guarantee.renewal.form</field>
+        <field name="model">bank.guarantee.renewal</field>
+        <field name="arch" type="xml">
+            <form string="Guarantee Renewals">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="guarantee_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Renewal">
+    <field name="guarantee_id"/>
+    <field name="renewed_on"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Dates">
+    <field name="previous_expiry"/>
+    <field name="new_expiry"/>
+                        </group>
+                        <group string="Fee">
+    <field name="fee"/>
+    <field name="currency_id"/>
+    <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bank_guarantee_renewal_search" model="ir.ui.view">
+        <field name="name">bank.guarantee.renewal.search</field>
+        <field name="model">bank.guarantee.renewal</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="guarantee_id"/>
+                <field name="note"/>
+                <separator/>
+                <filter name="group_guarantee" string="Guarantee" context="{'group_by': 'guarantee_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_bank_guarantee_renewal" model="ir.actions.act_window">
+        <field name="name">Guarantee Renewals</field>
+        <field name="res_model">bank.guarantee.renewal</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every renewal logged against a guarantee, with its fee and new expiry.</p>
+        </field>
+    </record>
+
+</odoo>
