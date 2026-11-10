@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_backorder_case_list" model="ir.ui.view">
+        <field name="name">backorder.case.list</field>
+        <field name="model">backorder.case</field>
+        <field name="arch" type="xml">
+            <list string="Backorder Cases" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="product_name"/>
+                <field name="missing_qty"/>
+                <field name="promised_date"/>
+                <field name="is_late"/>
+                <field name="update_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_backorder_case_form" model="ir.ui.view">
+        <field name="name">backorder.case.form</field>
+        <field name="model">backorder.case</field>
+        <field name="arch" type="xml">
+            <form string="Backorder Cases">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Case">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="product_name"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Quantities">
+    <field name="ordered_qty"/>
+    <field name="missing_qty"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="promised_date"/>
+    <field name="is_late"/>
+    <field name="state"/>
+    <field name="resolved_on"/>
+    <field name="update_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Customer Message" name="customermessage">
+                            <field name="customer_message"/>
+                        </page>
+                        <page string="Updates" name="updateids">
+                            <field name="update_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_backorder_case_search" model="ir.ui.view">
+        <field name="name">backorder.case.search</field>
+        <field name="model">backorder.case</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="product_name"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="resolved" string="Resolved" domain="[('state','=','resolved')]"/>
+                <filter name="late" string="Late" domain="[('is_late','=',True)]"/>
+                <separator/>
+                <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_backorder_case_kanban" model="ir.ui.view">
+        <field name="name">backorder.case.kanban</field>
+        <field name="model">backorder.case</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="product_name"/>
+                <field name="missing_qty"/>
+                <field name="promised_date"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="product_name"/>
+                        <field name="missing_qty"/>
+                        <field name="promised_date"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_backorder_case" model="ir.actions.act_window">
+        <field name="name">Backorder Cases</field>
+        <field name="res_model">backorder.case</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">One queue for every shortage: what is missing, when it is promised and what to tell the customer.</p>
+        </field>
+    </record>
+
+</odoo>
