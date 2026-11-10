@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_backorder_case_user,backorder.case User,backorder.case,backorder_desk.group_backorderdes_user,cru,
+access_backorder_case_manager,backorder.case Manager,backorder.case,backorder_desk.group_backorderdes_manager,crud,
+access_backorder_update_user,backorder.update User,backorder.update,backorder_desk.group_backorderdes_user,cru,
+access_backorder_update_manager,backorder.update Manager,backorder.update,backorder_desk.group_backorderdes_manager,crud,
+rule_backorder_case_company,backorder.case: own company only,backorder.case,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_backorder_update_company,backorder.update: own company only,backorder.update,,crud,"[('company_id', 'in', company_ids + [False])]"
