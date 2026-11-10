@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_asset_inventory_user,asset.inventory User,asset.inventory,asset_check.group_assetcheck_user,crud,
+access_asset_inventory_manager,asset.inventory Manager,asset.inventory,asset_check.group_assetcheck_manager,crud,
+access_asset_inventory_line_user,asset.inventory.line User,asset.inventory.line,asset_check.group_assetcheck_user,crud,
+access_asset_inventory_line_manager,asset.inventory.line Manager,asset.inventory.line,asset_check.group_assetcheck_manager,crud,
+rule_asset_inventory_company,asset.inventory: own company only,asset.inventory,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_asset_inventory_line_company,asset.inventory.line: own company only,asset.inventory.line,,crud,"[('company_id', 'in', company_ids + [False])]"

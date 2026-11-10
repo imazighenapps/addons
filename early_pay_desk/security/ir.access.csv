@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_earlypay_offer_user,earlypay.offer User,earlypay.offer,early_pay_desk.group_earlypaydesk_user,crud,
+access_earlypay_offer_manager,earlypay.offer Manager,earlypay.offer,early_pay_desk.group_earlypaydesk_manager,crud,
+rule_earlypay_offer_company,earlypay.offer: own company only,earlypay.offer,,crud,"[('company_id', 'in', company_ids + [False])]"

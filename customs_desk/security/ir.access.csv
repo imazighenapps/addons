@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_customs_duty_code_user,customs.duty.code User,customs.duty.code,customs_desk.group_customsdesk_user,crud,
+access_customs_duty_code_manager,customs.duty.code Manager,customs.duty.code,customs_desk.group_customsdesk_manager,crud,
+access_customs_entry_user,customs.entry User,customs.entry,customs_desk.group_customsdesk_user,crud,
+access_customs_entry_manager,customs.entry Manager,customs.entry,customs_desk.group_customsdesk_manager,crud,
+access_customs_entry_line_user,customs.entry.line User,customs.entry.line,customs_desk.group_customsdesk_user,crud,
+access_customs_entry_line_manager,customs.entry.line Manager,customs.entry.line,customs_desk.group_customsdesk_manager,crud,
+rule_customs_duty_code_company,customs.duty.code: own company only,customs.duty.code,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_customs_entry_company,customs.entry: own company only,customs.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_customs_entry_line_company,customs.entry.line: own company only,customs.entry.line,,crud,"[('company_id', 'in', company_ids + [False])]"

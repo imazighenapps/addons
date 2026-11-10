@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_skill_assignment_list" model="ir.ui.view">
+        <field name="name">skill.assignment.list</field>
+        <field name="model">skill.assignment</field>
+        <field name="arch" type="xml">
+            <list string="Skill Assignments" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="employee_id"/>
+                <field name="skill_id"/>
+                <field name="level"/>
+                <field name="certified_on"/>
+                <field name="expires_on"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_skill_assignment_form" model="ir.ui.view">
+        <field name="name">skill.assignment.form</field>
+        <field name="model">skill.assignment</field>
+        <field name="arch" type="xml">
+            <form string="Skill Assignments">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Assignment">
+    <field name="employee_id"/>
+    <field name="skill_id"/>
+    <field name="level"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Certification">
+    <field name="certified_on"/>
+    <field name="expires_on"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_skill_assignment_search" model="ir.ui.view">
+        <field name="name">skill.assignment.search</field>
+        <field name="model">skill.assignment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="skill_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="certified" string="Certified" domain="[('state','=','certified')]"/>
+                <filter name="expired" string="Expired" domain="[('state','=','expired')]"/>
+                <separator/>
+                <filter name="group_skill" string="Skill" context="{'group_by': 'skill_id'}"/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_skill_assignment_kanban" model="ir.ui.view">
+        <field name="name">skill.assignment.kanban</field>
+        <field name="model">skill.assignment</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="employee_id"/>
+                <field name="skill_id"/>
+                <field name="level"/>
+                <field name="certified_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="employee_id"/>
+                        <field name="skill_id"/>
+                        <field name="level"/>
+                        <field name="certified_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_skill_assignment" model="ir.actions.act_window">
+        <field name="name">Skill Assignments</field>
+        <field name="res_model">skill.assignment</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Track who holds which skill and its certification status.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_training_session_list" model="ir.ui.view">
+        <field name="name">training.session.list</field>
+        <field name="model">training.session</field>
+        <field name="arch" type="xml">
+            <list string="Training Sessions" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="date_start"/>
+                <field name="name"/>
+                <field name="topic"/>
+                <field name="trainer_id"/>
+                <field name="capacity"/>
+                <field name="attendee_count"/>
+                <field name="certificate_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_training_session_form" model="ir.ui.view">
+        <field name="name">training.session.form</field>
+        <field name="model">training.session</field>
+        <field name="arch" type="xml">
+            <form string="Training Sessions">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Session">
+    <field name="name"/>
+    <field name="topic"/>
+    <field name="trainer_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Schedule">
+    <field name="date_start"/>
+    <field name="date_end"/>
+    <field name="capacity"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Counters">
+    <field name="attendee_count"/>
+    <field name="certificate_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_training_session_search" model="ir.ui.view">
+        <field name="name">training.session.search</field>
+        <field name="model">training.session</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="topic"/>
+                <field name="trainer_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <separator/>
+                <filter name="group_trainer" string="Trainer" context="{'group_by': 'trainer_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_training_session_kanban" model="ir.ui.view">
+        <field name="name">training.session.kanban</field>
+        <field name="model">training.session</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="topic"/>
+                <field name="date_start"/>
+                <field name="trainer_id"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="topic"/>
+                        <field name="date_start"/>
+                        <field name="trainer_id"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_training_session" model="ir.actions.act_window">
+        <field name="name">Training Sessions</field>
+        <field name="res_model">training.session</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Plan sessions, track attendance and issue certificates.</p>
+        </field>
+    </record>
+
+</odoo>

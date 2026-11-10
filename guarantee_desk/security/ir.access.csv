@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_bank_guarantee_user,bank.guarantee User,bank.guarantee,guarantee_desk.group_guaranteedes_user,crud,
+access_bank_guarantee_manager,bank.guarantee Manager,bank.guarantee,guarantee_desk.group_guaranteedes_manager,crud,
+access_bank_guarantee_renewal_user,bank.guarantee.renewal User,bank.guarantee.renewal,guarantee_desk.group_guaranteedes_user,crud,
+access_bank_guarantee_renewal_manager,bank.guarantee.renewal Manager,bank.guarantee.renewal,guarantee_desk.group_guaranteedes_manager,crud,
+rule_bank_guarantee_company,bank.guarantee: own company only,bank.guarantee,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_bank_guarantee_renewal_company,bank.guarantee.renewal: own company only,bank.guarantee.renewal,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_customs_entry_list" model="ir.ui.view">
+        <field name="name">customs.entry.list</field>
+        <field name="model">customs.entry</field>
+        <field name="arch" type="xml">
+            <list string="Customs Entries" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="country_id"/>
+                <field name="declaration_date"/>
+                <field name="line_count"/>
+                <field name="total_value" sum="Total Total Value"/>
+                <field name="total_duty" sum="Total Total Duty"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_customs_entry_form" model="ir.ui.view">
+        <field name="name">customs.entry.form</field>
+        <field name="model">customs.entry</field>
+        <field name="arch" type="xml">
+            <form string="Customs Entries">
+                <header>
+                    <button name="action_check" type="object" string="Check" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_clear" type="object" string="Clear" class="btn-primary" invisible="state != 'checked'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'checked'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,checked,cleared"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Entry">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="country_id"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Dates">
+    <field name="declaration_date"/>
+    <field name="cleared_on"/>
+                        </group>
+                        <group string="Totals">
+    <field name="currency_id"/>
+    <field name="line_count"/>
+    <field name="total_value"/>
+    <field name="total_duty"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" name="lineids">
+                            <field name="line_ids" readonly="state == 'cleared'">
+                        <list editable="bottom">
+                            <field name="duty_code_id"/>
+                            <field name="description"/>
+                            <field name="quantity"/>
+                            <field name="customs_value" sum="Total"/>
+                            <field name="duty_rate"/>
+                            <field name="duty_amount" sum="Total"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_customs_entry_search" model="ir.ui.view">
+        <field name="name">customs.entry.search</field>
+        <field name="model">customs.entry</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="checked" string="Checked" domain="[('state','=','checked')]"/>
+                <filter name="cleared" string="Cleared" domain="[('state','=','cleared')]"/>
+                <filter name="to_check" string="To Check" domain="[('state','in',('draft','checked'))]"/>
+                <separator/>
+                <filter name="group_supplier" string="Supplier" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_country" string="Origin Country" context="{'group_by': 'country_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_customs_entry_kanban" model="ir.ui.view">
+        <field name="name">customs.entry.kanban</field>
+        <field name="model">customs.entry</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="declaration_date"/>
+                <field name="total_duty"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="declaration_date"/>
+                        <field name="total_duty"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_customs_entry" model="ir.actions.act_window">
+        <field name="name">Customs Entries</field>
+        <field name="res_model">customs.entry</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Check each import entry against the HS codes before it is cleared.</p>
+        </field>
+    </record>
+
+</odoo>

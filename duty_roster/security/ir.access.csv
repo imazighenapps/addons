@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_duty_roster_user,duty.roster User,duty.roster,duty_roster.group_dutyroster_user,cr,
+access_duty_roster_manager,duty.roster Manager,duty.roster,duty_roster.group_dutyroster_manager,crud,
+access_duty_slot_user,duty.slot User,duty.slot,duty_roster.group_dutyroster_user,cr,
+access_duty_slot_manager,duty.slot Manager,duty.slot,duty_roster.group_dutyroster_manager,crud,
+rule_duty_roster_company,duty.roster: own company only,duty.roster,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_duty_slot_company,duty.slot: own company only,duty.slot,,crud,"[('company_id', 'in', company_ids + [False])]"

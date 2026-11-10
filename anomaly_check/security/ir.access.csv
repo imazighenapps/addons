@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_anomaly_rule_user,anomaly.rule User,anomaly.rule,anomaly_check.group_anomalycheck_user,cr,
+access_anomaly_rule_manager,anomaly.rule Manager,anomaly.rule,anomaly_check.group_anomalycheck_manager,crud,
+access_anomaly_flag_user,anomaly.flag User,anomaly.flag,anomaly_check.group_anomalycheck_user,cr,
+access_anomaly_flag_manager,anomaly.flag Manager,anomaly.flag,anomaly_check.group_anomalycheck_manager,crud,
+rule_anomaly_rule_company,anomaly.rule: own company only,anomaly.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_anomaly_flag_company,anomaly.flag: own company only,anomaly.flag,,crud,"[('company_id', 'in', company_ids + [False])]"

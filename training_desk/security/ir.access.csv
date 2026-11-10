@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_training_session_user,training.session User,training.session,training_desk.group_trainingdesk_user,cr,
+access_training_session_manager,training.session Manager,training.session,training_desk.group_trainingdesk_manager,crud,
+access_training_attendance_user,training.attendance User,training.attendance,training_desk.group_trainingdesk_user,cr,
+access_training_attendance_manager,training.attendance Manager,training.attendance,training_desk.group_trainingdesk_manager,crud,
+rule_training_session_company,training.session: own company only,training.session,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_training_attendance_company,training.attendance: own company only,training.attendance,,crud,"[('company_id', 'in', company_ids + [False])]"
