@@ -1,0 +1,414 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* card_fee_watch
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,help:card_fee_watch.field_fee_line__recovered_amount
+msgid "Amount recovered from the platform after a dispute."
+msgstr "Importe recuperado de la plataforma tras una disputa."
+
+#. module: card_fee_watch
+#: model:ir.model.fields,help:card_fee_watch.field_fee_line__settled_amount
+msgid "Amount settled by the platform for the transaction."
+msgstr "Importe liquidado por la plataforma por la transacción."
+
+#. module: card_fee_watch
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_line_form
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_variance_form
+msgid "Amounts"
+msgstr "Cantidades"
+
+#. module: card_fee_watch
+#: model:ir.actions.act_window,name:card_fee_watch.action_fee_line
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__line_ids
+#: model:ir.ui.menu,name:card_fee_watch.menu_fee_lines
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_line_form
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_line_list
+msgid "Billed Fees"
+msgstr "Tarifas facturadas"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__billed_on
+msgid "Billed On"
+msgstr "Facturado el"
+
+#. module: card_fee_watch
+#: model:ir.model,name:card_fee_watch.model_fee_line
+msgid "Billed Payment Fee"
+msgstr "Tarifa de pago facturada"
+
+#. module: card_fee_watch
+#: model:res.groups,name:card_fee_watch.group_cardfeewatch_manager
+msgid "Card Fee Watch Manager"
+msgstr "Administrador de vigilancia de tarifas de tarjeta"
+
+#. module: card_fee_watch
+#: model:res.groups,name:card_fee_watch.group_cardfeewatch_user
+msgid "Card Fee Watch User"
+msgstr "Usuario de vigilancia de tarifa de tarjeta"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__charged_fee
+msgid "Charged Fee"
+msgstr "Tarifa cobrada"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__company_id
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: card_fee_watch
+#: model:ir.module.module,summary:base.module_card_fee_watch
+msgid "Compare what your payment platform charges with the rate you signed and recover every unexpected fee."
+msgstr "Compara lo que cobra tu plataforma de pago con la tarifa que firmaste y recupera cada tarifa inesperada."
+
+#. module: card_fee_watch
+#: model:res.groups,comment:card_fee_watch.group_cardfeewatch_manager
+msgid "Configure and administer the module."
+msgstr "Configurar y administrar el módulo."
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__contract_id
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_contract_form
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_line_search
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_variance_search
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: card_fee_watch
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_contract_form
+msgid "Counters"
+msgstr "Contadores"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__create_uid
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__create_date
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__currency_id
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,help:card_fee_watch.field_fee_line__variance_amount
+msgid "Difference between the charged fee and the expected fee."
+msgstr "Diferencia entre la tarifa cobrada y la tarifa esperada."
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__display_name
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: card_fee_watch
+#: model:ir.model.fields.selection,name:card_fee_watch.selection__fee_line__state__disputed
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_line_search
+msgid "Disputed"
+msgstr "Cuestionada Cuestionado"
+
+#. module: card_fee_watch
+#: model:ir.model.fields.selection,name:card_fee_watch.selection__fee_line__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: card_fee_watch
+#: model_terms:ir.actions.act_window,help:card_fee_watch.action_fee_variance
+msgid "Every billed fee that differs from the signed contract."
+msgstr "Toda tarifa facturada que difiera del contrato firmado."
+
+#. module: card_fee_watch
+#: model_terms:ir.actions.act_window,help:card_fee_watch.action_fee_line
+msgid "Every fee charged by your platforms, compared to the contract."
+msgstr "Cada tarifa cobrada por tus plataformas, en comparación con el contrato."
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__expected_fee
+msgid "Expected Fee"
+msgstr "Tarifa esperada"
+
+#. module: card_fee_watch
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_line_form
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_variance_form
+msgid "Fee"
+msgstr "Tarifa"
+
+#. module: card_fee_watch
+#. odoo-python
+#: code:addons/card_fee_watch/models/fee_line.py:0
+msgid "Fee %s"
+msgstr "Tarifa %s"
+
+#. module: card_fee_watch
+#: model:ir.actions.act_window,name:card_fee_watch.action_fee_contract
+#: model:ir.ui.menu,name:card_fee_watch.menu_fee_contracts
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_contract_form
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_contract_list
+msgid "Fee Contracts"
+msgstr "Contratos de honorarios"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__line_count
+msgid "Fee Lines"
+msgstr "Líneas de tarifas"
+
+#. module: card_fee_watch
+#: model:ir.ui.menu,name:card_fee_watch.menu_fee_root
+msgid "Fee Watch"
+msgstr "Vigilancia de tarifas"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,help:card_fee_watch.field_fee_line__charged_fee
+msgid "Fee actually charged by the payment platform."
+msgstr "Tarifa realmente cobrada por la plataforma de pago."
+
+#. module: card_fee_watch
+#: model:ir.model.fields,help:card_fee_watch.field_fee_line__expected_fee
+msgid "Fee expected from the signed contract."
+msgstr "Tarifa esperada del contrato firmado."
+
+#. module: card_fee_watch
+#. odoo-python
+#: code:addons/card_fee_watch/models/fee_line.py:0
+msgid "Fee line %s has no variance to dispute."
+msgstr "La línea de tarifas %s no tiene variación para disputar."
+
+#. module: card_fee_watch
+#: model:ir.module.module,shortdesc:base.module_card_fee_watch
+msgid "FeeWatch"
+msgstr "TarifaWatch"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__fixed_fee
+msgid "Fixed Fee"
+msgstr "Tarifa fija"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,help:card_fee_watch.field_fee_contract__fixed_fee
+msgid "Fixed amount charged on every transaction."
+msgstr "Monto fijo cobrado en cada transacción."
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__has_message
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__write_uid
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__write_date
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__name
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,help:card_fee_watch.field_fee_contract__provider
+msgid "Name of the payment platform that bills the fees."
+msgstr "Nombre de la plataforma de pago que factura las tarifas."
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__note
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__note
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_contract_form
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_line_form
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_variance_form
+msgid "Note"
+msgstr "Nota"
+
+#. module: card_fee_watch
+#. odoo-python
+#: code:addons/card_fee_watch/models/fee_line.py:0
+msgid "Only a disputed fee line can be recovered."
+msgstr "Sólo se puede recuperar una línea de tarifa en disputa."
+
+#. module: card_fee_watch
+#. odoo-python
+#: code:addons/card_fee_watch/models/fee_line.py:0
+msgid "Only a disputed fee line can be waived."
+msgstr "Sólo se puede renunciar a una línea de tarifa en disputa."
+
+#. module: card_fee_watch
+#. odoo-python
+#: code:addons/card_fee_watch/models/fee_line.py:0
+msgid "Only a draft fee line can be disputed."
+msgstr "Sólo se puede disputar una línea de tarifa de borrador."
+
+#. module: card_fee_watch
+#: model:ir.model,name:card_fee_watch.model_fee_contract
+msgid "Payment Fee Contract"
+msgstr "Contrato de tarifa de pago"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,help:card_fee_watch.field_fee_contract__rate_percent
+msgid "Percentage of the settled amount charged per transaction."
+msgstr "Porcentaje del monto liquidado cobrado por transacción."
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__provider
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_contract_search
+msgid "Provider"
+msgstr "Proveedora Proveedor"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__rate_percent
+msgid "Rate (%)"
+msgstr "Tasa (%)"
+
+#. module: card_fee_watch
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_contract_form
+msgid "Rates"
+msgstr "Tarifas"
+
+#. module: card_fee_watch
+#: model:ir.model.fields.selection,name:card_fee_watch.selection__fee_line__state__recovered
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_line_search
+msgid "Recovered"
+msgstr "Recuperada Recuperado"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__recovered_amount
+msgid "Recovered Amount"
+msgstr "Monto recuperado"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,help:card_fee_watch.field_fee_line__name
+msgid "Reference of the billed fee, generated at creation."
+msgstr "Referencia de la tarifa facturada, generada en el momento de la creación."
+
+#. module: card_fee_watch
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_line_form
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_variance_form
+msgid "Resolution"
+msgstr "Resolución"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__settled_amount
+msgid "Settled Amount"
+msgstr "Monto liquidado"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__state
+msgid "State"
+msgstr "Estado"
+
+#. module: card_fee_watch
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_line_search
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_variance_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: card_fee_watch
+#. odoo-python
+#: code:addons/card_fee_watch/models/fee_line.py:0
+msgid "The charged fee of %s cannot be negative."
+msgstr "La tarifa cobrada de %s no puede ser negativa."
+
+#. module: card_fee_watch
+#. odoo-python
+#: code:addons/card_fee_watch/models/fee_line.py:0
+msgid "The fee variance was opened as a dispute."
+msgstr "La variación de la tarifa se abrió como disputa."
+
+#. module: card_fee_watch
+#. odoo-python
+#: code:addons/card_fee_watch/models/fee_line.py:0
+msgid "The fee variance was waived."
+msgstr "Se renunció a la variación de la tarifa."
+
+#. module: card_fee_watch
+#. odoo-python
+#: code:addons/card_fee_watch/models/fee_contract.py:0
+msgid "The fixed fee of contract %s cannot be negative."
+msgstr "La tarifa fija del contrato %s no puede ser negativa."
+
+#. module: card_fee_watch
+#. odoo-python
+#: code:addons/card_fee_watch/models/fee_contract.py:0
+msgid "The rate of contract %s cannot be negative."
+msgstr "La tasa del contrato %s no puede ser negativa."
+
+#. module: card_fee_watch
+#. odoo-python
+#: code:addons/card_fee_watch/models/fee_line.py:0
+msgid "The recovered amount of %s cannot be negative."
+msgstr "La cantidad recuperada de %s no puede ser negativa."
+
+#. module: card_fee_watch
+#. odoo-python
+#: code:addons/card_fee_watch/models/fee_line.py:0
+msgid "The settled amount of %s cannot be negative."
+msgstr "El importe liquidado de %s no puede ser negativo."
+
+#. module: card_fee_watch
+#: model_terms:ir.actions.act_window,help:card_fee_watch.action_fee_contract
+msgid "The signed rate card for every payment platform you use."
+msgstr "La hoja de tarifas firmada para cada plataforma de pago que utilice."
+
+#. module: card_fee_watch
+#. odoo-python
+#: code:addons/card_fee_watch/models/fee_line.py:0
+msgid "The unexpected fee was marked as recovered."
+msgstr "La tarifa inesperada se marcó como recuperada."
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_line__variance_amount
+msgid "Variance"
+msgstr "Diferencia"
+
+#. module: card_fee_watch
+#: model:ir.model.fields,field_description:card_fee_watch.field_fee_contract__variance_line_count
+msgid "Variance Lines"
+msgstr "Líneas de variación"
+
+#. module: card_fee_watch
+#: model:ir.actions.act_window,name:card_fee_watch.action_fee_variance
+#: model:ir.ui.menu,name:card_fee_watch.menu_fee_variances
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_variance_form
+#: model_terms:ir.ui.view,arch_db:card_fee_watch.view_fee_variance_list
+msgid "Variance Report"
+msgstr "Informe de variación"
+
+#. module: card_fee_watch
+#: model:res.groups,comment:card_fee_watch.group_cardfeewatch_user
+msgid "View and use the module."
+msgstr "Ver y utilizar el módulo."
+
+#. module: card_fee_watch
+#: model:ir.model.fields.selection,name:card_fee_watch.selection__fee_line__state__waived
+msgid "Waived"
+msgstr "Renunciada Renunciado"
