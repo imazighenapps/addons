@@ -1,0 +1,379 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* visit_plan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: visit_plan
+#. odoo-python
+#: code:addons/visit_plan/models/visit_plan.py:0
+msgid "Add at least one stop before planning %s."
+msgstr "Fügen Sie mindestens einen Stopp hinzu, bevor Sie %s planen."
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__company_id
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__company_id
+msgid "Company"
+msgstr "Firma"
+
+#. module: visit_plan
+#. odoo-python
+#: code:addons/visit_plan/models/visit_plan.py:0
+msgid "Complete every stop before closing %s."
+msgstr "Schließen Sie jeden Stopp ab, bevor Sie %s schließen."
+
+#. module: visit_plan
+#: model:res.groups,comment:visit_plan.group_visitplan_manager
+msgid "Configure and administer the module."
+msgstr "Konfigurieren und verwalten Sie das Modul."
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__create_uid
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__create_date
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__partner_id
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_stop_search
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: visit_plan
+#: model:ir.model.fields,help:visit_plan.field_visit_stop__partner_id
+msgid "Customer or site contact for this visit."
+msgstr "Kunden- oder Standortkontakt für diesen Besuch."
+
+#. module: visit_plan
+#: model:ir.model.fields,help:visit_plan.field_visit_stop__done_date
+msgid "Date on which the stop was completed."
+msgstr "Datum, an dem der Stopp abgeschlossen wurde."
+
+#. module: visit_plan
+#: model:ir.model.fields,help:visit_plan.field_visit_stop__planned_date
+msgid "Date on which the visit is planned."
+msgstr "Datum, an dem der Besuch geplant ist."
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__display_name
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: visit_plan
+#: model:ir.model.fields,help:visit_plan.field_visit_stop__name
+msgid "Display name of the planned stop."
+msgstr "Anzeigename des geplanten Stopps."
+
+#. module: visit_plan
+#: model:ir.model.fields.selection,name:visit_plan.selection__visit_plan__state__done
+#: model:ir.model.fields.selection,name:visit_plan.selection__visit_stop__state__done
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_plan_search
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_stop_search
+msgid "Done"
+msgstr "Erledigt"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__done_date
+msgid "Done Date"
+msgstr "Fertigdatum"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__done_stop_count
+msgid "Done Stops"
+msgstr "Fertige Stopps"
+
+#. module: visit_plan
+#: model:ir.model.fields.selection,name:visit_plan.selection__visit_plan__state__draft
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_plan_search
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: visit_plan
+#: model:ir.model.fields,help:visit_plan.field_visit_plan__week_start
+msgid "First day of the planned visit week."
+msgstr "Erster Tag der geplanten Besuchswoche."
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__has_message
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__has_message
+msgid "Has Message"
+msgstr "Hat Nachricht"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__write_uid
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__write_date
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__name
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__name
+msgid "Name"
+msgstr "Name"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__note
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__note
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_plan_form
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_stop_form
+msgid "Note"
+msgstr "Notiz"
+
+#. module: visit_plan
+#: model:ir.model.fields,help:visit_plan.field_visit_stop__site_name
+msgid "Optional site or location reference for the visit."
+msgstr "Optionale Site- oder Standortreferenz für den Besuch."
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__planned_stop_count
+msgid "Pending Stops"
+msgstr "Ausstehende Stopps"
+
+#. module: visit_plan
+#: model:ir.model.fields,help:visit_plan.field_visit_plan__technician_id
+msgid "Person responsible for executing the planned visits."
+msgstr "Verantwortliche Person für die Durchführung der geplanten Besuche."
+
+#. module: visit_plan
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_plan_form
+msgid "Plan"
+msgstr "Planen"
+
+#. module: visit_plan
+#: model_terms:ir.actions.act_window,help:visit_plan.action_visit_plan
+msgid "Plan each technician route week by week and keep the travel order clear."
+msgstr "Planen Sie jede Technikerroute Woche für Woche und halten Sie die Reisereihenfolge klar."
+
+#. module: visit_plan
+#: model:ir.module.module,summary:base.module_visit_plan
+msgid "Plan each week of site visits per technician with the sensible travel order instead of the phone ping-pong."
+msgstr "Planen Sie jede Woche Vor-Ort-Besuche pro Techniker mit der sinnvollen Reiseanweisung anstelle des Telefon-Ping-Pong."
+
+#. module: visit_plan
+#: model:ir.model.fields.selection,name:visit_plan.selection__visit_plan__state__planned
+#: model:ir.model.fields.selection,name:visit_plan.selection__visit_stop__state__planned
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_plan_search
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_stop_search
+msgid "Planned"
+msgstr "Geplant"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__planned_date
+msgid "Planned Date"
+msgstr "Geplantes Datum"
+
+#. module: visit_plan
+#. odoo-python
+#: code:addons/visit_plan/models/visit_plan.py:0
+msgid "Please set a week start date for %s."
+msgstr "Bitte legen Sie ein wöchentliches Startdatum für %s fest."
+
+#. module: visit_plan
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_plan_form
+msgid "Progress"
+msgstr "Fortschritt"
+
+#. module: visit_plan
+#: model:ir.model.fields,help:visit_plan.field_visit_plan__name
+msgid "Reference of the weekly route plan."
+msgstr "Referenz des wöchentlichen Routenplans."
+
+#. module: visit_plan
+#: model_terms:ir.actions.act_window,help:visit_plan.action_visit_stop
+msgid "Review every planned stop and complete visits in the expected order."
+msgstr "Überprüfen Sie jeden geplanten Stopp und führen Sie die Besuche in der erwarteten Reihenfolge durch."
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__plan_id
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_stop_search
+msgid "Route"
+msgstr "Route"
+
+#. module: visit_plan
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_stop_form
+msgid "Schedule"
+msgstr "Zeitplan"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__sequence
+msgid "Sequence"
+msgstr "Sequenz"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__site_name
+msgid "Site Reference"
+msgstr "Site-Referenz"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__state
+#: model:ir.model.fields,field_description:visit_plan.field_visit_stop__state
+msgid "State"
+msgstr "Status"
+
+#. module: visit_plan
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_plan_search
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_stop_search
+msgid "Status"
+msgstr "Status"
+
+#. module: visit_plan
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_stop_form
+msgid "Stop"
+msgstr "Stoppen"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__stop_count
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__stop_ids
+#: model:ir.ui.menu,name:visit_plan.menu_visit_stop_menu
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_plan_form
+msgid "Stops"
+msgstr "Stoppt"
+
+#. module: visit_plan
+#: model:ir.model.fields,help:visit_plan.field_visit_plan__done_stop_count
+msgid "Stops already completed on this route."
+msgstr "Auf dieser Route bereits absolvierte Stopps."
+
+#. module: visit_plan
+#: model:ir.model.fields,help:visit_plan.field_visit_plan__planned_stop_count
+msgid "Stops that are still pending on this route."
+msgstr "Noch ausstehende Haltestellen auf dieser Route."
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__technician_id
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_plan_search
+msgid "Technician"
+msgstr "Technikerin Techniker"
+
+#. module: visit_plan
+#. odoo-python
+#: code:addons/visit_plan/models/visit_stop.py:0
+msgid "The completion date of %s cannot be before its planned date."
+msgstr "Das Fertigstellungsdatum von %s darf nicht vor dem geplanten Datum liegen."
+
+#. module: visit_plan
+#. odoo-python
+#: code:addons/visit_plan/models/visit_plan.py:0
+msgid "The route has been completed."
+msgstr "Die Route ist fertiggestellt."
+
+#. module: visit_plan
+#. odoo-python
+#: code:addons/visit_plan/models/visit_plan.py:0
+msgid "The route has been planned."
+msgstr "Die Route ist geplant."
+
+#. module: visit_plan
+#. odoo-python
+#: code:addons/visit_plan/models/visit_stop.py:0
+msgid "The stop for %s is already completed."
+msgstr "Der Stopp für %s ist bereits abgeschlossen."
+
+#. module: visit_plan
+#. odoo-python
+#: code:addons/visit_plan/models/visit_stop.py:0
+msgid "The visit stop has been completed."
+msgstr "Der Besuchsstopp ist abgeschlossen."
+
+#. module: visit_plan
+#: model:ir.model.fields,help:visit_plan.field_visit_plan__stop_count
+msgid "Total number of stops in this route."
+msgstr "Gesamtzahl der Stopps auf dieser Route."
+
+#. module: visit_plan
+#: model:ir.model.fields,help:visit_plan.field_visit_stop__sequence
+msgid "Travel order of the stop within the route."
+msgstr "Fahrtreihenfolge der Haltestelle innerhalb der Route."
+
+#. module: visit_plan
+#: model:res.groups,comment:visit_plan.group_visitplan_user
+msgid "View and use the module."
+msgstr "Sehen Sie sich das Modul an und nutzen Sie es."
+
+#. module: visit_plan
+#. odoo-python
+#: code:addons/visit_plan/models/visit_stop.py:0
+msgid "Visit"
+msgstr "Besuchen"
+
+#. module: visit_plan
+#: model:ir.model,name:visit_plan.model_visit_plan
+msgid "Visit Plan"
+msgstr "Besuchsplan"
+
+#. module: visit_plan
+#: model:res.groups,name:visit_plan.group_visitplan_manager
+msgid "Visit Plan Manager"
+msgstr "Besuchen Sie Plan Manager"
+
+#. module: visit_plan
+#: model:res.groups,name:visit_plan.group_visitplan_user
+msgid "Visit Plan User"
+msgstr "Besuchen Sie den Planbenutzer"
+
+#. module: visit_plan
+#: model:ir.ui.menu,name:visit_plan.menu_visit_plan_root
+msgid "Visit Planning"
+msgstr "Besuchen Sie Planung"
+
+#. module: visit_plan
+#: model:ir.actions.act_window,name:visit_plan.action_visit_plan
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_plan_form
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_plan_list
+msgid "Visit Plans"
+msgstr "Besuchspläne"
+
+#. module: visit_plan
+#: model:ir.model,name:visit_plan.model_visit_stop
+msgid "Visit Stop"
+msgstr "Besuchen Sie Stop"
+
+#. module: visit_plan
+#: model:ir.actions.act_window,name:visit_plan.action_visit_stop
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_stop_form
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_stop_list
+msgid "Visit Stops"
+msgstr "Besuchen Sie Haltestellen"
+
+#. module: visit_plan
+#: model:ir.module.module,shortdesc:base.module_visit_plan
+msgid "VisitPlan"
+msgstr "VisitPlan"
+
+#. module: visit_plan
+#: model:ir.model.fields,field_description:visit_plan.field_visit_plan__week_start
+#: model_terms:ir.ui.view,arch_db:visit_plan.view_visit_plan_search
+msgid "Week Start"
+msgstr "Wochenstart"
+
+#. module: visit_plan
+#. odoo-python
+#: code:addons/visit_plan/models/visit_plan.py:0
+msgid "Weekly Route"
+msgstr "Wöchentliche Route"
+
+#. module: visit_plan
+#: model:ir.ui.menu,name:visit_plan.menu_visit_plan_menu
+msgid "Weekly Routes"
+msgstr "Wöchentliche Routen"
