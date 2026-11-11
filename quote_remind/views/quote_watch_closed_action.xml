@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_quote_watch_closed"
+        model="ir.actions.act_window">
+        <field name="domain">
+            [('state', 'in', ['won', 'lost'])]
+        </field>
+        <field name="context">{'search_default_group_sales': 1}</field>
+    </record>
+</odoo>
