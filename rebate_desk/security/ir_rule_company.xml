@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_rebate_contract_company" model="ir.rule">
+        <field name="name">rebate.contract: own company only</field>
+        <field name="model_id" ref="model_rebate_contract"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_rebate_accrual_company" model="ir.rule">
+        <field name="name">rebate.accrual: own company only</field>
+        <field name="model_id" ref="model_rebate_accrual"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
