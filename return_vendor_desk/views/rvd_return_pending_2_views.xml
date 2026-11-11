@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_rvd_return_pending_list" model="ir.ui.view">
+        <field name="name">rvd.return.list</field>
+        <field name="model">rvd.return</field>
+        <field name="arch" type="xml">
+            <list string="Credits Awaited" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="return_date"/>
+                <field name="name"/>
+                <field name="vendor_name"/>
+                <field name="transport_ref"/>
+                <field name="expected_credit"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_rvd_return_pending_form" model="ir.ui.view">
+        <field name="name">rvd.return.form</field>
+        <field name="model">rvd.return</field>
+        <field name="arch" type="xml">
+            <form string="Credits Awaited">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Return">
+    <field name="name"/>
+    <field name="vendor_name"/>
+    <field name="reference"/>
+    <field name="return_date"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Transport &amp; Credit">
+    <field name="transport_ref"/>
+    <field name="expected_credit"/>
+    <field name="currency_id"/>
+    <field name="credit_received"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Return Lines" name="lineids">
+                            <field name="line_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_rvd_return_pending_search" model="ir.ui.view">
+        <field name="name">rvd.return.search</field>
+        <field name="model">rvd.return</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="vendor_name"/>
+                <field name="transport_ref"/>
+                <separator/>
+                <filter name="group_vendor" string="Supplier" context="{'group_by': 'vendor_name'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_rvd_return_pending" model="ir.actions.act_window">
+        <field name="name">Credits Awaited</field>
+        <field name="res_model">rvd.return</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Returns sent to suppliers that are still waiting for a credit note.</p>
+        </field>
+    </record>
+
+</odoo>
