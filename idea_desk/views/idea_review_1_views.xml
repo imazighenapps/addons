@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_idea_review_list" model="ir.ui.view">
+        <field name="name">idea.review.list</field>
+        <field name="model">idea.review</field>
+        <field name="arch" type="xml">
+            <list string="Reviews">
+                <field name="reviewed_on"/>
+                <field name="proposal_id"/>
+                <field name="reviewer_id"/>
+                <field name="decision"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_idea_review_form" model="ir.ui.view">
+        <field name="name">idea.review.form</field>
+        <field name="model">idea.review</field>
+        <field name="arch" type="xml">
+            <form string="Reviews">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="reviewer_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Review">
+    <field name="name"/>
+    <field name="proposal_id"/>
+    <field name="reviewer_id"/>
+    <field name="decision"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Timeline">
+    <field name="reviewed_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Comment" name="comment">
+                            <field name="comment"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_idea_review_search" model="ir.ui.view">
+        <field name="name">idea.review.search</field>
+        <field name="model">idea.review</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="proposal_id"/>
+                <field name="reviewer_id"/>
+                <separator/>
+                <filter name="group_decision" string="Decision" context="{'group_by': 'decision'}"/>
+                <filter name="group_reviewer" string="Reviewer" context="{'group_by': 'reviewer_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_idea_review_kanban" model="ir.ui.view">
+        <field name="name">idea.review.kanban</field>
+        <field name="model">idea.review</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="decision" sample="1">
+                <field name="decision"/>
+                <field name="proposal_id"/>
+                <field name="reviewer_id"/>
+                <field name="reviewed_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="decision" class="fw-bold"/>
+                        <field name="proposal_id"/>
+                        <field name="reviewer_id"/>
+                        <field name="reviewed_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_idea_review" model="ir.actions.act_window">
+        <field name="name">Reviews</field>
+        <field name="res_model">idea.review</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The evaluation trail that explains every decision.</p>
+        </field>
+    </record>
+
+</odoo>
