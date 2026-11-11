@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_rvd_root" name="Vendor Returns" sequence="60"/>
+    <menuitem id="menu_rvd_returns" name="Returns" parent="menu_rvd_root" action="action_rvd_return" sequence="10"/>
+    <menuitem id="menu_rvd_lines" name="Return Lines" parent="menu_rvd_root" action="action_rvd_return_line" sequence="20"/>
+    <menuitem id="menu_rvd_pending" name="Credits Awaited" parent="menu_rvd_root" action="action_rvd_return_pending" sequence="30"/>
+</odoo>

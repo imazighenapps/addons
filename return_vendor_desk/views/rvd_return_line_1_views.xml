@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_rvd_return_line_list" model="ir.ui.view">
+        <field name="name">rvd.return.line.list</field>
+        <field name="model">rvd.return.line</field>
+        <field name="arch" type="xml">
+            <list string="Return Lines">
+                <field name="return_id"/>
+                <field name="product_name"/>
+                <field name="quantity"/>
+                <field name="reason"/>
+                <field name="company_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_rvd_return_line_form" model="ir.ui.view">
+        <field name="name">rvd.return.line.form</field>
+        <field name="model">rvd.return.line</field>
+        <field name="arch" type="xml">
+            <form string="Return Lines">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="product_name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Line">
+    <field name="return_id"/>
+    <field name="product_name"/>
+    <field name="quantity"/>
+    <field name="reason"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_rvd_return_line_search" model="ir.ui.view">
+        <field name="name">rvd.return.line.search</field>
+        <field name="model">rvd.return.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_name"/>
+                <field name="reason"/>
+                <field name="return_id"/>
+                <separator/>
+                <filter name="group_return" string="Return" context="{'group_by': 'return_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_rvd_return_line" model="ir.actions.act_window">
+        <field name="name">Return Lines</field>
+        <field name="res_model">rvd.return.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Rejected items listed on vendor return cases.</p>
+        </field>
+    </record>
+
+</odoo>
