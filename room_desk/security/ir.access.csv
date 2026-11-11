@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_room_room_user,room.room User,room.room,room_desk.group_roomdesk_user,cru,
+access_room_room_manager,room.room Manager,room.room,room_desk.group_roomdesk_manager,crud,
+access_room_booking_user,room.booking User,room.booking,room_desk.group_roomdesk_user,crud,
+access_room_booking_manager,room.booking Manager,room.booking,room_desk.group_roomdesk_manager,crud,
+rule_room_room_company,room.room: own company only,room.room,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_room_booking_company,room.booking: own company only,room.booking,,crud,"[('company_id', 'in', company_ids + [False])]"
