@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_rvd_return_list" model="ir.ui.view">
+        <field name="name">rvd.return.list</field>
+        <field name="model">rvd.return</field>
+        <field name="arch" type="xml">
+            <list string="Vendor Returns" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="return_date"/>
+                <field name="name"/>
+                <field name="vendor_name"/>
+                <field name="reference"/>
+                <field name="transport_ref"/>
+                <field name="expected_credit"/>
+                <field name="line_count"/>
+                <field name="credit_pending"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_rvd_return_form" model="ir.ui.view">
+        <field name="name">rvd.return.form</field>
+        <field name="model">rvd.return</field>
+        <field name="arch" type="xml">
+            <form string="Vendor Returns">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Return">
+    <field name="name"/>
+    <field name="vendor_name"/>
+    <field name="reference"/>
+    <field name="return_date"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Transport &amp; Credit">
+    <field name="transport_ref"/>
+    <field name="expected_credit"/>
+    <field name="currency_id"/>
+    <field name="credit_received"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Counters">
+    <field name="line_count"/>
+    <field name="credit_pending"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Return Lines" name="lineids">
+                            <field name="line_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_rvd_return_search" model="ir.ui.view">
+        <field name="name">rvd.return.search</field>
+        <field name="model">rvd.return</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="vendor_name"/>
+                <field name="reference"/>
+                <field name="transport_ref"/>
+                <filter name="credit_pending" string="Credits Awaited" domain="[('credit_pending', '=', True)]"/>
+                <filter name="credited" string="Credited" domain="[('credit_received', '=', True)]"/>
+                <separator/>
+                <filter name="group_vendor" string="Supplier" context="{'group_by': 'vendor_name'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_rvd_return_kanban" model="ir.ui.view">
+        <field name="name">rvd.return.kanban</field>
+        <field name="model">rvd.return</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="vendor_name"/>
+                <field name="return_date"/>
+                <field name="expected_credit"/>
+                <field name="credit_pending"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="vendor_name"/>
+                        <field name="return_date"/>
+                        <field name="expected_credit"/>
+                        <field name="credit_pending"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_rvd_return" model="ir.actions.act_window">
+        <field name="name">Vendor Returns</field>
+        <field name="res_model">rvd.return</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every rejected shipment sent back, with its trace and expected credit.</p>
+        </field>
+    </record>
+
+</odoo>

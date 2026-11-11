@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_rvd_return_user,rvd.return User,rvd.return,return_vendor_desk.group_returnvendor_user,cr,
+access_rvd_return_manager,rvd.return Manager,rvd.return,return_vendor_desk.group_returnvendor_manager,crud,
+access_rvd_return_line_user,rvd.return.line User,rvd.return.line,return_vendor_desk.group_returnvendor_user,cr,
+access_rvd_return_line_manager,rvd.return.line Manager,rvd.return.line,return_vendor_desk.group_returnvendor_manager,crud,
+rule_rvd_return_company,rvd.return: own company only,rvd.return,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_rvd_return_line_company,rvd.return.line: own company only,rvd.return.line,,crud,"[('company_id', 'in', company_ids + [False])]"
