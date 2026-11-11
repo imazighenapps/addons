@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_advance_request_user,advance.request User,advance.request,advance_desk.group_advancedesk_user,crud,
+access_advance_request_manager,advance.request Manager,advance.request,advance_desk.group_advancedesk_manager,crud,
+access_advance_repayment_user,advance.repayment User,advance.repayment,advance_desk.group_advancedesk_user,crud,
+access_advance_repayment_manager,advance.repayment Manager,advance.repayment,advance_desk.group_advancedesk_manager,crud,
+rule_advance_request_company,advance.request: own company only,advance.request,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_advance_repayment_company,advance.repayment: own company only,advance.repayment,,crud,"[('company_id', 'in', company_ids + [False])]"

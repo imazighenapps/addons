@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_advance_repayment_list" model="ir.ui.view">
+        <field name="name">advance.repayment.list</field>
+        <field name="model">advance.repayment</field>
+        <field name="arch" type="xml">
+            <list string="Repayments" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="due_date"/>
+                <field name="request_id"/>
+                <field name="employee_id"/>
+                <field name="amount"/>
+                <field name="paid_date"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_advance_repayment_form" model="ir.ui.view">
+        <field name="name">advance.repayment.form</field>
+        <field name="model">advance.repayment</field>
+        <field name="arch" type="xml">
+            <form string="Repayments">
+                <header>
+                    <button name="action_mark_paid" type="object" string="Mark Paid" class="btn-primary" invisible="state == 'planned'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="s,t,a,t,e"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="request_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Repayment">
+    <field name="request_id"/>
+    <field name="employee_id"/>
+    <field name="due_date"/>
+    <field name="amount"/>
+    <field name="currency_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Status">
+    <field name="state"/>
+    <field name="paid_date"/>
+    <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_advance_repayment_search" model="ir.ui.view">
+        <field name="name">advance.repayment.search</field>
+        <field name="model">advance.repayment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="request_id"/>
+                <field name="employee_id"/>
+                <filter name="planned" string="Planned" domain="[('state','=','planned')]"/>
+                <filter name="paid" string="Paid" domain="[('state','=','paid')]"/>
+                <separator/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_advance_repayment_kanban" model="ir.ui.view">
+        <field name="name">advance.repayment.kanban</field>
+        <field name="model">advance.repayment</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="request_id"/>
+                <field name="employee_id"/>
+                <field name="due_date"/>
+                <field name="amount"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="request_id"/>
+                        <field name="employee_id"/>
+                        <field name="due_date"/>
+                        <field name="amount"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_advance_repayment" model="ir.actions.act_window">
+        <field name="name">Repayments</field>
+        <field name="res_model">advance.repayment</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Repayment installments for approved salary advances.</p>
+        </field>
+    </record>
+
+</odoo>
