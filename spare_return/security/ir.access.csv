@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_spare_return_user,spare.return User,spare.return,spare_return.group_sparereturn_user,cru,
+access_spare_return_manager,spare.return Manager,spare.return,spare_return.group_sparereturn_manager,crud,
+rule_spare_return_company,spare.return: own company only,spare.return,,crud,"[('company_id', 'in', company_ids + [False])]"
