@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_key_item_list" model="ir.ui.view">
+        <field name="name">key.item.list</field>
+        <field name="model">key.item</field>
+        <field name="arch" type="xml">
+            <list string="Keys &amp; Fobs" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="issued_on"/>
+                <field name="name"/>
+                <field name="label"/>
+                <field name="key_type"/>
+                <field name="holder"/>
+                <field name="returned_on"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_key_item_form" model="ir.ui.view">
+        <field name="name">key.item.form</field>
+        <field name="model">key.item</field>
+        <field name="arch" type="xml">
+            <form string="Keys &amp; Fobs">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="label" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Key">
+    <field name="name"/>
+    <field name="label"/>
+    <field name="key_type"/>
+    <field name="holder"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="issued_on"/>
+    <field name="state"/>
+    <field name="returned_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_key_item_search" model="ir.ui.view">
+        <field name="name">key.item.search</field>
+        <field name="model">key.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="label"/>
+                <field name="holder"/>
+                <filter name="issued" string="Issued" domain="[('state','=','issued')]"/>
+                <filter name="returned" string="Returned" domain="[('state','=','returned')]"/>
+                <separator/>
+                <filter name="group_type" string="Type" context="{'group_by': 'key_type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_key_item_kanban" model="ir.ui.view">
+        <field name="name">key.item.kanban</field>
+        <field name="model">key.item</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="label"/>
+                <field name="key_type"/>
+                <field name="holder"/>
+                <field name="issued_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="label"/>
+                        <field name="key_type"/>
+                        <field name="holder"/>
+                        <field name="issued_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_key_item" model="ir.actions.act_window">
+        <field name="name">Keys &amp; Fobs</field>
+        <field name="res_model">key.item</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every key and badge with its current holder and a full custody trace.</p>
+        </field>
+    </record>
+
+</odoo>
