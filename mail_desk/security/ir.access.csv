@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_mail_item_user,mail.item User,mail.item,mail_desk.group_maildesk_user,cr,
+access_mail_item_manager,mail.item Manager,mail.item,mail_desk.group_maildesk_manager,crud,
+rule_mail_item_company,mail.item: own company only,mail.item,,crud,"[('company_id', 'in', company_ids + [False])]"
