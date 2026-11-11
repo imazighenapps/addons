@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_office_supply_list" model="ir.ui.view">
+        <field name="name">office.supply.list</field>
+        <field name="model">office.supply</field>
+        <field name="arch" type="xml">
+            <list string="Supplies">
+                <field name="name"/>
+                <field name="location"/>
+                <field name="on_hand_qty"/>
+                <field name="min_qty"/>
+                <field name="shortage_qty"/>
+                <field name="request_count"/>
+                <field name="open_request_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_office_supply_form" model="ir.ui.view">
+        <field name="name">office.supply.form</field>
+        <field name="model">office.supply</field>
+        <field name="arch" type="xml">
+            <form string="Supplies">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Supply">
+    <field name="name"/>
+    <field name="location"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Levels">
+    <field name="on_hand_qty"/>
+    <field name="min_qty"/>
+    <field name="shortage_qty"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Counters">
+    <field name="request_count"/>
+    <field name="open_request_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_office_supply_search" model="ir.ui.view">
+        <field name="name">office.supply.search</field>
+        <field name="model">office.supply</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="location"/>
+                <filter name="below_min" string="Below Minimum" domain="[('shortage_qty','&gt;',0)]"/>
+                <separator/>
+                <filter name="group_location" string="Location" context="{'group_by': 'location'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_office_supply_kanban" model="ir.ui.view">
+        <field name="name">office.supply.kanban</field>
+        <field name="model">office.supply</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="location" sample="1">
+                <field name="location"/>
+                <field name="name"/>
+                <field name="on_hand_qty"/>
+                <field name="min_qty"/>
+                <field name="shortage_qty"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="location" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="on_hand_qty"/>
+                        <field name="min_qty"/>
+                        <field name="shortage_qty"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_office_supply" model="ir.actions.act_window">
+        <field name="name">Supplies</field>
+        <field name="res_model">office.supply</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every office consumable, its level and what must be restocked.</p>
+        </field>
+    </record>
+
+</odoo>

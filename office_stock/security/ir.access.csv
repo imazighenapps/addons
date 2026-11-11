@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_office_supply_user,office.supply User,office.supply,office_stock.group_officestock_user,cr,
+access_office_supply_manager,office.supply Manager,office.supply,office_stock.group_officestock_manager,crud,
+access_office_restock_user,office.restock User,office.restock,office_stock.group_officestock_user,cr,
+access_office_restock_manager,office.restock Manager,office.restock,office_stock.group_officestock_manager,crud,
+rule_office_supply_company,office.supply: own company only,office.supply,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_office_restock_company,office.restock: own company only,office.restock,,crud,"[('company_id', 'in', company_ids + [False])]"
