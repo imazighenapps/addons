@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_yield_run_user,yield.run User,yield.run,yield_watch.group_yieldwatch_user,crud,
+access_yield_run_manager,yield.run Manager,yield.run,yield_watch.group_yieldwatch_manager,crud,
+access_yield_loss_user,yield.loss User,yield.loss,yield_watch.group_yieldwatch_user,crud,
+access_yield_loss_manager,yield.loss Manager,yield.loss,yield_watch.group_yieldwatch_manager,crud,
+rule_yield_run_company,yield.run: own company only,yield.run,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_yield_loss_company,yield.loss: own company only,yield.loss,,crud,"[('company_id', 'in', company_ids + [False])]"
