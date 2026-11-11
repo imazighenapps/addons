@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_cln_plan_user,cln.plan User,cln.plan,clean_desk.group_cleandesk_user,cru,
+access_cln_plan_manager,cln.plan Manager,cln.plan,clean_desk.group_cleandesk_manager,crud,
+access_cln_execution_user,cln.execution User,cln.execution,clean_desk.group_cleandesk_user,cru,
+access_cln_execution_manager,cln.execution Manager,cln.execution,clean_desk.group_cleandesk_manager,crud,
+rule_cln_plan_company,cln.plan: own company only,cln.plan,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_cln_execution_company,cln.execution: own company only,cln.execution,,crud,"[('company_id', 'in', company_ids + [False])]"
