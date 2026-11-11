@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_surcharge_line_list" model="ir.ui.view">
+        <field name="name">surcharge.line.list</field>
+        <field name="model">surcharge.line</field>
+        <field name="arch" type="xml">
+            <list string="Applied Surcharges" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <field name="clause_id"/>
+                <field name="partner_id"/>
+                <field name="current_index"/>
+                <field name="expected_amount"/>
+                <field name="billed_amount"/>
+                <field name="variance_amount"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_surcharge_line_form" model="ir.ui.view">
+        <field name="name">surcharge.line.form</field>
+        <field name="model">surcharge.line</field>
+        <field name="arch" type="xml">
+            <form string="Applied Surcharges">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Surcharge">
+    <field name="name"/>
+    <field name="clause_id"/>
+    <field name="partner_id"/>
+    <field name="company_id"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Period">
+    <field name="period_start"/>
+    <field name="period_end"/>
+    <field name="current_index"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="expected_amount"/>
+    <field name="billed_amount"/>
+    <field name="variance_amount"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_surcharge_line_search" model="ir.ui.view">
+        <field name="name">surcharge.line.search</field>
+        <field name="model">surcharge.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="clause_id"/>
+                <field name="partner_id"/>
+                <filter name="to_review" string="To Review" domain="[('state', '=', 'to_review')]"/>
+                <filter name="disputed" string="Disputed" domain="[('state', '=', 'disputed')]"/>
+                <filter name="with_variance" string="With Variance" domain="[('variance_amount', '!=', 0)]"/>
+                <separator/>
+                <filter name="group_supplier" string="Supplier" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_clause" string="Clause" context="{'group_by': 'clause_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_surcharge_line_kanban" model="ir.ui.view">
+        <field name="name">surcharge.line.kanban</field>
+        <field name="model">surcharge.line</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="period_start"/>
+                <field name="variance_amount"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="period_start"/>
+                        <field name="variance_amount"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_surcharge_line" model="ir.actions.act_window">
+        <field name="name">Applied Surcharges</field>
+        <field name="res_model">surcharge.line</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Each billed surcharge compared with the amount expected by the clause.</p>
+        </field>
+    </record>
+
+</odoo>
