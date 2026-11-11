@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_lease_schedule_list" model="ir.ui.view">
+        <field name="name">lease.schedule.list</field>
+        <field name="model">lease.schedule</field>
+        <field name="arch" type="xml">
+            <list string="Payment Schedule" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="lease_id"/>
+                <field name="due_date"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="state" widget="badge"/>
+                <field name="posted_on"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_lease_schedule_form" model="ir.ui.view">
+        <field name="name">lease.schedule.form</field>
+        <field name="model">lease.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Payment Schedule">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="lease_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Schedule">
+    <field name="lease_id"/>
+    <field name="sequence"/>
+    <field name="due_date"/>
+                        </group>
+                        <group string="Payment">
+    <field name="amount"/>
+    <field name="currency_id"/>
+    <field name="state"/>
+    <field name="posted_on"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_lease_schedule_search" model="ir.ui.view">
+        <field name="name">lease.schedule.search</field>
+        <field name="model">lease.schedule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="lease_id"/>
+                <filter name="pending" string="Pending" domain="[('state','=','pending')]"/>
+                <filter name="posted" string="Posted" domain="[('state','=','posted')]"/>
+                <separator/>
+                <filter name="group_lease" string="Lease" context="{'group_by': 'lease_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_lease_schedule" model="ir.actions.act_window">
+        <field name="name">Payment Schedule</field>
+        <field name="res_model">lease.schedule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Monthly payment lines generated from each lease.</p>
+        </field>
+    </record>
+
+</odoo>
