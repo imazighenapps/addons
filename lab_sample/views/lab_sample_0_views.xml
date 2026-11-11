@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_lab_sample_list" model="ir.ui.view">
+        <field name="name">lab.sample.list</field>
+        <field name="model">lab.sample</field>
+        <field name="arch" type="xml">
+            <list string="Lab Samples" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="sent_on"/>
+                <field name="name"/>
+                <field name="lot_ref"/>
+                <field name="barcode"/>
+                <field name="laboratory"/>
+                <field name="outcome"/>
+                <field name="received_on"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_lab_sample_form" model="ir.ui.view">
+        <field name="name">lab.sample.form</field>
+        <field name="model">lab.sample</field>
+        <field name="arch" type="xml">
+            <form string="Lab Samples">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="lot_ref" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Sample">
+    <field name="name"/>
+    <field name="lot_ref"/>
+    <field name="barcode"/>
+    <field name="laboratory"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Result">
+    <field name="sent_on"/>
+    <field name="state"/>
+    <field name="outcome"/>
+    <field name="received_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Result Details" name="resultnote">
+                            <field name="result_note"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_lab_sample_search" model="ir.ui.view">
+        <field name="name">lab.sample.search</field>
+        <field name="model">lab.sample</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="lot_ref"/>
+                <field name="barcode"/>
+                <field name="laboratory"/>
+                <filter name="awaiting" string="Awaiting Result" domain="[('state','=','sent')]"/>
+                <filter name="received" string="Result Received" domain="[('state','=','received')]"/>
+                <separator/>
+                <filter name="group_outcome" string="Outcome" context="{'group_by': 'outcome'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_lab_sample_kanban" model="ir.ui.view">
+        <field name="name">lab.sample.kanban</field>
+        <field name="model">lab.sample</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="lot_ref"/>
+                <field name="laboratory"/>
+                <field name="sent_on"/>
+                <field name="outcome"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="lot_ref"/>
+                        <field name="laboratory"/>
+                        <field name="sent_on"/>
+                        <field name="outcome"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_lab_sample" model="ir.actions.act_window">
+        <field name="name">Lab Samples</field>
+        <field name="res_model">lab.sample</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Send samples out and bring the results back to the lot that needs them.</p>
+        </field>
+    </record>
+
+</odoo>
