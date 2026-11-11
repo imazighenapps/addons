@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_toolbox_talk_user,toolbox.talk User,toolbox.talk,toolbox_talk.group_toolboxtalk_user,cr,
+access_toolbox_talk_manager,toolbox.talk Manager,toolbox.talk,toolbox_talk.group_toolboxtalk_manager,crud,
+access_toolbox_attendance_user,toolbox.attendance User,toolbox.attendance,toolbox_talk.group_toolboxtalk_user,cr,
+access_toolbox_attendance_manager,toolbox.attendance Manager,toolbox.attendance,toolbox_talk.group_toolboxtalk_manager,crud,
+rule_toolbox_talk_company,toolbox.talk: own company only,toolbox.talk,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_toolbox_attendance_company,toolbox.attendance: own company only,toolbox.attendance,,crud,"[('company_id', 'in', company_ids + [False])]"

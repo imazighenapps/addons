@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_toolbox_attendance_list" model="ir.ui.view">
+        <field name="name">toolbox.attendance.list</field>
+        <field name="model">toolbox.attendance</field>
+        <field name="arch" type="xml">
+            <list string="Attendance">
+                <field name="talk_id"/>
+                <field name="employee_id"/>
+                <field name="signed"/>
+                <field name="signed_on"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_toolbox_attendance_form" model="ir.ui.view">
+        <field name="name">toolbox.attendance.form</field>
+        <field name="model">toolbox.attendance</field>
+        <field name="arch" type="xml">
+            <form string="Attendance">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="employee_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Attendance">
+    <field name="name"/>
+    <field name="talk_id"/>
+    <field name="employee_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Sign Off">
+    <field name="signed"/>
+    <field name="signed_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_toolbox_attendance_search" model="ir.ui.view">
+        <field name="name">toolbox.attendance.search</field>
+        <field name="model">toolbox.attendance</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="talk_id"/>
+                <field name="employee_id"/>
+                <filter name="signed" string="Signed" domain="[('signed','=',True)]"/>
+                <filter name="unsigned" string="Not Signed" domain="[('signed','=',False)]"/>
+                <separator/>
+                <filter name="group_talk" string="Talk" context="{'group_by': 'talk_id'}"/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_toolbox_attendance_kanban" model="ir.ui.view">
+        <field name="name">toolbox.attendance.kanban</field>
+        <field name="model">toolbox.attendance</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="signed" sample="1">
+                <field name="signed"/>
+                <field name="talk_id"/>
+                <field name="employee_id"/>
+                <field name="signed_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="signed" class="fw-bold"/>
+                        <field name="talk_id"/>
+                        <field name="employee_id"/>
+                        <field name="signed_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_toolbox_attendance" model="ir.actions.act_window">
+        <field name="name">Attendance</field>
+        <field name="res_model">toolbox.attendance</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Who attended each briefing and when they signed off.</p>
+        </field>
+    </record>
+
+</odoo>
