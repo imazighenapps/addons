@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_parcel_parcel_list" model="ir.ui.view">
+        <field name="name">parcel.parcel.list</field>
+        <field name="model">parcel.parcel</field>
+        <field name="arch" type="xml">
+            <list string="Tracked Parcels" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="tracking_number"/>
+                <field name="carrier"/>
+                <field name="partner_id"/>
+                <field name="expected_on"/>
+                <field name="received_on"/>
+                <field name="is_late"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_parcel_parcel_form" model="ir.ui.view">
+        <field name="name">parcel.parcel.form</field>
+        <field name="model">parcel.parcel</field>
+        <field name="arch" type="xml">
+            <form string="Tracked Parcels">
+                <header>
+                    <button name="action_mark_in_transit" type="object" string="In Transit" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_mark_received" type="object" string="Receive" class="btn-primary" invisible="state in ('received','lost')"/>
+                    <button name="action_mark_lost" type="object" string="Mark Lost" class="btn-secondary" invisible="state in ('received','lost')"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" class="btn-secondary" invisible="state in ('draft','received')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_transit,received,lost"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Parcel">
+    <field name="name"/>
+    <field name="tracking_number"/>
+    <field name="carrier"/>
+    <field name="partner_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Dates">
+    <field name="expected_on"/>
+    <field name="received_on"/>
+    <field name="is_late"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Tracking">
+    <field name="tracking_url"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lost Reason" name="lostreason">
+                            <field name="lost_reason"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_parcel_parcel_search" model="ir.ui.view">
+        <field name="name">parcel.parcel.search</field>
+        <field name="model">parcel.parcel</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="tracking_number"/>
+                <field name="partner_id"/>
+                <filter name="late" string="Late" domain="[('is_late','=',True)]"/>
+                <filter name="in_transit" string="In Transit" domain="[('state','=','in_transit')]"/>
+                <filter name="lost" string="Lost" domain="[('state','=','lost')]"/>
+                <separator/>
+                <filter name="group_carrier" string="Carrier" context="{'group_by': 'carrier'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_supplier" string="Supplier" context="{'group_by': 'partner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_parcel_parcel_kanban" model="ir.ui.view">
+        <field name="name">parcel.parcel.kanban</field>
+        <field name="model">parcel.parcel</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="tracking_number"/>
+                <field name="carrier"/>
+                <field name="expected_on"/>
+                <field name="is_late"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="tracking_number"/>
+                        <field name="carrier"/>
+                        <field name="expected_on"/>
+                        <field name="is_late"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_parcel_parcel" model="ir.actions.act_window">
+        <field name="name">Tracked Parcels</field>
+        <field name="res_model">parcel.parcel</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every inbound parcel, its tracking number and where it stands right now.</p>
+        </field>
+    </record>
+
+</odoo>
