@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_wst_stream_list" model="ir.ui.view">
+        <field name="name">wst.stream.list</field>
+        <field name="model">wst.stream</field>
+        <field name="arch" type="xml">
+            <list string="Waste Streams">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="hazard_class"/>
+                <field name="contractor"/>
+                <field name="collection_count"/>
+                <field name="pending_receipt_count"/>
+                <field name="total_quantity"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_wst_stream_form" model="ir.ui.view">
+        <field name="name">wst.stream.form</field>
+        <field name="model">wst.stream</field>
+        <field name="arch" type="xml">
+            <form string="Waste Streams">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Stream">
+    <field name="name"/>
+    <field name="code"/>
+    <field name="hazard_class"/>
+    <field name="contractor"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Counters">
+    <field name="collection_count"/>
+    <field name="pending_receipt_count"/>
+    <field name="total_quantity"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Collections" name="collectionids">
+                            <field name="collection_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_wst_stream_search" model="ir.ui.view">
+        <field name="name">wst.stream.search</field>
+        <field name="model">wst.stream</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="contractor"/>
+                <separator/>
+                <filter name="group_hazard" string="Hazard Class" context="{'group_by': 'hazard_class'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_wst_stream_kanban" model="ir.ui.view">
+        <field name="name">wst.stream.kanban</field>
+        <field name="model">wst.stream</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="hazard_class" sample="1">
+                <field name="hazard_class"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="contractor"/>
+                <field name="pending_receipt_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="hazard_class" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="contractor"/>
+                        <field name="pending_receipt_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_wst_stream" model="ir.actions.act_window">
+        <field name="name">Waste Streams</field>
+        <field name="res_model">wst.stream</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The register of waste streams and their contractors.</p>
+        </field>
+    </record>
+
+</odoo>
