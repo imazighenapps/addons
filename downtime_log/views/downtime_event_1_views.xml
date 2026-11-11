@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_downtime_event_list" model="ir.ui.view">
+        <field name="name">downtime.event.list</field>
+        <field name="model">downtime.event</field>
+        <field name="arch" type="xml">
+            <list string="Stop Events" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="start_at"/>
+                <field name="machine_id"/>
+                <field name="reason"/>
+                <field name="duration_minutes"/>
+                <field name="end_at"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_downtime_event_form" model="ir.ui.view">
+        <field name="name">downtime.event.form</field>
+        <field name="model">downtime.event</field>
+        <field name="arch" type="xml">
+            <form string="Stop Events">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Stop">
+    <field name="name"/>
+    <field name="machine_id"/>
+    <field name="reason"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Timing">
+    <field name="start_at"/>
+    <field name="end_at"/>
+    <field name="duration_minutes"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_downtime_event_search" model="ir.ui.view">
+        <field name="name">downtime.event.search</field>
+        <field name="model">downtime.event</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="machine_id"/>
+                <field name="reason"/>
+                <filter name="running" string="Running" domain="[('state','=','open')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <separator/>
+                <filter name="group_machine" string="Machine" context="{'group_by': 'machine_id'}"/>
+                <filter name="group_reason" string="Reason" context="{'group_by': 'reason'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_downtime_event_kanban" model="ir.ui.view">
+        <field name="name">downtime.event.kanban</field>
+        <field name="model">downtime.event</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="machine_id"/>
+                <field name="reason"/>
+                <field name="start_at"/>
+                <field name="duration_minutes"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="machine_id"/>
+                        <field name="reason"/>
+                        <field name="start_at"/>
+                        <field name="duration_minutes"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_downtime_event" model="ir.actions.act_window">
+        <field name="name">Stop Events</field>
+        <field name="res_model">downtime.event</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Log every machine stop with its reason, duration and closure status.</p>
+        </field>
+    </record>
+
+</odoo>

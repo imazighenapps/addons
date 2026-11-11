@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_downtime_machine_user,downtime.machine User,downtime.machine,downtime_log.group_downtimelog_user,cru,
+access_downtime_machine_manager,downtime.machine Manager,downtime.machine,downtime_log.group_downtimelog_manager,crud,
+access_downtime_event_user,downtime.event User,downtime.event,downtime_log.group_downtimelog_user,cru,
+access_downtime_event_manager,downtime.event Manager,downtime.event,downtime_log.group_downtimelog_manager,crud,
+rule_downtime_machine_company,downtime.machine: own company only,downtime.machine,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_downtime_event_company,downtime.event: own company only,downtime.event,,crud,"[('company_id', 'in', company_ids + [False])]"
