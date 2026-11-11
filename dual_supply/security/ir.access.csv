@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_dual_product_user,dual.product User,dual.product,dual_supply.group_dualsupply_user,cr,
+access_dual_product_manager,dual.product Manager,dual.product,dual_supply.group_dualsupply_manager,crud,
+access_dual_supplier_user,dual.supplier User,dual.supplier,dual_supply.group_dualsupply_user,cr,
+access_dual_supplier_manager,dual.supplier Manager,dual.supplier,dual_supply.group_dualsupply_manager,crud,
+rule_dual_product_company,dual.product: own company only,dual.product,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_dual_supplier_company,dual.supplier: own company only,dual.supplier,,crud,"[('company_id', 'in', company_ids + [False])]"
