@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cln_plan_list" model="ir.ui.view">
+        <field name="name">cln.plan.list</field>
+        <field name="model">cln.plan</field>
+        <field name="arch" type="xml">
+            <list string="Cleaning Plans">
+                <field name="name"/>
+                <field name="area"/>
+                <field name="frequency"/>
+                <field name="method"/>
+                <field name="responsible_id"/>
+                <field name="execution_count"/>
+                <field name="pending_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cln_plan_form" model="ir.ui.view">
+        <field name="name">cln.plan.form</field>
+        <field name="model">cln.plan</field>
+        <field name="arch" type="xml">
+            <form string="Cleaning Plans">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Plan">
+    <field name="name"/>
+    <field name="area"/>
+    <field name="frequency"/>
+    <field name="method"/>
+    <field name="responsible_id"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Counters">
+    <field name="execution_count"/>
+    <field name="pending_count"/>
+    <field name="done_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Executions" name="executionids">
+                            <field name="execution_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cln_plan_search" model="ir.ui.view">
+        <field name="name">cln.plan.search</field>
+        <field name="model">cln.plan</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="area"/>
+                <field name="responsible_id"/>
+                <field name="method"/>
+                <separator/>
+                <filter name="group_frequency" string="Frequency" context="{'group_by': 'frequency'}"/>
+                <filter name="group_responsible" string="Responsible" context="{'group_by': 'responsible_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_cln_plan_kanban" model="ir.ui.view">
+        <field name="name">cln.plan.kanban</field>
+        <field name="model">cln.plan</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="frequency" sample="1">
+                <field name="frequency"/>
+                <field name="name"/>
+                <field name="area"/>
+                <field name="responsible_id"/>
+                <field name="pending_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="frequency" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="area"/>
+                        <field name="responsible_id"/>
+                        <field name="pending_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_cln_plan" model="ir.actions.act_window">
+        <field name="name">Cleaning Plans</field>
+        <field name="res_model">cln.plan</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Define who cleans what, when and how.</p>
+        </field>
+    </record>
+
+</odoo>

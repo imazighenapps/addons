@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_cln_plan_company" model="ir.rule">
+        <field name="name">cln.plan: own company only</field>
+        <field name="model_id" ref="model_cln_plan"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_cln_execution_company" model="ir.rule">
+        <field name="name">cln.execution: own company only</field>
+        <field name="model_id" ref="model_cln_execution"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
