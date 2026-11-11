@@ -1,0 +1,399 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* lease_desk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_contract.py:0
+msgid "A closed lease cannot generate a schedule."
+msgstr "Ein geschlossener Mietvertrag kann keinen Zeitplan generieren."
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_schedule__amount
+msgid "Amount"
+msgstr "Betrag"
+
+#. module: lease_desk
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_form
+msgid "Close"
+msgstr "Schließen"
+
+#. module: lease_desk
+#: model:ir.model.fields.selection,name:lease_desk.selection__lease_contract__state__closed
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_search
+msgid "Closed"
+msgstr "Geschlossen"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__company_id
+#: model:ir.model.fields,field_description:lease_desk.field_lease_schedule__company_id
+msgid "Company"
+msgstr "Firma"
+
+#. module: lease_desk
+#: model:res.groups,comment:lease_desk.group_leasedesk_manager
+msgid "Configure and administer the module."
+msgstr "Konfigurieren und verwalten Sie das Modul."
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__create_uid
+#: model:ir.model.fields,field_description:lease_desk.field_lease_schedule__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__create_date
+#: model:ir.model.fields,field_description:lease_desk.field_lease_schedule__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__currency_id
+#: model:ir.model.fields,field_description:lease_desk.field_lease_schedule__currency_id
+msgid "Currency"
+msgstr "Währung"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__date_end
+msgid "Date End"
+msgstr "Datum Ende"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__date_start
+msgid "Date Start"
+msgstr "Datum Beginn"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__display_name
+#: model:ir.model.fields,field_description:lease_desk.field_lease_schedule__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: lease_desk
+#: model:ir.model.fields.selection,name:lease_desk.selection__lease_contract__state__draft
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_search
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_schedule__due_date
+msgid "Due Date"
+msgstr "Fälligkeitsdatum"
+
+#. module: lease_desk
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_form
+msgid "Generate Schedule"
+msgstr "Zeitplan erstellen"
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_contract.py:0
+msgid "Generate the payment schedule before starting lease %s."
+msgstr "Erstellen Sie den Zahlungsplan, bevor Sie mit dem Leasing beginnen %s."
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__has_message
+msgid "Has Message"
+msgstr "Hat Nachricht"
+
+#. module: lease_desk
+#: model:ir.module.module,summary:base.module_lease_desk
+msgid "Keep the payment schedule of every lease and generate the monthly entry without the spreadsheet errors."
+msgstr "Behalten Sie den Zahlungsplan für jeden Mietvertrag bei und erstellen Sie den monatlichen Eintrag ohne Tabellenfehler."
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__write_uid
+#: model:ir.model.fields,field_description:lease_desk.field_lease_schedule__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__write_date
+#: model:ir.model.fields,field_description:lease_desk.field_lease_schedule__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_schedule__lease_id
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_form
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_schedule_search
+msgid "Lease"
+msgstr "Mieten"
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_contract.py:0
+msgid "Lease %s already has a schedule. Remove it before generating a new one."
+msgstr "Mietvertrag %s hat bereits einen Zeitplan. Entfernen Sie es, bevor Sie ein neues erstellen."
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_schedule.py:0
+msgid "Lease %s is closed: its schedule cannot be changed."
+msgstr "Mietvertrag %s ist geschlossen: Der Zeitplan kann nicht geändert werden."
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_schedule.py:0
+msgid "Lease %s is closed: no schedule line can be added."
+msgstr "Mietvertrag %s ist geschlossen: Es kann keine Einteilung hinzugefügt werden."
+
+#. module: lease_desk
+#: model:ir.ui.menu,name:lease_desk.menu_lease_root
+msgid "Lease Book"
+msgstr "Mietbuch"
+
+#. module: lease_desk
+#: model:ir.model,name:lease_desk.model_lease_contract
+msgid "Lease Contract"
+msgstr "Mietvertrag"
+
+#. module: lease_desk
+#: model:res.groups,name:lease_desk.group_leasedesk_manager
+msgid "Lease Desk Manager"
+msgstr "Leasing-Desk-Manager"
+
+#. module: lease_desk
+#: model:res.groups,name:lease_desk.group_leasedesk_user
+msgid "Lease Desk User"
+msgstr "Lease Desk-Benutzer"
+
+#. module: lease_desk
+#: model:ir.model,name:lease_desk.model_lease_schedule
+msgid "Lease Schedule Line"
+msgstr "Mietplanlinie"
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_contract.py:0
+msgid "Lease closed with %s posted and %s remaining."
+msgstr "Der Mietvertrag wurde mit gebuchtem %s und verbleibendem %s abgeschlossen."
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_contract.py:0
+msgid "Lease started."
+msgstr "Mietvertrag begonnen."
+
+#. module: lease_desk
+#: model:ir.module.module,shortdesc:base.module_lease_desk
+msgid "LeaseBook"
+msgstr "LeaseBook"
+
+#. module: lease_desk
+#: model:ir.actions.act_window,name:lease_desk.action_lease_contract
+#: model:ir.ui.menu,name:lease_desk.menu_lease_contracts
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_form
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_list
+msgid "Leases"
+msgstr "Mietverträge"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__partner_id
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_search
+msgid "Lessor"
+msgstr "Vermieterin Vermieter"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__monthly_amount
+msgid "Monthly Amount"
+msgstr "Monatlicher Betrag"
+
+#. module: lease_desk
+#: model_terms:ir.actions.act_window,help:lease_desk.action_lease_schedule
+msgid "Monthly payment lines generated from each lease."
+msgstr "Monatliche Zahlungszeilen, die aus jedem Mietvertrag generiert werden."
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__name
+msgid "Name"
+msgstr "Name"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__note
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_form
+msgid "Note"
+msgstr "Notiz"
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_contract.py:0
+msgid "Only a draft lease can be started."
+msgstr "Es kann nur ein Mietvertragsentwurf gestartet werden."
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_contract.py:0
+msgid "Only a running lease can be closed."
+msgstr "Es kann nur ein laufender Mietvertrag abgeschlossen werden."
+
+#. module: lease_desk
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_schedule_form
+msgid "Payment"
+msgstr "Zahlung"
+
+#. module: lease_desk
+#: model:ir.actions.act_window,name:lease_desk.action_lease_schedule
+#: model:ir.ui.menu,name:lease_desk.menu_lease_schedules
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_form
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_schedule_form
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_schedule_list
+msgid "Payment Schedule"
+msgstr "Zahlungsplan"
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_contract.py:0
+msgid "Payment schedule generated with %s line(s)."
+msgstr "Mit %s-Zeile(n) generierter Zahlungsplan."
+
+#. module: lease_desk
+#: model:ir.model.fields.selection,name:lease_desk.selection__lease_schedule__state__pending
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_schedule_search
+msgid "Pending"
+msgstr "Ausstehend"
+
+#. module: lease_desk
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_form
+msgid "Post"
+msgstr "Post"
+
+#. module: lease_desk
+#: model:ir.model.fields.selection,name:lease_desk.selection__lease_schedule__state__posted
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_schedule_search
+msgid "Posted"
+msgstr "Gepostet"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__posted_amount
+msgid "Posted Amount"
+msgstr "Gebuchter Betrag"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_schedule__posted_on
+msgid "Posted On"
+msgstr "Gepostet am"
+
+#. module: lease_desk
+#: model_terms:ir.actions.act_window,help:lease_desk.action_lease_contract
+msgid "Register leases and generate their monthly payment schedule."
+msgstr "Registrieren Sie Mietverträge und erstellen Sie deren monatlichen Zahlungsplan."
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__remaining_amount
+msgid "Remaining Amount"
+msgstr "Restbetrag"
+
+#. module: lease_desk
+#: model:ir.model.fields.selection,name:lease_desk.selection__lease_contract__state__running
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_search
+msgid "Running"
+msgstr "Laufend"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__line_ids
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_schedule_form
+msgid "Schedule"
+msgstr "Zeitplan"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__schedule_count
+msgid "Schedule Count"
+msgstr "Zeitplananzahl"
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_schedule__sequence
+msgid "Sequence"
+msgstr "Sequenz"
+
+#. module: lease_desk
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_form
+msgid "Start"
+msgstr "Start"
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_schedule.py:0
+msgid "Start the lease before posting schedule lines."
+msgstr "Beginnen Sie mit dem Mietvertrag, bevor Sie Einteilungen buchen."
+
+#. module: lease_desk
+#: model:ir.model.fields,field_description:lease_desk.field_lease_contract__state
+#: model:ir.model.fields,field_description:lease_desk.field_lease_schedule__state
+msgid "State"
+msgstr "Status"
+
+#. module: lease_desk
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_search
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_schedule_search
+msgid "Status"
+msgstr "Status"
+
+#. module: lease_desk
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_form
+msgid "Term"
+msgstr "Begriff"
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_schedule.py:0
+msgid "The amount of a schedule line must be greater than zero."
+msgstr "Der Betrag einer Einteilung muss größer als Null sein."
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_contract.py:0
+msgid "The end date of lease %s cannot be before its start date."
+msgstr "Das Enddatum des Leasingvertrags %s darf nicht vor seinem Startdatum liegen."
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_contract.py:0
+msgid "The monthly amount of lease %s must be greater than zero."
+msgstr "Der monatliche Leasingbetrag %s muss größer als Null sein."
+
+#. module: lease_desk
+#. odoo-python
+#: code:addons/lease_desk/models/lease_schedule.py:0
+msgid "This schedule line is already posted."
+msgstr "Diese Einteilung ist bereits gebucht."
+
+#. module: lease_desk
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_form
+msgid "Total"
+msgstr "Gesamt"
+
+#. module: lease_desk
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_schedule_list
+msgid "Total Amount"
+msgstr "Gesamtbetrag"
+
+#. module: lease_desk
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_list
+msgid "Total Posted Amount"
+msgstr "Gesamter gebuchter Betrag"
+
+#. module: lease_desk
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_list
+msgid "Total Remaining Amount"
+msgstr "Gesamtverbleibender Betrag"
+
+#. module: lease_desk
+#: model_terms:ir.ui.view,arch_db:lease_desk.view_lease_contract_form
+msgid "Totals"
+msgstr "Summen"
+
+#. module: lease_desk
+#: model:res.groups,comment:lease_desk.group_leasedesk_user
+msgid "View and use the module."
+msgstr "Sehen Sie sich das Modul an und nutzen Sie es."
