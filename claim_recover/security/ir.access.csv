@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_recover_claim_user,recover.claim User,recover.claim,claim_recover.group_claimrecover_user,cr,
+access_recover_claim_manager,recover.claim Manager,recover.claim,claim_recover.group_claimrecover_manager,crud,
+access_recover_action_user,recover.action User,recover.action,claim_recover.group_claimrecover_user,cr,
+access_recover_action_manager,recover.action Manager,recover.action,claim_recover.group_claimrecover_manager,crud,
+rule_recover_claim_company,recover.claim: own company only,recover.claim,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_recover_action_company,recover.action: own company only,recover.action,,crud,"[('company_id', 'in', company_ids + [False])]"

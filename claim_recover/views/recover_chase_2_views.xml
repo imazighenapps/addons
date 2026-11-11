@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_recover_chase_list" model="ir.ui.view">
+        <field name="name">recover.claim.list</field>
+        <field name="model">recover.claim</field>
+        <field name="arch" type="xml">
+            <list string="Chase List" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="due_on"/>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <field name="amount_expected"/>
+                <field name="action_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_recover_chase_form" model="ir.ui.view">
+        <field name="name">recover.claim.form</field>
+        <field name="model">recover.claim</field>
+        <field name="arch" type="xml">
+            <form string="Chase List">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Claim">
+    <field name="name"/>
+    <field name="partner_name"/>
+    <field name="origin_ref"/>
+    <field name="claim_kind"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="amount_expected"/>
+    <field name="amount_recovered"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="due_on"/>
+    <field name="state"/>
+    <field name="recovered_on"/>
+    <field name="action_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_recover_chase_search" model="ir.ui.view">
+        <field name="name">recover.claim.search</field>
+        <field name="model">recover.claim</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <separator/>
+                <filter name="group_kind" string="Kind" context="{'group_by': 'claim_kind'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_recover_chase" model="ir.actions.act_window">
+        <field name="name">Chase List</field>
+        <field name="res_model">recover.claim</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Claims that are still open and need to be chased.</p>
+        </field>
+    </record>
+
+</odoo>

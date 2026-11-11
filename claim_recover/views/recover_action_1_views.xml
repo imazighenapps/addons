@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_recover_action_list" model="ir.ui.view">
+        <field name="name">recover.action.list</field>
+        <field name="model">recover.action</field>
+        <field name="arch" type="xml">
+            <list string="Chase Actions" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="action_on"/>
+                <field name="claim_id"/>
+                <field name="channel"/>
+                <field name="summary"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_recover_action_form" model="ir.ui.view">
+        <field name="name">recover.action.form</field>
+        <field name="model">recover.action</field>
+        <field name="arch" type="xml">
+            <form string="Chase Actions">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="summary" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Action">
+    <field name="claim_id"/>
+    <field name="action_on"/>
+    <field name="channel"/>
+    <field name="summary"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_recover_action_search" model="ir.ui.view">
+        <field name="name">recover.action.search</field>
+        <field name="model">recover.action</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="claim_id"/>
+                <field name="summary"/>
+                <separator/>
+                <filter name="group_claim" string="Claim" context="{'group_by': 'claim_id'}"/>
+                <filter name="group_channel" string="Channel" context="{'group_by': 'channel'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_recover_action_kanban" model="ir.ui.view">
+        <field name="name">recover.action.kanban</field>
+        <field name="model">recover.action</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="channel" sample="1">
+                <field name="channel"/>
+                <field name="claim_id"/>
+                <field name="action_on"/>
+                <field name="summary"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="channel" class="fw-bold"/>
+                        <field name="claim_id"/>
+                        <field name="action_on"/>
+                        <field name="summary"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_recover_action" model="ir.actions.act_window">
+        <field name="name">Chase Actions</field>
+        <field name="res_model">recover.action</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every follow-up sent to recover an outstanding claim.</p>
+        </field>
+    </record>
+
+</odoo>
