@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_price_shift_user,price.shift User,price.shift,price_change_desk.group_pricechanged_user,cru,
+access_price_shift_manager,price.shift Manager,price.shift,price_change_desk.group_pricechanged_manager,crud,
+access_price_shift_line_user,price.shift.line User,price.shift.line,price_change_desk.group_pricechanged_user,cru,
+access_price_shift_line_manager,price.shift.line Manager,price.shift.line,price_change_desk.group_pricechanged_manager,crud,
+rule_price_shift_company,price.shift: own company only,price.shift,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_price_shift_line_company,price.shift.line: own company only,price.shift.line,,crud,"[('company_id', 'in', company_ids + [False])]"
