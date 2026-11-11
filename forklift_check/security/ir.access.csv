@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_forklift_check_user,forklift.check User,forklift.check,forklift_check.group_forkliftchec_user,cr,
+access_forklift_check_manager,forklift.check Manager,forklift.check,forklift_check.group_forkliftchec_manager,crud,
+access_forklift_defect_user,forklift.defect User,forklift.defect,forklift_check.group_forkliftchec_user,cr,
+access_forklift_defect_manager,forklift.defect Manager,forklift.defect,forklift_check.group_forkliftchec_manager,crud,
+rule_forklift_check_company,forklift.check: own company only,forklift.check,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_forklift_defect_company,forklift.defect: own company only,forklift.defect,,crud,"[('company_id', 'in', company_ids + [False])]"
