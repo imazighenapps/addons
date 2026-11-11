@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_container_shipment_list" model="ir.ui.view">
+        <field name="name">container.shipment.list</field>
+        <field name="model">container.shipment</field>
+        <field name="arch" type="xml">
+            <list string="Containers In" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="booking_ref"/>
+                <field name="vessel"/>
+                <field name="origin"/>
+                <field name="destination"/>
+                <field name="eta"/>
+                <field name="arrived_on"/>
+                <field name="total_amount" sum="Total Total Amount"/>
+                <field name="due_amount" sum="Total Due Amount"/>
+                <field name="is_delayed"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_container_shipment_form" model="ir.ui.view">
+        <field name="name">container.shipment.form</field>
+        <field name="model">container.shipment</field>
+        <field name="arch" type="xml">
+            <form string="Containers In">
+                <header>
+                    <button name="action_sail" type="object" string="Sail" class="btn-primary" invisible="state != 'booked'"/>
+                    <button name="action_mark_arrived" type="object" string="Arrived" class="btn-primary" invisible="state != 'at_sea'"/>
+                    <button name="action_release" type="object" string="Release" class="btn-primary" invisible="state != 'arrived'"/>
+                    <button name="action_reset_booked" type="object" string="Reset" class="btn-secondary" invisible="state in ('booked','released')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="booked,at_sea,arrived,released"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Container">
+    <field name="name"/>
+    <field name="booking_ref"/>
+    <field name="vessel"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Route">
+    <field name="origin"/>
+    <field name="destination"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Dates">
+    <field name="eta"/>
+    <field name="arrived_on"/>
+    <field name="is_delayed"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Totals">
+    <field name="charge_count"/>
+    <field name="total_amount"/>
+    <field name="due_amount"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Charges" name="chargeids">
+                            <field name="charge_ids" readonly="state == 'released'">
+                        <list editable="bottom">
+                            <field name="name"/>
+                            <field name="charge_type"/>
+                            <field name="payer"/>
+                            <field name="amount" sum="Total"/>
+                            <field name="settled"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_container_shipment_search" model="ir.ui.view">
+        <field name="name">container.shipment.search</field>
+        <field name="model">container.shipment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="booking_ref"/>
+                <field name="vessel"/>
+                <field name="origin"/>
+                <field name="destination"/>
+                <filter name="delayed" string="Delayed" domain="[('is_delayed','=',True)]"/>
+                <filter name="at_sea" string="At Sea" domain="[('state','=','at_sea')]"/>
+                <filter name="due" string="Charges Due" domain="[('due_amount','&gt;',0)]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_origin" string="Origin" context="{'group_by': 'origin'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_container_shipment_kanban" model="ir.ui.view">
+        <field name="name">container.shipment.kanban</field>
+        <field name="model">container.shipment</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="vessel"/>
+                <field name="eta"/>
+                <field name="is_delayed"/>
+                <field name="due_amount"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="vessel"/>
+                        <field name="eta"/>
+                        <field name="is_delayed"/>
+                        <field name="due_amount"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_container_shipment" model="ir.actions.act_window">
+        <field name="name">Containers In</field>
+        <field name="res_model">container.shipment</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every import container, its ETA, charges and release status.</p>
+        </field>
+    </record>
+
+</odoo>
