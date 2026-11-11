@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_medical_visit_user,medical.visit User,medical.visit,medical_watch.group_medicalwatch_user,crud,
+access_medical_visit_manager,medical.visit Manager,medical.visit,medical_watch.group_medicalwatch_manager,crud,
+rule_medical_visit_company,medical.visit: own company only,medical.visit,,crud,"[('company_id', 'in', company_ids + [False])]"
