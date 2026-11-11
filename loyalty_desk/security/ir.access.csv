@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_loyalty_account_user,loyalty.account User,loyalty.account,loyalty_desk.group_loyaltydesk_user,cr,
+access_loyalty_account_manager,loyalty.account Manager,loyalty.account,loyalty_desk.group_loyaltydesk_manager,crud,
+access_loyalty_move_user,loyalty.move User,loyalty.move,loyalty_desk.group_loyaltydesk_user,cr,
+access_loyalty_move_manager,loyalty.move Manager,loyalty.move,loyalty_desk.group_loyaltydesk_manager,crud,
+rule_loyalty_account_company,loyalty.account: own company only,loyalty.account,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_loyalty_move_company,loyalty.move: own company only,loyalty.move,,crud,"[('company_id', 'in', company_ids + [False])]"
