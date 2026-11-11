@@ -1,0 +1,320 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* downtime_log
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__active
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_machine_search
+msgid "Active"
+msgstr "Actif"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__availability_rate
+msgid "Availability (%)"
+msgstr "Disponibilité (%)"
+
+#. module: downtime_log
+#: model:ir.model.fields,help:downtime_log.field_downtime_machine__availability_rate
+msgid "Availability based on planned minutes minus downtime."
+msgstr "Disponibilité basée sur les minutes planifiées moins les temps d'arrêt."
+
+#. module: downtime_log
+#: model:ir.model.fields,help:downtime_log.field_downtime_machine__mttr_minutes
+msgid "Average duration of closed stop events."
+msgstr "Durée moyenne des événements d'arrêt fermé."
+
+#. module: downtime_log
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_machine_form
+msgid "Baseline"
+msgstr "Référence"
+
+#. module: downtime_log
+#: model:ir.model.fields.selection,name:downtime_log.selection__downtime_event__state__closed
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_event_search
+msgid "Closed"
+msgstr "Clôturé"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__code
+msgid "Code"
+msgstr "Code"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__company_id
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: downtime_log
+#: model:res.groups,comment:downtime_log.group_downtimelog_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__create_uid
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__create_date
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__display_name
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: downtime_log
+#: model:ir.module.module,shortdesc:base.module_downtime_log
+#: model:ir.ui.menu,name:downtime_log.menu_downtime_root
+msgid "Downtime"
+msgstr "Temps d'arrêt"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__downtime_minutes
+msgid "Downtime (min)"
+msgstr "Temps d'arrêt (min)"
+
+#. module: downtime_log
+#: model:ir.model,name:downtime_log.model_downtime_event
+msgid "Downtime Event"
+msgstr "Événement de temps d'arrêt"
+
+#. module: downtime_log
+#: model:res.groups,name:downtime_log.group_downtimelog_manager
+msgid "Downtime Log Manager"
+msgstr "Gestionnaire de journaux de temps d'arrêt"
+
+#. module: downtime_log
+#: model:res.groups,name:downtime_log.group_downtimelog_user
+msgid "Downtime Log User"
+msgstr "Utilisateur du journal des temps d'arrêt"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__duration_minutes
+msgid "Duration (min)"
+msgstr "Durée (min)"
+
+#. module: downtime_log
+#: model:ir.model.fields,help:downtime_log.field_downtime_event__duration_minutes
+msgid "Duration of the stop in minutes."
+msgstr "Durée de l'arrêt en minutes."
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__end_at
+msgid "End"
+msgstr "Fin"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__has_message
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: downtime_log
+#: model:ir.model.fields,help:downtime_log.field_downtime_machine__code
+msgid "Internal reference of the machine."
+msgstr "Référence interne de la machine."
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__write_uid
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__write_date
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: downtime_log
+#: model:ir.module.module,summary:base.module_downtime_log
+msgid "Log every machine stop with its reason and compute the availability, MTBF and MTTR the plant really runs at."
+msgstr "Enregistrez chaque arrêt de machine avec sa raison et calculez la disponibilité, le MTBF et le MTTR auxquels l'usine fonctionne réellement."
+
+#. module: downtime_log
+#: model_terms:ir.actions.act_window,help:downtime_log.action_downtime_event
+msgid "Log every machine stop with its reason, duration and closure status."
+msgstr "Enregistrez chaque arrêt de la machine avec sa raison, sa durée et son état de fermeture."
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__mttr_minutes
+msgid "MTTR (min)"
+msgstr "MTTR (min)"
+
+#. module: downtime_log
+#: model:ir.model,name:downtime_log.model_downtime_machine
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__machine_id
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_event_search
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_machine_form
+msgid "Machine"
+msgstr "Machine"
+
+#. module: downtime_log
+#: model:ir.actions.act_window,name:downtime_log.action_downtime_machine
+#: model:ir.ui.menu,name:downtime_log.menu_downtime_machines
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_machine_form
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_machine_list
+msgid "Machines"
+msgstr "Machines"
+
+#. module: downtime_log
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_machine_form
+msgid "Metrics"
+msgstr "Métrique"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__name
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__note
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__note
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_event_form
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_machine_form
+msgid "Note"
+msgstr "Note"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__open_stop_count
+msgid "Open Stops"
+msgstr "Arrêts ouverts"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__planned_minutes
+msgid "Planned Minutes"
+msgstr "Minutes planifiées"
+
+#. module: downtime_log
+#: model:ir.model.fields,help:downtime_log.field_downtime_machine__planned_minutes
+msgid "Planned operating minutes used as availability baseline."
+msgstr "Minutes de fonctionnement planifiées utilisées comme référence de disponibilité."
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__reason
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_event_search
+msgid "Reason"
+msgstr "Raison"
+
+#. module: downtime_log
+#: model:ir.model.fields,help:downtime_log.field_downtime_event__name
+msgid "Reference of the downtime event."
+msgstr "Référence de l'événement d'indisponibilité."
+
+#. module: downtime_log
+#: model:ir.model.fields.selection,name:downtime_log.selection__downtime_event__state__open
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_event_search
+msgid "Running"
+msgstr "En cours"
+
+#. module: downtime_log
+#. odoo-python
+#: code:addons/downtime_log/models/downtime_event.py:0
+msgid "Set an end time before closing %s."
+msgstr "Définissez une heure de fin avant de fermer %s."
+
+#. module: downtime_log
+#: model:ir.model.fields,help:downtime_log.field_downtime_event__reason
+msgid "Short reason describing why the machine stopped."
+msgstr "Brève raison décrivant pourquoi la machine s'est arrêtée."
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__start_at
+msgid "Start"
+msgstr "Commencer"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_event__state
+msgid "State"
+msgstr "Statut"
+
+#. module: downtime_log
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_event_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: downtime_log
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_event_form
+msgid "Stop"
+msgstr "Arrêt"
+
+#. module: downtime_log
+#. odoo-python
+#: code:addons/downtime_log/models/downtime_event.py:0
+msgid "Stop %s"
+msgstr "Arrêter %s"
+
+#. module: downtime_log
+#: model:ir.actions.act_window,name:downtime_log.action_downtime_event
+#: model:ir.ui.menu,name:downtime_log.menu_downtime_events
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_event_form
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_event_list
+msgid "Stop Events"
+msgstr "Arrêter les événements"
+
+#. module: downtime_log
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__stop_count
+#: model:ir.model.fields,field_description:downtime_log.field_downtime_machine__stop_ids
+msgid "Stops"
+msgstr "Arrêts"
+
+#. module: downtime_log
+#. odoo-python
+#: code:addons/downtime_log/models/downtime_event.py:0
+msgid "The end time of %s cannot be before its start time."
+msgstr "L'heure de fin de %s ne peut pas être antérieure à son heure de début."
+
+#. module: downtime_log
+#. odoo-python
+#: code:addons/downtime_log/models/downtime_machine.py:0
+msgid "The planned operating time for %s must be greater than zero."
+msgstr "La durée de fonctionnement prévue pour %s doit être supérieure à zéro."
+
+#. module: downtime_log
+#. odoo-python
+#: code:addons/downtime_log/models/downtime_event.py:0
+msgid "The stop event %s is already closed."
+msgstr "L'événement d'arrêt %s est déjà clôturé."
+
+#. module: downtime_log
+#. odoo-python
+#: code:addons/downtime_log/models/downtime_event.py:0
+msgid "The stop event has been closed."
+msgstr "L'événement d'arrêt a été clôturé."
+
+#. module: downtime_log
+#: model_terms:ir.ui.view,arch_db:downtime_log.view_downtime_event_form
+msgid "Timing"
+msgstr "Timing"
+
+#. module: downtime_log
+#: model:ir.model.fields,help:downtime_log.field_downtime_machine__downtime_minutes
+msgid "Total duration of closed stop events in minutes."
+msgstr "Durée totale des événements d'arrêt fermé en minutes."
+
+#. module: downtime_log
+#: model_terms:ir.actions.act_window,help:downtime_log.action_downtime_machine
+msgid "Track machine availability and review downtime performance indicators."
+msgstr "Suivez la disponibilité des machines et examinez les indicateurs de performance des temps d’arrêt."
+
+#. module: downtime_log
+#: model:res.groups,comment:downtime_log.group_downtimelog_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
