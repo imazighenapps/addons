@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_container_shipment_user,container.shipment User,container.shipment,container_watch.group_containerwat_user,crud,
+access_container_shipment_manager,container.shipment Manager,container.shipment,container_watch.group_containerwat_manager,crud,
+access_container_charge_user,container.charge User,container.charge,container_watch.group_containerwat_user,crud,
+access_container_charge_manager,container.charge Manager,container.charge,container_watch.group_containerwat_manager,crud,
+rule_container_shipment_company,container.shipment: own company only,container.shipment,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_container_charge_company,container.charge: own company only,container.charge,,crud,"[('company_id', 'in', company_ids + [False])]"
