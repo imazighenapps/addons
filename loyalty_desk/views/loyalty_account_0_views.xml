@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_loyalty_account_list" model="ir.ui.view">
+        <field name="name">loyalty.account.list</field>
+        <field name="model">loyalty.account</field>
+        <field name="arch" type="xml">
+            <list string="Point Accounts" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="partner_name"/>
+                <field name="move_count"/>
+                <field name="points_earned"/>
+                <field name="points_redeemed"/>
+                <field name="balance_points"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_loyalty_account_form" model="ir.ui.view">
+        <field name="name">loyalty.account.form</field>
+        <field name="model">loyalty.account</field>
+        <field name="arch" type="xml">
+            <form string="Point Accounts">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="partner_name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Account">
+    <field name="name"/>
+    <field name="partner_name"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Balance">
+    <field name="move_count"/>
+    <field name="points_earned"/>
+    <field name="points_redeemed"/>
+    <field name="balance_points"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Movements" name="moveids">
+                            <field name="move_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_loyalty_account_search" model="ir.ui.view">
+        <field name="name">loyalty.account.search</field>
+        <field name="model">loyalty.account</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <filter name="active" string="Active" domain="[('state','=','active')]"/>
+                <filter name="suspended" string="Suspended" domain="[('state','=','suspended')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_loyalty_account_kanban" model="ir.ui.view">
+        <field name="name">loyalty.account.kanban</field>
+        <field name="model">loyalty.account</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="partner_name"/>
+                <field name="balance_points"/>
+                <field name="move_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="partner_name"/>
+                        <field name="balance_points"/>
+                        <field name="move_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_loyalty_account" model="ir.actions.act_window">
+        <field name="name">Point Accounts</field>
+        <field name="res_model">loyalty.account</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">One account per customer with the balance computed from the ledger.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_loyalty_account_company" model="ir.rule">
+        <field name="name">loyalty.account: own company only</field>
+        <field name="model_id" ref="model_loyalty_account"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_loyalty_move_company" model="ir.rule">
+        <field name="name">loyalty.move: own company only</field>
+        <field name="model_id" ref="model_loyalty_move"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

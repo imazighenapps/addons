@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_loyalty_move_list" model="ir.ui.view">
+        <field name="name">loyalty.move.list</field>
+        <field name="model">loyalty.move</field>
+        <field name="arch" type="xml">
+            <list string="Point Movements" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="move_date"/>
+                <field name="account_id"/>
+                <field name="move_type"/>
+                <field name="points"/>
+                <field name="reference"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_loyalty_move_form" model="ir.ui.view">
+        <field name="name">loyalty.move.form</field>
+        <field name="model">loyalty.move</field>
+        <field name="arch" type="xml">
+            <form string="Point Movements">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Movement">
+    <field name="name"/>
+    <field name="account_id"/>
+    <field name="move_type"/>
+    <field name="points"/>
+    <field name="move_date"/>
+    <field name="reference"/>
+                        </group>
+                        <group string="Status">
+    <field name="state"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_loyalty_move_search" model="ir.ui.view">
+        <field name="name">loyalty.move.search</field>
+        <field name="model">loyalty.move</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="account_id"/>
+                <field name="reference"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="posted" string="Posted" domain="[('state','=','posted')]"/>
+                <filter name="earn" string="Earned" domain="[('move_type','=','earn')]"/>
+                <filter name="redeem" string="Redeemed" domain="[('move_type','=','redeem')]"/>
+                <separator/>
+                <filter name="group_account" string="Account" context="{'group_by': 'account_id'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'move_type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_loyalty_move_kanban" model="ir.ui.view">
+        <field name="name">loyalty.move.kanban</field>
+        <field name="model">loyalty.move</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="account_id"/>
+                <field name="move_type"/>
+                <field name="points"/>
+                <field name="move_date"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="account_id"/>
+                        <field name="move_type"/>
+                        <field name="points"/>
+                        <field name="move_date"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_loyalty_move" model="ir.actions.act_window">
+        <field name="name">Point Movements</field>
+        <field name="res_model">loyalty.move</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every earn and redeem movement recorded on a customer account.</p>
+        </field>
+    </record>
+
+</odoo>
