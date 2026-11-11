@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_doc_control_user,doc.control User,doc.control,doc_distribution.group_docdistribut_user,cr,
+access_doc_control_manager,doc.control Manager,doc.control,doc_distribution.group_docdistribut_manager,crud,
+access_doc_distribution_user,doc.distribution User,doc.distribution,doc_distribution.group_docdistribut_user,cr,
+access_doc_distribution_manager,doc.distribution Manager,doc.distribution,doc_distribution.group_docdistribut_manager,crud,
+rule_doc_control_company,doc.control: own company only,doc.control,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_doc_distribution_company,doc.distribution: own company only,doc.distribution,,crud,"[('company_id', 'in', company_ids + [False])]"

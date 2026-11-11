@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_doc_pending_list" model="ir.ui.view">
+        <field name="name">doc.distribution.list</field>
+        <field name="model">doc.distribution</field>
+        <field name="arch" type="xml">
+            <list string="Pending Acknowledgements">
+                <field name="sent_on"/>
+                <field name="document_id"/>
+                <field name="recipient_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_doc_pending_form" model="ir.ui.view">
+        <field name="name">doc.distribution.form</field>
+        <field name="model">doc.distribution</field>
+        <field name="arch" type="xml">
+            <form string="Pending Acknowledgements">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="recipient_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Distribution">
+    <field name="name"/>
+    <field name="document_id"/>
+    <field name="recipient_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Timeline">
+    <field name="sent_on"/>
+    <field name="acknowledged_on"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_doc_pending_search" model="ir.ui.view">
+        <field name="name">doc.distribution.search</field>
+        <field name="model">doc.distribution</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="document_id"/>
+                <field name="recipient_id"/>
+                <separator/>
+                <filter name="group_document" string="Document" context="{'group_by': 'document_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_doc_pending" model="ir.actions.act_window">
+        <field name="name">Pending Acknowledgements</field>
+        <field name="res_model">doc.distribution</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Everyone who still has to confirm they read the current revision.</p>
+        </field>
+    </record>
+
+</odoo>
