@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_pest_station_list" model="ir.ui.view">
+        <field name="name">pest.station.list</field>
+        <field name="model">pest.station</field>
+        <field name="arch" type="xml">
+            <list string="Stations" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="location"/>
+                <field name="station_type"/>
+                <field name="interval_days"/>
+                <field name="last_check"/>
+                <field name="next_check"/>
+                <field name="is_overdue" widget="boolean"/>
+                <field name="inspection_count"/>
+                <field name="open_finding_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_station_form" model="ir.ui.view">
+        <field name="name">pest.station.form</field>
+        <field name="model">pest.station</field>
+        <field name="arch" type="xml">
+            <form string="Stations">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Station">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="location"/>
+    <field name="station_type"/>
+    <field name="responsible_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Schedule">
+    <field name="interval_days"/>
+    <field name="last_check"/>
+    <field name="next_check"/>
+    <field name="is_overdue"/>
+    <field name="state"/>
+                        </group>
+                        <group string="History">
+    <field name="inspection_count"/>
+    <field name="open_finding_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Inspections" name="inspectionids">
+                            <field name="inspection_ids">
+                        <list editable="bottom">
+                            <field name="name"/>
+                            <field name="inspection_date"/>
+                            <field name="contractor" optional="show"/>
+                            <field name="result"/>
+                            <field name="finding_state" widget="badge"/>
+                            <field name="state" widget="badge"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pest_station_search" model="ir.ui.view">
+        <field name="name">pest.station.search</field>
+        <field name="model">pest.station</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="location"/>
+                <filter name="active" string="Active" domain="[('state','=','active')]"/>
+                <filter name="out" string="Out of Service" domain="[('state','=','out_of_service')]"/>
+                <filter name="overdue" string="Overdue" domain="[('is_overdue','=',True)]"/>
+                <filter name="open_findings" string="Open Findings" domain="[('open_finding_count','&gt;',0)]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_type" string="Type" context="{'group_by': 'station_type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_responsible" string="Responsible" context="{'group_by': 'responsible_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_pest_station" model="ir.actions.act_window">
+        <field name="name">Stations</field>
+        <field name="res_model">pest.station</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register every pest control station and its next check date.</p>
+        </field>
+    </record>
+
+</odoo>

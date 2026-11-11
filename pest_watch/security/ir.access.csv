@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_pest_station_user,pest.station User,pest.station,pest_watch.group_pestwatch_user,crud,
+access_pest_station_manager,pest.station Manager,pest.station,pest_watch.group_pestwatch_manager,crud,
+access_pest_inspection_user,pest.inspection User,pest.inspection,pest_watch.group_pestwatch_user,crud,
+access_pest_inspection_manager,pest.inspection Manager,pest.inspection,pest_watch.group_pestwatch_manager,crud,
+rule_pest_station_company,pest.station: own company only,pest.station,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_pest_inspection_company,pest.inspection: own company only,pest.inspection,,crud,"[('company_id', 'in', company_ids + [False])]"
