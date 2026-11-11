@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_rwk_reject_user,rwk.reject User,rwk.reject,rework_desk.group_reworkdesk_user,cru,
+access_rwk_reject_manager,rwk.reject Manager,rwk.reject,rework_desk.group_reworkdesk_manager,crud,
+access_rwk_order_user,rwk.order User,rwk.order,rework_desk.group_reworkdesk_user,cru,
+access_rwk_order_manager,rwk.order Manager,rwk.order,rework_desk.group_reworkdesk_manager,crud,
+rule_rwk_reject_company,rwk.reject: own company only,rwk.reject,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_rwk_order_company,rwk.order: own company only,rwk.order,,crud,"[('company_id', 'in', company_ids + [False])]"

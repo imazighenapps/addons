@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_rwk_order_list" model="ir.ui.view">
+        <field name="name">rwk.order.list</field>
+        <field name="model">rwk.order</field>
+        <field name="arch" type="xml">
+            <list string="Rework Orders" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="reject_id"/>
+                <field name="planned_on"/>
+                <field name="owner_id"/>
+                <field name="quantity"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_rwk_order_form" model="ir.ui.view">
+        <field name="name">rwk.order.form</field>
+        <field name="model">rwk.order</field>
+        <field name="arch" type="xml">
+            <form string="Rework Orders">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Order">
+    <field name="name"/>
+    <field name="reject_id"/>
+    <field name="quantity"/>
+    <field name="owner_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Schedule">
+    <field name="planned_on"/>
+    <field name="done_on"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Instructions" name="instructions">
+                            <field name="instructions"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_rwk_order_search" model="ir.ui.view">
+        <field name="name">rwk.order.search</field>
+        <field name="model">rwk.order</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="reject_id"/>
+                <field name="owner_id"/>
+                <filter name="running" string="Running" domain="[('state', '=', 'running')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_owner" string="Owner" context="{'group_by': 'owner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_rwk_order_kanban" model="ir.ui.view">
+        <field name="name">rwk.order.kanban</field>
+        <field name="model">rwk.order</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="reject_id"/>
+                <field name="quantity"/>
+                <field name="planned_on"/>
+                <field name="owner_id"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="reject_id"/>
+                        <field name="quantity"/>
+                        <field name="planned_on"/>
+                        <field name="owner_id"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_rwk_order" model="ir.actions.act_window">
+        <field name="name">Rework Orders</field>
+        <field name="res_model">rwk.order</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Controlled rework orders with owner, plan and completion trace.</p>
+        </field>
+    </record>
+
+</odoo>
