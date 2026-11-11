@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_po_ack_order_user,po.ack.order User,po.ack.order,po_ack_watch.group_poackwatch_user,cru,
+access_po_ack_order_manager,po.ack.order Manager,po.ack.order,po_ack_watch.group_poackwatch_manager,crud,
+access_po_ack_followup_user,po.ack.followup User,po.ack.followup,po_ack_watch.group_poackwatch_user,cru,
+access_po_ack_followup_manager,po.ack.followup Manager,po.ack.followup,po_ack_watch.group_poackwatch_manager,crud,
+rule_po_ack_order_company,po.ack.order: own company only,po.ack.order,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_po_ack_followup_company,po.ack.followup: own company only,po.ack.followup,,crud,"[('company_id', 'in', company_ids + [False])]"
