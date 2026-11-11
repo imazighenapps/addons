@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_rebate_accrual_list" model="ir.ui.view">
+        <field name="name">rebate.accrual.list</field>
+        <field name="model">rebate.accrual</field>
+        <field name="arch" type="xml">
+            <list string="Accruals" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="accrual_date"/>
+                <field name="contract_id"/>
+                <field name="partner_id"/>
+                <field name="invoice_ref"/>
+                <field name="amount"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_rebate_accrual_form" model="ir.ui.view">
+        <field name="name">rebate.accrual.form</field>
+        <field name="model">rebate.accrual</field>
+        <field name="arch" type="xml">
+            <form string="Accruals">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Accrual">
+    <field name="name"/>
+    <field name="contract_id"/>
+    <field name="partner_id"/>
+    <field name="accrual_date"/>
+    <field name="invoice_ref"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Amount">
+    <field name="amount"/>
+    <field name="currency_id"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_rebate_accrual_search" model="ir.ui.view">
+        <field name="name">rebate.accrual.search</field>
+        <field name="model">rebate.accrual</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="contract_id"/>
+                <field name="partner_id"/>
+                <field name="invoice_ref"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="settled" string="Settled" domain="[('state','=','settled')]"/>
+                <separator/>
+                <filter name="group_contract" string="Contract" context="{'group_by': 'contract_id'}"/>
+                <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_rebate_accrual_kanban" model="ir.ui.view">
+        <field name="name">rebate.accrual.kanban</field>
+        <field name="model">rebate.accrual</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="contract_id"/>
+                <field name="partner_id"/>
+                <field name="amount"/>
+                <field name="accrual_date"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="contract_id"/>
+                        <field name="partner_id"/>
+                        <field name="amount"/>
+                        <field name="accrual_date"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_rebate_accrual" model="ir.actions.act_window">
+        <field name="name">Accruals</field>
+        <field name="res_model">rebate.accrual</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Each invoice or period that feeds a rebate promise, with the amount and the settlement status.</p>
+        </field>
+    </record>
+
+</odoo>
