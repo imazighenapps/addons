@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_work_permit_user,work.permit User,work.permit,work_permit_desk.group_workpermitde_user,cr,
+access_work_permit_manager,work.permit Manager,work.permit,work_permit_desk.group_workpermitde_manager,crud,
+rule_work_permit_company,work.permit: own company only,work.permit,,crud,"[('company_id', 'in', company_ids + [False])]"
