@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_loto_open_list" model="ir.ui.view">
+        <field name="name">loto.lockout.list</field>
+        <field name="model">loto.lockout</field>
+        <field name="arch" type="xml">
+            <list string="Open Lockouts">
+                <field name="locked_on"/>
+                <field name="name"/>
+                <field name="equipment"/>
+                <field name="tag_holder"/>
+                <field name="reason"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_loto_open_form" model="ir.ui.view">
+        <field name="name">loto.lockout.form</field>
+        <field name="model">loto.lockout</field>
+        <field name="arch" type="xml">
+            <form string="Open Lockouts">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="equipment" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Lockout">
+    <field name="name"/>
+    <field name="equipment"/>
+    <field name="tag_holder"/>
+    <field name="reason"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="locked_on"/>
+    <field name="state"/>
+    <field name="restored_on"/>
+    <field name="restored_by"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_loto_open_search" model="ir.ui.view">
+        <field name="name">loto.lockout.search</field>
+        <field name="model">loto.lockout</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="equipment"/>
+                <field name="tag_holder"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_loto_open" model="ir.actions.act_window">
+        <field name="name">Open Lockouts</field>
+        <field name="res_model">loto.lockout</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Everything still isolated and waiting to be restored.</p>
+        </field>
+    </record>
+
+</odoo>

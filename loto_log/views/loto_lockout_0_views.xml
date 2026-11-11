@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_loto_lockout_list" model="ir.ui.view">
+        <field name="name">loto.lockout.list</field>
+        <field name="model">loto.lockout</field>
+        <field name="arch" type="xml">
+            <list string="Lockouts" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="locked_on"/>
+                <field name="name"/>
+                <field name="equipment"/>
+                <field name="tag_holder"/>
+                <field name="restored_on"/>
+                <field name="restored_by"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_loto_lockout_form" model="ir.ui.view">
+        <field name="name">loto.lockout.form</field>
+        <field name="model">loto.lockout</field>
+        <field name="arch" type="xml">
+            <form string="Lockouts">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="equipment" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Lockout">
+    <field name="name"/>
+    <field name="equipment"/>
+    <field name="tag_holder"/>
+    <field name="reason"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="locked_on"/>
+    <field name="state"/>
+    <field name="restored_on"/>
+    <field name="restored_by"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_loto_lockout_search" model="ir.ui.view">
+        <field name="name">loto.lockout.search</field>
+        <field name="model">loto.lockout</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="equipment"/>
+                <field name="tag_holder"/>
+                <field name="reason"/>
+                <filter name="locked" string="Locked" domain="[('state','=','locked')]"/>
+                <filter name="restored" string="Restored" domain="[('state','=','restored')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_loto_lockout_kanban" model="ir.ui.view">
+        <field name="name">loto.lockout.kanban</field>
+        <field name="model">loto.lockout</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="equipment"/>
+                <field name="tag_holder"/>
+                <field name="locked_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="equipment"/>
+                        <field name="tag_holder"/>
+                        <field name="locked_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_loto_lockout" model="ir.actions.act_window">
+        <field name="name">Lockouts</field>
+        <field name="res_model">loto.lockout</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every lockout and tagout in one place: who locked it, why, and who restored it.</p>
+        </field>
+    </record>
+
+</odoo>
