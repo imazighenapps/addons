@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_cancel_desk_log_user,cancel.desk.log User,cancel.desk.log,cancel_desk.group_canceldesk_user,cru,
+access_cancel_desk_log_manager,cancel.desk.log Manager,cancel.desk.log,cancel_desk.group_canceldesk_manager,crud,
+access_cancel_desk_recovery_user,cancel.desk.recovery User,cancel.desk.recovery,cancel_desk.group_canceldesk_user,cr,
+access_cancel_desk_recovery_manager,cancel.desk.recovery Manager,cancel.desk.recovery,cancel_desk.group_canceldesk_manager,crud,
+rule_cancel_desk_log_company,cancel.desk.log: own company only,cancel.desk.log,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_cancel_desk_recovery_company,cancel.desk.recovery: own company only,cancel.desk.recovery,,crud,"[('company_id', 'in', company_ids + [False])]"
