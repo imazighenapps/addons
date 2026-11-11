@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_audit_missing_list" model="ir.ui.view">
+        <field name="name">audit.binder.item.list</field>
+        <field name="model">audit.binder.item</field>
+        <field name="arch" type="xml">
+            <list string="Missing Items">
+                <field name="binder_id"/>
+                <field name="section_name"/>
+                <field name="name"/>
+                <field name="reference"/>
+                <field name="ready"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_audit_missing_form" model="ir.ui.view">
+        <field name="name">audit.binder.item.form</field>
+        <field name="model">audit.binder.item</field>
+        <field name="arch" type="xml">
+            <form string="Missing Items">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Item">
+    <field name="binder_id"/>
+    <field name="section_name"/>
+    <field name="name"/>
+    <field name="reference"/>
+    <field name="ready"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_audit_missing_search" model="ir.ui.view">
+        <field name="name">audit.binder.item.search</field>
+        <field name="model">audit.binder.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="binder_id"/>
+                <field name="section_name"/>
+                <separator/>
+                <filter name="group_binder" string="Binder" context="{'group_by': 'binder_id'}"/>
+                <filter name="group_section" string="Section" context="{'group_by': 'section_name'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_audit_missing" model="ir.actions.act_window">
+        <field name="name">Missing Items</field>
+        <field name="res_model">audit.binder.item</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Evidence items that are still missing from the binder.</p>
+        </field>
+    </record>
+
+</odoo>
