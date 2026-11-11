@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_round_cleared" model="ir.actions.act_window">
+        <field name="domain">[('state', '=', 'posted')]</field>
+        <field name="context">{'search_default_group_rule': 1}</field>
+    </record>
+</odoo>

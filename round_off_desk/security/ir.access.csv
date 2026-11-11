@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_round_rule_user,round.rule User,round.rule,round_off_desk.group_roundoffdesk_user,cr,
+access_round_rule_manager,round.rule Manager,round.rule,round_off_desk.group_roundoffdesk_manager,crud,
+access_round_writeoff_user,round.writeoff User,round.writeoff,round_off_desk.group_roundoffdesk_user,cr,
+access_round_writeoff_manager,round.writeoff Manager,round.writeoff,round_off_desk.group_roundoffdesk_manager,crud,
+rule_round_rule_company,round.rule: own company only,round.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_round_writeoff_company,round.writeoff: own company only,round.writeoff,,crud,"[('company_id', 'in', company_ids + [False])]"

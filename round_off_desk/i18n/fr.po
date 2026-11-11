@@ -1,0 +1,322 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* round_off_desk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: round_off_desk
+#: model:ir.module.module,summary:base.module_round_off_desk
+msgid "Absorb the one-cent and rounding differences between invoices, payments and statements with clean write-offs."
+msgstr "Absorbez les différences d'un centime et d'arrondi entre les factures, les paiements et les relevés avec des annulations nettes."
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: round_off_desk
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_cleared_form
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_writeoff_form
+msgid "Amount"
+msgstr "Montant"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__cleared_amount
+msgid "Cleared Amount"
+msgstr "Montant compensé"
+
+#. module: round_off_desk
+#: model:ir.actions.act_window,name:round_off_desk.action_round_cleared
+#: model:ir.ui.menu,name:round_off_desk.menu_round_cleared
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_cleared_form
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_cleared_list
+msgid "Cleared Queue"
+msgstr "File d'attente effacée"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__company_id
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: round_off_desk
+#: model:res.groups,comment:round_off_desk.group_roundoffdesk_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: round_off_desk
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_rule_form
+msgid "Counters"
+msgstr "Compteurs"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__create_uid
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__create_date
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__currency_id
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__writeoff_on
+msgid "Date"
+msgstr "Date"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__amount
+msgid "Difference"
+msgstr "Différence"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__display_name
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: round_off_desk
+#: model:ir.model.fields.selection,name:round_off_desk.selection__round_writeoff__state__draft
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_writeoff_search
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: round_off_desk
+#: model_terms:ir.actions.act_window,help:round_off_desk.action_round_cleared
+msgid "Every rounding difference that has been posted and cleared."
+msgstr "Chaque différence d'arrondi qui a été comptabilisée et effacée."
+
+#. module: round_off_desk
+#: model_terms:ir.actions.act_window,help:round_off_desk.action_round_writeoff
+msgid "Every small difference absorbed under a controlled rule."
+msgstr "Chaque petite différence est absorbée selon une règle contrôlée."
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__has_message
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: round_off_desk
+#: model:ir.model.fields,help:round_off_desk.field_round_writeoff__source_ref
+msgid "Invoice, payment or statement reference carrying the gap."
+msgstr "Référence de facture, de paiement ou de relevé portant l'écart."
+
+#. module: round_off_desk
+#: model:ir.model.fields,help:round_off_desk.field_round_rule__max_amount
+msgid "Largest difference this rule is allowed to absorb."
+msgstr "La plus grande différence que cette règle est autorisée à absorber."
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__write_uid
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__write_date
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: round_off_desk
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_rule_form
+msgid "Limit"
+msgstr "Limite"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__max_amount
+msgid "Maximum Amount"
+msgstr "Montant maximum"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__name
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__note
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__note
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_cleared_form
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_rule_form
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_writeoff_form
+msgid "Note"
+msgstr "Note"
+
+#. module: round_off_desk
+#. odoo-python
+#: code:addons/round_off_desk/models/round_writeoff.py:0
+msgid "Only a draft write-off can be posted."
+msgstr "Seul un projet de radiation peut être affiché."
+
+#. module: round_off_desk
+#: model:ir.model.fields.selection,name:round_off_desk.selection__round_writeoff__state__posted
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_writeoff_search
+msgid "Posted"
+msgstr "Publié"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__posted_on
+msgid "Posted On"
+msgstr "Publié le"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__reason
+msgid "Reason"
+msgstr "Raison"
+
+#. module: round_off_desk
+#: model:ir.model.fields,help:round_off_desk.field_round_rule__reason
+msgid "Reason booked when a difference is cleared with this rule."
+msgstr "Raison réservée lorsqu'une différence est compensée avec cette règle."
+
+#. module: round_off_desk
+#: model:ir.model.fields,help:round_off_desk.field_round_writeoff__name
+msgid "Reference of the write-off, generated at creation."
+msgstr "Référence de la radiation, générée à la création."
+
+#. module: round_off_desk
+#: model:ir.ui.menu,name:round_off_desk.menu_round_root
+msgid "Round Off"
+msgstr "Compléter"
+
+#. module: round_off_desk
+#: model:res.groups,name:round_off_desk.group_roundoffdesk_manager
+msgid "Round Off Desk Manager"
+msgstr "Responsable du bureau d'arrondi"
+
+#. module: round_off_desk
+#: model:res.groups,name:round_off_desk.group_roundoffdesk_user
+msgid "Round Off Desk User"
+msgstr "Utilisateur du bureau d'arrondi"
+
+#. module: round_off_desk
+#: model:ir.module.module,shortdesc:base.module_round_off_desk
+msgid "RoundOff"
+msgstr "Arrondie Arrondi"
+
+#. module: round_off_desk
+#: model:ir.model,name:round_off_desk.model_round_writeoff
+msgid "Rounding Write-Off"
+msgstr "Arrondi Radiation"
+
+#. module: round_off_desk
+#: model:ir.model,name:round_off_desk.model_round_rule
+msgid "Rounding Write-Off Rule"
+msgstr "Règle de radiation d'arrondi"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__rule_id
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_cleared_search
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_rule_form
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_writeoff_search
+msgid "Rule"
+msgstr "Règle"
+
+#. module: round_off_desk
+#: model:ir.model.fields,help:round_off_desk.field_round_writeoff__amount
+msgid "Small amount to absorb with this write-off."
+msgstr "Petite somme à absorber avec cette radiation."
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__source_ref
+msgid "Source Reference"
+msgstr "Référence source"
+
+#. module: round_off_desk
+#: model:ir.model.fields,field_description:round_off_desk.field_round_writeoff__state
+msgid "State"
+msgstr "Statut"
+
+#. module: round_off_desk
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_cleared_form
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_writeoff_form
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_writeoff_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: round_off_desk
+#. odoo-python
+#: code:addons/round_off_desk/models/round_writeoff.py:0
+msgid "The difference of %s exceeds the maximum allowed by rule %s."
+msgstr "La différence de %s dépasse le maximum autorisé par la règle %s."
+
+#. module: round_off_desk
+#. odoo-python
+#: code:addons/round_off_desk/models/round_writeoff.py:0
+msgid "The difference on %s must be above zero."
+msgstr "La différence sur %s doit être supérieure à zéro."
+
+#. module: round_off_desk
+#: model_terms:ir.actions.act_window,help:round_off_desk.action_round_rule
+msgid "The limits and reasons you accept for small differences."
+msgstr "Les limites et les raisons que vous acceptez pour les petites différences."
+
+#. module: round_off_desk
+#. odoo-python
+#: code:addons/round_off_desk/models/round_rule.py:0
+msgid "The maximum amount of rule %s must be above zero."
+msgstr "Le montant maximum de la règle %s doit être supérieur à zéro."
+
+#. module: round_off_desk
+#. odoo-python
+#: code:addons/round_off_desk/models/round_writeoff.py:0
+msgid "The rounding difference was posted and cleared."
+msgstr "L'écart d'arrondi a été comptabilisé et effacé."
+
+#. module: round_off_desk
+#: model:ir.model.fields,help:round_off_desk.field_round_rule__cleared_amount
+msgid "Total amount absorbed by posted write-offs on this rule."
+msgstr "Montant total absorbé par les radiations comptabilisées sur cette règle."
+
+#. module: round_off_desk
+#: model:res.groups,comment:round_off_desk.group_roundoffdesk_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: round_off_desk
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_cleared_form
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_writeoff_form
+msgid "Write-Off"
+msgstr "Radier"
+
+#. module: round_off_desk
+#. odoo-python
+#: code:addons/round_off_desk/models/round_writeoff.py:0
+msgid "Write-Off %s"
+msgstr "Radiation %s"
+
+#. module: round_off_desk
+#: model:ir.actions.act_window,name:round_off_desk.action_round_rule
+#: model:ir.ui.menu,name:round_off_desk.menu_round_rules
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_rule_form
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_rule_list
+msgid "Write-Off Rules"
+msgstr "Règles de radiation"
+
+#. module: round_off_desk
+#: model:ir.actions.act_window,name:round_off_desk.action_round_writeoff
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__writeoff_count
+#: model:ir.model.fields,field_description:round_off_desk.field_round_rule__writeoff_ids
+#: model:ir.ui.menu,name:round_off_desk.menu_round_writeoffs
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_writeoff_form
+#: model_terms:ir.ui.view,arch_db:round_off_desk.view_round_writeoff_list
+msgid "Write-Offs"
+msgstr "Radiations"
