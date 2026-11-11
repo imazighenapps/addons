@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cylinder_open_list" model="ir.ui.view">
+        <field name="name">cylinder.custody.list</field>
+        <field name="model">cylinder.custody</field>
+        <field name="arch" type="xml">
+            <list string="Open Custody">
+                <field name="received_on"/>
+                <field name="supplier_id"/>
+                <field name="cylinder_type_id"/>
+                <field name="received_qty"/>
+                <field name="on_site_qty"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cylinder_open_form" model="ir.ui.view">
+        <field name="name">cylinder.custody.form</field>
+        <field name="model">cylinder.custody</field>
+        <field name="arch" type="xml">
+            <form string="Open Custody">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="supplier_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Custody">
+    <field name="name"/>
+    <field name="cylinder_type_id"/>
+    <field name="supplier_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Quantities">
+    <field name="received_qty"/>
+    <field name="returned_qty"/>
+    <field name="on_site_qty"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Dates">
+    <field name="received_on"/>
+    <field name="returned_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cylinder_open_search" model="ir.ui.view">
+        <field name="name">cylinder.custody.search</field>
+        <field name="model">cylinder.custody</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="supplier_id"/>
+                <field name="cylinder_type_id"/>
+                <separator/>
+                <filter name="group_supplier" string="Supplier" context="{'group_by': 'supplier_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_cylinder_open" model="ir.actions.act_window">
+        <field name="name">Open Custody</field>
+        <field name="res_model">cylinder.custody</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Everything still on site, the list the supplier bill must match.</p>
+        </field>
+    </record>
+
+</odoo>
