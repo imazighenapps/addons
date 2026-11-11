@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_otd_commitment_list" model="ir.ui.view">
+        <field name="name">otd.commitment.list</field>
+        <field name="model">otd.commitment</field>
+        <field name="arch" type="xml">
+            <list string="Commitments" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="promised_on"/>
+                <field name="customer_name"/>
+                <field name="order_ref"/>
+                <field name="shipped_on"/>
+                <field name="delay_days"/>
+                <field name="on_time"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_otd_commitment_form" model="ir.ui.view">
+        <field name="name">otd.commitment.form</field>
+        <field name="model">otd.commitment</field>
+        <field name="arch" type="xml">
+            <form string="Commitments">
+                <header>
+                    <button name="action_ship_today" type="object" string="Shipped Today" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_back_to_open" type="object" string="Reopen" class="btn-secondary" invisible="state != 'shipped'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,shipped"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="order_ref" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Order">
+    <field name="name"/>
+    <field name="order_ref"/>
+    <field name="customer_name"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Promise">
+    <field name="promised_on"/>
+    <field name="shipped_on"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Score">
+    <field name="on_time"/>
+    <field name="delay_days"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_otd_commitment_search" model="ir.ui.view">
+        <field name="name">otd.commitment.search</field>
+        <field name="model">otd.commitment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="order_ref"/>
+                <field name="customer_name"/>
+                <filter name="open" string="Awaiting Shipment" domain="[('state','=','open')]"/>
+                <filter name="late" string="Shipped Late" domain="[('delay_days','&gt;',0)]"/>
+                <filter name="punctual" string="Delivered On Time" domain="[('on_time','=',True)]"/>
+                <separator/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'customer_name'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_otd_commitment_kanban" model="ir.ui.view">
+        <field name="name">otd.commitment.kanban</field>
+        <field name="model">otd.commitment</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="order_ref"/>
+                <field name="customer_name"/>
+                <field name="promised_on"/>
+                <field name="shipped_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="order_ref"/>
+                        <field name="customer_name"/>
+                        <field name="promised_on"/>
+                        <field name="shipped_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_otd_commitment" model="ir.actions.act_window">
+        <field name="name">Commitments</field>
+        <field name="res_model">otd.commitment</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The promise book: what you promised, what shipped and the delay in days.</p>
+        </field>
+    </record>
+
+</odoo>
