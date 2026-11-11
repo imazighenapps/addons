@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_margin_book_worst_list" model="ir.ui.view">
+        <field name="name">margin.book.line.list</field>
+        <field name="model">margin.book.line</field>
+        <field name="arch" type="xml">
+            <list string="Low Margin Lines">
+                <field name="book_id"/>
+                <field name="description"/>
+                <field name="quantity"/>
+                <field name="sell_price"/>
+                <field name="unit_cost"/>
+                <field name="line_margin" sum="Total Line Margin"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_margin_book_worst_form" model="ir.ui.view">
+        <field name="name">margin.book.line.form</field>
+        <field name="model">margin.book.line</field>
+        <field name="arch" type="xml">
+            <form string="Low Margin Lines">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="description" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Line">
+    <field name="book_id"/>
+    <field name="sequence"/>
+    <field name="description"/>
+    <field name="quantity"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Amount">
+    <field name="sell_price"/>
+    <field name="unit_cost"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Computed">
+    <field name="amount_revenue"/>
+    <field name="amount_cost"/>
+    <field name="line_margin"/>
+    <field name="line_rate"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_margin_book_worst_search" model="ir.ui.view">
+        <field name="name">margin.book.line.search</field>
+        <field name="model">margin.book.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="description"/>
+                <field name="book_id"/>
+                <separator/>
+                <filter name="group_book" string="Margin Sheet" context="{'group_by': 'book_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_margin_book_worst_kanban" model="ir.ui.view">
+        <field name="name">margin.book.line.kanban</field>
+        <field name="model">margin.book.line</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="book_id" sample="1">
+                <field name="book_id"/>
+                <field name="description"/>
+                <field name="quantity"/>
+                <field name="line_margin"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="book_id" class="fw-bold"/>
+                        <field name="description"/>
+                        <field name="quantity"/>
+                        <field name="line_margin"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_margin_book_worst" model="ir.actions.act_window">
+        <field name="name">Low Margin Lines</field>
+        <field name="res_model">margin.book.line</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The lines that eat the profit: zero or negative margin, before the next negotiation opens.</p>
+        </field>
+    </record>
+
+</odoo>
