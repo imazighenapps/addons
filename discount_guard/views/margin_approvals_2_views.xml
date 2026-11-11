@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_margin_approvals_list" model="ir.ui.view">
+        <field name="name">margin.check.list</field>
+        <field name="model">margin.check</field>
+        <field name="arch" type="xml">
+            <list string="Approvals To Chase">
+                <field name="checked_on"/>
+                <field name="reference"/>
+                <field name="rule_id"/>
+                <field name="requested_discount"/>
+                <field name="requested_margin"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_margin_approvals_form" model="ir.ui.view">
+        <field name="name">margin.check.form</field>
+        <field name="model">margin.check</field>
+        <field name="arch" type="xml">
+            <form string="Approvals To Chase">
+                <header>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'pending'"/>
+                    <button name="action_reject" type="object" string="Reject" class="btn-secondary" invisible="state != 'pending'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,approved,rejected"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="reference" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Context">
+    <field name="name"/>
+    <field name="reference"/>
+    <field name="rule_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Requested">
+    <field name="requested_discount"/>
+    <field name="requested_margin"/>
+    <field name="checked_on"/>
+                        </group>
+                        <group string="Decision">
+    <field name="state"/>
+    <field name="decided_by"/>
+    <field name="decided_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_margin_approvals_search" model="ir.ui.view">
+        <field name="name">margin.check.search</field>
+        <field name="model">margin.check</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="reference"/>
+                <field name="rule_id"/>
+                <separator/>
+                <filter name="group_rule" string="Rule" context="{'group_by': 'rule_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_margin_approvals" model="ir.actions.act_window">
+        <field name="name">Approvals To Chase</field>
+        <field name="res_model">margin.check</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The checks that are still pending, the list you follow until every line is decided.</p>
+        </field>
+    </record>
+
+</odoo>
