@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_gate_point_user,gate.point User,gate.point,gate_log.group_gatelog_user,cru,
+access_gate_point_manager,gate.point Manager,gate.point,gate_log.group_gatelog_manager,crud,
+access_gate_entry_user,gate.entry User,gate.entry,gate_log.group_gatelog_user,crud,
+access_gate_entry_manager,gate.entry Manager,gate.entry,gate_log.group_gatelog_manager,crud,
+rule_gate_point_company,gate.point: own company only,gate.point,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_gate_entry_company,gate.entry: own company only,gate.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
