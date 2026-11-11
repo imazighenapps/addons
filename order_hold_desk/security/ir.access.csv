@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_hold_desk_reason_user,hold.desk.reason User,hold.desk.reason,order_hold_desk.group_orderholddes_user,cr,
+access_hold_desk_reason_manager,hold.desk.reason Manager,hold.desk.reason,order_hold_desk.group_orderholddes_manager,crud,
+access_hold_desk_request_user,hold.desk.request User,hold.desk.request,order_hold_desk.group_orderholddes_user,cru,
+access_hold_desk_request_manager,hold.desk.request Manager,hold.desk.request,order_hold_desk.group_orderholddes_manager,crud,
+rule_hold_desk_reason_company,hold.desk.reason: own company only,hold.desk.reason,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_hold_desk_request_company,hold.desk.request: own company only,hold.desk.request,,crud,"[('company_id', 'in', company_ids + [False])]"
