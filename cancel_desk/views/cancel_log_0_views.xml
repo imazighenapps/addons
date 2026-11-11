@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cancel_log_list" model="ir.ui.view">
+        <field name="name">cancel.desk.log.list</field>
+        <field name="model">cancel.desk.log</field>
+        <field name="arch" type="xml">
+            <list string="Cancellations" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="document"/>
+                <field name="partner_id"/>
+                <field name="salesperson_id"/>
+                <field name="decided_on"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="reason"/>
+                <field name="decided_by"/>
+                <field name="recovered_total" sum="Total Recovered Total"/>
+                <field name="state" widget="badge"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cancel_log_form" model="ir.ui.view">
+        <field name="name">cancel.desk.log.form</field>
+        <field name="model">cancel.desk.log</field>
+        <field name="arch" type="xml">
+            <form string="Cancellations">
+                <header>
+                    <button name="action_write_off" type="object" string="Write Off" class="btn-primary" invisible="state != 'logged'"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-link" invisible="state == 'logged'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="logged,written_off,recovered"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Order">
+    <field name="name"/>
+    <field name="document"/>
+    <field name="partner_id"/>
+    <field name="salesperson_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Decision">
+    <field name="decided_on"/>
+    <field name="decided_by"/>
+    <field name="amount"/>
+    <field name="currency_id"/>
+    <field name="reason"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Recovery">
+    <field name="recovery_count"/>
+    <field name="recovered_total"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Recoveries" name="recoveryids">
+                            <field name="recovery_ids" readonly="state != 'logged'">
+                        <list editable="bottom">
+                            <field name="new_ref" required="1"/>
+                            <field name="amount" sum="Total"/>
+                            <field name="recovered_on"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cancel_log_search" model="ir.ui.view">
+        <field name="name">cancel.desk.log.search</field>
+        <field name="model">cancel.desk.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="document"/>
+                <field name="partner_id"/>
+                <filter name="logged" string="Logged" domain="[('state','=','logged')]"/>
+                <filter name="written" string="Written Off" domain="[('state','=','written_off')]"/>
+                <filter name="recovered" string="Recovered" domain="[('fully_recovered','=',True)]"/>
+                <filter name="opens" string="Value Recovered" domain="[('recovery_count','&gt;',0)]"/>
+                <filter name="mine" string="My Cancellations" domain="[('salesperson_id','=',uid)]"/>
+                <filter name="thisyear" string="Decided This Year" domain="[('decided_on','&gt;=','2026-01-01'),('decided_on','&lt;=','2026-12-31')]"/>
+                <separator/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_reason" string="Reason" context="{'group_by': 'reason'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_cancel_log_kanban" model="ir.ui.view">
+        <field name="name">cancel.desk.log.kanban</field>
+        <field name="model">cancel.desk.log</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="reason" sample="1">
+                <field name="reason"/>
+                <field name="document"/>
+                <field name="partner_id"/>
+                <field name="amount"/>
+                <field name="decided_on"/>
+                <field name="recovered_total"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="reason" class="fw-bold"/>
+                        <field name="document"/>
+                        <field name="partner_id"/>
+                        <field name="amount"/>
+                        <field name="decided_on"/>
+                        <field name="recovered_total"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_cancel_log" model="ir.actions.act_window">
+        <field name="name">Cancellations</field>
+        <field name="res_model">cancel.desk.log</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every cancelled order, with its reason, its lost value and the name of who decided.</p>
+        </field>
+    </record>
+
+</odoo>

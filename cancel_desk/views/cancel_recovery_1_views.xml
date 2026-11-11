@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cancel_recovery_list" model="ir.ui.view">
+        <field name="name">cancel.desk.recovery.list</field>
+        <field name="model">cancel.desk.recovery</field>
+        <field name="arch" type="xml">
+            <list string="Recoveries">
+                <field name="log_id"/>
+                <field name="new_ref"/>
+                <field name="amount"/>
+                <field name="recovered_on"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cancel_recovery_form" model="ir.ui.view">
+        <field name="name">cancel.desk.recovery.form</field>
+        <field name="model">cancel.desk.recovery</field>
+        <field name="arch" type="xml">
+            <form string="Recoveries">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="new_ref" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Recovery">
+    <field name="log_id"/>
+    <field name="new_ref"/>
+    <field name="amount"/>
+    <field name="recovered_on"/>
+    <field name="currency_id"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cancel_recovery_search" model="ir.ui.view">
+        <field name="name">cancel.desk.recovery.search</field>
+        <field name="model">cancel.desk.recovery</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="new_ref"/>
+                <field name="log_id"/>
+                <separator/>
+                <filter name="group_cancellation" string="Cancellation" context="{'group_by': 'log_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_cancel_recovery_kanban" model="ir.ui.view">
+        <field name="name">cancel.desk.recovery.kanban</field>
+        <field name="model">cancel.desk.recovery</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="log_id" sample="1">
+                <field name="log_id"/>
+                <field name="new_ref"/>
+                <field name="amount"/>
+                <field name="recovered_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="log_id" class="fw-bold"/>
+                        <field name="new_ref"/>
+                        <field name="amount"/>
+                        <field name="recovered_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_cancel_recovery" model="ir.actions.act_window">
+        <field name="name">Recoveries</field>
+        <field name="res_model">cancel.desk.recovery</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every replacement order won back, with its amount and its date.</p>
+        </field>
+    </record>
+
+</odoo>
