@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_yard_slot_user,yard.slot User,yard.slot,yard_watch.group_yardwatch_user,cru,
+access_yard_slot_manager,yard.slot Manager,yard.slot,yard_watch.group_yardwatch_manager,crud,
+access_yard_trailer_user,yard.trailer User,yard.trailer,yard_watch.group_yardwatch_user,cru,
+access_yard_trailer_manager,yard.trailer Manager,yard.trailer,yard_watch.group_yardwatch_manager,crud,
+rule_yard_slot_company,yard.slot: own company only,yard.slot,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_yard_trailer_company,yard.trailer: own company only,yard.trailer,,crud,"[('company_id', 'in', company_ids + [False])]"
