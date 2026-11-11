@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_expedite_entry_user,expedite.entry User,expedite.entry,expedite_log.group_expeditelog_user,cr,
+access_expedite_entry_manager,expedite.entry Manager,expedite.entry,expedite_log.group_expeditelog_manager,crud,
+rule_expedite_entry_company,expedite.entry: own company only,expedite.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
