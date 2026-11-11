@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_pest_station_company" model="ir.rule">
+        <field name="name">pest.station: own company only</field>
+        <field name="model_id" ref="model_pest_station"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_pest_inspection_company" model="ir.rule">
+        <field name="name">pest.inspection: own company only</field>
+        <field name="model_id" ref="model_pest_inspection"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
