@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_quote_amendment_user,quote.amendment User,quote.amendment,quote_amend_desk.group_quoteamendde_user,cr,
+access_quote_amendment_manager,quote.amendment Manager,quote.amendment,quote_amend_desk.group_quoteamendde_manager,crud,
+access_quote_change_line_user,quote.change.line User,quote.change.line,quote_amend_desk.group_quoteamendde_user,cr,
+access_quote_change_line_manager,quote.change.line Manager,quote.change.line,quote_amend_desk.group_quoteamendde_manager,crud,
+rule_quote_amendment_company,quote.amendment: own company only,quote.amendment,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_quote_change_line_company,quote.change.line: own company only,quote.change.line,,crud,"[('company_id', 'in', company_ids + [False])]"
