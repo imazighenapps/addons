@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_canteen_count_list" model="ir.ui.view">
+        <field name="name">canteen.count.list</field>
+        <field name="model">canteen.count</field>
+        <field name="arch" type="xml">
+            <list string="Daily Headcount" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="meal_date"/>
+                <field name="team_name"/>
+                <field name="employee_id"/>
+                <field name="meal_count"/>
+                <field name="cutoff_time"/>
+                <field name="sent_on"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_canteen_count_form" model="ir.ui.view">
+        <field name="name">canteen.count.form</field>
+        <field name="model">canteen.count</field>
+        <field name="arch" type="xml">
+            <form string="Daily Headcount">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="team_name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Headcount">
+    <field name="name"/>
+    <field name="meal_date"/>
+    <field name="team_name"/>
+    <field name="employee_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Order">
+    <field name="meal_count"/>
+    <field name="cutoff_time"/>
+    <field name="state"/>
+    <field name="sent_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_canteen_count_search" model="ir.ui.view">
+        <field name="name">canteen.count.search</field>
+        <field name="model">canteen.count</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="team_name"/>
+                <field name="employee_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="sent" string="Sent" domain="[('state','=','sent')]"/>
+                <separator/>
+                <filter name="group_date" string="Meal Date" context="{'group_by': 'meal_date'}"/>
+                <filter name="group_team" string="Team" context="{'group_by': 'team_name'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_canteen_count_kanban" model="ir.ui.view">
+        <field name="name">canteen.count.kanban</field>
+        <field name="model">canteen.count</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="meal_date"/>
+                <field name="team_name"/>
+                <field name="meal_count"/>
+                <field name="employee_id"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="meal_date"/>
+                        <field name="team_name"/>
+                        <field name="meal_count"/>
+                        <field name="employee_id"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_canteen_count" model="ir.actions.act_window">
+        <field name="name">Daily Headcount</field>
+        <field name="res_model">canteen.count</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Tell the caterer how many lunches each team needs, day by day.</p>
+        </field>
+    </record>
+
+</odoo>
