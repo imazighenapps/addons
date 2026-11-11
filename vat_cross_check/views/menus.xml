@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_vat_root" name="VAT Cross Check" sequence="60"/>
+    <menuitem id="menu_vat_checks" name="Cross Checks" parent="menu_vat_root" action="action_vat_check" sequence="10"/>
+    <menuitem id="menu_vat_boxes" name="VAT Boxes" parent="menu_vat_root" action="action_vat_check_line" sequence="20"/>
+    <menuitem id="menu_vat_differences" name="Differences" parent="menu_vat_root" action="action_vat_difference" sequence="30"/>
+</odoo>

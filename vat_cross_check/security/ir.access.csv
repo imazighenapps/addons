@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_vat_check_user,vat.check User,vat.check,vat_cross_check.group_vatcrosschec_user,cr,
+access_vat_check_manager,vat.check Manager,vat.check,vat_cross_check.group_vatcrosschec_manager,crud,
+access_vat_check_line_user,vat.check.line User,vat.check.line,vat_cross_check.group_vatcrosschec_user,cr,
+access_vat_check_line_manager,vat.check.line Manager,vat.check.line,vat_cross_check.group_vatcrosschec_manager,crud,
+rule_vat_check_company,vat.check: own company only,vat.check,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_vat_check_line_company,vat.check.line: own company only,vat.check.line,,crud,"[('company_id', 'in', company_ids + [False])]"

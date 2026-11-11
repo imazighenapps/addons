@@ -1,0 +1,380 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* vat_cross_check
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check_line.py:0
+msgid "A closed VAT cross-check cannot be reviewed again."
+msgstr "Eine abgeschlossene Gegenprüfung der Mehrwertsteuer kann nicht erneut überprüft werden."
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "Add at least one VAT box before reviewing %s."
+msgstr "Fügen Sie mindestens ein Mehrwertsteuerfeld hinzu, bevor Sie %s überprüfen."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__reported_amount
+msgid "Amount declared in the VAT report for this box."
+msgstr "Im Mehrwertsteuerbericht für dieses Feld angegebener Betrag."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__ledger_amount
+msgid "Amount recomputed from the underlying journal entries."
+msgstr "Betrag, der aus den zugrunde liegenden Journaleinträgen neu berechnet wird."
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_difference_form
+msgid "Amounts"
+msgstr "Beträge"
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_difference_form
+msgid "Box"
+msgstr "Kasten"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__line_count
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__line_ids
+msgid "Boxes"
+msgstr "Boxen"
+
+#. module: vat_cross_check
+#: model_terms:ir.actions.act_window,help:vat_cross_check.action_vat_difference
+msgid "Boxes that still differ or have not been reviewed."
+msgstr "Boxen, die noch unterschiedlich sind oder nicht überprüft wurden."
+
+#. module: vat_cross_check
+#: model:ir.model.fields.selection,name:vat_cross_check.selection__vat_check__state__closed
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_search
+msgid "Closed"
+msgstr "Geschlossen"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__closed_on
+msgid "Closed On"
+msgstr "Geschlossen am"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__box_name
+msgid "Code or label of the VAT box being verified."
+msgstr "Code oder Etikett des zu überprüfenden Mehrwertsteuerfachs."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__company_id
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__company_id
+msgid "Company"
+msgstr "Firma"
+
+#. module: vat_cross_check
+#: model:res.groups,comment:vat_cross_check.group_vatcrosschec_manager
+msgid "Configure and administer the module."
+msgstr "Konfigurieren und verwalten Sie das Modul."
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_form
+msgid "Counters"
+msgstr "Zähler"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__create_uid
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__create_date
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__check_id
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_search
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_difference_search
+msgid "Cross Check"
+msgstr "Gegenprüfung"
+
+#. module: vat_cross_check
+#: model:ir.ui.menu,name:vat_cross_check.menu_vat_checks
+msgid "Cross Checks"
+msgstr "Gegenkontrollen"
+
+#. module: vat_cross_check
+#: model:ir.module.module,summary:base.module_vat_cross_check
+msgid "Cross-check the VAT report against the underlying journal entries and explain the differences before filing."
+msgstr "Vergleichen Sie den Umsatzsteuerbericht mit den zugrunde liegenden Journaleinträgen und erläutern Sie die Unterschiede vor der Einreichung."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__currency_id
+msgid "Currency"
+msgstr "Währung"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__difference_amount
+msgid "Difference"
+msgstr "Unterschied"
+
+#. module: vat_cross_check
+#: model:ir.actions.act_window,name:vat_cross_check.action_vat_difference
+#: model:ir.ui.menu,name:vat_cross_check.menu_vat_differences
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_difference_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_difference_list
+msgid "Differences"
+msgstr "Unterschiede"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__display_name
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__name
+msgid "Display name combining the box and the period."
+msgstr "Anzeigename, der das Kästchen und den Punkt kombiniert."
+
+#. module: vat_cross_check
+#: model:ir.model.fields.selection,name:vat_cross_check.selection__vat_check__state__draft
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check_line.py:0
+msgid "Explain the difference on box %s before marking it as reviewed."
+msgstr "Erklären Sie den Unterschied am Feld %s, bevor Sie es als überprüft markieren."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__explanation
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_difference_form
+msgid "Explanation"
+msgstr "Erläuterung"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__difference_amount
+msgid "Gap between the reported amount and the ledger amount."
+msgstr "Lücke zwischen dem gemeldeten Betrag und dem Hauptbuchbetrag."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__has_message
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__has_message
+msgid "Has Message"
+msgstr "Hat Nachricht"
+
+#. module: vat_cross_check
+#: model:ir.model.fields.selection,name:vat_cross_check.selection__vat_check__state__review
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_search
+msgid "In Review"
+msgstr "Im Rückblick"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__write_uid
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__write_date
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__ledger_amount
+msgid "Ledger Amount"
+msgstr "Hauptbuchbetrag"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__name
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__name
+msgid "Name"
+msgstr "Name"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__note
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_form
+msgid "Note"
+msgstr "Notiz"
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "Only a VAT cross-check in review can be closed."
+msgstr "Es kann nur eine Gegenprüfung der Umsatzsteuer abgeschlossen werden."
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "Only a draft VAT cross-check can move to review."
+msgstr "Nur ein Entwurf einer Gegenprüfung der Mehrwertsteuer kann zur Überprüfung übergehen."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__open_line_count
+msgid "Open Boxes"
+msgstr "Offene Kisten"
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_form
+msgid "Period"
+msgstr "Periode"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__period_end
+msgid "Period End"
+msgstr "Periodenende"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__period_start
+msgid "Period Start"
+msgstr "Periodenbeginn"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__explanation
+msgid "Reason for the difference, filled in during the review."
+msgstr "Grund für den Unterschied, der während der Überprüfung ausgefüllt wird."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__reported_amount
+msgid "Reported Amount"
+msgstr "Gemeldeter Betrag"
+
+#. module: vat_cross_check
+#: model_terms:ir.actions.act_window,help:vat_cross_check.action_vat_check_line
+msgid "Reported and ledger amounts for every VAT box."
+msgstr "Gemeldete und buchhalterische Beträge für jedes MwSt.-Feld."
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "Review every VAT box before closing %s."
+msgstr "Überprüfen Sie jedes Mehrwertsteuerfeld, bevor Sie %s schließen."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__reviewed
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_search
+msgid "Reviewed"
+msgstr "Bewertet"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__state
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__state
+msgid "State"
+msgstr "Status"
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_search
+msgid "Status"
+msgstr "Status"
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check_line.py:0
+msgid "The VAT box was marked as reviewed."
+msgstr "Das Mehrwertsteuerfeld wurde als überprüft markiert."
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "The VAT cross-check entered review."
+msgstr "Die Mehrwertsteuer-Gegenprüfung wurde überprüft."
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "The VAT cross-check was closed and verified."
+msgstr "Der Umsatzsteuer-Gegencheck wurde abgeschlossen und überprüft."
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "The period end of %s cannot be before its start."
+msgstr "Das Periodenende von %s kann nicht vor dessen Beginn liegen."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__reviewed
+msgid "Ticked once the difference has been explained and reviewed."
+msgstr "Wird angekreuzt, sobald der Unterschied erklärt und überprüft wurde."
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_search
+msgid "To Review"
+msgstr "Zur Überprüfung"
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check_line.py:0
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__box_name
+msgid "VAT Box"
+msgstr "MwSt.-Box"
+
+#. module: vat_cross_check
+#: model:ir.actions.act_window,name:vat_cross_check.action_vat_check_line
+#: model:ir.ui.menu,name:vat_cross_check.menu_vat_boxes
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_list
+msgid "VAT Boxes"
+msgstr "MwSt.-Boxen"
+
+#. module: vat_cross_check
+#: model:ir.model,name:vat_cross_check.model_vat_check
+#: model:ir.ui.menu,name:vat_cross_check.menu_vat_root
+msgid "VAT Cross Check"
+msgstr "Mehrwertsteuer-Gegenprüfung"
+
+#. module: vat_cross_check
+#: model:ir.model,name:vat_cross_check.model_vat_check_line
+msgid "VAT Cross Check Line"
+msgstr "Mehrwertsteuer-Cross-Check-Linie"
+
+#. module: vat_cross_check
+#: model:ir.actions.act_window,name:vat_cross_check.action_vat_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_list
+msgid "VAT Cross Checks"
+msgstr "Mehrwertsteuer-Gegenprüfungen"
+
+#. module: vat_cross_check
+#: model:ir.module.module,shortdesc:base.module_vat_cross_check
+msgid "VATCross"
+msgstr "VATCross"
+
+#. module: vat_cross_check
+#: model:res.groups,name:vat_cross_check.group_vatcrosschec_manager
+msgid "Vat Cross Check Manager"
+msgstr "Mehrwertsteuer-Cross-Check-Manager"
+
+#. module: vat_cross_check
+#: model:res.groups,name:vat_cross_check.group_vatcrosschec_user
+msgid "Vat Cross Check User"
+msgstr "Benutzer der Umsatzsteuer-Gegenprüfung"
+
+#. module: vat_cross_check
+#: model_terms:ir.actions.act_window,help:vat_cross_check.action_vat_check
+msgid "Verify each VAT period before you file the return."
+msgstr "Überprüfen Sie jeden Mehrwertsteuerzeitraum, bevor Sie die Steuererklärung einreichen."
+
+#. module: vat_cross_check
+#: model:res.groups,comment:vat_cross_check.group_vatcrosschec_user
+msgid "View and use the module."
+msgstr "Sehen Sie sich das Modul an und nutzen Sie es."
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_search
+msgid "With Difference"
+msgstr "Mit Unterschied"
