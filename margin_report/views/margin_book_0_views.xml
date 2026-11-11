@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_margin_book_list" model="ir.ui.view">
+        <field name="name">margin.book.list</field>
+        <field name="model">margin.book</field>
+        <field name="arch" type="xml">
+            <list string="Margin Sheets" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="date"/>
+                <field name="order_ref"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="salesperson_id"/>
+                <field name="total_revenue" sum="Total Total Revenue"/>
+                <field name="total_cost" sum="Total Total Cost"/>
+                <field name="total_margin" sum="Total Total Margin"/>
+                <field name="margin_rate"/>
+                <field name="is_below_target" string="Under Target" widget="boolean"/>
+                <field name="state" widget="badge"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_margin_book_form" model="ir.ui.view">
+        <field name="name">margin.book.form</field>
+        <field name="model">margin.book</field>
+        <field name="arch" type="xml">
+            <form string="Margin Sheets">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_reset" type="object" string="Reopen" class="btn-link" invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Order">
+    <field name="order_ref"/>
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="salesperson_id"/>
+    <field name="date"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Target">
+    <field name="target_rate"/>
+    <field name="is_below_target"/>
+                        </group>
+                        <group string="Totals">
+    <field name="total_revenue"/>
+    <field name="total_cost"/>
+    <field name="total_margin"/>
+    <field name="margin_rate"/>
+    <field name="confirmed_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Margin Lines" name="lineids">
+                            <field name="line_ids" readonly="state == 'confirmed'">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="description"/>
+                            <field name="quantity"/>
+                            <field name="sell_price" sum="Total Sold"/>
+                            <field name="unit_cost" sum="Total Cost"/>
+                            <field name="amount_revenue" sum="Total Revenue"/>
+                            <field name="amount_cost" sum="Total Cost"/>
+                            <field name="line_margin" sum="Total Margin"/>
+                            <field name="line_rate" optional="hide"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_margin_book_search" model="ir.ui.view">
+        <field name="name">margin.book.search</field>
+        <field name="model">margin.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="order_ref"/>
+                <field name="partner_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]"/>
+                <filter name="below" string="Under Target" domain="[('is_below_target','=',True)]"/>
+                <filter name="detailed" string="Detailed" domain="[('line_count','&gt;',0)]"/>
+                <filter name="mine" string="My Sheets" domain="[('salesperson_id','=',uid)]"/>
+                <separator/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_sales" string="Salesperson" context="{'group_by': 'salesperson_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_margin_book_kanban" model="ir.ui.view">
+        <field name="name">margin.book.kanban</field>
+        <field name="model">margin.book</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="order_ref"/>
+                <field name="partner_id"/>
+                <field name="total_margin"/>
+                <field name="margin_rate"/>
+                <field name="is_below_target"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="order_ref"/>
+                        <field name="partner_id"/>
+                        <field name="total_margin"/>
+                        <field name="margin_rate"/>
+                        <field name="is_below_target"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_margin_book" model="ir.actions.act_window">
+        <field name="name">Margin Sheets</field>
+        <field name="res_model">margin.book</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">One sheet per order: the lines carry quantity, price and cost, the totals are computed.</p>
+        </field>
+    </record>
+
+</odoo>
