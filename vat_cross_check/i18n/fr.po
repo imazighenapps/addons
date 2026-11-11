@@ -1,0 +1,380 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* vat_cross_check
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check_line.py:0
+msgid "A closed VAT cross-check cannot be reviewed again."
+msgstr "Un contrôle croisé TVA clôturé ne peut pas être réexaminé."
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "Add at least one VAT box before reviewing %s."
+msgstr "Ajoutez au moins une case TVA avant de consulter %s."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__reported_amount
+msgid "Amount declared in the VAT report for this box."
+msgstr "Montant déclaré dans le rapport TVA pour cette case."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__ledger_amount
+msgid "Amount recomputed from the underlying journal entries."
+msgstr "Montant recalculé à partir des écritures de journal sous-jacentes."
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_difference_form
+msgid "Amounts"
+msgstr "Montants"
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_difference_form
+msgid "Box"
+msgstr "Boîte"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__line_count
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__line_ids
+msgid "Boxes"
+msgstr "Boîtes"
+
+#. module: vat_cross_check
+#: model_terms:ir.actions.act_window,help:vat_cross_check.action_vat_difference
+msgid "Boxes that still differ or have not been reviewed."
+msgstr "Des cartons qui diffèrent encore ou qui n'ont pas été revus."
+
+#. module: vat_cross_check
+#: model:ir.model.fields.selection,name:vat_cross_check.selection__vat_check__state__closed
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_search
+msgid "Closed"
+msgstr "Clôturé"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__closed_on
+msgid "Closed On"
+msgstr "Fermé le"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__box_name
+msgid "Code or label of the VAT box being verified."
+msgstr "Code ou étiquette de la case TVA en cours de vérification."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__company_id
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: vat_cross_check
+#: model:res.groups,comment:vat_cross_check.group_vatcrosschec_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_form
+msgid "Counters"
+msgstr "Compteurs"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__create_uid
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__create_date
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__check_id
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_search
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_difference_search
+msgid "Cross Check"
+msgstr "Vérification croisée"
+
+#. module: vat_cross_check
+#: model:ir.ui.menu,name:vat_cross_check.menu_vat_checks
+msgid "Cross Checks"
+msgstr "Vérifications croisées"
+
+#. module: vat_cross_check
+#: model:ir.module.module,summary:base.module_vat_cross_check
+msgid "Cross-check the VAT report against the underlying journal entries and explain the differences before filing."
+msgstr "Vérifiez le rapport de TVA avec les écritures de journal sous-jacentes et expliquez les différences avant de le déposer."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__difference_amount
+msgid "Difference"
+msgstr "Différence"
+
+#. module: vat_cross_check
+#: model:ir.actions.act_window,name:vat_cross_check.action_vat_difference
+#: model:ir.ui.menu,name:vat_cross_check.menu_vat_differences
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_difference_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_difference_list
+msgid "Differences"
+msgstr "Différences"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__display_name
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__name
+msgid "Display name combining the box and the period."
+msgstr "Nom d’affichage combinant la case et le point."
+
+#. module: vat_cross_check
+#: model:ir.model.fields.selection,name:vat_cross_check.selection__vat_check__state__draft
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check_line.py:0
+msgid "Explain the difference on box %s before marking it as reviewed."
+msgstr "Expliquez la différence sur la boîte %s avant de la marquer comme révisée."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__explanation
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_difference_form
+msgid "Explanation"
+msgstr "Explication"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__difference_amount
+msgid "Gap between the reported amount and the ledger amount."
+msgstr "Écart entre le montant déclaré et le montant comptable."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__has_message
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: vat_cross_check
+#: model:ir.model.fields.selection,name:vat_cross_check.selection__vat_check__state__review
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_search
+msgid "In Review"
+msgstr "En revue"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__write_uid
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__write_date
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__ledger_amount
+msgid "Ledger Amount"
+msgstr "Montant comptable"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__name
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__note
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_form
+msgid "Note"
+msgstr "Note"
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "Only a VAT cross-check in review can be closed."
+msgstr "Seul un recoupement TVA en révision peut être clôturé."
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "Only a draft VAT cross-check can move to review."
+msgstr "Seul un projet de contrôle croisé TVA peut passer en révision."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__open_line_count
+msgid "Open Boxes"
+msgstr "Boîtes ouvertes"
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_form
+msgid "Period"
+msgstr "Période"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__period_end
+msgid "Period End"
+msgstr "Fin de période"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__period_start
+msgid "Period Start"
+msgstr "Début de la période"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__explanation
+msgid "Reason for the difference, filled in during the review."
+msgstr "Raison de la différence, renseignée lors de l'examen."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__reported_amount
+msgid "Reported Amount"
+msgstr "Montant déclaré"
+
+#. module: vat_cross_check
+#: model_terms:ir.actions.act_window,help:vat_cross_check.action_vat_check_line
+msgid "Reported and ledger amounts for every VAT box."
+msgstr "Montants déclarés et du grand livre pour chaque case TVA."
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "Review every VAT box before closing %s."
+msgstr "Examinez chaque case TVA avant de fermer %s."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__reviewed
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_search
+msgid "Reviewed"
+msgstr "Révisé"
+
+#. module: vat_cross_check
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check__state
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__state
+msgid "State"
+msgstr "Statut"
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check_line.py:0
+msgid "The VAT box was marked as reviewed."
+msgstr "La case TVA a été marquée comme révisée."
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "The VAT cross-check entered review."
+msgstr "Le recoupement TVA est entré en revue."
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "The VAT cross-check was closed and verified."
+msgstr "Le recoupement TVA a été clôturé et vérifié."
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check.py:0
+msgid "The period end of %s cannot be before its start."
+msgstr "La fin de période de %s ne peut être antérieure à son début."
+
+#. module: vat_cross_check
+#: model:ir.model.fields,help:vat_cross_check.field_vat_check_line__reviewed
+msgid "Ticked once the difference has been explained and reviewed."
+msgstr "Coché une fois que la différence a été expliquée et examinée."
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_search
+msgid "To Review"
+msgstr "À réviser"
+
+#. module: vat_cross_check
+#. odoo-python
+#: code:addons/vat_cross_check/models/vat_check_line.py:0
+#: model:ir.model.fields,field_description:vat_cross_check.field_vat_check_line__box_name
+msgid "VAT Box"
+msgstr "Boîte TVA"
+
+#. module: vat_cross_check
+#: model:ir.actions.act_window,name:vat_cross_check.action_vat_check_line
+#: model:ir.ui.menu,name:vat_cross_check.menu_vat_boxes
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_list
+msgid "VAT Boxes"
+msgstr "Boîtes TVA"
+
+#. module: vat_cross_check
+#: model:ir.model,name:vat_cross_check.model_vat_check
+#: model:ir.ui.menu,name:vat_cross_check.menu_vat_root
+msgid "VAT Cross Check"
+msgstr "Vérification croisée de la TVA"
+
+#. module: vat_cross_check
+#: model:ir.model,name:vat_cross_check.model_vat_check_line
+msgid "VAT Cross Check Line"
+msgstr "Ligne de contrôle croisé TVA"
+
+#. module: vat_cross_check
+#: model:ir.actions.act_window,name:vat_cross_check.action_vat_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_form
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_list
+msgid "VAT Cross Checks"
+msgstr "Contrôles croisés TVA"
+
+#. module: vat_cross_check
+#: model:ir.module.module,shortdesc:base.module_vat_cross_check
+msgid "VATCross"
+msgstr "TVACross"
+
+#. module: vat_cross_check
+#: model:res.groups,name:vat_cross_check.group_vatcrosschec_manager
+msgid "Vat Cross Check Manager"
+msgstr "Gestionnaire de contrôle croisé de TVA"
+
+#. module: vat_cross_check
+#: model:res.groups,name:vat_cross_check.group_vatcrosschec_user
+msgid "Vat Cross Check User"
+msgstr "Utilisateur du contrôle croisé de TVA"
+
+#. module: vat_cross_check
+#: model_terms:ir.actions.act_window,help:vat_cross_check.action_vat_check
+msgid "Verify each VAT period before you file the return."
+msgstr "Vérifiez chaque période de TVA avant de produire la déclaration."
+
+#. module: vat_cross_check
+#: model:res.groups,comment:vat_cross_check.group_vatcrosschec_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: vat_cross_check
+#: model_terms:ir.ui.view,arch_db:vat_cross_check.view_vat_check_line_search
+msgid "With Difference"
+msgstr "Avec différence"

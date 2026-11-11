@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vat_check_list" model="ir.ui.view">
+        <field name="name">vat.check.list</field>
+        <field name="model">vat.check</field>
+        <field name="arch" type="xml">
+            <list string="VAT Cross Checks" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <field name="line_count"/>
+                <field name="open_line_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_vat_check_form" model="ir.ui.view">
+        <field name="name">vat.check.form</field>
+        <field name="model">vat.check</field>
+        <field name="arch" type="xml">
+            <form string="VAT Cross Checks">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Period">
+    <field name="name"/>
+    <field name="period_start"/>
+    <field name="period_end"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Status">
+    <field name="state"/>
+    <field name="closed_on"/>
+                        </group>
+                        <group string="Counters">
+    <field name="line_count"/>
+    <field name="open_line_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_vat_check_search" model="ir.ui.view">
+        <field name="name">vat.check.search</field>
+        <field name="model">vat.check</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="in_review" string="In Review" domain="[('state','=','review')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_vat_check_kanban" model="ir.ui.view">
+        <field name="name">vat.check.kanban</field>
+        <field name="model">vat.check</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="period_start"/>
+                <field name="period_end"/>
+                <field name="open_line_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="period_start"/>
+                        <field name="period_end"/>
+                        <field name="open_line_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_vat_check" model="ir.actions.act_window">
+        <field name="name">VAT Cross Checks</field>
+        <field name="res_model">vat.check</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Verify each VAT period before you file the return.</p>
+        </field>
+    </record>
+
+</odoo>
