@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_cancel_desk_log_company" model="ir.rule">
+        <field name="name">cancel.desk.log: own company only</field>
+        <field name="model_id" ref="model_cancel_desk_log"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_cancel_desk_recovery_company" model="ir.rule">
+        <field name="name">cancel.desk.recovery: own company only</field>
+        <field name="model_id" ref="model_cancel_desk_recovery"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

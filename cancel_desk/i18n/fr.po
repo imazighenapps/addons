@@ -1,0 +1,474 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* cancel_desk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cancel_desk
+#. odoo-python
+#: code:addons/cancel_desk/models/cancel_desk.py:0
+msgid "A cancellation with recovered value cannot be reopened: %s was won back on it."
+msgstr "Une annulation avec valeur récupérée ne peut pas être rouverte : %s y a été reconquis."
+
+#. module: cancel_desk
+#: model:ir.ui.menu,name:cancel_desk.menu_candesk_root
+msgid "Cancel Desk"
+msgstr "Annuler le bureau"
+
+#. module: cancel_desk
+#: model:res.groups,name:cancel_desk.group_canceldesk_manager
+msgid "Cancel Desk Manager"
+msgstr "Annuler le gestionnaire de bureau"
+
+#. module: cancel_desk
+#: model:res.groups,name:cancel_desk.group_canceldesk_user
+msgid "Cancel Desk User"
+msgstr "Annuler l'utilisateur du bureau"
+
+#. module: cancel_desk
+#: model:ir.module.module,shortdesc:base.module_cancel_desk
+msgid "CancelDesk"
+msgstr "AnnulerBureau"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_recovery__log_id
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovery_search
+msgid "Cancellation"
+msgstr "Annulation"
+
+#. module: cancel_desk
+#. odoo-python
+#: code:addons/cancel_desk/models/cancel_desk.py:0
+msgid "Cancellation reopened as logged."
+msgstr "Annulation rouverte comme enregistrée."
+
+#. module: cancel_desk
+#: model:ir.actions.act_window,name:cancel_desk.action_cancel_log
+#: model:ir.ui.menu,name:cancel_desk.menu_candesk_logs
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_list
+msgid "Cancellations"
+msgstr "Annulations"
+
+#. module: cancel_desk
+#: model_terms:ir.actions.act_window,help:cancel_desk.action_cancel_recovered
+msgid "Cancellations won back: the proof a discount is not always the answer."
+msgstr "Annulations reconquises : la preuve qu'une réduction n'est pas toujours la réponse."
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__document
+msgid "Cancelled Order"
+msgstr "Commande annulée"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__company_id
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_recovery__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: cancel_desk
+#: model:ir.model.fields.selection,name:cancel_desk.selection__cancel_desk_log__reason__competition
+msgid "Competitor"
+msgstr "Concurrente Concurrent"
+
+#. module: cancel_desk
+#: model:res.groups,comment:cancel_desk.group_canceldesk_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__create_uid
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_recovery__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__create_date
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_recovery__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__currency_id
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_recovery__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__partner_id
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_search
+msgid "Customer"
+msgstr "Client"
+
+#. module: cancel_desk
+#: model:ir.model.fields,help:cancel_desk.field_cancel_desk_log__decided_on
+msgid "Date the cancellation was decided."
+msgstr "Date à laquelle l'annulation a été décidée."
+
+#. module: cancel_desk
+#: model:ir.model.fields,help:cancel_desk.field_cancel_desk_recovery__recovered_on
+msgid "Date the replacement order was signed."
+msgstr "Date de signature de la commande de remplacement."
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__decided_by
+msgid "Decided By"
+msgstr "Décidé par"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__decided_on
+msgid "Decided On"
+msgstr "Décidé"
+
+#. module: cancel_desk
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_search
+msgid "Decided This Year"
+msgstr "Décidé cette année"
+
+#. module: cancel_desk
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovered_form
+msgid "Decision"
+msgstr "Décision"
+
+#. module: cancel_desk
+#: model:ir.model.fields.selection,name:cancel_desk.selection__cancel_desk_log__reason__delivery
+msgid "Delivery Delay"
+msgstr "Retard de livraison"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__display_name
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_recovery__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: cancel_desk
+#: model_terms:ir.actions.act_window,help:cancel_desk.action_cancel_log
+msgid "Every cancelled order, with its reason, its lost value and the name of who decided."
+msgstr "Chaque commande annulée, avec sa raison, sa valeur perdue et le nom de celui qui a décidé."
+
+#. module: cancel_desk
+#: model_terms:ir.actions.act_window,help:cancel_desk.action_cancel_recovery
+msgid "Every replacement order won back, with its amount and its date."
+msgstr "Chaque commande de remplacement récupérée, avec son montant et sa date."
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__fully_recovered
+msgid "Fully Recovered"
+msgstr "Entièrement récupéré"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__has_message
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_recovery__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__write_uid
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_recovery__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__write_date
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_recovery__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: cancel_desk
+#: model:ir.module.module,summary:base.module_cancel_desk
+msgid "Log every cancelled order with a reason, the lost value and who decided, and turn the pattern into decisions."
+msgstr "Enregistrez chaque commande annulée avec une raison, la valeur perdue et qui a décidé, et transformez le modèle en décisions."
+
+#. module: cancel_desk
+#: model:ir.model.fields.selection,name:cancel_desk.selection__cancel_desk_log__state__logged
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_search
+msgid "Logged"
+msgstr "Connecté"
+
+#. module: cancel_desk
+#. odoo-python
+#: code:addons/cancel_desk/models/cancel_desk.py:0
+msgid "Loss of %s written off after %s recovery(ies)."
+msgstr "Perte de %s radiée après récupération(s) de %s."
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__amount
+msgid "Lost Value"
+msgstr "Valeur perdue"
+
+#. module: cancel_desk
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_search
+msgid "My Cancellations"
+msgstr "Mes annulations"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_recovery__new_ref
+msgid "New Order"
+msgstr "Nouvelle commande"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__note
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_recovery__note
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovered_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovery_form
+msgid "Note"
+msgstr "Note"
+
+#. module: cancel_desk
+#: model:ir.model.fields,help:cancel_desk.field_cancel_desk_log__recovery_count
+msgid "Number of replacement orders won back on this cancellation."
+msgstr "Nombre de commandes de remplacement récupérées grâce à cette annulation."
+
+#. module: cancel_desk
+#. odoo-python
+#: code:addons/cancel_desk/models/cancel_desk.py:0
+msgid "Only a logged cancellation can be written off."
+msgstr "Seule une annulation enregistrée peut être annulée."
+
+#. module: cancel_desk
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovered_form
+msgid "Order"
+msgstr "Commande"
+
+#. module: cancel_desk
+#: model:ir.model,name:cancel_desk.model_cancel_desk_log
+msgid "Order Cancellation"
+msgstr "Annulation de commande"
+
+#. module: cancel_desk
+#: model:ir.model,name:cancel_desk.model_cancel_desk_recovery
+msgid "Order Recovery"
+msgstr "Récupération de commande"
+
+#. module: cancel_desk
+#: model:ir.model.fields.selection,name:cancel_desk.selection__cancel_desk_log__reason__other
+msgid "Other"
+msgstr "Autre"
+
+#. module: cancel_desk
+#: model:ir.model.fields.selection,name:cancel_desk.selection__cancel_desk_log__reason__price
+msgid "Price"
+msgstr "Prix"
+
+#. module: cancel_desk
+#: model:ir.model.fields.selection,name:cancel_desk.selection__cancel_desk_log__reason__product
+msgid "Product Mismatch"
+msgstr "Inadéquation des produits"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__reason
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_search
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovered_search
+msgid "Reason"
+msgstr "Raison"
+
+#. module: cancel_desk
+#: model:ir.model.fields.selection,name:cancel_desk.selection__cancel_desk_log__state__recovered
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_search
+msgid "Recovered"
+msgstr "Rétablie Rétabli"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_recovery__amount
+msgid "Recovered Amount"
+msgstr "Montant récupéré"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_recovery__recovered_on
+msgid "Recovered On"
+msgstr "Récupéré le"
+
+#. module: cancel_desk
+#: model:ir.actions.act_window,name:cancel_desk.action_cancel_recovered
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__recovered_total
+#: model:ir.ui.menu,name:cancel_desk.menu_candesk_recovered
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovered_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovered_list
+msgid "Recovered Value"
+msgstr "Valeur récupérée"
+
+#. module: cancel_desk
+#: model:ir.actions.act_window,name:cancel_desk.action_cancel_recovery
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__recovery_count
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__recovery_ids
+#: model:ir.ui.menu,name:cancel_desk.menu_candesk_recoveries
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovered_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovery_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovery_list
+msgid "Recoveries"
+msgstr "Récupérations"
+
+#. module: cancel_desk
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovered_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovery_form
+msgid "Recovery"
+msgstr "Récupération"
+
+#. module: cancel_desk
+#. odoo-python
+#: code:addons/cancel_desk/models/cancel_desk.py:0
+msgid "Recovery registered on %s: %s recovered out of %s lost."
+msgstr "Récupération enregistrée sur %s : %s récupéré sur %s perdu."
+
+#. module: cancel_desk
+#: model:ir.model.fields,help:cancel_desk.field_cancel_desk_log__name
+msgid "Reference of the cancellation, generated from the CND/ sequence."
+msgstr "Référence de l'annulation, générée à partir de la séquence CND/."
+
+#. module: cancel_desk
+#: model:ir.model.fields,help:cancel_desk.field_cancel_desk_log__document
+msgid "Reference of the order that was cancelled."
+msgstr "Référence de la commande annulée."
+
+#. module: cancel_desk
+#: model:ir.model.fields,help:cancel_desk.field_cancel_desk_recovery__new_ref
+msgid "Reference of the replacement order won back."
+msgstr "Référence de la commande de remplacement récupérée."
+
+#. module: cancel_desk
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovered_form
+msgid "Reopen"
+msgstr "Rouvrir"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__salesperson_id
+msgid "Salesperson"
+msgstr "Vendeuse Vendeur"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__state
+msgid "State"
+msgstr "Statut"
+
+#. module: cancel_desk
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: cancel_desk
+#. odoo-python
+#: code:addons/cancel_desk/models/cancel_desk.py:0
+msgid "The cancellation %s is closed: its recoveries can no longer be changed."
+msgstr "L'annulation %s est clôturée : ses récupérations ne peuvent plus être modifiées."
+
+#. module: cancel_desk
+#. odoo-python
+#: code:addons/cancel_desk/models/cancel_desk.py:0
+msgid "The cancellation %s is closed: no recovery can be added to it."
+msgstr "L'annulation %s est close : aucune reprise ne peut y être ajoutée."
+
+#. module: cancel_desk
+#. odoo-python
+#: code:addons/cancel_desk/models/cancel_desk.py:0
+msgid "The decision date of the cancellation %s cannot be in the future."
+msgstr "La date de décision de l’annulation %s ne peut être postérieure."
+
+#. module: cancel_desk
+#. odoo-python
+#: code:addons/cancel_desk/models/cancel_desk.py:0
+msgid "The lost value of %s is fully recovered: %s won across %s recovery(ies)."
+msgstr "La valeur perdue de %s est entièrement récupérée : %s a gagné grâce à la(les) récupération(s) de %s."
+
+#. module: cancel_desk
+#. odoo-python
+#: code:addons/cancel_desk/models/cancel_desk.py:0
+msgid "The lost value of a cancellation cannot be negative."
+msgstr "La valeur perdue d'une annulation ne peut pas être négative."
+
+#. module: cancel_desk
+#. odoo-python
+#: code:addons/cancel_desk/models/cancel_desk.py:0
+msgid "The recovered amount of the order %s must be above zero."
+msgstr "Le montant récupéré de la commande %s doit être supérieur à zéro."
+
+#. module: cancel_desk
+#. odoo-python
+#: code:addons/cancel_desk/models/cancel_desk.py:0
+msgid "The recovery of the order %s cannot be dated before the decision of the cancellation."
+msgstr "Le recouvrement de la commande %s ne peut être daté avant la décision de l'annulation."
+
+#. module: cancel_desk
+#. odoo-python
+#: code:addons/cancel_desk/models/cancel_desk.py:0
+msgid "This cancellation is already logged and open."
+msgstr "Cette annulation est déjà enregistrée et ouverte."
+
+#. module: cancel_desk
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovered_form
+msgid "Total"
+msgstr "Total"
+
+#. module: cancel_desk
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_list
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovered_list
+msgid "Total Amount"
+msgstr "Montant total"
+
+#. module: cancel_desk
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_list
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovered_list
+msgid "Total Recovered Total"
+msgstr "Total récupéré Total"
+
+#. module: cancel_desk
+#: model:ir.model.fields,help:cancel_desk.field_cancel_desk_log__fully_recovered
+msgid "True when the recovered value reaches the lost value of the cancellation."
+msgstr "Vrai lorsque la valeur récupérée atteint la valeur perdue de l'annulation."
+
+#. module: cancel_desk
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_search
+msgid "Value Recovered"
+msgstr "Valeur récupérée"
+
+#. module: cancel_desk
+#: model:ir.model.fields,help:cancel_desk.field_cancel_desk_log__amount
+msgid "Value of the order lost with the cancellation."
+msgstr "Valeur de la commande perdue avec l'annulation."
+
+#. module: cancel_desk
+#: model:ir.model.fields,help:cancel_desk.field_cancel_desk_recovery__amount
+msgid "Value of the replacement order."
+msgstr "Valeur de la commande de remplacement."
+
+#. module: cancel_desk
+#: model:ir.model.fields,help:cancel_desk.field_cancel_desk_log__recovered_total
+msgid "Value won back through the replacement orders."
+msgstr "Valeur récupérée grâce aux commandes de remplacement."
+
+#. module: cancel_desk
+#: model:res.groups,comment:cancel_desk.group_canceldesk_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: cancel_desk
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_form
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_recovered_form
+msgid "Write Off"
+msgstr "Radier"
+
+#. module: cancel_desk
+#: model:ir.model.fields,field_description:cancel_desk.field_cancel_desk_log__written_off
+#: model:ir.model.fields.selection,name:cancel_desk.selection__cancel_desk_log__state__written_off
+#: model_terms:ir.ui.view,arch_db:cancel_desk.view_cancel_log_search
+msgid "Written Off"
+msgstr "Radié"
