@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="group_deliverysign_user" model="res.groups">
-        <field name="name">Delivery Sign User</field>
+        <field name="name">Delivery Sign Pro User</field>
         <field name="comment">View and use the module.</field>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
     <record id="group_deliverysign_manager" model="res.groups">
-        <field name="name">Delivery Sign Manager</field>
+        <field name="name">Delivery Sign Pro Manager</field>
         <field name="comment">Configure and administer the module.</field>
-        <field name="implied_ids" eval="[(4, ref('delivery_sign.group_deliverysign_user'))]"/>
+        <field name="implied_ids" eval="[(4, ref('delivery_sign_pro.group_deliverysign_user'))]"/>
         <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
     </record>
 </odoo>

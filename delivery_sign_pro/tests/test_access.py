@@ -14,18 +14,18 @@ class TestAccessRights(TransactionCase):
 
     def test_01_outsider_is_refused(self):
         outsider = new_test_user(
-            self.env, login="access_delivery_sign_out", groups="base.group_user")
+            self.env, login="access_delivery_sign_pro_out", groups="base.group_user")
         with self.assertRaises(AccessError):
             self.env[self.MODEL].with_user(outsider).search([])
 
     def test_02_group_member_is_allowed(self):
         member = new_test_user(
-            self.env, login="access_delivery_sign_in",
-            groups="base.group_user,delivery_sign.group_deliverysign_user")
+            self.env, login="access_delivery_sign_pro_in",
+            groups="base.group_user,delivery_sign_pro.group_deliverysign_user")
         try:
             self.env[self.MODEL].with_user(member).search([])
         except AccessError:
-            self.fail("the delivery_sign user group must be able to read "
+            self.fail("the delivery_sign_pro user group must be able to read "
                       "%s" % self.MODEL)
 
 

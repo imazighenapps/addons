@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_skill_skill_user,skill.skill User,skill.skill,skill_matrix_pro.group_skillmatrixp_user,cr,
+access_skill_skill_manager,skill.skill Manager,skill.skill,skill_matrix_pro.group_skillmatrixp_manager,crud,
+access_skill_assignment_user,skill.assignment User,skill.assignment,skill_matrix_pro.group_skillmatrixp_user,cr,
+access_skill_assignment_manager,skill.assignment Manager,skill.assignment,skill_matrix_pro.group_skillmatrixp_manager,crud,
+rule_skill_skill_company,skill.skill: own company only,skill.skill,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_skill_assignment_company,skill.assignment: own company only,skill.assignment,,crud,"[('company_id', 'in', company_ids + [False])]"
