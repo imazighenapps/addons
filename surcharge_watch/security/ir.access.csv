@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_surcharge_clause_user,surcharge.clause User,surcharge.clause,surcharge_watch.group_surchargewat_user,cr,
+access_surcharge_clause_manager,surcharge.clause Manager,surcharge.clause,surcharge_watch.group_surchargewat_manager,crud,
+access_surcharge_line_user,surcharge.line User,surcharge.line,surcharge_watch.group_surchargewat_user,cr,
+access_surcharge_line_manager,surcharge.line Manager,surcharge.line,surcharge_watch.group_surchargewat_manager,crud,
+rule_surcharge_clause_company,surcharge.clause: own company only,surcharge.clause,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_surcharge_line_company,surcharge.line: own company only,surcharge.line,,crud,"[('company_id', 'in', company_ids + [False])]"
