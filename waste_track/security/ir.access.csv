@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_wst_stream_user,wst.stream User,wst.stream,waste_track.group_wastetrack_user,cru,
+access_wst_stream_manager,wst.stream Manager,wst.stream,waste_track.group_wastetrack_manager,crud,
+access_wst_collection_user,wst.collection User,wst.collection,waste_track.group_wastetrack_user,cru,
+access_wst_collection_manager,wst.collection Manager,wst.collection,waste_track.group_wastetrack_manager,crud,
+rule_wst_stream_company,wst.stream: own company only,wst.stream,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_wst_collection_company,wst.collection: own company only,wst.collection,,crud,"[('company_id', 'in', company_ids + [False])]"
