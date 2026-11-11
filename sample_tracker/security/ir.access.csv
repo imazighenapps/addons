@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_sample_item_user,sample.item User,sample.item,sample_tracker.group_sampletracke_user,cr,
+access_sample_item_manager,sample.item Manager,sample.item,sample_tracker.group_sampletracke_manager,crud,
+access_sample_issue_user,sample.issue User,sample.issue,sample_tracker.group_sampletracke_user,cr,
+access_sample_issue_manager,sample.issue Manager,sample.issue,sample_tracker.group_sampletracke_manager,crud,
+rule_sample_item_company,sample.item: own company only,sample.item,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_sample_issue_company,sample.issue: own company only,sample.issue,,crud,"[('company_id', 'in', company_ids + [False])]"

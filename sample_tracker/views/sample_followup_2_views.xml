@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sample_followup_list" model="ir.ui.view">
+        <field name="name">sample.issue.list</field>
+        <field name="model">sample.issue</field>
+        <field name="arch" type="xml">
+            <list string="Follow-Up Queue">
+                <field name="follow_up_on"/>
+                <field name="recipient_id"/>
+                <field name="item_id"/>
+                <field name="handed_on"/>
+                <field name="quantity"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_sample_followup_form" model="ir.ui.view">
+        <field name="name">sample.issue.form</field>
+        <field name="model">sample.issue</field>
+        <field name="arch" type="xml">
+            <form string="Follow-Up Queue">
+                <header>
+                    <button name="action_convert" type="object" string="Order Placed" class="btn-primary" invisible="converted"/>
+                    <button name="action_return" type="object" string="Returned" class="btn-primary" invisible="state != 'out'"/>
+                    <button name="action_consume" type="object" string="Consumed" class="btn-secondary" invisible="state != 'out'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="out,consumed,returned"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="recipient_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Hand-Out">
+    <field name="name"/>
+    <field name="item_id"/>
+    <field name="recipient_id"/>
+    <field name="quantity"/>
+    <field name="handed_on"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="follow_up_on"/>
+    <field name="state"/>
+    <field name="returned_on"/>
+    <field name="converted"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sample_followup_search" model="ir.ui.view">
+        <field name="name">sample.issue.search</field>
+        <field name="model">sample.issue</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="recipient_id"/>
+                <field name="item_id"/>
+                <separator/>
+                <filter name="group_recipient" string="Recipient" context="{'group_by': 'recipient_id'}"/>
+                <filter name="group_follow" string="Follow Up" context="{'group_by': 'follow_up_on'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_sample_followup" model="ir.actions.act_window">
+        <field name="name">Follow-Up Queue</field>
+        <field name="res_model">sample.issue</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Everything still outside without an order behind it, in the order the call comes due.</p>
+        </field>
+    </record>
+
+</odoo>

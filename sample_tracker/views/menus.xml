@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_sample_root" name="Sample Log" sequence="69"/>
+    <menuitem id="menu_sample_items" name="Samples Issued" parent="menu_sample_root" action="action_sample_item" sequence="10"/>
+    <menuitem id="menu_sample_detail" name="Sample Detail" parent="menu_sample_root" action="action_sample_issue" sequence="20"/>
+    <menuitem id="menu_sample_followup_menu" name="Follow-Up Queue" parent="menu_sample_root" action="action_sample_followup" sequence="30"/>
+</odoo>
