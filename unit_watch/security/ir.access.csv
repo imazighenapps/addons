@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_unit_check_user,unit.check User,unit.check,unit_watch.group_unitwatch_user,crud,
+access_unit_check_manager,unit.check Manager,unit.check,unit_watch.group_unitwatch_manager,crud,
+rule_unit_check_company,unit.check: own company only,unit.check,,crud,"[('company_id', 'in', company_ids + [False])]"
