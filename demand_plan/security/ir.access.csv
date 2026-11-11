@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_demand_plan_user,demand.plan User,demand.plan,demand_plan.group_demandplan_user,cr,
+access_demand_plan_manager,demand.plan Manager,demand.plan,demand_plan.group_demandplan_manager,crud,
+access_demand_plan_line_user,demand.plan.line User,demand.plan.line,demand_plan.group_demandplan_user,cr,
+access_demand_plan_line_manager,demand.plan.line Manager,demand.plan.line,demand_plan.group_demandplan_manager,crud,
+rule_demand_plan_company,demand.plan: own company only,demand.plan,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_demand_plan_line_company,demand.plan.line: own company only,demand.plan.line,,crud,"[('company_id', 'in', company_ids + [False])]"
