@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_clc_check_user,clc.check User,clc.check,clearance_check.group_clearanceche_user,cru,
+access_clc_check_manager,clc.check Manager,clc.check,clearance_check.group_clearanceche_manager,crud,
+access_clc_item_user,clc.item User,clc.item,clearance_check.group_clearanceche_user,cru,
+access_clc_item_manager,clc.item Manager,clc.item,clearance_check.group_clearanceche_manager,crud,
+rule_clc_check_company,clc.check: own company only,clc.check,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_clc_item_company,clc.item: own company only,clc.item,,crud,"[('company_id', 'in', company_ids + [False])]"
