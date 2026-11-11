@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_quarantine_case_user,quarantine.case User,quarantine.case,quarantine_desk.group_quarantinede_user,crud,
+access_quarantine_case_manager,quarantine.case Manager,quarantine.case,quarantine_desk.group_quarantinede_manager,crud,
+rule_quarantine_case_company,quarantine.case: own company only,quarantine.case,,crud,"[('company_id', 'in', company_ids + [False])]"
