@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_lot_genealogy_list" model="ir.ui.view">
+        <field name="name">lot.genealogy.list</field>
+        <field name="model">lot.genealogy</field>
+        <field name="arch" type="xml">
+            <list string="Lot Ancestry">
+                <field name="name"/>
+                <field name="product_name"/>
+                <field name="produced_on"/>
+                <field name="parent_count"/>
+                <field name="child_count"/>
+                <field name="impacted"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_lot_genealogy_form" model="ir.ui.view">
+        <field name="name">lot.genealogy.form</field>
+        <field name="model">lot.genealogy</field>
+        <field name="arch" type="xml">
+            <form string="Lot Ancestry">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Lot">
+    <field name="name"/>
+    <field name="product_name"/>
+    <field name="produced_on"/>
+    <field name="impacted"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Counts">
+    <field name="parent_count"/>
+    <field name="child_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Parents" name="parentlinkids">
+                            <field name="parent_link_ids">
+                        <list editable="bottom">
+                            <field name="parent_lot_id"/>
+                            <field name="quantity"/>
+                            <field name="linked_on"/>
+                            <field name="note"/>
+                            <field name="company_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Children" name="childlinkids">
+                            <field name="child_link_ids">
+                        <list editable="bottom">
+                            <field name="child_lot_id"/>
+                            <field name="quantity"/>
+                            <field name="linked_on"/>
+                            <field name="note"/>
+                            <field name="company_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_lot_genealogy_search" model="ir.ui.view">
+        <field name="name">lot.genealogy.search</field>
+        <field name="model">lot.genealogy</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="product_name"/>
+                <filter name="impacted" string="Impacted" domain="[('impacted','=',True)]"/>
+                <filter name="roots" string="Roots" domain="[('parent_count','=',0)]"/>
+                <filter name="leaves" string="Leaves" domain="[('child_count','=',0)]"/>
+                <separator/>
+                <filter name="group_product" string="Product" context="{'group_by': 'product_name'}"/>
+                <filter name="group_impacted" string="Impacted" context="{'group_by': 'impacted'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_lot_genealogy_kanban" model="ir.ui.view">
+        <field name="name">lot.genealogy.kanban</field>
+        <field name="model">lot.genealogy</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="impacted" sample="1">
+                <field name="impacted"/>
+                <field name="name"/>
+                <field name="product_name"/>
+                <field name="produced_on"/>
+                <field name="parent_count"/>
+                <field name="child_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="impacted" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="product_name"/>
+                        <field name="produced_on"/>
+                        <field name="parent_count"/>
+                        <field name="child_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_lot_genealogy" model="ir.actions.act_window">
+        <field name="name">Lot Ancestry</field>
+        <field name="res_model">lot.genealogy</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every produced lot and the family links that trace its roots.</p>
+        </field>
+    </record>
+
+</odoo>

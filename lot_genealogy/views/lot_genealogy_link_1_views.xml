@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_lot_genealogy_link_list" model="ir.ui.view">
+        <field name="name">lot.genealogy.link.list</field>
+        <field name="model">lot.genealogy.link</field>
+        <field name="arch" type="xml">
+            <list string="Lot Links">
+                <field name="parent_lot_id"/>
+                <field name="child_lot_id"/>
+                <field name="quantity"/>
+                <field name="linked_on"/>
+                <field name="note"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_lot_genealogy_link_form" model="ir.ui.view">
+        <field name="name">lot.genealogy.link.form</field>
+        <field name="model">lot.genealogy.link</field>
+        <field name="arch" type="xml">
+            <form string="Lot Links">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="parent_lot_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Link">
+    <field name="parent_lot_id"/>
+    <field name="child_lot_id"/>
+    <field name="quantity"/>
+    <field name="linked_on"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_lot_genealogy_link_search" model="ir.ui.view">
+        <field name="name">lot.genealogy.link.search</field>
+        <field name="model">lot.genealogy.link</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="parent_lot_id"/>
+                <field name="child_lot_id"/>
+                <field name="note"/>
+                <separator/>
+                <filter name="group_parent" string="Parent Lot" context="{'group_by': 'parent_lot_id'}"/>
+                <filter name="group_child" string="Child Lot" context="{'group_by': 'child_lot_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_lot_genealogy_link" model="ir.actions.act_window">
+        <field name="name">Lot Links</field>
+        <field name="res_model">lot.genealogy.link</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Parent-child links that build the lot family tree.</p>
+        </field>
+    </record>
+
+</odoo>
