@@ -1,0 +1,338 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* order_import
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__accepted_count
+#: model:ir.model.fields.selection,name:order_import.selection__order_import_line__status__accepted
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_line_search
+msgid "Accepted"
+msgstr "Akzeptiert"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: order_import
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_batch_search
+msgid "All Accepted"
+msgstr "Alles akzeptiert"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__batch_id
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_batch_form
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_line_search
+msgid "Batch"
+msgstr "Charge"
+
+#. module: order_import
+#. odoo-python
+#: code:addons/order_import/models/order_import_batch.py:0
+msgid "Batch validated: %s accepted, %s rejected."
+msgstr "Charge validiert: %s akzeptiert, %s abgelehnt."
+
+#. module: order_import
+#: model:ir.ui.menu,name:order_import.menu_order_import_batches
+msgid "Batches"
+msgstr "Chargen"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__company_id
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__company_id
+msgid "Company"
+msgstr "Firma"
+
+#. module: order_import
+#: model:res.groups,comment:order_import.group_orderimport_manager
+msgid "Configure and administer the module."
+msgstr "Konfigurieren und verwalten Sie das Modul."
+
+#. module: order_import
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_line_form
+msgid "Content"
+msgstr "Inhalt"
+
+#. module: order_import
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_batch_form
+msgid "Counts"
+msgstr "Zählt"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__create_uid
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__create_date
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__partner_id
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__partner_id
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_batch_search
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__display_name
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: order_import
+#: model:ir.model.fields.selection,name:order_import.selection__order_import_batch__state__draft
+#: model:ir.model.fields.selection,name:order_import.selection__order_import_line__status__draft
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: order_import
+#: model_terms:ir.actions.act_window,help:order_import.action_order_import_batch
+msgid "Each customer file as a batch: validate it, see the errors and process only what is clean."
+msgstr "Jede Kundendatei als Stapel: Validieren Sie sie, sehen Sie die Fehler und verarbeiten Sie nur, was sauber ist."
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__error_message
+msgid "Error"
+msgstr "Fehler"
+
+#. module: order_import
+#: model_terms:ir.actions.act_window,help:order_import.action_order_import_line
+msgid "Every imported line with its validation result and the reason it was rejected."
+msgstr "Jede importierte Zeile mit ihrem Validierungsergebnis und dem Grund für die Ablehnung."
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__has_message
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__has_message
+msgid "Has Message"
+msgstr "Hat Nachricht"
+
+#. module: order_import
+#: model:ir.actions.act_window,name:order_import.action_order_import_batch
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_batch_form
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_batch_list
+msgid "Import Batches"
+msgstr "Chargen importieren"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__import_date
+msgid "Import Date"
+msgstr "Importdatum"
+
+#. module: order_import
+#: model:ir.actions.act_window,name:order_import.action_order_import_line
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_line_form
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_line_list
+msgid "Import Lines"
+msgstr "Linien importieren"
+
+#. module: order_import
+#: model:ir.module.module,summary:base.module_order_import
+msgid "Import customer order files into validated quotations, with the rejected lines explained instead of lost."
+msgstr "Importieren Sie Kundenauftragsdateien in validierte Angebote, wobei die abgelehnten Zeilen erläutert und nicht verloren gehen."
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__write_uid
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__write_date
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: order_import
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_line_form
+msgid "Line"
+msgstr "Linie"
+
+#. module: order_import
+#. odoo-python
+#: code:addons/order_import/models/order_import_line.py:0
+msgid "Line %s"
+msgstr "Linie %s"
+
+#. module: order_import
+#: model:ir.model.fields,help:order_import.field_order_import_line__source_ref
+msgid "Line identifier coming from the customer file."
+msgstr "Leitungskennung aus der Kundendatei."
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__line_count
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__line_ids
+#: model:ir.ui.menu,name:order_import.menu_order_import_lines
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_batch_form
+msgid "Lines"
+msgstr "Linien"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__name
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__name
+msgid "Name"
+msgstr "Name"
+
+#. module: order_import
+#: model:ir.model.fields,help:order_import.field_order_import_batch__source_file
+msgid "Name of the customer file that produced this batch."
+msgstr "Name der Kundendatei, die diesen Stapel produziert hat."
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__note
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_batch_form
+msgid "Note"
+msgstr "Notiz"
+
+#. module: order_import
+#: model:ir.model,name:order_import.model_order_import_batch
+msgid "Order Import Batch"
+msgstr "Auftragsimportstapel"
+
+#. module: order_import
+#: model:ir.model,name:order_import.model_order_import_line
+msgid "Order Import Line"
+msgstr "Auftragsimportzeile"
+
+#. module: order_import
+#: model:res.groups,name:order_import.group_orderimport_manager
+msgid "Order Import Manager"
+msgstr "Auftragsimportmanager"
+
+#. module: order_import
+#: model:res.groups,name:order_import.group_orderimport_user
+msgid "Order Import User"
+msgstr "Bestellimportbenutzer"
+
+#. module: order_import
+#: model:ir.ui.menu,name:order_import.menu_order_import_root
+msgid "Order Imports"
+msgstr "Importe bestellen"
+
+#. module: order_import
+#: model:ir.module.module,shortdesc:base.module_order_import
+msgid "OrderGate"
+msgstr "OrderGate"
+
+#. module: order_import
+#: model:ir.model.fields.selection,name:order_import.selection__order_import_batch__state__processed
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_batch_search
+msgid "Processed"
+msgstr "Verarbeitet"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__product_ref
+msgid "Product Reference"
+msgstr "Produktreferenz"
+
+#. module: order_import
+#: model:ir.model.fields,help:order_import.field_order_import_line__product_ref
+msgid "Product code or description provided in the file."
+msgstr "Produktcode oder Beschreibung in der Datei."
+
+#. module: order_import
+#. odoo-python
+#: code:addons/order_import/models/order_import_batch.py:0
+msgid "Provide a product reference and a quantity above zero."
+msgstr "Geben Sie eine Produktreferenz und eine Menge über Null an."
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__quantity
+msgid "Quantity"
+msgstr "Menge"
+
+#. module: order_import
+#: model:ir.model.fields,help:order_import.field_order_import_line__error_message
+msgid "Reason why the line was rejected during validation."
+msgstr "Grund, warum die Zeile während der Validierung abgelehnt wurde."
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__rejected_count
+#: model:ir.model.fields.selection,name:order_import.selection__order_import_line__status__rejected
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_line_search
+msgid "Rejected"
+msgstr "Abgelehnt"
+
+#. module: order_import
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_line_form
+msgid "Result"
+msgstr "Ergebnis"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__sequence
+msgid "Sequence"
+msgstr "Sequenz"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__source_file
+msgid "Source File"
+msgstr "Quelldatei"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__source_ref
+msgid "Source Reference"
+msgstr "Quellenangabe"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_batch__state
+msgid "State"
+msgstr "Status"
+
+#. module: order_import
+#: model:ir.model.fields,field_description:order_import.field_order_import_line__status
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_batch_search
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_line_search
+msgid "Status"
+msgstr "Status"
+
+#. module: order_import
+#. odoo-python
+#: code:addons/order_import/models/order_import_batch.py:0
+msgid "The batch has been marked processed."
+msgstr "Der Stapel wurde als verarbeitet markiert."
+
+#. module: order_import
+#. odoo-python
+#: code:addons/order_import/models/order_import_batch.py:0
+msgid "The import batch %s must contain at least one line."
+msgstr "Der Importstapel %s muss mindestens eine Zeile enthalten."
+
+#. module: order_import
+#. odoo-python
+#: code:addons/order_import/models/order_import_line.py:0
+msgid "The quantity of %s cannot be negative."
+msgstr "Die Menge von %s darf nicht negativ sein."
+
+#. module: order_import
+#. odoo-python
+#: code:addons/order_import/models/order_import_batch.py:0
+msgid "Validate the batch %s before processing it."
+msgstr "Validieren Sie den Stapel %s, bevor Sie ihn verarbeiten."
+
+#. module: order_import
+#: model:ir.model.fields.selection,name:order_import.selection__order_import_batch__state__validated
+msgid "Validated"
+msgstr "Validiert"
+
+#. module: order_import
+#: model:res.groups,comment:order_import.group_orderimport_user
+msgid "View and use the module."
+msgstr "Sehen Sie sich das Modul an und nutzen Sie es."
+
+#. module: order_import
+#: model_terms:ir.ui.view,arch_db:order_import.view_order_import_batch_search
+msgid "With Errors"
+msgstr "Mit Fehlern"

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_import_line_list" model="ir.ui.view">
+        <field name="name">order.import.line.list</field>
+        <field name="model">order.import.line</field>
+        <field name="arch" type="xml">
+            <list string="Import Lines">
+                <field name="sequence"/>
+                <field name="batch_id"/>
+                <field name="partner_id"/>
+                <field name="source_ref"/>
+                <field name="product_ref"/>
+                <field name="quantity"/>
+                <field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_order_import_line_form" model="ir.ui.view">
+        <field name="name">order.import.line.form</field>
+        <field name="model">order.import.line</field>
+        <field name="arch" type="xml">
+            <form string="Import Lines">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Line">
+    <field name="name"/>
+    <field name="batch_id"/>
+    <field name="partner_id"/>
+    <field name="sequence"/>
+    <field name="source_ref"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Content">
+    <field name="product_ref"/>
+    <field name="quantity"/>
+                        </group>
+                        <group string="Result">
+    <field name="status"/>
+    <field name="error_message"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_order_import_line_search" model="ir.ui.view">
+        <field name="name">order.import.line.search</field>
+        <field name="model">order.import.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="batch_id"/>
+                <field name="product_ref"/>
+                <field name="source_ref"/>
+                <filter name="rejected" string="Rejected" domain="[('status','=','rejected')]"/>
+                <filter name="accepted" string="Accepted" domain="[('status','=','accepted')]"/>
+                <separator/>
+                <filter name="group_batch" string="Batch" context="{'group_by': 'batch_id'}"/>
+                <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_order_import_line_kanban" model="ir.ui.view">
+        <field name="name">order.import.line.kanban</field>
+        <field name="model">order.import.line</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status" sample="1">
+                <field name="status"/>
+                <field name="batch_id"/>
+                <field name="product_ref"/>
+                <field name="quantity"/>
+                <field name="source_ref"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="status" class="fw-bold"/>
+                        <field name="batch_id"/>
+                        <field name="product_ref"/>
+                        <field name="quantity"/>
+                        <field name="source_ref"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_order_import_line" model="ir.actions.act_window">
+        <field name="name">Import Lines</field>
+        <field name="res_model">order.import.line</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every imported line with its validation result and the reason it was rejected.</p>
+        </field>
+    </record>
+
+</odoo>
