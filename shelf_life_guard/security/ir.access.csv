@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_shelf_lot_user,shelf.lot User,shelf.lot,shelf_life_guard.group_shelflifegua_user,cr,
+access_shelf_lot_manager,shelf.lot Manager,shelf.lot,shelf_life_guard.group_shelflifegua_manager,crud,
+rule_shelf_lot_company,shelf.lot: own company only,shelf.lot,,crud,"[('company_id', 'in', company_ids + [False])]"
