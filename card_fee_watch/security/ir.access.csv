@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_fee_contract_user,fee.contract User,fee.contract,card_fee_watch.group_cardfeewatch_user,cr,
+access_fee_contract_manager,fee.contract Manager,fee.contract,card_fee_watch.group_cardfeewatch_manager,crud,
+access_fee_line_user,fee.line User,fee.line,card_fee_watch.group_cardfeewatch_user,cr,
+access_fee_line_manager,fee.line Manager,fee.line,card_fee_watch.group_cardfeewatch_manager,crud,
+rule_fee_contract_company,fee.contract: own company only,fee.contract,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_fee_line_company,fee.line: own company only,fee.line,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_fee_line_list" model="ir.ui.view">
+        <field name="name">fee.line.list</field>
+        <field name="model">fee.line</field>
+        <field name="arch" type="xml">
+            <list string="Billed Fees" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="billed_on"/>
+                <field name="contract_id"/>
+                <field name="settled_amount"/>
+                <field name="charged_fee"/>
+                <field name="expected_fee"/>
+                <field name="variance_amount"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fee_line_form" model="ir.ui.view">
+        <field name="name">fee.line.form</field>
+        <field name="model">fee.line</field>
+        <field name="arch" type="xml">
+            <form string="Billed Fees">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Fee">
+    <field name="name"/>
+    <field name="contract_id"/>
+    <field name="billed_on"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="settled_amount"/>
+    <field name="charged_fee"/>
+    <field name="expected_fee"/>
+    <field name="variance_amount"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Resolution">
+    <field name="state"/>
+    <field name="recovered_amount"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fee_line_search" model="ir.ui.view">
+        <field name="name">fee.line.search</field>
+        <field name="model">fee.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="contract_id"/>
+                <filter name="disputed" string="Disputed" domain="[('state','=','disputed')]"/>
+                <filter name="recovered" string="Recovered" domain="[('state','=','recovered')]"/>
+                <separator/>
+                <filter name="group_contract" string="Contract" context="{'group_by': 'contract_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_fee_line_kanban" model="ir.ui.view">
+        <field name="name">fee.line.kanban</field>
+        <field name="model">fee.line</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="contract_id"/>
+                <field name="billed_on"/>
+                <field name="charged_fee"/>
+                <field name="variance_amount"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="contract_id"/>
+                        <field name="billed_on"/>
+                        <field name="charged_fee"/>
+                        <field name="variance_amount"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_fee_line" model="ir.actions.act_window">
+        <field name="name">Billed Fees</field>
+        <field name="res_model">fee.line</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every fee charged by your platforms, compared to the contract.</p>
+        </field>
+    </record>
+
+</odoo>

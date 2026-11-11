@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_fee_contract_list" model="ir.ui.view">
+        <field name="name">fee.contract.list</field>
+        <field name="model">fee.contract</field>
+        <field name="arch" type="xml">
+            <list string="Fee Contracts">
+                <field name="name"/>
+                <field name="provider"/>
+                <field name="rate_percent"/>
+                <field name="fixed_fee"/>
+                <field name="line_count"/>
+                <field name="variance_line_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fee_contract_form" model="ir.ui.view">
+        <field name="name">fee.contract.form</field>
+        <field name="model">fee.contract</field>
+        <field name="arch" type="xml">
+            <form string="Fee Contracts">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Contract">
+    <field name="name"/>
+    <field name="provider"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Rates">
+    <field name="rate_percent"/>
+    <field name="fixed_fee"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Counters">
+    <field name="line_count"/>
+    <field name="variance_line_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fee_contract_search" model="ir.ui.view">
+        <field name="name">fee.contract.search</field>
+        <field name="model">fee.contract</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="provider"/>
+                <separator/>
+                <filter name="group_provider" string="Provider" context="{'group_by': 'provider'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_fee_contract_kanban" model="ir.ui.view">
+        <field name="name">fee.contract.kanban</field>
+        <field name="model">fee.contract</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="provider" sample="1">
+                <field name="name"/>
+                <field name="provider"/>
+                <field name="rate_percent"/>
+                <field name="variance_line_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="name" class="fw-bold"/>
+                        <field name="rate_percent"/>
+                        <field name="variance_line_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_fee_contract" model="ir.actions.act_window">
+        <field name="name">Fee Contracts</field>
+        <field name="res_model">fee.contract</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The signed rate card for every payment platform you use.</p>
+        </field>
+    </record>
+
+</odoo>
