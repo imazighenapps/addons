@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_devd_deviation_company" model="ir.rule">
+        <field name="name">devd.deviation: own company only</field>
+        <field name="model_id" ref="model_devd_deviation"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_devd_impact_company" model="ir.rule">
+        <field name="name">devd.impact: own company only</field>
+        <field name="model_id" ref="model_devd_impact"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_devd_approval_company" model="ir.rule">
+        <field name="name">devd.approval: own company only</field>
+        <field name="model_id" ref="model_devd_approval"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
