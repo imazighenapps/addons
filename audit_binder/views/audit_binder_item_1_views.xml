@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_audit_binder_item_list" model="ir.ui.view">
+        <field name="name">audit.binder.item.list</field>
+        <field name="model">audit.binder.item</field>
+        <field name="arch" type="xml">
+            <list string="Evidence Items">
+                <field name="binder_id"/>
+                <field name="section_name"/>
+                <field name="name"/>
+                <field name="reference"/>
+                <field name="ready"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_audit_binder_item_form" model="ir.ui.view">
+        <field name="name">audit.binder.item.form</field>
+        <field name="model">audit.binder.item</field>
+        <field name="arch" type="xml">
+            <form string="Evidence Items">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Item">
+    <field name="binder_id"/>
+    <field name="section_name"/>
+    <field name="name"/>
+    <field name="reference"/>
+    <field name="ready"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_audit_binder_item_search" model="ir.ui.view">
+        <field name="name">audit.binder.item.search</field>
+        <field name="model">audit.binder.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="binder_id"/>
+                <field name="section_name"/>
+                <field name="reference"/>
+                <filter name="missing" string="Missing" domain="[('ready','=',False)]"/>
+                <filter name="ready" string="Ready" domain="[('ready','=',True)]"/>
+                <separator/>
+                <filter name="group_binder" string="Binder" context="{'group_by': 'binder_id'}"/>
+                <filter name="group_section" string="Section" context="{'group_by': 'section_name'}"/>
+                <filter name="group_ready" string="Ready" context="{'group_by': 'ready'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_audit_binder_item_kanban" model="ir.ui.view">
+        <field name="name">audit.binder.item.kanban</field>
+        <field name="model">audit.binder.item</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="binder_id" sample="1">
+                <field name="binder_id"/>
+                <field name="name"/>
+                <field name="section_name"/>
+                <field name="reference"/>
+                <field name="ready"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="binder_id" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="section_name"/>
+                        <field name="reference"/>
+                        <field name="ready"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_audit_binder_item" model="ir.actions.act_window">
+        <field name="name">Evidence Items</field>
+        <field name="res_model">audit.binder.item</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every document, entry and reconciliation in the binder.</p>
+        </field>
+    </record>
+
+</odoo>
