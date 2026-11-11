@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_order_min_rule_user,order.min.rule User,order.min.rule,min_order_guard.group_minorderguar_user,cr,
+access_order_min_rule_manager,order.min.rule Manager,order.min.rule,min_order_guard.group_minorderguar_manager,crud,
+access_order_min_exception_user,order.min.exception User,order.min.exception,min_order_guard.group_minorderguar_user,cr,
+access_order_min_exception_manager,order.min.exception Manager,order.min.exception,min_order_guard.group_minorderguar_manager,crud,
+rule_order_min_rule_company,order.min.rule: own company only,order.min.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_order_min_exception_company,order.min.exception: own company only,order.min.exception,,crud,"[('company_id', 'in', company_ids + [False])]"
