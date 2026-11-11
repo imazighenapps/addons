@@ -1,0 +1,320 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* po_ack_watch
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__deadline_date
+msgid "Ack Deadline"
+msgstr "Date limite d'accusé de réception"
+
+#. module: po_ack_watch
+#: model:ir.module.module,shortdesc:base.module_po_ack_watch
+msgid "AckWatch"
+msgstr "Accusé de réception"
+
+#. module: po_ack_watch
+#: model:ir.model.fields.selection,name:po_ack_watch.selection__po_ack_order__state__acknowledged
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_order_search
+msgid "Acknowledged"
+msgstr "Reconnue Reconnu"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__acknowledged_by
+msgid "Acknowledged By"
+msgstr "Reconnu par"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__acknowledged_on
+msgid "Acknowledged On"
+msgstr "Accusé de réception le"
+
+#. module: po_ack_watch
+#: model:ir.actions.act_window,name:po_ack_watch.action_po_ack_followup
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_followup_form
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_followup_list
+msgid "Acknowledgement Follow-ups"
+msgstr "Suivis de remerciements"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_followup__channel
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_followup_search
+msgid "Channel"
+msgstr "Canal"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_followup__company_id
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: po_ack_watch
+#: model:res.groups,comment:po_ack_watch.group_poackwatch_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_followup__create_uid
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_followup__create_date
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,help:po_ack_watch.field_po_ack_order__deadline_date
+msgid "Date by which the supplier should acknowledge the order."
+msgstr "Date à laquelle le fournisseur doit accuser réception de la commande."
+
+#. module: po_ack_watch
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_order_form
+msgid "Dates"
+msgstr "Dates"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__days_waiting
+msgid "Days Waiting"
+msgstr "Jours d'attente"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,help:po_ack_watch.field_po_ack_order__days_waiting
+msgid "Days since the order was sent while it remains unacknowledged."
+msgstr "Jours depuis l'envoi de la commande alors qu'elle reste sans accusé de réception."
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_followup__display_name
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: po_ack_watch
+#: model_terms:ir.actions.act_window,help:po_ack_watch.action_po_ack_followup
+msgid "Each chase sent to a supplier, with the channel, date and response."
+msgstr "Chaque chasse envoyée à un fournisseur, avec le canal, la date et la réponse."
+
+#. module: po_ack_watch
+#: model_terms:ir.actions.act_window,help:po_ack_watch.action_po_ack_order
+msgid "Every sent purchase order with its acknowledgement status, deadline and follow-up trail."
+msgstr "Chaque bon de commande envoyé avec son statut d'accusé de réception, sa date limite et sa trace de suivi."
+
+#. module: po_ack_watch
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_followup_form
+msgid "Follow-up"
+msgstr "Suivi"
+
+#. module: po_ack_watch
+#. odoo-python
+#: code:addons/po_ack_watch/models/po_ack_followup.py:0
+msgid "Follow-up %s"
+msgstr "Suivi %s"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__followup_count
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__followup_ids
+#: model:ir.ui.menu,name:po_ack_watch.menu_po_ack_followups
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_order_form
+msgid "Follow-ups"
+msgstr "Suivis"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_followup__followup_date
+msgid "Followup Date"
+msgstr "Date de suivi"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_followup__has_message
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,help:po_ack_watch.field_po_ack_followup__channel
+msgid "How the supplier was chased for acknowledgement."
+msgstr "Comment le fournisseur a été recherché pour obtenir un accusé de réception."
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_followup__write_uid
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_followup__write_date
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_followup__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__note
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_order_form
+msgid "Note"
+msgstr "Note"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__is_overdue
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_order_search
+msgid "Overdue"
+msgstr "En retard"
+
+#. module: po_ack_watch
+#: model:ir.model,name:po_ack_watch.model_po_ack_followup
+msgid "PO Acknowledgement Follow-up"
+msgstr "Suivi de l'accusé de réception du bon de commande"
+
+#. module: po_ack_watch
+#: model:ir.actions.act_window,name:po_ack_watch.action_po_ack_order
+#: model:ir.ui.menu,name:po_ack_watch.menu_po_ack_root
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_order_form
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_order_list
+msgid "PO Acknowledgements"
+msgstr "Remerciements du bon de commande"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__name
+msgid "PO Reference"
+msgstr "Référence du bon de commande"
+
+#. module: po_ack_watch
+#: model:ir.model.fields.selection,name:po_ack_watch.selection__po_ack_followup__channel__phone
+msgid "Phone"
+msgstr "Téléphone"
+
+#. module: po_ack_watch
+#: model:res.groups,name:po_ack_watch.group_poackwatch_manager
+msgid "Po Ack Watch Manager"
+msgstr "Gestionnaire de surveillance Po Ack"
+
+#. module: po_ack_watch
+#: model:res.groups,name:po_ack_watch.group_poackwatch_user
+msgid "Po Ack Watch User"
+msgstr "Po Ack Utilisateur de surveillance"
+
+#. module: po_ack_watch
+#: model:ir.model.fields.selection,name:po_ack_watch.selection__po_ack_followup__channel__portal
+msgid "Portal"
+msgstr "Portail"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_followup__ack_id
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_followup_search
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_order_form
+msgid "Purchase Order"
+msgstr "Bon de commande"
+
+#. module: po_ack_watch
+#: model:ir.model,name:po_ack_watch.model_po_ack_order
+msgid "Purchase Order Acknowledgement"
+msgstr "Accusé de réception du bon de commande"
+
+#. module: po_ack_watch
+#: model:ir.ui.menu,name:po_ack_watch.menu_po_ack_orders
+msgid "Purchase Orders"
+msgstr "Bons de commande"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_followup__response
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_followup_form
+msgid "Response"
+msgstr "Réponse"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__sent_date
+msgid "Sent On"
+msgstr "Envoyé le"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__state
+msgid "State"
+msgstr "Statut"
+
+#. module: po_ack_watch
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_order_form
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_order_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_followup__partner_id
+#: model:ir.model.fields,field_description:po_ack_watch.field_po_ack_order__partner_id
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_followup_search
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_order_search
+msgid "Supplier"
+msgstr "Fournisseur"
+
+#. module: po_ack_watch
+#: model:ir.model.fields,help:po_ack_watch.field_po_ack_order__acknowledged_by
+msgid "Supplier contact or reference who confirmed the order."
+msgstr "Contact ou référence du fournisseur ayant confirmé la commande."
+
+#. module: po_ack_watch
+#: model:ir.model.fields,help:po_ack_watch.field_po_ack_followup__response
+msgid "Supplier response or note from this follow-up."
+msgstr "Réponse du fournisseur ou note issue de ce suivi."
+
+#. module: po_ack_watch
+#. odoo-python
+#: code:addons/po_ack_watch/models/po_ack_order.py:0
+msgid "The acknowledgement deadline of %s cannot come before the sent date."
+msgstr "Le délai d’accusé de réception de %s ne peut intervenir avant la date d’envoi."
+
+#. module: po_ack_watch
+#. odoo-python
+#: code:addons/po_ack_watch/models/po_ack_followup.py:0
+msgid "The follow-up date of %s cannot be in the future."
+msgstr "La date de suivi de %s ne peut pas être postérieure."
+
+#. module: po_ack_watch
+#. odoo-python
+#: code:addons/po_ack_watch/models/po_ack_order.py:0
+msgid "The purchase order %s is already acknowledged."
+msgstr "La commande d'achat %s a déjà été confirmée."
+
+#. module: po_ack_watch
+#. odoo-python
+#: code:addons/po_ack_watch/models/po_ack_order.py:0
+msgid "The supplier acknowledgement has been recorded."
+msgstr "L'accusé de réception du fournisseur a été enregistré."
+
+#. module: po_ack_watch
+#: model:ir.module.module,summary:base.module_po_ack_watch
+msgid "Track which supplier confirmed which purchase order and chase the acknowledgements you are still waiting for."
+msgstr "Suivez quel fournisseur a confirmé quel bon de commande et recherchez les accusés de réception que vous attendez toujours."
+
+#. module: po_ack_watch
+#: model:ir.model.fields,help:po_ack_watch.field_po_ack_order__is_overdue
+msgid "True when the deadline passed and the order is not acknowledged."
+msgstr "Vrai lorsque le délai est dépassé et que la commande n'est pas reconnue."
+
+#. module: po_ack_watch
+#: model:res.groups,comment:po_ack_watch.group_poackwatch_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: po_ack_watch
+#: model:ir.model.fields.selection,name:po_ack_watch.selection__po_ack_order__state__waiting
+#: model_terms:ir.ui.view,arch_db:po_ack_watch.view_po_ack_order_search
+msgid "Waiting"
+msgstr "En attendant"
