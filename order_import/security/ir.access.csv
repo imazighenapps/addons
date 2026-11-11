@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_order_import_batch_user,order.import.batch User,order.import.batch,order_import.group_orderimport_user,cru,
+access_order_import_batch_manager,order.import.batch Manager,order.import.batch,order_import.group_orderimport_manager,crud,
+access_order_import_line_user,order.import.line User,order.import.line,order_import.group_orderimport_user,cru,
+access_order_import_line_manager,order.import.line Manager,order.import.line,order_import.group_orderimport_manager,crud,
+rule_order_import_batch_company,order.import.batch: own company only,order.import.batch,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_order_import_line_company,order.import.line: own company only,order.import.line,,crud,"[('company_id', 'in', company_ids + [False])]"
