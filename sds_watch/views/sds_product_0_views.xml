@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sds_product_list" model="ir.ui.view">
+        <field name="name">sds.product.list</field>
+        <field name="model">sds.product</field>
+        <field name="arch" type="xml">
+            <list string="Chemical Products">
+                <field name="name"/>
+                <field name="supplier"/>
+                <field name="hazard_class"/>
+                <field name="current_issue"/>
+                <field name="current_expiry"/>
+                <field name="is_lapsed" widget="boolean"/>
+                <field name="is_missing" widget="boolean"/>
+                <field name="version_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_sds_product_form" model="ir.ui.view">
+        <field name="name">sds.product.form</field>
+        <field name="model">sds.product</field>
+        <field name="arch" type="xml">
+            <form string="Chemical Products">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Product">
+    <field name="name"/>
+    <field name="supplier"/>
+    <field name="hazard_class"/>
+    <field name="responsible_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Current Sheet">
+    <field name="current_issue"/>
+    <field name="current_expiry"/>
+    <field name="is_lapsed"/>
+    <field name="is_missing"/>
+                        </group>
+                        <group string="History">
+    <field name="version_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Versions" name="versionids">
+                            <field name="version_ids">
+                        <list editable="bottom">
+                            <field name="name"/>
+                            <field name="issue_date"/>
+                            <field name="expiry_date"/>
+                            <field name="supplier_ref" optional="show"/>
+                            <field name="is_current" widget="boolean"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sds_product_search" model="ir.ui.view">
+        <field name="name">sds.product.search</field>
+        <field name="model">sds.product</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="supplier"/>
+                <filter name="lapsed" string="Lapsed" domain="[('is_lapsed','=',True)]"/>
+                <filter name="missing" string="Missing Sheet" domain="[('is_missing','=',True)]"/>
+                <filter name="current" string="Current" domain="[('is_lapsed','=',False),('is_missing','=',False)]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_hazard" string="Hazard Class" context="{'group_by': 'hazard_class'}"/>
+                <filter name="group_responsible" string="Responsible" context="{'group_by': 'responsible_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_sds_product" model="ir.actions.act_window">
+        <field name="name">Chemical Products</field>
+        <field name="res_model">sds.product</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register every chemical product and the validity of its current sheet.</p>
+        </field>
+    </record>
+
+</odoo>
