@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_shrink_adjustment_company" model="ir.rule">
+        <field name="name">shrink.adjustment: own company only</field>
+        <field name="model_id" ref="model_shrink_adjustment"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

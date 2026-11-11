@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_shrink_adjustment_list" model="ir.ui.view">
+        <field name="name">shrink.adjustment.list</field>
+        <field name="model">shrink.adjustment</field>
+        <field name="arch" type="xml">
+            <list string="Shrinkage Adjustments" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="adjustment_date"/>
+                <field name="product_name"/>
+                <field name="location_name"/>
+                <field name="reason"/>
+                <field name="quantity"/>
+                <field name="unit_cost"/>
+                <field name="loss_value" sum="Total Loss Value"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_shrink_adjustment_form" model="ir.ui.view">
+        <field name="name">shrink.adjustment.form</field>
+        <field name="model">shrink.adjustment</field>
+        <field name="arch" type="xml">
+            <form string="Shrinkage Adjustments">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_close" type="object" string="Close" class="btn-primary" invisible="state != 'confirmed'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-secondary" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Adjustment">
+    <field name="name"/>
+    <field name="adjustment_date"/>
+    <field name="product_name"/>
+    <field name="location_name"/>
+    <field name="reason"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Valuation">
+    <field name="quantity"/>
+    <field name="unit_cost"/>
+    <field name="currency_id"/>
+    <field name="loss_value"/>
+    <field name="closed_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_shrink_adjustment_search" model="ir.ui.view">
+        <field name="name">shrink.adjustment.search</field>
+        <field name="model">shrink.adjustment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="product_name"/>
+                <field name="location_name"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <separator/>
+                <filter name="group_location" string="Location" context="{'group_by': 'location_name'}"/>
+                <filter name="group_product" string="Product" context="{'group_by': 'product_name'}"/>
+                <filter name="group_reason" string="Reason" context="{'group_by': 'reason'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_shrink_adjustment_kanban" model="ir.ui.view">
+        <field name="name">shrink.adjustment.kanban</field>
+        <field name="model">shrink.adjustment</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="reason" sample="1">
+                <field name="reason"/>
+                <field name="name"/>
+                <field name="product_name"/>
+                <field name="location_name"/>
+                <field name="loss_value"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="reason" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="product_name"/>
+                        <field name="location_name"/>
+                        <field name="loss_value"/>
+                        <field name="state"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_shrink_adjustment" model="ir.actions.act_window">
+        <field name="name">Shrinkage Adjustments</field>
+        <field name="res_model">shrink.adjustment</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Name every loss: where it happened, why, and how much it cost.</p>
+        </field>
+    </record>
+
+</odoo>
