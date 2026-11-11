@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_retainer_usage_list" model="ir.ui.view">
+        <field name="name">retainer.usage.list</field>
+        <field name="model">retainer.usage</field>
+        <field name="arch" type="xml">
+            <list string="Retainer Usage">
+                <field name="usage_date"/>
+                <field name="bank_id"/>
+                <field name="partner_id"/>
+                <field name="hours"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_retainer_usage_form" model="ir.ui.view">
+        <field name="name">retainer.usage.form</field>
+        <field name="model">retainer.usage</field>
+        <field name="arch" type="xml">
+            <form string="Retainer Usage">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="bank_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Usage">
+    <field name="bank_id"/>
+    <field name="partner_id"/>
+    <field name="usage_date"/>
+    <field name="hours"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Details">
+    <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_retainer_usage_search" model="ir.ui.view">
+        <field name="name">retainer.usage.search</field>
+        <field name="model">retainer.usage</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="bank_id"/>
+                <field name="partner_id"/>
+                <field name="description"/>
+                <separator/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_bank" string="Retainer" context="{'group_by': 'bank_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_retainer_usage_kanban" model="ir.ui.view">
+        <field name="name">retainer.usage.kanban</field>
+        <field name="model">retainer.usage</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="bank_id" sample="1">
+                <field name="bank_id"/>
+                <field name="usage_date"/>
+                <field name="hours"/>
+                <field name="description"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="bank_id" class="fw-bold"/>
+                        <field name="usage_date"/>
+                        <field name="hours"/>
+                        <field name="description"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_retainer_usage" model="ir.actions.act_window">
+        <field name="name">Retainer Usage</field>
+        <field name="res_model">retainer.usage</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Logged hours consumed from each retainer bank.</p>
+        </field>
+    </record>
+
+</odoo>

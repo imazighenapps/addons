@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_retainer_bank_user,retainer.bank User,retainer.bank,retainer_desk.group_retainerdesk_user,crud,
+access_retainer_bank_manager,retainer.bank Manager,retainer.bank,retainer_desk.group_retainerdesk_manager,crud,
+access_retainer_usage_user,retainer.usage User,retainer.usage,retainer_desk.group_retainerdesk_user,crud,
+access_retainer_usage_manager,retainer.usage Manager,retainer.usage,retainer_desk.group_retainerdesk_manager,crud,
+rule_retainer_bank_company,retainer.bank: own company only,retainer.bank,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_retainer_usage_company,retainer.usage: own company only,retainer.usage,,crud,"[('company_id', 'in', company_ids + [False])]"
