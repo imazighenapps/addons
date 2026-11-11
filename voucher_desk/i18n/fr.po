@@ -1,0 +1,293 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* voucher_desk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: voucher_desk
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_allocation_form
+msgid "Allocation"
+msgstr "Allocation"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__line_ids
+#: model:ir.ui.menu,name:voucher_desk.menu_voucher_allocations
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_period_form
+msgid "Allocations"
+msgstr "Allocations"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__company_id
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: voucher_desk
+#: model:ir.module.module,summary:base.module_voucher_desk
+msgid "Compute the meal vouchers each employee earned per working day and hand payroll a clean allocation list."
+msgstr "Calculez les chèques-repas gagnés par chaque employé par jour ouvrable et remettez à la paie une liste d'affectation claire."
+
+#. module: voucher_desk
+#: model:res.groups,comment:voucher_desk.group_voucherdesk_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__create_uid
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__create_date
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__currency_id
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__display_name
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: voucher_desk
+#: model:ir.model.fields.selection,name:voucher_desk.selection__voucher_period__state__draft
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_period_search
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__employee_id
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_allocation_search
+msgid "Employee"
+msgstr "Employée Employé"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__has_message
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__write_uid
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__write_date
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: voucher_desk
+#: model_terms:ir.actions.act_window,help:voucher_desk.action_voucher_period
+msgid "Monthly voucher periods and their allocations."
+msgstr "Périodes mensuelles de bons et leurs allocations."
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__note
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__note
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_period_form
+msgid "Note"
+msgstr "Note"
+
+#. module: voucher_desk
+#: model:ir.model.fields,help:voucher_desk.field_voucher_period__working_days
+msgid "Number of working days in the period used as the allocation ceiling."
+msgstr "Nombre de jours ouvrés dans la période retenu comme plafond d'attribution."
+
+#. module: voucher_desk
+#. odoo-python
+#: code:addons/voucher_desk/models/voucher_period.py:0
+msgid "Only a draft period can be validated."
+msgstr "Seule une période de draft peut être validée."
+
+#. module: voucher_desk
+#. odoo-python
+#: code:addons/voucher_desk/models/voucher_period.py:0
+msgid "Only a validated period can be reset to draft."
+msgstr "Seule une période validée peut être remise en brouillon."
+
+#. module: voucher_desk
+#: model_terms:ir.actions.act_window,help:voucher_desk.action_voucher_allocation
+msgid "Per-employee voucher allocations by period."
+msgstr "Allocations de bons par employé par période."
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__period_id
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_allocation_search
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_period_form
+msgid "Period"
+msgstr "Période"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__date_end
+msgid "Period End"
+msgstr "Fin de période"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__date_start
+msgid "Period Start"
+msgstr "Début de la période"
+
+#. module: voucher_desk
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_period_form
+msgid "Reset to Draft"
+msgstr "Réinitialiser au brouillon"
+
+#. module: voucher_desk
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_allocation_form
+msgid "Result"
+msgstr "Résultat"
+
+#. module: voucher_desk
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_period_form
+msgid "Rules"
+msgstr "Règles"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__state
+msgid "State"
+msgstr "Statut"
+
+#. module: voucher_desk
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_period_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: voucher_desk
+#. odoo-python
+#: code:addons/voucher_desk/models/voucher_period.py:0
+msgid "The end date of %s cannot come before its start date."
+msgstr "La date de fin de %s ne peut pas être antérieure à sa date de début."
+
+#. module: voucher_desk
+#. odoo-python
+#: code:addons/voucher_desk/models/voucher_period.py:0
+msgid "The voucher value of %s must be above zero."
+msgstr "La valeur du bon %s doit être supérieure à zéro."
+
+#. module: voucher_desk
+#. odoo-python
+#: code:addons/voucher_desk/models/voucher_period.py:0
+msgid "The working days of %s must be above zero."
+msgstr "Les jours ouvrables de %s doivent être supérieurs à zéro."
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__total_vouchers
+msgid "Total Vouchers"
+msgstr "Total des bons"
+
+#. module: voucher_desk
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_period_form
+msgid "Validate"
+msgstr "Valider"
+
+#. module: voucher_desk
+#: model:ir.model.fields.selection,name:voucher_desk.selection__voucher_period__state__validated
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_period_search
+msgid "Validated"
+msgstr "Validé"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__amount_value
+msgid "Value"
+msgstr "Valeur"
+
+#. module: voucher_desk
+#: model:res.groups,comment:voucher_desk.group_voucherdesk_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: voucher_desk
+#: model:ir.model,name:voucher_desk.model_voucher_allocation
+msgid "Voucher Allocation"
+msgstr "Attribution de bons"
+
+#. module: voucher_desk
+#: model:ir.actions.act_window,name:voucher_desk.action_voucher_allocation
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_allocation_form
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_allocation_list
+msgid "Voucher Allocations"
+msgstr "Attributions de bons"
+
+#. module: voucher_desk
+#: model:res.groups,name:voucher_desk.group_voucherdesk_manager
+msgid "Voucher Desk Manager"
+msgstr "Gestionnaire du bureau des bons de réduction"
+
+#. module: voucher_desk
+#: model:res.groups,name:voucher_desk.group_voucherdesk_user
+msgid "Voucher Desk User"
+msgstr "Utilisateur du bureau de bons de réduction"
+
+#. module: voucher_desk
+#: model:ir.model,name:voucher_desk.model_voucher_period
+msgid "Voucher Period"
+msgstr "Période du bon"
+
+#. module: voucher_desk
+#: model:ir.actions.act_window,name:voucher_desk.action_voucher_period
+#: model:ir.ui.menu,name:voucher_desk.menu_voucher_periods
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_period_form
+#: model_terms:ir.ui.view,arch_db:voucher_desk.view_voucher_period_list
+msgid "Voucher Periods"
+msgstr "Périodes de bons"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__voucher_value
+msgid "Voucher Value"
+msgstr "Valeur du bon"
+
+#. module: voucher_desk
+#: model:ir.module.module,shortdesc:base.module_voucher_desk
+#: model:ir.ui.menu,name:voucher_desk.menu_voucher_root
+msgid "VoucherBook"
+msgstr "BonLivre"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__vouchers_earned
+msgid "Vouchers Earned"
+msgstr "Bons gagnés"
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_allocation__worked_days
+msgid "Worked Days"
+msgstr "Jours travaillés"
+
+#. module: voucher_desk
+#. odoo-python
+#: code:addons/voucher_desk/models/voucher_allocation.py:0
+msgid "Worked days for %s cannot be negative."
+msgstr "Les jours travaillés pour %s ne peuvent pas être négatifs."
+
+#. module: voucher_desk
+#. odoo-python
+#: code:addons/voucher_desk/models/voucher_allocation.py:0
+msgid "Worked days for %s cannot exceed the working days of %s."
+msgstr "Les jours ouvrés pour %s ne peuvent excéder les jours ouvrés pour %s."
+
+#. module: voucher_desk
+#: model:ir.model.fields,field_description:voucher_desk.field_voucher_period__working_days
+msgid "Working Days"
+msgstr "Jours ouvrables"

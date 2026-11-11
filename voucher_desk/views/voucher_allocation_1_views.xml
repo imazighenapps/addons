@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_voucher_allocation_list" model="ir.ui.view">
+        <field name="name">voucher.allocation.list</field>
+        <field name="model">voucher.allocation</field>
+        <field name="arch" type="xml">
+            <list string="Voucher Allocations">
+                <field name="period_id"/>
+                <field name="employee_id"/>
+                <field name="worked_days"/>
+                <field name="vouchers_earned"/>
+                <field name="amount_value"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_voucher_allocation_form" model="ir.ui.view">
+        <field name="name">voucher.allocation.form</field>
+        <field name="model">voucher.allocation</field>
+        <field name="arch" type="xml">
+            <form string="Voucher Allocations">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="employee_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Allocation">
+    <field name="period_id"/>
+    <field name="employee_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Result">
+    <field name="worked_days"/>
+    <field name="vouchers_earned"/>
+    <field name="amount_value"/>
+    <field name="currency_id"/>
+    <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_voucher_allocation_search" model="ir.ui.view">
+        <field name="name">voucher.allocation.search</field>
+        <field name="model">voucher.allocation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id"/>
+                <field name="period_id"/>
+                <separator/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_period" string="Period" context="{'group_by': 'period_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_voucher_allocation_kanban" model="ir.ui.view">
+        <field name="name">voucher.allocation.kanban</field>
+        <field name="model">voucher.allocation</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="period_id" sample="1">
+                <field name="period_id"/>
+                <field name="employee_id"/>
+                <field name="worked_days"/>
+                <field name="vouchers_earned"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="period_id" class="fw-bold"/>
+                        <field name="employee_id"/>
+                        <field name="worked_days"/>
+                        <field name="vouchers_earned"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_voucher_allocation" model="ir.actions.act_window">
+        <field name="name">Voucher Allocations</field>
+        <field name="res_model">voucher.allocation</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Per-employee voucher allocations by period.</p>
+        </field>
+    </record>
+
+</odoo>
