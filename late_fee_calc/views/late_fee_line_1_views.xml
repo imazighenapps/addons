@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_late_fee_line_list" model="ir.ui.view">
+        <field name="name">late.fee.line.list</field>
+        <field name="model">late.fee.line</field>
+        <field name="arch" type="xml">
+            <list string="Overdue Interest" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="due_date"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="rule_id"/>
+                <field name="base_amount"/>
+                <field name="days_late"/>
+                <field name="interest_amount" sum="Total Interest Amount"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_late_fee_line_form" model="ir.ui.view">
+        <field name="name">late.fee.line.form</field>
+        <field name="model">late.fee.line</field>
+        <field name="arch" type="xml">
+            <form string="Overdue Interest">
+                <header>
+                    <button name="action_recompute" type="object" string="Recompute" class="btn-secondary" invisible="state != 'draft'"/>
+                    <button name="action_issue" type="object" string="Issue Interest" class="btn-primary" invisible="state != 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,issued"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Invoice">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="rule_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="base_amount"/>
+    <field name="currency_id"/>
+    <field name="days_late"/>
+    <field name="interest_amount"/>
+                        </group>
+                        <group string="Dates">
+    <field name="due_date"/>
+    <field name="calculation_date"/>
+    <field name="state"/>
+    <field name="issued_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_late_fee_line_search" model="ir.ui.view">
+        <field name="name">late.fee.line.search</field>
+        <field name="model">late.fee.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="rule_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="issued" string="Issued" domain="[('state','=','issued')]"/>
+                <separator/>
+                <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_rule" string="Rule" context="{'group_by': 'rule_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_late_fee_line_kanban" model="ir.ui.view">
+        <field name="name">late.fee.line.kanban</field>
+        <field name="model">late.fee.line</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="base_amount"/>
+                <field name="interest_amount"/>
+                <field name="days_late"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="base_amount"/>
+                        <field name="interest_amount"/>
+                        <field name="days_late"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_late_fee_line" model="ir.actions.act_window">
+        <field name="name">Overdue Interest</field>
+        <field name="res_model">late.fee.line</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Compute and issue statutory interest on overdue invoices.</p>
+        </field>
+    </record>
+
+</odoo>

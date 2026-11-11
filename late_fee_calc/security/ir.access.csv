@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_late_fee_rule_user,late.fee.rule User,late.fee.rule,late_fee_calc.group_latefeecalc_user,cru,
+access_late_fee_rule_manager,late.fee.rule Manager,late.fee.rule,late_fee_calc.group_latefeecalc_manager,crud,
+access_late_fee_line_user,late.fee.line User,late.fee.line,late_fee_calc.group_latefeecalc_user,cru,
+access_late_fee_line_manager,late.fee.line Manager,late.fee.line,late_fee_calc.group_latefeecalc_manager,crud,
+rule_late_fee_rule_company,late.fee.rule: own company only,late.fee.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_late_fee_line_company,late.fee.line: own company only,late.fee.line,,crud,"[('company_id', 'in', company_ids + [False])]"
