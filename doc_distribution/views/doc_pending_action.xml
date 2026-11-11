@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_doc_pending" model="ir.actions.act_window">
+        <field name="domain">[('state', '=', 'pending')]</field>
+        <field name="context">{'search_default_group_document': 1}</field>
+    </record>
+</odoo>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_doc_distribution_list" model="ir.ui.view">
+        <field name="name">doc.distribution.list</field>
+        <field name="model">doc.distribution</field>
+        <field name="arch" type="xml">
+            <list string="Distribution" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="sent_on"/>
+                <field name="document_id"/>
+                <field name="recipient_id"/>
+                <field name="acknowledged_on"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_doc_distribution_form" model="ir.ui.view">
+        <field name="name">doc.distribution.form</field>
+        <field name="model">doc.distribution</field>
+        <field name="arch" type="xml">
+            <form string="Distribution">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="recipient_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Distribution">
+    <field name="name"/>
+    <field name="document_id"/>
+    <field name="recipient_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Timeline">
+    <field name="sent_on"/>
+    <field name="acknowledged_on"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_doc_distribution_search" model="ir.ui.view">
+        <field name="name">doc.distribution.search</field>
+        <field name="model">doc.distribution</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="document_id"/>
+                <field name="recipient_id"/>
+                <filter name="pending" string="Pending" domain="[('state','=','pending')]"/>
+                <filter name="acknowledged" string="Acknowledged" domain="[('state','=','acknowledged')]"/>
+                <separator/>
+                <filter name="group_document" string="Document" context="{'group_by': 'document_id'}"/>
+                <filter name="group_recipient" string="Recipient" context="{'group_by': 'recipient_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_doc_distribution_kanban" model="ir.ui.view">
+        <field name="name">doc.distribution.kanban</field>
+        <field name="model">doc.distribution</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="document_id"/>
+                <field name="recipient_id"/>
+                <field name="sent_on"/>
+                <field name="acknowledged_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="document_id"/>
+                        <field name="recipient_id"/>
+                        <field name="sent_on"/>
+                        <field name="acknowledged_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_doc_distribution" model="ir.actions.act_window">
+        <field name="name">Distribution</field>
+        <field name="res_model">doc.distribution</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Who received the document and when they acknowledged it.</p>
+        </field>
+    </record>
+
+</odoo>
