@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_site_area_user,site.area User,site.area,site_ticket.group_siteticket_user,cru,
+access_site_area_manager,site.area Manager,site.area,site_ticket.group_siteticket_manager,crud,
+access_site_ticket_user,site.ticket User,site.ticket,site_ticket.group_siteticket_user,crud,
+access_site_ticket_manager,site.ticket Manager,site.ticket,site_ticket.group_siteticket_manager,crud,
+rule_site_area_company,site.area: own company only,site.area,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_site_ticket_company,site.ticket: own company only,site.ticket,,crud,"[('company_id', 'in', company_ids + [False])]"

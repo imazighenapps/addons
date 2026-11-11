@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_site_area_list" model="ir.ui.view">
+        <field name="name">site.area.list</field>
+        <field name="model">site.area</field>
+        <field name="arch" type="xml">
+            <list string="Areas">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="address"/>
+                <field name="ticket_count"/>
+                <field name="open_ticket_count"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_site_area_form" model="ir.ui.view">
+        <field name="name">site.area.form</field>
+        <field name="model">site.area</field>
+        <field name="arch" type="xml">
+            <form string="Areas">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Area">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="address"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Counters">
+    <field name="ticket_count"/>
+    <field name="open_ticket_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_site_area_search" model="ir.ui.view">
+        <field name="name">site.area.search</field>
+        <field name="model">site.area</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="address"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_site_area_kanban" model="ir.ui.view">
+        <field name="name">site.area.kanban</field>
+        <field name="model">site.area</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="company_id" sample="1">
+                <field name="company_id"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="address"/>
+                <field name="open_ticket_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="company_id" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="address"/>
+                        <field name="open_ticket_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_site_area" model="ir.actions.act_window">
+        <field name="name">Areas</field>
+        <field name="res_model">site.area</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register the buildings and zones where issues are reported.</p>
+        </field>
+    </record>
+
+</odoo>
