@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_devd_deviation_user,devd.deviation User,devd.deviation,deviation_desk.group_deviationdes_user,cru,
+access_devd_deviation_manager,devd.deviation Manager,devd.deviation,deviation_desk.group_deviationdes_manager,crud,
+access_devd_impact_user,devd.impact User,devd.impact,deviation_desk.group_deviationdes_user,cru,
+access_devd_impact_manager,devd.impact Manager,devd.impact,deviation_desk.group_deviationdes_manager,crud,
+access_devd_approval_user,devd.approval User,devd.approval,deviation_desk.group_deviationdes_user,cru,
+access_devd_approval_manager,devd.approval Manager,devd.approval,deviation_desk.group_deviationdes_manager,crud,
+rule_devd_deviation_company,devd.deviation: own company only,devd.deviation,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_devd_impact_company,devd.impact: own company only,devd.impact,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_devd_approval_company,devd.approval: own company only,devd.approval,,crud,"[('company_id', 'in', company_ids + [False])]"

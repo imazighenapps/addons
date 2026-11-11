@@ -1,0 +1,459 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* deviation_desk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_deviation.py:0
+msgid "A closed deviation cannot be reopened."
+msgstr "Eine geschlossene Abweichung kann nicht erneut geöffnet werden."
+
+#. module: deviation_desk
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_approval_form
+msgid "Approval"
+msgstr "Genehmigung"
+
+#. module: deviation_desk
+#: model_terms:ir.actions.act_window,help:deviation_desk.action_devd_approval
+msgid "Approval decisions that allow a deviation to be closed."
+msgstr "Genehmigungsentscheidungen, die den Abschluss einer Abweichung ermöglichen."
+
+#. module: deviation_desk
+#: model:ir.actions.act_window,name:deviation_desk.action_devd_approval
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__approval_count
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__approval_ids
+#: model:ir.ui.menu,name:deviation_desk.menu_devd_approvals
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_approval_form
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_approval_list
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_deviation_form
+msgid "Approvals"
+msgstr "Zulassungen"
+
+#. module: deviation_desk
+#: model:ir.model.fields.selection,name:deviation_desk.selection__devd_deviation__state__approved
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_deviation_search
+msgid "Approved"
+msgstr "Genehmigt"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_approval__approver_id
+msgid "Approver"
+msgstr "Genehmiger"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__area
+msgid "Area"
+msgstr "Bereich"
+
+#. module: deviation_desk
+#: model:ir.model.fields,help:deviation_desk.field_devd_impact__judgement
+msgid "Assessment of the impact on product, process or compliance."
+msgstr "Bewertung der Auswirkungen auf Produkt, Prozess oder Compliance."
+
+#. module: deviation_desk
+#: model:ir.model.fields.selection,name:deviation_desk.selection__devd_deviation__state__closed
+msgid "Closed"
+msgstr "Geschlossen"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__closed_on
+msgid "Closed On"
+msgstr "Geschlossen am"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_approval__comment
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_approval_form
+msgid "Comment"
+msgstr "Kommentar"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_approval__company_id
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__company_id
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_impact__company_id
+msgid "Company"
+msgstr "Firma"
+
+#. module: deviation_desk
+#: model:res.groups,comment:deviation_desk.group_deviationdes_manager
+msgid "Configure and administer the module."
+msgstr "Konfigurieren und verwalten Sie das Modul."
+
+#. module: deviation_desk
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_deviation_form
+msgid "Counters"
+msgstr "Zähler"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_approval__create_uid
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__create_uid
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_impact__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_approval__create_date
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__create_date
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_impact__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_deviation.py:0
+msgid "DEV-%s"
+msgstr "DEV-%s"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_approval__decided_on
+msgid "Decided On"
+msgstr "Beschlossen"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_approval__decision
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_approval_search
+msgid "Decision"
+msgstr "Entscheidung"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__description
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_deviation_form
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__detected_on
+msgid "Detected On"
+msgstr "Erkannt am"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_approval__deviation_id
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_impact__deviation_id
+#: model:ir.module.module,shortdesc:base.module_deviation_desk
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_deviation_form
+msgid "Deviation"
+msgstr "Abweichung"
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_deviation.py:0
+msgid "Deviation %s needs at least one granted approval before it can be marked approved."
+msgstr "Die Abweichung %s benötigt mindestens eine erteilte Genehmigung, bevor sie als genehmigt markiert werden kann."
+
+#. module: deviation_desk
+#: model:ir.model,name:deviation_desk.model_devd_approval
+msgid "Deviation Approval"
+msgstr "Abweichungsgenehmigung"
+
+#. module: deviation_desk
+#: model:res.groups,name:deviation_desk.group_deviationdes_manager
+msgid "Deviation Desk Manager"
+msgstr "Deviation Desk Manager"
+
+#. module: deviation_desk
+#: model:res.groups,name:deviation_desk.group_deviationdes_user
+msgid "Deviation Desk User"
+msgstr "Deviation Desk-Benutzer"
+
+#. module: deviation_desk
+#: model:ir.model,name:deviation_desk.model_devd_impact
+msgid "Deviation Impact Review"
+msgstr "Überprüfung der Abweichungsauswirkungen"
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_deviation.py:0
+msgid "Deviation closed."
+msgstr "Abweichung geschlossen."
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_deviation.py:0
+msgid "Deviation marked as approved."
+msgstr "Abweichung als genehmigt markiert."
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_deviation.py:0
+msgid "Deviation moved to investigation."
+msgstr "Die Abweichung wurde zur Untersuchung weitergeleitet."
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_deviation.py:0
+msgid "Deviation reset to draft."
+msgstr "Abweichung auf Entwurf zurückgesetzt."
+
+#. module: deviation_desk
+#: model:ir.actions.act_window,name:deviation_desk.action_devd_deviation
+#: model:ir.ui.menu,name:deviation_desk.menu_devd_deviations
+#: model:ir.ui.menu,name:deviation_desk.menu_devd_root
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_deviation_form
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_deviation_list
+msgid "Deviations"
+msgstr "Abweichungen"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_approval__display_name
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__display_name
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_impact__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: deviation_desk
+#: model:ir.model.fields.selection,name:deviation_desk.selection__devd_impact__state__done
+msgid "Done"
+msgstr "Erledigt"
+
+#. module: deviation_desk
+#: model:ir.model.fields.selection,name:deviation_desk.selection__devd_deviation__state__draft
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: deviation_desk
+#: model_terms:ir.actions.act_window,help:deviation_desk.action_devd_deviation
+msgid "Every unplanned deviation, reviewed and closed with a trace."
+msgstr "Jede ungeplante Abweichung wird überprüft und mit einem Trace abgeschlossen."
+
+#. module: deviation_desk
+#: model:ir.model.fields.selection,name:deviation_desk.selection__devd_approval__decision__granted
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_approval_search
+msgid "Granted"
+msgstr "Gewährt"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__granted_approval_count
+msgid "Granted Approvals"
+msgstr "Erteilte Genehmigungen"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_approval__has_message
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__has_message
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_impact__has_message
+msgid "Has Message"
+msgstr "Hat Nachricht"
+
+#. module: deviation_desk
+#: model:ir.model.fields.selection,name:deviation_desk.selection__devd_impact__risk_level__high
+msgid "High"
+msgstr "Hoch"
+
+#. module: deviation_desk
+#: model:ir.actions.act_window,name:deviation_desk.action_devd_impact
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__impact_count
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__impact_ids
+#: model:ir.ui.menu,name:deviation_desk.menu_devd_impacts
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_deviation_form
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_impact_form
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_impact_list
+msgid "Impact Reviews"
+msgstr "Wirkungsberichte"
+
+#. module: deviation_desk
+#: model_terms:ir.actions.act_window,help:deviation_desk.action_devd_impact
+msgid "Impact judgements recorded against each deviation."
+msgstr "Für jede Abweichung wurden Auswirkungsurteile aufgezeichnet."
+
+#. module: deviation_desk
+#: model:ir.model.fields.selection,name:deviation_desk.selection__devd_deviation__state__investigation
+msgid "In Investigation"
+msgstr "In Untersuchung"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_impact__judgement
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_impact_form
+msgid "Judgement"
+msgstr "Urteil"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_approval__write_uid
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__write_uid
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_impact__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_approval__write_date
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__write_date
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_impact__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: deviation_desk
+#: model:ir.model.fields,help:deviation_desk.field_devd_deviation__area
+msgid "Line, room or area where the deviation was detected."
+msgstr "Linie, Raum oder Bereich, in dem die Abweichung festgestellt wurde."
+
+#. module: deviation_desk
+#: model:ir.model.fields.selection,name:deviation_desk.selection__devd_impact__risk_level__low
+msgid "Low"
+msgstr "Niedrig"
+
+#. module: deviation_desk
+#: model:ir.model.fields.selection,name:deviation_desk.selection__devd_impact__risk_level__medium
+msgid "Medium"
+msgstr "Medium"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__name
+msgid "Name"
+msgstr "Name"
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_deviation.py:0
+msgid "New"
+msgstr "Neu"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__note
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_deviation_form
+msgid "Note"
+msgstr "Notiz"
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_deviation.py:0
+msgid "Only a draft deviation can move to investigation."
+msgstr "Nur eine Entwurfsabweichung kann zur Untersuchung weitergeleitet werden."
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_deviation.py:0
+msgid "Only an approved deviation can be closed."
+msgstr "Nur eine genehmigte Abweichung kann geschlossen werden."
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_deviation.py:0
+msgid "Only an investigated deviation can be marked approved."
+msgstr "Nur eine untersuchte Abweichung kann als genehmigt markiert werden."
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_impact.py:0
+msgid "Only an open impact review can be completed."
+msgstr "Es kann nur eine offene Wirkungsprüfung durchgeführt werden."
+
+#. module: deviation_desk
+#: model:ir.model.fields.selection,name:deviation_desk.selection__devd_impact__state__open
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_deviation_search
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_impact_search
+msgid "Open"
+msgstr "Offen"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__owner_id
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_deviation_search
+msgid "Owner"
+msgstr "Eigentümer"
+
+#. module: deviation_desk
+#: model:ir.model.fields,help:deviation_desk.field_devd_deviation__owner_id
+msgid "Person responsible for driving the deviation to closure."
+msgstr "Person, die dafür verantwortlich ist, die Abweichung zum Abschluss zu bringen."
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__product_ref
+msgid "Product"
+msgstr "Produkt"
+
+#. module: deviation_desk
+#: model:ir.model.fields,help:deviation_desk.field_devd_deviation__product_ref
+msgid "Product or batch affected by the deviation."
+msgstr "Von der Abweichung betroffenes Produkt oder Charge."
+
+#. module: deviation_desk
+#: model:ir.model,name:deviation_desk.model_devd_deviation
+msgid "Production Deviation"
+msgstr "Produktionsabweichung"
+
+#. module: deviation_desk
+#: model:ir.module.module,summary:base.module_deviation_desk
+msgid "Record every unplanned production deviation, judge its impact and close it with the approvals quality needs."
+msgstr "Erfassen Sie jede ungeplante Produktionsabweichung, beurteilen Sie deren Auswirkungen und schließen Sie sie mit den Qualitätsanforderungen der Genehmigungen ab."
+
+#. module: deviation_desk
+#: model:ir.model.fields,help:deviation_desk.field_devd_deviation__name
+msgid "Reference of the deviation record."
+msgstr "Referenz des Abweichungsdatensatzes."
+
+#. module: deviation_desk
+#: model:ir.model.fields.selection,name:deviation_desk.selection__devd_approval__decision__rejected
+msgid "Rejected"
+msgstr "Abgelehnt"
+
+#. module: deviation_desk
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_impact_form
+msgid "Review"
+msgstr "Bewertung"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_impact__reviewed_on
+msgid "Reviewed On"
+msgstr "Bewertet am"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_impact__reviewer_id
+msgid "Reviewer"
+msgstr "Rezensentin Rezensent"
+
+#. module: deviation_desk
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_impact_search
+msgid "Risk"
+msgstr "Risiko"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_impact__risk_level
+msgid "Risk Level"
+msgstr "Risikostufe"
+
+#. module: deviation_desk
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_deviation__state
+#: model:ir.model.fields,field_description:deviation_desk.field_devd_impact__state
+msgid "State"
+msgstr "Status"
+
+#. module: deviation_desk
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_deviation_form
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_deviation_search
+#: model_terms:ir.ui.view,arch_db:deviation_desk.view_devd_impact_search
+msgid "Status"
+msgstr "Status"
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_approval.py:0
+msgid "The approval of %s cannot predate the deviation."
+msgstr "Die Genehmigung von %s kann nicht vor der Abweichung erfolgen."
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_deviation.py:0
+msgid "The deviation %s cannot be closed before it was detected."
+msgstr "Die Abweichung %s kann nicht geschlossen werden, bevor sie erkannt wurde."
+
+#. module: deviation_desk
+#. odoo-python
+#: code:addons/deviation_desk/models/devd_impact.py:0
+msgid "The impact review for %s cannot predate the deviation."
+msgstr "Die Folgenabschätzung für %s darf nicht vor der Abweichung erfolgen."
+
+#. module: deviation_desk
+#: model:res.groups,comment:deviation_desk.group_deviationdes_user
+msgid "View and use the module."
+msgstr "Sehen Sie sich das Modul an und nutzen Sie es."
+
+#. module: deviation_desk
+#: model:ir.model.fields,help:deviation_desk.field_devd_deviation__description
+msgid "What happened and how the deviation was noticed."
+msgstr "Was ist passiert und wie wurde die Abweichung bemerkt?"
