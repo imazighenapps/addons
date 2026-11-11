@@ -1,0 +1,385 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* cert_desk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__blocked
+msgid "Blocked"
+msgstr "Bloqué"
+
+#. module: cert_desk
+#: model:res.groups,name:cert_desk.group_certdesk_manager
+msgid "Cert Desk Manager"
+msgstr "Responsable du bureau de certification"
+
+#. module: cert_desk
+#: model:res.groups,name:cert_desk.group_certdesk_user
+msgid "Cert Desk User"
+msgstr "Utilisateur du bureau de certification"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_renewal__certificate_id
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_document_form
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_renewal_search
+msgid "Certificate"
+msgstr "Certificat"
+
+#. module: cert_desk
+#. odoo-python
+#: code:addons/cert_desk/models/cert_document.py:0
+msgid "Certificate %s is expired. Renew it before marking it valid."
+msgstr "Le certificat %s est expiré. Renouvelez-le avant de le marquer comme valide."
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__reference
+msgid "Certificate Reference"
+msgstr "Référence du certificat"
+
+#. module: cert_desk
+#: model:ir.model,name:cert_desk.model_cert_renewal
+msgid "Certificate Renewal"
+msgstr "Renouvellement du certificat"
+
+#. module: cert_desk
+#: model:ir.actions.act_window,name:cert_desk.action_cert_renewal
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_renewal_form
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_renewal_list
+msgid "Certificate Renewals"
+msgstr "Renouvellements de certificats"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__cert_type
+msgid "Certificate Type"
+msgstr "Type de certificat"
+
+#. module: cert_desk
+#: model:ir.ui.menu,name:cert_desk.menu_cert_docs
+msgid "Certificates"
+msgstr "Certificats"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__company_id
+#: model:ir.model.fields,field_description:cert_desk.field_cert_renewal__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: cert_desk
+#: model:res.groups,comment:cert_desk.group_certdesk_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__create_uid
+#: model:ir.model.fields,field_description:cert_desk.field_cert_renewal__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__create_date
+#: model:ir.model.fields,field_description:cert_desk.field_cert_renewal__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: cert_desk
+#: model:ir.model.fields,help:cert_desk.field_cert_document__reminder_date
+msgid "Date to review the certificate before it expires."
+msgstr "Date de révision du certificat avant son expiration."
+
+#. module: cert_desk
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_renewal_form
+msgid "Dates"
+msgstr "Dates"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__display_name
+#: model:ir.model.fields,field_description:cert_desk.field_cert_renewal__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: cert_desk
+#: model:ir.model.fields.selection,name:cert_desk.selection__cert_document__state__draft
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: cert_desk
+#: model_terms:ir.actions.act_window,help:cert_desk.action_cert_document
+msgid "Every supplier certificate, its validity and the renewals that keep it alive."
+msgstr "Chaque certificat fournisseur, sa validité et les renouvellements qui le maintiennent en vie."
+
+#. module: cert_desk
+#: model:ir.model.fields.selection,name:cert_desk.selection__cert_document__state__expired
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_document_search
+msgid "Expired"
+msgstr "Expiré"
+
+#. module: cert_desk
+#: model:ir.model.fields.selection,name:cert_desk.selection__cert_document__state__expiring
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_document_search
+msgid "Expiring Soon"
+msgstr "Expire bientôt"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__expiry_date
+msgid "Expiry Date"
+msgstr "Date d'expiration"
+
+#. module: cert_desk
+#: model:ir.model.fields.selection,name:cert_desk.selection__cert_document__cert_type__halal
+msgid "Halal"
+msgstr "Halal"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: cert_desk
+#: model:ir.model.fields.selection,name:cert_desk.selection__cert_document__cert_type__iso
+msgid "ISO"
+msgstr "OIN"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__issue_date
+msgid "Issue Date"
+msgstr "Date d'émission"
+
+#. module: cert_desk
+#: model:ir.module.module,summary:base.module_cert_desk
+msgid "Keep the ISO, organic, halal or kosher certificates of each supplier alive and block orders when one lapses."
+msgstr "Conservez les certificats ISO, biologiques, halal ou casher de chaque fournisseur et bloquez les commandes en cas d'expiration."
+
+#. module: cert_desk
+#: model:ir.model.fields.selection,name:cert_desk.selection__cert_document__cert_type__kosher
+msgid "Kosher"
+msgstr "Kascher"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__write_uid
+#: model:ir.model.fields,field_description:cert_desk.field_cert_renewal__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__write_date
+#: model:ir.model.fields,field_description:cert_desk.field_cert_renewal__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_renewal__new_expiry_date
+msgid "New Expiry Date"
+msgstr "Nouvelle date d'expiration"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_renewal__new_issue_date
+msgid "New Issue Date"
+msgstr "Nouvelle date d'émission"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__note
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_document_form
+msgid "Note"
+msgstr "Note"
+
+#. module: cert_desk
+#. odoo-python
+#: code:addons/cert_desk/models/cert_document.py:0
+msgid "Only draft or renewed certificates can be validated."
+msgstr "Seuls les projets ou renouvellements de certificats peuvent être validés."
+
+#. module: cert_desk
+#. odoo-python
+#: code:addons/cert_desk/models/cert_document.py:0
+msgid "Only expired certificates can be renewed."
+msgstr "Seuls les certificats expirés peuvent être renouvelés."
+
+#. module: cert_desk
+#. odoo-python
+#: code:addons/cert_desk/models/cert_document.py:0
+msgid "Only valid certificates can be marked as expiring."
+msgstr "Seuls les certificats valides peuvent être marqués comme expirant."
+
+#. module: cert_desk
+#. odoo-python
+#: code:addons/cert_desk/models/cert_document.py:0
+msgid "Only valid or expiring certificates can expire."
+msgstr "Seuls les certificats valides ou expirant peuvent expirer."
+
+#. module: cert_desk
+#: model:ir.model.fields.selection,name:cert_desk.selection__cert_document__cert_type__organic
+msgid "Organic"
+msgstr "Organique"
+
+#. module: cert_desk
+#: model:ir.model.fields.selection,name:cert_desk.selection__cert_document__cert_type__other
+msgid "Other"
+msgstr "Autre"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_renewal__previous_expiry_date
+msgid "Previous Expiry"
+msgstr "Expiration précédente"
+
+#. module: cert_desk
+#: model:ir.model.fields,help:cert_desk.field_cert_document__reference
+msgid "Reference number printed on the certificate."
+msgstr "Numéro de référence imprimé sur le certificat."
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__reminder_date
+msgid "Reminder Date"
+msgstr "Date de rappel"
+
+#. module: cert_desk
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_renewal_form
+msgid "Renewal"
+msgstr "Renouvellement"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__renewal_count
+msgid "Renewal Count"
+msgstr "Nombre de renouvellements"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__renewal_ids
+#: model:ir.ui.menu,name:cert_desk.menu_cert_renewals
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_document_form
+msgid "Renewals"
+msgstr "Renouvellements"
+
+#. module: cert_desk
+#: model:ir.model.fields.selection,name:cert_desk.selection__cert_document__state__renewed
+msgid "Renewed"
+msgstr "Renouvelée Renouvelé"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_renewal__renewed_on
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_renewal_search
+msgid "Renewed On"
+msgstr "Renouvelé le"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__responsible_id
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__state
+msgid "State"
+msgstr "Statut"
+
+#. module: cert_desk
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_document_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: cert_desk
+#: model:ir.model.fields,field_description:cert_desk.field_cert_document__partner_id
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_document_search
+msgid "Supplier"
+msgstr "Fournisseur"
+
+#. module: cert_desk
+#: model:ir.model,name:cert_desk.model_cert_document
+msgid "Supplier Certificate"
+msgstr "Certificat de fournisseur"
+
+#. module: cert_desk
+#: model:ir.actions.act_window,name:cert_desk.action_cert_document
+#: model:ir.ui.menu,name:cert_desk.menu_cert_root
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_document_form
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_document_list
+msgid "Supplier Certificates"
+msgstr "Certificats de fournisseur"
+
+#. module: cert_desk
+#: model:ir.module.module,shortdesc:base.module_cert_desk
+msgid "SupplierCert"
+msgstr "FournisseurCert"
+
+#. module: cert_desk
+#. odoo-python
+#: code:addons/cert_desk/models/cert_document.py:0
+msgid "The certificate has expired."
+msgstr "Le certificat a expiré."
+
+#. module: cert_desk
+#. odoo-python
+#: code:addons/cert_desk/models/cert_document.py:0
+msgid "The certificate is expiring soon."
+msgstr "Le certificat expire bientôt."
+
+#. module: cert_desk
+#. odoo-python
+#: code:addons/cert_desk/models/cert_document.py:0
+msgid "The certificate is now valid."
+msgstr "Le certificat est désormais valide."
+
+#. module: cert_desk
+#. odoo-python
+#: code:addons/cert_desk/models/cert_document.py:0
+msgid "The certificate was renewed until %s."
+msgstr "Le certificat a été renouvelé jusqu'à %s."
+
+#. module: cert_desk
+#: model_terms:ir.actions.act_window,help:cert_desk.action_cert_renewal
+msgid "The dated history of every renewed certificate."
+msgstr "L’historique daté de chaque certificat renouvelé."
+
+#. module: cert_desk
+#. odoo-python
+#: code:addons/cert_desk/models/cert_document.py:0
+msgid "The expiry date of %s cannot come before its issue date."
+msgstr "La date d’expiration du %s ne peut être antérieure à sa date d’émission."
+
+#. module: cert_desk
+#. odoo-python
+#: code:addons/cert_desk/models/cert_renewal.py:0
+msgid "The new expiry date of the renewal for %s cannot come before the new issue date."
+msgstr "La nouvelle date d’expiration du renouvellement du %s ne peut intervenir avant la nouvelle date d’émission."
+
+#. module: cert_desk
+#: model:ir.model.fields,help:cert_desk.field_cert_document__blocked
+msgid "True when the certificate is expired and should block use."
+msgstr "Vrai lorsque le certificat a expiré et doit bloquer son utilisation."
+
+#. module: cert_desk
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_document_search
+msgid "Type"
+msgstr "Taper"
+
+#. module: cert_desk
+#: model:ir.model.fields.selection,name:cert_desk.selection__cert_document__state__valid
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_document_search
+msgid "Valid"
+msgstr "Valide"
+
+#. module: cert_desk
+#: model_terms:ir.ui.view,arch_db:cert_desk.view_cert_document_form
+msgid "Validity"
+msgstr "Validité"
+
+#. module: cert_desk
+#: model:res.groups,comment:cert_desk.group_certdesk_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."

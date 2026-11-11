@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cert_renewal_list" model="ir.ui.view">
+        <field name="name">cert.renewal.list</field>
+        <field name="model">cert.renewal</field>
+        <field name="arch" type="xml">
+            <list string="Certificate Renewals">
+                <field name="renewed_on"/>
+                <field name="certificate_id"/>
+                <field name="previous_expiry_date"/>
+                <field name="new_issue_date"/>
+                <field name="new_expiry_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cert_renewal_form" model="ir.ui.view">
+        <field name="name">cert.renewal.form</field>
+        <field name="model">cert.renewal</field>
+        <field name="arch" type="xml">
+            <form string="Certificate Renewals">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="certificate_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Renewal">
+    <field name="certificate_id"/>
+    <field name="renewed_on"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Dates">
+    <field name="previous_expiry_date"/>
+    <field name="new_issue_date"/>
+    <field name="new_expiry_date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cert_renewal_search" model="ir.ui.view">
+        <field name="name">cert.renewal.search</field>
+        <field name="model">cert.renewal</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="certificate_id"/>
+                <separator/>
+                <filter name="group_certificate" string="Certificate" context="{'group_by': 'certificate_id'}"/>
+                <filter name="group_renewed" string="Renewed On" context="{'group_by': 'renewed_on'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_cert_renewal" model="ir.actions.act_window">
+        <field name="name">Certificate Renewals</field>
+        <field name="res_model">cert.renewal</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The dated history of every renewed certificate.</p>
+        </field>
+    </record>
+
+</odoo>
