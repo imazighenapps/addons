@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_changeover_desk_entry_company" model="ir.rule">
+        <field name="name">changeover_desk.entry: own company only</field>
+        <field name="model_id" ref="model_changeover_desk_entry"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_changeover_desk_item_company" model="ir.rule">
+        <field name="name">changeover_desk.item: own company only</field>
+        <field name="model_id" ref="model_changeover_desk_item"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_scrap_reason_item_list" model="ir.ui.view">
+        <field name="name">scrap_reason.item.list</field>
+        <field name="model">scrap_reason.item</field>
+        <field name="arch" type="xml">
+            <list string="ScrapBook Lines">
+                <field name="entry_id"/>
+                <field name="sequence"/>
+                <field name="name"/>
+                <field name="quantity"/>
+                <field name="price"/>
+                <field name="subtotal" sum="Total Subtotal"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_scrap_reason_item_form" model="ir.ui.view">
+        <field name="name">scrap_reason.item.form</field>
+        <field name="model">scrap_reason.item</field>
+        <field name="arch" type="xml">
+            <form string="ScrapBook Lines">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Line">
+    <field name="entry_id"/>
+    <field name="sequence"/>
+    <field name="name"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="quantity"/>
+    <field name="price"/>
+    <field name="subtotal"/>
+    <field name="currency_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_scrap_reason_item_search" model="ir.ui.view">
+        <field name="name">scrap_reason.item.search</field>
+        <field name="model">scrap_reason.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="entry_id"/>
+                <separator/>
+                <filter name="group_entry" string="Entry" context="{'group_by': 'entry_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_scrap_reason_item" model="ir.actions.act_window">
+        <field name="name">ScrapBook Lines</field>
+        <field name="res_model">scrap_reason.item</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Line details.</p>
+        </field>
+    </record>
+
+</odoo>

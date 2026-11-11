@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_bundle_desk_item_list" model="ir.ui.view">
+        <field name="name">bundle_desk.item.list</field>
+        <field name="model">bundle_desk.item</field>
+        <field name="arch" type="xml">
+            <list string="BundleBook Lines">
+                <field name="entry_id"/>
+                <field name="sequence"/>
+                <field name="name"/>
+                <field name="quantity"/>
+                <field name="price"/>
+                <field name="subtotal" sum="Total Subtotal"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_bundle_desk_item_form" model="ir.ui.view">
+        <field name="name">bundle_desk.item.form</field>
+        <field name="model">bundle_desk.item</field>
+        <field name="arch" type="xml">
+            <form string="BundleBook Lines">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Line">
+    <field name="entry_id"/>
+    <field name="sequence"/>
+    <field name="name"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="quantity"/>
+    <field name="price"/>
+    <field name="subtotal"/>
+    <field name="currency_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bundle_desk_item_search" model="ir.ui.view">
+        <field name="name">bundle_desk.item.search</field>
+        <field name="model">bundle_desk.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="entry_id"/>
+                <separator/>
+                <filter name="group_entry" string="Entry" context="{'group_by': 'entry_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_bundle_desk_item" model="ir.actions.act_window">
+        <field name="name">BundleBook Lines</field>
+        <field name="res_model">bundle_desk.item</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Line details.</p>
+        </field>
+    </record>
+
+</odoo>

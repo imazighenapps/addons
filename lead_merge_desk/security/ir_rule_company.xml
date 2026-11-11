@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_lead_merge_entry_company" model="ir.rule">
+        <field name="name">lead_merge.entry: own company only</field>
+        <field name="model_id" ref="model_lead_merge_entry"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_lead_merge_item_company" model="ir.rule">
+        <field name="name">lead_merge.item: own company only</field>
+        <field name="model_id" ref="model_lead_merge_item"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_expense_policy_entry_company" model="ir.rule">
+        <field name="name">expense_policy.entry: own company only</field>
+        <field name="model_id" ref="model_expense_policy_entry"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_expense_policy_item_company" model="ir.rule">
+        <field name="name">expense_policy.item: own company only</field>
+        <field name="model_id" ref="model_expense_policy_item"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
