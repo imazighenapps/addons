@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_patrol_round_user,patrol.round User,patrol.round,patrol_log.group_patrollog_user,cr,
+access_patrol_round_manager,patrol.round Manager,patrol.round,patrol_log.group_patrollog_manager,crud,
+access_patrol_stop_user,patrol.stop User,patrol.stop,patrol_log.group_patrollog_user,cr,
+access_patrol_stop_manager,patrol.stop Manager,patrol.stop,patrol_log.group_patrollog_manager,crud,
+rule_patrol_round_company,patrol.round: own company only,patrol.round,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_patrol_stop_company,patrol.stop: own company only,patrol.stop,,crud,"[('company_id', 'in', company_ids + [False])]"
