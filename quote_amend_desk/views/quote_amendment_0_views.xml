@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_quote_amendment_list" model="ir.ui.view">
+        <field name="name">quote.amendment.list</field>
+        <field name="model">quote.amendment</field>
+        <field name="arch" type="xml">
+            <list string="Quote Revisions" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="quote_ref"/>
+                <field name="revision_no"/>
+                <field name="change_count"/>
+                <field name="submitted_on"/>
+                <field name="approved_on"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_quote_amendment_form" model="ir.ui.view">
+        <field name="name">quote.amendment.form</field>
+        <field name="model">quote.amendment</field>
+        <field name="arch" type="xml">
+            <form string="Quote Revisions">
+                <header>
+                    <button name="action_submit" type="object" string="Submit for Approval" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve Version" class="btn-primary" invisible="state != 'submitted'"/>
+                    <button name="action_reject" type="object" string="Reject" class="btn-secondary" invisible="state != 'submitted'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved,rejected"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Quote">
+    <field name="name"/>
+    <field name="quote_ref"/>
+    <field name="revision_no"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Content">
+    <field name="reason"/>
+    <field name="change_count"/>
+                        </group>
+                        <group string="Approval">
+    <field name="state"/>
+    <field name="submitted_on"/>
+    <field name="approved_user_id"/>
+    <field name="approved_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Changes" name="changeids">
+                            <field name="change_ids"><list><field name="field_label"/><field name="old_value"/><field name="new_value"/></list><form><group><field name="field_label"/><field name="old_value"/><field name="new_value"/></group></form></field>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_quote_amendment_search" model="ir.ui.view">
+        <field name="name">quote.amendment.search</field>
+        <field name="model">quote.amendment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="quote_ref"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="pending" string="Awaiting Decision" domain="[('state','=','submitted')]"/>
+                <filter name="approved" string="Approved Versions Only" domain="[('state','=','approved')]"/>
+                <separator/>
+                <filter name="group_quote" string="Quotation" context="{'group_by': 'quote_ref'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_quote_amendment_kanban" model="ir.ui.view">
+        <field name="name">quote.amendment.kanban</field>
+        <field name="model">quote.amendment</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="quote_ref"/>
+                <field name="revision_no"/>
+                <field name="approved_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="quote_ref"/>
+                        <field name="revision_no"/>
+                        <field name="approved_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_quote_amendment" model="ir.actions.act_window">
+        <field name="name">Quote Revisions</field>
+        <field name="res_model">quote.amendment</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every revision of a quotation, with what it changes and who finally approved it.</p>
+        </field>
+    </record>
+
+</odoo>
