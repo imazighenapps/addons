@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_expedite_entry_list" model="ir.ui.view">
+        <field name="name">expedite.entry.list</field>
+        <field name="model">expedite.entry</field>
+        <field name="arch" type="xml">
+            <list string="Expedited Purchases" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="request_date"/>
+                <field name="name"/>
+                <field name="product_name"/>
+                <field name="requester_name"/>
+                <field name="urgency_type"/>
+                <field name="normal_cost"/>
+                <field name="actual_cost"/>
+                <field name="premium_amount"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_expedite_entry_form" model="ir.ui.view">
+        <field name="name">expedite.entry.form</field>
+        <field name="model">expedite.entry</field>
+        <field name="arch" type="xml">
+            <form string="Expedited Purchases">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Entry">
+    <field name="name"/>
+    <field name="product_name"/>
+    <field name="requester_name"/>
+    <field name="urgency_type"/>
+    <field name="request_date"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Costs">
+    <field name="normal_cost"/>
+    <field name="actual_cost"/>
+    <field name="premium_amount"/>
+    <field name="currency_id"/>
+    <field name="has_premium"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Reason">
+    <field name="reason"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_expedite_entry_search" model="ir.ui.view">
+        <field name="name">expedite.entry.search</field>
+        <field name="model">expedite.entry</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="product_name"/>
+                <field name="requester_name"/>
+                <field name="reason"/>
+                <filter name="has_premium" string="With Premium" domain="[('has_premium', '=', True)]"/>
+                <filter name="emergency" string="Emergency" domain="[('urgency_type', '=', 'emergency')]"/>
+                <separator/>
+                <filter name="group_requester" string="Requester" context="{'group_by': 'requester_name'}"/>
+                <filter name="group_urgency" string="Urgency" context="{'group_by': 'urgency_type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_expedite_entry_kanban" model="ir.ui.view">
+        <field name="name">expedite.entry.kanban</field>
+        <field name="model">expedite.entry</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="urgency_type" sample="1">
+                <field name="urgency_type"/>
+                <field name="name"/>
+                <field name="requester_name"/>
+                <field name="product_name"/>
+                <field name="premium_amount"/>
+                <field name="request_date"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="urgency_type" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="requester_name"/>
+                        <field name="product_name"/>
+                        <field name="premium_amount"/>
+                        <field name="request_date"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_expedite_entry" model="ir.actions.act_window">
+        <field name="name">Expedited Purchases</field>
+        <field name="res_model">expedite.entry</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every expedited or emergency purchase with its urgency premium.</p>
+        </field>
+    </record>
+
+</odoo>
