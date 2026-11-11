@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_otd_late_list" model="ir.ui.view">
+        <field name="name">otd.commitment.list</field>
+        <field name="model">otd.commitment</field>
+        <field name="arch" type="xml">
+            <list string="Late Shipments">
+                <field name="shipped_on"/>
+                <field name="order_ref"/>
+                <field name="customer_name"/>
+                <field name="promised_on"/>
+                <field name="delay_days"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_otd_late_form" model="ir.ui.view">
+        <field name="name">otd.commitment.form</field>
+        <field name="model">otd.commitment</field>
+        <field name="arch" type="xml">
+            <form string="Late Shipments">
+                <header>
+                    <button name="action_ship_today" type="object" string="Shipped Today" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_back_to_open" type="object" string="Reopen" class="btn-secondary" invisible="state != 'shipped'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,shipped"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="order_ref" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Order">
+    <field name="name"/>
+    <field name="order_ref"/>
+    <field name="customer_name"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Promise">
+    <field name="promised_on"/>
+    <field name="shipped_on"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Score">
+    <field name="on_time"/>
+    <field name="delay_days"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_otd_late_search" model="ir.ui.view">
+        <field name="name">otd.commitment.search</field>
+        <field name="model">otd.commitment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="order_ref"/>
+                <field name="customer_name"/>
+                <separator/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'customer_name'}"/>
+                <filter name="group_promise" string="Promised On" context="{'group_by': 'promised_on'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_otd_late" model="ir.actions.act_window">
+        <field name="name">Late Shipments</field>
+        <field name="res_model">otd.commitment</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every promise the warehouse missed, with the number of days to apologize for.</p>
+        </field>
+    </record>
+
+</odoo>

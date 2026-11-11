@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_otd_root" name="Delivery Watch" sequence="70"/>
+    <menuitem id="menu_otd_commitments" name="Commitments" parent="menu_otd_root" action="action_otd_commitment" sequence="10"/>
+    <menuitem id="menu_otd_rate" name="On-Time Rate" parent="menu_otd_root" action="action_otd_score" sequence="20"/>
+    <menuitem id="menu_otd_late_menu" name="Late Shipments" parent="menu_otd_root" action="action_otd_late" sequence="30"/>
+</odoo>

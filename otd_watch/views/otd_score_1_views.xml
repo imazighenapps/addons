@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_otd_score_list" model="ir.ui.view">
+        <field name="name">otd.commitment.list</field>
+        <field name="model">otd.commitment</field>
+        <field name="arch" type="xml">
+            <list string="On-Time Rate">
+                <field name="shipped_on"/>
+                <field name="order_ref"/>
+                <field name="customer_name"/>
+                <field name="promised_on"/>
+                <field name="delay_days"/>
+                <field name="on_time"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_otd_score_form" model="ir.ui.view">
+        <field name="name">otd.commitment.form</field>
+        <field name="model">otd.commitment</field>
+        <field name="arch" type="xml">
+            <form string="On-Time Rate">
+                <header>
+                    <button name="action_ship_today" type="object" string="Shipped Today" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_back_to_open" type="object" string="Reopen" class="btn-secondary" invisible="state != 'shipped'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,shipped"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="order_ref" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Order">
+    <field name="name"/>
+    <field name="order_ref"/>
+    <field name="customer_name"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Promise">
+    <field name="promised_on"/>
+    <field name="shipped_on"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Score">
+    <field name="on_time"/>
+    <field name="delay_days"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_otd_score_search" model="ir.ui.view">
+        <field name="name">otd.commitment.search</field>
+        <field name="model">otd.commitment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="order_ref"/>
+                <field name="customer_name"/>
+                <filter name="punctual" string="Delivered On Time" domain="[('on_time','=',True)]"/>
+                <separator/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'customer_name'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_otd_score" model="ir.actions.act_window">
+        <field name="name">On-Time Rate</field>
+        <field name="res_model">otd.commitment</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Promise after promise, scored in one column: the number to defend in the quarterly meeting.</p>
+        </field>
+    </record>
+
+</odoo>

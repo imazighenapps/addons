@@ -1,0 +1,307 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* otd_watch
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: otd_watch
+#: model:ir.model.fields.selection,name:otd_watch.selection__otd_commitment__state__open
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_commitment_search
+msgid "Awaiting Shipment"
+msgstr "En espera de envío"
+
+#. module: otd_watch
+#: model:ir.actions.act_window,name:otd_watch.action_otd_commitment
+#: model:ir.ui.menu,name:otd_watch.menu_otd_commitments
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_commitment_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_commitment_list
+msgid "Commitments"
+msgstr "Compromisos"
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: otd_watch
+#: model:ir.module.module,summary:base.module_otd_watch
+msgid "Compare the delivery date promised on each order with what the warehouse really shipped and score your on-time rate."
+msgstr "Compare la fecha de entrega prometida en cada pedido con lo que realmente envió el almacén y califique su tasa de puntualidad."
+
+#. module: otd_watch
+#: model:res.groups,comment:otd_watch.group_otdwatch_manager
+msgid "Configure and administer the module."
+msgstr "Configurar y administrar el módulo."
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__customer_name
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_commitment_search
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_late_search
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_score_search
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: otd_watch
+#: model:ir.model.fields,help:otd_watch.field_otd_commitment__shipped_on
+msgid "Date the goods really left the warehouse."
+msgstr "Fecha en que la mercancía realmente salió del almacén."
+
+#. module: otd_watch
+#: model:ir.model.fields,help:otd_watch.field_otd_commitment__delay_days
+msgid "Days between the promise and the real shipment. Negative for an early delivery."
+msgstr "Días entre la promesa y el envío real. Negativo para una entrega anticipada."
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__delay_days
+msgid "Delay (days)"
+msgstr "Retraso (días)"
+
+#. module: otd_watch
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_commitment_search
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_score_search
+msgid "Delivered On Time"
+msgstr "Entregado a tiempo"
+
+#. module: otd_watch
+#: model:ir.model,name:otd_watch.model_otd_commitment
+msgid "Delivery Commitment"
+msgstr "Compromiso de entrega"
+
+#. module: otd_watch
+#: model:ir.ui.menu,name:otd_watch.menu_otd_root
+msgid "Delivery Watch"
+msgstr "Reloj de entrega"
+
+#. module: otd_watch
+#: model:ir.model.fields,help:otd_watch.field_otd_commitment__promised_on
+msgid "Delivery date promised to the customer."
+msgstr "Fecha de entrega prometida a la cliente. Fecha de entrega prometida al cliente."
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: otd_watch
+#: model_terms:ir.actions.act_window,help:otd_watch.action_otd_late
+msgid "Every promise the warehouse missed, with the number of days to apologize for."
+msgstr "Cada promesa que el almacén incumplió, con la cantidad de días por los que disculparse."
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: otd_watch
+#: model:ir.actions.act_window,name:otd_watch.action_otd_late
+#: model:ir.ui.menu,name:otd_watch.menu_otd_late_menu
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_late_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_late_list
+msgid "Late Shipments"
+msgstr "Envíos tardíos"
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__note
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_commitment_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_late_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_score_form
+msgid "Note"
+msgstr "Nota"
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__on_time
+msgid "On Time"
+msgstr "A tiempo"
+
+#. module: otd_watch
+#: model:ir.actions.act_window,name:otd_watch.action_otd_score
+#: model:ir.ui.menu,name:otd_watch.menu_otd_rate
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_score_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_score_list
+msgid "On-Time Rate"
+msgstr "Tarifa de puntualidad"
+
+#. module: otd_watch
+#: model:ir.module.module,shortdesc:base.module_otd_watch
+msgid "OnTime"
+msgstr "A tiempo"
+
+#. module: otd_watch
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_commitment_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_late_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_score_form
+msgid "Order"
+msgstr "Pedido"
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__order_ref
+msgid "Order Ref"
+msgstr "Referencia de pedido"
+
+#. module: otd_watch
+#: model:res.groups,name:otd_watch.group_otdwatch_manager
+msgid "Otd Watch Manager"
+msgstr "Gerente de Vigilancia Otd"
+
+#. module: otd_watch
+#: model:res.groups,name:otd_watch.group_otdwatch_user
+msgid "Otd Watch User"
+msgstr "Usuario de reloj Otd"
+
+#. module: otd_watch
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_commitment_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_late_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_score_form
+msgid "Promise"
+msgstr "Promesa"
+
+#. module: otd_watch
+#: model_terms:ir.actions.act_window,help:otd_watch.action_otd_score
+msgid "Promise after promise, scored in one column: the number to defend in the quarterly meeting."
+msgstr "Promesa tras promesa, anotada en una columna: el número a defender en la reunión trimestral."
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__promised_on
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_late_search
+msgid "Promised On"
+msgstr "Prometido el"
+
+#. module: otd_watch
+#: model:ir.model.fields,help:otd_watch.field_otd_commitment__name
+msgid "Reference of the commitment, generated at creation."
+msgstr "Referencia del compromiso, generado en la creación."
+
+#. module: otd_watch
+#: model:ir.model.fields,help:otd_watch.field_otd_commitment__order_ref
+msgid "Reference of the order whose promise is watched."
+msgstr "Referencia de la orden cuya promesa se vela."
+
+#. module: otd_watch
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_commitment_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_late_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_score_form
+msgid "Reopen"
+msgstr "Reabrir"
+
+#. module: otd_watch
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_commitment_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_late_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_score_form
+msgid "Score"
+msgstr "Puntaje"
+
+#. module: otd_watch
+#. odoo-python
+#: code:addons/otd_watch/models/otd_commitment.py:0
+msgid "Ship %s"
+msgstr "Barco %s"
+
+#. module: otd_watch
+#: model:ir.model.fields.selection,name:otd_watch.selection__otd_commitment__state__shipped
+msgid "Shipped"
+msgstr "Enviada Enviado"
+
+#. module: otd_watch
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_commitment_search
+msgid "Shipped Late"
+msgstr "Enviado tarde"
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__shipped_on
+msgid "Shipped On"
+msgstr "Enviado el"
+
+#. module: otd_watch
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_commitment_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_late_form
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_score_form
+msgid "Shipped Today"
+msgstr "Enviado hoy"
+
+#. module: otd_watch
+#: model:ir.model.fields,field_description:otd_watch.field_otd_commitment__state
+msgid "State"
+msgstr "Estado"
+
+#. module: otd_watch
+#: model_terms:ir.ui.view,arch_db:otd_watch.view_otd_commitment_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: otd_watch
+#. odoo-python
+#: code:addons/otd_watch/models/otd_commitment.py:0
+msgid "The commitment for %s must carry the date its goods shipped."
+msgstr "El compromiso de %s debe llevar la fecha de envío de sus mercancías."
+
+#. module: otd_watch
+#. odoo-python
+#: code:addons/otd_watch/models/otd_commitment.py:0
+msgid "The commitment was reopened."
+msgstr "Se reabrió el compromiso."
+
+#. module: otd_watch
+#. odoo-python
+#: code:addons/otd_watch/models/otd_commitment.py:0
+msgid "The goods of %s already shipped."
+msgstr "Los productos de %s ya se enviaron."
+
+#. module: otd_watch
+#. odoo-python
+#: code:addons/otd_watch/models/otd_commitment.py:0
+msgid "The goods of %s did not ship yet."
+msgstr "Los productos de %s aún no se han enviado."
+
+#. module: otd_watch
+#. odoo-python
+#: code:addons/otd_watch/models/otd_commitment.py:0
+msgid "The goods shipped; the promise is scored."
+msgstr "Las mercancías enviadas; la promesa está cumplida."
+
+#. module: otd_watch
+#: model_terms:ir.actions.act_window,help:otd_watch.action_otd_commitment
+msgid "The promise book: what you promised, what shipped and the delay in days."
+msgstr "El libro de promesas: lo que prometiste, lo que se envió y la demora en días."
+
+#. module: otd_watch
+#: model:ir.model.fields,help:otd_watch.field_otd_commitment__on_time
+msgid "True when the goods left at the promised date or before it."
+msgstr "Verdadero cuando la mercancía salió en la fecha prometida o antes."
+
+#. module: otd_watch
+#: model:res.groups,comment:otd_watch.group_otdwatch_user
+msgid "View and use the module."
+msgstr "Ver y utilizar el módulo."
