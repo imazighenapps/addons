@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_shrink_adjustment_user,shrink.adjustment User,shrink.adjustment,shrink_report.group_shrinkreport_user,crud,
+access_shrink_adjustment_manager,shrink.adjustment Manager,shrink.adjustment,shrink_report.group_shrinkreport_manager,crud,
+rule_shrink_adjustment_company,shrink.adjustment: own company only,shrink.adjustment,,crud,"[('company_id', 'in', company_ids + [False])]"
