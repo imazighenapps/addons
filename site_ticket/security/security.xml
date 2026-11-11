@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_siteticket_user" model="res.groups">
+        <field name="name">Site Ticket User</field>
+        <field name="comment">View and use the module.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="group_siteticket_manager" model="res.groups">
+        <field name="name">Site Ticket Manager</field>
+        <field name="comment">Configure and administer the module.</field>
+        <field name="implied_ids" eval="[(4, ref('site_ticket.group_siteticket_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

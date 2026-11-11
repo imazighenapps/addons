@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_site_ticket_list" model="ir.ui.view">
+        <field name="name">site.ticket.list</field>
+        <field name="model">site.ticket</field>
+        <field name="arch" type="xml">
+            <list string="Tickets" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="requested_on"/>
+                <field name="name"/>
+                <field name="area_id"/>
+                <field name="priority"/>
+                <field name="owner_id"/>
+                <field name="contractor_id"/>
+                <field name="deadline_on"/>
+                <field name="cost" sum="Total Cost"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_site_ticket_form" model="ir.ui.view">
+        <field name="name">site.ticket.form</field>
+        <field name="model">site.ticket</field>
+        <field name="arch" type="xml">
+            <form string="Tickets">
+                <header>
+                    <button name="action_start" type="object" string="Start" class="btn-primary" invisible="state != 'new'"/>
+                    <button name="action_done" type="object" string="Mark Done" class="btn-primary" invisible="state != 'in_progress'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state in ('done', 'cancelled')"/>
+                    <button name="action_reset" type="object" string="Reset to New" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,in_progress,done,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Issue">
+    <field name="name"/>
+    <field name="area_id"/>
+    <field name="priority"/>
+    <field name="owner_id"/>
+    <field name="contractor_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Schedule">
+    <field name="requested_on"/>
+    <field name="deadline_on"/>
+    <field name="started_on"/>
+    <field name="resolved_on"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Cost">
+    <field name="cost"/>
+    <field name="currency_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Photo / Evidence" name="photonote">
+                            <field name="photo_note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_site_ticket_search" model="ir.ui.view">
+        <field name="name">site.ticket.search</field>
+        <field name="model">site.ticket</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="area_id"/>
+                <field name="owner_id"/>
+                <field name="contractor_id"/>
+                <filter name="new" string="New" domain="[('state','=','new')]"/>
+                <filter name="progress" string="In Progress" domain="[('state','=','in_progress')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="urgent" string="Urgent" domain="[('priority','=','3')]"/>
+                <filter name="mine" string="My Tickets" domain="[('owner_id','=',uid)]"/>
+                <separator/>
+                <filter name="group_area" string="Area" context="{'group_by': 'area_id'}"/>
+                <filter name="group_priority" string="Priority" context="{'group_by': 'priority'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_contractor" string="Contractor" context="{'group_by': 'contractor_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_site_ticket_kanban" model="ir.ui.view">
+        <field name="name">site.ticket.kanban</field>
+        <field name="model">site.ticket</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="area_id"/>
+                <field name="priority"/>
+                <field name="deadline_on"/>
+                <field name="owner_id"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="area_id"/>
+                        <field name="priority"/>
+                        <field name="deadline_on"/>
+                        <field name="owner_id"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_site_ticket" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">site.ticket</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Report, route and resolve every building issue in one queue.</p>
+        </field>
+    </record>
+
+</odoo>
