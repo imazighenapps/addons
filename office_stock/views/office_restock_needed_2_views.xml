@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_office_restock_needed_list" model="ir.ui.view">
+        <field name="name">office.supply.list</field>
+        <field name="model">office.supply</field>
+        <field name="arch" type="xml">
+            <list string="Restock Needed">
+                <field name="name"/>
+                <field name="location"/>
+                <field name="on_hand_qty"/>
+                <field name="min_qty"/>
+                <field name="shortage_qty"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_office_restock_needed_form" model="ir.ui.view">
+        <field name="name">office.supply.form</field>
+        <field name="model">office.supply</field>
+        <field name="arch" type="xml">
+            <form string="Restock Needed">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Supply">
+    <field name="name"/>
+    <field name="location"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Levels">
+    <field name="on_hand_qty"/>
+    <field name="min_qty"/>
+    <field name="shortage_qty"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Counters">
+    <field name="request_count"/>
+    <field name="open_request_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_office_restock_needed_search" model="ir.ui.view">
+        <field name="name">office.supply.search</field>
+        <field name="model">office.supply</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="location"/>
+                <separator/>
+                <filter name="group_location" string="Location" context="{'group_by': 'location'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_office_restock_needed" model="ir.actions.act_window">
+        <field name="name">Restock Needed</field>
+        <field name="res_model">office.supply</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Items below their minimum level, the list to buy before it becomes urgent.</p>
+        </field>
+    </record>
+
+</odoo>
