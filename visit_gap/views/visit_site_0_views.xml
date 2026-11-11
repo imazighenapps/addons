@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_visit_site_list" model="ir.ui.view">
+        <field name="name">visit.site.list</field>
+        <field name="model">visit.site</field>
+        <field name="arch" type="xml">
+            <list string="Monitored Sites">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="responsible_id"/>
+                <field name="frequency_days"/>
+                <field name="last_visit_date"/>
+                <field name="next_visit_date"/>
+                <field name="overdue_days"/>
+                <field name="is_overdue"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_visit_site_form" model="ir.ui.view">
+        <field name="name">visit.site.form</field>
+        <field name="model">visit.site</field>
+        <field name="arch" type="xml">
+            <form string="Monitored Sites">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Site">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="responsible_id"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Schedule">
+    <field name="frequency_days"/>
+    <field name="last_visit_date"/>
+    <field name="next_visit_date"/>
+    <field name="is_overdue"/>
+    <field name="overdue_days"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_visit_site_search" model="ir.ui.view">
+        <field name="name">visit.site.search</field>
+        <field name="model">visit.site</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="responsible_id"/>
+                <filter name="overdue" string="Overdue" domain="[('is_overdue','=',True)]"/>
+                <filter name="on_track" string="On Track" domain="[('is_overdue','=',False)]"/>
+                <separator/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_owner" string="Owner" context="{'group_by': 'responsible_id'}"/>
+                <filter name="group_overdue" string="Overdue" context="{'group_by': 'is_overdue'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_visit_site_kanban" model="ir.ui.view">
+        <field name="name">visit.site.kanban</field>
+        <field name="model">visit.site</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="is_overdue" sample="1">
+                <field name="is_overdue"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="next_visit_date"/>
+                <field name="overdue_days"/>
+                <field name="responsible_id"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="is_overdue" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="next_visit_date"/>
+                        <field name="overdue_days"/>
+                        <field name="responsible_id"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_visit_site" model="ir.actions.act_window">
+        <field name="name">Monitored Sites</field>
+        <field name="res_model">visit.site</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Track contractual visit frequency and act on overdue sites before customers escalate.</p>
+        </field>
+    </record>
+
+</odoo>
