@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_rwk_reject_company" model="ir.rule">
+        <field name="name">rwk.reject: own company only</field>
+        <field name="model_id" ref="model_rwk_reject"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_rwk_order_company" model="ir.rule">
+        <field name="name">rwk.order: own company only</field>
+        <field name="model_id" ref="model_rwk_order"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

@@ -1,0 +1,392 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* rework_desk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: rework_desk
+#: model:ir.model.fields.selection,name:rework_desk.selection__rwk_reject__state__closed
+msgid "Closed"
+msgstr "Clôturé"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__company_id
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: rework_desk
+#: model:res.groups,comment:rework_desk.group_reworkdesk_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: rework_desk
+#: model_terms:ir.actions.act_window,help:rework_desk.action_rwk_order
+msgid "Controlled rework orders with owner, plan and completion trace."
+msgstr "Ordres de reprise contrôlés avec trace du propriétaire, du plan et de l'achèvement."
+
+#. module: rework_desk
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_reject_form
+msgid "Counters"
+msgstr "Compteurs"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__create_uid
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__create_date
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__detected_on
+msgid "Detected On"
+msgstr "Détecté le"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__display_name
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: rework_desk
+#: model:ir.model.fields.selection,name:rework_desk.selection__rwk_order__state__done
+msgid "Done"
+msgstr "Terminé"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__done_on
+msgid "Done On"
+msgstr "Terminé le"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__done_order_count
+msgid "Done Orders"
+msgstr "Commandes terminées"
+
+#. module: rework_desk
+#: model:ir.model.fields.selection,name:rework_desk.selection__rwk_order__state__draft
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__has_message
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: rework_desk
+#: model:ir.model.fields.selection,name:rework_desk.selection__rwk_reject__state__in_rework
+msgid "In Rework"
+msgstr "En refonte"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__instructions
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_order_form
+msgid "Instructions"
+msgstr "Instructions"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__write_uid
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__write_date
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__name
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_order.py:0
+#: code:addons/rework_desk/models/rwk_reject.py:0
+msgid "New"
+msgstr "Nouveau"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__note
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_reject_form
+msgid "Note"
+msgstr "Note"
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_order.py:0
+msgid "Only a draft rework order can be planned."
+msgstr "Seul un projet d'ordre de reprise peut être planifié."
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_order.py:0
+msgid "Only a planned rework order can be started."
+msgstr "Seul un ordre de reprise planifié peut être lancé."
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_order.py:0
+msgid "Only a running rework order can be completed."
+msgstr "Seul un ordre de reprise en cours peut être complété."
+
+#. module: rework_desk
+#: model:ir.model.fields.selection,name:rework_desk.selection__rwk_reject__state__open
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_reject_search
+msgid "Open"
+msgstr "Ouvrir"
+
+#. module: rework_desk
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_order_form
+msgid "Order"
+msgstr "Commande"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__owner_id
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_order_search
+msgid "Owner"
+msgstr "Propriétaire"
+
+#. module: rework_desk
+#: model:ir.model.fields.selection,name:rework_desk.selection__rwk_order__state__planned
+msgid "Planned"
+msgstr "Prévue Prévu"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__planned_on
+msgid "Planned On"
+msgstr "Prévu pour"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__product_ref
+msgid "Product"
+msgstr "Produit"
+
+#. module: rework_desk
+#: model:ir.model.fields,help:rework_desk.field_rwk_reject__product_ref
+msgid "Product or lot that was rejected."
+msgstr "Produit ou lot qui a été rejeté."
+
+#. module: rework_desk
+#: model:ir.model.fields,help:rework_desk.field_rwk_reject__quantity
+msgid "Quantity of output rejected."
+msgstr "Quantité de production rejetée."
+
+#. module: rework_desk
+#: model:ir.model.fields,help:rework_desk.field_rwk_order__quantity
+msgid "Quantity to be reworked in this order."
+msgstr "Quantité à retravailler dans cet ordre."
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_reject.py:0
+msgid "REJ-%s"
+msgstr "REJ-%s"
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_order.py:0
+msgid "RWK-%s"
+msgstr "RWK-%s"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__reason
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_reject_form
+msgid "Reason"
+msgstr "Raison"
+
+#. module: rework_desk
+#: model:ir.model.fields,help:rework_desk.field_rwk_reject__name
+msgid "Reference of the rejected output record."
+msgstr "Référence de l'enregistrement de sortie rejeté."
+
+#. module: rework_desk
+#: model:ir.model.fields,help:rework_desk.field_rwk_order__name
+msgid "Reference of the rework order."
+msgstr "Référence de l'ordre de reprise."
+
+#. module: rework_desk
+#: model:ir.actions.act_window,name:rework_desk.action_rwk_reject
+#: model:ir.model,name:rework_desk.model_rwk_reject
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__reject_id
+#: model:ir.ui.menu,name:rework_desk.menu_rwk_rejects
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_reject_form
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_reject_list
+msgid "Rejected Output"
+msgstr "Sortie rejetée"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__quantity
+msgid "Rejected Quantity"
+msgstr "Quantité rejetée"
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_reject.py:0
+msgid "Rejected output closed after rework."
+msgstr "Sortie rejetée fermée après retravail."
+
+#. module: rework_desk
+#: model_terms:ir.actions.act_window,help:rework_desk.action_rwk_reject
+msgid "Rejected production output waiting for a controlled second pass."
+msgstr "Sortie de production rejetée en attente d’un deuxième passage contrôlé."
+
+#. module: rework_desk
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_reject_form
+msgid "Rejection"
+msgstr "Rejet"
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_reject.py:0
+msgid "Rejection %s cannot be closed without a completed rework order."
+msgstr "Le rejet %s ne peut pas être clôturé sans un ordre de reprise complété."
+
+#. module: rework_desk
+#: model:ir.module.module,shortdesc:base.module_rework_desk
+#: model:ir.ui.menu,name:rework_desk.menu_rwk_root
+msgid "Rework"
+msgstr "Retravailler"
+
+#. module: rework_desk
+#: model:res.groups,name:rework_desk.group_reworkdesk_manager
+msgid "Rework Desk Manager"
+msgstr "Responsable du bureau de retouche"
+
+#. module: rework_desk
+#: model:res.groups,name:rework_desk.group_reworkdesk_user
+msgid "Rework Desk User"
+msgstr "Utilisateur du bureau de retouche"
+
+#. module: rework_desk
+#: model:ir.model,name:rework_desk.model_rwk_order
+msgid "Rework Order"
+msgstr "Ordre de retouche"
+
+#. module: rework_desk
+#: model:ir.actions.act_window,name:rework_desk.action_rwk_order
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__order_count
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__order_ids
+#: model:ir.ui.menu,name:rework_desk.menu_rwk_orders
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_order_form
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_order_list
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_reject_form
+msgid "Rework Orders"
+msgstr "Ordres de reprise"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__quantity
+msgid "Rework Quantity"
+msgstr "Quantité de retravailler"
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_order.py:0
+msgid "Rework order completed."
+msgstr "Ordre de retouche terminé."
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__reworked_qty
+msgid "Reworked Quantity"
+msgstr "Quantité retravaillée"
+
+#. module: rework_desk
+#: model:ir.model.fields.selection,name:rework_desk.selection__rwk_order__state__running
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_order_search
+msgid "Running"
+msgstr "En cours"
+
+#. module: rework_desk
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_order_form
+msgid "Schedule"
+msgstr "Calendrier"
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_order__state
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__state
+msgid "State"
+msgstr "Statut"
+
+#. module: rework_desk
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_order_search
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_reject_form
+#: model_terms:ir.ui.view,arch_db:rework_desk.view_rwk_reject_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_reject.py:0
+msgid "The rejected quantity of %s must be above zero."
+msgstr "La quantité rejetée de %s doit être supérieure à zéro."
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_reject.py:0
+msgid "The rejection %s is already closed."
+msgstr "Le rejet %s est déjà clôturé."
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_order.py:0
+msgid "The rework order %s cannot be done before it was planned."
+msgstr "L'ordre de reprise %s ne peut pas être exécuté avant qu'il n'ait été planifié."
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_order.py:0
+msgid "The rework quantity of %s cannot exceed the rejected quantity."
+msgstr "La quantité retravaillée de %s ne peut pas dépasser la quantité rejetée."
+
+#. module: rework_desk
+#. odoo-python
+#: code:addons/rework_desk/models/rwk_order.py:0
+msgid "The rework quantity of %s must be above zero."
+msgstr "La quantité de retouche de %s doit être supérieure à zéro."
+
+#. module: rework_desk
+#: model:ir.module.module,summary:base.module_rework_desk
+msgid "Turn rejected production output into a controlled rework order with the trace instead of a whispered fix."
+msgstr "Transformez les résultats de production rejetés en un ordre de reprise contrôlé avec la trace au lieu d'une solution murmurée."
+
+#. module: rework_desk
+#: model:ir.model.fields,field_description:rework_desk.field_rwk_reject__unit_name
+msgid "Unit"
+msgstr "Unité"
+
+#. module: rework_desk
+#: model:ir.model.fields,help:rework_desk.field_rwk_reject__unit_name
+msgid "Unit used to express the rejected quantity."
+msgstr "Unité utilisée pour exprimer la quantité rejetée."
+
+#. module: rework_desk
+#: model:res.groups,comment:rework_desk.group_reworkdesk_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: rework_desk
+#: model:ir.model.fields,help:rework_desk.field_rwk_order__instructions
+msgid "What must be done during the second pass."
+msgstr "Que faut-il faire lors du deuxième passage."
+
+#. module: rework_desk
+#: model:ir.model.fields,help:rework_desk.field_rwk_reject__reason
+msgid "Why the output was rejected."
+msgstr "Pourquoi la sortie a été rejetée."
