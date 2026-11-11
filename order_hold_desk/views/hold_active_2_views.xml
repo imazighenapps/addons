@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hold_active_list" model="ir.ui.view">
+        <field name="name">hold.desk.request.list</field>
+        <field name="model">hold.desk.request</field>
+        <field name="arch" type="xml">
+            <list string="Active Holds">
+                <field name="name"/>
+                <field name="document"/>
+                <field name="partner_id"/>
+                <field name="reason_id"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="hold_on"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hold_active_form" model="ir.ui.view">
+        <field name="name">hold.desk.request.form</field>
+        <field name="model">hold.desk.request</field>
+        <field name="arch" type="xml">
+            <form string="Active Holds">
+                <header>
+                    <button name="action_hold" type="object" string="Place On Hold" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_release" type="object" string="Release" class="btn-primary" invisible="state != 'hold'"/>
+                    <button name="action_abandon" type="object" string="Abandon" class="btn-secondary" invisible="state not in ('draft', 'hold')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,hold,released,abandoned"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Order">
+    <field name="name"/>
+    <field name="document"/>
+    <field name="partner_id"/>
+    <field name="amount"/>
+    <field name="currency_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Hold">
+    <field name="reason_id"/>
+    <field name="state"/>
+    <field name="hold_on"/>
+    <field name="release_on"/>
+                        </group>
+                        <group string="Release">
+    <field name="released_by"/>
+    <field name="hold_days"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hold_active_search" model="ir.ui.view">
+        <field name="name">hold.desk.request.search</field>
+        <field name="model">hold.desk.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="document"/>
+                <field name="partner_id"/>
+                <separator/>
+                <filter name="group_reason" string="Reason" context="{'group_by': 'reason_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_hold_active_kanban" model="ir.ui.view">
+        <field name="name">hold.desk.request.kanban</field>
+        <field name="model">hold.desk.request</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="reason_id" sample="1">
+                <field name="reason_id"/>
+                <field name="document"/>
+                <field name="partner_id"/>
+                <field name="amount"/>
+                <field name="hold_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="reason_id" class="fw-bold"/>
+                        <field name="document"/>
+                        <field name="partner_id"/>
+                        <field name="amount"/>
+                        <field name="hold_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_hold_active" model="ir.actions.act_window">
+        <field name="name">Active Holds</field>
+        <field name="res_model">hold.desk.request</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Everything still frozen, the daily review list of the desk.</p>
+        </field>
+    </record>
+
+</odoo>

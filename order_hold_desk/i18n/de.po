@@ -1,0 +1,423 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* order_hold_desk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: order_hold_desk
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_active_form
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_form
+msgid "Abandon"
+msgstr "Aufgeben"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: order_hold_desk
+#: model:ir.actions.act_window,name:order_hold_desk.action_hold_active
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__open_count
+#: model:ir.ui.menu,name:order_hold_desk.menu_hold_active
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_active_form
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_active_list
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_reason_search
+msgid "Active Holds"
+msgstr "Aktive Vormerkungen"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__amount
+msgid "Amount"
+msgstr "Betrag"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,help:order_hold_desk.field_hold_desk_request__amount
+msgid "Amount of the order left waiting."
+msgstr "Der Betrag der Bestellung wartet noch."
+
+#. module: order_hold_desk
+#: model:ir.model.fields.selection,name:order_hold_desk.selection__hold_desk_request__state__abandoned
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_search
+msgid "Cancelled"
+msgstr "Storniert"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__code
+msgid "Code"
+msgstr "Code"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__company_id
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__company_id
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_reason_search
+msgid "Company"
+msgstr "Firma"
+
+#. module: order_hold_desk
+#: model:res.groups,comment:order_hold_desk.group_orderholddes_manager
+msgid "Configure and administer the module."
+msgstr "Konfigurieren und verwalten Sie das Modul."
+
+#. module: order_hold_desk
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_reason_form
+msgid "Counters"
+msgstr "Zähler"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__create_uid
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__create_date
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__currency_id
+msgid "Currency"
+msgstr "Währung"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__partner_id
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_search
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,help:order_hold_desk.field_hold_desk_request__hold_on
+msgid "Date the order was placed on hold."
+msgstr "Datum, an dem die Bestellung zurückgestellt wurde."
+
+#. module: order_hold_desk
+#: model:ir.model.fields,help:order_hold_desk.field_hold_desk_request__release_on
+msgid "Date the order was released, stamped by the release."
+msgstr "Datum der Freigabe der Bestellung, mit Freigabestempel versehen."
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__hold_days
+msgid "Days On Hold"
+msgstr "Tage in der Warteschleife"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,help:order_hold_desk.field_hold_desk_request__hold_days
+msgid "Days the order waited between its hold and its release."
+msgstr "Tage, die die Bestellung zwischen ihrer Zurückhaltung und ihrer Freigabe wartete."
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__description
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__display_name
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: order_hold_desk
+#: model:ir.model.fields.selection,name:order_hold_desk.selection__hold_desk_request__state__draft
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_search
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: order_hold_desk
+#: model_terms:ir.actions.act_window,help:order_hold_desk.action_hold_active
+msgid "Everything still frozen, the daily review list of the desk."
+msgstr "Alles noch eingefroren, die Tagesübersichtsliste des Schreibtisches."
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__has_message
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__has_message
+msgid "Has Message"
+msgstr "Hat Nachricht"
+
+#. module: order_hold_desk
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_active_form
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_form
+msgid "Hold"
+msgstr "Halten"
+
+#. module: order_hold_desk
+#: model:ir.ui.menu,name:order_hold_desk.menu_hold_root
+msgid "Hold Desk"
+msgstr "Schreibtisch halten"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__hold_on
+msgid "Hold On"
+msgstr "Festhalten"
+
+#. module: order_hold_desk
+#: model:ir.model,name:order_hold_desk.model_hold_desk_reason
+msgid "Hold Reason"
+msgstr "Halten Sie die Vernunft fest"
+
+#. module: order_hold_desk
+#: model:ir.actions.act_window,name:order_hold_desk.action_hold_reason
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_reason_form
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_reason_list
+msgid "Hold Reasons"
+msgstr "Halten Sie Gründe fest"
+
+#. module: order_hold_desk
+#: model:ir.module.module,shortdesc:base.module_order_hold_desk
+msgid "HoldDesk"
+msgstr "HoldDesk"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__request_count
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__request_ids
+msgid "Holds"
+msgstr "Hält"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__write_uid
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__write_date
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__name
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__name
+msgid "Name"
+msgstr "Name"
+
+#. module: order_hold_desk
+#: model_terms:ir.actions.act_window,help:order_hold_desk.action_hold_request
+msgid "Name the order, pick the reason, place it on hold and release it with a dated trace."
+msgstr "Benennen Sie die Bestellung, wählen Sie den Grund aus, stellen Sie sie in die Warteschleife und geben Sie sie mit einer datierten Spur frei."
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__note
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_active_form
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_form
+msgid "Note"
+msgstr "Notiz"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,help:order_hold_desk.field_hold_desk_reason__request_count
+msgid "Number of orders ever placed on hold with this reason."
+msgstr "Anzahl der Bestellungen, die jemals aus diesem Grund zurückgestellt wurden."
+
+#. module: order_hold_desk
+#: model:ir.model.fields.selection,name:order_hold_desk.selection__hold_desk_request__state__hold
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_search
+msgid "On Hold"
+msgstr "In der Warteschleife"
+
+#. module: order_hold_desk
+#. odoo-python
+#: code:addons/order_hold_desk/models/order_hold_desk.py:0
+msgid "Only a draft hold can be placed on hold."
+msgstr "Nur ein Vormerkungsentwurf kann in die Warteschleife gestellt werden."
+
+#. module: order_hold_desk
+#. odoo-python
+#: code:addons/order_hold_desk/models/order_hold_desk.py:0
+msgid "Only a draft or on-hold request can be abandoned."
+msgstr "Nur eine Entwurfs- oder Warteanfrage kann abgebrochen werden."
+
+#. module: order_hold_desk
+#. odoo-python
+#: code:addons/order_hold_desk/models/order_hold_desk.py:0
+msgid "Only an order on hold can be released, not one in status %s."
+msgstr "Es kann nur ein zurückgestellter Auftrag freigegeben werden, kein Auftrag im Status %s."
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__document
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_active_form
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_form
+msgid "Order"
+msgstr "Auftrag"
+
+#. module: order_hold_desk
+#: model:ir.model,name:order_hold_desk.model_hold_desk_request
+msgid "Order Hold"
+msgstr "Auftragssperre"
+
+#. module: order_hold_desk
+#: model:res.groups,name:order_hold_desk.group_orderholddes_manager
+msgid "Order Hold Desk Manager"
+msgstr "Order Hold Desk Manager"
+
+#. module: order_hold_desk
+#: model:res.groups,name:order_hold_desk.group_orderholddes_user
+msgid "Order Hold Desk User"
+msgstr "Benutzer des Order-Hold-Desks"
+
+#. module: order_hold_desk
+#: model:ir.actions.act_window,name:order_hold_desk.action_hold_request
+#: model:ir.ui.menu,name:order_hold_desk.menu_hold_requests
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_form
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_list
+msgid "Order Holds"
+msgstr "Bestellung hält"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,help:order_hold_desk.field_hold_desk_reason__open_count
+msgid "Orders still on hold with this reason."
+msgstr "Bestellungen werden aus diesem Grund immer noch zurückgestellt."
+
+#. module: order_hold_desk
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_active_form
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_form
+msgid "Place On Hold"
+msgstr "In die Warteschleife legen"
+
+#. module: order_hold_desk
+#: model:ir.module.module,summary:base.module_order_hold_desk
+msgid "Place a confirmed order on hold for credit, stock, quality or commercial reasons, and release it with a dated trace."
+msgstr "Halten Sie eine bestätigte Bestellung aus Kredit-, Lager-, Qualitäts- oder kommerziellen Gründen zurück und geben Sie sie mit einer datierten Rückverfolgung frei."
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__reason_id
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_active_search
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_reason_form
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_search
+msgid "Reason"
+msgstr "Grund"
+
+#. module: order_hold_desk
+#: model:ir.ui.menu,name:order_hold_desk.menu_hold_reasons
+msgid "Reasons"
+msgstr "Gründe"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,help:order_hold_desk.field_hold_desk_request__document
+msgid "Reference of the confirmed order placed on hold."
+msgstr "Referenz der bestätigten Bestellung, die zurückgestellt wurde."
+
+#. module: order_hold_desk
+#: model:ir.model.fields,help:order_hold_desk.field_hold_desk_request__name
+msgid "Reference of the hold, generated from the HDS/ sequence."
+msgstr "Referenz des Holds, generiert aus der HDS/-Sequenz."
+
+#. module: order_hold_desk
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_active_form
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_form
+msgid "Release"
+msgstr "Freigeben"
+
+#. module: order_hold_desk
+#: model:ir.model.fields.selection,name:order_hold_desk.selection__hold_desk_request__state__released
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_search
+msgid "Released"
+msgstr "Freigegeben"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__released_by
+msgid "Released By"
+msgstr "Veröffentlicht von"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__release_on
+msgid "Released On"
+msgstr "Veröffentlicht am"
+
+#. module: order_hold_desk
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_reason_form
+msgid "Rules"
+msgstr "Regeln"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_reason__sequence
+msgid "Sequence"
+msgstr "Sequenz"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,help:order_hold_desk.field_hold_desk_reason__code
+msgid "Short code used on the hold screens, for example CRED."
+msgstr "Funktionscode, der auf den Wartebildschirmen verwendet wird, zum Beispiel CRED."
+
+#. module: order_hold_desk
+#: model:ir.model.fields,field_description:order_hold_desk.field_hold_desk_request__state
+msgid "State"
+msgstr "Status"
+
+#. module: order_hold_desk
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_search
+msgid "Status"
+msgstr "Status"
+
+#. module: order_hold_desk
+#. odoo-python
+#: code:addons/order_hold_desk/models/order_hold_desk.py:0
+msgid "The amount of an order hold cannot be negative."
+msgstr "Der Betrag einer Auftragssperre darf nicht negativ sein."
+
+#. module: order_hold_desk
+#. odoo-python
+#: code:addons/order_hold_desk/models/order_hold_desk.py:0
+msgid "The hold on the order %s was abandoned."
+msgstr "Die Sperrung der Bestellung %s wurde aufgehoben."
+
+#. module: order_hold_desk
+#: model:ir.model.constraint,message:order_hold_desk.constraint_hold_desk_reason_code_company_uniq
+msgid "The hold reason code must be unique per company."
+msgstr "Der Code für den Sperrgrund muss pro Unternehmen eindeutig sein."
+
+#. module: order_hold_desk
+#. odoo-python
+#: code:addons/order_hold_desk/models/order_hold_desk.py:0
+msgid "The order %(order)s was placed on hold for reason %(reason)s."
+msgstr "Die Bestellung %(order)s wurde aus Grund %(reason)s zurückgestellt."
+
+#. module: order_hold_desk
+#. odoo-python
+#: code:addons/order_hold_desk/models/order_hold_desk.py:0
+msgid "The order %s was released after %s day(s) on hold."
+msgstr "Der Auftrag %s wurde nach %s-Tag(en) in der Warteschleife freigegeben."
+
+#. module: order_hold_desk
+#. odoo-python
+#: code:addons/order_hold_desk/models/order_hold_desk.py:0
+msgid "The release date of the hold %s cannot come before the hold date."
+msgstr "Das Veröffentlichungsdatum der Sperre %s darf nicht vor dem Sperrdatum liegen."
+
+#. module: order_hold_desk
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_active_list
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_request_list
+msgid "Total Amount"
+msgstr "Gesamtbetrag"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,help:order_hold_desk.field_hold_desk_request__released_by
+msgid "User who released the order."
+msgstr "Benutzer, der die Bestellung freigegeben hat."
+
+#. module: order_hold_desk
+#: model:res.groups,comment:order_hold_desk.group_orderholddes_user
+msgid "View and use the module."
+msgstr "Sehen Sie sich das Modul an und nutzen Sie es."
+
+#. module: order_hold_desk
+#: model_terms:ir.ui.view,arch_db:order_hold_desk.view_hold_reason_form
+msgid "When To Use"
+msgstr "Wann zu verwenden"
+
+#. module: order_hold_desk
+#: model:ir.model.fields,help:order_hold_desk.field_hold_desk_reason__description
+msgid "When to use this reason: which rule triggers the hold."
+msgstr "Wann sollte dieser Grund verwendet werden: Welche Regel löst die Sperre aus?"
+
+#. module: order_hold_desk
+#: model_terms:ir.actions.act_window,help:order_hold_desk.action_hold_reason
+msgid "Why orders stop: one reason, one code, one history."
+msgstr "Warum Bestellungen aufhören: ein Grund, ein Code, eine Historie."
