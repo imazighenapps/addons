@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_recover_claim_company" model="ir.rule">
+        <field name="name">recover.claim: own company only</field>
+        <field name="model_id" ref="model_recover_claim"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_recover_action_company" model="ir.rule">
+        <field name="name">recover.action: own company only</field>
+        <field name="model_id" ref="model_recover_action"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_recover_claim_list" model="ir.ui.view">
+        <field name="name">recover.claim.list</field>
+        <field name="model">recover.claim</field>
+        <field name="arch" type="xml">
+            <list string="Claims Due" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_name"/>
+                <field name="claim_kind"/>
+                <field name="amount_expected"/>
+                <field name="amount_recovered"/>
+                <field name="due_on"/>
+                <field name="action_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_recover_claim_form" model="ir.ui.view">
+        <field name="name">recover.claim.form</field>
+        <field name="model">recover.claim</field>
+        <field name="arch" type="xml">
+            <form string="Claims Due">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Claim">
+    <field name="name"/>
+    <field name="partner_name"/>
+    <field name="origin_ref"/>
+    <field name="claim_kind"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="amount_expected"/>
+    <field name="amount_recovered"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="due_on"/>
+    <field name="state"/>
+    <field name="recovered_on"/>
+    <field name="action_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_recover_claim_search" model="ir.ui.view">
+        <field name="name">recover.claim.search</field>
+        <field name="model">recover.claim</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <field name="origin_ref"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="recovered" string="Recovered" domain="[('state','=','recovered')]"/>
+                <separator/>
+                <filter name="group_kind" string="Kind" context="{'group_by': 'claim_kind'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_recover_claim_kanban" model="ir.ui.view">
+        <field name="name">recover.claim.kanban</field>
+        <field name="model">recover.claim</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <field name="amount_expected"/>
+                <field name="due_on"/>
+                <field name="action_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_name"/>
+                        <field name="amount_expected"/>
+                        <field name="due_on"/>
+                        <field name="action_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_recover_claim" model="ir.actions.act_window">
+        <field name="name">Claims Due</field>
+        <field name="res_model">recover.claim</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every refund, rebate and reimbursement the company is owed.</p>
+        </field>
+    </record>
+
+</odoo>
