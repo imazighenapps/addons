@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_pallet_account_company" model="ir.rule">
+        <field name="name">pallet.account: own company only</field>
+        <field name="model_id" ref="model_pallet_account"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_pallet_movement_company" model="ir.rule">
+        <field name="name">pallet.movement: own company only</field>
+        <field name="model_id" ref="model_pallet_movement"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
