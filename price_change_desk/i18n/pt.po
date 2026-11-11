@@ -1,0 +1,439 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* price_change_desk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: price_change_desk
+#. odoo-python
+#: code:addons/price_change_desk/models/price_change_desk.py:0
+msgid "Add at least one customer line before scheduling the change %s."
+msgstr "Adicione pelo menos uma linha de cliente antes de agendar a alteração %s."
+
+#. module: price_change_desk
+#: model:ir.model.fields.selection,name:price_change_desk.selection__price_shift__state__applied
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_search
+msgid "Applied"
+msgstr "Aplicada Aplicado"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__applied_on
+msgid "Applied On"
+msgstr "Aplicado em"
+
+#. module: price_change_desk
+#: model:ir.actions.act_window,name:price_change_desk.action_price_shift_applied
+#: model:ir.ui.menu,name:price_change_desk.menu_pshift_applied
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_applied_form
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_applied_list
+msgid "Applied Prices"
+msgstr "Preços Aplicados"
+
+#. module: price_change_desk
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_form
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: price_change_desk
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: price_change_desk
+#: model:ir.model.fields.selection,name:price_change_desk.selection__price_shift__state__cancelled
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_search
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: price_change_desk
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_form
+msgid "Change"
+msgstr "Mudar"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__percent
+msgid "Change (%)"
+msgstr "Mudar (%)"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__change_type
+msgid "Change Type"
+msgstr "Tipo de alteração"
+
+#. module: price_change_desk
+#. odoo-python
+#: code:addons/price_change_desk/models/price_change_desk.py:0
+msgid "Change applied to %(count)s customer(s): their planned prices are now the recorded ones."
+msgstr "Alteração aplicada ao(s) cliente(s) %(count)s: seus preços planejados passam a ser os registrados."
+
+#. module: price_change_desk
+#. odoo-python
+#: code:addons/price_change_desk/models/price_change_desk.py:0
+msgid "Change cancelled before being applied: the trace is kept."
+msgstr "Alteração cancelada antes de ser aplicada: o rastreamento é mantido."
+
+#. module: price_change_desk
+#. odoo-python
+#: code:addons/price_change_desk/models/price_change_desk.py:0
+msgid "Change scheduled: %(type)s of %(percent).2f%% on %(date)s for %(count)s customer(s)."
+msgstr "Alteração programada: %(type)s de %(percent).2f%% em %(date)s para cliente(s) %(count)s."
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__company_id
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift_line__company_id
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_search
+msgid "Company"
+msgstr "Empresa"
+
+#. module: price_change_desk
+#: model:res.groups,comment:price_change_desk.group_pricechanged_manager
+msgid "Configure and administer the module."
+msgstr "Configure e administre o módulo."
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__create_uid
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift_line__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__create_date
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift_line__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift_line__currency_id
+msgid "Currency"
+msgstr "Moeda"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift_line__current_price
+msgid "Current Price"
+msgstr "Preço Atual"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift_line__partner_id
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_applied_search
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_line_search
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__line_ids
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_form
+msgid "Customer Lines"
+msgstr "Linhas do cliente"
+
+#. module: price_change_desk
+#: model:ir.actions.act_window,name:price_change_desk.action_price_shift_line
+#: model:ir.ui.menu,name:price_change_desk.menu_pshift_lines
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_line_form
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_line_list
+msgid "Customer Price Lines"
+msgstr "Linhas de preços do cliente"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__customer_count
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: price_change_desk
+#: model:ir.model.fields,help:price_change_desk.field_price_shift__applied_on
+msgid "Date and time the change was applied."
+msgstr "Data e hora em que a alteração foi aplicada."
+
+#. module: price_change_desk
+#: model:ir.model.fields,help:price_change_desk.field_price_shift__effective_on
+msgid "Date from which the planned prices apply."
+msgstr "Data a partir da qual os preços planejados se aplicam."
+
+#. module: price_change_desk
+#: model_terms:ir.actions.act_window,help:price_change_desk.action_price_shift
+msgid "Decide the change once: type, percentage, effective date and one line per customer."
+msgstr "Decida a alteração uma vez: tipo, percentual, data de vigência e uma linha por cliente."
+
+#. module: price_change_desk
+#: model:ir.module.module,summary:base.module_price_change_desk
+msgid "Decide the next price increase once, schedule its effective date and see exactly when each customer moved."
+msgstr "Decida o próximo aumento de preço uma vez, agende sua data efetiva e veja exatamente quando cada cliente mudou."
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__description
+msgid "Description"
+msgstr "Descrição"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__display_name
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift_line__display_name
+msgid "Display Name"
+msgstr "Nome de exibição"
+
+#. module: price_change_desk
+#: model:ir.model.fields.selection,name:price_change_desk.selection__price_shift__state__draft
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_search
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__effective_on
+msgid "Effective Date"
+msgstr "Data Efetiva"
+
+#. module: price_change_desk
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_search
+msgid "Effective This Year"
+msgstr "Em vigor este ano"
+
+#. module: price_change_desk
+#: model_terms:ir.actions.act_window,help:price_change_desk.action_price_shift_line
+msgid "Every customer of every change: today's price and the computed one."
+msgstr "Cada cliente de cada mudança: o preço de hoje e o calculado."
+
+#. module: price_change_desk
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_form
+msgid "Follow Up"
+msgstr "Seguir"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__has_message
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift_line__has_message
+msgid "Has Message"
+msgstr "Tem mensagem"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__write_uid
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift_line__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__write_date
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift_line__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: price_change_desk
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_applied_form
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_line_form
+msgid "Line"
+msgstr "Linha"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift_line__new_price
+msgid "New Price"
+msgstr "Novo preço"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__note
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift_line__note
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_applied_form
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_form
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_line_form
+msgid "Note"
+msgstr "Nota"
+
+#. module: price_change_desk
+#: model:ir.model.fields,help:price_change_desk.field_price_shift__customer_count
+msgid "Number of customer lines carried by this change."
+msgstr "Número de linhas de clientes transportadas por esta mudança."
+
+#. module: price_change_desk
+#. odoo-python
+#: code:addons/price_change_desk/models/price_change_desk.py:0
+msgid "Only a draft change can be scheduled."
+msgstr "Somente uma alteração de rascunho pode ser agendada."
+
+#. module: price_change_desk
+#. odoo-python
+#: code:addons/price_change_desk/models/price_change_desk.py:0
+msgid "Only a draft or scheduled change can be cancelled."
+msgstr "Somente um rascunho ou alteração programada pode ser cancelado."
+
+#. module: price_change_desk
+#. odoo-python
+#: code:addons/price_change_desk/models/price_change_desk.py:0
+msgid "Only a scheduled change can be applied."
+msgstr "Somente uma alteração programada pode ser aplicada."
+
+#. module: price_change_desk
+#: model_terms:ir.actions.act_window,help:price_change_desk.action_price_shift_applied
+msgid "Only the lines of applied changes: exactly when each customer moved, and from how much to how much."
+msgstr "Apenas as linhas de aplicação mudam: exatamente quando cada cliente se mudou e de quanto para quanto."
+
+#. module: price_change_desk
+#: model:ir.model.fields,help:price_change_desk.field_price_shift__percent
+msgid "Percentage applied to the current price of every line."
+msgstr "Porcentagem aplicada ao preço atual de cada linha."
+
+#. module: price_change_desk
+#: model:ir.model,name:price_change_desk.model_price_shift
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift_line__shift_id
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_line_search
+msgid "Price Change"
+msgstr "Alteração de preço"
+
+#. module: price_change_desk
+#: model:res.groups,name:price_change_desk.group_pricechanged_manager
+msgid "Price Change Desk Manager"
+msgstr "Gerente de Balcão de Mudança de Preço"
+
+#. module: price_change_desk
+#: model:res.groups,name:price_change_desk.group_pricechanged_user
+msgid "Price Change Desk User"
+msgstr "Usuário do balcão de alteração de preços"
+
+#. module: price_change_desk
+#: model:ir.model,name:price_change_desk.model_price_shift_line
+msgid "Price Change Line"
+msgstr "Linha de alteração de preço"
+
+#. module: price_change_desk
+#: model:ir.actions.act_window,name:price_change_desk.action_price_shift
+#: model:ir.ui.menu,name:price_change_desk.menu_pshift_changes
+#: model:ir.ui.menu,name:price_change_desk.menu_pshift_root
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_form
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_list
+msgid "Price Changes"
+msgstr "Mudanças de preço"
+
+#. module: price_change_desk
+#: model:ir.model.fields.selection,name:price_change_desk.selection__price_shift__change_type__decrease
+msgid "Price Decrease"
+msgstr "Redução de preço"
+
+#. module: price_change_desk
+#: model:ir.model.fields.selection,name:price_change_desk.selection__price_shift__change_type__increase
+msgid "Price Increase"
+msgstr "Aumento de preço"
+
+#. module: price_change_desk
+#: model:ir.model.fields,help:price_change_desk.field_price_shift_line__new_price
+msgid "Price computed from the current price and the change percentage."
+msgstr "Preço calculado a partir do preço atual e da porcentagem de variação."
+
+#. module: price_change_desk
+#: model:ir.model.fields,help:price_change_desk.field_price_shift_line__current_price
+msgid "Price the customer pays before the effective date."
+msgstr "Preço que o cliente paga antes da data de vigência."
+
+#. module: price_change_desk
+#: model:ir.module.module,shortdesc:base.module_price_change_desk
+msgid "PriceShift"
+msgstr "Mudança de preço"
+
+#. module: price_change_desk
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_applied_form
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_line_form
+msgid "Prices"
+msgstr "Preços"
+
+#. module: price_change_desk
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_search
+msgid "Ready To Apply"
+msgstr "Pronto para aplicar"
+
+#. module: price_change_desk
+#: model:ir.model.fields,help:price_change_desk.field_price_shift__name
+msgid "Reference of the change, generated from the PSC/ sequence."
+msgstr "Referência da alteração, gerada a partir da sequência PSC/."
+
+#. module: price_change_desk
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_form
+msgid "Schedule"
+msgstr "Agendar"
+
+#. module: price_change_desk
+#: model:ir.model.fields.selection,name:price_change_desk.selection__price_shift__state__scheduled
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_search
+msgid "Scheduled"
+msgstr "Agendada Agendado"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__scope
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_form
+msgid "Scope"
+msgstr "Escopo"
+
+#. module: price_change_desk
+#: model:ir.model.fields,field_description:price_change_desk.field_price_shift__state
+msgid "State"
+msgstr "Estado"
+
+#. module: price_change_desk
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: price_change_desk
+#. odoo-python
+#: code:addons/price_change_desk/models/price_change_desk.py:0
+msgid "The change %s is %s: its type, percentage and effective date are locked. Reset it to draft first."
+msgstr "A alteração %s é %s: seu tipo, percentual e data de vigência estão bloqueados. Redefina-o para rascunho primeiro."
+
+#. module: price_change_desk
+#. odoo-python
+#: code:addons/price_change_desk/models/price_change_desk.py:0
+msgid "The change percentage of %s must be above 0 and at most 100."
+msgstr "A porcentagem de alteração do %s deve estar acima de 0 e no máximo 100."
+
+#. module: price_change_desk
+#. odoo-python
+#: code:addons/price_change_desk/models/price_change_desk.py:0
+msgid "The current price of %s cannot be negative."
+msgstr "O preço atual do %s não pode ser negativo."
+
+#. module: price_change_desk
+#. odoo-python
+#: code:addons/price_change_desk/models/price_change_desk.py:0
+msgid "The price change %s is applied: its customer lines can no longer be changed."
+msgstr "A alteração de preço %s é aplicada: suas linhas de clientes não podem mais ser alteradas."
+
+#. module: price_change_desk
+#. odoo-python
+#: code:addons/price_change_desk/models/price_change_desk.py:0
+msgid "The price change %s is applied: no customer line can be added to it."
+msgstr "A alteração de preço %s é aplicada: nenhuma linha de cliente pode ser adicionada a ela."
+
+#. module: price_change_desk
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_form
+msgid "Total Current"
+msgstr "Corrente total"
+
+#. module: price_change_desk
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_form
+msgid "Total New"
+msgstr "Totalmente novo"
+
+#. module: price_change_desk
+#: model_terms:ir.ui.view,arch_db:price_change_desk.view_price_shift_search
+msgid "Type"
+msgstr "Tipo"
+
+#. module: price_change_desk
+#: model:res.groups,comment:price_change_desk.group_pricechanged_user
+msgid "View and use the module."
+msgstr "Visualize e use o módulo."
+
+#. module: price_change_desk
+#: model:ir.model.fields,help:price_change_desk.field_price_shift__description
+msgid "What this change is about, for example 2027 catalogue increase."
+msgstr "Do que se trata essa mudança, por exemplo, aumento do catálogo para 2027."
+
+#. module: price_change_desk
+#: model:ir.model.fields,help:price_change_desk.field_price_shift__scope
+msgid "Who the change covers, for example Retail segment or product family A."
+msgstr "Quem a mudança abrange, por exemplo, segmento de varejo ou família de produtos A."
