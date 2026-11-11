@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mail_item_list" model="ir.ui.view">
+        <field name="name">mail.item.list</field>
+        <field name="model">mail.item</field>
+        <field name="arch" type="xml">
+            <list string="Registered Mail" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="logged_on"/>
+                <field name="name"/>
+                <field name="direction"/>
+                <field name="partner_name"/>
+                <field name="tracking_number"/>
+                <field name="collected_on"/>
+                <field name="collected_by"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mail_item_form" model="ir.ui.view">
+        <field name="name">mail.item.form</field>
+        <field name="model">mail.item</field>
+        <field name="arch" type="xml">
+            <form string="Registered Mail">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="partner_name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Mail">
+    <field name="name"/>
+    <field name="direction"/>
+    <field name="partner_name"/>
+    <field name="tracking_number"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="logged_on"/>
+    <field name="state"/>
+    <field name="collected_on"/>
+    <field name="collected_by"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mail_item_search" model="ir.ui.view">
+        <field name="name">mail.item.search</field>
+        <field name="model">mail.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <field name="tracking_number"/>
+                <filter name="waiting" string="Waiting" domain="[('state','=','waiting')]"/>
+                <filter name="collected" string="Collected" domain="[('state','=','collected')]"/>
+                <filter name="inbound" string="Inbound" domain="[('direction','=','inbound')]"/>
+                <filter name="outbound" string="Outbound" domain="[('direction','=','outbound')]"/>
+                <separator/>
+                <filter name="group_direction" string="Direction" context="{'group_by': 'direction'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_mail_item_kanban" model="ir.ui.view">
+        <field name="name">mail.item.kanban</field>
+        <field name="model">mail.item</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="direction"/>
+                <field name="partner_name"/>
+                <field name="logged_on"/>
+                <field name="tracking_number"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="direction"/>
+                        <field name="partner_name"/>
+                        <field name="logged_on"/>
+                        <field name="tracking_number"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_mail_item" model="ir.actions.act_window">
+        <field name="name">Registered Mail</field>
+        <field name="res_model">mail.item</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Log every registered or tracked item entering or leaving the company.</p>
+        </field>
+    </record>
+
+</odoo>
