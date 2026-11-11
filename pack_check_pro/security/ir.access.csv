@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_pack_check_user,pack.check User,pack.check,pack_check_pro.group_packcheckpro_user,crud,
+access_pack_check_manager,pack.check Manager,pack.check,pack_check_pro.group_packcheckpro_manager,crud,
+rule_pack_check_company,pack.check: own company only,pack.check,,crud,"[('company_id', 'in', company_ids + [False])]"

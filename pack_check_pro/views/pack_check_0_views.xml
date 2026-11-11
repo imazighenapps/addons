@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_pack_check_list" model="ir.ui.view">
+        <field name="name">pack.check.list</field>
+        <field name="model">pack.check</field>
+        <field name="arch" type="xml">
+            <list string="Packing Checks" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="check_date"/>
+                <field name="reference"/>
+                <field name="packer"/>
+                <field name="checker"/>
+                <field name="expected_count"/>
+                <field name="actual_count"/>
+                <field name="expected_weight"/>
+                <field name="actual_weight"/>
+                <field name="result" widget="badge"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pack_check_form" model="ir.ui.view">
+        <field name="name">pack.check.form</field>
+        <field name="model">pack.check</field>
+        <field name="arch" type="xml">
+            <form string="Packing Checks">
+                <header>
+                    <button name="action_check" type="object" string="Verify" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'checked'"/>
+                    <button name="action_reject" type="object" string="Reject" class="btn-secondary" invisible="state != 'checked'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-secondary" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,checked,approved,rejected"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Check">
+    <field name="name"/>
+    <field name="check_date"/>
+    <field name="reference"/>
+    <field name="packer"/>
+    <field name="checker"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Weight">
+    <field name="expected_weight"/>
+    <field name="actual_weight"/>
+    <field name="weight_variance"/>
+                        </group>
+                        <group string="Count">
+    <field name="expected_count"/>
+    <field name="actual_count"/>
+    <field name="count_variance"/>
+                        </group>
+                        <group string="Decision">
+    <field name="result"/>
+    <field name="state"/>
+    <field name="decision_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pack_check_search" model="ir.ui.view">
+        <field name="name">pack.check.search</field>
+        <field name="model">pack.check</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="reference"/>
+                <field name="packer"/>
+                <field name="checker"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="checked" string="Checked" domain="[('state','=','checked')]"/>
+                <filter name="approved" string="Approved" domain="[('state','=','approved')]"/>
+                <filter name="rejected" string="Rejected" domain="[('state','=','rejected')]"/>
+                <filter name="passed" string="Passed" domain="[('result','=','pass')]"/>
+                <filter name="failed" string="Failed" domain="[('result','=','fail')]"/>
+                <separator/>
+                <filter name="group_result" string="Result" context="{'group_by': 'result'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_pack_check_kanban" model="ir.ui.view">
+        <field name="name">pack.check.kanban</field>
+        <field name="model">pack.check</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="reference"/>
+                <field name="result"/>
+                <field name="check_date"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="reference"/>
+                        <field name="result"/>
+                        <field name="check_date"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_pack_check" model="ir.actions.act_window">
+        <field name="name">Packing Checks</field>
+        <field name="res_model">pack.check</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Control every box at the bench before it leaves the building.</p>
+        </field>
+    </record>
+
+</odoo>
