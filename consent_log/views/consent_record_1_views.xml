@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_consent_record_list" model="ir.ui.view">
+        <field name="name">consent.record.list</field>
+        <field name="model">consent.record</field>
+        <field name="arch" type="xml">
+            <list string="Consents" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="granted_on"/>
+                <field name="subject_id"/>
+                <field name="name"/>
+                <field name="channel"/>
+                <field name="source"/>
+                <field name="expires_on"/>
+                <field name="withdrawn_on"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_consent_record_form" model="ir.ui.view">
+        <field name="name">consent.record.form</field>
+        <field name="model">consent.record</field>
+        <field name="arch" type="xml">
+            <form string="Consents">
+                <header>
+                    <button name="action_withdraw" type="object" string="Withdraw" class="btn-primary" invisible="state != 'active'"/>
+                    <button name="action_expire" type="object" string="Mark Expired" class="btn-secondary" invisible="state != 'active'"/>
+                    <button name="action_reactivate" type="object" string="Reactivate" class="btn-link" invisible="state != 'expired'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="active,withdrawn,expired"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Consent">
+    <field name="name"/>
+    <field name="subject_id"/>
+    <field name="channel"/>
+    <field name="source"/>
+    <field name="proof_ref"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Dates">
+    <field name="granted_on"/>
+    <field name="expires_on"/>
+    <field name="withdrawn_on"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Withdrawal Reason" name="withdrawalreason">
+                            <field name="withdrawal_reason"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_consent_record_search" model="ir.ui.view">
+        <field name="name">consent.record.search</field>
+        <field name="model">consent.record</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="subject_id"/>
+                <field name="source"/>
+                <field name="proof_ref"/>
+                <filter name="active" string="Active" domain="[('state','=','active')]"/>
+                <filter name="withdrawn" string="Withdrawn" domain="[('state','=','withdrawn')]"/>
+                <filter name="expired" string="Expired" domain="[('state','=','expired')]"/>
+                <separator/>
+                <filter name="group_contact" string="Contact" context="{'group_by': 'subject_id'}"/>
+                <filter name="group_channel" string="Channel" context="{'group_by': 'channel'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_consent_record_kanban" model="ir.ui.view">
+        <field name="name">consent.record.kanban</field>
+        <field name="model">consent.record</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="subject_id"/>
+                <field name="channel"/>
+                <field name="granted_on"/>
+                <field name="source"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="subject_id"/>
+                        <field name="channel"/>
+                        <field name="granted_on"/>
+                        <field name="source"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_consent_record" model="ir.actions.act_window">
+        <field name="name">Consents</field>
+        <field name="res_model">consent.record</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record each consent with its source, proof and dates.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_consent_subject_list" model="ir.ui.view">
+        <field name="name">consent.subject.list</field>
+        <field name="model">consent.subject</field>
+        <field name="arch" type="xml">
+            <list string="Contacts">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="partner_id"/>
+                <field name="consent_count"/>
+                <field name="active_consent_count"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_consent_subject_form" model="ir.ui.view">
+        <field name="name">consent.subject.form</field>
+        <field name="model">consent.subject</field>
+        <field name="arch" type="xml">
+            <form string="Contacts">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Contact">
+    <field name="name"/>
+    <field name="email"/>
+    <field name="partner_id"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Counters">
+    <field name="consent_count"/>
+    <field name="active_consent_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_consent_subject_search" model="ir.ui.view">
+        <field name="name">consent.subject.search</field>
+        <field name="model">consent.subject</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="partner_id"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_consent_subject_kanban" model="ir.ui.view">
+        <field name="name">consent.subject.kanban</field>
+        <field name="model">consent.subject</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="company_id" sample="1">
+                <field name="company_id"/>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="active_consent_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="company_id" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="active_consent_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_consent_subject" model="ir.actions.act_window">
+        <field name="name">Contacts</field>
+        <field name="res_model">consent.subject</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Keep the contacts for whom consent proofs are recorded.</p>
+        </field>
+    </record>
+
+</odoo>
