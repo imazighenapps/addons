@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_recode_line_list" model="ir.ui.view">
+        <field name="name">recode.line.list</field>
+        <field name="model">recode.line</field>
+        <field name="arch" type="xml">
+            <list string="Reference Trace">
+                <field name="request_id"/>
+                <field name="source"/>
+                <field name="old_value"/>
+                <field name="new_value"/>
+                <field name="updated"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_recode_line_form" model="ir.ui.view">
+        <field name="name">recode.line.form</field>
+        <field name="model">recode.line</field>
+        <field name="arch" type="xml">
+            <form string="Reference Trace">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="source" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Reference">
+    <field name="request_id"/>
+    <field name="source"/>
+    <field name="old_value"/>
+    <field name="new_value"/>
+    <field name="updated"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_recode_line_search" model="ir.ui.view">
+        <field name="name">recode.line.search</field>
+        <field name="model">recode.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="source"/>
+                <field name="old_value"/>
+                <field name="new_value"/>
+                <field name="request_id"/>
+                <filter name="updated" string="Updated" domain="[('updated','=',True)]"/>
+                <filter name="pending" string="Pending" domain="[('updated','=',False)]"/>
+                <separator/>
+                <filter name="group_request" string="Request" context="{'group_by': 'request_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_recode_line" model="ir.actions.act_window">
+        <field name="name">Reference Trace</field>
+        <field name="res_model">recode.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every reference touched by a product renumbering.</p>
+        </field>
+    </record>
+
+</odoo>
