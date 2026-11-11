@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_doc_control_company" model="ir.rule">
+        <field name="name">doc.control: own company only</field>
+        <field name="model_id" ref="model_doc_control"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_doc_distribution_company" model="ir.rule">
+        <field name="name">doc.distribution: own company only</field>
+        <field name="model_id" ref="model_doc_distribution"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

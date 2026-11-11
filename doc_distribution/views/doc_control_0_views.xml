@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_doc_control_list" model="ir.ui.view">
+        <field name="name">doc.control.list</field>
+        <field name="model">doc.control</field>
+        <field name="arch" type="xml">
+            <list string="Controlled Documents">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="revision"/>
+                <field name="effective_on"/>
+                <field name="distribution_count"/>
+                <field name="pending_count"/>
+                <field name="acknowledged_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_doc_control_form" model="ir.ui.view">
+        <field name="name">doc.control.form</field>
+        <field name="model">doc.control</field>
+        <field name="arch" type="xml">
+            <form string="Controlled Documents">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Document">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="revision"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Timeline">
+    <field name="effective_on"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Counters">
+    <field name="distribution_count"/>
+    <field name="pending_count"/>
+    <field name="acknowledged_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_doc_control_search" model="ir.ui.view">
+        <field name="name">doc.control.search</field>
+        <field name="model">doc.control</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="revision"/>
+                <separator/>
+                <filter name="group_revision" string="Revision" context="{'group_by': 'revision'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_doc_control_kanban" model="ir.ui.view">
+        <field name="name">doc.control.kanban</field>
+        <field name="model">doc.control</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="revision" sample="1">
+                <field name="revision"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="effective_on"/>
+                <field name="pending_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="revision" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="effective_on"/>
+                        <field name="pending_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_doc_control" model="ir.actions.act_window">
+        <field name="name">Controlled Documents</field>
+        <field name="res_model">doc.control</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every controlled document, its current revision and who still has to sign.</p>
+        </field>
+    </record>
+
+</odoo>
