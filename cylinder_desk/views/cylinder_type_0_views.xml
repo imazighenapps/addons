@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cylinder_type_list" model="ir.ui.view">
+        <field name="name">cylinder.type.list</field>
+        <field name="model">cylinder.type</field>
+        <field name="arch" type="xml">
+            <list string="Cylinder Types">
+                <field name="name"/>
+                <field name="gas"/>
+                <field name="capacity_liters"/>
+                <field name="rental_rate"/>
+                <field name="custody_count"/>
+                <field name="open_custody_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cylinder_type_form" model="ir.ui.view">
+        <field name="name">cylinder.type.form</field>
+        <field name="model">cylinder.type</field>
+        <field name="arch" type="xml">
+            <form string="Cylinder Types">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Cylinder">
+    <field name="name"/>
+    <field name="gas"/>
+    <field name="capacity_liters"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Rental">
+    <field name="rental_rate"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Counters">
+    <field name="custody_count"/>
+    <field name="open_custody_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cylinder_type_search" model="ir.ui.view">
+        <field name="name">cylinder.type.search</field>
+        <field name="model">cylinder.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="gas"/>
+                <separator/>
+                <filter name="group_gas" string="Gas" context="{'group_by': 'gas'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_cylinder_type_kanban" model="ir.ui.view">
+        <field name="name">cylinder.type.kanban</field>
+        <field name="model">cylinder.type</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="gas" sample="1">
+                <field name="gas"/>
+                <field name="name"/>
+                <field name="capacity_liters"/>
+                <field name="open_custody_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="gas" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="capacity_liters"/>
+                        <field name="open_custody_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_cylinder_type" model="ir.actions.act_window">
+        <field name="name">Cylinder Types</field>
+        <field name="res_model">cylinder.type</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The yard in one screen: every cylinder type, its gas and its rental rate.</p>
+        </field>
+    </record>
+
+</odoo>
