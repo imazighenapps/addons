@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_key_missing_list" model="ir.ui.view">
+        <field name="name">key.item.list</field>
+        <field name="model">key.item</field>
+        <field name="arch" type="xml">
+            <list string="Missing Keys">
+                <field name="issued_on"/>
+                <field name="label"/>
+                <field name="key_type"/>
+                <field name="holder"/>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_key_missing_form" model="ir.ui.view">
+        <field name="name">key.item.form</field>
+        <field name="model">key.item</field>
+        <field name="arch" type="xml">
+            <form string="Missing Keys">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="label" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Key">
+    <field name="name"/>
+    <field name="label"/>
+    <field name="key_type"/>
+    <field name="holder"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="issued_on"/>
+    <field name="state"/>
+    <field name="returned_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_key_missing_search" model="ir.ui.view">
+        <field name="name">key.item.search</field>
+        <field name="model">key.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="label"/>
+                <field name="holder"/>
+                <separator/>
+                <filter name="group_holder" string="Holder" context="{'group_by': 'holder'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_key_missing" model="ir.actions.act_window">
+        <field name="name">Missing Keys</field>
+        <field name="res_model">key.item</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Keys and badges still out and not yet returned.</p>
+        </field>
+    </record>
+
+</odoo>
