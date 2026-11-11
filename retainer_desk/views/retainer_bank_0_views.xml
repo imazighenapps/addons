@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_retainer_bank_list" model="ir.ui.view">
+        <field name="name">retainer.bank.list</field>
+        <field name="model">retainer.bank</field>
+        <field name="arch" type="xml">
+            <list string="Retainer Banks" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="date_end"/>
+                <field name="hours_purchased"/>
+                <field name="hours_used"/>
+                <field name="hours_remaining"/>
+                <field name="burn_rate"/>
+                <field name="is_low"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_retainer_bank_form" model="ir.ui.view">
+        <field name="name">retainer.bank.form</field>
+        <field name="model">retainer.bank</field>
+        <field name="arch" type="xml">
+            <form string="Retainer Banks">
+                <header>
+                    <button name="action_close" type="object" string="Close" class="btn-secondary" invisible="state == 'open'"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-secondary" invisible="state == 'closed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="s,t,a,t,e"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Retainer">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="date_start"/>
+    <field name="date_end"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Balance">
+    <field name="hours_purchased"/>
+    <field name="hours_used"/>
+    <field name="hours_remaining"/>
+    <field name="burn_rate"/>
+    <field name="alert_hours"/>
+    <field name="is_low"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Usage" name="usageids">
+                            <field name="usage_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_retainer_bank_search" model="ir.ui.view">
+        <field name="name">retainer.bank.search</field>
+        <field name="model">retainer.bank</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="low" string="Low Balance" domain="[('is_low','=',True)]"/>
+                <separator/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_retainer_bank_kanban" model="ir.ui.view">
+        <field name="name">retainer.bank.kanban</field>
+        <field name="model">retainer.bank</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="partner_id"/>
+                <field name="hours_remaining"/>
+                <field name="burn_rate"/>
+                <field name="date_end"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="partner_id"/>
+                        <field name="hours_remaining"/>
+                        <field name="burn_rate"/>
+                        <field name="date_end"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_retainer_bank" model="ir.actions.act_window">
+        <field name="name">Retainer Banks</field>
+        <field name="res_model">retainer.bank</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Hour banks sold in advance with a live burn-down.</p>
+        </field>
+    </record>
+
+</odoo>
