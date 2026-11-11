@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_allergen_recipe_user,allergen.recipe User,allergen.recipe,allergen_matrix.group_allergenmatr_user,crud,
+access_allergen_recipe_manager,allergen.recipe Manager,allergen.recipe,allergen_matrix.group_allergenmatr_manager,crud,
+access_allergen_line_user,allergen.line User,allergen.line,allergen_matrix.group_allergenmatr_user,crud,
+access_allergen_line_manager,allergen.line Manager,allergen.line,allergen_matrix.group_allergenmatr_manager,crud,
+rule_allergen_recipe_company,allergen.recipe: own company only,allergen.recipe,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_allergen_line_company,allergen.line: own company only,allergen.line,,crud,"[('company_id', 'in', company_ids + [False])]"

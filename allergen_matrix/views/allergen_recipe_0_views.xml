@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_allergen_recipe_list" model="ir.ui.view">
+        <field name="name">allergen.recipe.list</field>
+        <field name="model">allergen.recipe</field>
+        <field name="arch" type="xml">
+            <list string="Recipes" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="product_name"/>
+                <field name="line_name"/>
+                <field name="declaration_ref"/>
+                <field name="allergen_count"/>
+                <field name="present_count"/>
+                <field name="cross_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_allergen_recipe_form" model="ir.ui.view">
+        <field name="name">allergen.recipe.form</field>
+        <field name="model">allergen.recipe</field>
+        <field name="arch" type="xml">
+            <form string="Recipes">
+                <header>
+                    <button name="action_validate" type="object" string="Validate" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_archive_recipe" type="object" string="Archive" class="btn-secondary" invisible="state != 'validated'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,validated,archived"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Recipe">
+    <field name="name"/>
+    <field name="product_name"/>
+    <field name="line_name"/>
+    <field name="declaration_ref"/>
+    <field name="responsible_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Matrix">
+    <field name="allergen_count"/>
+    <field name="present_count"/>
+    <field name="cross_count"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Allergens" name="lineids">
+                            <field name="line_ids" readonly="state == 'validated'">
+                        <list editable="bottom">
+                            <field name="allergen"/>
+                            <field name="presence"/>
+                            <field name="source" optional="show"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_allergen_recipe_search" model="ir.ui.view">
+        <field name="name">allergen.recipe.search</field>
+        <field name="model">allergen.recipe</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="product_name"/>
+                <field name="declaration_ref"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="validated" string="Validated" domain="[('state','=','validated')]"/>
+                <filter name="archived_state" string="Archived Recipes" domain="[('state','=','archived')]"/>
+                <filter name="has_cross" string="With Cross-Contact" domain="[('cross_count','&gt;',0)]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_responsible" string="Responsible" context="{'group_by': 'responsible_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_allergen_recipe" model="ir.actions.act_window">
+        <field name="name">Recipes</field>
+        <field name="res_model">allergen.recipe</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Declare the allergens of every recipe and keep the matrix current.</p>
+        </field>
+    </record>
+
+</odoo>

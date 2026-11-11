@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_allergen_line_list" model="ir.ui.view">
+        <field name="name">allergen.line.list</field>
+        <field name="model">allergen.line</field>
+        <field name="arch" type="xml">
+            <list string="Allergen Lines">
+                <field name="recipe_id"/>
+                <field name="allergen"/>
+                <field name="presence" widget="badge"/>
+                <field name="source"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_allergen_line_form" model="ir.ui.view">
+        <field name="name">allergen.line.form</field>
+        <field name="model">allergen.line</field>
+        <field name="arch" type="xml">
+            <form string="Allergen Lines">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="allergen" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Allergen">
+    <field name="recipe_id"/>
+    <field name="allergen"/>
+    <field name="presence"/>
+                        </group>
+                        <group string="Detail">
+    <field name="source"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_allergen_line_search" model="ir.ui.view">
+        <field name="name">allergen.line.search</field>
+        <field name="model">allergen.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="recipe_id"/>
+                <field name="allergen"/>
+                <field name="source"/>
+                <filter name="present" string="Present" domain="[('presence','=','present')]"/>
+                <filter name="cross" string="Cross-Contact" domain="[('presence','=','cross')]"/>
+                <separator/>
+                <filter name="group_recipe" string="Recipe" context="{'group_by': 'recipe_id'}"/>
+                <filter name="group_allergen" string="Allergen" context="{'group_by': 'allergen'}"/>
+                <filter name="group_presence" string="Presence" context="{'group_by': 'presence'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_allergen_line" model="ir.actions.act_window">
+        <field name="name">Allergen Lines</field>
+        <field name="res_model">allergen.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every declared allergen across all recipes.</p>
+        </field>
+    </record>
+
+</odoo>
