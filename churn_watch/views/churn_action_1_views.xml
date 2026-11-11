@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_churn_action_list" model="ir.ui.view">
+        <field name="name">churn.action.list</field>
+        <field name="model">churn.action</field>
+        <field name="arch" type="xml">
+            <list string="Save Actions">
+                <field name="planned_date"/>
+                <field name="signal_id"/>
+                <field name="partner_id"/>
+                <field name="owner_id"/>
+                <field name="outcome"/>
+                <field name="done_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_churn_action_form" model="ir.ui.view">
+        <field name="name">churn.action.form</field>
+        <field name="model">churn.action</field>
+        <field name="arch" type="xml">
+            <form string="Save Actions">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Action">
+    <field name="name"/>
+    <field name="signal_id"/>
+    <field name="partner_id"/>
+    <field name="owner_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="planned_date"/>
+    <field name="done_date"/>
+    <field name="outcome"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_churn_action_search" model="ir.ui.view">
+        <field name="name">churn.action.search</field>
+        <field name="model">churn.action</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="signal_id"/>
+                <field name="partner_id"/>
+                <field name="owner_id"/>
+                <filter name="pending" string="Pending" domain="[('outcome','=','pending')]"/>
+                <filter name="won_back" string="Won Back" domain="[('outcome','=','won_back')]"/>
+                <separator/>
+                <filter name="group_owner" string="Owner" context="{'group_by': 'owner_id'}"/>
+                <filter name="group_outcome" string="Outcome" context="{'group_by': 'outcome'}"/>
+                <filter name="group_signal" string="Signal" context="{'group_by': 'signal_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_churn_action_kanban" model="ir.ui.view">
+        <field name="name">churn.action.kanban</field>
+        <field name="model">churn.action</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="outcome" sample="1">
+                <field name="outcome"/>
+                <field name="signal_id"/>
+                <field name="partner_id"/>
+                <field name="owner_id"/>
+                <field name="planned_date"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="outcome" class="fw-bold"/>
+                        <field name="signal_id"/>
+                        <field name="partner_id"/>
+                        <field name="owner_id"/>
+                        <field name="planned_date"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_churn_action" model="ir.actions.act_window">
+        <field name="name">Save Actions</field>
+        <field name="res_model">churn.action</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every save attempt with its owner, date and outcome so nothing slips twice.</p>
+        </field>
+    </record>
+
+</odoo>
