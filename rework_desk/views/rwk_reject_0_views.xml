@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_rwk_reject_list" model="ir.ui.view">
+        <field name="name">rwk.reject.list</field>
+        <field name="model">rwk.reject</field>
+        <field name="arch" type="xml">
+            <list string="Rejected Output" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="detected_on"/>
+                <field name="product_ref"/>
+                <field name="quantity"/>
+                <field name="order_count"/>
+                <field name="reworked_qty"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_rwk_reject_form" model="ir.ui.view">
+        <field name="name">rwk.reject.form</field>
+        <field name="model">rwk.reject</field>
+        <field name="arch" type="xml">
+            <form string="Rejected Output">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Rejection">
+    <field name="name"/>
+    <field name="product_ref"/>
+    <field name="quantity"/>
+    <field name="unit_name"/>
+    <field name="detected_on"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Status">
+    <field name="state"/>
+                        </group>
+                        <group string="Counters">
+    <field name="order_count"/>
+    <field name="done_order_count"/>
+    <field name="reworked_qty"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Reason" name="reason">
+                            <field name="reason"/>
+                        </page>
+                        <page string="Rework Orders" name="orderids">
+                            <field name="order_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_rwk_reject_search" model="ir.ui.view">
+        <field name="name">rwk.reject.search</field>
+        <field name="model">rwk.reject</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="product_ref"/>
+                <filter name="open" string="Open" domain="[('state', 'in', ('open', 'in_rework'))]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_rwk_reject_kanban" model="ir.ui.view">
+        <field name="name">rwk.reject.kanban</field>
+        <field name="model">rwk.reject</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="product_ref"/>
+                <field name="quantity"/>
+                <field name="detected_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="product_ref"/>
+                        <field name="quantity"/>
+                        <field name="detected_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_rwk_reject" model="ir.actions.act_window">
+        <field name="name">Rejected Output</field>
+        <field name="res_model">rwk.reject</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Rejected production output waiting for a controlled second pass.</p>
+        </field>
+    </record>
+
+</odoo>
