@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_visit_plan_user,visit.plan User,visit.plan,visit_plan.group_visitplan_user,cru,
+access_visit_plan_manager,visit.plan Manager,visit.plan,visit_plan.group_visitplan_manager,crud,
+access_visit_stop_user,visit.stop User,visit.stop,visit_plan.group_visitplan_user,cru,
+access_visit_stop_manager,visit.stop Manager,visit.stop,visit_plan.group_visitplan_manager,crud,
+rule_visit_plan_company,visit.plan: own company only,visit.plan,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_visit_stop_company,visit.stop: own company only,visit.stop,,crud,"[('company_id', 'in', company_ids + [False])]"
