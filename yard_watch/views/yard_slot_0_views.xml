@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_yard_slot_list" model="ir.ui.view">
+        <field name="name">yard.slot.list</field>
+        <field name="model">yard.slot</field>
+        <field name="arch" type="xml">
+            <list string="Yard Slots">
+                <field name="name"/>
+                <field name="dock"/>
+                <field name="capacity"/>
+                <field name="waiting_count"/>
+                <field name="docked_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_yard_slot_form" model="ir.ui.view">
+        <field name="name">yard.slot.form</field>
+        <field name="model">yard.slot</field>
+        <field name="arch" type="xml">
+            <form string="Yard Slots">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Slot">
+    <field name="name"/>
+    <field name="dock"/>
+    <field name="capacity"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Occupancy">
+    <field name="waiting_count"/>
+    <field name="docked_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_yard_slot_search" model="ir.ui.view">
+        <field name="name">yard.slot.search</field>
+        <field name="model">yard.slot</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="dock"/>
+                <separator/>
+                <filter name="group_dock" string="Dock" context="{'group_by': 'dock'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_yard_slot_kanban" model="ir.ui.view">
+        <field name="name">yard.slot.kanban</field>
+        <field name="model">yard.slot</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="dock" sample="1">
+                <field name="dock"/>
+                <field name="name"/>
+                <field name="capacity"/>
+                <field name="waiting_count"/>
+                <field name="docked_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="dock" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="capacity"/>
+                        <field name="waiting_count"/>
+                        <field name="docked_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_yard_slot" model="ir.actions.act_window">
+        <field name="name">Yard Slots</field>
+        <field name="res_model">yard.slot</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Define the slots of your yard and see where trailers are waiting.</p>
+        </field>
+    </record>
+
+</odoo>
