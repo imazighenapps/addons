@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_room_booking_list" model="ir.ui.view">
+        <field name="name">room.booking.list</field>
+        <field name="model">room.booking</field>
+        <field name="arch" type="xml">
+            <list string="Bookings" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="start_at"/>
+                <field name="end_at"/>
+                <field name="room_id"/>
+                <field name="name"/>
+                <field name="host_id"/>
+                <field name="attendee_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_room_booking_form" model="ir.ui.view">
+        <field name="name">room.booking.form</field>
+        <field name="model">room.booking</field>
+        <field name="arch" type="xml">
+            <form string="Bookings">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state == 'cancelled'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Booking">
+    <field name="name"/>
+    <field name="room_id"/>
+    <field name="host_id"/>
+    <field name="attendee_count"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Schedule">
+    <field name="start_at"/>
+    <field name="end_at"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_room_booking_search" model="ir.ui.view">
+        <field name="name">room.booking.search</field>
+        <field name="model">room.booking</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="room_id"/>
+                <field name="host_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <filter name="mine" string="My Bookings" domain="[('host_id','=',uid)]"/>
+                <separator/>
+                <filter name="group_room" string="Room" context="{'group_by': 'room_id'}"/>
+                <filter name="group_host" string="Host" context="{'group_by': 'host_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_room_booking_kanban" model="ir.ui.view">
+        <field name="name">room.booking.kanban</field>
+        <field name="model">room.booking</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="room_id"/>
+                <field name="start_at"/>
+                <field name="end_at"/>
+                <field name="host_id"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="room_id"/>
+                        <field name="start_at"/>
+                        <field name="end_at"/>
+                        <field name="host_id"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_room_booking" model="ir.actions.act_window">
+        <field name="name">Bookings</field>
+        <field name="res_model">room.booking</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Book a room, confirm it, and keep the agenda conflict-free.</p>
+        </field>
+    </record>
+
+</odoo>
