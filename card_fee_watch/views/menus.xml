@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_fee_root" name="Fee Watch" sequence="60"/>
+    <menuitem id="menu_fee_contracts" name="Fee Contracts" parent="menu_fee_root" action="action_fee_contract" sequence="10"/>
+    <menuitem id="menu_fee_lines" name="Billed Fees" parent="menu_fee_root" action="action_fee_line" sequence="20"/>
+    <menuitem id="menu_fee_variances" name="Variance Report" parent="menu_fee_root" action="action_fee_variance" sequence="30"/>
+</odoo>
