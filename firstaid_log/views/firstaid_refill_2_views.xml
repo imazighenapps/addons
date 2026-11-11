@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_firstaid_refill_list" model="ir.ui.view">
+        <field name="name">firstaid.refill.list</field>
+        <field name="model">firstaid.refill</field>
+        <field name="arch" type="xml">
+            <list string="Refill Rounds" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="refill_date"/>
+                <field name="name"/>
+                <field name="kit_id"/>
+                <field name="refilled_by_id"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_firstaid_refill_form" model="ir.ui.view">
+        <field name="name">firstaid.refill.form</field>
+        <field name="model">firstaid.refill</field>
+        <field name="arch" type="xml">
+            <form string="Refill Rounds">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Refill">
+    <field name="name"/>
+    <field name="kit_id"/>
+    <field name="refill_date"/>
+    <field name="refilled_by_id"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_firstaid_refill_search" model="ir.ui.view">
+        <field name="name">firstaid.refill.search</field>
+        <field name="model">firstaid.refill</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="kit_id"/>
+                <field name="refilled_by_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <separator/>
+                <filter name="group_kit" string="Kit" context="{'group_by': 'kit_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_firstaid_refill_kanban" model="ir.ui.view">
+        <field name="name">firstaid.refill.kanban</field>
+        <field name="model">firstaid.refill</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="kit_id"/>
+                <field name="refill_date"/>
+                <field name="refilled_by_id"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="kit_id"/>
+                        <field name="refill_date"/>
+                        <field name="refilled_by_id"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_firstaid_refill" model="ir.actions.act_window">
+        <field name="name">Refill Rounds</field>
+        <field name="res_model">firstaid.refill</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Refill rounds performed on each first aid kit.</p>
+        </field>
+    </record>
+
+</odoo>

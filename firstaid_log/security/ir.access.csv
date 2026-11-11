@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_firstaid_kit_user,firstaid.kit User,firstaid.kit,firstaid_log.group_firstaidlog_user,cr,
+access_firstaid_kit_manager,firstaid.kit Manager,firstaid.kit,firstaid_log.group_firstaidlog_manager,crud,
+access_firstaid_item_user,firstaid.item User,firstaid.item,firstaid_log.group_firstaidlog_user,cr,
+access_firstaid_item_manager,firstaid.item Manager,firstaid.item,firstaid_log.group_firstaidlog_manager,crud,
+access_firstaid_refill_user,firstaid.refill User,firstaid.refill,firstaid_log.group_firstaidlog_user,cr,
+access_firstaid_refill_manager,firstaid.refill Manager,firstaid.refill,firstaid_log.group_firstaidlog_manager,crud,
+rule_firstaid_kit_company,firstaid.kit: own company only,firstaid.kit,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_firstaid_item_company,firstaid.item: own company only,firstaid.item,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_firstaid_refill_company,firstaid.refill: own company only,firstaid.refill,,crud,"[('company_id', 'in', company_ids + [False])]"
