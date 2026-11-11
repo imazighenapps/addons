@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_freight_tariff_company" model="ir.rule">
+        <field name="name">freight.tariff: own company only</field>
+        <field name="model_id" ref="model_freight_tariff"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_freight_bill_line_company" model="ir.rule">
+        <field name="name">freight.bill.line: own company only</field>
+        <field name="model_id" ref="model_freight_bill_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
