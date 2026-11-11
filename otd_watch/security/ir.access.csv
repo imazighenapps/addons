@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_otd_commitment_user,otd.commitment User,otd.commitment,otd_watch.group_otdwatch_user,cr,
+access_otd_commitment_manager,otd.commitment Manager,otd.commitment,otd_watch.group_otdwatch_manager,crud,
+rule_otd_commitment_company,otd.commitment: own company only,otd.commitment,,crud,"[('company_id', 'in', company_ids + [False])]"
