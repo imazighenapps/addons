@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_min_order_root" name="Minimum Log" sequence="68"/>
+    <menuitem id="menu_min_rules" name="Minimum Rules" parent="menu_min_order_root" action="action_order_min_rule" sequence="10"/>
+    <menuitem id="menu_min_order_check" name="Order Check" parent="menu_min_order_root" action="action_order_min_exception" sequence="20"/>
+    <menuitem id="menu_min_exceptions" name="Exceptions Log" parent="menu_min_order_root" action="action_order_exceptions" sequence="30"/>
+</odoo>

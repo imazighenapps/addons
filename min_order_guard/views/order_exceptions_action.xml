@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_order_exceptions" model="ir.actions.act_window">
+        <field name="domain">[('state', '!=', 'pending')]</field>
+        <field name="context">{'search_default_group_customer': 1}</field>
+    </record>
+</odoo>

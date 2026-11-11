@@ -1,0 +1,410 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* min_order_guard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: min_order_guard
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_rule_search
+msgid "Active Rules"
+msgstr "Aktive Regeln"
+
+#. module: min_order_guard
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_exceptions_form
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_exception_form
+msgid "Allow"
+msgstr "Erlauben"
+
+#. module: min_order_guard
+#: model:ir.model.fields.selection,name:min_order_guard.selection__order_min_exception__state__allowed
+msgid "Allowed"
+msgstr "Erlaubt"
+
+#. module: min_order_guard
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_exception_search
+msgid "Allowed Anyway"
+msgstr "Jedenfalls erlaubt"
+
+#. module: min_order_guard
+#. odoo-python
+#: code:addons/min_order_guard/models/order_min_exception.py:0
+msgid "Allowing %s below the minimum requires a written reason."
+msgstr "Das Zulassen, dass %s unter dem Mindestwert liegt, erfordert einen schriftlichen Grund."
+
+#. module: min_order_guard
+#: model:ir.model.fields,help:min_order_guard.field_order_min_exception__shortfall
+msgid "Amount missing to reach the minimum."
+msgstr "Es fehlt der Betrag, um das Minimum zu erreichen."
+
+#. module: min_order_guard
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_rule_search
+msgid "Archived"
+msgstr "Archiviert"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__company_id
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__company_id
+msgid "Company"
+msgstr "Firma"
+
+#. module: min_order_guard
+#: model:res.groups,comment:min_order_guard.group_minorderguar_manager
+msgid "Configure and administer the module."
+msgstr "Konfigurieren und verwalten Sie das Modul."
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__create_uid
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__create_date
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__partner_name
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_exceptions_search
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_exception_search
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_rule_search
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__decided_by
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_exceptions_search
+msgid "Decided By"
+msgstr "Entschieden von"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__decided_on
+msgid "Decided On"
+msgstr "Beschlossen"
+
+#. module: min_order_guard
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_exceptions_form
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_exception_form
+msgid "Decision"
+msgstr "Entscheidung"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__display_name
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: min_order_guard
+#: model:ir.module.module,summary:base.module_min_order_guard
+msgid "Enforce minimum order value or quantity per customer with a clean exception log for the orders you allow anyway."
+msgstr "Erzwingen Sie den Mindestbestellwert oder die Mindestbestellmenge pro Kunde mit einem sauberen Ausnahmeprotokoll für die Bestellungen, die Sie ohnehin zulassen."
+
+#. module: min_order_guard
+#: model_terms:ir.actions.act_window,help:min_order_guard.action_order_min_exception
+msgid "Every order below its minimum, decided on the spot with a written trace."
+msgstr "Jede Bestellung, die unter ihrem Mindestwert liegt, wird vor Ort mit einer schriftlichen Aufzeichnung entschieden."
+
+#. module: min_order_guard
+#: model:ir.model.fields,help:min_order_guard.field_order_min_rule__partner_name
+msgid "Exact customer name the minimum applies to."
+msgstr "Genauer Name des Kunden, für den das Minimum gilt."
+
+#. module: min_order_guard
+#. odoo-python
+#: code:addons/min_order_guard/models/order_min_exception.py:0
+msgid "Exception %s"
+msgstr "Ausnahme %s"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__exception_count
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__exception_ids
+msgid "Exceptions"
+msgstr "Ausnahmen"
+
+#. module: min_order_guard
+#: model:ir.actions.act_window,name:min_order_guard.action_order_exceptions
+#: model:ir.ui.menu,name:min_order_guard.menu_min_exceptions
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_exceptions_form
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_exceptions_list
+msgid "Exceptions Log"
+msgstr "Ausnahmeprotokoll"
+
+#. module: min_order_guard
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_rule_form
+msgid "Follow Up"
+msgstr "Nachverfolgen"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__has_message
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__has_message
+msgid "Has Message"
+msgstr "Hat Nachricht"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__write_uid
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__write_date
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: min_order_guard
+#: model:ir.model.fields,help:min_order_guard.field_order_min_rule__min_amount
+msgid "Lowest order value accepted for the customer."
+msgstr "Niedrigster Bestellwert, der für den Kunden akzeptiert wird."
+
+#. module: min_order_guard
+#: model:ir.model.fields,help:min_order_guard.field_order_min_rule__min_quantity
+msgid "Lowest quantity accepted for the customer."
+msgstr "Niedrigste für den Kunden akzeptierte Menge."
+
+#. module: min_order_guard
+#: model:res.groups,name:min_order_guard.group_minorderguar_manager
+msgid "Min Order Guard Manager"
+msgstr "Min Order Guard Manager"
+
+#. module: min_order_guard
+#: model:res.groups,name:min_order_guard.group_minorderguar_user
+msgid "Min Order Guard User"
+msgstr "Mindestbestellwert-Guard-Benutzer"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__min_amount
+msgid "Minimum Amount"
+msgstr "Mindestbetrag"
+
+#. module: min_order_guard
+#: model:ir.ui.menu,name:min_order_guard.menu_min_order_root
+msgid "Minimum Log"
+msgstr "Mindestprotokoll"
+
+#. module: min_order_guard
+#: model:ir.model,name:min_order_guard.model_order_min_rule
+msgid "Minimum Order Rule"
+msgstr "Mindestbestellregel"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__min_quantity
+msgid "Minimum Quantity"
+msgstr "Mindestmenge"
+
+#. module: min_order_guard
+#: model:ir.actions.act_window,name:min_order_guard.action_order_min_rule
+#: model:ir.ui.menu,name:min_order_guard.menu_min_rules
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_rule_form
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_rule_list
+msgid "Minimum Rules"
+msgstr "Mindestregeln"
+
+#. module: min_order_guard
+#: model:ir.model.fields,help:min_order_guard.field_order_min_exception__rule_id
+msgid "Minimum the order collided with."
+msgstr "Mindestens, mit dem die Bestellung kollidierte."
+
+#. module: min_order_guard
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_rule_form
+msgid "Minimums"
+msgstr "Mindestbeträge"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__name
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__name
+msgid "Name"
+msgstr "Name"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__note
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_rule__note
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_exceptions_form
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_exception_form
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_rule_form
+msgid "Note"
+msgstr "Notiz"
+
+#. module: min_order_guard
+#: model_terms:ir.actions.act_window,help:min_order_guard.action_order_min_rule
+msgid "One threshold per customer, in value or quantity, the promise logistics can rely on."
+msgstr "Ein Schwellenwert pro Kunde, in Wert oder Menge, auf den sich die Versprechenslogistik verlassen kann."
+
+#. module: min_order_guard
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_exceptions_form
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_exception_form
+msgid "Order"
+msgstr "Auftrag"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__order_amount
+msgid "Order Amount"
+msgstr "Bestellmenge"
+
+#. module: min_order_guard
+#: model:ir.model,name:min_order_guard.model_order_min_exception
+msgid "Order Below Minimum"
+msgstr "Bestellen Sie unter dem Mindestwert"
+
+#. module: min_order_guard
+#: model:ir.actions.act_window,name:min_order_guard.action_order_min_exception
+#: model:ir.ui.menu,name:min_order_guard.menu_min_order_check
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_exception_form
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_exception_list
+msgid "Order Check"
+msgstr "Orderscheck"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__order_quantity
+msgid "Order Quantity"
+msgstr "Bestellmenge"
+
+#. module: min_order_guard
+#: model:ir.module.module,shortdesc:base.module_min_order_guard
+msgid "OrderMin"
+msgstr "BestellMin"
+
+#. module: min_order_guard
+#: model:ir.model.fields.selection,name:min_order_guard.selection__order_min_exception__state__pending
+msgid "Pending"
+msgstr "Ausstehend"
+
+#. module: min_order_guard
+#: model:ir.model.fields,help:min_order_guard.field_order_min_exception__order_quantity
+msgid "Quantity of the order when it arrived."
+msgstr "Menge der Bestellung, als sie eintraf."
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__reason
+msgid "Reason"
+msgstr "Grund"
+
+#. module: min_order_guard
+#: model:ir.model.fields,help:min_order_guard.field_order_min_exception__name
+msgid "Reference of the exception, generated at creation."
+msgstr "Referenz der Ausnahme, generiert bei der Erstellung."
+
+#. module: min_order_guard
+#: model:ir.model.fields,help:min_order_guard.field_order_min_exception__reference
+msgid "Reference of the order that came in below the minimum."
+msgstr "Referenz der Bestellung, die unter dem Mindestwert eingegangen ist."
+
+#. module: min_order_guard
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_exceptions_form
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_exception_form
+msgid "Refuse"
+msgstr "Verweigern"
+
+#. module: min_order_guard
+#: model:ir.model.fields.selection,name:min_order_guard.selection__order_min_exception__state__refused
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_exception_search
+msgid "Refused"
+msgstr "Abgelehnt"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__rule_id
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_rule_form
+msgid "Rule"
+msgstr "Regel"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__shortfall
+msgid "Shortfall"
+msgstr "Fehlbetrag"
+
+#. module: min_order_guard
+#: model:ir.model.fields,field_description:min_order_guard.field_order_min_exception__state
+msgid "State"
+msgstr "Status"
+
+#. module: min_order_guard
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_exception_search
+msgid "Status"
+msgstr "Status"
+
+#. module: min_order_guard
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_exception_search
+msgid "Still Pending"
+msgstr "Noch ausstehend"
+
+#. module: min_order_guard
+#: model_terms:ir.actions.act_window,help:min_order_guard.action_order_exceptions
+msgid "The clean history of every small order: what was allowed, what was refused and who decided."
+msgstr "Die saubere Geschichte jedes kleinen Auftrages: Was erlaubt wurde, was abgelehnt wurde und wer entschied."
+
+#. module: min_order_guard
+#. odoo-python
+#: code:addons/min_order_guard/models/order_min_exception.py:0
+msgid "The exception on %s is already decided."
+msgstr "Die Ausnahme auf %s ist bereits entschieden."
+
+#. module: min_order_guard
+#. odoo-python
+#: code:addons/min_order_guard/models/order_min_rule.py:0
+msgid "The minimums of %s must be positive."
+msgstr "Die Mindestwerte von %s müssen positiv sein."
+
+#. module: min_order_guard
+#. odoo-python
+#: code:addons/min_order_guard/models/order_min_exception.py:0
+msgid "The order below the minimum was refused."
+msgstr "Die Bestellung unterhalb des Mindestbetrags wurde abgelehnt."
+
+#. module: min_order_guard
+#. odoo-python
+#: code:addons/min_order_guard/models/order_min_exception.py:0
+msgid "The order values of %s must be positive."
+msgstr "Die Bestellwerte von %s müssen positiv sein."
+
+#. module: min_order_guard
+#. odoo-python
+#: code:addons/min_order_guard/models/order_min_exception.py:0
+msgid "The order was allowed below the minimum: %s."
+msgstr "Die Bestellung wurde unter dem Mindestwert %s zulässig."
+
+#. module: min_order_guard
+#. odoo-python
+#: code:addons/min_order_guard/models/order_min_rule.py:0
+msgid "The rule for %s needs a minimum amount or a minimum quantity above zero."
+msgstr "Die Regel für %s erfordert eine Mindestmenge oder eine Mindestmenge über Null."
+
+#. module: min_order_guard
+#: model:ir.model.fields,help:min_order_guard.field_order_min_exception__order_amount
+msgid "Value of the order when it arrived."
+msgstr "Wert der Bestellung, als sie eintraf."
+
+#. module: min_order_guard
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_exceptions_form
+#: model_terms:ir.ui.view,arch_db:min_order_guard.view_order_min_exception_form
+msgid "Values"
+msgstr "Werte"
+
+#. module: min_order_guard
+#: model:res.groups,comment:min_order_guard.group_minorderguar_user
+msgid "View and use the module."
+msgstr "Sehen Sie sich das Modul an und nutzen Sie es."
+
+#. module: min_order_guard
+#: model:ir.model.fields,help:min_order_guard.field_order_min_exception__reason
+msgid "Written reason required when an exception is allowed."
+msgstr "Wenn eine Ausnahme zulässig ist, ist eine schriftliche Begründung erforderlich."
+
+#. module: min_order_guard
+#. odoo-python
+#: code:addons/min_order_guard/models/order_min_exception.py:0
+msgid "no reason written"
+msgstr "kein Grund geschrieben"
