@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_rma_request_list" model="ir.ui.view">
+        <field name="name">rma.request.list</field>
+        <field name="model">rma.request</field>
+        <field name="arch" type="xml">
+            <list string="Return Requests" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="requested_on"/>
+                <field name="customer_name"/>
+                <field name="line_count"/>
+                <field name="total_qty"/>
+                <field name="total_value"/>
+                <field name="resolution"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_rma_request_form" model="ir.ui.view">
+        <field name="name">rma.request.form</field>
+        <field name="model">rma.request</field>
+        <field name="arch" type="xml">
+            <form string="Return Requests">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="customer_name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Request">
+    <field name="name"/>
+    <field name="customer_name"/>
+    <field name="requested_on"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Resolution">
+    <field name="resolution"/>
+    <field name="credit_amount"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Totals">
+    <field name="line_count"/>
+    <field name="total_qty"/>
+    <field name="total_value"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Reason" name="reason">
+                            <field name="reason"/>
+                        </page>
+                        <page string="Return Lines" name="lineids">
+                            <field name="line_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_rma_request_search" model="ir.ui.view">
+        <field name="name">rma.request.search</field>
+        <field name="model">rma.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="customer_name"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="approved" string="Approved" domain="[('state','=','approved')]"/>
+                <filter name="received" string="Received" domain="[('state','=','received')]"/>
+                <filter name="resolved" string="Resolved" domain="[('state','=','resolved')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_resolution" string="Resolution" context="{'group_by': 'resolution'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_rma_request_kanban" model="ir.ui.view">
+        <field name="name">rma.request.kanban</field>
+        <field name="model">rma.request</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="customer_name"/>
+                <field name="requested_on"/>
+                <field name="total_value"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="customer_name"/>
+                        <field name="requested_on"/>
+                        <field name="total_value"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_rma_request" model="ir.actions.act_window">
+        <field name="name">Return Requests</field>
+        <field name="res_model">rma.request</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Customer returns tracked from request to receipt and final resolution.</p>
+        </field>
+    </record>
+
+</odoo>

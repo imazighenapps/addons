@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_rma_request_user,rma.request User,rma.request,rma_desk.group_rmadesk_user,cr,
+access_rma_request_manager,rma.request Manager,rma.request,rma_desk.group_rmadesk_manager,crud,
+access_rma_line_user,rma.line User,rma.line,rma_desk.group_rmadesk_user,cr,
+access_rma_line_manager,rma.line Manager,rma.line,rma_desk.group_rmadesk_manager,crud,
+rule_rma_request_company,rma.request: own company only,rma.request,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_rma_line_company,rma.line: own company only,rma.line,,crud,"[('company_id', 'in', company_ids + [False])]"
