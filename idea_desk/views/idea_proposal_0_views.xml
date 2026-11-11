@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_idea_proposal_list" model="ir.ui.view">
+        <field name="name">idea.proposal.list</field>
+        <field name="model">idea.proposal</field>
+        <field name="arch" type="xml">
+            <list string="Ideas" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="submitted_on"/>
+                <field name="name"/>
+                <field name="author_id"/>
+                <field name="area"/>
+                <field name="expected_gain"/>
+                <field name="review_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_idea_proposal_form" model="ir.ui.view">
+        <field name="name">idea.proposal.form</field>
+        <field name="model">idea.proposal</field>
+        <field name="arch" type="xml">
+            <form string="Ideas">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Idea">
+    <field name="name"/>
+    <field name="author_id"/>
+    <field name="area"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Value">
+    <field name="expected_gain"/>
+    <field name="state"/>
+    <field name="review_count"/>
+                        </group>
+                        <group string="Timeline">
+    <field name="submitted_on"/>
+    <field name="evaluated_on"/>
+    <field name="implemented_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_idea_proposal_search" model="ir.ui.view">
+        <field name="name">idea.proposal.search</field>
+        <field name="model">idea.proposal</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="author_id"/>
+                <field name="area"/>
+                <filter name="submitted" string="Submitted" domain="[('state','=','submitted')]"/>
+                <filter name="accepted" string="Accepted" domain="[('state','=','accepted')]"/>
+                <filter name="implemented" string="Implemented" domain="[('state','=','implemented')]"/>
+                <separator/>
+                <filter name="group_author" string="Author" context="{'group_by': 'author_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_idea_proposal_kanban" model="ir.ui.view">
+        <field name="name">idea.proposal.kanban</field>
+        <field name="model">idea.proposal</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="author_id"/>
+                <field name="area"/>
+                <field name="submitted_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="author_id"/>
+                        <field name="area"/>
+                        <field name="submitted_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_idea_proposal" model="ir.actions.act_window">
+        <field name="name">Ideas</field>
+        <field name="res_model">idea.proposal</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every improvement idea, its evaluation and the credit when it lands.</p>
+        </field>
+    </record>
+
+</odoo>
