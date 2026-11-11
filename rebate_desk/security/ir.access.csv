@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_rebate_contract_user,rebate.contract User,rebate.contract,rebate_desk.group_rebatedesk_user,cru,
+access_rebate_contract_manager,rebate.contract Manager,rebate.contract,rebate_desk.group_rebatedesk_manager,crud,
+access_rebate_accrual_user,rebate.accrual User,rebate.accrual,rebate_desk.group_rebatedesk_user,cru,
+access_rebate_accrual_manager,rebate.accrual Manager,rebate.accrual,rebate_desk.group_rebatedesk_manager,crud,
+rule_rebate_contract_company,rebate.contract: own company only,rebate.contract,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_rebate_accrual_company,rebate.accrual: own company only,rebate.accrual,,crud,"[('company_id', 'in', company_ids + [False])]"
