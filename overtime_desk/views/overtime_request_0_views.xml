@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_overtime_request_list" model="ir.ui.view">
+        <field name="name">overtime.request.list</field>
+        <field name="model">overtime.request</field>
+        <field name="arch" type="xml">
+            <list string="Overtime Requests" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="request_date"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="hours_requested"/>
+                <field name="hours_approved"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_overtime_request_form" model="ir.ui.view">
+        <field name="name">overtime.request.form</field>
+        <field name="model">overtime.request</field>
+        <field name="arch" type="xml">
+            <form string="Overtime Requests">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Request">
+    <field name="name"/>
+    <field name="employee_id"/>
+    <field name="department_id"/>
+    <field name="request_date"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Hours">
+    <field name="hours_requested"/>
+    <field name="hours_approved"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Reason" name="reason">
+                            <field name="reason"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_overtime_request_search" model="ir.ui.view">
+        <field name="name">overtime.request.search</field>
+        <field name="model">overtime.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="approved" string="Approved" domain="[('state','=','approved')]"/>
+                <filter name="rejected" string="Rejected" domain="[('state','=','rejected')]"/>
+                <separator/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_department" string="Department" context="{'group_by': 'department_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_overtime_request_kanban" model="ir.ui.view">
+        <field name="name">overtime.request.kanban</field>
+        <field name="model">overtime.request</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="employee_id"/>
+                <field name="request_date"/>
+                <field name="hours_requested"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="employee_id"/>
+                        <field name="request_date"/>
+                        <field name="hours_requested"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_overtime_request" model="ir.actions.act_window">
+        <field name="name">Overtime Requests</field>
+        <field name="res_model">overtime.request</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Collect, review and approve extra hours per employee.</p>
+        </field>
+    </record>
+
+</odoo>
