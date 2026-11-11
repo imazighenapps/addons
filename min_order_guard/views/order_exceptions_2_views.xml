@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_exceptions_list" model="ir.ui.view">
+        <field name="name">order.min.exception.list</field>
+        <field name="model">order.min.exception</field>
+        <field name="arch" type="xml">
+            <list string="Exceptions Log">
+                <field name="decided_on"/>
+                <field name="decided_by"/>
+                <field name="reference"/>
+                <field name="rule_id"/>
+                <field name="order_amount"/>
+                <field name="shortfall"/>
+                <field name="reason"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_order_exceptions_form" model="ir.ui.view">
+        <field name="name">order.min.exception.form</field>
+        <field name="model">order.min.exception</field>
+        <field name="arch" type="xml">
+            <form string="Exceptions Log">
+                <header>
+                    <button name="action_allow" type="object" string="Allow" class="btn-primary" invisible="state != 'pending'"/>
+                    <button name="action_refuse" type="object" string="Refuse" class="btn-secondary" invisible="state != 'pending'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,allowed,refused"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="reference" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Order">
+    <field name="name"/>
+    <field name="reference"/>
+    <field name="rule_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Values">
+    <field name="order_amount"/>
+    <field name="order_quantity"/>
+    <field name="shortfall"/>
+                        </group>
+                        <group string="Decision">
+    <field name="state"/>
+    <field name="reason"/>
+    <field name="decided_by"/>
+    <field name="decided_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_order_exceptions_search" model="ir.ui.view">
+        <field name="name">order.min.exception.search</field>
+        <field name="model">order.min.exception</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="reference"/>
+                <field name="rule_id"/>
+                <field name="decided_by"/>
+                <separator/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'rule_id'}"/>
+                <filter name="group_decider" string="Decided By" context="{'group_by': 'decided_by'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_order_exceptions" model="ir.actions.act_window">
+        <field name="name">Exceptions Log</field>
+        <field name="res_model">order.min.exception</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The clean history of every small order: what was allowed, what was refused and who decided.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_min_rule_list" model="ir.ui.view">
+        <field name="name">order.min.rule.list</field>
+        <field name="model">order.min.rule</field>
+        <field name="arch" type="xml">
+            <list string="Minimum Rules">
+                <field name="partner_name"/>
+                <field name="min_amount"/>
+                <field name="min_quantity"/>
+                <field name="exception_count"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_order_min_rule_form" model="ir.ui.view">
+        <field name="name">order.min.rule.form</field>
+        <field name="model">order.min.rule</field>
+        <field name="arch" type="xml">
+            <form string="Minimum Rules">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Rule">
+    <field name="name"/>
+    <field name="partner_name"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Minimums">
+    <field name="min_amount"/>
+    <field name="min_quantity"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="exception_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_order_min_rule_search" model="ir.ui.view">
+        <field name="name">order.min.rule.search</field>
+        <field name="model">order.min.rule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <filter name="active" string="Active Rules" domain="[('active','=',True)]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'partner_name'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_order_min_rule_kanban" model="ir.ui.view">
+        <field name="name">order.min.rule.kanban</field>
+        <field name="model">order.min.rule</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="active" sample="1">
+                <field name="active"/>
+                <field name="partner_name"/>
+                <field name="min_amount"/>
+                <field name="min_quantity"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="active" class="fw-bold"/>
+                        <field name="partner_name"/>
+                        <field name="min_amount"/>
+                        <field name="min_quantity"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_order_min_rule" model="ir.actions.act_window">
+        <field name="name">Minimum Rules</field>
+        <field name="res_model">order.min.rule</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">One threshold per customer, in value or quantity, the promise logistics can rely on.</p>
+        </field>
+    </record>
+
+</odoo>
