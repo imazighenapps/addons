@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_rma_line_list" model="ir.ui.view">
+        <field name="name">rma.line.list</field>
+        <field name="model">rma.line</field>
+        <field name="arch" type="xml">
+            <list string="Return Lines">
+                <field name="request_id"/>
+                <field name="product_name"/>
+                <field name="quantity"/>
+                <field name="unit_value"/>
+                <field name="subtotal"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_rma_line_form" model="ir.ui.view">
+        <field name="name">rma.line.form</field>
+        <field name="model">rma.line</field>
+        <field name="arch" type="xml">
+            <form string="Return Lines">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="product_name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Line">
+    <field name="request_id"/>
+    <field name="product_name"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Values">
+    <field name="quantity"/>
+    <field name="unit_value"/>
+    <field name="subtotal"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Note">
+    <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_rma_line_search" model="ir.ui.view">
+        <field name="name">rma.line.search</field>
+        <field name="model">rma.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="request_id"/>
+                <field name="product_name"/>
+                <separator/>
+                <filter name="group_request" string="Request" context="{'group_by': 'request_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_rma_line" model="ir.actions.act_window">
+        <field name="name">Return Lines</field>
+        <field name="res_model">rma.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every returned product line with quantity and value.</p>
+        </field>
+    </record>
+
+</odoo>
