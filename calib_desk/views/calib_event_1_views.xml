@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_calib_event_list" model="ir.ui.view">
+        <field name="name">calib.event.list</field>
+        <field name="model">calib.event</field>
+        <field name="arch" type="xml">
+            <list string="Calibrations" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="calibration_date"/>
+                <field name="name"/>
+                <field name="instrument_id"/>
+                <field name="result" widget="badge"/>
+                <field name="certificate_ref"/>
+                <field name="technician"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_calib_event_form" model="ir.ui.view">
+        <field name="name">calib.event.form</field>
+        <field name="model">calib.event</field>
+        <field name="arch" type="xml">
+            <form string="Calibrations">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Calibration">
+    <field name="name"/>
+    <field name="instrument_id"/>
+    <field name="calibration_date"/>
+    <field name="result"/>
+    <field name="certificate_ref"/>
+    <field name="technician"/>
+                        </group>
+                        <group string="Status">
+    <field name="state"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_calib_event_search" model="ir.ui.view">
+        <field name="name">calib.event.search</field>
+        <field name="model">calib.event</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="instrument_id"/>
+                <field name="certificate_ref"/>
+                <field name="technician"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="done" string="Confirmed" domain="[('state','=','done')]"/>
+                <filter name="failed" string="Failed" domain="[('result','=','fail')]"/>
+                <separator/>
+                <filter name="group_instrument" string="Instrument" context="{'group_by': 'instrument_id'}"/>
+                <filter name="group_result" string="Result" context="{'group_by': 'result'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_calib_event" model="ir.actions.act_window">
+        <field name="name">Calibrations</field>
+        <field name="res_model">calib.event</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every calibration performed on every instrument.</p>
+        </field>
+    </record>
+
+</odoo>

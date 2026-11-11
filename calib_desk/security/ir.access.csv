@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_calib_instrument_user,calib.instrument User,calib.instrument,calib_desk.group_calibdesk_user,crud,
+access_calib_instrument_manager,calib.instrument Manager,calib.instrument,calib_desk.group_calibdesk_manager,crud,
+access_calib_event_user,calib.event User,calib.event,calib_desk.group_calibdesk_user,crud,
+access_calib_event_manager,calib.event Manager,calib.event,calib_desk.group_calibdesk_manager,crud,
+rule_calib_instrument_company,calib.instrument: own company only,calib.instrument,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_calib_event_company,calib.event: own company only,calib.event,,crud,"[('company_id', 'in', company_ids + [False])]"
