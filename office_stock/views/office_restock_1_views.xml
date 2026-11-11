@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_office_restock_list" model="ir.ui.view">
+        <field name="name">office.restock.list</field>
+        <field name="model">office.restock</field>
+        <field name="arch" type="xml">
+            <list string="Restock Requests" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="requested_on"/>
+                <field name="supply_id"/>
+                <field name="requester_id"/>
+                <field name="quantity"/>
+                <field name="ordered_on"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_office_restock_form" model="ir.ui.view">
+        <field name="name">office.restock.form</field>
+        <field name="model">office.restock</field>
+        <field name="arch" type="xml">
+            <form string="Restock Requests">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="supply_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Request">
+    <field name="name"/>
+    <field name="supply_id"/>
+    <field name="requester_id"/>
+    <field name="quantity"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Timeline">
+    <field name="requested_on"/>
+    <field name="ordered_on"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_office_restock_search" model="ir.ui.view">
+        <field name="name">office.restock.search</field>
+        <field name="model">office.restock</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="supply_id"/>
+                <field name="requester_id"/>
+                <filter name="pending" string="Pending" domain="[('state','=','pending')]"/>
+                <filter name="ordered" string="Ordered" domain="[('state','=','ordered')]"/>
+                <separator/>
+                <filter name="group_supply" string="Supply" context="{'group_by': 'supply_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_office_restock_kanban" model="ir.ui.view">
+        <field name="name">office.restock.kanban</field>
+        <field name="model">office.restock</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="supply_id"/>
+                <field name="requester_id"/>
+                <field name="quantity"/>
+                <field name="requested_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="supply_id"/>
+                        <field name="requester_id"/>
+                        <field name="quantity"/>
+                        <field name="requested_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_office_restock" model="ir.actions.act_window">
+        <field name="name">Restock Requests</field>
+        <field name="res_model">office.restock</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">What was requested, when, and whether it has been ordered.</p>
+        </field>
+    </record>
+
+</odoo>

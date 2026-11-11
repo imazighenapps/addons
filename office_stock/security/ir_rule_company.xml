@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_office_supply_company" model="ir.rule">
+        <field name="name">office.supply: own company only</field>
+        <field name="model_id" ref="model_office_supply"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_office_restock_company" model="ir.rule">
+        <field name="name">office.restock: own company only</field>
+        <field name="model_id" ref="model_office_restock"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
