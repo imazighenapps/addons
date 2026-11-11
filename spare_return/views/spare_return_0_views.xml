@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_spare_return_list" model="ir.ui.view">
+        <field name="name">spare.return.list</field>
+        <field name="model">spare.return</field>
+        <field name="arch" type="xml">
+            <list string="Field Materials" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="sent_date"/>
+                <field name="due_date"/>
+                <field name="partner_id"/>
+                <field name="name"/>
+                <field name="site_name"/>
+                <field name="quantity_sent"/>
+                <field name="quantity_outstanding"/>
+                <field name="state" widget="badge"/>
+                <field name="is_overdue"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_spare_return_form" model="ir.ui.view">
+        <field name="name">spare.return.form</field>
+        <field name="model">spare.return</field>
+        <field name="arch" type="xml">
+            <form string="Field Materials">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Material">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="site_name"/>
+    <field name="responsible_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Quantities">
+    <field name="quantity_sent"/>
+    <field name="quantity_consumed"/>
+    <field name="quantity_returned"/>
+    <field name="quantity_outstanding"/>
+                        </group>
+                        <group string="Schedule">
+    <field name="sent_date"/>
+    <field name="due_date"/>
+    <field name="state"/>
+    <field name="returned_on"/>
+    <field name="is_overdue"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_spare_return_search" model="ir.ui.view">
+        <field name="name">spare.return.search</field>
+        <field name="model">spare.return</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="site_name"/>
+                <field name="responsible_id"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="returned" string="Returned" domain="[('state','=','returned')]"/>
+                <filter name="overdue" string="Overdue" domain="[('is_overdue','=',True),('state','=','open')]"/>
+                <separator/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_owner" string="Owner" context="{'group_by': 'responsible_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_spare_return_kanban" model="ir.ui.view">
+        <field name="name">spare.return.kanban</field>
+        <field name="model">spare.return</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="due_date"/>
+                <field name="quantity_outstanding"/>
+                <field name="is_overdue"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="due_date"/>
+                        <field name="quantity_outstanding"/>
+                        <field name="is_overdue"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_spare_return" model="ir.actions.act_window">
+        <field name="name">Field Materials</field>
+        <field name="res_model">spare.return</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Track material sent to site and recover what the job did not consume.</p>
+        </field>
+    </record>
+
+</odoo>
