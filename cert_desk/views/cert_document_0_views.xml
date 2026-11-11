@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cert_document_list" model="ir.ui.view">
+        <field name="name">cert.document.list</field>
+        <field name="model">cert.document</field>
+        <field name="arch" type="xml">
+            <list string="Supplier Certificates" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="cert_type"/>
+                <field name="reference"/>
+                <field name="expiry_date"/>
+                <field name="reminder_date"/>
+                <field name="renewal_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cert_document_form" model="ir.ui.view">
+        <field name="name">cert.document.form</field>
+        <field name="model">cert.document</field>
+        <field name="arch" type="xml">
+            <form string="Supplier Certificates">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Certificate">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="cert_type"/>
+    <field name="reference"/>
+    <field name="responsible_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Validity">
+    <field name="issue_date"/>
+    <field name="expiry_date"/>
+    <field name="reminder_date"/>
+    <field name="state"/>
+    <field name="blocked"/>
+                        </group>
+                        <group string="Renewals">
+    <field name="renewal_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Renewals" name="renewalids">
+                            <field name="renewal_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cert_document_search" model="ir.ui.view">
+        <field name="name">cert.document.search</field>
+        <field name="model">cert.document</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="reference"/>
+                <filter name="valid" string="Valid" domain="[('state', '=', 'valid')]"/>
+                <filter name="expiring" string="Expiring Soon" domain="[('state', '=', 'expiring')]"/>
+                <filter name="expired" string="Expired" domain="[('state', '=', 'expired')]"/>
+                <separator/>
+                <filter name="group_supplier" string="Supplier" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'cert_type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_cert_document_kanban" model="ir.ui.view">
+        <field name="name">cert.document.kanban</field>
+        <field name="model">cert.document</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="cert_type"/>
+                <field name="expiry_date"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="cert_type"/>
+                        <field name="expiry_date"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_cert_document" model="ir.actions.act_window">
+        <field name="name">Supplier Certificates</field>
+        <field name="res_model">cert.document</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every supplier certificate, its validity and the renewals that keep it alive.</p>
+        </field>
+    </record>
+
+</odoo>

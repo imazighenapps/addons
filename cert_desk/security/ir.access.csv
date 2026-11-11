@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_cert_document_user,cert.document User,cert.document,cert_desk.group_certdesk_user,cr,
+access_cert_document_manager,cert.document Manager,cert.document,cert_desk.group_certdesk_manager,crud,
+access_cert_renewal_user,cert.renewal User,cert.renewal,cert_desk.group_certdesk_user,cr,
+access_cert_renewal_manager,cert.renewal Manager,cert.renewal,cert_desk.group_certdesk_manager,crud,
+rule_cert_document_company,cert.document: own company only,cert.document,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_cert_renewal_company,cert.renewal: own company only,cert.renewal,,crud,"[('company_id', 'in', company_ids + [False])]"
