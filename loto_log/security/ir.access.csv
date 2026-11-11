@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_loto_lockout_user,loto.lockout User,loto.lockout,loto_log.group_lotolog_user,cr,
+access_loto_lockout_manager,loto.lockout Manager,loto.lockout,loto_log.group_lotolog_manager,crud,
+rule_loto_lockout_company,loto.lockout: own company only,loto.lockout,,crud,"[('company_id', 'in', company_ids + [False])]"
