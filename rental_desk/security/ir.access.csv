@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_rental_desk_entry_user,rental_desk.entry User,rental_desk.entry,rental_desk.group_rentaldesk_user,r,
+access_rental_desk_entry_manager,rental_desk.entry Manager,rental_desk.entry,rental_desk.group_rentaldesk_manager,crud,
+access_rental_desk_item_user,rental_desk.item User,rental_desk.item,rental_desk.group_rentaldesk_user,r,
+access_rental_desk_item_manager,rental_desk.item Manager,rental_desk.item,rental_desk.group_rentaldesk_manager,crud,
+rule_rental_desk_entry_company,rental_desk.entry: own company only,rental_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_rental_desk_item_company,rental_desk.item: own company only,rental_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

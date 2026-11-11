@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_deal_desk_entry_user,deal_desk.entry User,deal_desk.entry,deal_desk.group_dealdesk_user,r,
+access_deal_desk_entry_manager,deal_desk.entry Manager,deal_desk.entry,deal_desk.group_dealdesk_manager,crud,
+access_deal_desk_item_user,deal_desk.item User,deal_desk.item,deal_desk.group_dealdesk_user,r,
+access_deal_desk_item_manager,deal_desk.item Manager,deal_desk.item,deal_desk.group_dealdesk_manager,crud,
+rule_deal_desk_entry_company,deal_desk.entry: own company only,deal_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_deal_desk_item_company,deal_desk.item: own company only,deal_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

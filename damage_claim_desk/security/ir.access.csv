@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_damage_claim_entry_user,damage_claim.entry User,damage_claim.entry,damage_claim_desk.group_damageclaimd_user,r,
+access_damage_claim_entry_manager,damage_claim.entry Manager,damage_claim.entry,damage_claim_desk.group_damageclaimd_manager,crud,
+access_damage_claim_item_user,damage_claim.item User,damage_claim.item,damage_claim_desk.group_damageclaimd_user,r,
+access_damage_claim_item_manager,damage_claim.item Manager,damage_claim.item,damage_claim_desk.group_damageclaimd_manager,crud,
+rule_damage_claim_entry_company,damage_claim.entry: own company only,damage_claim.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_damage_claim_item_company,damage_claim.item: own company only,damage_claim.item,,crud,"[('company_id', 'in', company_ids + [False])]"

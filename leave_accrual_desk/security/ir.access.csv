@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_leave_accrual_entry_user,leave_accrual.entry User,leave_accrual.entry,leave_accrual_desk.group_leaveaccrual_user,r,
+access_leave_accrual_entry_manager,leave_accrual.entry Manager,leave_accrual.entry,leave_accrual_desk.group_leaveaccrual_manager,crud,
+access_leave_accrual_item_user,leave_accrual.item User,leave_accrual.item,leave_accrual_desk.group_leaveaccrual_user,r,
+access_leave_accrual_item_manager,leave_accrual.item Manager,leave_accrual.item,leave_accrual_desk.group_leaveaccrual_manager,crud,
+rule_leave_accrual_entry_company,leave_accrual.entry: own company only,leave_accrual.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_leave_accrual_item_company,leave_accrual.item: own company only,leave_accrual.item,,crud,"[('company_id', 'in', company_ids + [False])]"

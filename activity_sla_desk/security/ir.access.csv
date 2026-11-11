@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_activity_sla_entry_user,activity_sla.entry User,activity_sla.entry,activity_sla_desk.group_activityslad_user,r,
+access_activity_sla_entry_manager,activity_sla.entry Manager,activity_sla.entry,activity_sla_desk.group_activityslad_manager,crud,
+access_activity_sla_item_user,activity_sla.item User,activity_sla.item,activity_sla_desk.group_activityslad_user,r,
+access_activity_sla_item_manager,activity_sla.item Manager,activity_sla.item,activity_sla_desk.group_activityslad_manager,crud,
+rule_activity_sla_entry_company,activity_sla.entry: own company only,activity_sla.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_activity_sla_item_company,activity_sla.item: own company only,activity_sla.item,,crud,"[('company_id', 'in', company_ids + [False])]"

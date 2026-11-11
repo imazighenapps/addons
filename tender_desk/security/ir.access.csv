@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_tender_desk_entry_user,tender_desk.entry User,tender_desk.entry,tender_desk.group_tenderdesk_user,r,
+access_tender_desk_entry_manager,tender_desk.entry Manager,tender_desk.entry,tender_desk.group_tenderdesk_manager,crud,
+access_tender_desk_item_user,tender_desk.item User,tender_desk.item,tender_desk.group_tenderdesk_user,r,
+access_tender_desk_item_manager,tender_desk.item Manager,tender_desk.item,tender_desk.group_tenderdesk_manager,crud,
+rule_tender_desk_entry_company,tender_desk.entry: own company only,tender_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_tender_desk_item_company,tender_desk.item: own company only,tender_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

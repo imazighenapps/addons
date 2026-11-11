@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_shift_swap_entry_user,shift_swap.entry User,shift_swap.entry,shift_swap_desk.group_shiftswapdes_user,r,
+access_shift_swap_entry_manager,shift_swap.entry Manager,shift_swap.entry,shift_swap_desk.group_shiftswapdes_manager,crud,
+access_shift_swap_item_user,shift_swap.item User,shift_swap.item,shift_swap_desk.group_shiftswapdes_user,r,
+access_shift_swap_item_manager,shift_swap.item Manager,shift_swap.item,shift_swap_desk.group_shiftswapdes_manager,crud,
+rule_shift_swap_entry_company,shift_swap.entry: own company only,shift_swap.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_shift_swap_item_company,shift_swap.item: own company only,shift_swap.item,,crud,"[('company_id', 'in', company_ids + [False])]"

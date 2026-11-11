@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_payment_plan_entry_user,payment_plan.entry User,payment_plan.entry,payment_plan_desk.group_paymentpland_user,r,
+access_payment_plan_entry_manager,payment_plan.entry Manager,payment_plan.entry,payment_plan_desk.group_paymentpland_manager,crud,
+access_payment_plan_item_user,payment_plan.item User,payment_plan.item,payment_plan_desk.group_paymentpland_user,r,
+access_payment_plan_item_manager,payment_plan.item Manager,payment_plan.item,payment_plan_desk.group_paymentpland_manager,crud,
+rule_payment_plan_entry_company,payment_plan.entry: own company only,payment_plan.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_payment_plan_item_company,payment_plan.item: own company only,payment_plan.item,,crud,"[('company_id', 'in', company_ids + [False])]"

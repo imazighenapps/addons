@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_maintenance_plan_entry_user,maintenance_plan.entry User,maintenance_plan.entry,maintenance_plan_desk.group_maintenancep_user,r,
+access_maintenance_plan_entry_manager,maintenance_plan.entry Manager,maintenance_plan.entry,maintenance_plan_desk.group_maintenancep_manager,crud,
+access_maintenance_plan_item_user,maintenance_plan.item User,maintenance_plan.item,maintenance_plan_desk.group_maintenancep_user,r,
+access_maintenance_plan_item_manager,maintenance_plan.item Manager,maintenance_plan.item,maintenance_plan_desk.group_maintenancep_manager,crud,
+rule_maintenance_plan_entry_company,maintenance_plan.entry: own company only,maintenance_plan.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_maintenance_plan_item_company,maintenance_plan.item: own company only,maintenance_plan.item,,crud,"[('company_id', 'in', company_ids + [False])]"

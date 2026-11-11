@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_permit_to_entry_user,permit_to.entry User,permit_to.entry,permit_to_work_desk.group_permittowork_user,r,
+access_permit_to_entry_manager,permit_to.entry Manager,permit_to.entry,permit_to_work_desk.group_permittowork_manager,crud,
+access_permit_to_item_user,permit_to.item User,permit_to.item,permit_to_work_desk.group_permittowork_user,r,
+access_permit_to_item_manager,permit_to.item Manager,permit_to.item,permit_to_work_desk.group_permittowork_manager,crud,
+rule_permit_to_entry_company,permit_to.entry: own company only,permit_to.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_permit_to_item_company,permit_to.item: own company only,permit_to.item,,crud,"[('company_id', 'in', company_ids + [False])]"

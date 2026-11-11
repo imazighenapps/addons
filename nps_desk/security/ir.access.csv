@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_nps_desk_entry_user,nps_desk.entry User,nps_desk.entry,nps_desk.group_npsdesk_user,r,
+access_nps_desk_entry_manager,nps_desk.entry Manager,nps_desk.entry,nps_desk.group_npsdesk_manager,crud,
+access_nps_desk_item_user,nps_desk.item User,nps_desk.item,nps_desk.group_npsdesk_user,r,
+access_nps_desk_item_manager,nps_desk.item Manager,nps_desk.item,nps_desk.group_npsdesk_manager,crud,
+rule_nps_desk_entry_company,nps_desk.entry: own company only,nps_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_nps_desk_item_company,nps_desk.item: own company only,nps_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

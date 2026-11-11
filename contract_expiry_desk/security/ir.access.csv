@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_contract_expiry_entry_user,contract_expiry.entry User,contract_expiry.entry,contract_expiry_desk.group_contractexpi_user,r,
+access_contract_expiry_entry_manager,contract_expiry.entry Manager,contract_expiry.entry,contract_expiry_desk.group_contractexpi_manager,crud,
+access_contract_expiry_item_user,contract_expiry.item User,contract_expiry.item,contract_expiry_desk.group_contractexpi_user,r,
+access_contract_expiry_item_manager,contract_expiry.item Manager,contract_expiry.item,contract_expiry_desk.group_contractexpi_manager,crud,
+rule_contract_expiry_entry_company,contract_expiry.entry: own company only,contract_expiry.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_contract_expiry_item_company,contract_expiry.item: own company only,contract_expiry.item,,crud,"[('company_id', 'in', company_ids + [False])]"

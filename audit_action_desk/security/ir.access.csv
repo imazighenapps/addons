@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_audit_action_entry_user,audit_action.entry User,audit_action.entry,audit_action_desk.group_auditactiond_user,r,
+access_audit_action_entry_manager,audit_action.entry Manager,audit_action.entry,audit_action_desk.group_auditactiond_manager,crud,
+access_audit_action_item_user,audit_action.item User,audit_action.item,audit_action_desk.group_auditactiond_user,r,
+access_audit_action_item_manager,audit_action.item Manager,audit_action.item,audit_action_desk.group_auditactiond_manager,crud,
+rule_audit_action_entry_company,audit_action.entry: own company only,audit_action.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_audit_action_item_company,audit_action.item: own company only,audit_action.item,,crud,"[('company_id', 'in', company_ids + [False])]"

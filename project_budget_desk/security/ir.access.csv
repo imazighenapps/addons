@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_project_budget_entry_user,project_budget.entry User,project_budget.entry,project_budget_desk.group_projectbudge_user,r,
+access_project_budget_entry_manager,project_budget.entry Manager,project_budget.entry,project_budget_desk.group_projectbudge_manager,crud,
+access_project_budget_item_user,project_budget.item User,project_budget.item,project_budget_desk.group_projectbudge_user,r,
+access_project_budget_item_manager,project_budget.item Manager,project_budget.item,project_budget_desk.group_projectbudge_manager,crud,
+rule_project_budget_entry_company,project_budget.entry: own company only,project_budget.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_project_budget_item_company,project_budget.item: own company only,project_budget.item,,crud,"[('company_id', 'in', company_ids + [False])]"

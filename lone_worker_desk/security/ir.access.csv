@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_lone_worker_entry_user,lone_worker.entry User,lone_worker.entry,lone_worker_desk.group_loneworkerde_user,r,
+access_lone_worker_entry_manager,lone_worker.entry Manager,lone_worker.entry,lone_worker_desk.group_loneworkerde_manager,crud,
+access_lone_worker_item_user,lone_worker.item User,lone_worker.item,lone_worker_desk.group_loneworkerde_user,r,
+access_lone_worker_item_manager,lone_worker.item Manager,lone_worker.item,lone_worker_desk.group_loneworkerde_manager,crud,
+rule_lone_worker_entry_company,lone_worker.entry: own company only,lone_worker.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_lone_worker_item_company,lone_worker.item: own company only,lone_worker.item,,crud,"[('company_id', 'in', company_ids + [False])]"

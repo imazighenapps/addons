@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_win_loss_entry_user,win_loss.entry User,win_loss.entry,win_loss_desk.group_winlossdesk_user,r,
+access_win_loss_entry_manager,win_loss.entry Manager,win_loss.entry,win_loss_desk.group_winlossdesk_manager,crud,
+access_win_loss_item_user,win_loss.item User,win_loss.item,win_loss_desk.group_winlossdesk_user,r,
+access_win_loss_item_manager,win_loss.item Manager,win_loss.item,win_loss_desk.group_winlossdesk_manager,crud,
+rule_win_loss_entry_company,win_loss.entry: own company only,win_loss.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_win_loss_item_company,win_loss.item: own company only,win_loss.item,,crud,"[('company_id', 'in', company_ids + [False])]"

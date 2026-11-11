@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_warehouse_zone_entry_user,warehouse_zone.entry User,warehouse_zone.entry,warehouse_zone_desk.group_warehousezon_user,r,
+access_warehouse_zone_entry_manager,warehouse_zone.entry Manager,warehouse_zone.entry,warehouse_zone_desk.group_warehousezon_manager,crud,
+access_warehouse_zone_item_user,warehouse_zone.item User,warehouse_zone.item,warehouse_zone_desk.group_warehousezon_user,r,
+access_warehouse_zone_item_manager,warehouse_zone.item Manager,warehouse_zone.item,warehouse_zone_desk.group_warehousezon_manager,crud,
+rule_warehouse_zone_entry_company,warehouse_zone.entry: own company only,warehouse_zone.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_warehouse_zone_item_company,warehouse_zone.item: own company only,warehouse_zone.item,,crud,"[('company_id', 'in', company_ids + [False])]"

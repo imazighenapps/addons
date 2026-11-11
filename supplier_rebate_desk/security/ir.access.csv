@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_supplier_rebate_entry_user,supplier_rebate.entry User,supplier_rebate.entry,supplier_rebate_desk.group_supplierreba_user,r,
+access_supplier_rebate_entry_manager,supplier_rebate.entry Manager,supplier_rebate.entry,supplier_rebate_desk.group_supplierreba_manager,crud,
+access_supplier_rebate_item_user,supplier_rebate.item User,supplier_rebate.item,supplier_rebate_desk.group_supplierreba_user,r,
+access_supplier_rebate_item_manager,supplier_rebate.item Manager,supplier_rebate.item,supplier_rebate_desk.group_supplierreba_manager,crud,
+rule_supplier_rebate_entry_company,supplier_rebate.entry: own company only,supplier_rebate.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_supplier_rebate_item_company,supplier_rebate.item: own company only,supplier_rebate.item,,crud,"[('company_id', 'in', company_ids + [False])]"

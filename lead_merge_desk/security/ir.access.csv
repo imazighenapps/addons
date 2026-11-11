@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_lead_merge_entry_user,lead_merge.entry User,lead_merge.entry,lead_merge_desk.group_leadmergedes_user,r,
+access_lead_merge_entry_manager,lead_merge.entry Manager,lead_merge.entry,lead_merge_desk.group_leadmergedes_manager,crud,
+access_lead_merge_item_user,lead_merge.item User,lead_merge.item,lead_merge_desk.group_leadmergedes_user,r,
+access_lead_merge_item_manager,lead_merge.item Manager,lead_merge.item,lead_merge_desk.group_leadmergedes_manager,crud,
+rule_lead_merge_entry_company,lead_merge.entry: own company only,lead_merge.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_lead_merge_item_company,lead_merge.item: own company only,lead_merge.item,,crud,"[('company_id', 'in', company_ids + [False])]"

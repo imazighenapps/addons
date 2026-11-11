@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_commission_plan_entry_user,commission_plan.entry User,commission_plan.entry,commission_plan_desk.group_commissionpl_user,r,
+access_commission_plan_entry_manager,commission_plan.entry Manager,commission_plan.entry,commission_plan_desk.group_commissionpl_manager,crud,
+access_commission_plan_item_user,commission_plan.item User,commission_plan.item,commission_plan_desk.group_commissionpl_user,r,
+access_commission_plan_item_manager,commission_plan.item Manager,commission_plan.item,commission_plan_desk.group_commissionpl_manager,crud,
+rule_commission_plan_entry_company,commission_plan.entry: own company only,commission_plan.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_commission_plan_item_company,commission_plan.item: own company only,commission_plan.item,,crud,"[('company_id', 'in', company_ids + [False])]"

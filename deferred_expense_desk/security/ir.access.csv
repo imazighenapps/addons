@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_deferred_expense_entry_user,deferred_expense.entry User,deferred_expense.entry,deferred_expense_desk.group_deferredexpe_user,r,
+access_deferred_expense_entry_manager,deferred_expense.entry Manager,deferred_expense.entry,deferred_expense_desk.group_deferredexpe_manager,crud,
+access_deferred_expense_item_user,deferred_expense.item User,deferred_expense.item,deferred_expense_desk.group_deferredexpe_user,r,
+access_deferred_expense_item_manager,deferred_expense.item Manager,deferred_expense.item,deferred_expense_desk.group_deferredexpe_manager,crud,
+rule_deferred_expense_entry_company,deferred_expense.entry: own company only,deferred_expense.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_deferred_expense_item_company,deferred_expense.item: own company only,deferred_expense.item,,crud,"[('company_id', 'in', company_ids + [False])]"

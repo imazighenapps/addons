@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_service_contract_entry_user,service_contract.entry User,service_contract.entry,service_contract_desk.group_servicecontr_user,r,
+access_service_contract_entry_manager,service_contract.entry Manager,service_contract.entry,service_contract_desk.group_servicecontr_manager,crud,
+access_service_contract_item_user,service_contract.item User,service_contract.item,service_contract_desk.group_servicecontr_user,r,
+access_service_contract_item_manager,service_contract.item Manager,service_contract.item,service_contract_desk.group_servicecontr_manager,crud,
+rule_service_contract_entry_company,service_contract.entry: own company only,service_contract.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_service_contract_item_company,service_contract.item: own company only,service_contract.item,,crud,"[('company_id', 'in', company_ids + [False])]"

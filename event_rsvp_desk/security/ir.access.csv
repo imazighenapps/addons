@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_event_rsvp_entry_user,event_rsvp.entry User,event_rsvp.entry,event_rsvp_desk.group_eventrsvpdes_user,r,
+access_event_rsvp_entry_manager,event_rsvp.entry Manager,event_rsvp.entry,event_rsvp_desk.group_eventrsvpdes_manager,crud,
+access_event_rsvp_item_user,event_rsvp.item User,event_rsvp.item,event_rsvp_desk.group_eventrsvpdes_user,r,
+access_event_rsvp_item_manager,event_rsvp.item Manager,event_rsvp.item,event_rsvp_desk.group_eventrsvpdes_manager,crud,
+rule_event_rsvp_entry_company,event_rsvp.entry: own company only,event_rsvp.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_event_rsvp_item_company,event_rsvp.item: own company only,event_rsvp.item,,crud,"[('company_id', 'in', company_ids + [False])]"

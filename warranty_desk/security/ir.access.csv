@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_warranty_desk_entry_user,warranty_desk.entry User,warranty_desk.entry,warranty_desk.group_warrantydesk_user,r,
+access_warranty_desk_entry_manager,warranty_desk.entry Manager,warranty_desk.entry,warranty_desk.group_warrantydesk_manager,crud,
+access_warranty_desk_item_user,warranty_desk.item User,warranty_desk.item,warranty_desk.group_warrantydesk_user,r,
+access_warranty_desk_item_manager,warranty_desk.item Manager,warranty_desk.item,warranty_desk.group_warrantydesk_manager,crud,
+rule_warranty_desk_entry_company,warranty_desk.entry: own company only,warranty_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_warranty_desk_item_company,warranty_desk.item: own company only,warranty_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

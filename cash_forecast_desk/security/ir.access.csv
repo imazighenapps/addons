@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_cash_forecast_entry_user,cash_forecast.entry User,cash_forecast.entry,cash_forecast_desk.group_cashforecast_user,r,
+access_cash_forecast_entry_manager,cash_forecast.entry Manager,cash_forecast.entry,cash_forecast_desk.group_cashforecast_manager,crud,
+access_cash_forecast_item_user,cash_forecast.item User,cash_forecast.item,cash_forecast_desk.group_cashforecast_user,r,
+access_cash_forecast_item_manager,cash_forecast.item Manager,cash_forecast.item,cash_forecast_desk.group_cashforecast_manager,crud,
+rule_cash_forecast_entry_company,cash_forecast.entry: own company only,cash_forecast.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_cash_forecast_item_company,cash_forecast.item: own company only,cash_forecast.item,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_overstock_desk_entry_user,overstock_desk.entry User,overstock_desk.entry,overstock_desk.group_overstockdes_user,r,
+access_overstock_desk_entry_manager,overstock_desk.entry Manager,overstock_desk.entry,overstock_desk.group_overstockdes_manager,crud,
+access_overstock_desk_item_user,overstock_desk.item User,overstock_desk.item,overstock_desk.group_overstockdes_user,r,
+access_overstock_desk_item_manager,overstock_desk.item Manager,overstock_desk.item,overstock_desk.group_overstockdes_manager,crud,
+rule_overstock_desk_entry_company,overstock_desk.entry: own company only,overstock_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_overstock_desk_item_company,overstock_desk.item: own company only,overstock_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

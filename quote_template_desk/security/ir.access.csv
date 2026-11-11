@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_quote_template_entry_user,quote_template.entry User,quote_template.entry,quote_template_desk.group_quotetemplat_user,r,
+access_quote_template_entry_manager,quote_template.entry Manager,quote_template.entry,quote_template_desk.group_quotetemplat_manager,crud,
+access_quote_template_item_user,quote_template.item User,quote_template.item,quote_template_desk.group_quotetemplat_user,r,
+access_quote_template_item_manager,quote_template.item Manager,quote_template.item,quote_template_desk.group_quotetemplat_manager,crud,
+rule_quote_template_entry_company,quote_template.entry: own company only,quote_template.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_quote_template_item_company,quote_template.item: own company only,quote_template.item,,crud,"[('company_id', 'in', company_ids + [False])]"

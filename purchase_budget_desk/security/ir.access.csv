@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_purchase_budget_entry_user,purchase_budget.entry User,purchase_budget.entry,purchase_budget_desk.group_purchasebudg_user,r,
+access_purchase_budget_entry_manager,purchase_budget.entry Manager,purchase_budget.entry,purchase_budget_desk.group_purchasebudg_manager,crud,
+access_purchase_budget_item_user,purchase_budget.item User,purchase_budget.item,purchase_budget_desk.group_purchasebudg_user,r,
+access_purchase_budget_item_manager,purchase_budget.item Manager,purchase_budget.item,purchase_budget_desk.group_purchasebudg_manager,crud,
+rule_purchase_budget_entry_company,purchase_budget.entry: own company only,purchase_budget.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_purchase_budget_item_company,purchase_budget.item: own company only,purchase_budget.item,,crud,"[('company_id', 'in', company_ids + [False])]"

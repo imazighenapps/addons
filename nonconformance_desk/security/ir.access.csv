@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_nonconformance_desk_entry_user,nonconformance_desk.entry User,nonconformance_desk.entry,nonconformance_desk.group_nonconforman_user,r,
+access_nonconformance_desk_entry_manager,nonconformance_desk.entry Manager,nonconformance_desk.entry,nonconformance_desk.group_nonconforman_manager,crud,
+access_nonconformance_desk_item_user,nonconformance_desk.item User,nonconformance_desk.item,nonconformance_desk.group_nonconforman_user,r,
+access_nonconformance_desk_item_manager,nonconformance_desk.item Manager,nonconformance_desk.item,nonconformance_desk.group_nonconforman_manager,crud,
+rule_nonconformance_desk_entry_company,nonconformance_desk.entry: own company only,nonconformance_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_nonconformance_desk_item_company,nonconformance_desk.item: own company only,nonconformance_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

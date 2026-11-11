@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_blanket_po_entry_user,blanket_po.entry User,blanket_po.entry,blanket_po_desk.group_blanketpodes_user,r,
+access_blanket_po_entry_manager,blanket_po.entry Manager,blanket_po.entry,blanket_po_desk.group_blanketpodes_manager,crud,
+access_blanket_po_item_user,blanket_po.item User,blanket_po.item,blanket_po_desk.group_blanketpodes_user,r,
+access_blanket_po_item_manager,blanket_po.item Manager,blanket_po.item,blanket_po_desk.group_blanketpodes_manager,crud,
+rule_blanket_po_entry_company,blanket_po.entry: own company only,blanket_po.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_blanket_po_item_company,blanket_po.item: own company only,blanket_po.item,,crud,"[('company_id', 'in', company_ids + [False])]"

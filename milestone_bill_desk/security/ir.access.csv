@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_milestone_bill_entry_user,milestone_bill.entry User,milestone_bill.entry,milestone_bill_desk.group_milestonebil_user,r,
+access_milestone_bill_entry_manager,milestone_bill.entry Manager,milestone_bill.entry,milestone_bill_desk.group_milestonebil_manager,crud,
+access_milestone_bill_item_user,milestone_bill.item User,milestone_bill.item,milestone_bill_desk.group_milestonebil_user,r,
+access_milestone_bill_item_manager,milestone_bill.item Manager,milestone_bill.item,milestone_bill_desk.group_milestonebil_manager,crud,
+rule_milestone_bill_entry_company,milestone_bill.entry: own company only,milestone_bill.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_milestone_bill_item_company,milestone_bill.item: own company only,milestone_bill.item,,crud,"[('company_id', 'in', company_ids + [False])]"

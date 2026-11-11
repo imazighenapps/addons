@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_backorder_promise_entry_user,backorder_promise.entry User,backorder_promise.entry,backorder_promise_desk.group_backorderpro_user,r,
+access_backorder_promise_entry_manager,backorder_promise.entry Manager,backorder_promise.entry,backorder_promise_desk.group_backorderpro_manager,crud,
+access_backorder_promise_item_user,backorder_promise.item User,backorder_promise.item,backorder_promise_desk.group_backorderpro_user,r,
+access_backorder_promise_item_manager,backorder_promise.item Manager,backorder_promise.item,backorder_promise_desk.group_backorderpro_manager,crud,
+rule_backorder_promise_entry_company,backorder_promise.entry: own company only,backorder_promise.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_backorder_promise_item_company,backorder_promise.item: own company only,backorder_promise.item,,crud,"[('company_id', 'in', company_ids + [False])]"

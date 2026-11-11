@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_customer_tier_entry_user,customer_tier.entry User,customer_tier.entry,customer_tier_desk.group_customertier_user,r,
+access_customer_tier_entry_manager,customer_tier.entry Manager,customer_tier.entry,customer_tier_desk.group_customertier_manager,crud,
+access_customer_tier_item_user,customer_tier.item User,customer_tier.item,customer_tier_desk.group_customertier_user,r,
+access_customer_tier_item_manager,customer_tier.item Manager,customer_tier.item,customer_tier_desk.group_customertier_manager,crud,
+rule_customer_tier_entry_company,customer_tier.entry: own company only,customer_tier.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_customer_tier_item_company,customer_tier.item: own company only,customer_tier.item,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_attendance_anomaly_entry_user,attendance_anomaly.entry User,attendance_anomaly.entry,attendance_anomaly_desk.group_attendancean_user,r,
+access_attendance_anomaly_entry_manager,attendance_anomaly.entry Manager,attendance_anomaly.entry,attendance_anomaly_desk.group_attendancean_manager,crud,
+access_attendance_anomaly_item_user,attendance_anomaly.item User,attendance_anomaly.item,attendance_anomaly_desk.group_attendancean_user,r,
+access_attendance_anomaly_item_manager,attendance_anomaly.item Manager,attendance_anomaly.item,attendance_anomaly_desk.group_attendancean_manager,crud,
+rule_attendance_anomaly_entry_company,attendance_anomaly.entry: own company only,attendance_anomaly.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_attendance_anomaly_item_company,attendance_anomaly.item: own company only,attendance_anomaly.item,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_price_break_entry_user,price_break.entry User,price_break.entry,price_break_desk.group_pricebreakde_user,r,
+access_price_break_entry_manager,price_break.entry Manager,price_break.entry,price_break_desk.group_pricebreakde_manager,crud,
+access_price_break_item_user,price_break.item User,price_break.item,price_break_desk.group_pricebreakde_user,r,
+access_price_break_item_manager,price_break.item Manager,price_break.item,price_break_desk.group_pricebreakde_manager,crud,
+rule_price_break_entry_company,price_break.entry: own company only,price_break.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_price_break_item_company,price_break.item: own company only,price_break.item,,crud,"[('company_id', 'in', company_ids + [False])]"

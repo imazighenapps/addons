@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_deferred_revenue_entry_user,deferred_revenue.entry User,deferred_revenue.entry,deferred_revenue_desk.group_deferredreve_user,r,
+access_deferred_revenue_entry_manager,deferred_revenue.entry Manager,deferred_revenue.entry,deferred_revenue_desk.group_deferredreve_manager,crud,
+access_deferred_revenue_item_user,deferred_revenue.item User,deferred_revenue.item,deferred_revenue_desk.group_deferredreve_user,r,
+access_deferred_revenue_item_manager,deferred_revenue.item Manager,deferred_revenue.item,deferred_revenue_desk.group_deferredreve_manager,crud,
+rule_deferred_revenue_entry_company,deferred_revenue.entry: own company only,deferred_revenue.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_deferred_revenue_item_company,deferred_revenue.item: own company only,deferred_revenue.item,,crud,"[('company_id', 'in', company_ids + [False])]"

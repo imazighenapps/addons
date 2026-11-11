@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_return_reason_entry_user,return_reason.entry User,return_reason.entry,return_reason_desk.group_returnreason_user,r,
+access_return_reason_entry_manager,return_reason.entry Manager,return_reason.entry,return_reason_desk.group_returnreason_manager,crud,
+access_return_reason_item_user,return_reason.item User,return_reason.item,return_reason_desk.group_returnreason_user,r,
+access_return_reason_item_manager,return_reason.item Manager,return_reason.item,return_reason_desk.group_returnreason_manager,crud,
+rule_return_reason_entry_company,return_reason.entry: own company only,return_reason.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_return_reason_item_company,return_reason.item: own company only,return_reason.item,,crud,"[('company_id', 'in', company_ids + [False])]"

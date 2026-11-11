@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_writeoff_desk_entry_user,writeoff_desk.entry User,writeoff_desk.entry,writeoff_desk.group_writeoffdesk_user,r,
+access_writeoff_desk_entry_manager,writeoff_desk.entry Manager,writeoff_desk.entry,writeoff_desk.group_writeoffdesk_manager,crud,
+access_writeoff_desk_item_user,writeoff_desk.item User,writeoff_desk.item,writeoff_desk.group_writeoffdesk_user,r,
+access_writeoff_desk_item_manager,writeoff_desk.item Manager,writeoff_desk.item,writeoff_desk.group_writeoffdesk_manager,crud,
+rule_writeoff_desk_entry_company,writeoff_desk.entry: own company only,writeoff_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_writeoff_desk_item_company,writeoff_desk.item: own company only,writeoff_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

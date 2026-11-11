@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_asset_disposal_entry_user,asset_disposal.entry User,asset_disposal.entry,asset_disposal_desk.group_assetdisposa_user,r,
+access_asset_disposal_entry_manager,asset_disposal.entry Manager,asset_disposal.entry,asset_disposal_desk.group_assetdisposa_manager,crud,
+access_asset_disposal_item_user,asset_disposal.item User,asset_disposal.item,asset_disposal_desk.group_assetdisposa_user,r,
+access_asset_disposal_item_manager,asset_disposal.item Manager,asset_disposal.item,asset_disposal_desk.group_assetdisposa_manager,crud,
+rule_asset_disposal_entry_company,asset_disposal.entry: own company only,asset_disposal.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_asset_disposal_item_company,asset_disposal.item: own company only,asset_disposal.item,,crud,"[('company_id', 'in', company_ids + [False])]"

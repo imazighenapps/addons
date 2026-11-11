@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_call_sheet_entry_user,call_sheet.entry User,call_sheet.entry,call_sheet_desk.group_callsheetdes_user,r,
+access_call_sheet_entry_manager,call_sheet.entry Manager,call_sheet.entry,call_sheet_desk.group_callsheetdes_manager,crud,
+access_call_sheet_item_user,call_sheet.item User,call_sheet.item,call_sheet_desk.group_callsheetdes_user,r,
+access_call_sheet_item_manager,call_sheet.item Manager,call_sheet.item,call_sheet_desk.group_callsheetdes_manager,crud,
+rule_call_sheet_entry_company,call_sheet.entry: own company only,call_sheet.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_call_sheet_item_company,call_sheet.item: own company only,call_sheet.item,,crud,"[('company_id', 'in', company_ids + [False])]"

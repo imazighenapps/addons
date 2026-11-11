@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_leadtime_watch_entry_user,leadtime_watch.entry User,leadtime_watch.entry,leadtime_watch.group_leadtimewatc_user,r,
+access_leadtime_watch_entry_manager,leadtime_watch.entry Manager,leadtime_watch.entry,leadtime_watch.group_leadtimewatc_manager,crud,
+access_leadtime_watch_item_user,leadtime_watch.item User,leadtime_watch.item,leadtime_watch.group_leadtimewatc_user,r,
+access_leadtime_watch_item_manager,leadtime_watch.item Manager,leadtime_watch.item,leadtime_watch.group_leadtimewatc_manager,crud,
+rule_leadtime_watch_entry_company,leadtime_watch.entry: own company only,leadtime_watch.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_leadtime_watch_item_company,leadtime_watch.item: own company only,leadtime_watch.item,,crud,"[('company_id', 'in', company_ids + [False])]"

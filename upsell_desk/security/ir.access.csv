@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_upsell_desk_entry_user,upsell_desk.entry User,upsell_desk.entry,upsell_desk.group_upselldesk_user,r,
+access_upsell_desk_entry_manager,upsell_desk.entry Manager,upsell_desk.entry,upsell_desk.group_upselldesk_manager,crud,
+access_upsell_desk_item_user,upsell_desk.item User,upsell_desk.item,upsell_desk.group_upselldesk_user,r,
+access_upsell_desk_item_manager,upsell_desk.item Manager,upsell_desk.item,upsell_desk.group_upselldesk_manager,crud,
+rule_upsell_desk_entry_company,upsell_desk.entry: own company only,upsell_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_upsell_desk_item_company,upsell_desk.item: own company only,upsell_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

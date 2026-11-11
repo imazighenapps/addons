@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_appointment_deposit_entry_user,appointment_deposit.entry User,appointment_deposit.entry,appointment_deposit_desk.group_appointmentd_user,r,
+access_appointment_deposit_entry_manager,appointment_deposit.entry Manager,appointment_deposit.entry,appointment_deposit_desk.group_appointmentd_manager,crud,
+access_appointment_deposit_item_user,appointment_deposit.item User,appointment_deposit.item,appointment_deposit_desk.group_appointmentd_user,r,
+access_appointment_deposit_item_manager,appointment_deposit.item Manager,appointment_deposit.item,appointment_deposit_desk.group_appointmentd_manager,crud,
+rule_appointment_deposit_entry_company,appointment_deposit.entry: own company only,appointment_deposit.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_appointment_deposit_item_company,appointment_deposit.item: own company only,appointment_deposit.item,,crud,"[('company_id', 'in', company_ids + [False])]"

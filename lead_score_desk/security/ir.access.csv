@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_lead_score_entry_user,lead_score.entry User,lead_score.entry,lead_score_desk.group_leadscoredes_user,r,
+access_lead_score_entry_manager,lead_score.entry Manager,lead_score.entry,lead_score_desk.group_leadscoredes_manager,crud,
+access_lead_score_item_user,lead_score.item User,lead_score.item,lead_score_desk.group_leadscoredes_user,r,
+access_lead_score_item_manager,lead_score.item Manager,lead_score.item,lead_score_desk.group_leadscoredes_manager,crud,
+rule_lead_score_entry_company,lead_score.entry: own company only,lead_score.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_lead_score_item_company,lead_score.item: own company only,lead_score.item,,crud,"[('company_id', 'in', company_ids + [False])]"

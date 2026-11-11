@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_pack_station_entry_user,pack_station.entry User,pack_station.entry,pack_station_desk.group_packstationd_user,r,
+access_pack_station_entry_manager,pack_station.entry Manager,pack_station.entry,pack_station_desk.group_packstationd_manager,crud,
+access_pack_station_item_user,pack_station.item User,pack_station.item,pack_station_desk.group_packstationd_user,r,
+access_pack_station_item_manager,pack_station.item Manager,pack_station.item,pack_station_desk.group_packstationd_manager,crud,
+rule_pack_station_entry_company,pack_station.entry: own company only,pack_station.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_pack_station_item_company,pack_station.item: own company only,pack_station.item,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_onboard_desk_entry_user,onboard_desk.entry User,onboard_desk.entry,onboard_desk.group_onboarddesk_user,r,
+access_onboard_desk_entry_manager,onboard_desk.entry Manager,onboard_desk.entry,onboard_desk.group_onboarddesk_manager,crud,
+access_onboard_desk_item_user,onboard_desk.item User,onboard_desk.item,onboard_desk.group_onboarddesk_user,r,
+access_onboard_desk_item_manager,onboard_desk.item Manager,onboard_desk.item,onboard_desk.group_onboarddesk_manager,crud,
+rule_onboard_desk_entry_company,onboard_desk.entry: own company only,onboard_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_onboard_desk_item_company,onboard_desk.item: own company only,onboard_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

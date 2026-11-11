@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_campaign_roi_entry_user,campaign_roi.entry User,campaign_roi.entry,campaign_roi_desk.group_campaignroid_user,r,
+access_campaign_roi_entry_manager,campaign_roi.entry Manager,campaign_roi.entry,campaign_roi_desk.group_campaignroid_manager,crud,
+access_campaign_roi_item_user,campaign_roi.item User,campaign_roi.item,campaign_roi_desk.group_campaignroid_user,r,
+access_campaign_roi_item_manager,campaign_roi.item Manager,campaign_roi.item,campaign_roi_desk.group_campaignroid_manager,crud,
+rule_campaign_roi_entry_company,campaign_roi.entry: own company only,campaign_roi.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_campaign_roi_item_company,campaign_roi.item: own company only,campaign_roi.item,,crud,"[('company_id', 'in', company_ids + [False])]"

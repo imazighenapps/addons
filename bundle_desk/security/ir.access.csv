@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_bundle_desk_entry_user,bundle_desk.entry User,bundle_desk.entry,bundle_desk.group_bundledesk_user,r,
+access_bundle_desk_entry_manager,bundle_desk.entry Manager,bundle_desk.entry,bundle_desk.group_bundledesk_manager,crud,
+access_bundle_desk_item_user,bundle_desk.item User,bundle_desk.item,bundle_desk.group_bundledesk_user,r,
+access_bundle_desk_item_manager,bundle_desk.item Manager,bundle_desk.item,bundle_desk.group_bundledesk_manager,crud,
+rule_bundle_desk_entry_company,bundle_desk.entry: own company only,bundle_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_bundle_desk_item_company,bundle_desk.item: own company only,bundle_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

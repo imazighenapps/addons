@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_headcount_plan_entry_user,headcount_plan.entry User,headcount_plan.entry,headcount_plan_desk.group_headcountpla_user,r,
+access_headcount_plan_entry_manager,headcount_plan.entry Manager,headcount_plan.entry,headcount_plan_desk.group_headcountpla_manager,crud,
+access_headcount_plan_item_user,headcount_plan.item User,headcount_plan.item,headcount_plan_desk.group_headcountpla_user,r,
+access_headcount_plan_item_manager,headcount_plan.item Manager,headcount_plan.item,headcount_plan_desk.group_headcountpla_manager,crud,
+rule_headcount_plan_entry_company,headcount_plan.entry: own company only,headcount_plan.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_headcount_plan_item_company,headcount_plan.item: own company only,headcount_plan.item,,crud,"[('company_id', 'in', company_ids + [False])]"

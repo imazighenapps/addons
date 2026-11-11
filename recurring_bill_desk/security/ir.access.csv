@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_recurring_bill_entry_user,recurring_bill.entry User,recurring_bill.entry,recurring_bill_desk.group_recurringbil_user,r,
+access_recurring_bill_entry_manager,recurring_bill.entry Manager,recurring_bill.entry,recurring_bill_desk.group_recurringbil_manager,crud,
+access_recurring_bill_item_user,recurring_bill.item User,recurring_bill.item,recurring_bill_desk.group_recurringbil_user,r,
+access_recurring_bill_item_manager,recurring_bill.item Manager,recurring_bill.item,recurring_bill_desk.group_recurringbil_manager,crud,
+rule_recurring_bill_entry_company,recurring_bill.entry: own company only,recurring_bill.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_recurring_bill_item_company,recurring_bill.item: own company only,recurring_bill.item,,crud,"[('company_id', 'in', company_ids + [False])]"

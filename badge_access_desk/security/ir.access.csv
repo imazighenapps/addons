@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_badge_access_entry_user,badge_access.entry User,badge_access.entry,badge_access_desk.group_badgeaccessd_user,r,
+access_badge_access_entry_manager,badge_access.entry Manager,badge_access.entry,badge_access_desk.group_badgeaccessd_manager,crud,
+access_badge_access_item_user,badge_access.item User,badge_access.item,badge_access_desk.group_badgeaccessd_user,r,
+access_badge_access_item_manager,badge_access.item Manager,badge_access.item,badge_access_desk.group_badgeaccessd_manager,crud,
+rule_badge_access_entry_company,badge_access.entry: own company only,badge_access.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_badge_access_item_company,badge_access.item: own company only,badge_access.item,,crud,"[('company_id', 'in', company_ids + [False])]"

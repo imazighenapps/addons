@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_putaway_desk_entry_user,putaway_desk.entry User,putaway_desk.entry,putaway_desk.group_putawaydesk_user,r,
+access_putaway_desk_entry_manager,putaway_desk.entry Manager,putaway_desk.entry,putaway_desk.group_putawaydesk_manager,crud,
+access_putaway_desk_item_user,putaway_desk.item User,putaway_desk.item,putaway_desk.group_putawaydesk_user,r,
+access_putaway_desk_item_manager,putaway_desk.item Manager,putaway_desk.item,putaway_desk.group_putawaydesk_manager,crud,
+rule_putaway_desk_entry_company,putaway_desk.entry: own company only,putaway_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_putaway_desk_item_company,putaway_desk.item: own company only,putaway_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

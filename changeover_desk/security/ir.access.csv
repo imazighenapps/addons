@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_changeover_desk_entry_user,changeover_desk.entry User,changeover_desk.entry,changeover_desk.group_changeoverde_user,r,
+access_changeover_desk_entry_manager,changeover_desk.entry Manager,changeover_desk.entry,changeover_desk.group_changeoverde_manager,crud,
+access_changeover_desk_item_user,changeover_desk.item User,changeover_desk.item,changeover_desk.group_changeoverde_user,r,
+access_changeover_desk_item_manager,changeover_desk.item Manager,changeover_desk.item,changeover_desk.group_changeoverde_manager,crud,
+rule_changeover_desk_entry_company,changeover_desk.entry: own company only,changeover_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_changeover_desk_item_company,changeover_desk.item: own company only,changeover_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

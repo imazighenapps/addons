@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_slotting_desk_entry_user,slotting_desk.entry User,slotting_desk.entry,slotting_desk.group_slottingdesk_user,r,
+access_slotting_desk_entry_manager,slotting_desk.entry Manager,slotting_desk.entry,slotting_desk.group_slottingdesk_manager,crud,
+access_slotting_desk_item_user,slotting_desk.item User,slotting_desk.item,slotting_desk.group_slottingdesk_user,r,
+access_slotting_desk_item_manager,slotting_desk.item Manager,slotting_desk.item,slotting_desk.group_slottingdesk_manager,crud,
+rule_slotting_desk_entry_company,slotting_desk.entry: own company only,slotting_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_slotting_desk_item_company,slotting_desk.item: own company only,slotting_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

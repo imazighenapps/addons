@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_reorder_point_entry_user,reorder_point.entry User,reorder_point.entry,reorder_point_desk.group_reorderpoint_user,r,
+access_reorder_point_entry_manager,reorder_point.entry Manager,reorder_point.entry,reorder_point_desk.group_reorderpoint_manager,crud,
+access_reorder_point_item_user,reorder_point.item User,reorder_point.item,reorder_point_desk.group_reorderpoint_user,r,
+access_reorder_point_item_manager,reorder_point.item Manager,reorder_point.item,reorder_point_desk.group_reorderpoint_manager,crud,
+rule_reorder_point_entry_company,reorder_point.entry: own company only,reorder_point.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_reorder_point_item_company,reorder_point.item: own company only,reorder_point.item,,crud,"[('company_id', 'in', company_ids + [False])]"

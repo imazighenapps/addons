@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_kitting_desk_entry_user,kitting_desk.entry User,kitting_desk.entry,kitting_desk.group_kittingdesk_user,r,
+access_kitting_desk_entry_manager,kitting_desk.entry Manager,kitting_desk.entry,kitting_desk.group_kittingdesk_manager,crud,
+access_kitting_desk_item_user,kitting_desk.item User,kitting_desk.item,kitting_desk.group_kittingdesk_user,r,
+access_kitting_desk_item_manager,kitting_desk.item Manager,kitting_desk.item,kitting_desk.group_kittingdesk_manager,crud,
+rule_kitting_desk_entry_company,kitting_desk.entry: own company only,kitting_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_kitting_desk_item_company,kitting_desk.item: own company only,kitting_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

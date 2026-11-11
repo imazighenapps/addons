@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_cycle_count_entry_user,cycle_count.entry User,cycle_count.entry,cycle_count_desk.group_cyclecountde_user,r,
+access_cycle_count_entry_manager,cycle_count.entry Manager,cycle_count.entry,cycle_count_desk.group_cyclecountde_manager,crud,
+access_cycle_count_item_user,cycle_count.item User,cycle_count.item,cycle_count_desk.group_cyclecountde_user,r,
+access_cycle_count_item_manager,cycle_count.item Manager,cycle_count.item,cycle_count_desk.group_cyclecountde_manager,crud,
+rule_cycle_count_entry_company,cycle_count.entry: own company only,cycle_count.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_cycle_count_item_company,cycle_count.item: own company only,cycle_count.item,,crud,"[('company_id', 'in', company_ids + [False])]"

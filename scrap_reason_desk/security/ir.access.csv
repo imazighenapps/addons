@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_scrap_reason_entry_user,scrap_reason.entry User,scrap_reason.entry,scrap_reason_desk.group_scrapreasond_user,r,
+access_scrap_reason_entry_manager,scrap_reason.entry Manager,scrap_reason.entry,scrap_reason_desk.group_scrapreasond_manager,crud,
+access_scrap_reason_item_user,scrap_reason.item User,scrap_reason.item,scrap_reason_desk.group_scrapreasond_user,r,
+access_scrap_reason_item_manager,scrap_reason.item Manager,scrap_reason.item,scrap_reason_desk.group_scrapreasond_manager,crud,
+rule_scrap_reason_entry_company,scrap_reason.entry: own company only,scrap_reason.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_scrap_reason_item_company,scrap_reason.item: own company only,scrap_reason.item,,crud,"[('company_id', 'in', company_ids + [False])]"

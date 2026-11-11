@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_inbound_quality_entry_user,inbound_quality.entry User,inbound_quality.entry,inbound_quality_desk.group_inboundquali_user,r,
+access_inbound_quality_entry_manager,inbound_quality.entry Manager,inbound_quality.entry,inbound_quality_desk.group_inboundquali_manager,crud,
+access_inbound_quality_item_user,inbound_quality.item User,inbound_quality.item,inbound_quality_desk.group_inboundquali_user,r,
+access_inbound_quality_item_manager,inbound_quality.item Manager,inbound_quality.item,inbound_quality_desk.group_inboundquali_manager,crud,
+rule_inbound_quality_entry_company,inbound_quality.entry: own company only,inbound_quality.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_inbound_quality_item_company,inbound_quality.item: own company only,inbound_quality.item,,crud,"[('company_id', 'in', company_ids + [False])]"

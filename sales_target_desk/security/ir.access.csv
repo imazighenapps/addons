@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_sales_target_entry_user,sales_target.entry User,sales_target.entry,sales_target_desk.group_salestargetd_user,r,
+access_sales_target_entry_manager,sales_target.entry Manager,sales_target.entry,sales_target_desk.group_salestargetd_manager,crud,
+access_sales_target_item_user,sales_target.item User,sales_target.item,sales_target_desk.group_salestargetd_user,r,
+access_sales_target_item_manager,sales_target.item Manager,sales_target.item,sales_target_desk.group_salestargetd_manager,crud,
+rule_sales_target_entry_company,sales_target.entry: own company only,sales_target.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_sales_target_item_company,sales_target.item: own company only,sales_target.item,,crud,"[('company_id', 'in', company_ids + [False])]"

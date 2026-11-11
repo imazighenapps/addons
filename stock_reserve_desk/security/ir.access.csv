@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_stock_reserve_entry_user,stock_reserve.entry User,stock_reserve.entry,stock_reserve_desk.group_stockreserve_user,r,
+access_stock_reserve_entry_manager,stock_reserve.entry Manager,stock_reserve.entry,stock_reserve_desk.group_stockreserve_manager,crud,
+access_stock_reserve_item_user,stock_reserve.item User,stock_reserve.item,stock_reserve_desk.group_stockreserve_user,r,
+access_stock_reserve_item_manager,stock_reserve.item Manager,stock_reserve.item,stock_reserve_desk.group_stockreserve_manager,crud,
+rule_stock_reserve_entry_company,stock_reserve.entry: own company only,stock_reserve.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_stock_reserve_item_company,stock_reserve.item: own company only,stock_reserve.item,,crud,"[('company_id', 'in', company_ids + [False])]"

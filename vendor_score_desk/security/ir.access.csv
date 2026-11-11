@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_vendor_score_entry_user,vendor_score.entry User,vendor_score.entry,vendor_score_desk.group_vendorscored_user,r,
+access_vendor_score_entry_manager,vendor_score.entry Manager,vendor_score.entry,vendor_score_desk.group_vendorscored_manager,crud,
+access_vendor_score_item_user,vendor_score.item User,vendor_score.item,vendor_score_desk.group_vendorscored_user,r,
+access_vendor_score_item_manager,vendor_score.item Manager,vendor_score.item,vendor_score_desk.group_vendorscored_manager,crud,
+rule_vendor_score_entry_company,vendor_score.entry: own company only,vendor_score.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_vendor_score_item_company,vendor_score.item: own company only,vendor_score.item,,crud,"[('company_id', 'in', company_ids + [False])]"

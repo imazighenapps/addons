@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_tool_life_entry_user,tool_life.entry User,tool_life.entry,tool_life_desk.group_toollifedesk_user,r,
+access_tool_life_entry_manager,tool_life.entry Manager,tool_life.entry,tool_life_desk.group_toollifedesk_manager,crud,
+access_tool_life_item_user,tool_life.item User,tool_life.item,tool_life_desk.group_toollifedesk_user,r,
+access_tool_life_item_manager,tool_life.item Manager,tool_life.item,tool_life_desk.group_toollifedesk_manager,crud,
+rule_tool_life_entry_company,tool_life.entry: own company only,tool_life.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_tool_life_item_company,tool_life.item: own company only,tool_life.item,,crud,"[('company_id', 'in', company_ids + [False])]"

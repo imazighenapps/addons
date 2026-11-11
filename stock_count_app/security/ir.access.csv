@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_stock_count_entry_user,stock_count.entry User,stock_count.entry,stock_count_app.group_stockcountap_user,r,
+access_stock_count_entry_manager,stock_count.entry Manager,stock_count.entry,stock_count_app.group_stockcountap_manager,crud,
+access_stock_count_item_user,stock_count.item User,stock_count.item,stock_count_app.group_stockcountap_user,r,
+access_stock_count_item_manager,stock_count.item Manager,stock_count.item,stock_count_app.group_stockcountap_manager,crud,
+rule_stock_count_entry_company,stock_count.entry: own company only,stock_count.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_stock_count_item_company,stock_count.item: own company only,stock_count.item,,crud,"[('company_id', 'in', company_ids + [False])]"

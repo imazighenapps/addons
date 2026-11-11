@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_multi_barcode_entry_user,multi_barcode.entry User,multi_barcode.entry,multi_barcode_desk.group_multibarcode_user,r,
+access_multi_barcode_entry_manager,multi_barcode.entry Manager,multi_barcode.entry,multi_barcode_desk.group_multibarcode_manager,crud,
+access_multi_barcode_item_user,multi_barcode.item User,multi_barcode.item,multi_barcode_desk.group_multibarcode_user,r,
+access_multi_barcode_item_manager,multi_barcode.item Manager,multi_barcode.item,multi_barcode_desk.group_multibarcode_manager,crud,
+rule_multi_barcode_entry_company,multi_barcode.entry: own company only,multi_barcode.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_multi_barcode_item_company,multi_barcode.item: own company only,multi_barcode.item,,crud,"[('company_id', 'in', company_ids + [False])]"

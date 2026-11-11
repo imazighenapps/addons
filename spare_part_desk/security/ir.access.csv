@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_spare_part_entry_user,spare_part.entry User,spare_part.entry,spare_part_desk.group_sparepartdes_user,r,
+access_spare_part_entry_manager,spare_part.entry Manager,spare_part.entry,spare_part_desk.group_sparepartdes_manager,crud,
+access_spare_part_item_user,spare_part.item User,spare_part.item,spare_part_desk.group_sparepartdes_user,r,
+access_spare_part_item_manager,spare_part.item Manager,spare_part.item,spare_part_desk.group_sparepartdes_manager,crud,
+rule_spare_part_entry_company,spare_part.entry: own company only,spare_part.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_spare_part_item_company,spare_part.item: own company only,spare_part.item,,crud,"[('company_id', 'in', company_ids + [False])]"

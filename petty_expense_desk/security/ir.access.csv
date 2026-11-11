@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_petty_expense_entry_user,petty_expense.entry User,petty_expense.entry,petty_expense_desk.group_pettyexpense_user,r,
+access_petty_expense_entry_manager,petty_expense.entry Manager,petty_expense.entry,petty_expense_desk.group_pettyexpense_manager,crud,
+access_petty_expense_item_user,petty_expense.item User,petty_expense.item,petty_expense_desk.group_pettyexpense_user,r,
+access_petty_expense_item_manager,petty_expense.item Manager,petty_expense.item,petty_expense_desk.group_pettyexpense_manager,crud,
+rule_petty_expense_entry_company,petty_expense.entry: own company only,petty_expense.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_petty_expense_item_company,petty_expense.item: own company only,petty_expense.item,,crud,"[('company_id', 'in', company_ids + [False])]"

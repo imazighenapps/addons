@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_promo_desk_entry_user,promo_desk.entry User,promo_desk.entry,promo_desk.group_promodesk_user,r,
+access_promo_desk_entry_manager,promo_desk.entry Manager,promo_desk.entry,promo_desk.group_promodesk_manager,crud,
+access_promo_desk_item_user,promo_desk.item User,promo_desk.item,promo_desk.group_promodesk_user,r,
+access_promo_desk_item_manager,promo_desk.item Manager,promo_desk.item,promo_desk.group_promodesk_manager,crud,
+rule_promo_desk_entry_company,promo_desk.entry: own company only,promo_desk.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_promo_desk_item_company,promo_desk.item: own company only,promo_desk.item,,crud,"[('company_id', 'in', company_ids + [False])]"

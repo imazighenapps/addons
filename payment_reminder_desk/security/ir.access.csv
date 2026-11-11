@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_payment_reminder_entry_user,payment_reminder.entry User,payment_reminder.entry,payment_reminder_desk.group_paymentremin_user,r,
+access_payment_reminder_entry_manager,payment_reminder.entry Manager,payment_reminder.entry,payment_reminder_desk.group_paymentremin_manager,crud,
+access_payment_reminder_item_user,payment_reminder.item User,payment_reminder.item,payment_reminder_desk.group_paymentremin_user,r,
+access_payment_reminder_item_manager,payment_reminder.item Manager,payment_reminder.item,payment_reminder_desk.group_paymentremin_manager,crud,
+rule_payment_reminder_entry_company,payment_reminder.entry: own company only,payment_reminder.entry,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_payment_reminder_item_company,payment_reminder.item: own company only,payment_reminder.item,,crud,"[('company_id', 'in', company_ids + [False])]"
