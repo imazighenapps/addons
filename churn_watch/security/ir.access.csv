@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_churn_signal_user,churn.signal User,churn.signal,churn_watch.group_churnwatch_user,cru,
+access_churn_signal_manager,churn.signal Manager,churn.signal,churn_watch.group_churnwatch_manager,crud,
+access_churn_action_user,churn.action User,churn.action,churn_watch.group_churnwatch_user,cru,
+access_churn_action_manager,churn.action Manager,churn.action,churn_watch.group_churnwatch_manager,crud,
+rule_churn_signal_company,churn.signal: own company only,churn.signal,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_churn_action_company,churn.action: own company only,churn.action,,crud,"[('company_id', 'in', company_ids + [False])]"
