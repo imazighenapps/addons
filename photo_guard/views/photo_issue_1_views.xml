@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_photo_issue_list" model="ir.ui.view">
+        <field name="name">photo.issue.list</field>
+        <field name="model">photo.issue</field>
+        <field name="arch" type="xml">
+            <list string="Photo Issues" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="audit_id"/>
+                <field name="product_name"/>
+                <field name="issue_type"/>
+                <field name="fixed_on"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_photo_issue_form" model="ir.ui.view">
+        <field name="name">photo.issue.form</field>
+        <field name="model">photo.issue</field>
+        <field name="arch" type="xml">
+            <form string="Photo Issues">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="product_name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Issue">
+    <field name="audit_id"/>
+    <field name="product_name"/>
+    <field name="issue_type"/>
+    <field name="state"/>
+    <field name="fixed_on"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_photo_issue_search" model="ir.ui.view">
+        <field name="name">photo.issue.search</field>
+        <field name="model">photo.issue</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="audit_id"/>
+                <field name="product_name"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="fixed" string="Fixed" domain="[('state','=','fixed')]"/>
+                <filter name="missing" string="Missing" domain="[('issue_type','=','missing')]"/>
+                <separator/>
+                <filter name="group_audit" string="Audit" context="{'group_by': 'audit_id'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'issue_type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_photo_issue_kanban" model="ir.ui.view">
+        <field name="name">photo.issue.kanban</field>
+        <field name="model">photo.issue</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="product_name"/>
+                <field name="audit_id"/>
+                <field name="issue_type"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="product_name"/>
+                        <field name="audit_id"/>
+                        <field name="issue_type"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_photo_issue" model="ir.actions.act_window">
+        <field name="name">Photo Issues</field>
+        <field name="res_model">photo.issue</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every missing, weak or outdated product photo tracked in an audit.</p>
+        </field>
+    </record>
+
+</odoo>

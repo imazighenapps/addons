@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_photo_audit_user,photo.audit User,photo.audit,photo_guard.group_photoguard_user,cr,
+access_photo_audit_manager,photo.audit Manager,photo.audit,photo_guard.group_photoguard_manager,crud,
+access_photo_issue_user,photo.issue User,photo.issue,photo_guard.group_photoguard_user,cr,
+access_photo_issue_manager,photo.issue Manager,photo.issue,photo_guard.group_photoguard_manager,crud,
+rule_photo_audit_company,photo.audit: own company only,photo.audit,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_photo_issue_company,photo.issue: own company only,photo.issue,,crud,"[('company_id', 'in', company_ids + [False])]"
