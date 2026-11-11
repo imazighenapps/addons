@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_tool_crib_tool_list" model="ir.ui.view">
+        <field name="name">tool.crib.tool.list</field>
+        <field name="model">tool.crib.tool</field>
+        <field name="arch" type="xml">
+            <list string="Tools">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="condition"/>
+                <field name="loan_count"/>
+                <field name="open_loan_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tool_crib_tool_form" model="ir.ui.view">
+        <field name="name">tool.crib.tool.form</field>
+        <field name="model">tool.crib.tool</field>
+        <field name="arch" type="xml">
+            <form string="Tools">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Tool">
+    <field name="code"/>
+    <field name="name"/>
+    <field name="condition"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Counters">
+    <field name="loan_count"/>
+    <field name="open_loan_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tool_crib_tool_search" model="ir.ui.view">
+        <field name="name">tool.crib.tool.search</field>
+        <field name="model">tool.crib.tool</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <separator/>
+                <filter name="group_condition" string="Condition" context="{'group_by': 'condition'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_tool_crib_tool_kanban" model="ir.ui.view">
+        <field name="name">tool.crib.tool.kanban</field>
+        <field name="model">tool.crib.tool</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="condition" sample="1">
+                <field name="condition"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="open_loan_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="condition" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="open_loan_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_tool_crib_tool" model="ir.actions.act_window">
+        <field name="name">Tools</field>
+        <field name="res_model">tool.crib.tool</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The workshop tool catalogue and how often each one is lent.</p>
+        </field>
+    </record>
+
+</odoo>

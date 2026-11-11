@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_tool_crib_loan_list" model="ir.ui.view">
+        <field name="name">tool.crib.loan.list</field>
+        <field name="model">tool.crib.loan</field>
+        <field name="arch" type="xml">
+            <list string="Tool Loans" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="issued_on"/>
+                <field name="borrower_name"/>
+                <field name="tool_id"/>
+                <field name="due_on"/>
+                <field name="returned_on"/>
+                <field name="is_late"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tool_crib_loan_form" model="ir.ui.view">
+        <field name="name">tool.crib.loan.form</field>
+        <field name="model">tool.crib.loan</field>
+        <field name="arch" type="xml">
+            <form string="Tool Loans">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="borrower_name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Loan">
+    <field name="name"/>
+    <field name="tool_id"/>
+    <field name="borrower_name"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Dates">
+    <field name="issued_on"/>
+    <field name="due_on"/>
+    <field name="state"/>
+    <field name="returned_on"/>
+    <field name="is_late"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tool_crib_loan_search" model="ir.ui.view">
+        <field name="name">tool.crib.loan.search</field>
+        <field name="model">tool.crib.loan</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="borrower_name"/>
+                <field name="tool_id"/>
+                <filter name="out" string="Out" domain="[('state','=','out')]"/>
+                <filter name="late" string="Late" domain="[('is_late','=',True)]"/>
+                <separator/>
+                <filter name="group_borrower" string="Borrower" context="{'group_by': 'borrower_name'}"/>
+                <filter name="group_tool" string="Tool" context="{'group_by': 'tool_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_tool_crib_loan_kanban" model="ir.ui.view">
+        <field name="name">tool.crib.loan.kanban</field>
+        <field name="model">tool.crib.loan</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="borrower_name"/>
+                <field name="tool_id"/>
+                <field name="issued_on"/>
+                <field name="due_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="borrower_name"/>
+                        <field name="tool_id"/>
+                        <field name="issued_on"/>
+                        <field name="due_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_tool_crib_loan" model="ir.actions.act_window">
+        <field name="name">Tool Loans</field>
+        <field name="res_model">tool.crib.loan</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Who borrowed which tool and when it is due back.</p>
+        </field>
+    </record>
+
+</odoo>
