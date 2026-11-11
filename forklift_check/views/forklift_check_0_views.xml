@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_forklift_check_list" model="ir.ui.view">
+        <field name="name">forklift.check.list</field>
+        <field name="model">forklift.check</field>
+        <field name="arch" type="xml">
+            <list string="Forklift Checks" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="check_date"/>
+                <field name="name"/>
+                <field name="truck_ref"/>
+                <field name="operator_name"/>
+                <field name="defect_count"/>
+                <field name="open_defect_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_forklift_check_form" model="ir.ui.view">
+        <field name="name">forklift.check.form</field>
+        <field name="model">forklift.check</field>
+        <field name="arch" type="xml">
+            <form string="Forklift Checks">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Inspection">
+    <field name="name"/>
+    <field name="truck_ref"/>
+    <field name="operator_name"/>
+    <field name="check_date"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Result">
+    <field name="state"/>
+    <field name="defect_count"/>
+    <field name="open_defect_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Defects" name="defectids">
+                            <field name="defect_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_forklift_check_search" model="ir.ui.view">
+        <field name="name">forklift.check.search</field>
+        <field name="model">forklift.check</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="truck_ref"/>
+                <field name="operator_name"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="grounded" string="Grounded" domain="[('state','=','grounded')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_truck" string="Forklift" context="{'group_by': 'truck_ref'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_forklift_check_kanban" model="ir.ui.view">
+        <field name="name">forklift.check.kanban</field>
+        <field name="model">forklift.check</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="truck_ref"/>
+                <field name="check_date"/>
+                <field name="open_defect_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="truck_ref"/>
+                        <field name="check_date"/>
+                        <field name="open_defect_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_forklift_check" model="ir.actions.act_window">
+        <field name="name">Forklift Checks</field>
+        <field name="res_model">forklift.check</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Daily forklift inspections and the defects that ground a truck.</p>
+        </field>
+    </record>
+
+</odoo>
