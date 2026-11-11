@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_lot_recall_list" model="ir.ui.view">
+        <field name="name">lot.recall.list</field>
+        <field name="model">lot.recall</field>
+        <field name="arch" type="xml">
+            <list string="Recalls" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="product_name"/>
+                <field name="start_date"/>
+                <field name="impact_count"/>
+                <field name="notified_count"/>
+                <field name="pending_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_lot_recall_form" model="ir.ui.view">
+        <field name="name">lot.recall.form</field>
+        <field name="model">lot.recall</field>
+        <field name="arch" type="xml">
+            <form string="Recalls">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Recall">
+    <field name="name"/>
+    <field name="product_name"/>
+    <field name="start_date"/>
+    <field name="responsible_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Status">
+    <field name="state"/>
+    <field name="impact_count"/>
+    <field name="notified_count"/>
+    <field name="pending_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Reason" name="reason">
+                            <field name="reason"/>
+                        </page>
+                        <page string="Impacted Lines" name="lineids">
+                            <field name="line_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_lot_recall_search" model="ir.ui.view">
+        <field name="name">lot.recall.search</field>
+        <field name="model">lot.recall</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="product_name"/>
+                <field name="responsible_id"/>
+                <filter name="active_cases" string="Active" domain="[('state', 'in', ('active', 'notifying'))]"/>
+                <filter name="pending" string="Pending Notifications" domain="[('pending_count', '&gt;', 0), ('state', '!=', 'draft')]"/>
+                <separator/>
+                <filter name="group_responsible" string="Responsible" context="{'group_by': 'responsible_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_start" string="Start Date" context="{'group_by': 'start_date'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_lot_recall_kanban" model="ir.ui.view">
+        <field name="name">lot.recall.kanban</field>
+        <field name="model">lot.recall</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="product_name"/>
+                <field name="start_date"/>
+                <field name="pending_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="product_name"/>
+                        <field name="start_date"/>
+                        <field name="pending_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_lot_recall" model="ir.actions.act_window">
+        <field name="name">Recalls</field>
+        <field name="res_model">lot.recall</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">One case per recall, with every impacted customer and lot in scope.</p>
+        </field>
+    </record>
+
+</odoo>
