@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_photo_audit_list" model="ir.ui.view">
+        <field name="name">photo.audit.list</field>
+        <field name="model">photo.audit</field>
+        <field name="arch" type="xml">
+            <list string="Photo Audits" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="due_date"/>
+                <field name="name"/>
+                <field name="area"/>
+                <field name="owner_name"/>
+                <field name="issue_count"/>
+                <field name="open_issue_count"/>
+                <field name="fixed_issue_count"/>
+                <field name="quality_score"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_photo_audit_form" model="ir.ui.view">
+        <field name="name">photo.audit.form</field>
+        <field name="model">photo.audit</field>
+        <field name="arch" type="xml">
+            <form string="Photo Audits">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Audit">
+    <field name="name"/>
+    <field name="area"/>
+    <field name="owner_name"/>
+    <field name="due_date"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Progress">
+    <field name="issue_count"/>
+    <field name="open_issue_count"/>
+    <field name="fixed_issue_count"/>
+    <field name="quality_score"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Issues" name="issueids">
+                            <field name="issue_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_photo_audit_search" model="ir.ui.view">
+        <field name="name">photo.audit.search</field>
+        <field name="model">photo.audit</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="area"/>
+                <field name="owner_name"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="in_progress" string="In Progress" domain="[('state','=','in_progress')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_photo_audit_kanban" model="ir.ui.view">
+        <field name="name">photo.audit.kanban</field>
+        <field name="model">photo.audit</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="area"/>
+                <field name="open_issue_count"/>
+                <field name="quality_score"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="area"/>
+                        <field name="open_issue_count"/>
+                        <field name="quality_score"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_photo_audit" model="ir.actions.act_window">
+        <field name="name">Photo Audits</field>
+        <field name="res_model">photo.audit</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Catalog photo audits with open and fixed issues counted for you.</p>
+        </field>
+    </record>
+
+</odoo>
