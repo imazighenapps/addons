@@ -1,0 +1,298 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* coverage_plan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: coverage_plan
+#. odoo-python
+#: code:addons/coverage_plan/models/coverage_item.py:0
+msgid "A planned purchase of %s was recorded."
+msgstr "Es wurde ein geplanter Kauf von %s erfasst."
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: coverage_plan
+#: model:ir.model.fields,help:coverage_plan.field_coverage_item__daily_demand
+msgid "Average quantity consumed per day."
+msgstr "Durchschnittlich konsumierte Menge pro Tag."
+
+#. module: coverage_plan
+#: model:ir.actions.act_window,name:coverage_plan.action_coverage_item_low
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__below_minimum
+#: model:ir.ui.menu,name:coverage_plan.menu_coverage_low
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_low_form
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_low_list
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_search
+msgid "Below Minimum"
+msgstr "Unterhalb des Minimums"
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__company_id
+msgid "Company"
+msgstr "Firma"
+
+#. module: coverage_plan
+#: model:res.groups,comment:coverage_plan.group_coverageplan_manager
+msgid "Configure and administer the module."
+msgstr "Konfigurieren und verwalten Sie das Modul."
+
+#. module: coverage_plan
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_form
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_low_form
+msgid "Coverage"
+msgstr "Abdeckung"
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__coverage_days
+msgid "Coverage Days"
+msgstr "Abdeckungstage"
+
+#. module: coverage_plan
+#: model:ir.model,name:coverage_plan.model_coverage_item
+msgid "Coverage Item"
+msgstr "Deckungsgegenstand"
+
+#. module: coverage_plan
+#: model:ir.ui.menu,name:coverage_plan.menu_coverage_items
+msgid "Coverage Lines"
+msgstr "Abdeckungslinien"
+
+#. module: coverage_plan
+#: model:ir.actions.act_window,name:coverage_plan.action_coverage_item
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_form
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_list
+msgid "Coverage Plan"
+msgstr "Deckungsplan"
+
+#. module: coverage_plan
+#: model:res.groups,name:coverage_plan.group_coverageplan_manager
+msgid "Coverage Plan Manager"
+msgstr "Abdeckungsplan-Manager"
+
+#. module: coverage_plan
+#: model:res.groups,name:coverage_plan.group_coverageplan_user
+msgid "Coverage Plan User"
+msgstr "Benutzer des Deckungsplans"
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__daily_demand
+msgid "Daily Demand"
+msgstr "Täglicher Bedarf"
+
+#. module: coverage_plan
+#: model_terms:ir.actions.act_window,help:coverage_plan.action_coverage_item
+msgid "Days of stock cover per product, with skimpy lines ready to plan."
+msgstr "Tagelange Lagerabdeckung pro Produkt, mit knappen, planbaren Linien."
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: coverage_plan
+#: model:ir.model.fields.selection,name:coverage_plan.selection__coverage_item__state__draft
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__has_message
+msgid "Has Message"
+msgstr "Hat Nachricht"
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__min_days
+msgid "Minimum Days"
+msgstr "Mindesttage"
+
+#. module: coverage_plan
+#: model:ir.model.fields,help:coverage_plan.field_coverage_item__min_days
+msgid "Minimum number of covered days to keep in stock."
+msgstr "Mindestanzahl der abgedeckten Tage, um den Vorrat aufzubewahren."
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__note
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_form
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_low_form
+msgid "Note"
+msgstr "Notiz"
+
+#. module: coverage_plan
+#: model:ir.model.fields,help:coverage_plan.field_coverage_item__coverage_days
+msgid "Number of days the current stock covers at the daily demand."
+msgstr "Anzahl der Tage, die der aktuelle Bestand bei Tagesbedarf abdeckt."
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__on_hand_qty
+msgid "On Hand"
+msgstr "Zur Hand"
+
+#. module: coverage_plan
+#. odoo-python
+#: code:addons/coverage_plan/models/coverage_item.py:0
+msgid "Only draft lines can be planned: %s."
+msgstr "Es können nur Entwurfslinien geplant werden: %s."
+
+#. module: coverage_plan
+#. odoo-python
+#: code:addons/coverage_plan/models/coverage_item.py:0
+msgid "Only planned lines can be marked ordered: %s."
+msgstr "Es können nur geplante Zeilen als geordnet markiert werden: %s."
+
+#. module: coverage_plan
+#: model:ir.model.fields.selection,name:coverage_plan.selection__coverage_item__state__ordered
+msgid "Ordered"
+msgstr "Bestellt"
+
+#. module: coverage_plan
+#: model:ir.model.fields.selection,name:coverage_plan.selection__coverage_item__state__planned
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_search
+msgid "Planned"
+msgstr "Geplant"
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__planned_qty
+msgid "Planned Purchase Qty"
+msgstr "Geplante Einkaufsmenge"
+
+#. module: coverage_plan
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_form
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_low_form
+msgid "Planning"
+msgstr "Planung"
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__name
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_form
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_low_form
+msgid "Product"
+msgstr "Produkt"
+
+#. module: coverage_plan
+#: model:ir.model.fields,help:coverage_plan.field_coverage_item__name
+msgid "Product or item whose stock coverage is planned."
+msgstr "Produkt oder Artikel, dessen Bestandsdeckung geplant ist."
+
+#. module: coverage_plan
+#: model_terms:ir.actions.act_window,help:coverage_plan.action_coverage_item_low
+msgid "Products whose stock covers fewer days than the minimum target."
+msgstr "Produkte, deren Lagerbestand weniger Tage als das Mindestziel abdeckt."
+
+#. module: coverage_plan
+#: model:ir.model.fields,help:coverage_plan.field_coverage_item__on_hand_qty
+msgid "Quantity currently available on hand."
+msgstr "Derzeit verfügbare Menge."
+
+#. module: coverage_plan
+#: model:ir.model.fields,help:coverage_plan.field_coverage_item__planned_qty
+msgid "Quantity to purchase to restore healthy coverage."
+msgstr "Zu kaufende Menge, um eine gesunde Abdeckung wiederherzustellen."
+
+#. module: coverage_plan
+#: model:ir.ui.menu,name:coverage_plan.menu_coverage_root
+msgid "Reorder Plan"
+msgstr "Nachbestellungsplan"
+
+#. module: coverage_plan
+#: model:ir.module.module,shortdesc:base.module_coverage_plan
+msgid "ReorderPlan"
+msgstr "Nachbestellungsplan"
+
+#. module: coverage_plan
+#: model:ir.module.module,summary:base.module_coverage_plan
+msgid "See how many days of demand your stock covers per product and turn every skimpy line into a planned purchase."
+msgstr "Sehen Sie, wie viele Tage der Nachfrage Ihr Lagerbestand pro Produkt abdeckt, und verwandeln Sie jede knappe Zeile in einen geplanten Kauf."
+
+#. module: coverage_plan
+#. odoo-python
+#: code:addons/coverage_plan/models/coverage_item.py:0
+msgid "Set a positive planned quantity before planning %s."
+msgstr "Legen Sie vor der Planung von %s eine positive Planmenge fest."
+
+#. module: coverage_plan
+#: model:ir.model.fields,field_description:coverage_plan.field_coverage_item__state
+msgid "State"
+msgstr "Status"
+
+#. module: coverage_plan
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_low_search
+#: model_terms:ir.ui.view,arch_db:coverage_plan.view_coverage_item_search
+msgid "Status"
+msgstr "Status"
+
+#. module: coverage_plan
+#. odoo-python
+#: code:addons/coverage_plan/models/coverage_item.py:0
+msgid "The daily demand of %s must be above zero."
+msgstr "Der tägliche Bedarf an %s muss über Null liegen."
+
+#. module: coverage_plan
+#. odoo-python
+#: code:addons/coverage_plan/models/coverage_item.py:0
+msgid "The line %s is already in draft."
+msgstr "Die Linie %s befindet sich bereits im Entwurf."
+
+#. module: coverage_plan
+#. odoo-python
+#: code:addons/coverage_plan/models/coverage_item.py:0
+msgid "The line was reset to draft."
+msgstr "Die Linie wurde auf Entwurf zurückgesetzt."
+
+#. module: coverage_plan
+#. odoo-python
+#: code:addons/coverage_plan/models/coverage_item.py:0
+msgid "The minimum days of %s must be above zero."
+msgstr "Die Mindesttage von %s müssen über Null liegen."
+
+#. module: coverage_plan
+#. odoo-python
+#: code:addons/coverage_plan/models/coverage_item.py:0
+msgid "The on-hand quantity of %s cannot be negative."
+msgstr "Die verfügbare Menge von %s darf nicht negativ sein."
+
+#. module: coverage_plan
+#. odoo-python
+#: code:addons/coverage_plan/models/coverage_item.py:0
+msgid "The planned purchase was ordered."
+msgstr "Der geplante Kauf wurde angeordnet."
+
+#. module: coverage_plan
+#: model:ir.model.fields,help:coverage_plan.field_coverage_item__below_minimum
+msgid "True when covered days are below the minimum target."
+msgstr "True, wenn die abgedeckten Tage unter dem Mindestziel liegen."
+
+#. module: coverage_plan
+#: model:res.groups,comment:coverage_plan.group_coverageplan_user
+msgid "View and use the module."
+msgstr "Sehen Sie sich das Modul an und nutzen Sie es."
