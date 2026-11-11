@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_quote_watch_list" model="ir.ui.view">
+        <field name="name">quote.watch.list</field>
+        <field name="model">quote.watch</field>
+        <field name="arch" type="xml">
+            <list string="Quotation Trackers" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="quote_ref"/>
+                <field name="partner_id"/>
+                <field name="salesperson_id"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="quote_on"/>
+                <field name="remind_every"/>
+                <field name="nudge_count"/>
+                <field name="last_nudge_on"/>
+                <field name="is_due" string="Due" widget="boolean"/>
+                <field name="state" widget="badge"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_quote_watch_form" model="ir.ui.view">
+        <field name="name">quote.watch.form</field>
+        <field name="model">quote.watch</field>
+        <field name="arch" type="xml">
+            <form string="Quotation Trackers">
+                <header>
+                    <button name="action_nudge" type="object" string="Remind" class="btn-primary" invisible="state != 'watching'"/>
+                    <button name="action_won" type="object" string="Won" class="btn-secondary" invisible="state != 'watching'"/>
+                    <button name="action_lost" type="object" string="Lost" class="btn-link" invisible="state != 'watching'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="watching,won,lost"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Quotation">
+    <field name="name"/>
+    <field name="quote_ref"/>
+    <field name="partner_id"/>
+    <field name="salesperson_id"/>
+    <field name="amount"/>
+    <field name="currency_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Plan">
+    <field name="quote_on"/>
+    <field name="remind_every"/>
+    <field name="max_reminders"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Reminders">
+    <field name="nudge_count"/>
+    <field name="last_nudge_on"/>
+    <field name="is_due"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_quote_watch_search" model="ir.ui.view">
+        <field name="name">quote.watch.search</field>
+        <field name="model">quote.watch</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="quote_ref"/>
+                <field name="partner_id"/>
+                <filter name="watching" string="Watching" domain="[('state','=','watching')]"/>
+                <filter name="due" string="Due Now" domain="[('is_due','=',True)]"/>
+                <filter name="reminded" string="Reminded" domain="[('nudge_count','&gt;',0)]"/>
+                <filter name="won" string="Won" domain="[('state','=','won')]"/>
+                <filter name="lost" string="Lost" domain="[('state','=','lost')]"/>
+                <filter name="mine" string="My Quotes" domain="[('salesperson_id','=',uid)]"/>
+                <separator/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_sales" string="Salesperson" context="{'group_by': 'salesperson_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_quote_watch_kanban" model="ir.ui.view">
+        <field name="name">quote.watch.kanban</field>
+        <field name="model">quote.watch</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="quote_ref"/>
+                <field name="partner_id"/>
+                <field name="amount"/>
+                <field name="nudge_count"/>
+                <field name="is_due"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="quote_ref"/>
+                        <field name="partner_id"/>
+                        <field name="amount"/>
+                        <field name="nudge_count"/>
+                        <field name="is_due"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_quote_watch" model="ir.actions.act_window">
+        <field name="name">Quotation Trackers</field>
+        <field name="res_model">quote.watch</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Name the quote, set the plan and let the due flag tell you when to call.</p>
+        </field>
+    </record>
+
+</odoo>
