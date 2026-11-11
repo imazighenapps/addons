@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_damage_claim_entry_company" model="ir.rule">
+        <field name="name">damage_claim.entry: own company only</field>
+        <field name="model_id" ref="model_damage_claim_entry"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_damage_claim_item_company" model="ir.rule">
+        <field name="name">damage_claim.item: own company only</field>
+        <field name="model_id" ref="model_damage_claim_item"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

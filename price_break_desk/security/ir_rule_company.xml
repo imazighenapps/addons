@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_price_break_entry_company" model="ir.rule">
+        <field name="name">price_break.entry: own company only</field>
+        <field name="model_id" ref="model_price_break_entry"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_price_break_item_company" model="ir.rule">
+        <field name="name">price_break.item: own company only</field>
+        <field name="model_id" ref="model_price_break_item"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
