@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_clc_item_list" model="ir.ui.view">
+        <field name="name">clc.item.list</field>
+        <field name="model">clc.item</field>
+        <field name="arch" type="xml">
+            <list string="Checklist Items" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="sequence"/>
+                <field name="check_id"/>
+                <field name="name"/>
+                <field name="item_type"/>
+                <field name="signed_by_id"/>
+                <field name="signed_on"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_clc_item_form" model="ir.ui.view">
+        <field name="name">clc.item.form</field>
+        <field name="model">clc.item</field>
+        <field name="arch" type="xml">
+            <form string="Checklist Items">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Item">
+    <field name="check_id"/>
+    <field name="sequence"/>
+    <field name="name"/>
+    <field name="item_type"/>
+    <field name="state"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Sign-off">
+    <field name="signed_by_id"/>
+    <field name="signed_on"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_clc_item_search" model="ir.ui.view">
+        <field name="name">clc.item.search</field>
+        <field name="model">clc.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="check_id"/>
+                <filter name="todo" string="To Do" domain="[('state', '=', 'todo')]"/>
+                <separator/>
+                <filter name="group_type" string="Type" context="{'group_by': 'item_type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_clc_item_kanban" model="ir.ui.view">
+        <field name="name">clc.item.kanban</field>
+        <field name="model">clc.item</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="check_id"/>
+                <field name="item_type"/>
+                <field name="signed_by_id"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="check_id"/>
+                        <field name="item_type"/>
+                        <field name="signed_by_id"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_clc_item" model="ir.actions.act_window">
+        <field name="name">Checklist Items</field>
+        <field name="res_model">clc.item</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every clearance item signed off before release.</p>
+        </field>
+    </record>
+
+</odoo>
