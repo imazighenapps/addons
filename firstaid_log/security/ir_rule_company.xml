@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_firstaid_kit_company" model="ir.rule">
+        <field name="name">firstaid.kit: own company only</field>
+        <field name="model_id" ref="model_firstaid_kit"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_firstaid_item_company" model="ir.rule">
+        <field name="name">firstaid.item: own company only</field>
+        <field name="model_id" ref="model_firstaid_item"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_firstaid_refill_company" model="ir.rule">
+        <field name="name">firstaid.refill: own company only</field>
+        <field name="model_id" ref="model_firstaid_refill"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

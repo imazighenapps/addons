@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_firstaid_kit_list" model="ir.ui.view">
+        <field name="name">firstaid.kit.list</field>
+        <field name="model">firstaid.kit</field>
+        <field name="arch" type="xml">
+            <list string="First Aid Kits">
+                <field name="name"/>
+                <field name="location"/>
+                <field name="responsible_id"/>
+                <field name="item_count"/>
+                <field name="missing_count"/>
+                <field name="expired_count"/>
+                <field name="refill_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_firstaid_kit_form" model="ir.ui.view">
+        <field name="name">firstaid.kit.form</field>
+        <field name="model">firstaid.kit</field>
+        <field name="arch" type="xml">
+            <form string="First Aid Kits">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Kit">
+    <field name="name"/>
+    <field name="location"/>
+    <field name="responsible_id"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Status">
+    <field name="item_count"/>
+    <field name="missing_count"/>
+    <field name="expired_count"/>
+    <field name="refill_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Contents" name="itemids">
+                            <field name="item_ids"/>
+                        </page>
+                        <page string="Refill Rounds" name="refillids">
+                            <field name="refill_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_firstaid_kit_search" model="ir.ui.view">
+        <field name="name">firstaid.kit.search</field>
+        <field name="model">firstaid.kit</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="location"/>
+                <field name="responsible_id"/>
+                <separator/>
+                <filter name="group_location" string="Location" context="{'group_by': 'location'}"/>
+                <filter name="group_responsible" string="Responsible" context="{'group_by': 'responsible_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_firstaid_kit_kanban" model="ir.ui.view">
+        <field name="name">firstaid.kit.kanban</field>
+        <field name="model">firstaid.kit</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="location" sample="1">
+                <field name="location"/>
+                <field name="name"/>
+                <field name="responsible_id"/>
+                <field name="missing_count"/>
+                <field name="expired_count"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="location" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="responsible_id"/>
+                        <field name="missing_count"/>
+                        <field name="expired_count"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_firstaid_kit" model="ir.actions.act_window">
+        <field name="name">First Aid Kits</field>
+        <field name="res_model">firstaid.kit</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every first aid kit, its contents and what needs attention.</p>
+        </field>
+    </record>
+
+</odoo>
