@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_devd_approval_list" model="ir.ui.view">
+        <field name="name">devd.approval.list</field>
+        <field name="model">devd.approval</field>
+        <field name="arch" type="xml">
+            <list string="Approvals">
+                <field name="decided_on"/>
+                <field name="deviation_id"/>
+                <field name="approver_id"/>
+                <field name="decision" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_devd_approval_form" model="ir.ui.view">
+        <field name="name">devd.approval.form</field>
+        <field name="model">devd.approval</field>
+        <field name="arch" type="xml">
+            <form string="Approvals">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="deviation_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Approval">
+    <field name="deviation_id"/>
+    <field name="approver_id"/>
+    <field name="decided_on"/>
+    <field name="decision"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Comment" name="comment">
+                            <field name="comment"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_devd_approval_search" model="ir.ui.view">
+        <field name="name">devd.approval.search</field>
+        <field name="model">devd.approval</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="deviation_id"/>
+                <field name="approver_id"/>
+                <filter name="granted" string="Granted" domain="[('decision', '=', 'granted')]"/>
+                <separator/>
+                <filter name="group_decision" string="Decision" context="{'group_by': 'decision'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_devd_approval_kanban" model="ir.ui.view">
+        <field name="name">devd.approval.kanban</field>
+        <field name="model">devd.approval</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="decision" sample="1">
+                <field name="decision"/>
+                <field name="deviation_id"/>
+                <field name="approver_id"/>
+                <field name="decided_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="decision" class="fw-bold"/>
+                        <field name="deviation_id"/>
+                        <field name="approver_id"/>
+                        <field name="decided_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_devd_approval" model="ir.actions.act_window">
+        <field name="name">Approvals</field>
+        <field name="res_model">devd.approval</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Approval decisions that allow a deviation to be closed.</p>
+        </field>
+    </record>
+
+</odoo>

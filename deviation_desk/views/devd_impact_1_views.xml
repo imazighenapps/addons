@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_devd_impact_list" model="ir.ui.view">
+        <field name="name">devd.impact.list</field>
+        <field name="model">devd.impact</field>
+        <field name="arch" type="xml">
+            <list string="Impact Reviews" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="reviewed_on"/>
+                <field name="deviation_id"/>
+                <field name="reviewer_id"/>
+                <field name="risk_level"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_devd_impact_form" model="ir.ui.view">
+        <field name="name">devd.impact.form</field>
+        <field name="model">devd.impact</field>
+        <field name="arch" type="xml">
+            <form string="Impact Reviews">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="deviation_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Review">
+    <field name="deviation_id"/>
+    <field name="reviewed_on"/>
+    <field name="reviewer_id"/>
+    <field name="risk_level"/>
+    <field name="state"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Judgement" name="judgement">
+                            <field name="judgement"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_devd_impact_search" model="ir.ui.view">
+        <field name="name">devd.impact.search</field>
+        <field name="model">devd.impact</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="deviation_id"/>
+                <field name="reviewer_id"/>
+                <filter name="open" string="Open" domain="[('state', '=', 'open')]"/>
+                <separator/>
+                <filter name="group_risk" string="Risk" context="{'group_by': 'risk_level'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_devd_impact_kanban" model="ir.ui.view">
+        <field name="name">devd.impact.kanban</field>
+        <field name="model">devd.impact</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="risk_level" sample="1">
+                <field name="risk_level"/>
+                <field name="deviation_id"/>
+                <field name="reviewer_id"/>
+                <field name="reviewed_on"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="risk_level" class="fw-bold"/>
+                        <field name="deviation_id"/>
+                        <field name="reviewer_id"/>
+                        <field name="reviewed_on"/>
+                        <field name="state"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_devd_impact" model="ir.actions.act_window">
+        <field name="name">Impact Reviews</field>
+        <field name="res_model">devd.impact</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Impact judgements recorded against each deviation.</p>
+        </field>
+    </record>
+
+</odoo>

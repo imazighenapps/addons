@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_devd_deviation_list" model="ir.ui.view">
+        <field name="name">devd.deviation.list</field>
+        <field name="model">devd.deviation</field>
+        <field name="arch" type="xml">
+            <list string="Deviations" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="detected_on"/>
+                <field name="area"/>
+                <field name="product_ref"/>
+                <field name="owner_id"/>
+                <field name="impact_count"/>
+                <field name="granted_approval_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_devd_deviation_form" model="ir.ui.view">
+        <field name="name">devd.deviation.form</field>
+        <field name="model">devd.deviation</field>
+        <field name="arch" type="xml">
+            <form string="Deviations">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Deviation">
+    <field name="name"/>
+    <field name="product_ref"/>
+    <field name="area"/>
+    <field name="detected_on"/>
+    <field name="owner_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Status">
+    <field name="state"/>
+    <field name="closed_on"/>
+                        </group>
+                        <group string="Counters">
+    <field name="impact_count"/>
+    <field name="approval_count"/>
+    <field name="granted_approval_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Impact Reviews" name="impactids">
+                            <field name="impact_ids"/>
+                        </page>
+                        <page string="Approvals" name="approvalids">
+                            <field name="approval_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_devd_deviation_search" model="ir.ui.view">
+        <field name="name">devd.deviation.search</field>
+        <field name="model">devd.deviation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="product_ref"/>
+                <field name="area"/>
+                <field name="owner_id"/>
+                <filter name="open" string="Open" domain="[('state', 'in', ('draft', 'investigation', 'approved'))]"/>
+                <filter name="approved" string="Approved" domain="[('state', '=', 'approved')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_owner" string="Owner" context="{'group_by': 'owner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_devd_deviation_kanban" model="ir.ui.view">
+        <field name="name">devd.deviation.kanban</field>
+        <field name="model">devd.deviation</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="area"/>
+                <field name="product_ref"/>
+                <field name="detected_on"/>
+                <field name="owner_id"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="area"/>
+                        <field name="product_ref"/>
+                        <field name="detected_on"/>
+                        <field name="owner_id"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_devd_deviation" model="ir.actions.act_window">
+        <field name="name">Deviations</field>
+        <field name="res_model">devd.deviation</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every unplanned deviation, reviewed and closed with a trace.</p>
+        </field>
+    </record>
+
+</odoo>
