@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_cylinder_type_user,cylinder.type User,cylinder.type,cylinder_desk.group_cylinderdesk_user,cr,
+access_cylinder_type_manager,cylinder.type Manager,cylinder.type,cylinder_desk.group_cylinderdesk_manager,crud,
+access_cylinder_custody_user,cylinder.custody User,cylinder.custody,cylinder_desk.group_cylinderdesk_user,cr,
+access_cylinder_custody_manager,cylinder.custody Manager,cylinder.custody,cylinder_desk.group_cylinderdesk_manager,crud,
+rule_cylinder_type_company,cylinder.type: own company only,cylinder.type,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_cylinder_custody_company,cylinder.custody: own company only,cylinder.custody,,crud,"[('company_id', 'in', company_ids + [False])]"
