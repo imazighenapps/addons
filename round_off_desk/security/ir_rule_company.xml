@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_round_rule_company" model="ir.rule">
+        <field name="name">round.rule: own company only</field>
+        <field name="model_id" ref="model_round_rule"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_round_writeoff_company" model="ir.rule">
+        <field name="name">round.writeoff: own company only</field>
+        <field name="model_id" ref="model_round_writeoff"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

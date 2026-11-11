@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_round_writeoff_list" model="ir.ui.view">
+        <field name="name">round.writeoff.list</field>
+        <field name="model">round.writeoff</field>
+        <field name="arch" type="xml">
+            <list string="Write-Offs" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="writeoff_on"/>
+                <field name="name"/>
+                <field name="rule_id"/>
+                <field name="source_ref"/>
+                <field name="amount"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_round_writeoff_form" model="ir.ui.view">
+        <field name="name">round.writeoff.form</field>
+        <field name="model">round.writeoff</field>
+        <field name="arch" type="xml">
+            <form string="Write-Offs">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Write-Off">
+    <field name="name"/>
+    <field name="rule_id"/>
+    <field name="source_ref"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Amount">
+    <field name="amount"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Status">
+    <field name="writeoff_on"/>
+    <field name="state"/>
+    <field name="posted_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_round_writeoff_search" model="ir.ui.view">
+        <field name="name">round.writeoff.search</field>
+        <field name="model">round.writeoff</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="rule_id"/>
+                <field name="source_ref"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="posted" string="Posted" domain="[('state','=','posted')]"/>
+                <separator/>
+                <filter name="group_rule" string="Rule" context="{'group_by': 'rule_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_round_writeoff_kanban" model="ir.ui.view">
+        <field name="name">round.writeoff.kanban</field>
+        <field name="model">round.writeoff</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="rule_id"/>
+                <field name="source_ref"/>
+                <field name="amount"/>
+                <field name="writeoff_on"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="rule_id"/>
+                        <field name="source_ref"/>
+                        <field name="amount"/>
+                        <field name="writeoff_on"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_round_writeoff" model="ir.actions.act_window">
+        <field name="name">Write-Offs</field>
+        <field name="res_model">round.writeoff</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every small difference absorbed under a controlled rule.</p>
+        </field>
+    </record>
+
+</odoo>
