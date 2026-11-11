@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_consent_subject_user,consent.subject User,consent.subject,consent_log.group_consentlog_user,cru,
+access_consent_subject_manager,consent.subject Manager,consent.subject,consent_log.group_consentlog_manager,crud,
+access_consent_record_user,consent.record User,consent.record,consent_log.group_consentlog_user,crud,
+access_consent_record_manager,consent.record Manager,consent.record,consent_log.group_consentlog_manager,crud,
+rule_consent_subject_company,consent.subject: own company only,consent.subject,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_consent_record_company,consent.record: own company only,consent.record,,crud,"[('company_id', 'in', company_ids + [False])]"
