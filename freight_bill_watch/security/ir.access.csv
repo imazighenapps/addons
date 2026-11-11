@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_freight_tariff_user,freight.tariff User,freight.tariff,freight_bill_watch.group_freightbillw_user,cr,
+access_freight_tariff_manager,freight.tariff Manager,freight.tariff,freight_bill_watch.group_freightbillw_manager,crud,
+access_freight_bill_line_user,freight.bill.line User,freight.bill.line,freight_bill_watch.group_freightbillw_user,cr,
+access_freight_bill_line_manager,freight.bill.line Manager,freight.bill.line,freight_bill_watch.group_freightbillw_manager,crud,
+rule_freight_tariff_company,freight.tariff: own company only,freight.tariff,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_freight_bill_line_company,freight.bill.line: own company only,freight.bill.line,,crud,"[('company_id', 'in', company_ids + [False])]"

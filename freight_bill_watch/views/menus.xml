@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_freight_root" name="Freight Watch" sequence="60"/>
+    <menuitem id="menu_freight_tariffs" name="Tariffs" parent="menu_freight_root" action="action_freight_tariff" sequence="10"/>
+    <menuitem id="menu_freight_lines" name="Bill Lines" parent="menu_freight_root" action="action_freight_bill_line" sequence="20"/>
+    <menuitem id="menu_freight_overcharges" name="Overcharges" parent="menu_freight_root" action="action_freight_bill_overcharge" sequence="30"/>
+</odoo>
