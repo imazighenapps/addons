@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_label_job_list" model="ir.ui.view">
+        <field name="name">label.job.list</field>
+        <field name="model">label.job</field>
+        <field name="arch" type="xml">
+            <list string="Print Jobs" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="print_date"/>
+                <field name="template_id"/>
+                <field name="label_type"/>
+                <field name="target_name"/>
+                <field name="quantity"/>
+                <field name="printed_on"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_label_job_form" model="ir.ui.view">
+        <field name="name">label.job.form</field>
+        <field name="model">label.job</field>
+        <field name="arch" type="xml">
+            <form string="Print Jobs">
+                <header>
+                    <button name="action_print" type="object" string="Print" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state != 'draft'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-secondary" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,printed,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Job">
+    <field name="name"/>
+    <field name="print_date"/>
+    <field name="template_id"/>
+    <field name="label_type"/>
+    <field name="target_name"/>
+    <field name="quantity"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Status">
+    <field name="state"/>
+    <field name="printed_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_label_job_search" model="ir.ui.view">
+        <field name="name">label.job.search</field>
+        <field name="model">label.job</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="target_name"/>
+                <field name="template_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="printed" string="Printed" domain="[('state','=','printed')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_template" string="Template" context="{'group_by': 'template_id'}"/>
+                <filter name="group_label_type" string="Label Type" context="{'group_by': 'label_type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_label_job_kanban" model="ir.ui.view">
+        <field name="name">label.job.kanban</field>
+        <field name="model">label.job</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="template_id"/>
+                <field name="target_name"/>
+                <field name="quantity"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="template_id"/>
+                        <field name="target_name"/>
+                        <field name="quantity"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_label_job" model="ir.actions.act_window">
+        <field name="name">Print Jobs</field>
+        <field name="res_model">label.job</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Track every label print job and its outcome.</p>
+        </field>
+    </record>
+
+</odoo>

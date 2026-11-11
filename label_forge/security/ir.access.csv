@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_label_template_user,label.template User,label.template,label_forge.group_labelforge_user,crud,
+access_label_template_manager,label.template Manager,label.template,label_forge.group_labelforge_manager,crud,
+access_label_job_user,label.job User,label.job,label_forge.group_labelforge_user,crud,
+access_label_job_manager,label.job Manager,label.job,label_forge.group_labelforge_manager,crud,
+rule_label_template_company,label.template: own company only,label.template,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_label_job_company,label.job: own company only,label.job,,crud,"[('company_id', 'in', company_ids + [False])]"
