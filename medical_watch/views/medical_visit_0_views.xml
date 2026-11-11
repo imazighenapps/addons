@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_medical_visit_list" model="ir.ui.view">
+        <field name="name">medical.visit.list</field>
+        <field name="model">medical.visit</field>
+        <field name="arch" type="xml">
+            <list string="Medical Visits" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="due_date"/>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="visit_type"/>
+                <field name="scheduled_date"/>
+                <field name="practitioner"/>
+                <field name="is_overdue"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_medical_visit_form" model="ir.ui.view">
+        <field name="name">medical.visit.form</field>
+        <field name="model">medical.visit</field>
+        <field name="arch" type="xml">
+            <form string="Medical Visits">
+                <header>
+                    <button name="action_done" type="object" string="Mark Done" class="btn-primary" invisible="state == 'planned'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state == 'planned'"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-secondary" invisible="state != 'planned'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="s,t,a,t,e"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Visit">
+    <field name="name"/>
+    <field name="employee_id"/>
+    <field name="visit_type"/>
+    <field name="practitioner"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Schedule">
+    <field name="scheduled_date"/>
+    <field name="due_date"/>
+    <field name="done_date"/>
+    <field name="is_overdue"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_medical_visit_search" model="ir.ui.view">
+        <field name="name">medical.visit.search</field>
+        <field name="model">medical.visit</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="practitioner"/>
+                <filter name="planned" string="Planned" domain="[('state','=','planned')]"/>
+                <filter name="overdue" string="Overdue" domain="[('is_overdue','=',True)]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <separator/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_type" string="Visit Type" context="{'group_by': 'visit_type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_medical_visit_kanban" model="ir.ui.view">
+        <field name="name">medical.visit.kanban</field>
+        <field name="model">medical.visit</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="employee_id"/>
+                <field name="visit_type"/>
+                <field name="due_date"/>
+                <field name="is_overdue"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="employee_id"/>
+                        <field name="visit_type"/>
+                        <field name="due_date"/>
+                        <field name="is_overdue"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_medical_visit" model="ir.actions.act_window">
+        <field name="name">Medical Visits</field>
+        <field name="res_model">medical.visit</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Occupational medical visits with due dates and overdue flags.</p>
+        </field>
+    </record>
+
+</odoo>
