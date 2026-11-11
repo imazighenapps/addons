@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_margin_rule_list" model="ir.ui.view">
+        <field name="name">margin.rule.list</field>
+        <field name="model">margin.rule</field>
+        <field name="arch" type="xml">
+            <list string="Margin Rules">
+                <field name="name"/>
+                <field name="scope_type"/>
+                <field name="scope_ref"/>
+                <field name="discount_floor"/>
+                <field name="margin_floor"/>
+                <field name="check_count"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_margin_rule_form" model="ir.ui.view">
+        <field name="name">margin.rule.form</field>
+        <field name="model">margin.rule</field>
+        <field name="arch" type="xml">
+            <form string="Margin Rules">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Rule">
+    <field name="name"/>
+    <field name="scope_type"/>
+    <field name="scope_ref"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Floors">
+    <field name="discount_floor"/>
+    <field name="margin_floor"/>
+                        </group>
+                        <group string="Follow Up">
+    <field name="check_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_margin_rule_search" model="ir.ui.view">
+        <field name="name">margin.rule.search</field>
+        <field name="model">margin.rule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="scope_ref"/>
+                <filter name="active" string="Active Rules" domain="[('active','=',True)]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_type" string="Rule Type" context="{'group_by': 'scope_type'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_margin_rule_kanban" model="ir.ui.view">
+        <field name="name">margin.rule.kanban</field>
+        <field name="model">margin.rule</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="scope_type" sample="1">
+                <field name="scope_type"/>
+                <field name="name"/>
+                <field name="scope_ref"/>
+                <field name="discount_floor"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="scope_type" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="scope_ref"/>
+                        <field name="discount_floor"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_margin_rule" model="ir.actions.act_window">
+        <field name="name">Margin Rules</field>
+        <field name="res_model">margin.rule</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Your floors in one place: product, category, customer or every line.</p>
+        </field>
+    </record>
+
+</odoo>
