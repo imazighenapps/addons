@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_pallet_movement_list" model="ir.ui.view">
+        <field name="name">pallet.movement.list</field>
+        <field name="model">pallet.movement</field>
+        <field name="arch" type="xml">
+            <list string="Pallet Movements" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="movement_date"/>
+                <field name="account_id"/>
+                <field name="partner_name"/>
+                <field name="direction"/>
+                <field name="quantity"/>
+                <field name="reference"/>
+                <field name="confirmed_on"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pallet_movement_form" model="ir.ui.view">
+        <field name="name">pallet.movement.form</field>
+        <field name="model">pallet.movement</field>
+        <field name="arch" type="xml">
+            <form string="Pallet Movements">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-secondary" invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Movement">
+    <field name="name"/>
+    <field name="movement_date"/>
+    <field name="account_id"/>
+    <field name="partner_name"/>
+    <field name="direction"/>
+    <field name="quantity"/>
+    <field name="reference"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Status">
+    <field name="state"/>
+    <field name="confirmed_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pallet_movement_search" model="ir.ui.view">
+        <field name="name">pallet.movement.search</field>
+        <field name="model">pallet.movement</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <field name="reference"/>
+                <field name="account_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]"/>
+                <filter name="lent" string="Lent Out" domain="[('direction','=','lent')]"/>
+                <filter name="returned" string="Returned" domain="[('direction','=','returned')]"/>
+                <separator/>
+                <filter name="group_account" string="Account" context="{'group_by': 'account_id'}"/>
+                <filter name="group_direction" string="Direction" context="{'group_by': 'direction'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_pallet_movement_kanban" model="ir.ui.view">
+        <field name="name">pallet.movement.kanban</field>
+        <field name="model">pallet.movement</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="direction" sample="1">
+                <field name="direction"/>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <field name="quantity"/>
+                <field name="movement_date"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="direction" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_name"/>
+                        <field name="quantity"/>
+                        <field name="movement_date"/>
+                        <field name="state"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_pallet_movement" model="ir.actions.act_window">
+        <field name="name">Pallet Movements</field>
+        <field name="res_model">pallet.movement</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Log every pallet lent out or returned, with a clear date and reference.</p>
+        </field>
+    </record>
+
+</odoo>
