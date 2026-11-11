@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_lab_sample_user,lab.sample User,lab.sample,lab_sample.group_labsample_user,cr,
+access_lab_sample_manager,lab.sample Manager,lab.sample,lab_sample.group_labsample_manager,crud,
+rule_lab_sample_company,lab.sample: own company only,lab.sample,,crud,"[('company_id', 'in', company_ids + [False])]"
