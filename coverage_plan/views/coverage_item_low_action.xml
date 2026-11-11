@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_coverage_item_low" model="ir.actions.act_window">
+        <field name="domain">[('below_minimum', '=', True)]</field>
+        <field name="context">{'search_default_group_state': 1}</field>
+    </record>
+</odoo>

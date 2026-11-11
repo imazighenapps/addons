@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_coverage_item_list" model="ir.ui.view">
+        <field name="name">coverage.item.list</field>
+        <field name="model">coverage.item</field>
+        <field name="arch" type="xml">
+            <list string="Coverage Plan" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="on_hand_qty"/>
+                <field name="daily_demand"/>
+                <field name="min_days"/>
+                <field name="coverage_days"/>
+                <field name="below_minimum"/>
+                <field name="planned_qty"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_coverage_item_form" model="ir.ui.view">
+        <field name="name">coverage.item.form</field>
+        <field name="model">coverage.item</field>
+        <field name="arch" type="xml">
+            <form string="Coverage Plan">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Product">
+    <field name="name"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Coverage">
+    <field name="on_hand_qty"/>
+    <field name="daily_demand"/>
+    <field name="min_days"/>
+    <field name="coverage_days"/>
+    <field name="below_minimum"/>
+                        </group>
+                        <group string="Planning">
+    <field name="planned_qty"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_coverage_item_search" model="ir.ui.view">
+        <field name="name">coverage.item.search</field>
+        <field name="model">coverage.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="below_minimum" string="Below Minimum" domain="[('below_minimum', '=', True)]"/>
+                <filter name="planned" string="Planned" domain="[('state', '=', 'planned')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_below" string="Below Minimum" context="{'group_by': 'below_minimum'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_coverage_item_kanban" model="ir.ui.view">
+        <field name="name">coverage.item.kanban</field>
+        <field name="model">coverage.item</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="coverage_days"/>
+                <field name="min_days"/>
+                <field name="below_minimum"/>
+                <field name="planned_qty"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="coverage_days"/>
+                        <field name="min_days"/>
+                        <field name="below_minimum"/>
+                        <field name="planned_qty"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_coverage_item" model="ir.actions.act_window">
+        <field name="name">Coverage Plan</field>
+        <field name="res_model">coverage.item</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Days of stock cover per product, with skimpy lines ready to plan.</p>
+        </field>
+    </record>
+
+</odoo>
