@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_po_ack_order_list" model="ir.ui.view">
+        <field name="name">po.ack.order.list</field>
+        <field name="model">po.ack.order</field>
+        <field name="arch" type="xml">
+            <list string="PO Acknowledgements" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="sent_date"/>
+                <field name="deadline_date"/>
+                <field name="days_waiting"/>
+                <field name="followup_count"/>
+                <field name="is_overdue"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_po_ack_order_form" model="ir.ui.view">
+        <field name="name">po.ack.order.form</field>
+        <field name="model">po.ack.order</field>
+        <field name="arch" type="xml">
+            <form string="PO Acknowledgements">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Purchase Order">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="company_id"/>
+    <field name="active"/>
+                        </group>
+                        <group string="Dates">
+    <field name="sent_date"/>
+    <field name="deadline_date"/>
+    <field name="acknowledged_on"/>
+    <field name="acknowledged_by"/>
+                        </group>
+                        <group string="Status">
+    <field name="state"/>
+    <field name="days_waiting"/>
+    <field name="is_overdue"/>
+    <field name="followup_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Follow-ups" name="followupids">
+                            <field name="followup_ids"/>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_po_ack_order_search" model="ir.ui.view">
+        <field name="name">po.ack.order.search</field>
+        <field name="model">po.ack.order</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="acknowledged_by"/>
+                <filter name="waiting" string="Waiting" domain="[('state','=','waiting')]"/>
+                <filter name="acknowledged" string="Acknowledged" domain="[('state','=','acknowledged')]"/>
+                <filter name="overdue" string="Overdue" domain="[('is_overdue','=',True)]"/>
+                <separator/>
+                <filter name="group_supplier" string="Supplier" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_po_ack_order_kanban" model="ir.ui.view">
+        <field name="name">po.ack.order.kanban</field>
+        <field name="model">po.ack.order</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1">
+                <field name="state"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="deadline_date"/>
+                <field name="days_waiting"/>
+                <field name="is_overdue"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="state" class="fw-bold"/>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="deadline_date"/>
+                        <field name="days_waiting"/>
+                        <field name="is_overdue"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_po_ack_order" model="ir.actions.act_window">
+        <field name="name">PO Acknowledgements</field>
+        <field name="res_model">po.ack.order</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every sent purchase order with its acknowledgement status, deadline and follow-up trail.</p>
+        </field>
+    </record>
+
+</odoo>
