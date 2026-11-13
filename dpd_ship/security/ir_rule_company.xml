@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_dpd_connection_company" model="ir.rule">
+        <field name="name">dpd.connection: own company only</field>
+        <field name="model_id" ref="model_dpd_connection"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_dpd_shipment_company" model="ir.rule">
+        <field name="name">dpd.shipment: own company only</field>
+        <field name="model_id" ref="model_dpd_shipment"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

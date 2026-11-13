@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_hubspot_connection_company" model="ir.rule">
+        <field name="name">hubspot.connection: own company only</field>
+        <field name="model_id" ref="model_hubspot_connection"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_hubspot_sync_company" model="ir.rule">
+        <field name="name">hubspot.sync: own company only</field>
+        <field name="model_id" ref="model_hubspot_sync"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

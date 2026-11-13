@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_yousign_connection_company" model="ir.rule">
+        <field name="name">yousign.connection: own company only</field>
+        <field name="model_id" ref="model_yousign_connection"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_yousign_request_company" model="ir.rule">
+        <field name="name">yousign.request: own company only</field>
+        <field name="model_id" ref="model_yousign_request"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
