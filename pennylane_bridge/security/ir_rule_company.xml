@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_pennylane_connection_company" model="ir.rule">
+        <field name="name">pennylane.connection: own company only</field>
+        <field name="model_id" ref="model_pennylane_connection"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_pennylane_export_company" model="ir.rule">
+        <field name="name">pennylane.export: own company only</field>
+        <field name="model_id" ref="model_pennylane_export"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_pennylane_sync_log_company" model="ir.rule">
+        <field name="name">pennylane.sync.log: own company only</field>
+        <field name="model_id" ref="model_pennylane_sync_log"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_pennylane_sync_log_list" model="ir.ui.view">
+        <field name="name">pennylane.sync.log.list</field>
+        <field name="model">pennylane.sync.log</field>
+        <field name="arch" type="xml">
+            <list string="Sync Logs">
+                <field name="create_date"/>
+                <field name="connection_id"/>
+                <field name="export_id"/>
+                <field name="action"/>
+                <field name="status" widget="badge"/>
+                <field name="message"/>
+                <field name="company_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pennylane_sync_log_form" model="ir.ui.view">
+        <field name="name">pennylane.sync.log.form</field>
+        <field name="model">pennylane.sync.log</field>
+        <field name="arch" type="xml">
+            <form string="Sync Logs">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="action" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Log">
+    <field name="connection_id"/>
+    <field name="export_id"/>
+    <field name="action"/>
+    <field name="status"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Message">
+    <field name="message"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pennylane_sync_log_search" model="ir.ui.view">
+        <field name="name">pennylane.sync.log.search</field>
+        <field name="model">pennylane.sync.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="connection_id"/>
+                <field name="message"/>
+                <filter name="success" string="Success" domain="[('status','=','success')]"/>
+                <filter name="error" string="Error" domain="[('status','=','error')]"/>
+                <separator/>
+                <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                <filter name="group_connection" string="Connection" context="{'group_by': 'connection_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_pennylane_sync_log" model="ir.actions.act_window">
+        <field name="name">Sync Logs</field>
+        <field name="res_model">pennylane.sync.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">History of Pennylane synchronization operations.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_brevo_connection_company" model="ir.rule">
+        <field name="name">brevo.connection: own company only</field>
+        <field name="model_id" ref="model_brevo_connection"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_brevo_list_company" model="ir.rule">
+        <field name="name">brevo.list: own company only</field>
+        <field name="model_id" ref="model_brevo_list"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_brevo_contact_sync_company" model="ir.rule">
+        <field name="name">brevo.contact.sync: own company only</field>
+        <field name="model_id" ref="model_brevo_contact_sync"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_brevo_event_log_company" model="ir.rule">
+        <field name="name">brevo.event.log: own company only</field>
+        <field name="model_id" ref="model_brevo_event_log"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
