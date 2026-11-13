@@ -35,14 +35,14 @@
     .oc-page .col-6, .oc-page .col-md-3, .oc-page .col-md-4,
     .oc-page .col-md-5, .oc-page .col-md-6, .oc-page .col-md-7 { width: 100%; }
     .oc-page .flex-row-reverse { flex-direction: row; }
-    .oc-page .oc-gal { flex-direction: column; }
-    .oc-page .oc-gal-left { width: 100% !important; max-width: 100% !important; flex-direction: row !important; flex-wrap: wrap; }
-    .oc-page .oc-gal-left label { flex: 1 1 45%; }
+    .oc-page .oc-gal-panels { flex-direction: column; }
   }
-  .oc-page .oc-gal input.oc-gal-radio { display: none; }
-  .oc-page .oc-gal-panel { display: none; }
-  .oc-page .oc-gal-left label { display: block; padding: 12px 14px; margin-bottom: 8px; border: 1px solid #e0e7ff; border-radius: 10px; background: #fff; color: #374151; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .15s ease; }
-  .oc-page .oc-gal-left label:hover { border-color: #c7d2fe; background: #f8faff; }
+  .oc-page .oc-gal-radio { position: absolute; opacity: 0; pointer-events: none; }
+  .oc-page .oc-gal-item { border: 1px solid #e0e7ff; border-radius: 10px; background: #fff; margin-bottom: 10px; overflow: hidden; }
+  .oc-page .oc-gal-toggle { display: block; padding: 12px 14px; font-size: 13px; font-weight: 600; color: #374151; cursor: pointer; }
+  .oc-page .oc-gal-panel { display: block; padding: 0 12px 12px; }
+  .oc-page .oc-gal-radio:checked + .oc-gal-item .oc-gal-panel,
+  .oc-page .oc-gal-radio:checked ~ .oc-gal-panel { display: block; }
 </style>
 </head>
 <body>
@@ -143,37 +143,12 @@
 
 
 <section style="background-color:#f8faff;border-radius:12px;padding:48px 40px;margin-bottom:8px;">
-  <style>#gal_appointment_deposit_desk_0:checked ~ .oc-gal-right [data-panel="gal_appointment_deposit_desk_0"]{display:block;}#gal_appointment_deposit_desk_0:checked ~ .oc-gal-left label[for="gal_appointment_deposit_desk_0"]{border-color:rgba(13,148,136,0.38);border-left-color:#0D9488;background:rgba(13,148,136,0.14);color:#111827;}
-#gal_appointment_deposit_desk_1:checked ~ .oc-gal-right [data-panel="gal_appointment_deposit_desk_1"]{display:block;}#gal_appointment_deposit_desk_1:checked ~ .oc-gal-left label[for="gal_appointment_deposit_desk_1"]{border-color:rgba(13,148,136,0.38);border-left-color:#0D9488;background:rgba(13,148,136,0.14);color:#111827;}
-#gal_appointment_deposit_desk_2:checked ~ .oc-gal-right [data-panel="gal_appointment_deposit_desk_2"]{display:block;}#gal_appointment_deposit_desk_2:checked ~ .oc-gal-left label[for="gal_appointment_deposit_desk_2"]{border-color:rgba(13,148,136,0.38);border-left-color:#0D9488;background:rgba(13,148,136,0.14);color:#111827;}
-#gal_appointment_deposit_desk_3:checked ~ .oc-gal-right [data-panel="gal_appointment_deposit_desk_3"]{display:block;}#gal_appointment_deposit_desk_3:checked ~ .oc-gal-left label[for="gal_appointment_deposit_desk_3"]{border-color:rgba(13,148,136,0.38);border-left-color:#0D9488;background:rgba(13,148,136,0.14);color:#111827;}
-</style>
   <div class="container">
     <div class="text-center mb-4">
       <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;margin-bottom:8px;">A closer look</h2>
       <p class="text-muted" style="font-size:14px;">Real screens captured on a live Odoo database.</p>
     </div>
-    <div class="oc-gal" style="display:flex;gap:20px;align-items:flex-start;">
-      <input class="oc-gal-radio" type="radio" name="gal_appointment_deposit_desk" id="gal_appointment_deposit_desk_0" checked>
-<input class="oc-gal-radio" type="radio" name="gal_appointment_deposit_desk" id="gal_appointment_deposit_desk_1">
-<input class="oc-gal-radio" type="radio" name="gal_appointment_deposit_desk" id="gal_appointment_deposit_desk_2">
-<input class="oc-gal-radio" type="radio" name="gal_appointment_deposit_desk" id="gal_appointment_deposit_desk_3">
-
-      <div class="oc-gal-left" style="width:260px;max-width:260px;flex:0 0 260px;display:flex;flex-direction:column;">
-        <label for="gal_appointment_deposit_desk_0" style="border-left:4px solid transparent;"><span style="display:block;">Booked slots</span></label>
-<label for="gal_appointment_deposit_desk_1" style="border-left:4px solid transparent;"><span style="display:block;">Deposits taken</span></label>
-<label for="gal_appointment_deposit_desk_2" style="border-left:4px solid transparent;"><span style="display:block;">No-show log</span></label>
-<label for="gal_appointment_deposit_desk_3" style="border-left:4px solid transparent;"><span style="display:block;">Draft, confirmed and done states with an audit trail.</span></label>
-
-      </div>
-      <div class="oc-gal-right" style="flex:1;min-width:0;">
-        <div class="oc-gal-panel" data-panel="gal_appointment_deposit_desk_0"><a href="screenshot_01_entries.png" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="screenshot_01_entries.png" alt="DepositDesk — Booked slots" class="img-fluid" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;border:1px solid #e0e7ff;box-shadow:0 8px 28px rgba(15,23,42,0.10);display:block;"/></a><p class="text-muted mt-2" style="font-size:13px;margin-bottom:0;text-align:center;">Booked slots</p></div>
-<div class="oc-gal-panel" data-panel="gal_appointment_deposit_desk_1"><a href="screenshot_02_entry_form.png" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="screenshot_02_entry_form.png" alt="DepositDesk — Deposits taken" class="img-fluid" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;border:1px solid #e0e7ff;box-shadow:0 8px 28px rgba(15,23,42,0.10);display:block;"/></a><p class="text-muted mt-2" style="font-size:13px;margin-bottom:0;text-align:center;">Deposits taken</p></div>
-<div class="oc-gal-panel" data-panel="gal_appointment_deposit_desk_2"><a href="screenshot_03_kanban.png" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="screenshot_03_kanban.png" alt="DepositDesk — No-show log" class="img-fluid" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;border:1px solid #e0e7ff;box-shadow:0 8px 28px rgba(15,23,42,0.10);display:block;"/></a><p class="text-muted mt-2" style="font-size:13px;margin-bottom:0;text-align:center;">No-show log</p></div>
-<div class="oc-gal-panel" data-panel="gal_appointment_deposit_desk_3"><a href="screenshot_04_lines.png" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="screenshot_04_lines.png" alt="DepositDesk — Draft, confirmed and done states with an audit trail." class="img-fluid" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;border:1px solid #e0e7ff;box-shadow:0 8px 28px rgba(15,23,42,0.10);display:block;"/></a><p class="text-muted mt-2" style="font-size:13px;margin-bottom:0;text-align:center;">Draft, confirmed and done states with an audit trail.</p></div>
-
-      </div>
-    </div>
+    <div class="oc-gal-panels" style="max-width:980px;margin:0 auto;display:flex;flex-direction:column;"><div style="margin-bottom:24px;"><a href="screenshot_01_entries.png" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="screenshot_01_entries.png" alt="DepositDesk — Booked slots" class="img-fluid" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;border:1px solid #e0e7ff;box-shadow:0 8px 28px rgba(15,23,42,0.10);display:block;"/></a><p class="text-muted text-center mt-2" style="font-size:13px;margin-bottom:0;">Booked slots</p></div><div style="margin-bottom:24px;"><a href="screenshot_02_entry_form.png" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="screenshot_02_entry_form.png" alt="DepositDesk — Deposits taken" class="img-fluid" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;border:1px solid #e0e7ff;box-shadow:0 8px 28px rgba(15,23,42,0.10);display:block;"/></a><p class="text-muted text-center mt-2" style="font-size:13px;margin-bottom:0;">Deposits taken</p></div><div style="margin-bottom:24px;"><a href="screenshot_03_kanban.png" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="screenshot_03_kanban.png" alt="DepositDesk — No-show log" class="img-fluid" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;border:1px solid #e0e7ff;box-shadow:0 8px 28px rgba(15,23,42,0.10);display:block;"/></a><p class="text-muted text-center mt-2" style="font-size:13px;margin-bottom:0;">No-show log</p></div><div style="margin-bottom:24px;"><a href="screenshot_04_lines.png" target="_blank" rel="noopener" style="display:block;text-decoration:none;"><img src="screenshot_04_lines.png" alt="DepositDesk — Draft, confirmed and done states with an audit trail." class="img-fluid" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:10px;border:1px solid #e0e7ff;box-shadow:0 8px 28px rgba(15,23,42,0.10);display:block;"/></a><p class="text-muted text-center mt-2" style="font-size:13px;margin-bottom:0;">Draft, confirmed and done states with an audit trail.</p></div></div>
   </div>
 </section>
 
@@ -225,10 +200,10 @@
     <div class="text-center mb-4">
       <h2 style="font-weight:800;color:#1a1a2e;font-size:1.6rem;margin-bottom:8px;">Up and running in 4 steps</h2>
     </div>
-    <div class="row"><div class="col-6 col-md-3 mb-4"><div style="width:52px;height:52px;background-color:rgba(13,148,136,0.14);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#0D9488;border:2px solid rgba(13,148,136,0.38);">1</div><div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;text-align:center;">Install the module</div><div style="font-size:13px;color:#6b7280;text-align:center;">Copy the folder into your addons path and install it from Apps.</div></div>
-<div class="col-6 col-md-3 mb-4"><div style="width:52px;height:52px;background-color:rgba(13,148,136,0.14);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#0D9488;border:2px solid rgba(13,148,136,0.38);">2</div><div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;text-align:center;">Configure once</div><div style="font-size:13px;color:#6b7280;text-align:center;">Set your rules, templates or policies. Sensible defaults are provided.</div></div>
-<div class="col-6 col-md-3 mb-4"><div style="width:52px;height:52px;background-color:rgba(13,148,136,0.14);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#0D9488;border:2px solid rgba(13,148,136,0.38);">3</div><div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;text-align:center;">Run your daily work</div><div style="font-size:13px;color:#6b7280;text-align:center;">Use the dedicated menu: create, track, validate and follow up.</div></div>
-<div class="col-6 col-md-3 mb-4"><div style="width:52px;height:52px;background-color:rgba(13,148,136,0.14);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#0D9488;border:2px solid rgba(13,148,136,0.38);">4</div><div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;text-align:center;">Review and export</div><div style="font-size:13px;color:#6b7280;text-align:center;">Track status, history and KPIs, then export or print what you need.</div></div></div>
+    <div class="row"><div class="col-6 col-md-3 mb-4" style="text-align:center;"><div style="width:52px;height:52px;background-color:rgba(13,148,136,0.14);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#0D9488;border:2px solid rgba(13,148,136,0.38);line-height:1;">1</div><div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;text-align:center;">Install the module</div><div style="font-size:13px;color:#6b7280;text-align:center;">Copy the folder into your addons path and install it from Apps.</div></div>
+<div class="col-6 col-md-3 mb-4" style="text-align:center;"><div style="width:52px;height:52px;background-color:rgba(13,148,136,0.14);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#0D9488;border:2px solid rgba(13,148,136,0.38);line-height:1;">2</div><div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;text-align:center;">Configure once</div><div style="font-size:13px;color:#6b7280;text-align:center;">Set your rules, templates or policies. Sensible defaults are provided.</div></div>
+<div class="col-6 col-md-3 mb-4" style="text-align:center;"><div style="width:52px;height:52px;background-color:rgba(13,148,136,0.14);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#0D9488;border:2px solid rgba(13,148,136,0.38);line-height:1;">3</div><div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;text-align:center;">Run your daily work</div><div style="font-size:13px;color:#6b7280;text-align:center;">Use the dedicated menu: create, track, validate and follow up.</div></div>
+<div class="col-6 col-md-3 mb-4" style="text-align:center;"><div style="width:52px;height:52px;background-color:rgba(13,148,136,0.14);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.3rem;font-weight:900;color:#0D9488;border:2px solid rgba(13,148,136,0.38);line-height:1;">4</div><div style="font-weight:700;font-size:14px;color:#1a1a2e;margin-bottom:5px;text-align:center;">Review and export</div><div style="font-size:13px;color:#6b7280;text-align:center;">Track status, history and KPIs, then export or print what you need.</div></div></div>
   </div>
 </section>
 
@@ -259,7 +234,7 @@
       </div>
     </div>
     <div style="margin-top:32px;">
-      <span style="display:inline-block;background-color:#0D9488;color:#07101f;font-weight:900;font-size:1rem;padding:14px 34px;border-radius:12px;">Available on the Odoo Apps Store</span>
+      <span style="display:inline-block;background-color:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#ffffff;font-weight:700;font-size:0.95rem;padding:12px 26px;border-radius:12px;">OPL-1 · Odoo 18.0 · 19.0 · 20.0 (Community &amp; Enterprise)</span>
     </div>
   </div>
 </section>
