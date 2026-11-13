@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_qonto_connection_user,qonto.connection User,qonto.connection,qonto_bridge.group_qontobridge_user,crud,
+access_qonto_connection_manager,qonto.connection Manager,qonto.connection,qonto_bridge.group_qontobridge_manager,crud,
+access_qonto_transaction_user,qonto.transaction User,qonto.transaction,qonto_bridge.group_qontobridge_user,crud,
+access_qonto_transaction_manager,qonto.transaction Manager,qonto.transaction,qonto_bridge.group_qontobridge_manager,crud,
+access_qonto_sync_log_user,qonto.sync.log User,qonto.sync.log,qonto_bridge.group_qontobridge_user,read,
+access_qonto_sync_log_manager,qonto.sync.log Manager,qonto.sync.log,qonto_bridge.group_qontobridge_manager,crud,
+rule_qonto_connection_company,qonto.connection: own company only,qonto.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_qonto_transaction_company,qonto.transaction: own company only,qonto.transaction,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_qonto_sync_log_company,qonto.sync.log: own company only,qonto.sync.log,,crud,"[('company_id', 'in', company_ids + [False])]"

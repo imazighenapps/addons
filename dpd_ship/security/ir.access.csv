@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_dpd_connection_user,dpd.connection User,dpd.connection,dpd_ship.group_dpdship_user,crud,
+access_dpd_connection_manager,dpd.connection Manager,dpd.connection,dpd_ship.group_dpdship_manager,crud,
+access_dpd_shipment_user,dpd.shipment User,dpd.shipment,dpd_ship.group_dpdship_user,crud,
+access_dpd_shipment_manager,dpd.shipment Manager,dpd.shipment,dpd_ship.group_dpdship_manager,crud,
+access_dpd_event_user,dpd.event User,dpd.event,dpd_ship.group_dpdship_user,read,
+access_dpd_event_manager,dpd.event Manager,dpd.event,dpd_ship.group_dpdship_manager,crud,
+rule_dpd_connection_company,dpd.connection: own company only,dpd.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_dpd_shipment_company,dpd.shipment: own company only,dpd.shipment,,crud,"[('company_id', 'in', company_ids + [False])]"

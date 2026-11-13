@@ -1,0 +1,11 @@
+id,name,model_id,group_id/id,operation,domain
+access_yousign_connection_user,yousign.connection User,yousign.connection,yousign_sign.group_yousignsign_user,crud,
+access_yousign_connection_manager,yousign.connection Manager,yousign.connection,yousign_sign.group_yousignsign_manager,crud,
+access_yousign_request_user,yousign.request User,yousign.request,yousign_sign.group_yousignsign_user,crud,
+access_yousign_request_manager,yousign.request Manager,yousign.request,yousign_sign.group_yousignsign_manager,crud,
+access_yousign_signer_user,yousign.signer User,yousign.signer,yousign_sign.group_yousignsign_user,crud,
+access_yousign_signer_manager,yousign.signer Manager,yousign.signer,yousign_sign.group_yousignsign_manager,crud,
+access_yousign_event_user,yousign.event User,yousign.event,yousign_sign.group_yousignsign_user,read,
+access_yousign_event_manager,yousign.event Manager,yousign.event,yousign_sign.group_yousignsign_manager,crud,
+rule_yousign_connection_company,yousign.connection: own company only,yousign.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_yousign_request_company,yousign.request: own company only,yousign.request,,crud,"[('company_id', 'in', company_ids + [False])]"

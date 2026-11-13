@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hubspot_sync_list" model="ir.ui.view">
+        <field name="name">hubspot.sync.list</field>
+        <field name="model">hubspot.sync</field>
+        <field name="arch" type="xml">
+            <list string="Sync Records" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="object_type"/>
+                <field name="direction"/>
+                <field name="partner_id"/>
+                <field name="lead_id"/>
+                <field name="external_id"/>
+                <field name="state" widget="badge"/>
+                <field name="last_sync_at"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hubspot_sync_form" model="ir.ui.view">
+        <field name="name">hubspot.sync.form</field>
+        <field name="model">hubspot.sync</field>
+        <field name="arch" type="xml">
+            <form string="Sync Records">
+                <header>
+                    <button name="action_prepare" type="object" string="Prepare" class="btn-primary" invisible="state not in ('draft','error')"/>
+                    <button name="action_sync" type="object" string="Sync" class="btn-primary" invisible="state != 'ready'"/>
+                    <button name="action_reset" type="object" string="Reset" class="btn-secondary" invisible="False"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,ready,synced,error"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Sync">
+    <field name="name"/>
+    <field name="connection_id"/>
+    <field name="company_id"/>
+    <field name="object_type"/>
+    <field name="direction"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Links">
+    <field name="partner_id"/>
+    <field name="lead_id"/>
+    <field name="external_id"/>
+    <field name="last_sync_at"/>
+                        </group>
+                        <group string="Error">
+    <field name="error_message"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Payload" name="payload">
+                            <field name="payload"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hubspot_sync_search" model="ir.ui.view">
+        <field name="name">hubspot.sync.search</field>
+        <field name="model">hubspot.sync</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="external_id"/>
+                <field name="partner_id"/>
+                <field name="lead_id"/>
+                <filter name="synced" string="Synced" domain="[('state','=','synced')]"/>
+                <filter name="contacts" string="Contacts" domain="[('object_type','=','contact')]"/>
+                <filter name="deals" string="Deals" domain="[('object_type','=','deal')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'object_type'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hubspot_sync" model="ir.actions.act_window">
+        <field name="name">Sync Records</field>
+        <field name="res_model">hubspot.sync</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Manage HubSpot sync records.</p>
+        </field>
+    </record>
+
+</odoo>

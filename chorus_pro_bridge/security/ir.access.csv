@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_chorus_pro_connection_user,chorus.pro.connection User,chorus.pro.connection,chorus_pro_bridge.group_chorusprobri_user,crud,
+access_chorus_pro_connection_manager,chorus.pro.connection Manager,chorus.pro.connection,chorus_pro_bridge.group_chorusprobri_manager,crud,
+access_chorus_pro_submission_user,chorus.pro.submission User,chorus.pro.submission,chorus_pro_bridge.group_chorusprobri_user,crud,
+access_chorus_pro_submission_manager,chorus.pro.submission Manager,chorus.pro.submission,chorus_pro_bridge.group_chorusprobri_manager,crud,
+access_chorus_pro_status_log_user,chorus.pro.status.log User,chorus.pro.status.log,chorus_pro_bridge.group_chorusprobri_user,read,
+access_chorus_pro_status_log_manager,chorus.pro.status.log Manager,chorus.pro.status.log,chorus_pro_bridge.group_chorusprobri_manager,crud,
+rule_chorus_pro_connection_company,chorus.pro.connection: own company only,chorus.pro.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_chorus_pro_submission_company,chorus.pro.submission: own company only,chorus.pro.submission,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_chorus_pro_status_log_company,chorus.pro.status.log: own company only,chorus.pro.status.log,,crud,"[('company_id', 'in', company_ids + [False])]"

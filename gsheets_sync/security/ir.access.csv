@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_gsheets_connection_user,gsheets.connection User,gsheets.connection,gsheets_sync.group_gsheetssync_user,crud,
+access_gsheets_connection_manager,gsheets.connection Manager,gsheets.connection,gsheets_sync.group_gsheetssync_manager,crud,
+access_gsheets_job_user,gsheets.job User,gsheets.job,gsheets_sync.group_gsheetssync_user,crud,
+access_gsheets_job_manager,gsheets.job Manager,gsheets.job,gsheets_sync.group_gsheetssync_manager,crud,
+access_gsheets_run_user,gsheets.run User,gsheets.run,gsheets_sync.group_gsheetssync_user,read,
+access_gsheets_run_manager,gsheets.run Manager,gsheets.run,gsheets_sync.group_gsheetssync_manager,crud,
+rule_gsheets_connection_company,gsheets.connection: own company only,gsheets.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_gsheets_job_company,gsheets.job: own company only,gsheets.job,,crud,"[('company_id', 'in', company_ids + [False])]"
