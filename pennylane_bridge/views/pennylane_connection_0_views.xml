@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_pennylane_connection_list" model="ir.ui.view">
+        <field name="name">pennylane.connection.list</field>
+        <field name="model">pennylane.connection</field>
+        <field name="arch" type="xml">
+            <list string="Connections" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="environment"/>
+                <field name="state" widget="badge"/>
+                <field name="last_sync_at"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pennylane_connection_form" model="ir.ui.view">
+        <field name="name">pennylane.connection.form</field>
+        <field name="model">pennylane.connection</field>
+        <field name="arch" type="xml">
+            <form string="Connections">
+                <header>
+                    <button name="action_activate" type="object" string="Activate" class="btn-primary" invisible="state == 'active'"/>
+                    <button name="action_disable" type="object" string="Disable" class="btn-secondary" invisible="state != 'active'"/>
+                    <button name="action_test_connection" type="object" string="Test Connection" class="btn-secondary" invisible="False"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,disabled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Connection">
+    <field name="name"/>
+    <field name="company_id"/>
+    <field name="environment"/>
+    <field name="state"/>
+    <field name="active"/>
+                        </group>
+                        <group string="API">
+    <field name="base_url"/>
+    <field name="api_token"/>
+    <field name="auto_export"/>
+    <field name="last_sync_at"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Exports" name="exportids">
+                            <field name="export_ids" readonly="1">
+                        <list>
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="document_type"/>
+                            <field name="partner_id"/>
+                            <field name="amount_total" sum="Total"/>
+                            <field name="state" widget="badge"/>
+                            <field name="external_id"/>
+                        </list>
+                     </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pennylane_connection_search" model="ir.ui.view">
+        <field name="name">pennylane.connection.search</field>
+        <field name="model">pennylane.connection</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="company_id"/>
+                <filter name="active_conn" string="Active" domain="[('state','=','active')]"/>
+                <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
+                <separator/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_pennylane_connection" model="ir.actions.act_window">
+        <field name="name">Connections</field>
+        <field name="res_model">pennylane.connection</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Configure your Pennylane connection and track exports.</p>
+        </field>
+    </record>
+
+</odoo>

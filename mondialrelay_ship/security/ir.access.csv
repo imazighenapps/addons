@@ -1,0 +1,11 @@
+id,name,model_id,group_id/id,operation,domain
+access_mondialrelay_connection_user,mondialrelay.connection User,mondialrelay.connection,mondialrelay_ship.group_mondialrelay_user,crud,
+access_mondialrelay_connection_manager,mondialrelay.connection Manager,mondialrelay.connection,mondialrelay_ship.group_mondialrelay_manager,crud,
+access_mondialrelay_point_user,mondialrelay.point User,mondialrelay.point,mondialrelay_ship.group_mondialrelay_user,crud,
+access_mondialrelay_point_manager,mondialrelay.point Manager,mondialrelay.point,mondialrelay_ship.group_mondialrelay_manager,crud,
+access_mondialrelay_shipment_user,mondialrelay.shipment User,mondialrelay.shipment,mondialrelay_ship.group_mondialrelay_user,crud,
+access_mondialrelay_shipment_manager,mondialrelay.shipment Manager,mondialrelay.shipment,mondialrelay_ship.group_mondialrelay_manager,crud,
+access_mondialrelay_event_user,mondialrelay.event User,mondialrelay.event,mondialrelay_ship.group_mondialrelay_user,read,
+access_mondialrelay_event_manager,mondialrelay.event Manager,mondialrelay.event,mondialrelay_ship.group_mondialrelay_manager,crud,
+rule_mondialrelay_connection_company,mondialrelay.connection: own company only,mondialrelay.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_mondialrelay_shipment_company,mondialrelay.shipment: own company only,mondialrelay.shipment,,crud,"[('company_id', 'in', company_ids + [False])]"

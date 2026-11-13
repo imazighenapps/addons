@@ -1,0 +1,13 @@
+id,name,model_id,group_id/id,operation,domain
+access_brevo_connection_user,brevo.connection User,brevo.connection,brevo_bridge.group_brevobridge_user,crud,
+access_brevo_connection_manager,brevo.connection Manager,brevo.connection,brevo_bridge.group_brevobridge_manager,crud,
+access_brevo_list_user,brevo.list User,brevo.list,brevo_bridge.group_brevobridge_user,crud,
+access_brevo_list_manager,brevo.list Manager,brevo.list,brevo_bridge.group_brevobridge_manager,crud,
+access_brevo_contact_sync_user,brevo.contact.sync User,brevo.contact.sync,brevo_bridge.group_brevobridge_user,crud,
+access_brevo_contact_sync_manager,brevo.contact.sync Manager,brevo.contact.sync,brevo_bridge.group_brevobridge_manager,crud,
+access_brevo_event_log_user,brevo.event.log User,brevo.event.log,brevo_bridge.group_brevobridge_user,read,
+access_brevo_event_log_manager,brevo.event.log Manager,brevo.event.log,brevo_bridge.group_brevobridge_manager,crud,
+rule_brevo_connection_company,brevo.connection: own company only,brevo.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_brevo_list_company,brevo.list: own company only,brevo.list,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_brevo_contact_sync_company,brevo.contact.sync: own company only,brevo.contact.sync,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_brevo_event_log_company,brevo.event.log: own company only,brevo.event.log,,crud,"[('company_id', 'in', company_ids + [False])]"

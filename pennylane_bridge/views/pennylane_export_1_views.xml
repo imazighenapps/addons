@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_pennylane_export_list" model="ir.ui.view">
+        <field name="name">pennylane.export.list</field>
+        <field name="model">pennylane.export</field>
+        <field name="arch" type="xml">
+            <list string="Exports" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="connection_id"/>
+                <field name="document_type"/>
+                <field name="partner_id"/>
+                <field name="amount_total" sum="Total Amount Total"/>
+                <field name="state" widget="badge"/>
+                <field name="external_id"/>
+                <field name="retry_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pennylane_export_form" model="ir.ui.view">
+        <field name="name">pennylane.export.form</field>
+        <field name="model">pennylane.export</field>
+        <field name="arch" type="xml">
+            <form string="Exports">
+                <header>
+                    <button name="action_prepare" type="object" string="Prepare" class="btn-primary" invisible="state not in ('draft','error')"/>
+                    <button name="action_send" type="object" string="Send" class="btn-primary" invisible="state != 'ready'"/>
+                    <button name="action_reset" type="object" string="Reset" class="btn-secondary" invisible="state == 'sent'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,ready,sent,error"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Document">
+    <field name="name"/>
+    <field name="connection_id"/>
+    <field name="company_id"/>
+    <field name="document_type"/>
+    <field name="date"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Accounting">
+    <field name="move_id"/>
+    <field name="payment_ref"/>
+    <field name="partner_id"/>
+    <field name="amount_total"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Sync">
+    <field name="external_id"/>
+    <field name="retry_count"/>
+    <field name="response_message"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Payload" name="payload">
+                            <field name="payload"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pennylane_export_search" model="ir.ui.view">
+        <field name="name">pennylane.export.search</field>
+        <field name="model">pennylane.export</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="external_id"/>
+                <field name="connection_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="ready" string="Ready" domain="[('state','=','ready')]"/>
+                <filter name="sent" string="Sent" domain="[('state','=','sent')]"/>
+                <filter name="error" string="Error" domain="[('state','=','error')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'document_type'}"/>
+                <filter name="group_connection" string="Connection" context="{'group_by': 'connection_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_pennylane_export" model="ir.actions.act_window">
+        <field name="name">Exports</field>
+        <field name="res_model">pennylane.export</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Prepare and send accounting documents to Pennylane.</p>
+        </field>
+    </record>
+
+</odoo>
