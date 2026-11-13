@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_yousign_request_list" model="ir.ui.view">
+        <field name="name">yousign.request.list</field>
+        <field name="model">yousign.request</field>
+        <field name="arch" type="xml">
+            <list string="Signature Requests" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="document_name"/>
+                <field name="partner_id"/>
+                <field name="state" widget="badge"/>
+                <field name="signed_at"/>
+                <field name="external_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_yousign_request_form" model="ir.ui.view">
+        <field name="name">yousign.request.form</field>
+        <field name="model">yousign.request</field>
+        <field name="arch" type="xml">
+            <form string="Signature Requests">
+                <header>
+                    <button name="action_send" type="object" string="Send" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_mark_signed" type="object" string="Mark Signed" class="btn-secondary" invisible="state != 'sent'"/>
+                    <button name="action_mark_declined" type="object" string="Mark Declined" class="btn-secondary" invisible="state != 'sent'"/>
+                    <button name="action_mark_expired" type="object" string="Mark Expired" class="btn-secondary" invisible="state != 'sent'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state == 'signed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,signed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Request">
+    <field name="name"/>
+    <field name="connection_id"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Document">
+    <field name="document_name"/>
+    <field name="partner_id"/>
+    <field name="expires_on"/>
+                        </group>
+                        <group string="Signature">
+    <field name="external_id"/>
+    <field name="signed_at"/>
+    <field name="proof_ref"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Signers" name="signerids">
+                            <field name="signer_ids"><list editable="bottom">
+                        <field name="name"/><field name="email"/><field name="partner_id"/><field name="status"/></list></field>
+                        </page>
+                        <page string="Events" name="eventids">
+                            <field name="event_ids" readonly="1"><list><field name="create_date"/><field name="status"/><field name="message"/></list></field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_yousign_request_search" model="ir.ui.view">
+        <field name="name">yousign.request.search</field>
+        <field name="model">yousign.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="document_name"/>
+                <field name="partner_id"/>
+                <field name="external_id"/>
+                <filter name="sent" string="Sent" domain="[('state','=','sent')]"/>
+                <filter name="signed" string="Signed" domain="[('state','=','signed')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_yousign_request" model="ir.actions.act_window">
+        <field name="name">Signature Requests</field>
+        <field name="res_model">yousign.request</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create and track Yousign signature requests.</p>
+        </field>
+    </record>
+
+</odoo>

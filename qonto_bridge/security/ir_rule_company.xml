@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_qonto_connection_company" model="ir.rule">
+        <field name="name">qonto.connection: own company only</field>
+        <field name="model_id" ref="model_qonto_connection"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_qonto_transaction_company" model="ir.rule">
+        <field name="name">qonto.transaction: own company only</field>
+        <field name="model_id" ref="model_qonto_transaction"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_qonto_sync_log_company" model="ir.rule">
+        <field name="name">qonto.sync.log: own company only</field>
+        <field name="model_id" ref="model_qonto_sync_log"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

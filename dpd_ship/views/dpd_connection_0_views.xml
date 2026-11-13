@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_dpd_connection_list" model="ir.ui.view">
+        <field name="name">dpd.connection.list</field>
+        <field name="model">dpd.connection</field>
+        <field name="arch" type="xml">
+            <list string="Connections" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="customer_number"/>
+                <field name="depot_code"/>
+                <field name="environment"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_dpd_connection_form" model="ir.ui.view">
+        <field name="name">dpd.connection.form</field>
+        <field name="model">dpd.connection</field>
+        <field name="arch" type="xml">
+            <form string="Connections">
+                <header>
+                    <button name="action_activate" type="object" string="Activate" class="btn-primary" invisible="state == 'active'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Connection">
+    <field name="name"/>
+    <field name="company_id"/>
+    <field name="customer_number"/>
+    <field name="depot_code"/>
+    <field name="environment"/>
+    <field name="state"/>
+    <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_dpd_connection_search" model="ir.ui.view">
+        <field name="name">dpd.connection.search</field>
+        <field name="model">dpd.connection</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="customer_number"/>
+                <separator/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_dpd_connection" model="ir.actions.act_window">
+        <field name="name">Connections</field>
+        <field name="res_model">dpd.connection</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Configure DPD access.</p>
+        </field>
+    </record>
+
+</odoo>
