@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_mondialrelay_connection_company" model="ir.rule">
+        <field name="name">mondialrelay.connection: own company only</field>
+        <field name="model_id" ref="model_mondialrelay_connection"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_mondialrelay_shipment_company" model="ir.rule">
+        <field name="name">mondialrelay.shipment: own company only</field>
+        <field name="model_id" ref="model_mondialrelay_shipment"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
