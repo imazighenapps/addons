@@ -1,0 +1,13 @@
+id,name,model_id,group_id/id,operation,domain
+access_service_checklist_template_user,service.checklist.template User,service.checklist.template,service_checklist.group_servicecheck_user,crud,
+access_service_checklist_template_manager,service.checklist.template Manager,service.checklist.template,service_checklist.group_servicecheck_manager,crud,
+access_service_checklist_template_item_user,service.checklist.template.item User,service.checklist.template.item,service_checklist.group_servicecheck_user,crud,
+access_service_checklist_template_item_manager,service.checklist.template.item Manager,service.checklist.template.item,service_checklist.group_servicecheck_manager,crud,
+access_service_checklist_run_user,service.checklist.run User,service.checklist.run,service_checklist.group_servicecheck_user,crud,
+access_service_checklist_run_manager,service.checklist.run Manager,service.checklist.run,service_checklist.group_servicecheck_manager,crud,
+access_service_checklist_run_line_user,service.checklist.run.line User,service.checklist.run.line,service_checklist.group_servicecheck_user,crud,
+access_service_checklist_run_line_manager,service.checklist.run.line Manager,service.checklist.run.line,service_checklist.group_servicecheck_manager,crud,
+rule_service_checklist_template_company,service.checklist.template: own company only,service.checklist.template,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_service_checklist_template_item_company,service.checklist.template.item: own company only,service.checklist.template.item,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_service_checklist_run_company,service.checklist.run: own company only,service.checklist.run,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_service_checklist_run_line_company,service.checklist.run.line: own company only,service.checklist.run.line,,crud,"[('company_id', 'in', company_ids + [False])]"
