@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_vehicle_booking_user,vehicle.booking User,vehicle.booking,vehicle_booking.group_vehiclebooki_user,crud,
+access_vehicle_booking_manager,vehicle.booking Manager,vehicle.booking,vehicle_booking.group_vehiclebooki_manager,crud,
+access_booking_vehicle_user,booking.vehicle User,booking.vehicle,vehicle_booking.group_vehiclebooki_user,crud,
+access_booking_vehicle_manager,booking.vehicle Manager,booking.vehicle,vehicle_booking.group_vehiclebooki_manager,crud,
+rule_booking_vehicle_company,booking.vehicle: own company only,booking.vehicle,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_vehicle_booking_company,vehicle.booking: own company only,vehicle.booking,,crud,"[('company_id', 'in', company_ids + [False])]"
