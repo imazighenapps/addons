@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sale_plan_pay_line_list" model="ir.ui.view">
+        <field name="name">sale.plan.pay.line.list</field>
+        <field name="model">sale.plan.pay.line</field>
+        <field name="arch" type="xml">
+            <list string="Installments">
+                <field name="plan_id"/>
+                <field name="name"/>
+                <field name="date_due"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="status" widget="badge"/>
+                <field name="move_id"/>
+                <field name="partner_id"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_sale_plan_pay_line_form" model="ir.ui.view">
+        <field name="name">sale.plan.pay.line.form</field>
+        <field name="model">sale.plan.pay.line</field>
+        <field name="arch" type="xml">
+            <form string="Installments">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Installment">
+    <field name="plan_id"/>
+    <field name="name"/>
+    <field name="date_due"/>
+    <field name="amount"/>
+    <field name="status"/>
+                        </group>
+                        <group string="Invoice">
+    <field name="move_id"/>
+    <field name="partner_id"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sale_plan_pay_line_search" model="ir.ui.view">
+        <field name="name">sale.plan.pay.line.search</field>
+        <field name="model">sale.plan.pay.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="plan_id"/>
+                <field name="partner_id"/>
+                <field name="move_id"/>
+                <filter name="planned" string="Planned" domain="[('status','=','planned')]"/>
+                <filter name="invoiced" string="Invoiced" domain="[('status','=','invoiced')]"/>
+                <filter name="paid" string="Paid" domain="[('status','=','paid')]"/>
+                <filter name="late" string="Late" domain="[('status','=','late')]"/>
+                <separator/>
+                <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_plan" string="Plan" context="{'group_by': 'plan_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_sale_plan_pay_line" model="ir.actions.act_window">
+        <field name="name">Installments</field>
+        <field name="res_model">sale.plan.pay.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Every installment of every payment plan.</p>
+        </field>
+    </record>
+
+</odoo>

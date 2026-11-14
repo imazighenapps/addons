@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sale_plan_pay_list" model="ir.ui.view">
+        <field name="name">sale.plan.pay.list</field>
+        <field name="model">sale.plan.pay</field>
+        <field name="arch" type="xml">
+            <list string="Payment Plans" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="order_id"/>
+                <field name="partner_id"/>
+                <field name="state" widget="badge"/>
+                <field name="amount_total" sum="Total Amount Total"/>
+                <field name="amount_invoiced" sum="Total Amount Invoiced"/>
+                <field name="amount_paid" sum="Total Amount Paid"/>
+                <field name="late_count"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_sale_plan_pay_form" model="ir.ui.view">
+        <field name="name">sale.plan.pay.form</field>
+        <field name="model">sale.plan.pay</field>
+        <field name="arch" type="xml">
+            <form string="Payment Plans">
+                <header>
+                    <button name="action_activate" type="object" string="Activate" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_done" type="object" string="Mark Done" class="btn-secondary" invisible="state != 'active'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-link" invisible="state in ('done','cancelled')"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Plan">
+    <field name="name"/>
+    <field name="order_id"/>
+    <field name="partner_id"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="currency_id"/>
+    <field name="amount_total"/>
+    <field name="amount_planned"/>
+    <field name="amount_invoiced"/>
+    <field name="amount_paid"/>
+    <field name="late_count"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Installments" name="lineids">
+                            <field name="line_ids" readonly="state in ('done','cancelled')">
+                        <list editable="bottom">
+                            <field name="name"/>
+                            <field name="date_due"/>
+                            <field name="amount"/>
+                            <field name="currency_id" column_invisible="1"/>
+                            <field name="status" widget="badge"/>
+                            <field name="move_id"/>
+                            <button name="action_create_invoice" type="object"
+                                    string="Invoice" class="btn-link"
+                                    invisible="move_id"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sale_plan_pay_search" model="ir.ui.view">
+        <field name="name">sale.plan.pay.search</field>
+        <field name="model">sale.plan.pay</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="order_id"/>
+                <field name="partner_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="active" string="Active" domain="[('state','=','active')]"/>
+                <filter name="late" string="With Late Installments" domain="[('late_count','&gt;',0)]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_sale_plan_pay" model="ir.actions.act_window">
+        <field name="name">Payment Plans</field>
+        <field name="res_model">sale.plan.pay</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Split a sale order into installments and generate invoices on schedule.</p>
+        </field>
+    </record>
+
+</odoo>
