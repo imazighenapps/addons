@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_booking_vehicle_list" model="ir.ui.view">
+        <field name="name">booking.vehicle.list</field>
+        <field name="model">booking.vehicle</field>
+        <field name="arch" type="xml">
+            <list string="Vehicles">
+                <field name="name"/>
+                <field name="plate"/>
+                <field name="seats"/>
+                <field name="active" widget="boolean"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_booking_vehicle_form" model="ir.ui.view">
+        <field name="name">booking.vehicle.form</field>
+        <field name="model">booking.vehicle</field>
+        <field name="arch" type="xml">
+            <form string="Vehicles">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Vehicle">
+    <field name="name"/>
+    <field name="plate"/>
+    <field name="seats"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_booking_vehicle_search" model="ir.ui.view">
+        <field name="name">booking.vehicle.search</field>
+        <field name="model">booking.vehicle</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="plate"/>
+                <filter name="active" string="Active" domain="[('active','=',True)]"/>
+                <separator/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_booking_vehicle" model="ir.actions.act_window">
+        <field name="name">Vehicles</field>
+        <field name="res_model">booking.vehicle</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Define vehicles available for booking.</p>
+        </field>
+    </record>
+
+</odoo>
