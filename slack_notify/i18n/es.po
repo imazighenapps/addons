@@ -1,0 +1,364 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* slack_notify
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__api_key
+msgid "API Key / Token"
+msgstr "API Key / Token"
+
+#. module: slack_notify
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_connection_form
+msgid "Activate"
+msgstr "Activar"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__active
+#: model:ir.model.fields.selection,name:slack_notify.selection__slack_connection__state__active
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_connection_search
+msgid "Active"
+msgstr "Activo"
+
+#. module: slack_notify
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_connection_form
+msgid "Archive"
+msgstr "Archivo"
+
+#. module: slack_notify
+#: model:ir.model.fields.selection,name:slack_notify.selection__slack_connection__state__archived
+msgid "Archived"
+msgstr "Archivada Archivado"
+
+#. module: slack_notify
+#: model:ir.model,name:slack_notify.model_res_company
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__company_id
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__company_id
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_connection_search
+msgid "Company"
+msgstr "Compañía"
+
+#. module: slack_notify
+#: model:res.groups,comment:slack_notify.group_slacknotify_manager
+msgid "Configure and administer the module."
+msgstr "Configurar y administrar el módulo."
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_log__connection_id
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__connection_id
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_connection_form
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_record_search
+msgid "Connection"
+msgstr "Connection"
+
+#. module: slack_notify
+#. odoo-python
+#: code:addons/slack_notify/models/slack.py:0
+msgid "Connection activated."
+msgstr "Connection activated."
+
+#. module: slack_notify
+#. odoo-python
+#: code:addons/slack_notify/models/slack.py:0
+msgid "Connection must be active before processing."
+msgstr "Connection must be active before processing."
+
+#. module: slack_notify
+#: model:ir.actions.act_window,name:slack_notify.action_slack_connection
+#: model:ir.ui.menu,name:slack_notify.menu_slack_connections
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_connection_form
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_connection_list
+msgid "Connections"
+msgstr "Connections"
+
+#. module: slack_notify
+#: model_terms:ir.actions.act_window,help:slack_notify.action_slack_connection
+msgid "Create your first connection."
+msgstr "Create your first connection."
+
+#. module: slack_notify
+#: model_terms:ir.actions.act_window,help:slack_notify.action_slack_record
+msgid "Create your first record."
+msgstr "Create your first record."
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__create_uid
+#: model:ir.model.fields,field_description:slack_notify.field_slack_log__create_uid
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__create_date
+#: model:ir.model.fields,field_description:slack_notify.field_slack_log__create_date
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: slack_notify
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_record_form
+msgid "Details"
+msgstr "Detalles"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_res_company__display_name
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__display_name
+#: model:ir.model.fields,field_description:slack_notify.field_slack_log__display_name
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: slack_notify
+#: model:ir.model.fields.selection,name:slack_notify.selection__slack_record__state__done
+msgid "Done"
+msgstr "Hecho"
+
+#. module: slack_notify
+#. odoo-python
+#: code:addons/slack_notify/models/slack.py:0
+msgid "Done records cannot be reset."
+msgstr "Done records cannot be reset."
+
+#. module: slack_notify
+#: model:ir.model.fields.selection,name:slack_notify.selection__slack_connection__state__draft
+#: model:ir.model.fields.selection,name:slack_notify.selection__slack_record__state__draft
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_record_search
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__endpoint
+msgid "Endpoint / URL"
+msgstr "Endpoint / URL"
+
+#. module: slack_notify
+#. odoo-python
+#: code:addons/slack_notify/models/slack.py:0
+msgid "Endpoint must start with http:// or https://."
+msgstr "Endpoint must start with http:// or https://."
+
+#. module: slack_notify
+#: model:ir.model.fields.selection,name:slack_notify.selection__slack_log__level__error
+#: model:ir.model.fields.selection,name:slack_notify.selection__slack_record__state__error
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_log_search
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_record_search
+msgid "Error"
+msgstr "Error"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__external_ref
+msgid "External Reference"
+msgstr "External Reference"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__has_message
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: slack_notify
+#: model:ir.model.fields.selection,name:slack_notify.selection__slack_log__level__info
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_log_search
+msgid "Info"
+msgstr "Info"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__write_uid
+#: model:ir.model.fields,field_description:slack_notify.field_slack_log__write_uid
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__write_uid
+msgid "Last Updated by"
+msgstr "Actualizado por última vez por"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__write_date
+#: model:ir.model.fields,field_description:slack_notify.field_slack_log__write_date
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_log__level
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_log_search
+msgid "Level"
+msgstr "Nivel"
+
+#. module: slack_notify
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_log_form
+msgid "Log"
+msgstr "Log"
+
+#. module: slack_notify
+#: model:ir.actions.act_window,name:slack_notify.action_slack_log
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__log_ids
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__log_ids
+#: model:ir.ui.menu,name:slack_notify.menu_slack_logs
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_connection_form
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_log_form
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_log_list
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_record_form
+msgid "Logs"
+msgstr "Logs"
+
+#. module: slack_notify
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_record_form
+msgid "Mark Error"
+msgstr "Mark Error"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__my_activity_date_deadline
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Fecha límite de mi actividad"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__name
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: slack_notify
+#: model:ir.module.module,summary:base.module_slack_notify
+msgid "Notifications Slack sur événements Odoo (commandes, factures, stocks) via canaux configurés."
+msgstr "Notifications Slack sur événements Odoo (commandes, factures, stocks) via canaux configurés."
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__payload
+msgid "Payload / Notes"
+msgstr "Payload / Notes"
+
+#. module: slack_notify
+#. odoo-python
+#: code:addons/slack_notify/models/slack.py:0
+msgid "Please set an API key/token before activating."
+msgstr "Please set an API key/token before activating."
+
+#. module: slack_notify
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_record_form
+msgid "Prepare"
+msgstr "Prepare"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__processed_at
+msgid "Processed At"
+msgstr "Processed At"
+
+#. module: slack_notify
+#: model:ir.model.fields.selection,name:slack_notify.selection__slack_record__state__ready
+msgid "Ready"
+msgstr "Listo"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_log__record_id
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_record_form
+msgid "Record"
+msgstr "Registro"
+
+#. module: slack_notify
+#. odoo-python
+#: code:addons/slack_notify/models/slack.py:0
+msgid "Record must be ready before running."
+msgstr "Record must be ready before running."
+
+#. module: slack_notify
+#. odoo-python
+#: code:addons/slack_notify/models/slack.py:0
+msgid "Record processed successfully."
+msgstr "Record processed successfully."
+
+#. module: slack_notify
+#: model:ir.actions.act_window,name:slack_notify.action_slack_record
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__record_ids
+#: model:ir.ui.menu,name:slack_notify.menu_slack_records
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_connection_form
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_record_form
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_record_list
+msgid "Records"
+msgstr "Records"
+
+#. module: slack_notify
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_connection_form
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_record_form
+msgid "Reset"
+msgstr "Restablecer"
+
+#. module: slack_notify
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_record_form
+msgid "Run"
+msgstr "Correr"
+
+#. module: slack_notify
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_connection_form
+msgid "Settings"
+msgstr "Configuración"
+
+#. module: slack_notify
+#: model:ir.module.module,shortdesc:base.module_slack_notify
+#: model:ir.ui.menu,name:slack_notify.menu_slack_root
+msgid "Slack Notifications"
+msgstr "Slack Notifications"
+
+#. module: slack_notify
+#: model:ir.model,name:slack_notify.model_slack_connection
+msgid "Slack Notifications Connection"
+msgstr "Slack Notifications Connection"
+
+#. module: slack_notify
+#: model:ir.model,name:slack_notify.model_slack_log
+msgid "Slack Notifications Log"
+msgstr "Slack Notifications Log"
+
+#. module: slack_notify
+#: model:ir.model,name:slack_notify.model_slack_record
+msgid "Slack Notifications Record"
+msgstr "Slack Notifications Record"
+
+#. module: slack_notify
+#: model:res.groups,name:slack_notify.group_slacknotify_manager
+msgid "Slack Notify Manager"
+msgstr "Slack Notify Manager"
+
+#. module: slack_notify
+#: model:res.groups,name:slack_notify.group_slacknotify_user
+msgid "Slack Notify User"
+msgstr "Slack Notify User"
+
+#. module: slack_notify
+#: model:ir.model.fields,field_description:slack_notify.field_slack_connection__state
+#: model:ir.model.fields,field_description:slack_notify.field_slack_record__state
+msgid "State"
+msgstr "Estado"
+
+#. module: slack_notify
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_connection_search
+#: model_terms:ir.ui.view,arch_db:slack_notify.view_slack_record_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: slack_notify
+#: model:res.groups,comment:slack_notify.group_slacknotify_user
+msgid "View and use the module."
+msgstr "Ver y utilizar el módulo."
+
+#. module: slack_notify
+#: model_terms:ir.actions.act_window,help:slack_notify.action_slack_log
+msgid "View logs."
+msgstr "View logs."
+
+#. module: slack_notify
+#: model:ir.model.fields.selection,name:slack_notify.selection__slack_log__level__warning
+msgid "Warning"
+msgstr "Advertencia"
