@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_petty_cash_category_company" model="ir.rule">
+        <field name="name">petty.cash.category: own company only</field>
+        <field name="model_id" ref="model_petty_cash_category"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_petty_cash_box_company" model="ir.rule">
+        <field name="name">petty.cash.box: own company only</field>
+        <field name="model_id" ref="model_petty_cash_box"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_petty_cash_movement_company" model="ir.rule">
+        <field name="name">petty.cash.movement: own company only</field>
+        <field name="model_id" ref="model_petty_cash_movement"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_petty_cash_count_company" model="ir.rule">
+        <field name="name">petty.cash.count: own company only</field>
+        <field name="model_id" ref="model_petty_cash_count"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>

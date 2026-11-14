@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_petty_cash_movement_list" model="ir.ui.view">
+        <field name="name">petty.cash.movement.list</field>
+        <field name="model">petty.cash.movement</field>
+        <field name="arch" type="xml">
+            <list string="Movements" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="box_id"/>
+                <field name="date"/>
+                <field name="movement_type"/>
+                <field name="category_id"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="state" widget="badge"/>
+                <field name="partner_ref"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_petty_cash_movement_form" model="ir.ui.view">
+        <field name="name">petty.cash.movement.form</field>
+        <field name="model">petty.cash.movement</field>
+        <field name="arch" type="xml">
+            <form string="Movements">
+                <header>
+                    <button name="action_post" type="object" string="Post" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-link" invisible="state == 'cancelled'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,posted"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Movement">
+    <field name="name"/>
+    <field name="box_id"/>
+    <field name="date"/>
+    <field name="movement_type"/>
+    <field name="category_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Amount">
+    <field name="amount"/>
+    <field name="currency_id"/>
+    <field name="partner_ref"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_petty_cash_movement_search" model="ir.ui.view">
+        <field name="name">petty.cash.movement.search</field>
+        <field name="model">petty.cash.movement</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="box_id"/>
+                <field name="partner_ref"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="posted" string="Posted" domain="[('state','=','posted')]"/>
+                <filter name="in" string="Top-ups" domain="[('movement_type','=','in')]"/>
+                <filter name="out" string="Expenses" domain="[('movement_type','=','out')]"/>
+                <separator/>
+                <filter name="group_box" string="Box" context="{'group_by': 'box_id'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'movement_type'}"/>
+                <filter name="group_category" string="Category" context="{'group_by': 'category_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_petty_cash_movement" model="ir.actions.act_window">
+        <field name="name">Movements</field>
+        <field name="res_model">petty.cash.movement</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record petty cash top-ups, expenses and adjustments.</p>
+        </field>
+    </record>
+
+</odoo>
