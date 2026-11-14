@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_office_supply_request_user,office.supply.request User,office.supply.request,office_supply_request.group_officesupply_user,crud,
+access_office_supply_request_manager,office.supply.request Manager,office.supply.request,office_supply_request.group_officesupply_manager,crud,
+access_office_supply_request_line_user,office.supply.request.line User,office.supply.request.line,office_supply_request.group_officesupply_user,crud,
+access_office_supply_request_line_manager,office.supply.request.line Manager,office.supply.request.line,office_supply_request.group_officesupply_manager,crud,
+rule_office_supply_request_company,office.supply.request: own company only,office.supply.request,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_office_supply_request_line_company,office.supply.request.line: own company only,office.supply.request.line,,crud,"[('company_id', 'in', company_ids + [False])]"

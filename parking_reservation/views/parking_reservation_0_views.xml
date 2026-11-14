@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_parking_reservation_list" model="ir.ui.view">
+        <field name="name">parking.reservation.list</field>
+        <field name="model">parking.reservation</field>
+        <field name="arch" type="xml">
+            <list string="Parking Reservations" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="spot_id"/>
+                <field name="requester_id"/>
+                <field name="employee_id"/>
+                <field name="start_datetime"/>
+                <field name="stop_datetime"/>
+                <field name="vehicle_plate"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_parking_reservation_form" model="ir.ui.view">
+        <field name="name">parking.reservation.form</field>
+        <field name="model">parking.reservation</field>
+        <field name="arch" type="xml">
+            <form string="Parking Reservations">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-link" invisible="state == 'cancelled'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Reservation">
+    <field name="spot_id"/>
+    <field name="requester_id"/>
+    <field name="employee_id"/>
+    <field name="vehicle_plate"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Schedule">
+    <field name="start_datetime"/>
+    <field name="stop_datetime"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_parking_reservation_search" model="ir.ui.view">
+        <field name="name">parking.reservation.search</field>
+        <field name="model">parking.reservation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="spot_id"/>
+                <field name="requester_id"/>
+                <field name="employee_id"/>
+                <field name="vehicle_plate"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_spot" string="Spot" context="{'group_by': 'spot_id'}"/>
+                <filter name="group_requester" string="Requester" context="{'group_by': 'requester_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_parking_reservation" model="ir.actions.act_window">
+        <field name="name">Parking Reservations</field>
+        <field name="res_model">parking.reservation</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Reserve parking spots and track availability.</p>
+        </field>
+    </record>
+
+</odoo>
