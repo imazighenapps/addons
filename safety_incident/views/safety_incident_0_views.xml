@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_safety_incident_list" model="ir.ui.view">
+        <field name="name">safety.incident.list</field>
+        <field name="model">safety.incident</field>
+        <field name="arch" type="xml">
+            <list string="Safety Incidents" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="location"/>
+                <field name="incident_type"/>
+                <field name="severity" widget="badge"/>
+                <field name="reporter_id"/>
+                <field name="employee_id"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_safety_incident_form" model="ir.ui.view">
+        <field name="name">safety.incident.form</field>
+        <field name="model">safety.incident</field>
+        <field name="arch" type="xml">
+            <form string="Safety Incidents">
+                <header>
+                    <button name="action_report" type="object" string="Report" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_start" type="object" string="Start Follow-up" class="btn-primary" invisible="state != 'reported'"/>
+                    <button name="action_close" type="object" string="Close" class="btn-primary" invisible="state not in ('reported','in_progress')"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'closed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,reported,in_progress,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Incident">
+    <field name="name"/>
+    <field name="date"/>
+    <field name="location"/>
+    <field name="incident_type"/>
+    <field name="severity"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="People">
+    <field name="reporter_id"/>
+    <field name="employee_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Corrective Actions" name="correctiveaction">
+                            <field name="corrective_action"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_safety_incident_search" model="ir.ui.view">
+        <field name="name">safety.incident.search</field>
+        <field name="model">safety.incident</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="location"/>
+                <field name="reporter_id"/>
+                <field name="employee_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="reported" string="Reported" domain="[('state','=','reported')]"/>
+                <filter name="in_progress" string="In Progress" domain="[('state','=','in_progress')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <filter name="high" string="High/Critical" domain="[('severity','in',('high','critical'))]"/>
+                <separator/>
+                <filter name="group_type" string="Type" context="{'group_by': 'incident_type'}"/>
+                <filter name="group_severity" string="Severity" context="{'group_by': 'severity'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_safety_incident" model="ir.actions.act_window">
+        <field name="name">Safety Incidents</field>
+        <field name="res_model">safety.incident</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Log and track workplace safety incidents.</p>
+        </field>
+    </record>
+
+</odoo>
