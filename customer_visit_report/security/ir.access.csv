@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_customer_visit_report_user,customer.visit.report User,customer.visit.report,customer_visit_report.group_customervisi_user,crud,
+access_customer_visit_report_manager,customer.visit.report Manager,customer.visit.report,customer_visit_report.group_customervisi_manager,crud,
+rule_customer_visit_report_company,customer.visit.report: own company only,customer.visit.report,,crud,"[('company_id', 'in', company_ids + [False])]"
