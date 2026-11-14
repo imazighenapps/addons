@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_parking_spot_company" model="ir.rule">
+        <field name="name">parking.spot: own company only</field>
+        <field name="model_id" ref="model_parking_spot"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_parking_reservation_company" model="ir.rule">
+        <field name="name">parking.reservation: own company only</field>
+        <field name="model_id" ref="model_parking_reservation"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
