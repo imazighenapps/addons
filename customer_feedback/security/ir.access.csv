@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_customer_feedback_user,customer.feedback User,customer.feedback,customer_feedback.group_customerfeed_user,crud,
+access_customer_feedback_manager,customer.feedback Manager,customer.feedback,customer_feedback.group_customerfeed_manager,crud,
+access_customer_feedback_topic_user,customer.feedback.topic User,customer.feedback.topic,customer_feedback.group_customerfeed_user,crud,
+access_customer_feedback_topic_manager,customer.feedback.topic Manager,customer.feedback.topic,customer_feedback.group_customerfeed_manager,crud,
+rule_customer_feedback_topic_company,customer.feedback.topic: own company only,customer.feedback.topic,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_customer_feedback_company,customer.feedback: own company only,customer.feedback,,crud,"[('company_id', 'in', company_ids + [False])]"

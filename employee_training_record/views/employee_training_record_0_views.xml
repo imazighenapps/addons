@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_employee_training_record_list" model="ir.ui.view">
+        <field name="name">employee.training.record.list</field>
+        <field name="model">employee.training.record</field>
+        <field name="arch" type="xml">
+            <list string="Training Records" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="type_id"/>
+                <field name="provider"/>
+                <field name="date_done"/>
+                <field name="date_expiry"/>
+                <field name="status" widget="badge"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_employee_training_record_form" model="ir.ui.view">
+        <field name="name">employee.training.record.form</field>
+        <field name="model">employee.training.record</field>
+        <field name="arch" type="xml">
+            <form string="Training Records">
+                <header>
+                    <button name="action_done" type="object" string="Mark Done" class="btn-primary" invisible="state != 'planned'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-link" invisible="state == 'cancelled'"/>
+                    <button name="action_reset" type="object" string="Reset to Planned" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="planned,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Training">
+    <field name="name"/>
+    <field name="employee_id"/>
+    <field name="department_id"/>
+    <field name="type_id"/>
+    <field name="provider"/>
+    <field name="state"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Dates">
+    <field name="date_done"/>
+    <field name="date_expiry"/>
+    <field name="status"/>
+    <field name="certificate_ref"/>
+                        </group>
+                        <group string="Details">
+    <field name="duration_hours"/>
+    <field name="currency_id"/>
+    <field name="cost"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_employee_training_record_search" model="ir.ui.view">
+        <field name="name">employee.training.record.search</field>
+        <field name="model">employee.training.record</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="type_id"/>
+                <field name="provider"/>
+                <field name="certificate_ref"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="planned" string="Planned" domain="[('state','=','planned')]"/>
+                <filter name="valid" string="Valid" domain="[('status','=','valid')]"/>
+                <filter name="expiring" string="Expiring Soon" domain="[('status','=','expiring')]"/>
+                <filter name="expired" string="Expired" domain="[('status','=','expired')]"/>
+                <separator/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'type_id'}"/>
+                <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                <filter name="group_state" string="State" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_employee_training_record" model="ir.actions.act_window">
+        <field name="name">Training Records</field>
+        <field name="res_model">employee.training.record</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Log employee trainings and certifications and track their validity.</p>
+        </field>
+    </record>
+
+</odoo>

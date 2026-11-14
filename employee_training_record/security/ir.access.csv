@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_employee_training_record_user,employee.training.record User,employee.training.record,employee_training_record.group_employeetrai_user,crud,
+access_employee_training_record_manager,employee.training.record Manager,employee.training.record,employee_training_record.group_employeetrai_manager,crud,
+access_employee_training_type_user,employee.training.type User,employee.training.type,employee_training_record.group_employeetrai_user,crud,
+access_employee_training_type_manager,employee.training.type Manager,employee.training.type,employee_training_record.group_employeetrai_manager,crud,
+rule_employee_training_type_company,employee.training.type: own company only,employee.training.type,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_employee_training_record_company,employee.training.record: own company only,employee.training.record,,crud,"[('company_id', 'in', company_ids + [False])]"
