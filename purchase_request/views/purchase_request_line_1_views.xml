@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_purchase_request_line_list" model="ir.ui.view">
+        <field name="name">purchase.request.line.list</field>
+        <field name="model">purchase.request.line</field>
+        <field name="arch" type="xml">
+            <list string="Request Lines">
+                <field name="requisition_id"/>
+                <field name="sequence"/>
+                <field name="product_id"/>
+                <field name="name"/>
+                <field name="quantity"/>
+                <field name="uom_id"/>
+                <field name="price_unit"/>
+                <field name="estimated_subtotal" sum="Total Estimated Subtotal"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_purchase_request_line_form" model="ir.ui.view">
+        <field name="name">purchase.request.line.form</field>
+        <field name="model">purchase.request.line</field>
+        <field name="arch" type="xml">
+            <form string="Request Lines">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Line">
+    <field name="requisition_id"/>
+    <field name="sequence"/>
+    <field name="product_id"/>
+    <field name="name"/>
+                        </group>
+                        <group string="Amounts">
+    <field name="quantity"/>
+    <field name="uom_id"/>
+    <field name="price_unit"/>
+    <field name="estimated_subtotal"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_purchase_request_line_search" model="ir.ui.view">
+        <field name="name">purchase.request.line.search</field>
+        <field name="model">purchase.request.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="requisition_id"/>
+                <field name="product_id"/>
+                <field name="name"/>
+                <separator/>
+                <filter name="group_requisition" string="Requisition" context="{'group_by': 'requisition_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_purchase_request_line" model="ir.actions.act_window">
+        <field name="name">Request Lines</field>
+        <field name="res_model">purchase.request.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Lines of purchase requisitions.</p>
+        </field>
+    </record>
+
+</odoo>
