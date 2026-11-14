@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_safety_incident_company" model="ir.rule">
+        <field name="name">safety.incident: own company only</field>
+        <field name="model_id" ref="model_safety_incident"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
