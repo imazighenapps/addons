@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_parking_spot_list" model="ir.ui.view">
+        <field name="name">parking.spot.list</field>
+        <field name="model">parking.spot</field>
+        <field name="arch" type="xml">
+            <list string="Parking Spots">
+                <field name="name"/>
+                <field name="location"/>
+                <field name="active" widget="boolean"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_parking_spot_form" model="ir.ui.view">
+        <field name="name">parking.spot.form</field>
+        <field name="model">parking.spot</field>
+        <field name="arch" type="xml">
+            <form string="Parking Spots">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Spot">
+    <field name="name"/>
+    <field name="location"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_parking_spot_search" model="ir.ui.view">
+        <field name="name">parking.spot.search</field>
+        <field name="model">parking.spot</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="location"/>
+                <filter name="active" string="Active" domain="[('active','=',True)]"/>
+                <separator/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_parking_spot" model="ir.actions.act_window">
+        <field name="name">Parking Spots</field>
+        <field name="res_model">parking.spot</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Define parking spots available for reservation.</p>
+        </field>
+    </record>
+
+</odoo>
