@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_mirakl_order_list" model="ir.ui.view">
+        <field name="name">mirakl.order.list</field>
+        <field name="model">mirakl.order</field>
+        <field name="arch" type="xml">
+            <list string="Orders" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="external_order_id"/>
+                <field name="order_date"/>
+                <field name="partner_name"/>
+                <field name="amount_total" sum="Total Amount Total"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mirakl_order_form" model="ir.ui.view">
+        <field name="name">mirakl.order.form</field>
+        <field name="model">mirakl.order</field>
+        <field name="arch" type="xml">
+            <form string="Orders">
+                <header>
+                    <button name="action_accept" type="object" string="Accept" class="btn-primary" invisible="state != 'new'"/>
+                    <button name="action_ship" type="object" string="Mark Shipped" class="btn-primary" invisible="state != 'accepted'"/>
+                    <button name="action_invoice" type="object" string="Mark Invoiced" class="btn-secondary" invisible="state != 'shipped'"/>
+                    <button name="action_close" type="object" string="Close" class="btn-secondary" invisible="state != 'invoiced'"/>
+                    <button name="action_reset" type="object" string="Reset" class="btn-secondary" invisible="state == 'closed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,accepted,shipped,invoiced,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Order">
+    <field name="name"/>
+    <field name="connection_id"/>
+    <field name="company_id"/>
+    <field name="external_order_id"/>
+    <field name="order_date"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Customer">
+    <field name="partner_name"/>
+    <field name="partner_email"/>
+    <field name="amount_total"/>
+    <field name="currency_id"/>
+                        </group>
+                        <group string="Fulfillment">
+    <field name="carrier_name"/>
+    <field name="tracking_number"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" name="linesummary">
+                            <field name="line_summary"/>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mirakl_order_search" model="ir.ui.view">
+        <field name="name">mirakl.order.search</field>
+        <field name="model">mirakl.order</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="external_order_id"/>
+                <field name="partner_name"/>
+                <field name="tracking_number"/>
+                <filter name="new" string="New" domain="[('state','=','new')]"/>
+                <filter name="shipped" string="Shipped" domain="[('state','=','shipped')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mirakl_order" model="ir.actions.act_window">
+        <field name="name">Orders</field>
+        <field name="res_model">mirakl.order</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Imported Mirakl marketplace orders.</p>
+        </field>
+    </record>
+
+</odoo>
