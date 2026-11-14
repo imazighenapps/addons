@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_scan_pack_session_user,scan_pack.session User,scan_pack.session,scan_pack_desk.group_scanpackdesk_user,crud,
+access_scan_pack_session_manager,scan_pack.session Manager,scan_pack.session,scan_pack_desk.group_scanpackdesk_manager,crud,
+access_scan_pack_move_user,scan_pack.move User,scan_pack.move,scan_pack_desk.group_scanpackdesk_user,crud,
+access_scan_pack_move_manager,scan_pack.move Manager,scan_pack.move,scan_pack_desk.group_scanpackdesk_manager,crud,
+access_scan_pack_log_user,scan_pack.log User,scan_pack.log,scan_pack_desk.group_scanpackdesk_user,cr,
+access_scan_pack_log_manager,scan_pack.log Manager,scan_pack.log,scan_pack_desk.group_scanpackdesk_manager,crud,
+rule_scan_pack_session_company,scan_pack.session: own company only,scan_pack.session,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_scan_pack_move_company,scan_pack.move: own company only,scan_pack.move,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_scan_pack_log_company,scan_pack.log: own company only,scan_pack.log,,crud,"[('company_id', 'in', company_ids + [False])]"
