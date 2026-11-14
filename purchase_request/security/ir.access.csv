@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_purchase_request_user,purchase.request User,purchase.request,purchase_request.group_purchaserequ_user,crud,
+access_purchase_request_manager,purchase.request Manager,purchase.request,purchase_request.group_purchaserequ_manager,crud,
+access_purchase_request_line_user,purchase.request.line User,purchase.request.line,purchase_request.group_purchaserequ_user,crud,
+access_purchase_request_line_manager,purchase.request.line Manager,purchase.request.line,purchase_request.group_purchaserequ_manager,crud,
+rule_purchase_request_company,purchase.request: own company only,purchase.request,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_purchase_request_line_company,purchase.request.line: own company only,purchase.request.line,,crud,"[('company_id', 'in', company_ids + [False])]"
