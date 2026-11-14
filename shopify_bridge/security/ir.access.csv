@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_shopify_connection_user,shopify.connection User,shopify.connection,shopify_bridge.group_shopifybridg_user,crud,
+access_shopify_connection_manager,shopify.connection Manager,shopify.connection,shopify_bridge.group_shopifybridg_manager,crud,
+access_shopify_record_user,shopify.record User,shopify.record,shopify_bridge.group_shopifybridg_user,crud,
+access_shopify_record_manager,shopify.record Manager,shopify.record,shopify_bridge.group_shopifybridg_manager,crud,
+access_shopify_log_user,shopify.log User,shopify.log,shopify_bridge.group_shopifybridg_user,read,
+access_shopify_log_manager,shopify.log Manager,shopify.log,shopify_bridge.group_shopifybridg_manager,crud,
+rule_shopify_connection_company,shopify.connection: own company only,shopify.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_shopify_record_company,shopify.record: own company only,shopify.record,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_dhl_express_connection_user,dhl_express.connection User,dhl_express.connection,dhl_express_ship.group_dhlexpresssh_user,crud,
+access_dhl_express_connection_manager,dhl_express.connection Manager,dhl_express.connection,dhl_express_ship.group_dhlexpresssh_manager,crud,
+access_dhl_express_record_user,dhl_express.record User,dhl_express.record,dhl_express_ship.group_dhlexpresssh_user,crud,
+access_dhl_express_record_manager,dhl_express.record Manager,dhl_express.record,dhl_express_ship.group_dhlexpresssh_manager,crud,
+access_dhl_express_log_user,dhl_express.log User,dhl_express.log,dhl_express_ship.group_dhlexpresssh_user,read,
+access_dhl_express_log_manager,dhl_express.log Manager,dhl_express.log,dhl_express_ship.group_dhlexpresssh_manager,crud,
+rule_dhl_express_connection_company,dhl_express.connection: own company only,dhl_express.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_dhl_express_record_company,dhl_express.record: own company only,dhl_express.record,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_trello_connection_user,trello.connection User,trello.connection,trello_sync.group_trellosync_user,crud,
+access_trello_connection_manager,trello.connection Manager,trello.connection,trello_sync.group_trellosync_manager,crud,
+access_trello_record_user,trello.record User,trello.record,trello_sync.group_trellosync_user,crud,
+access_trello_record_manager,trello.record Manager,trello.record,trello_sync.group_trellosync_manager,crud,
+access_trello_log_user,trello.log User,trello.log,trello_sync.group_trellosync_user,read,
+access_trello_log_manager,trello.log Manager,trello.log,trello_sync.group_trellosync_manager,crud,
+rule_trello_connection_company,trello.connection: own company only,trello.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_trello_record_company,trello.record: own company only,trello.record,,crud,"[('company_id', 'in', company_ids + [False])]"

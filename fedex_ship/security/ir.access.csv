@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_fedex_connection_user,fedex.connection User,fedex.connection,fedex_ship.group_fedexship_user,crud,
+access_fedex_connection_manager,fedex.connection Manager,fedex.connection,fedex_ship.group_fedexship_manager,crud,
+access_fedex_record_user,fedex.record User,fedex.record,fedex_ship.group_fedexship_user,crud,
+access_fedex_record_manager,fedex.record Manager,fedex.record,fedex_ship.group_fedexship_manager,crud,
+access_fedex_log_user,fedex.log User,fedex.log,fedex_ship.group_fedexship_user,read,
+access_fedex_log_manager,fedex.log Manager,fedex.log,fedex_ship.group_fedexship_manager,crud,
+rule_fedex_connection_company,fedex.connection: own company only,fedex.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_fedex_record_company,fedex.record: own company only,fedex.record,,crud,"[('company_id', 'in', company_ids + [False])]"
