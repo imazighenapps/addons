@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_fuel_log_list" model="ir.ui.view">
+        <field name="name">fuel.log.list</field>
+        <field name="model">fuel.log</field>
+        <field name="arch" type="xml">
+            <list string="Fuel Logs" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="vehicle_id"/>
+                <field name="driver_id"/>
+                <field name="date"/>
+                <field name="odometer"/>
+                <field name="liter" sum="Total Liter"/>
+                <field name="amount_total" sum="Total Amount Total"/>
+                <field name="price_per_liter"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fuel_log_form" model="ir.ui.view">
+        <field name="name">fuel.log.form</field>
+        <field name="model">fuel.log</field>
+        <field name="arch" type="xml">
+            <form string="Fuel Logs">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Entry">
+    <field name="name"/>
+    <field name="vehicle_id"/>
+    <field name="driver_id"/>
+    <field name="date"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Fuel">
+    <field name="odometer"/>
+    <field name="liter"/>
+    <field name="currency_id"/>
+    <field name="amount_total"/>
+    <field name="price_per_liter"/>
+    <field name="vendor_ref"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fuel_log_search" model="ir.ui.view">
+        <field name="name">fuel.log.search</field>
+        <field name="model">fuel.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="vehicle_id"/>
+                <field name="driver_id"/>
+                <field name="vendor_ref"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]"/>
+                <separator/>
+                <filter name="group_vehicle" string="Vehicle" context="{'group_by': 'vehicle_id'}"/>
+                <filter name="group_driver" string="Driver" context="{'group_by': 'driver_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_fuel_log" model="ir.actions.act_window">
+        <field name="name">Fuel Logs</field>
+        <field name="res_model">fuel.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record vehicle refueling entries and track fuel costs.</p>
+        </field>
+    </record>
+
+</odoo>
