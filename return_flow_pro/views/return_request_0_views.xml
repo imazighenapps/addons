@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_return_request_list" model="ir.ui.view">
+        <field name="name">return.flow.request.list</field>
+        <field name="model">return.flow.request</field>
+        <field name="arch" type="xml">
+            <list string="Customer Returns" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="picking_id"/>
+                <field name="reason_id"/>
+                <field name="state" widget="badge"/>
+                <field name="outcome"/>
+                <field name="total_qty" sum="Total Total Qty"/>
+                <field name="date_requested"/>
+                <field name="date_received"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_return_request_form" model="ir.ui.view">
+        <field name="name">return.flow.request.form</field>
+        <field name="model">return.flow.request</field>
+        <field name="arch" type="xml">
+            <form string="Customer Returns">
+                <header>
+                    <button name="action_receive" type="object" string="Mark Received" class="btn-primary" invisible="state != 'requested'"/>
+                    <button name="action_inspect" type="object" string="Inspect" class="btn-primary" invisible="state != 'received'"/>
+                    <button name="action_restock" type="object" string="Restock" class="btn-secondary" invisible="state != 'inspected'"/>
+                    <button name="action_repair" type="object" string="Repair" class="btn-secondary" invisible="state != 'inspected'"/>
+                    <button name="action_scrap" type="object" string="Scrap" class="btn-secondary" invisible="state != 'inspected'"/>
+                    <button name="action_create_credit_note" type="object" string="Create Credit Note" class="btn-secondary" invisible="state not in ('inspected','restocked','repaired','scrapped')"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-link" invisible="state in ('restocked','repaired','scrapped','cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="requested,received,inspected,restocked,repaired,scrapped"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Return">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="picking_id"/>
+    <field name="reason_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Dates">
+    <field name="date_requested"/>
+    <field name="date_received"/>
+    <field name="date_inspected"/>
+    <field name="state"/>
+    <field name="outcome"/>
+                        </group>
+                        <group string="Refund">
+    <field name="credit_move_id"/>
+    <field name="total_qty"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" name="lineids">
+                            <field name="line_ids" readonly="state not in ('requested',)">
+                        <list editable="bottom">
+                            <field name="move_id" column_invisible="1"/>
+                            <field name="product_id"/>
+                            <field name="uom_id" optional="hide"/>
+                            <field name="qty_delivered"/>
+                            <field name="qty"/>
+                            <field name="company_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_return_request_search" model="ir.ui.view">
+        <field name="name">return.flow.request.search</field>
+        <field name="model">return.flow.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="picking_id"/>
+                <field name="reason_id"/>
+                <filter name="requested" string="Requested" domain="[('state','=','requested')]"/>
+                <filter name="received" string="Received" domain="[('state','=','received')]"/>
+                <filter name="inspected" string="Inspected" domain="[('state','=','inspected')]"/>
+                <filter name="restocked" string="Restocked" domain="[('state','=','restocked')]"/>
+                <filter name="repaired" string="Repaired" domain="[('state','=','repaired')]"/>
+                <filter name="scrapped" string="Scrapped" domain="[('state','=','scrapped')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_reason" string="Motive" context="{'group_by': 'reason_id'}"/>
+                <filter name="group_customer" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_return_request" model="ir.actions.act_window">
+        <field name="name">Customer Returns</field>
+        <field name="res_model">return.flow.request</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a return from a validated delivery, inspect it and decide the outcome.</p>
+        </field>
+    </record>
+
+</odoo>

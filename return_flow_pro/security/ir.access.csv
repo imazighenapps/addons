@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_return_flow_request_user,return.flow.request User,return.flow.request,return_flow_pro.group_returnflowpr_user,crud,
+access_return_flow_request_manager,return.flow.request Manager,return.flow.request,return_flow_pro.group_returnflowpr_manager,crud,
+access_return_flow_line_user,return.flow.line User,return.flow.line,return_flow_pro.group_returnflowpr_user,crud,
+access_return_flow_line_manager,return.flow.line Manager,return.flow.line,return_flow_pro.group_returnflowpr_manager,crud,
+access_return_flow_reason_user,return.flow.reason User,return.flow.reason,return_flow_pro.group_returnflowpr_user,crud,
+access_return_flow_reason_manager,return.flow.reason Manager,return.flow.reason,return_flow_pro.group_returnflowpr_manager,crud,
+rule_return_flow_reason_company,return.flow.reason: own company only,return.flow.reason,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_return_flow_request_company,return.flow.request: own company only,return.flow.request,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_return_flow_line_company,return.flow.line: own company only,return.flow.line,,crud,"[('company_id', 'in', company_ids + [False])]"

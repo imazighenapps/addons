@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_return_flow_root" name="Returns" sequence="50"/>
+    <menuitem id="menu_return_flow_requests" name="Customer Returns" parent="menu_return_flow_root" action="action_return_request" sequence="10"/>
+    <menuitem id="menu_return_flow_lines" name="Return Lines" parent="menu_return_flow_root" action="action_return_line" sequence="20"/>
+    <menuitem id="menu_return_flow_reasons" name="Motives" parent="menu_return_flow_root" action="action_return_reason" sequence="30"/>
+</odoo>
