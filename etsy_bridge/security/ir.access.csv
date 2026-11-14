@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_etsy_connection_user,etsy.connection User,etsy.connection,etsy_bridge.group_etsybridge_user,crud,
+access_etsy_connection_manager,etsy.connection Manager,etsy.connection,etsy_bridge.group_etsybridge_manager,crud,
+access_etsy_listing_user,etsy.listing User,etsy.listing,etsy_bridge.group_etsybridge_user,crud,
+access_etsy_listing_manager,etsy.listing Manager,etsy.listing,etsy_bridge.group_etsybridge_manager,crud,
+access_etsy_order_user,etsy.order User,etsy.order,etsy_bridge.group_etsybridge_user,crud,
+access_etsy_order_manager,etsy.order Manager,etsy.order,etsy_bridge.group_etsybridge_manager,crud,
+rule_etsy_connection_company,etsy.connection: own company only,etsy.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_etsy_listing_company,etsy.listing: own company only,etsy.listing,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_etsy_order_company,etsy.order: own company only,etsy.order,,crud,"[('company_id', 'in', company_ids + [False])]"
