@@ -1,9 +1,0 @@
-id,name,model_id,group_id/id,operation,domain
-access_prestashop_connection_user,prestashop.connection User,prestashop.connection,prestashop_bridge.group_prestashopbr_user,crud,
-access_prestashop_connection_manager,prestashop.connection Manager,prestashop.connection,prestashop_bridge.group_prestashopbr_manager,crud,
-access_prestashop_record_user,prestashop.record User,prestashop.record,prestashop_bridge.group_prestashopbr_user,crud,
-access_prestashop_record_manager,prestashop.record Manager,prestashop.record,prestashop_bridge.group_prestashopbr_manager,crud,
-access_prestashop_log_user,prestashop.log User,prestashop.log,prestashop_bridge.group_prestashopbr_user,read,
-access_prestashop_log_manager,prestashop.log Manager,prestashop.log,prestashop_bridge.group_prestashopbr_manager,crud,
-rule_prestashop_connection_company,prestashop.connection: own company only,prestashop.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
-rule_prestashop_record_company,prestashop.record: own company only,prestashop.record,,crud,"[('company_id', 'in', company_ids + [False])]"

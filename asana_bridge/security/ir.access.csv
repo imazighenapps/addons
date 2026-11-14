@@ -1,9 +1,0 @@
-id,name,model_id,group_id/id,operation,domain
-access_asana_connection_user,asana.connection User,asana.connection,asana_bridge.group_asanabridge_user,crud,
-access_asana_connection_manager,asana.connection Manager,asana.connection,asana_bridge.group_asanabridge_manager,crud,
-access_asana_record_user,asana.record User,asana.record,asana_bridge.group_asanabridge_user,crud,
-access_asana_record_manager,asana.record Manager,asana.record,asana_bridge.group_asanabridge_manager,crud,
-access_asana_log_user,asana.log User,asana.log,asana_bridge.group_asanabridge_user,read,
-access_asana_log_manager,asana.log Manager,asana.log,asana_bridge.group_asanabridge_manager,crud,
-rule_asana_connection_company,asana.connection: own company only,asana.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
-rule_asana_record_company,asana.record: own company only,asana.record,,crud,"[('company_id', 'in', company_ids + [False])]"

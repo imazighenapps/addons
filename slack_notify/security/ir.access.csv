@@ -1,9 +1,0 @@
-id,name,model_id,group_id/id,operation,domain
-access_slack_connection_user,slack.connection User,slack.connection,slack_notify.group_slacknotify_user,crud,
-access_slack_connection_manager,slack.connection Manager,slack.connection,slack_notify.group_slacknotify_manager,crud,
-access_slack_record_user,slack.record User,slack.record,slack_notify.group_slacknotify_user,crud,
-access_slack_record_manager,slack.record Manager,slack.record,slack_notify.group_slacknotify_manager,crud,
-access_slack_log_user,slack.log User,slack.log,slack_notify.group_slacknotify_user,read,
-access_slack_log_manager,slack.log Manager,slack.log,slack_notify.group_slacknotify_manager,crud,
-rule_slack_connection_company,slack.connection: own company only,slack.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
-rule_slack_record_company,slack.record: own company only,slack.record,,crud,"[('company_id', 'in', company_ids + [False])]"
