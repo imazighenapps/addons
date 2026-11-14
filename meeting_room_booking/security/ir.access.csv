@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_meeting_booking_user,meeting.booking User,meeting.booking,meeting_room_booking.group_meetingroomb_user,crud,
+access_meeting_booking_manager,meeting.booking Manager,meeting.booking,meeting_room_booking.group_meetingroomb_manager,crud,
+access_meeting_room_user,meeting.room User,meeting.room,meeting_room_booking.group_meetingroomb_user,crud,
+access_meeting_room_manager,meeting.room Manager,meeting.room,meeting_room_booking.group_meetingroomb_manager,crud,
+rule_meeting_room_company,meeting.room: own company only,meeting.room,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_meeting_booking_company,meeting.booking: own company only,meeting.booking,,crud,"[('company_id', 'in', company_ids + [False])]"
