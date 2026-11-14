@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_safety_incident_user,safety.incident User,safety.incident,safety_incident.group_safetyincide_user,crud,
+access_safety_incident_manager,safety.incident Manager,safety.incident,safety_incident.group_safetyincide_manager,crud,
+rule_safety_incident_company,safety.incident: own company only,safety.incident,,crud,"[('company_id', 'in', company_ids + [False])]"

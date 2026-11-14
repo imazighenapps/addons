@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_key_custody_user,key.custody User,key.custody,key_custody.group_keycustody_user,crud,
+access_key_custody_manager,key.custody Manager,key.custody,key_custody.group_keycustody_manager,crud,
+access_key_item_user,key.item User,key.item,key_custody.group_keycustody_user,crud,
+access_key_item_manager,key.item Manager,key.item,key_custody.group_keycustody_manager,crud,
+rule_key_item_company,key.item: own company only,key.item,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_key_custody_company,key.custody: own company only,key.custody,,crud,"[('company_id', 'in', company_ids + [False])]"
