@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_fec_export_pro_connection_user,fec_export_pro.connection User,fec_export_pro.connection,fec_export_pro.group_fecexportpro_user,crud,
+access_fec_export_pro_connection_manager,fec_export_pro.connection Manager,fec_export_pro.connection,fec_export_pro.group_fecexportpro_manager,crud,
+access_fec_export_pro_record_user,fec_export_pro.record User,fec_export_pro.record,fec_export_pro.group_fecexportpro_user,crud,
+access_fec_export_pro_record_manager,fec_export_pro.record Manager,fec_export_pro.record,fec_export_pro.group_fecexportpro_manager,crud,
+access_fec_export_pro_log_user,fec_export_pro.log User,fec_export_pro.log,fec_export_pro.group_fecexportpro_user,read,
+access_fec_export_pro_log_manager,fec_export_pro.log Manager,fec_export_pro.log,fec_export_pro.group_fecexportpro_manager,crud,
+rule_fec_export_pro_connection_company,fec_export_pro.connection: own company only,fec_export_pro.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_fec_export_pro_record_company,fec_export_pro.record: own company only,fec_export_pro.record,,crud,"[('company_id', 'in', company_ids + [False])]"

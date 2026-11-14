@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_gdpr_request_connection_user,gdpr_request.connection User,gdpr_request.connection,gdpr_request_desk.group_gdprrequestd_user,crud,
+access_gdpr_request_connection_manager,gdpr_request.connection Manager,gdpr_request.connection,gdpr_request_desk.group_gdprrequestd_manager,crud,
+access_gdpr_request_record_user,gdpr_request.record User,gdpr_request.record,gdpr_request_desk.group_gdprrequestd_user,crud,
+access_gdpr_request_record_manager,gdpr_request.record Manager,gdpr_request.record,gdpr_request_desk.group_gdprrequestd_manager,crud,
+access_gdpr_request_log_user,gdpr_request.log User,gdpr_request.log,gdpr_request_desk.group_gdprrequestd_user,read,
+access_gdpr_request_log_manager,gdpr_request.log Manager,gdpr_request.log,gdpr_request_desk.group_gdprrequestd_manager,crud,
+rule_gdpr_request_connection_company,gdpr_request.connection: own company only,gdpr_request.connection,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_gdpr_request_record_company,gdpr_request.record: own company only,gdpr_request.record,,crud,"[('company_id', 'in', company_ids + [False])]"
