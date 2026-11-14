@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_scan_session_list" model="ir.ui.view">
+        <field name="name">scan_pack.session.list</field>
+        <field name="model">scan_pack.session</field>
+        <field name="arch" type="xml">
+            <list string="Scan Sessions" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="picking_id"/>
+                <field name="name"/>
+                <field name="state" widget="badge"/>
+                <field name="scanned_qty"/>
+                <field name="demand_qty"/>
+                <field name="difference_qty"/>
+                <field name="has_exception" string="Exception" widget="boolean"/>
+                <field name="validated_at"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_scan_session_form" model="ir.ui.view">
+        <field name="name">scan_pack.session.form</field>
+        <field name="model">scan_pack.session</field>
+        <field name="arch" type="xml">
+            <form string="Scan Sessions">
+                <header>
+                    <button name="action_scan" type="object" string="Scan" class="btn-primary" invisible="state == 'validated'"/>
+                    <button name="action_refresh_lines" type="object" string="Reload Pick Lines" class="btn-secondary" invisible="state == 'validated'"/>
+                    <button name="action_grant_exception" type="object" string="Grant Manager Exception" class="btn-secondary" invisible="state == 'validated' or has_exception"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-link" invisible="state != 'validated'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,validated"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Pick Order">
+    <field name="picking_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Scan">
+    <field name="scan_code"/>
+    <field name="scan_qty"/>
+    <field name="last_result"/>
+    <field name="last_message"/>
+                        </group>
+                        <group string="Totals">
+    <field name="scanned_qty"/>
+    <field name="demand_qty"/>
+    <field name="difference_qty"/>
+    <field name="is_balanced"/>
+                        </group>
+                        <group string="Manager Exception">
+    <field name="has_exception"/>
+    <field name="exception_reason"/>
+    <field name="exception_by_id"/>
+    <field name="exception_date"/>
+                        </group>
+                        <group string="Validation">
+    <field name="validated_by_id"/>
+    <field name="validated_at"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Pick Lines" name="moveids">
+                            <field name="move_ids" readonly="state == 'validated'">
+                        <list editable="bottom">
+                            <field name="move_id" column_invisible="1"/>
+                            <field name="product_id"/>
+                            <field name="demand_qty"/>
+                            <field name="scanned_qty"/>
+                            <field name="difference_qty"/>
+                            <field name="is_complete" widget="boolean"/>
+                            <field name="company_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Scan Journal" name="logids">
+                            <field name="log_ids">
+                        <list>
+                            <field name="create_date"/>
+                            <field name="user_id"/>
+                            <field name="product_id"/>
+                            <field name="barcode"/>
+                            <field name="qty"/>
+                            <field name="result" widget="badge"/>
+                            <field name="message" optional="show"/>
+                            <field name="company_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_scan_session_search" model="ir.ui.view">
+        <field name="name">scan_pack.session.search</field>
+        <field name="model">scan_pack.session</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="picking_id"/>
+                <field name="name"/>
+                <field name="company_id"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="validated" string="Validated" domain="[('state','=','validated')]"/>
+                <filter name="exception" string="With Exception" domain="[('has_exception','=',True)]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_scan_session" model="ir.actions.act_window">
+        <field name="name">Scan Sessions</field>
+        <field name="res_model">scan_pack.session</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Open the scan screen of a picking, scan, and validate with proof.</p>
+        </field>
+    </record>
+
+</odoo>

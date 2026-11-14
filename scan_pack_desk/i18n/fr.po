@@ -1,0 +1,634 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* scan_pack_desk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "%(product)s: %(scanned)s prepared / %(demand)s requested"
+msgstr "%(product)s: %(scanned)s prepared / %(demand)s requested"
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "%s is already fully prepared (%s of %s)."
+msgstr "%s is already fully prepared (%s of %s)."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "A manager exception needs a reason of at least 10 characters: it stays in the scan journal next to the validated gap."
+msgstr "A manager exception needs a reason of at least 10 characters: it stays in the scan journal next to the validated gap."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_log__result__accepted
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_session__last_result__accepted
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_log_search
+msgid "Accepted"
+msgstr "Accepté"
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "Accepted: %s now prepared %s of %s."
+msgstr "Accepted: %s now prepared %s of %s."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__is_balanced
+msgid "Balanced"
+msgstr "Balanced"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_log__barcode
+msgid "Barcode"
+msgstr "Code à barres"
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "Barcode not found in the product catalog: %s"
+msgstr "Barcode not found in the product catalog: %s"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_log__company_id
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_move__company_id
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__company_id
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_search
+msgid "Company"
+msgstr "Société"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_move__is_complete
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_move_search
+msgid "Complete"
+msgstr "Complete"
+
+#. module: scan_pack_desk
+#: model:res.groups,comment:scan_pack_desk.group_scanpackdesk_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_log__create_uid
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_move__create_uid
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_log__create_date
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_move__create_date
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_move__difference_qty
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__difference_qty
+msgid "Difference"
+msgstr "Différence"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_log__display_name
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_move__display_name
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__display_name
+#: model:ir.model.fields,field_description:scan_pack_desk.field_stock_picking__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: scan_pack_desk
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_log_form
+msgid "Entry"
+msgstr "Entrée"
+
+#. module: scan_pack_desk
+#: model_terms:ir.actions.act_window,help:scan_pack_desk.action_scan_move
+msgid "Every pick line of every scan session, in one place."
+msgstr "Every pick line of every scan session, in one place."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_log__result__exception
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_session__last_result__exception
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_log_search
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_list
+msgid "Exception"
+msgstr "Exception"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__exception_by_id
+msgid "Exception By"
+msgstr "Exception By"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__exception_date
+msgid "Exception Date"
+msgstr "Exception Date"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__exception_reason
+msgid "Exception Reason"
+msgstr "Exception Reason"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_log__result__excess
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_session__last_result__excess
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_log_search
+msgid "Excess"
+msgstr "Excess"
+
+#. module: scan_pack_desk
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_form
+msgid "Grant Manager Exception"
+msgstr "Grant Manager Exception"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,help:scan_pack_desk.field_scan_pack_move__scanned_qty
+msgid "Grows by one scan (or the session quantity per scan)."
+msgstr "Grows by one scan (or the session quantity per scan)."
+
+#. module: scan_pack_desk
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_move_search
+msgid "Incomplete"
+msgstr "Incomplete"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__last_message
+msgid "Last Message"
+msgstr "Last Message"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__last_result
+msgid "Last Scan"
+msgstr "Last Scan"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_log__write_uid
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_move__write_uid
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_log__write_date
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_move__write_date
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: scan_pack_desk
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_move_form
+msgid "Line"
+msgstr "Doubler"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__has_exception
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_form
+msgid "Manager Exception"
+msgstr "Manager Exception"
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "Manager exception granted: %s"
+msgstr "Manager exception granted: %s"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,help:scan_pack_desk.field_scan_pack_session__exception_reason
+msgid "Mandatory reason given by the manager; it is also written to the scan journal."
+msgstr "Mandatory reason given by the manager; it is also written to the scan journal."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__note
+msgid "Note"
+msgstr "Note"
+
+#. module: scan_pack_desk
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: scan_pack_desk
+#: model:ir.model.constraint,message:scan_pack_desk.constraint_scan_pack_move_session_move_uniq
+msgid "One pick line per move in a scan session."
+msgstr "One pick line per move in a scan session."
+
+#. module: scan_pack_desk
+#: model:ir.model.constraint,message:scan_pack_desk.constraint_scan_pack_session_picking_uniq
+msgid "One scan session per picking. Reopen the existing session instead of creating a new one."
+msgstr "One scan session per picking. Reopen the existing session instead of creating a new one."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "Only a validated session can reopen."
+msgstr "Only a validated session can reopen."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "Only a warehouse manager can grant an exception."
+msgstr "Only a warehouse manager can grant an exception."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_session__state__open
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_search
+msgid "Open"
+msgstr "Ouvrir"
+
+#. module: scan_pack_desk
+#: model_terms:ir.actions.act_window,help:scan_pack_desk.action_scan_session
+msgid "Open the scan screen of a picking, scan, and validate with proof."
+msgstr "Open the scan screen of a picking, scan, and validate with proof."
+
+#. module: scan_pack_desk
+#: model:ir.actions.act_window,name:scan_pack_desk.action_scan_move
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__move_ids
+#: model:ir.ui.menu,name:scan_pack_desk.menu_scan_pack_moves
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_move_form
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_move_list
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_form
+msgid "Pick Lines"
+msgstr "Pick Lines"
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__picking_id
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_form
+msgid "Pick Order"
+msgstr "Pick Order"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_move__move_id
+msgid "Pick Order Line"
+msgstr "Pick Order Line"
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "Picking validated with %s prepared of %s requested."
+msgstr "Picking validated with %s prepared of %s requested."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_move__scanned_qty
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__scanned_qty
+msgid "Prepared Quantity"
+msgstr "Prepared Quantity"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_log__product_id
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_move__product_id
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_log_search
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_move_search
+msgid "Product"
+msgstr "Produit"
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "Product %s is not part of this pick order."
+msgstr "Product %s is not part of this pick order."
+
+#. module: scan_pack_desk
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_move_form
+msgid "Quantities"
+msgstr "Quantités"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_log__qty
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,help:scan_pack_desk.field_scan_pack_session__scan_qty
+msgid "Quantity added by one scan. Keep it at 1 for unit picking, or scan a whole pack at once."
+msgstr "Quantity added by one scan. Keep it at 1 for unit picking, or scan a whole pack at once."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__scan_qty
+msgid "Quantity per Scan"
+msgstr "Quantity per Scan"
+
+#. module: scan_pack_desk
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_form
+msgid "Reload Pick Lines"
+msgstr "Reload Pick Lines"
+
+#. module: scan_pack_desk
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_form
+msgid "Reopen"
+msgstr "Rouvrir"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_log__result__reopened
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_session__last_result__reopened
+msgid "Reopened"
+msgstr "Reopened"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_move__demand_qty
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__demand_qty
+msgid "Requested Quantity"
+msgstr "Quantité demandée"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,help:scan_pack_desk.field_scan_pack_session__difference_qty
+msgid "Requested quantity minus prepared quantity. Zero means the preparation matches the pick order."
+msgstr "Requested quantity minus prepared quantity. Zero means the preparation matches the pick order."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_log__result
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_log_search
+msgid "Result"
+msgstr "Résultat"
+
+#. module: scan_pack_desk
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_log_form
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_form
+msgid "Scan"
+msgstr "Balayage"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__scan_code
+msgid "Scan Input"
+msgstr "Scan Input"
+
+#. module: scan_pack_desk
+#: model:ir.actions.act_window,name:scan_pack_desk.action_scan_log
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__log_ids
+#: model:ir.ui.menu,name:scan_pack_desk.menu_scan_pack_logs
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_log_form
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_log_list
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_form
+msgid "Scan Journal"
+msgstr "Scan Journal"
+
+#. module: scan_pack_desk
+#: model:ir.ui.menu,name:scan_pack_desk.menu_scan_pack_root
+msgid "Scan Pack"
+msgstr "Scan Pack"
+
+#. module: scan_pack_desk
+#: model:res.groups,name:scan_pack_desk.group_scanpackdesk_manager
+msgid "Scan Pack Desk Manager"
+msgstr "Scan Pack Desk Manager"
+
+#. module: scan_pack_desk
+#: model:res.groups,name:scan_pack_desk.group_scanpackdesk_user
+msgid "Scan Pack Desk User"
+msgstr "Scan Pack Desk User"
+
+#. module: scan_pack_desk
+#: model:ir.model,name:scan_pack_desk.model_scan_pack_log
+msgid "Scan Pack Journal"
+msgstr "Scan Pack Journal"
+
+#. module: scan_pack_desk
+#: model:ir.model,name:scan_pack_desk.model_scan_pack_move
+msgid "Scan Pack Pick Line"
+msgstr "Scan Pack Pick Line"
+
+#. module: scan_pack_desk
+#: model:ir.model,name:scan_pack_desk.model_scan_pack_session
+msgid "Scan Pack Session"
+msgstr "Scan Pack Session"
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "Scan Pack: the prepared quantity does not match the pick order.\n\n%(details)s\n\nFinish the preparation, or have a warehouse manager grant an exception with a reason."
+msgstr "Scan Pack: the prepared quantity does not match the pick order.\n\n%(details)s\n\nFinish the preparation, or have a warehouse manager grant an exception with a reason."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_picking_form_inherit_scan_pack
+msgid "Scan Screen"
+msgstr "Scan Screen"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_log__session_id
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_move__session_id
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_log_search
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_move_search
+msgid "Scan Session"
+msgstr "Scan Session"
+
+#. module: scan_pack_desk
+#: model:ir.actions.act_window,name:scan_pack_desk.action_scan_session
+#: model:ir.model.fields,field_description:scan_pack_desk.field_stock_picking__scan_session_ids
+#: model:ir.ui.menu,name:scan_pack_desk.menu_scan_pack_sessions
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_form
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_list
+msgid "Scan Sessions"
+msgstr "Scan Sessions"
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "Scan a barcode first."
+msgstr "Scan a barcode first."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,help:scan_pack_desk.field_scan_pack_session__scan_code
+msgid "Scan or type a product barcode, then confirm. The prepared quantity of the matching pick line grows accordingly."
+msgstr "Scan or type a product barcode, then confirm. The prepared quantity of the matching pick line grows accordingly."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "Scan session reopened."
+msgstr "Scan session reopened."
+
+#. module: scan_pack_desk
+#: model:ir.module.module,shortdesc:base.module_scan_pack_desk
+msgid "ScanPack Desk"
+msgstr "ScanPack Desk"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_log__user_id
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_log_search
+msgid "Scanned By"
+msgstr "Scanned By"
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "Scanning %s would exceed the requested quantity of %s."
+msgstr "Scanning %s would exceed the requested quantity of %s."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__state
+msgid "State"
+msgstr "Statut"
+
+#. module: scan_pack_desk
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: scan_pack_desk
+#: model_terms:ir.actions.act_window,help:scan_pack_desk.action_scan_log
+msgid "The immutable proof of every scan: who, what, when, and why."
+msgstr "The immutable proof of every scan: who, what, when, and why."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "The picking \"%s\" is done: unlock it before re-preparing."
+msgstr "The picking \"%s\" is done: unlock it before re-preparing."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,help:scan_pack_desk.field_scan_pack_session__picking_id
+msgid "The picking this scan session prepares."
+msgstr "The picking this scan session prepares."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "The prepared quantity of %s cannot be negative."
+msgstr "The prepared quantity of %s cannot be negative."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "The quantity per scan must be strictly positive."
+msgstr "The quantity per scan must be strictly positive."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "The scan journal is immutable: entries can never be deleted."
+msgstr "The scan journal is immutable: entries can never be deleted."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "The scan journal is immutable: it is the proof of who scanned what, when and why."
+msgstr "The scan journal is immutable: it is the proof of who scanned what, when and why."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "The scan session of the picking \"%s\" is validated: reopen it before changing anything."
+msgstr "The scan session of the picking \"%s\" is validated: reopen it before changing anything."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "The scan session of the picking \"%s\" is validated: reopen it before scanning again."
+msgstr "The scan session of the picking \"%s\" is validated: reopen it before scanning again."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,help:scan_pack_desk.field_scan_pack_log__barcode
+msgid "The scanned barcode or internal reference."
+msgstr "The scanned barcode or internal reference."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,help:scan_pack_desk.field_scan_pack_move__demand_qty
+msgid "This is the quantity of product that is planned to be moved.Lowering this quantity does not generate a backorder.Changing this quantity on assigned moves affects the product reservation, and should be done with care."
+msgstr "This is the quantity of product that is planned to be moved.Lowering this quantity does not generate a backorder.Changing this quantity on assigned moves affects the product reservation, and should be done with care."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "This pick order line already has a pick line in this scan session."
+msgstr "This pick order line already has a pick line in this scan session."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "This picking already has a scan session: reopen it instead of creating a new one."
+msgstr "This picking already has a scan session: reopen it instead of creating a new one."
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "This scan session is closed."
+msgstr "This scan session is closed."
+
+#. module: scan_pack_desk
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_form
+msgid "Totals"
+msgstr "Totaux"
+
+#. module: scan_pack_desk
+#: model:ir.model,name:scan_pack_desk.model_stock_picking
+msgid "Transfer"
+msgstr "Transfert"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,help:scan_pack_desk.field_scan_pack_session__has_exception
+msgid "True when a manager authorized the validation of this session despite a preparation gap."
+msgstr "True when a manager authorized the validation of this session despite a preparation gap."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,help:scan_pack_desk.field_scan_pack_session__is_balanced
+msgid "True when the prepared quantity matches the requested quantity on every pick line."
+msgstr "True when the prepared quantity matches the requested quantity on every pick line."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_log__result__unknown
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_session__last_result__unknown
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_log_search
+msgid "Unknown"
+msgstr "Inconnue Inconnu"
+
+#. module: scan_pack_desk
+#: model:ir.module.module,summary:base.module_scan_pack_desk
+msgid "Validate pickings by barcode scan: accepted scans are logged, unexpected barcodes are refused, and validation stays blocked while prepared differs from requested, unless a manager grants a reason-tracked exception."
+msgstr "Validate pickings by barcode scan: accepted scans are logged, unexpected barcodes are refused, and validation stays blocked while prepared differs from requested, unless a manager grants a reason-tracked exception."
+
+#. module: scan_pack_desk
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_log__result__validated
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_session__last_result__validated
+#: model:ir.model.fields.selection,name:scan_pack_desk.selection__scan_pack_session__state__validated
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_search
+msgid "Validated"
+msgstr "Validé"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__validated_at
+msgid "Validated At"
+msgstr "Validated At"
+
+#. module: scan_pack_desk
+#: model:ir.model.fields,field_description:scan_pack_desk.field_scan_pack_session__validated_by_id
+msgid "Validated By"
+msgstr "Validé par"
+
+#. module: scan_pack_desk
+#. odoo-python
+#: code:addons/scan_pack_desk/models/scan_pack.py:0
+msgid "Validated with a manager exception: %s"
+msgstr "Validated with a manager exception: %s"
+
+#. module: scan_pack_desk
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_form
+msgid "Validation"
+msgstr "Validation"
+
+#. module: scan_pack_desk
+#: model:res.groups,comment:scan_pack_desk.group_scanpackdesk_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: scan_pack_desk
+#: model_terms:ir.ui.view,arch_db:scan_pack_desk.view_scan_session_search
+msgid "With Exception"
+msgstr "With Exception"

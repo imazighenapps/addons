@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_scan_log_list" model="ir.ui.view">
+        <field name="name">scan_pack.log.list</field>
+        <field name="model">scan_pack.log</field>
+        <field name="arch" type="xml">
+            <list string="Scan Journal">
+                <field name="create_date"/>
+                <field name="session_id"/>
+                <field name="user_id"/>
+                <field name="product_id"/>
+                <field name="barcode"/>
+                <field name="qty"/>
+                <field name="result" widget="badge"/>
+                <field name="message"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_scan_log_form" model="ir.ui.view">
+        <field name="name">scan_pack.log.form</field>
+        <field name="model">scan_pack.log</field>
+        <field name="arch" type="xml">
+            <form string="Scan Journal">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="session_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Entry">
+    <field name="session_id"/>
+    <field name="create_date"/>
+    <field name="user_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Scan">
+    <field name="product_id"/>
+    <field name="barcode"/>
+    <field name="qty"/>
+    <field name="result"/>
+    <field name="message"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_scan_log_search" model="ir.ui.view">
+        <field name="name">scan_pack.log.search</field>
+        <field name="model">scan_pack.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="barcode"/>
+                <field name="session_id"/>
+                <field name="product_id"/>
+                <field name="user_id"/>
+                <filter name="accepted" string="Accepted" domain="[('result','=','accepted')]"/>
+                <filter name="unknown" string="Unknown" domain="[('result','=','unknown')]"/>
+                <filter name="excess" string="Excess" domain="[('result','=','excess')]"/>
+                <filter name="exception" string="Exception" domain="[('result','=','exception')]"/>
+                <separator/>
+                <filter name="group_session" string="Scan Session" context="{'group_by': 'session_id'}"/>
+                <filter name="group_product" string="Product" context="{'group_by': 'product_id'}"/>
+                <filter name="group_user" string="Scanned By" context="{'group_by': 'user_id'}"/>
+                <filter name="group_result" string="Result" context="{'group_by': 'result'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_scan_log" model="ir.actions.act_window">
+        <field name="name">Scan Journal</field>
+        <field name="res_model">scan_pack.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">The immutable proof of every scan: who, what, when, and why.</p>
+        </field>
+    </record>
+
+</odoo>
