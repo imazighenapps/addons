@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_customer_feedback_list" model="ir.ui.view">
+        <field name="name">customer.feedback.list</field>
+        <field name="model">customer.feedback</field>
+        <field name="arch" type="xml">
+            <list string="Customer Feedback" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="topic_id"/>
+                <field name="score" widget="badge"/>
+                <field name="state" widget="badge"/>
+                <field name="channel"/>
+                <field name="user_id"/>
+                <field name="order_id"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_customer_feedback_form" model="ir.ui.view">
+        <field name="name">customer.feedback.form</field>
+        <field name="model">customer.feedback</field>
+        <field name="arch" type="xml">
+            <form string="Customer Feedback">
+                <header>
+                    <button name="action_progress" type="object" string="Start Follow-up" class="btn-primary" invisible="state != 'new'"/>
+                    <button name="action_done" type="object" string="Mark Done" class="btn-primary" invisible="state not in ('new','progress')"/>
+                    <button name="action_reset" type="object" string="Reset to New" class="btn-link" invisible="state == 'new'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,progress,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Feedback">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="contact_name"/>
+    <field name="date"/>
+    <field name="channel"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Assessment">
+    <field name="score"/>
+    <field name="topic_id"/>
+    <field name="order_id"/>
+    <field name="user_id"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Comment" name="comment">
+                            <field name="comment"/>
+                        </page>
+                        <page string="Resolution" name="resolution">
+                            <field name="resolution"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_customer_feedback_search" model="ir.ui.view">
+        <field name="name">customer.feedback.search</field>
+        <field name="model">customer.feedback</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="contact_name"/>
+                <field name="topic_id"/>
+                <field name="order_id"/>
+                <filter name="new" string="New" domain="[('state','=','new')]"/>
+                <filter name="progress" string="In Progress" domain="[('state','=','progress')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="low" string="Dissatisfied (1-2)" domain="[('score','in',('1','2'))]"/>
+                <filter name="high" string="Satisfied (4-5)" domain="[('score','in',('4','5'))]"/>
+                <separator/>
+                <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_topic" string="Topic" context="{'group_by': 'topic_id'}"/>
+                <filter name="group_score" string="Score" context="{'group_by': 'score'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_channel" string="Channel" context="{'group_by': 'channel'}"/>
+                <filter name="group_user" string="Responsible" context="{'group_by': 'user_id'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_customer_feedback" model="ir.actions.act_window">
+        <field name="name">Customer Feedback</field>
+        <field name="res_model">customer.feedback</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Log and follow up on customer feedback and satisfaction.</p>
+        </field>
+    </record>
+
+</odoo>
