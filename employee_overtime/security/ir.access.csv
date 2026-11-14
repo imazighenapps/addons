@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_employee_overtime_user,employee.overtime User,employee.overtime,employee_overtime.group_employeeover_user,crud,
+access_employee_overtime_manager,employee.overtime Manager,employee.overtime,employee_overtime.group_employeeover_manager,crud,
+rule_employee_overtime_company,employee.overtime: own company only,employee.overtime,,crud,"[('company_id', 'in', company_ids + [False])]"

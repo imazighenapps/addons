@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_employee_overtime_list" model="ir.ui.view">
+        <field name="name">employee.overtime.list</field>
+        <field name="model">employee.overtime</field>
+        <field name="arch" type="xml">
+            <list string="Overtime Requests" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="date"/>
+                <field name="hours" sum="Total Hours"/>
+                <field name="overtime_type"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_employee_overtime_form" model="ir.ui.view">
+        <field name="name">employee.overtime.form</field>
+        <field name="model">employee.overtime</field>
+        <field name="arch" type="xml">
+            <form string="Overtime Requests">
+                <header>
+                    <button name="action_submit" type="object" string="Submit" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'submitted'"/>
+                    <button name="action_refuse" type="object" string="Refuse" class="btn-secondary" invisible="state != 'submitted'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state not in ('approved','refused')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Request">
+    <field name="name"/>
+    <field name="employee_id"/>
+    <field name="department_id"/>
+    <field name="date"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Details">
+    <field name="hours"/>
+    <field name="overtime_type"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Reason" name="reason">
+                            <field name="reason"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_employee_overtime_search" model="ir.ui.view">
+        <field name="name">employee.overtime.search</field>
+        <field name="model">employee.overtime</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="submitted" string="Submitted" domain="[('state','=','submitted')]"/>
+                <filter name="approved" string="Approved" domain="[('state','=','approved')]"/>
+                <filter name="refused" string="Refused" domain="[('state','=','refused')]"/>
+                <separator/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_department" string="Department" context="{'group_by': 'department_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_employee_overtime" model="ir.actions.act_window">
+        <field name="name">Overtime Requests</field>
+        <field name="res_model">employee.overtime</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record and approve employee overtime requests.</p>
+        </field>
+    </record>
+
+</odoo>
