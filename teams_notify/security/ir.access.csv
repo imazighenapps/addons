@@ -1,0 +1,10 @@
+id,name,model_id,group_id/id,operation,domain
+access_teams_channel_user,teams.channel User,teams.channel,teams_notify.group_teamsnotify_user,crud,
+access_teams_channel_manager,teams.channel Manager,teams.channel,teams_notify.group_teamsnotify_manager,crud,
+access_teams_rule_user,teams.rule User,teams.rule,teams_notify.group_teamsnotify_user,crud,
+access_teams_rule_manager,teams.rule Manager,teams.rule,teams_notify.group_teamsnotify_manager,crud,
+access_teams_notification_user,teams.notification User,teams.notification,teams_notify.group_teamsnotify_user,crud,
+access_teams_notification_manager,teams.notification Manager,teams.notification,teams_notify.group_teamsnotify_manager,crud,
+rule_teams_channel_company,teams.channel: own company only,teams.channel,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_teams_rule_company,teams.rule: own company only,teams.rule,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_teams_notification_company,teams.notification: own company only,teams.notification,,crud,"[('company_id', 'in', company_ids + [False])]"
