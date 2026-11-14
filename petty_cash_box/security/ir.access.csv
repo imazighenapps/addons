@@ -1,0 +1,13 @@
+id,name,model_id,group_id/id,operation,domain
+access_petty_cash_box_user,petty.cash.box User,petty.cash.box,petty_cash_box.group_pettycashbox_user,crud,
+access_petty_cash_box_manager,petty.cash.box Manager,petty.cash.box,petty_cash_box.group_pettycashbox_manager,crud,
+access_petty_cash_movement_user,petty.cash.movement User,petty.cash.movement,petty_cash_box.group_pettycashbox_user,crud,
+access_petty_cash_movement_manager,petty.cash.movement Manager,petty.cash.movement,petty_cash_box.group_pettycashbox_manager,crud,
+access_petty_cash_count_user,petty.cash.count User,petty.cash.count,petty_cash_box.group_pettycashbox_user,crud,
+access_petty_cash_count_manager,petty.cash.count Manager,petty.cash.count,petty_cash_box.group_pettycashbox_manager,crud,
+access_petty_cash_category_user,petty.cash.category User,petty.cash.category,petty_cash_box.group_pettycashbox_user,crud,
+access_petty_cash_category_manager,petty.cash.category Manager,petty.cash.category,petty_cash_box.group_pettycashbox_manager,crud,
+rule_petty_cash_category_company,petty.cash.category: own company only,petty.cash.category,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_petty_cash_box_company,petty.cash.box: own company only,petty.cash.box,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_petty_cash_movement_company,petty.cash.movement: own company only,petty.cash.movement,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_petty_cash_count_company,petty.cash.count: own company only,petty.cash.count,,crud,"[('company_id', 'in', company_ids + [False])]"
