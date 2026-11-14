@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_etsy_listing_list" model="ir.ui.view">
+        <field name="name">etsy.listing.list</field>
+        <field name="model">etsy.listing</field>
+        <field name="arch" type="xml">
+            <list string="Listings" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="external_id"/>
+                <field name="sku"/>
+                <field name="price"/>
+                <field name="stock_qty"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_etsy_listing_form" model="ir.ui.view">
+        <field name="name">etsy.listing.form</field>
+        <field name="model">etsy.listing</field>
+        <field name="arch" type="xml">
+            <form string="Listings">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Listing">
+    <field name="name"/>
+    <field name="connection_id"/>
+    <field name="company_id"/>
+    <field name="external_id"/>
+    <field name="sku"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Pricing &amp; Stock">
+    <field name="price"/>
+    <field name="currency_id"/>
+    <field name="stock_qty"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_etsy_listing_search" model="ir.ui.view">
+        <field name="name">etsy.listing.search</field>
+        <field name="model">etsy.listing</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="external_id"/>
+                <field name="sku"/>
+                <filter name="active" string="Active" domain="[('state','=','active')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_etsy_listing" model="ir.actions.act_window">
+        <field name="name">Listings</field>
+        <field name="res_model">etsy.listing</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Etsy listings synced with Odoo.</p>
+        </field>
+    </record>
+
+</odoo>
