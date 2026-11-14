@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_teams_channel_company" model="ir.rule">
+        <field name="name">teams.channel: own company only</field>
+        <field name="model_id" ref="model_teams_channel"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_teams_rule_company" model="ir.rule">
+        <field name="name">teams.rule: own company only</field>
+        <field name="model_id" ref="model_teams_rule"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_teams_notification_company" model="ir.rule">
+        <field name="name">teams.notification: own company only</field>
+        <field name="model_id" ref="model_teams_notification"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
