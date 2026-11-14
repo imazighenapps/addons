@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_sale_plan_pay_user,sale.plan.pay User,sale.plan.pay,sale_plan_pay.group_saleplanpay_user,crud,
+access_sale_plan_pay_manager,sale.plan.pay Manager,sale.plan.pay,sale_plan_pay.group_saleplanpay_manager,crud,
+access_sale_plan_pay_line_user,sale.plan.pay.line User,sale.plan.pay.line,sale_plan_pay.group_saleplanpay_user,crud,
+access_sale_plan_pay_line_manager,sale.plan.pay.line Manager,sale.plan.pay.line,sale_plan_pay.group_saleplanpay_manager,crud,
+rule_sale_plan_pay_company,sale.plan.pay: own company only,sale.plan.pay,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_sale_plan_pay_line_company,sale.plan.pay.line: own company only,sale.plan.pay.line,,crud,"[('company_id', 'in', company_ids + [False])]"
