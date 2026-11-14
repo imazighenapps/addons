@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_employee_advance_user,employee.advance User,employee.advance,employee_advance.group_employeeadva_user,crud,
+access_employee_advance_manager,employee.advance Manager,employee.advance,employee_advance.group_employeeadva_manager,crud,
+access_employee_advance_clearing_user,employee.advance.clearing User,employee.advance.clearing,employee_advance.group_employeeadva_user,crud,
+access_employee_advance_clearing_manager,employee.advance.clearing Manager,employee.advance.clearing,employee_advance.group_employeeadva_manager,crud,
+rule_employee_advance_company,employee.advance: own company only,employee.advance,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_employee_advance_clearing_company,employee.advance.clearing: own company only,employee.advance.clearing,,crud,"[('company_id', 'in', company_ids + [False])]"
