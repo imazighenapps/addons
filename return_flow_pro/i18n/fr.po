@@ -1,0 +1,481 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* return_flow_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: return_flow_pro
+#. odoo-python
+#: code:addons/return_flow_pro/models/return_flow.py:0
+msgid "A closed return cannot be cancelled."
+msgstr "A closed return cannot be cancelled."
+
+#. module: return_flow_pro
+#: model:ir.model.constraint,message:return_flow_pro.constraint_return_flow_reason_name_company_uniq
+msgid "A return motive with this name already exists for this company."
+msgstr "A return motive with this name already exists for this company."
+
+#. module: return_flow_pro
+#. odoo-python
+#: code:addons/return_flow_pro/models/return_flow.py:0
+msgid "A return must contain at least one line."
+msgstr "A return must contain at least one line."
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_reason__active
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_reason_search
+msgid "Active"
+msgstr "Actif"
+
+#. module: return_flow_pro
+#. odoo-python
+#: code:addons/return_flow_pro/models/return_flow.py:0
+msgid "Add at least one return line."
+msgstr "Add at least one return line."
+
+#. module: return_flow_pro
+#: model_terms:ir.actions.act_window,help:return_flow_pro.action_return_line
+msgid "All returned lines across customer returns."
+msgstr "All returned lines across customer returns."
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: return_flow_pro
+#: model:ir.model.fields.selection,name:return_flow_pro.selection__return_flow_request__state__cancelled
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_line__company_id
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_reason__company_id
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__company_id
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_reason_search
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_search
+msgid "Company"
+msgstr "Société"
+
+#. module: return_flow_pro
+#: model_terms:ir.actions.act_window,help:return_flow_pro.action_return_reason
+msgid "Configurable motives to classify customer returns."
+msgstr "Configurable motives to classify customer returns."
+
+#. module: return_flow_pro
+#: model:res.groups,comment:return_flow_pro.group_returnflowpr_manager
+msgid "Configure and administer the module."
+msgstr "Configurer et administrer le module."
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_form
+msgid "Create Credit Note"
+msgstr "Create Credit Note"
+
+#. module: return_flow_pro
+#: model_terms:ir.actions.act_window,help:return_flow_pro.action_return_request
+msgid "Create a return from a validated delivery, inspect it and decide the outcome."
+msgstr "Create a return from a validated delivery, inspect it and decide the outcome."
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_line__create_uid
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_reason__create_uid
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_line__create_date
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_reason__create_date
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__credit_move_id
+msgid "Credit Note"
+msgstr "Credit Note"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__partner_id
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_search
+msgid "Customer"
+msgstr "Client"
+
+#. module: return_flow_pro
+#: model:ir.model,name:return_flow_pro.model_return_flow_request
+msgid "Customer Return"
+msgstr "Customer Return"
+
+#. module: return_flow_pro
+#: model:ir.actions.act_window,name:return_flow_pro.action_return_request
+#: model:ir.ui.menu,name:return_flow_pro.menu_return_flow_requests
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_form
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_list
+msgid "Customer Returns"
+msgstr "Customer Returns"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__date_inspected
+msgid "Date Inspected"
+msgstr "Date Inspected"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__date_received
+msgid "Date Received"
+msgstr "Date Received"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__date_requested
+msgid "Date Requested"
+msgstr "Date Requested"
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_form
+msgid "Dates"
+msgstr "Dates"
+
+#. module: return_flow_pro
+#. odoo-python
+#: code:addons/return_flow_pro/models/return_flow.py:0
+msgid "Decide the outcome after inspection."
+msgstr "Decide the outcome after inspection."
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_line__qty_delivered
+msgid "Delivered Quantity"
+msgstr "Delivered Quantity"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__picking_id
+msgid "Delivery"
+msgstr "Livraison"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_line__move_id
+msgid "Delivery Move"
+msgstr "Delivery Move"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_line__display_name
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_reason__display_name
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: return_flow_pro
+#: model:ir.module.module,summary:base.module_return_flow_pro
+msgid "Handle customer returns from validated deliveries: multi-line returns with configurable motives, a received/inspected workflow with restock, repair or scrap outcome, and a guided credit note in one company-safe desk."
+msgstr "Handle customer returns from validated deliveries: multi-line returns with configurable motives, a received/inspected workflow with restock, repair or scrap outcome, and a guided credit note in one company-safe desk."
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_form
+msgid "Inspect"
+msgstr "Inspect"
+
+#. module: return_flow_pro
+#. odoo-python
+#: code:addons/return_flow_pro/models/return_flow.py:0
+msgid "Inspect the return before creating a credit note."
+msgstr "Inspect the return before creating a credit note."
+
+#. module: return_flow_pro
+#: model:ir.model.fields.selection,name:return_flow_pro.selection__return_flow_request__state__inspected
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_search
+msgid "Inspected"
+msgstr "Inspected"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_line__write_uid
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_reason__write_uid
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_line__write_date
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_reason__write_date
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_line_form
+msgid "Line"
+msgstr "Doubler"
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_form
+msgid "Lines"
+msgstr "Lignes"
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_form
+msgid "Mark Received"
+msgstr "Mark Received"
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_reason_form
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_search
+msgid "Motive"
+msgstr "Motive"
+
+#. module: return_flow_pro
+#: model:ir.ui.menu,name:return_flow_pro.menu_return_flow_reasons
+msgid "Motives"
+msgstr "Motives"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Date limite de mon activité"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_reason__name
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: return_flow_pro
+#. odoo-python
+#: code:addons/return_flow_pro/models/return_flow.py:0
+msgid "New"
+msgstr "Nouveau"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_reason__note
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__note
+msgid "Note"
+msgstr "Note"
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_reason_form
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: return_flow_pro
+#. odoo-python
+#: code:addons/return_flow_pro/models/return_flow.py:0
+msgid "Only a received return can be inspected."
+msgstr "Only a received return can be inspected."
+
+#. module: return_flow_pro
+#. odoo-python
+#: code:addons/return_flow_pro/models/return_flow.py:0
+msgid "Only a requested return can be received."
+msgstr "Only a requested return can be received."
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__outcome
+msgid "Outcome"
+msgstr "Résultat"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,help:return_flow_pro.field_return_flow_request__outcome
+msgid "Physical outcome decided at inspection."
+msgstr "Physical outcome decided at inspection."
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_line__product_id
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_line_search
+msgid "Product"
+msgstr "Produit"
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_line_form
+msgid "Quantities"
+msgstr "Quantités"
+
+#. module: return_flow_pro
+#: model:ir.model.fields.selection,name:return_flow_pro.selection__return_flow_request__state__received
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_search
+msgid "Received"
+msgstr "Reçue Reçu"
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_form
+msgid "Refund"
+msgstr "Remboursement"
+
+#. module: return_flow_pro
+#: model:ir.model.fields.selection,name:return_flow_pro.selection__return_flow_request__outcome__repair
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_form
+msgid "Repair"
+msgstr "Repair"
+
+#. module: return_flow_pro
+#: model:ir.model.fields.selection,name:return_flow_pro.selection__return_flow_request__state__repaired
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_search
+msgid "Repaired"
+msgstr "Repaired"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_line__request_id
+msgid "Request"
+msgstr "Demande"
+
+#. module: return_flow_pro
+#: model:ir.model.fields.selection,name:return_flow_pro.selection__return_flow_request__state__requested
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_search
+msgid "Requested"
+msgstr "Demandée Demandé"
+
+#. module: return_flow_pro
+#: model:ir.model.fields.selection,name:return_flow_pro.selection__return_flow_request__outcome__restock
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_form
+msgid "Restock"
+msgstr "Restock"
+
+#. module: return_flow_pro
+#: model:ir.model.fields.selection,name:return_flow_pro.selection__return_flow_request__state__restocked
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_search
+msgid "Restocked"
+msgstr "Restocked"
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_line_search
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_form
+msgid "Return"
+msgstr "Retour"
+
+#. module: return_flow_pro
+#: model:res.groups,name:return_flow_pro.group_returnflowpr_manager
+msgid "Return Flow Pro Manager"
+msgstr "Return Flow Pro Manager"
+
+#. module: return_flow_pro
+#: model:res.groups,name:return_flow_pro.group_returnflowpr_user
+msgid "Return Flow Pro User"
+msgstr "Return Flow Pro User"
+
+#. module: return_flow_pro
+#: model:ir.model,name:return_flow_pro.model_return_flow_line
+msgid "Return Line"
+msgstr "Ligne de retour"
+
+#. module: return_flow_pro
+#: model:ir.actions.act_window,name:return_flow_pro.action_return_line
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__line_ids
+#: model:ir.ui.menu,name:return_flow_pro.menu_return_flow_lines
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_line_form
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_line_list
+msgid "Return Lines"
+msgstr "Lignes de retour"
+
+#. module: return_flow_pro
+#: model:ir.model,name:return_flow_pro.model_return_flow_reason
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__reason_id
+msgid "Return Motive"
+msgstr "Return Motive"
+
+#. module: return_flow_pro
+#: model:ir.actions.act_window,name:return_flow_pro.action_return_reason
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_reason_form
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_reason_list
+msgid "Return Motives"
+msgstr "Return Motives"
+
+#. module: return_flow_pro
+#: model:ir.module.module,shortdesc:base.module_return_flow_pro
+msgid "ReturnFlow Pro"
+msgstr "ReturnFlow Pro"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_line__qty
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__total_qty
+msgid "Returned Quantity"
+msgstr "Returned Quantity"
+
+#. module: return_flow_pro
+#: model:ir.ui.menu,name:return_flow_pro.menu_return_flow_root
+msgid "Returns"
+msgstr "Retours"
+
+#. module: return_flow_pro
+#: model:ir.model.fields.selection,name:return_flow_pro.selection__return_flow_request__outcome__scrap
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_form
+msgid "Scrap"
+msgstr "Ferraille"
+
+#. module: return_flow_pro
+#: model:ir.model.fields.selection,name:return_flow_pro.selection__return_flow_request__state__scrapped
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_search
+msgid "Scrapped"
+msgstr "Mis au rebut"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_reason__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_request__state
+msgid "State"
+msgstr "Statut"
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_search
+msgid "Status"
+msgstr "Statut"
+
+#. module: return_flow_pro
+#. odoo-python
+#: code:addons/return_flow_pro/models/return_flow.py:0
+msgid "The returned quantity of %s cannot be negative."
+msgstr "The returned quantity of %s cannot be negative."
+
+#. module: return_flow_pro
+#: model:ir.model.fields,help:return_flow_pro.field_return_flow_request__picking_id
+msgid "The validated outgoing delivery this return comes from."
+msgstr "The validated outgoing delivery this return comes from."
+
+#. module: return_flow_pro
+#. odoo-python
+#: code:addons/return_flow_pro/models/return_flow.py:0
+msgid "There is no quantity to refund."
+msgstr "There is no quantity to refund."
+
+#. module: return_flow_pro
+#: model:ir.model.constraint,message:return_flow_pro.constraint_return_flow_line_request_product_uniq
+msgid "This delivery line is already part of the return."
+msgstr "This delivery line is already part of the return."
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_line_list
+msgid "Total Qty"
+msgstr "Total Qty"
+
+#. module: return_flow_pro
+#: model_terms:ir.ui.view,arch_db:return_flow_pro.view_return_request_list
+msgid "Total Total Qty"
+msgstr "Total Total Qty"
+
+#. module: return_flow_pro
+#: model:ir.model.fields,field_description:return_flow_pro.field_return_flow_line__uom_id
+msgid "Unit"
+msgstr "Unité"
+
+#. module: return_flow_pro
+#: model:res.groups,comment:return_flow_pro.group_returnflowpr_user
+msgid "View and use the module."
+msgstr "Consultez et utilisez le module."
+
+#. module: return_flow_pro
+#. odoo-python
+#: code:addons/return_flow_pro/models/return_flow.py:0
+msgid "You cannot return more than delivered for %s (delivered %s, returned %s)."
+msgstr "You cannot return more than delivered for %s (delivered %s, returned %s)."

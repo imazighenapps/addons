@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_return_flow_reason_company" model="ir.rule">
+        <field name="name">return.flow.reason: own company only</field>
+        <field name="model_id" ref="model_return_flow_reason"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_return_flow_request_company" model="ir.rule">
+        <field name="name">return.flow.request: own company only</field>
+        <field name="model_id" ref="model_return_flow_request"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+    <record id="rule_return_flow_line_company" model="ir.rule">
+        <field name="name">return.flow.line: own company only</field>
+        <field name="model_id" ref="model_return_flow_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
