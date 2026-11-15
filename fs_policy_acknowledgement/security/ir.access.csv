@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_policy_acknowledgement_user,policy.acknowledgement User,policy.acknowledgement,fs_policy_acknowledgement.group_fspolicyackn_user,crud,
+access_policy_acknowledgement_manager,policy.acknowledgement Manager,policy.acknowledgement,fs_policy_acknowledgement.group_fspolicyackn_manager,crud,
+access_hr_policy_user,hr.policy User,hr.policy,fs_policy_acknowledgement.group_fspolicyackn_user,crud,
+access_hr_policy_manager,hr.policy Manager,hr.policy,fs_policy_acknowledgement.group_fspolicyackn_manager,crud,
+rule_hr_policy_company,hr.policy: own company only,hr.policy,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_policy_acknowledgement_company,policy.acknowledgement: own company only,policy.acknowledgement,,crud,"[('company_id', 'in', company_ids + [False])]"

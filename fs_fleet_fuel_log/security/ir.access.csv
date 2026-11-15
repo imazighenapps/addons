@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_fuel_log_user,fuel.log User,fuel.log,fs_fleet_fuel_log.group_fsfleetfuell_user,crud,
+access_fuel_log_manager,fuel.log Manager,fuel.log,fs_fleet_fuel_log.group_fsfleetfuell_manager,crud,
+access_fuel_vehicle_user,fuel.vehicle User,fuel.vehicle,fs_fleet_fuel_log.group_fsfleetfuell_user,crud,
+access_fuel_vehicle_manager,fuel.vehicle Manager,fuel.vehicle,fs_fleet_fuel_log.group_fsfleetfuell_manager,crud,
+rule_fuel_vehicle_company,fuel.vehicle: own company only,fuel.vehicle,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_fuel_log_company,fuel.log: own company only,fuel.log,,crud,"[('company_id', 'in', company_ids + [False])]"

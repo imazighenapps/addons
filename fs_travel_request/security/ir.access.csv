@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_travel_request_user,travel.request User,travel.request,fs_travel_request.group_fstravelrequ_user,crud,
+access_travel_request_manager,travel.request Manager,travel.request,fs_travel_request.group_fstravelrequ_manager,crud,
+rule_travel_request_company,travel.request: own company only,travel.request,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,7 +1,0 @@
-id,name,model_id,group_id/id,operation,domain
-access_equipment_loan_user,equipment.loan User,equipment.loan,equipment_loan.group_equipmentloa_user,crud,
-access_equipment_loan_manager,equipment.loan Manager,equipment.loan,equipment_loan.group_equipmentloa_manager,crud,
-access_equipment_loan_item_user,equipment.loan.item User,equipment.loan.item,equipment_loan.group_equipmentloa_user,crud,
-access_equipment_loan_item_manager,equipment.loan.item Manager,equipment.loan.item,equipment_loan.group_equipmentloa_manager,crud,
-rule_equipment_loan_item_company,equipment.loan.item: own company only,equipment.loan.item,,crud,"[('company_id', 'in', company_ids + [False])]"
-rule_equipment_loan_company,equipment.loan: own company only,equipment.loan,,crud,"[('company_id', 'in', company_ids + [False])]"
