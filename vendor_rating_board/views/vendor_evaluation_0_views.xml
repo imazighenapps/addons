@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vendor_evaluation_list" model="ir.ui.view">
+        <field name="name">vendor.evaluation.list</field>
+        <field name="model">vendor.evaluation</field>
+        <field name="arch" type="xml">
+            <list string="Vendor Evaluations" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="evaluation_date"/>
+                <field name="period"/>
+                <field name="delivery_score"/>
+                <field name="quality_score"/>
+                <field name="price_score"/>
+                <field name="service_score"/>
+                <field name="overall_score"/>
+                <field name="state" widget="badge"/>
+                <field name="user_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_vendor_evaluation_form" model="ir.ui.view">
+        <field name="name">vendor.evaluation.form</field>
+        <field name="model">vendor.evaluation</field>
+        <field name="arch" type="xml">
+            <form string="Vendor Evaluations">
+                <header>
+                    <button name="action_validate" type="object" string="Validate" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_archive_eval" type="object" string="Archive" class="btn-secondary" invisible="state != 'validated'"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,validated,archived"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Evaluation">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="evaluation_date"/>
+    <field name="period"/>
+    <field name="user_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Scores (0-5)">
+    <field name="delivery_score"/>
+    <field name="quality_score"/>
+    <field name="price_score"/>
+    <field name="service_score"/>
+    <field name="overall_score"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Strengths" name="strengths">
+                            <field name="strengths"/>
+                        </page>
+                        <page string="Improvement Actions" name="improvements">
+                            <field name="improvements"/>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_vendor_evaluation_search" model="ir.ui.view">
+        <field name="name">vendor.evaluation.search</field>
+        <field name="model">vendor.evaluation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="period"/>
+                <field name="user_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="validated" string="Validated" domain="[('state','=','validated')]"/>
+                <filter name="archived" string="Archived" domain="[('state','=','archived')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_supplier" string="Supplier" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_evaluator" string="Evaluator" context="{'group_by': 'user_id'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_vendor_evaluation_graph" model="ir.ui.view">
+        <field name="name">vendor.evaluation.graph</field>
+        <field name="model">vendor.evaluation</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="partner_id"/>
+                <field name="overall_score" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_vendor_evaluation" model="ir.actions.act_window">
+        <field name="name">Vendor Evaluations</field>
+        <field name="res_model">vendor.evaluation</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Evaluate suppliers and track performance over time.</p>
+        </field>
+    </record>
+
+</odoo>
