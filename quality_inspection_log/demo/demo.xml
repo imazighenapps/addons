@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_qil_product" model="product.product">
+        <field name="name">Demo Inspected Product</field>
+        <field name="type">consu</field>
+        <field name="list_price">50.0</field>
+    </record>
+    <record id="demo_qil_1" model="quality.inspection.log">
+        <field name="name">QIL-DEMO-001</field>
+        <field name="product_id" ref="demo_qil_product"/>
+        <field name="inspection_date" eval="(DateTime.now() - relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+        <field name="criteria">Visual check, dimensions, packaging.</field>
+        <field name="observations">All checks within tolerance.</field>
+        <field name="result">pass</field>
+        <field name="state">passed</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_qil_2" model="quality.inspection.log">
+        <field name="name">QIL-DEMO-002</field>
+        <field name="product_id" ref="demo_qil_product"/>
+        <field name="inspection_date" eval="DateTime.now().strftime('%Y-%m-%d')"/>
+        <field name="criteria">Visual check and packaging integrity.</field>
+        <field name="observations">Damaged packaging observed.</field>
+        <field name="corrective_action">Request supplier replacement.</field>
+        <field name="result">fail</field>
+        <field name="state">failed</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

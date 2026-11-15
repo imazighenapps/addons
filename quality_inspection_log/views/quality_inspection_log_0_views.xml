@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_quality_inspection_log_list" model="ir.ui.view">
+        <field name="name">quality.inspection.log.list</field>
+        <field name="model">quality.inspection.log</field>
+        <field name="arch" type="xml">
+            <list string="Quality Inspections" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="picking_id"/>
+                <field name="inspection_date"/>
+                <field name="inspector_id"/>
+                <field name="result" widget="badge"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_quality_inspection_log_form" model="ir.ui.view">
+        <field name="name">quality.inspection.log.form</field>
+        <field name="model">quality.inspection.log</field>
+        <field name="arch" type="xml">
+            <form string="Quality Inspections">
+                <header>
+                    <button name="action_start" type="object" string="Start" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_pass" type="object" string="Pass" class="btn-primary" invisible="state != 'progress'"/>
+                    <button name="action_fail" type="object" string="Fail" class="btn-secondary" invisible="state != 'progress'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state in ('passed', 'failed', 'cancelled')"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" class="btn-link" invisible="state not in ('cancelled', 'failed')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,progress,passed,failed,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Inspection">
+    <field name="name"/>
+    <field name="product_id"/>
+    <field name="picking_id"/>
+    <field name="inspection_date"/>
+    <field name="inspector_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Result">
+    <field name="result"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Criteria / Checklist" name="criteria">
+                            <field name="criteria"/>
+                        </page>
+                        <page string="Observations" name="observations">
+                            <field name="observations"/>
+                        </page>
+                        <page string="Corrective Action" name="correctiveaction">
+                            <field name="corrective_action"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_quality_inspection_log_search" model="ir.ui.view">
+        <field name="name">quality.inspection.log.search</field>
+        <field name="model">quality.inspection.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="picking_id"/>
+                <field name="inspector_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="progress" string="In Progress" domain="[('state','=','progress')]"/>
+                <filter name="passed" string="Passed" domain="[('state','=','passed')]"/>
+                <filter name="failed" string="Failed" domain="[('state','=','failed')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_result" string="Result" context="{'group_by': 'result'}"/>
+                <filter name="group_product" string="Product" context="{'group_by': 'product_id'}"/>
+                <filter name="group_inspector" string="Inspector" context="{'group_by': 'inspector_id'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_quality_inspection_log_graph" model="ir.ui.view">
+        <field name="name">quality.inspection.log.graph</field>
+        <field name="model">quality.inspection.log</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="result"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_quality_inspection_log" model="ir.actions.act_window">
+        <field name="name">Quality Inspections</field>
+        <field name="res_model">quality.inspection.log</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record and track quality inspections.</p>
+        </field>
+    </record>
+
+</odoo>
