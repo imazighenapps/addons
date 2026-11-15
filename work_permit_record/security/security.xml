@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_workpermitre_user" model="res.groups">
+        <field name="name">Work Permit Record User</field>
+        <field name="comment">View and use the module.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="group_workpermitre_manager" model="res.groups">
+        <field name="name">Work Permit Record Manager</field>
+        <field name="comment">Configure and administer the module.</field>
+        <field name="implied_ids" eval="[(4, ref('work_permit_record.group_workpermitre_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>
