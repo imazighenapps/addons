@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_lost_found_item_user,lost.found.item User,lost.found.item,lost_found_log.group_lostfoundlog_user,crud,
+access_lost_found_item_manager,lost.found.item Manager,lost.found.item,lost_found_log.group_lostfoundlog_manager,crud,
+rule_lost_found_item_company,lost.found.item: own company only,lost.found.item,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_work_permit_record_list" model="ir.ui.view">
+        <field name="name">work.permit.record.list</field>
+        <field name="model">work.permit.record</field>
+        <field name="arch" type="xml">
+            <list string="Work Permits" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="permit_type"/>
+                <field name="reference"/>
+                <field name="issuer"/>
+                <field name="date_issue"/>
+                <field name="date_expiry"/>
+                <field name="is_expired" widget="boolean"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_work_permit_record_form" model="ir.ui.view">
+        <field name="name">work.permit.record.form</field>
+        <field name="model">work.permit.record</field>
+        <field name="arch" type="xml">
+            <form string="Work Permits">
+                <header>
+                    <button name="action_mark_expired" type="object" string="Mark Expired" class="btn-secondary" invisible="state != 'valid'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-link" invisible="state == 'cancelled'"/>
+                    <button name="action_reset" type="object" string="Reset to Valid" class="btn-link" invisible="state == 'valid'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="valid,expired,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Permit">
+    <field name="name"/>
+    <field name="employee_id"/>
+    <field name="department_id"/>
+    <field name="permit_type"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Details">
+    <field name="reference"/>
+    <field name="issuer"/>
+    <field name="date_issue"/>
+    <field name="date_expiry"/>
+    <field name="is_expired"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_work_permit_record_search" model="ir.ui.view">
+        <field name="name">work.permit.record.search</field>
+        <field name="model">work.permit.record</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="reference"/>
+                <field name="issuer"/>
+                <filter name="valid" string="Valid" domain="[('state','=','valid')]"/>
+                <filter name="expired" string="Expired" domain="[('state','=','expired')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'permit_type'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_work_permit_record" model="ir.actions.act_window">
+        <field name="name">Work Permits</field>
+        <field name="res_model">work.permit.record</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register and track employee work permits and authorizations.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_staff_suggestion_user,staff.suggestion User,staff.suggestion,staff_suggestion.group_staffsuggest_user,crud,
+access_staff_suggestion_manager,staff.suggestion Manager,staff.suggestion,staff_suggestion.group_staffsuggest_manager,crud,
+rule_staff_suggestion_company,staff.suggestion: own company only,staff.suggestion,,crud,"[('company_id', 'in', company_ids + [False])]"
