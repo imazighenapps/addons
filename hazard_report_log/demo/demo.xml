@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_hrl_employee" model="hr.employee">
+        <field name="name">Demo Reporter</field>
+    </record>
+    <record id="demo_hrl_1" model="hazard.report.log">
+        <field name="name">HRL-DEMO-001</field>
+        <field name="report_date" eval="(DateTime.now() - relativedelta(days=7)).strftime('%Y-%m-%d')"/>
+        <field name="reporter_id" ref="demo_hrl_employee"/>
+        <field name="location">Warehouse Aisle 3</field>
+        <field name="hazard_type">slip</field>
+        <field name="severity">medium</field>
+        <field name="description">Oil spill near loading bay creating slip risk.</field>
+        <field name="corrective_action">Cleaned spill and added absorbent mats.</field>
+        <field name="state">resolved</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_hrl_2" model="hazard.report.log">
+        <field name="name">HRL-DEMO-002</field>
+        <field name="report_date" eval="DateTime.now().strftime('%Y-%m-%d')"/>
+        <field name="reporter_id" ref="demo_hrl_employee"/>
+        <field name="location">Workshop</field>
+        <field name="hazard_type">electrical</field>
+        <field name="severity">high</field>
+        <field name="description">Exposed wiring on extension cable.</field>
+        <field name="state">reported</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

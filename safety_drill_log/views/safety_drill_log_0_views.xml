@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_safety_drill_log_list" model="ir.ui.view">
+        <field name="name">safety.drill.log.list</field>
+        <field name="model">safety.drill.log</field>
+        <field name="arch" type="xml">
+            <list string="Safety Drills" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="drill_type"/>
+                <field name="planned_date"/>
+                <field name="drill_date"/>
+                <field name="location"/>
+                <field name="participant_count"/>
+                <field name="state" widget="badge"/>
+                <field name="user_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_safety_drill_log_form" model="ir.ui.view">
+        <field name="name">safety.drill.log.form</field>
+        <field name="model">safety.drill.log</field>
+        <field name="arch" type="xml">
+            <form string="Safety Drills">
+                <header>
+                    <button name="action_done" type="object" string="Mark Completed" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state == 'cancelled'"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Drill">
+    <field name="name"/>
+    <field name="drill_type"/>
+    <field name="planned_date"/>
+    <field name="drill_date"/>
+    <field name="location"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Follow-up">
+    <field name="user_id"/>
+    <field name="participant_count"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Observations" name="observations">
+                            <field name="observations"/>
+                        </page>
+                        <page string="Corrective Actions" name="correctiveaction">
+                            <field name="corrective_action"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_safety_drill_log_search" model="ir.ui.view">
+        <field name="name">safety.drill.log.search</field>
+        <field name="model">safety.drill.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="drill_type"/>
+                <field name="location"/>
+                <field name="user_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="done" string="Completed" domain="[('state','=','done')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'drill_type'}"/>
+                <filter name="group_responsible" string="Responsible" context="{'group_by': 'user_id'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_safety_drill_log_graph" model="ir.ui.view">
+        <field name="name">safety.drill.log.graph</field>
+        <field name="model">safety.drill.log</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="drill_type"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_safety_drill_log" model="ir.actions.act_window">
+        <field name="name">Safety Drills</field>
+        <field name="res_model">safety.drill.log</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record and track safety drills.</p>
+        </field>
+    </record>
+
+</odoo>

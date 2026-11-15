@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_lil_employee" model="hr.employee">
+        <field name="name">Demo Linen Recipient</field>
+    </record>
+    <record id="demo_lil_1" model="linen.issue.log">
+        <field name="name">LIL-DEMO-001</field>
+        <field name="item_name">Bed Sheets Set</field>
+        <field name="quantity">10</field>
+        <field name="employee_id" ref="demo_lil_employee"/>
+        <field name="issue_date" eval="(DateTime.now() - relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+        <field name="expected_return_date" eval="(DateTime.now() + relativedelta(days=4)).strftime('%Y-%m-%d')"/>
+        <field name="state">issued</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_lil_2" model="linen.issue.log">
+        <field name="name">LIL-DEMO-002</field>
+        <field name="item_name">Towels Pack</field>
+        <field name="quantity">20</field>
+        <field name="employee_id" ref="demo_lil_employee"/>
+        <field name="issue_date" eval="(DateTime.now() - relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+        <field name="return_date" eval="(DateTime.now() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+        <field name="condition_note">Returned complete, good condition.</field>
+        <field name="state">returned</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
