@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_mileage_log_user,mileage.log User,mileage.log,mileage_log.group_mileagelog_user,crud,
+access_mileage_log_manager,mileage.log Manager,mileage.log,mileage_log.group_mileagelog_manager,crud,
+rule_mileage_log_company,mileage.log: own company only,mileage.log,,crud,"[('company_id', 'in', company_ids + [False])]"

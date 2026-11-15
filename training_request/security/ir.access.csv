@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_training_request_user,training.request User,training.request,training_request.group_trainingrequ_user,crud,
+access_training_request_manager,training.request Manager,training.request,training_request.group_trainingrequ_manager,crud,
+rule_training_request_company,training.request: own company only,training.request,,crud,"[('company_id', 'in', company_ids + [False])]"
