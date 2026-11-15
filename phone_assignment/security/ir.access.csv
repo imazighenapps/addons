@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_phone_assignment_user,phone.assignment User,phone.assignment,phone_assignment.group_phoneassignm_user,crud,
+access_phone_assignment_manager,phone.assignment Manager,phone.assignment,phone_assignment.group_phoneassignm_manager,crud,
+access_phone_item_user,phone.item User,phone.item,phone_assignment.group_phoneassignm_user,crud,
+access_phone_item_manager,phone.item Manager,phone.item,phone_assignment.group_phoneassignm_manager,crud,
+rule_phone_item_company,phone.item: own company only,phone.item,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_phone_assignment_company,phone.assignment: own company only,phone.assignment,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_software_license_user,software.license User,software.license,software_license.group_softwarelice_user,crud,
+access_software_license_manager,software.license Manager,software.license,software_license.group_softwarelice_manager,crud,
+rule_software_license_company,software.license: own company only,software.license,,crud,"[('company_id', 'in', company_ids + [False])]"
