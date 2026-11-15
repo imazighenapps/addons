@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_meeting_agenda_log_user,meeting.agenda.log User,meeting.agenda.log,meeting_agenda_log.group_meetingagend_user,crud,
+access_meeting_agenda_log_manager,meeting.agenda.log Manager,meeting.agenda.log,meeting_agenda_log.group_meetingagend_manager,crud,
+rule_meeting_agenda_log_company,meeting.agenda.log: own company only,meeting.agenda.log,,crud,"[('company_id', 'in', company_ids + [False])]"
