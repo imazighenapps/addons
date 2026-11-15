@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_donation_log_user,donation.log User,donation.log,donation_log.group_donationlog_user,crud,
+access_donation_log_manager,donation.log Manager,donation.log,donation_log.group_donationlog_manager,crud,
+rule_donation_log_company,donation.log: own company only,donation.log,,crud,"[('company_id', 'in', company_ids + [False])]"

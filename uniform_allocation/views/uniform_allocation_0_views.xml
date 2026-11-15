@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_uniform_allocation_list" model="ir.ui.view">
+        <field name="name">uniform.allocation.list</field>
+        <field name="model">uniform.allocation</field>
+        <field name="arch" type="xml">
+            <list string="Allocations" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="item_id"/>
+                <field name="quantity"/>
+                <field name="size"/>
+                <field name="date_issue"/>
+                <field name="date_return"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_uniform_allocation_form" model="ir.ui.view">
+        <field name="name">uniform.allocation.form</field>
+        <field name="model">uniform.allocation</field>
+        <field name="arch" type="xml">
+            <form string="Allocations">
+                <header>
+                    <button name="action_return" type="object" string="Mark Returned" class="btn-primary" invisible="state != 'issued'"/>
+                    <button name="action_replace" type="object" string="Mark Replaced" class="btn-secondary" invisible="state != 'issued'"/>
+                    <button name="action_reset" type="object" string="Reset to Issued" class="btn-link" invisible="state == 'issued'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="issued,returned,replaced"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Allocation">
+    <field name="name"/>
+    <field name="employee_id"/>
+    <field name="item_id"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Details">
+    <field name="quantity"/>
+    <field name="size"/>
+    <field name="date_issue"/>
+    <field name="date_return"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_uniform_allocation_search" model="ir.ui.view">
+        <field name="name">uniform.allocation.search</field>
+        <field name="model">uniform.allocation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="item_id"/>
+                <field name="size"/>
+                <filter name="issued" string="Issued" domain="[('state','=','issued')]"/>
+                <filter name="returned" string="Returned" domain="[('state','=','returned')]"/>
+                <filter name="replaced" string="Replaced" domain="[('state','=','replaced')]"/>
+                <separator/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_item" string="Item" context="{'group_by': 'item_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_uniform_allocation" model="ir.actions.act_window">
+        <field name="name">Allocations</field>
+        <field name="res_model">uniform.allocation</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Track uniform and PPE allocations to employees.</p>
+        </field>
+    </record>
+
+</odoo>

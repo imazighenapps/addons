@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_uniform_allocation_user,uniform.allocation User,uniform.allocation,uniform_allocation.group_uniformalloc_user,crud,
+access_uniform_allocation_manager,uniform.allocation Manager,uniform.allocation,uniform_allocation.group_uniformalloc_manager,crud,
+access_uniform_item_user,uniform.item User,uniform.item,uniform_allocation.group_uniformalloc_user,crud,
+access_uniform_item_manager,uniform.item Manager,uniform.item,uniform_allocation.group_uniformalloc_manager,crud,
+rule_uniform_item_company,uniform.item: own company only,uniform.item,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_uniform_allocation_company,uniform.allocation: own company only,uniform.allocation,,crud,"[('company_id', 'in', company_ids + [False])]"

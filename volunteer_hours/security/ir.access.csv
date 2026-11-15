@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_volunteer_hours_user,volunteer.hours User,volunteer.hours,volunteer_hours.group_volunteerhou_user,crud,
+access_volunteer_hours_manager,volunteer.hours Manager,volunteer.hours,volunteer_hours.group_volunteerhou_manager,crud,
+rule_volunteer_hours_company,volunteer.hours: own company only,volunteer.hours,,crud,"[('company_id', 'in', company_ids + [False])]"

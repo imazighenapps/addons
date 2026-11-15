@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_donation_log_list" model="ir.ui.view">
+        <field name="name">donation.log.list</field>
+        <field name="model">donation.log</field>
+        <field name="arch" type="xml">
+            <list string="Donations" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="donor_id"/>
+                <field name="purpose"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="payment_method"/>
+                <field name="reference"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_donation_log_form" model="ir.ui.view">
+        <field name="name">donation.log.form</field>
+        <field name="model">donation.log</field>
+        <field name="arch" type="xml">
+            <form string="Donations">
+                <header>
+                    <button name="action_receive" type="object" string="Mark Received" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_acknowledge" type="object" string="Mark Acknowledged" class="btn-primary" invisible="state != 'received'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,received,acknowledged"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Donation">
+    <field name="name"/>
+    <field name="donor_id"/>
+    <field name="date"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Amount">
+    <field name="amount"/>
+    <field name="currency_id"/>
+    <field name="purpose"/>
+    <field name="payment_method"/>
+    <field name="reference"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_donation_log_search" model="ir.ui.view">
+        <field name="name">donation.log.search</field>
+        <field name="model">donation.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="donor_id"/>
+                <field name="purpose"/>
+                <field name="reference"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="received" string="Received" domain="[('state','=','received')]"/>
+                <filter name="acknowledged" string="Acknowledged" domain="[('state','=','acknowledged')]"/>
+                <separator/>
+                <filter name="group_donor" string="Donor" context="{'group_by': 'donor_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_donation_log" model="ir.actions.act_window">
+        <field name="name">Donations</field>
+        <field name="res_model">donation.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record and track donations.</p>
+        </field>
+    </record>
+
+</odoo>
