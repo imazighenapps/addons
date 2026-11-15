@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_locker_locker_list" model="ir.ui.view">
+        <field name="name">locker.locker.list</field>
+        <field name="model">locker.locker</field>
+        <field name="arch" type="xml">
+            <list string="Lockers">
+                <field name="name"/>
+                <field name="location"/>
+                <field name="active" widget="boolean"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_locker_locker_form" model="ir.ui.view">
+        <field name="name">locker.locker.form</field>
+        <field name="model">locker.locker</field>
+        <field name="arch" type="xml">
+            <form string="Lockers">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Locker">
+    <field name="name"/>
+    <field name="location"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_locker_locker_search" model="ir.ui.view">
+        <field name="name">locker.locker.search</field>
+        <field name="model">locker.locker</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="location"/>
+                <filter name="active" string="Active" domain="[('active','=',True)]"/>
+                <separator/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_locker_locker" model="ir.actions.act_window">
+        <field name="name">Lockers</field>
+        <field name="res_model">locker.locker</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Define lockers available for assignment.</p>
+        </field>
+    </record>
+
+</odoo>
