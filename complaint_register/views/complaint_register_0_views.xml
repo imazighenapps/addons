@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_complaint_register_list" model="ir.ui.view">
+        <field name="name">complaint.register.list</field>
+        <field name="model">complaint.register</field>
+        <field name="arch" type="xml">
+            <list string="Complaints" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="source"/>
+                <field name="category"/>
+                <field name="severity" widget="badge"/>
+                <field name="user_id"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_complaint_register_form" model="ir.ui.view">
+        <field name="name">complaint.register.form</field>
+        <field name="model">complaint.register</field>
+        <field name="arch" type="xml">
+            <form string="Complaints">
+                <header>
+                    <button name="action_start" type="object" string="Start" class="btn-primary" invisible="state != 'new'"/>
+                    <button name="action_resolve" type="object" string="Resolve" class="btn-primary" invisible="state != 'in_progress'"/>
+                    <button name="action_close" type="object" string="Close" class="btn-primary" invisible="state != 'resolved'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-link" invisible="state in ('closed','cancelled')"/>
+                    <button name="action_reset" type="object" string="Reset to New" class="btn-link" invisible="state == 'new'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,in_progress,resolved,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Complaint">
+    <field name="name"/>
+    <field name="date"/>
+    <field name="source"/>
+    <field name="contact"/>
+    <field name="category"/>
+    <field name="severity"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Handling">
+    <field name="user_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Resolution" name="resolution">
+                            <field name="resolution"/>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_complaint_register_search" model="ir.ui.view">
+        <field name="name">complaint.register.search</field>
+        <field name="model">complaint.register</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="source"/>
+                <field name="contact"/>
+                <field name="user_id"/>
+                <filter name="new" string="New" domain="[('state','=','new')]"/>
+                <filter name="in_progress" string="In Progress" domain="[('state','=','in_progress')]"/>
+                <filter name="resolved" string="Resolved" domain="[('state','=','resolved')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <filter name="high" string="High/Critical" domain="[('severity','in',('high','critical'))]"/>
+                <separator/>
+                <filter name="group_category" string="Category" context="{'group_by': 'category'}"/>
+                <filter name="group_severity" string="Severity" context="{'group_by': 'severity'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_complaint_register" model="ir.actions.act_window">
+        <field name="name">Complaints</field>
+        <field name="res_model">complaint.register</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Log and track complaints to resolution.</p>
+        </field>
+    </record>
+
+</odoo>

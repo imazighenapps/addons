@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_exit_interview_log_list" model="ir.ui.view">
+        <field name="name">exit.interview.log.list</field>
+        <field name="model">exit.interview.log</field>
+        <field name="arch" type="xml">
+            <list string="Exit Interviews" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="interviewer_id"/>
+                <field name="departure_reason"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_exit_interview_log_form" model="ir.ui.view">
+        <field name="name">exit.interview.log.form</field>
+        <field name="model">exit.interview.log</field>
+        <field name="arch" type="xml">
+            <form string="Exit Interviews">
+                <header>
+                    <button name="action_complete" type="object" string="Mark Completed" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_review" type="object" string="Mark Reviewed" class="btn-primary" invisible="state != 'completed'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,completed,reviewed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Interview">
+    <field name="name"/>
+    <field name="employee_id"/>
+    <field name="department_id"/>
+    <field name="interviewer_id"/>
+    <field name="date"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Reason">
+    <field name="departure_reason"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Feedback" name="feedback">
+                            <field name="feedback"/>
+                        </page>
+                        <page string="Highlights" name="highlights">
+                            <field name="highlights"/>
+                        </page>
+                        <page string="Concerns" name="concerns">
+                            <field name="concerns"/>
+                        </page>
+                        <page string="Follow-up Actions" name="followupaction">
+                            <field name="followup_action"/>
+                        </page>
+                        <page string="Confidential Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_exit_interview_log_search" model="ir.ui.view">
+        <field name="name">exit.interview.log.search</field>
+        <field name="model">exit.interview.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="interviewer_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="completed" string="Completed" domain="[('state','=','completed')]"/>
+                <filter name="reviewed" string="Reviewed" domain="[('state','=','reviewed')]"/>
+                <separator/>
+                <filter name="group_reason" string="Reason" context="{'group_by': 'departure_reason'}"/>
+                <filter name="group_department" string="Department" context="{'group_by': 'department_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_exit_interview_log" model="ir.actions.act_window">
+        <field name="name">Exit Interviews</field>
+        <field name="res_model">exit.interview.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record and review employee exit interviews.</p>
+        </field>
+    </record>
+
+</odoo>
