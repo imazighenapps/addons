@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_ial_employee" model="hr.employee">
+        <field name="name">Demo Asset Holder</field>
+    </record>
+    <record id="demo_ial_1" model="it.asset.log">
+        <field name="name">IT-DEMO-001</field>
+        <field name="serial_no">SN-LAP-001</field>
+        <field name="asset_type">laptop</field>
+        <field name="model_name">DemoBook Pro</field>
+        <field name="employee_id" ref="demo_ial_employee"/>
+        <field name="location">Head Office</field>
+        <field name="purchase_date" eval="(DateTime.now() - relativedelta(months=10)).strftime('%Y-%m-%d')"/>
+        <field name="warranty_end" eval="(DateTime.now() + relativedelta(months=14)).strftime('%Y-%m-%d')"/>
+        <field name="state">in_use</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_ial_2" model="it.asset.log">
+        <field name="name">IT-DEMO-002</field>
+        <field name="serial_no">SN-MON-002</field>
+        <field name="asset_type">monitor</field>
+        <field name="model_name">DemoView 24</field>
+        <field name="location">Storage</field>
+        <field name="state">spare</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

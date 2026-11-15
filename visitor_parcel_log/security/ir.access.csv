@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_visitor_parcel_log_user,visitor.parcel.log User,visitor.parcel.log,visitor_parcel_log.group_visitorparce_user,crud,
+access_visitor_parcel_log_manager,visitor.parcel.log Manager,visitor.parcel.log,visitor_parcel_log.group_visitorparce_manager,crud,
+rule_visitor_parcel_log_company,visitor.parcel.log: own company only,visitor.parcel.log,,crud,"[('company_id', 'in', company_ids + [False])]"

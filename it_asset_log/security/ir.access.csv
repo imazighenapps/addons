@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_it_asset_log_user,it.asset.log User,it.asset.log,it_asset_log.group_itassetlog_user,crud,
+access_it_asset_log_manager,it.asset.log Manager,it.asset.log,it_asset_log.group_itassetlog_manager,crud,
+rule_it_asset_log_company,it.asset.log: own company only,it.asset.log,,crud,"[('company_id', 'in', company_ids + [False])]"

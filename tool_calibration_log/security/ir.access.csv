@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_tool_calibration_log_user,tool.calibration.log User,tool.calibration.log,tool_calibration_log.group_toolcalibrat_user,crud,
+access_tool_calibration_log_manager,tool.calibration.log Manager,tool.calibration.log,tool_calibration_log.group_toolcalibrat_manager,crud,
+rule_tool_calibration_log_company,tool.calibration.log: own company only,tool.calibration.log,,crud,"[('company_id', 'in', company_ids + [False])]"

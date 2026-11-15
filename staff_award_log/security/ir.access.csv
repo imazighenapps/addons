@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_staff_award_log_user,staff.award.log User,staff.award.log,staff_award_log.group_staffawardlo_user,crud,
+access_staff_award_log_manager,staff.award.log Manager,staff.award.log,staff_award_log.group_staffawardlo_manager,crud,
+rule_staff_award_log_company,staff.award.log: own company only,staff.award.log,,crud,"[('company_id', 'in', company_ids + [False])]"
