@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_complaint_register_user,complaint.register User,complaint.register,complaint_register.group_complaintreg_user,crud,
+access_complaint_register_manager,complaint.register Manager,complaint.register,complaint_register.group_complaintreg_manager,crud,
+rule_complaint_register_company,complaint.register: own company only,complaint.register,,crud,"[('company_id', 'in', company_ids + [False])]"

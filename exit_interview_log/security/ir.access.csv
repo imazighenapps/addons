@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_exit_interview_log_user,exit.interview.log User,exit.interview.log,exit_interview_log.group_exitintervie_user,crud,
+access_exit_interview_log_manager,exit.interview.log Manager,exit.interview.log,exit_interview_log.group_exitintervie_manager,crud,
+rule_exit_interview_log_company,exit.interview.log: own company only,exit.interview.log,,crud,"[('company_id', 'in', company_ids + [False])]"
