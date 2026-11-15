@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_pest_control_log_list" model="ir.ui.view">
+        <field name="name">pest.control.log.list</field>
+        <field name="model">pest.control.log</field>
+        <field name="arch" type="xml">
+            <list string="Pest Control" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="intervention_date"/>
+                <field name="scheduled_date"/>
+                <field name="partner_id"/>
+                <field name="area"/>
+                <field name="pest_type"/>
+                <field name="state" widget="badge"/>
+                <field name="user_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pest_control_log_form" model="ir.ui.view">
+        <field name="name">pest.control.log.form</field>
+        <field name="model">pest.control.log</field>
+        <field name="arch" type="xml">
+            <form string="Pest Control">
+                <header>
+                    <button name="action_schedule" type="object" string="Schedule" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_done" type="object" string="Mark Done" class="btn-primary" invisible="state != 'scheduled'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state in ('done', 'cancelled')"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,scheduled,done,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Intervention">
+    <field name="name"/>
+    <field name="intervention_date"/>
+    <field name="scheduled_date"/>
+    <field name="partner_id"/>
+    <field name="area"/>
+    <field name="pest_type"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Follow-up">
+    <field name="user_id"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Findings" name="findings">
+                            <field name="findings"/>
+                        </page>
+                        <page string="Treatment / Products" name="treatmentnote">
+                            <field name="treatment_note"/>
+                        </page>
+                        <page string="Follow-up" name="followupnote">
+                            <field name="followup_note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pest_control_log_search" model="ir.ui.view">
+        <field name="name">pest.control.log.search</field>
+        <field name="model">pest.control.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="area"/>
+                <field name="user_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="scheduled" string="Scheduled" domain="[('state','=','scheduled')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_pest_type" string="Pest Type" context="{'group_by': 'pest_type'}"/>
+                <filter name="group_provider" string="Provider" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_pest_control_log_graph" model="ir.ui.view">
+        <field name="name">pest.control.log.graph</field>
+        <field name="model">pest.control.log</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="pest_type"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_pest_control_log" model="ir.actions.act_window">
+        <field name="name">Pest Control</field>
+        <field name="res_model">pest.control.log</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record and track pest control interventions.</p>
+        </field>
+    </record>
+
+</odoo>

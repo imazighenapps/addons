@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_pest_control_log_user,pest.control.log User,pest.control.log,pest_control_log.group_pestcontroll_user,crud,
+access_pest_control_log_manager,pest.control.log Manager,pest.control.log,pest_control_log.group_pestcontroll_manager,crud,
+rule_pest_control_log_company,pest.control.log: own company only,pest.control.log,,crud,"[('company_id', 'in', company_ids + [False])]"

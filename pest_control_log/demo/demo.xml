@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_pcl_partner" model="res.partner">
+        <field name="name">Demo Pest Control Provider</field>
+        <field name="is_company">True</field>
+        <field name="supplier_rank">1</field>
+    </record>
+    <record id="demo_pcl_1" model="pest.control.log">
+        <field name="name">PCL-DEMO-001</field>
+        <field name="intervention_date" eval="(DateTime.now() - relativedelta(days=15)).strftime('%Y-%m-%d')"/>
+        <field name="scheduled_date" eval="(DateTime.now() - relativedelta(days=15)).strftime('%Y-%m-%d')"/>
+        <field name="partner_id" ref="demo_pcl_partner"/>
+        <field name="area">Kitchen and storage</field>
+        <field name="pest_type">rodent</field>
+        <field name="findings">Minor activity near storage entrance.</field>
+        <field name="treatment_note">Bait stations checked and replaced.</field>
+        <field name="state">done</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_pcl_2" model="pest.control.log">
+        <field name="name">PCL-DEMO-002</field>
+        <field name="intervention_date" eval="(DateTime.now() + relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+        <field name="scheduled_date" eval="(DateTime.now() + relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+        <field name="partner_id" ref="demo_pcl_partner"/>
+        <field name="area">Warehouse perimeter</field>
+        <field name="pest_type">insect</field>
+        <field name="state">scheduled</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

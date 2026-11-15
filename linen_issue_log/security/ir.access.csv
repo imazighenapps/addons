@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_linen_issue_log_user,linen.issue.log User,linen.issue.log,linen_issue_log.group_linenissuelo_user,crud,
+access_linen_issue_log_manager,linen.issue.log Manager,linen.issue.log,linen_issue_log.group_linenissuelo_manager,crud,
+rule_linen_issue_log_company,linen.issue.log: own company only,linen.issue.log,,crud,"[('company_id', 'in', company_ids + [False])]"

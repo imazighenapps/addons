@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_hazard_report_log_user,hazard.report.log User,hazard.report.log,hazard_report_log.group_hazardreport_user,crud,
+access_hazard_report_log_manager,hazard.report.log Manager,hazard.report.log,hazard_report_log.group_hazardreport_manager,crud,
+rule_hazard_report_log_company,hazard.report.log: own company only,hazard.report.log,,crud,"[('company_id', 'in', company_ids + [False])]"

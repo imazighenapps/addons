@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_safety_drill_log_user,safety.drill.log User,safety.drill.log,safety_drill_log.group_safetydrilll_user,crud,
+access_safety_drill_log_manager,safety.drill.log Manager,safety.drill.log,safety_drill_log.group_safetydrilll_manager,crud,
+rule_safety_drill_log_company,safety.drill.log: own company only,safety.drill.log,,crud,"[('company_id', 'in', company_ids + [False])]"
