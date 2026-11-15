@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_shipment_delay_alert_list" model="ir.ui.view">
+        <field name="name">shipment.delay.alert.list</field>
+        <field name="model">shipment.delay.alert</field>
+        <field name="arch" type="xml">
+            <list string="Late Shipments" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="picking_id"/>
+                <field name="partner_id"/>
+                <field name="sale_id"/>
+                <field name="expected_date"/>
+                <field name="delay_days"/>
+                <field name="state" widget="badge"/>
+                <field name="user_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_shipment_delay_alert_form" model="ir.ui.view">
+        <field name="name">shipment.delay.alert.form</field>
+        <field name="model">shipment.delay.alert</field>
+        <field name="arch" type="xml">
+            <form string="Late Shipments">
+                <header>
+                    <button name="action_contacted" type="object" string="Customer Contacted" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_resolve" type="object" string="Resolve" class="btn-secondary" invisible="state in ('resolved', 'dismissed')"/>
+                    <button name="action_dismiss" type="object" string="Dismiss" class="btn-secondary" invisible="state in ('resolved', 'dismissed')"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-link" invisible="state not in ('resolved', 'dismissed')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,contacted,resolved,dismissed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Alert">
+    <field name="name"/>
+    <field name="picking_id"/>
+    <field name="sale_id"/>
+    <field name="partner_id"/>
+    <field name="expected_date"/>
+    <field name="delay_days"/>
+    <field name="state"/>
+    <field name="user_id"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_shipment_delay_alert_search" model="ir.ui.view">
+        <field name="name">shipment.delay.alert.search</field>
+        <field name="model">shipment.delay.alert</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="picking_id"/>
+                <field name="partner_id"/>
+                <field name="sale_id"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="contacted" string="Contacted" domain="[('state','=','contacted')]"/>
+                <filter name="resolved" string="Resolved" domain="[('state','=','resolved')]"/>
+                <filter name="dismissed" string="Dismissed" domain="[('state','=','dismissed')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_responsible" string="Responsible" context="{'group_by': 'user_id'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_shipment_delay_alert_graph" model="ir.ui.view">
+        <field name="name">shipment.delay.alert.graph</field>
+        <field name="model">shipment.delay.alert</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="delay_days" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_shipment_delay_alert" model="ir.actions.act_window">
+        <field name="name">Late Shipments</field>
+        <field name="res_model">shipment.delay.alert</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Transfers past their scheduled date, with the follow-up.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_delay_partner" model="res.partner">
+        <field name="name">Demo Late Customer</field>
+        <field name="is_company">True</field>
+        <field name="customer_rank">1</field>
+    </record>
+    <record id="demo_delay_picking" model="stock.picking">
+        <field name="picking_type_id" ref="stock.picking_type_out"/>
+        <field name="partner_id" ref="demo_delay_partner"/>
+        <field name="location_id" ref="stock.stock_location_stock"/>
+        <field name="location_dest_id" ref="stock.stock_location_customers"/>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="scheduled_date" eval="(DateTime.now() - relativedelta(days=3)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="demo_delay_alert_1" model="shipment.delay.alert">
+        <field name="picking_id" ref="demo_delay_picking"/>
+        <field name="partner_id" ref="demo_delay_partner"/>
+        <field name="expected_date" eval="(DateTime.now() - relativedelta(days=3)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="delay_days">3</field>
+        <field name="state">open</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

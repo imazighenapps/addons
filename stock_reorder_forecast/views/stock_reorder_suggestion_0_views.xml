@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_stock_reorder_suggestion_list" model="ir.ui.view">
+        <field name="name">stock.reorder.suggestion.list</field>
+        <field name="model">stock.reorder.suggestion</field>
+        <field name="arch" type="xml">
+            <list string="Reorder Suggestions" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="product_id"/>
+                <field name="location_id"/>
+                <field name="date"/>
+                <field name="avg_daily"/>
+                <field name="qty_available"/>
+                <field name="incoming_qty"/>
+                <field name="suggested_qty"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_stock_reorder_suggestion_form" model="ir.ui.view">
+        <field name="name">stock.reorder.suggestion.form</field>
+        <field name="model">stock.reorder.suggestion</field>
+        <field name="arch" type="xml">
+            <form string="Reorder Suggestions">
+                <header>
+                    <button name="action_ordered" type="object" string="Mark Ordered" class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_ignore" type="object" string="Ignore" class="btn-secondary" invisible="state == 'ignored'"/>
+                    <button name="action_reopen" type="object" string="Reopen" class="btn-link" invisible="state != 'ignored'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,ordered,ignored"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="product_id" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Suggestion">
+    <field name="product_id"/>
+    <field name="location_id"/>
+    <field name="date"/>
+    <field name="lookback_days"/>
+    <field name="horizon_days"/>
+    <field name="avg_daily"/>
+    <field name="qty_available"/>
+    <field name="incoming_qty"/>
+    <field name="suggested_qty"/>
+    <field name="state"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Note" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_stock_reorder_suggestion_search" model="ir.ui.view">
+        <field name="name">stock.reorder.suggestion.search</field>
+        <field name="model">stock.reorder.suggestion</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_id"/>
+                <field name="location_id"/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="ordered" string="Ordered" domain="[('state','=','ordered')]"/>
+                <filter name="ignored" string="Ignored" domain="[('state','=','ignored')]"/>
+                <separator/>
+                <filter name="group_location" string="Location" context="{'group_by': 'location_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_stock_reorder_suggestion_graph" model="ir.ui.view">
+        <field name="name">stock.reorder.suggestion.graph</field>
+        <field name="model">stock.reorder.suggestion</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="suggested_qty" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_stock_reorder_suggestion" model="ir.actions.act_window">
+        <field name="name">Reorder Suggestions</field>
+        <field name="res_model">stock.reorder.suggestion</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Quantities proposed from real consumption.</p>
+        </field>
+    </record>
+
+</odoo>

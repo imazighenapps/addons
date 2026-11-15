@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_reorder_product" model="product.product">
+        <field name="name">Demo Fast Mover</field>
+        <field name="type">consu</field>
+        <field name="list_price">12.0</field>
+        <field name="standard_price">7.0</field>
+    </record>
+    <record id="demo_reorder_suggestion_1" model="stock.reorder.suggestion">
+        <field name="product_id" ref="demo_reorder_product"/>
+        <field name="location_id" ref="stock.stock_location_stock"/>
+        <field name="lookback_days">90</field>
+        <field name="horizon_days">30</field>
+        <field name="avg_daily">2.0</field>
+        <field name="qty_available">15.0</field>
+        <field name="incoming_qty">0.0</field>
+        <field name="suggested_qty">45.0</field>
+        <field name="state">open</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

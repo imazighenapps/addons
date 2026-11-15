@@ -1,0 +1,6 @@
+id,name,model_id,group_id/id,operation,domain
+access_shipment_delay_alert_user,shipment.delay.alert User,shipment.delay.alert,shipment_delay_alert.group_shipmentdela_user,crud,
+access_shipment_delay_alert_manager,shipment.delay.alert Manager,shipment.delay.alert,shipment_delay_alert.group_shipmentdela_manager,crud,
+access_shipment_delay_scan_user,shipment.delay.scan User,shipment.delay.scan,shipment_delay_alert.group_shipmentdela_user,cr,
+access_shipment_delay_scan_manager,shipment.delay.scan Manager,shipment.delay.scan,shipment_delay_alert.group_shipmentdela_manager,crud,
+rule_shipment_delay_alert_company,shipment.delay.alert: own company only,shipment.delay.alert,,crud,"[('company_id', 'in', company_ids + [False])]"
