@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_gift_register_user,gift.register User,gift.register,gift_register.group_giftregister_user,crud,
+access_gift_register_manager,gift.register Manager,gift.register,gift_register.group_giftregister_manager,crud,
+rule_gift_register_company,gift.register: own company only,gift.register,,crud,"[('company_id', 'in', company_ids + [False])]"

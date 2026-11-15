@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_locker_assignment_user,locker.assignment User,locker.assignment,locker_assignment.group_lockerassign_user,crud,
+access_locker_assignment_manager,locker.assignment Manager,locker.assignment,locker_assignment.group_lockerassign_manager,crud,
+access_locker_locker_user,locker.locker User,locker.locker,locker_assignment.group_lockerassign_user,crud,
+access_locker_locker_manager,locker.locker Manager,locker.locker,locker_assignment.group_lockerassign_manager,crud,
+rule_locker_locker_company,locker.locker: own company only,locker.locker,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_locker_assignment_company,locker.assignment: own company only,locker.assignment,,crud,"[('company_id', 'in', company_ids + [False])]"

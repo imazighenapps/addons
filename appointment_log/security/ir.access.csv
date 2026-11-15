@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_appointment_log_user,appointment.log User,appointment.log,appointment_log.group_appointmentl_user,crud,
+access_appointment_log_manager,appointment.log Manager,appointment.log,appointment_log.group_appointmentl_manager,crud,
+rule_appointment_log_company,appointment.log: own company only,appointment.log,,crud,"[('company_id', 'in', company_ids + [False])]"
