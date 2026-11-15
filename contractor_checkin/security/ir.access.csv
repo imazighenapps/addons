@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_contractor_checkin_user,contractor.checkin User,contractor.checkin,contractor_checkin.group_contractorch_user,crud,
+access_contractor_checkin_manager,contractor.checkin Manager,contractor.checkin,contractor_checkin.group_contractorch_manager,crud,
+rule_contractor_checkin_company,contractor.checkin: own company only,contractor.checkin,,crud,"[('company_id', 'in', company_ids + [False])]"

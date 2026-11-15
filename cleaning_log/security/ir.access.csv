@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_cleaning_log_user,cleaning.log User,cleaning.log,cleaning_log.group_cleaninglog_user,crud,
+access_cleaning_log_manager,cleaning.log Manager,cleaning.log,cleaning_log.group_cleaninglog_manager,crud,
+rule_cleaning_log_company,cleaning.log: own company only,cleaning.log,,crud,"[('company_id', 'in', company_ids + [False])]"

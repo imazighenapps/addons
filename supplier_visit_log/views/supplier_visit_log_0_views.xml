@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_supplier_visit_log_list" model="ir.ui.view">
+        <field name="name">supplier.visit.log.list</field>
+        <field name="model">supplier.visit.log</field>
+        <field name="arch" type="xml">
+            <list string="Supplier Visits" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="purpose"/>
+                <field name="followup_date"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_supplier_visit_log_form" model="ir.ui.view">
+        <field name="name">supplier.visit.log.form</field>
+        <field name="model">supplier.visit.log</field>
+        <field name="arch" type="xml">
+            <form string="Supplier Visits">
+                <header>
+                    <button name="action_submit" type="object" string="Submit" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_review" type="object" string="Mark Reviewed" class="btn-primary" invisible="state != 'submitted'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,reviewed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Visit">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="user_id"/>
+    <field name="date"/>
+    <field name="purpose"/>
+    <field name="attendees"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Follow-up">
+    <field name="followup_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Findings" name="findings">
+                            <field name="findings"/>
+                        </page>
+                        <page string="Follow-up Actions" name="followupaction">
+                            <field name="followup_action"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_supplier_visit_log_search" model="ir.ui.view">
+        <field name="name">supplier.visit.log.search</field>
+        <field name="model">supplier.visit.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="purpose"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="submitted" string="Submitted" domain="[('state','=','submitted')]"/>
+                <filter name="reviewed" string="Reviewed" domain="[('state','=','reviewed')]"/>
+                <separator/>
+                <filter name="group_partner" string="Supplier" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_user" string="Responsible" context="{'group_by': 'user_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_supplier_visit_log" model="ir.actions.act_window">
+        <field name="name">Supplier Visits</field>
+        <field name="res_model">supplier.visit.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record and review supplier visit reports.</p>
+        </field>
+    </record>
+
+</odoo>

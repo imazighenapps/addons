@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_supplier_visit_log_user,supplier.visit.log User,supplier.visit.log,supplier_visit_log.group_suppliervisi_user,crud,
+access_supplier_visit_log_manager,supplier.visit.log Manager,supplier.visit.log,supplier_visit_log.group_suppliervisi_manager,crud,
+rule_supplier_visit_log_company,supplier.visit.log: own company only,supplier.visit.log,,crud,"[('company_id', 'in', company_ids + [False])]"
