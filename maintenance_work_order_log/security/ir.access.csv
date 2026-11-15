@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_maintenance_work_order_log_user,maintenance.work.order.log User,maintenance.work.order.log,maintenance_work_order_log.group_maintenancew_user,crud,
+access_maintenance_work_order_log_manager,maintenance.work.order.log Manager,maintenance.work.order.log,maintenance_work_order_log.group_maintenancew_manager,crud,
+rule_maintenance_work_order_log_company,maintenance.work.order.log: own company only,maintenance.work.order.log,,crud,"[('company_id', 'in', company_ids + [False])]"

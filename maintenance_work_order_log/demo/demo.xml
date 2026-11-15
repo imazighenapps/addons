@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_mwo_equipment" model="maintenance.equipment">
+        <field name="name">Demo Conveyor Belt</field>
+        <field name="serial_no">CNV-DEMO-01</field>
+    </record>
+    <record id="demo_mwo_1" model="maintenance.work.order.log">
+        <field name="name">MWO-DEMO-001</field>
+        <field name="equipment_id" ref="demo_mwo_equipment"/>
+        <field name="date_planned" eval="(DateTime.now() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+        <field name="description">Replaced worn belt section and adjusted tension.</field>
+        <field name="outcome">Equipment back in service.</field>
+        <field name="state">done</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_mwo_2" model="maintenance.work.order.log">
+        <field name="name">MWO-DEMO-002</field>
+        <field name="equipment_id" ref="demo_mwo_equipment"/>
+        <field name="date_planned" eval="(DateTime.now() + relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="description">Scheduled preventive inspection.</field>
+        <field name="state">draft</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

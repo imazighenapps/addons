@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_timesheet_approval_log_user,timesheet.approval.log User,timesheet.approval.log,timesheet_approval_log.group_timesheetapp_user,crud,
+access_timesheet_approval_log_manager,timesheet.approval.log Manager,timesheet.approval.log,timesheet_approval_log.group_timesheetapp_manager,crud,
+rule_timesheet_approval_log_company,timesheet.approval.log: own company only,timesheet.approval.log,,crud,"[('company_id', 'in', company_ids + [False])]"
