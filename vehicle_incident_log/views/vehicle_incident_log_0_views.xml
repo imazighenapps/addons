@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vehicle_incident_log_list" model="ir.ui.view">
+        <field name="name">vehicle.incident.log.list</field>
+        <field name="model">vehicle.incident.log</field>
+        <field name="arch" type="xml">
+            <list string="Vehicle Incidents" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="vehicle_id"/>
+                <field name="driver_id"/>
+                <field name="employee_id"/>
+                <field name="location"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_vehicle_incident_log_form" model="ir.ui.view">
+        <field name="name">vehicle.incident.log.form</field>
+        <field name="model">vehicle.incident.log</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle Incidents">
+                <header>
+                    <button name="action_report" type="object" string="Report" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_start" type="object" string="Start Follow-up" class="btn-primary" invisible="state != 'reported'"/>
+                    <button name="action_close" type="object" string="Close" class="btn-primary" invisible="state not in ('reported','in_progress')"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'closed'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,reported,in_progress,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Incident">
+    <field name="name"/>
+    <field name="date"/>
+    <field name="vehicle_id"/>
+    <field name="driver_id"/>
+    <field name="employee_id"/>
+    <field name="location"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="References">
+    <field name="third_party"/>
+    <field name="insurance_ref"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Damage" name="damage">
+                            <field name="damage"/>
+                        </page>
+                        <page string="Follow-up Actions" name="followupaction">
+                            <field name="followup_action"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_vehicle_incident_log_search" model="ir.ui.view">
+        <field name="name">vehicle.incident.log.search</field>
+        <field name="model">vehicle.incident.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="vehicle_id"/>
+                <field name="driver_id"/>
+                <field name="employee_id"/>
+                <field name="location"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="reported" string="Reported" domain="[('state','=','reported')]"/>
+                <filter name="in_progress" string="In Progress" domain="[('state','=','in_progress')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <separator/>
+                <filter name="group_vehicle" string="Vehicle" context="{'group_by': 'vehicle_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_vehicle_incident_log" model="ir.actions.act_window">
+        <field name="name">Vehicle Incidents</field>
+        <field name="res_model">vehicle.incident.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Log and track vehicle incidents.</p>
+        </field>
+    </record>
+
+</odoo>
