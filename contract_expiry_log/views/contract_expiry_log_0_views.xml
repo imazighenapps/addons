@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_contract_expiry_log_list" model="ir.ui.view">
+        <field name="name">contract.expiry.log.list</field>
+        <field name="model">contract.expiry.log</field>
+        <field name="arch" type="xml">
+            <list string="Contracts" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="contract_type"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="notice_date"/>
+                <field name="days_to_expiry"/>
+                <field name="state" widget="badge"/>
+                <field name="user_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_contract_expiry_log_form" model="ir.ui.view">
+        <field name="name">contract.expiry.log.form</field>
+        <field name="model">contract.expiry.log</field>
+        <field name="arch" type="xml">
+            <form string="Contracts">
+                <header>
+                    <button name="action_activate" type="object" string="Activate" class="btn-primary" invisible="state not in ('draft', 'expiring')"/>
+                    <button name="action_mark_expiring" type="object" string="Mark Expiring" class="btn-secondary" invisible="state != 'active'"/>
+                    <button name="action_renew" type="object" string="Renewed" class="btn-secondary" invisible="state not in ('active', 'expiring')"/>
+                    <button name="action_close" type="object" string="Close" class="btn-secondary" invisible="state == 'closed'"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" class="btn-link" invisible="state not in ('closed', 'renewed')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,expiring,renewed,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Contract">
+    <field name="name"/>
+    <field name="partner_id"/>
+    <field name="contract_type"/>
+    <field name="user_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Dates">
+    <field name="start_date"/>
+    <field name="end_date"/>
+    <field name="notice_date"/>
+    <field name="days_to_expiry"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_contract_expiry_log_search" model="ir.ui.view">
+        <field name="name">contract.expiry.log.search</field>
+        <field name="model">contract.expiry.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="active" string="Active" domain="[('state','=','active')]"/>
+                <filter name="expiring" string="Expiring Soon" domain="[('state','=','expiring')]"/>
+                <filter name="renewed" string="Renewed" domain="[('state','=','renewed')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'contract_type'}"/>
+                <filter name="group_responsible" string="Responsible" context="{'group_by': 'user_id'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_contract_expiry_log_graph" model="ir.ui.view">
+        <field name="name">contract.expiry.log.graph</field>
+        <field name="model">contract.expiry.log</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="days_to_expiry" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_contract_expiry_log" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="res_model">contract.expiry.log</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register agreements and track their expiry dates.</p>
+        </field>
+    </record>
+
+</odoo>
