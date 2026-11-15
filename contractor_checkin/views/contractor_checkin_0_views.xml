@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_contractor_checkin_list" model="ir.ui.view">
+        <field name="name">contractor.checkin.list</field>
+        <field name="model">contractor.checkin</field>
+        <field name="arch" type="xml">
+            <list string="Contractor Check-ins" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="contractor_name"/>
+                <field name="contractor_company"/>
+                <field name="host_id"/>
+                <field name="purpose"/>
+                <field name="checkin_time"/>
+                <field name="checkout_time"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_contractor_checkin_form" model="ir.ui.view">
+        <field name="name">contractor.checkin.form</field>
+        <field name="model">contractor.checkin</field>
+        <field name="arch" type="xml">
+            <form string="Contractor Check-ins">
+                <header>
+                    <button name="action_checkout" type="object" string="Check Out" class="btn-primary" invisible="state != 'on_site'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-link" invisible="state != 'on_site'"/>
+                    <button name="action_reset" type="object" string="Reset to On Site" class="btn-link" invisible="state == 'on_site'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="on_site,checked_out,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Visitor">
+    <field name="name"/>
+    <field name="contractor_name"/>
+    <field name="contractor_company"/>
+    <field name="host_id"/>
+    <field name="purpose"/>
+    <field name="badge_ref"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Times">
+    <field name="checkin_time"/>
+    <field name="checkout_time"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_contractor_checkin_search" model="ir.ui.view">
+        <field name="name">contractor.checkin.search</field>
+        <field name="model">contractor.checkin</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="contractor_name"/>
+                <field name="contractor_company"/>
+                <field name="host_id"/>
+                <field name="purpose"/>
+                <field name="badge_ref"/>
+                <filter name="on_site" string="On Site" domain="[('state','=','on_site')]"/>
+                <filter name="checked_out" string="Checked Out" domain="[('state','=','checked_out')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_host" string="Host" context="{'group_by': 'host_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_contractor_checkin" model="ir.actions.act_window">
+        <field name="name">Contractor Check-ins</field>
+        <field name="res_model">contractor.checkin</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Log contractor check-ins and check-outs.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="rule_contractor_checkin_company" model="ir.rule">
+        <field name="name">contractor.checkin: own company only</field>
+        <field name="model_id" ref="model_contractor_checkin"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+</odoo>
