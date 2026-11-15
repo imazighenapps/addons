@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_meeting_agenda_1" model="meeting.agenda.log">
+        <field name="name">Weekly Operations Review</field>
+        <field name="meeting_date" eval="(DateTime.today() + relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+        <field name="organizer_id" ref="base.user_admin"/>
+        <field name="attendee_names">Operations team, Logistics lead</field>
+        <field name="agenda">1. KPIs review
+2. Open issues
+3. Next week priorities</field>
+        <field name="state">planned</field>
+    </record>
+    <record id="demo_meeting_agenda_2" model="meeting.agenda.log">
+        <field name="name">Supplier Performance Meeting</field>
+        <field name="meeting_date" eval="(DateTime.today() - relativedelta(days=7)).strftime('%Y-%m-%d')"/>
+        <field name="organizer_id" ref="base.user_admin"/>
+        <field name="attendee_names">Purchasing, Quality</field>
+        <field name="agenda">1. Delivery performance
+2. Quality incidents
+3. Corrective actions</field>
+        <field name="outcomes">Agreed corrective action plan with key suppliers.</field>
+        <field name="action_items">Follow up on late deliveries by Friday.</field>
+        <field name="state">done</field>
+    </record>
+</odoo>
