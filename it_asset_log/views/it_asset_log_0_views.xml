@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_it_asset_log_list" model="ir.ui.view">
+        <field name="name">it.asset.log.list</field>
+        <field name="model">it.asset.log</field>
+        <field name="arch" type="xml">
+            <list string="IT Assets" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="serial_no"/>
+                <field name="asset_type"/>
+                <field name="model_name"/>
+                <field name="employee_id"/>
+                <field name="location"/>
+                <field name="state" widget="badge"/>
+                <field name="user_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_it_asset_log_form" model="ir.ui.view">
+        <field name="name">it.asset.log.form</field>
+        <field name="model">it.asset.log</field>
+        <field name="arch" type="xml">
+            <form string="IT Assets">
+                <header>
+                    <button name="action_assign" type="object" string="Assign / In Use" class="btn-primary" invisible="state not in ('draft', 'spare')"/>
+                    <button name="action_repair" type="object" string="Send to Repair" class="btn-secondary" invisible="state not in ('in_use', 'spare')"/>
+                    <button name="action_spare" type="object" string="Mark Spare" class="btn-secondary" invisible="state in ('retired', 'spare')"/>
+                    <button name="action_retire" type="object" string="Retire" class="btn-secondary" invisible="state == 'retired'"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" class="btn-link" invisible="state not in ('spare', 'retired')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_use,repair,spare,retired"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Asset">
+    <field name="name"/>
+    <field name="serial_no"/>
+    <field name="asset_type"/>
+    <field name="model_name"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Assignment">
+    <field name="employee_id"/>
+    <field name="location"/>
+    <field name="user_id"/>
+    <field name="purchase_date"/>
+    <field name="warranty_end"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_it_asset_log_search" model="ir.ui.view">
+        <field name="name">it.asset.log.search</field>
+        <field name="model">it.asset.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="serial_no"/>
+                <field name="model_name"/>
+                <field name="employee_id"/>
+                <field name="location"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="in_use" string="In Use" domain="[('state','=','in_use')]"/>
+                <filter name="repair" string="In Repair" domain="[('state','=','repair')]"/>
+                <filter name="spare" string="Spare" domain="[('state','=','spare')]"/>
+                <filter name="retired" string="Retired" domain="[('state','=','retired')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'asset_type'}"/>
+                <filter name="group_employee" string="Assigned To" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_it_asset_log_graph" model="ir.ui.view">
+        <field name="name">it.asset.log.graph</field>
+        <field name="model">it.asset.log</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_it_asset_log" model="ir.actions.act_window">
+        <field name="name">IT Assets</field>
+        <field name="res_model">it.asset.log</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register and track IT assets.</p>
+        </field>
+    </record>
+
+</odoo>

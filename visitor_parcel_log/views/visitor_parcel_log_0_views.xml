@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_visitor_parcel_log_list" model="ir.ui.view">
+        <field name="name">visitor.parcel.log.list</field>
+        <field name="model">visitor.parcel.log</field>
+        <field name="arch" type="xml">
+            <list string="Parcel Log" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="carrier_name"/>
+                <field name="tracking_ref"/>
+                <field name="arrival_date"/>
+                <field name="storage_location"/>
+                <field name="state" widget="badge"/>
+                <field name="received_by_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_visitor_parcel_log_form" model="ir.ui.view">
+        <field name="name">visitor.parcel.log.form</field>
+        <field name="model">visitor.parcel.log</field>
+        <field name="arch" type="xml">
+            <form string="Parcel Log">
+                <header>
+                    <button name="action_notify" type="object" string="Mark Notified" class="btn-secondary" invisible="state != 'received'"/>
+                    <button name="action_collect" type="object" string="Mark Collected" class="btn-primary" invisible="state not in ('received', 'notified')"/>
+                    <button name="action_return" type="object" string="Return to Sender" class="btn-secondary" invisible="state in ('collected', 'returned')"/>
+                    <button name="action_reset_received" type="object" string="Reset to Received" class="btn-link" invisible="state != 'returned'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="received,notified,collected,returned"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Parcel">
+    <field name="name"/>
+    <field name="employee_id"/>
+    <field name="partner_id"/>
+    <field name="carrier_name"/>
+    <field name="tracking_ref"/>
+    <field name="description"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Reception">
+    <field name="arrival_date"/>
+    <field name="storage_location"/>
+    <field name="received_by_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Collection">
+    <field name="collected_by"/>
+    <field name="collected_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_visitor_parcel_log_search" model="ir.ui.view">
+        <field name="name">visitor.parcel.log.search</field>
+        <field name="model">visitor.parcel.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="carrier_name"/>
+                <field name="tracking_ref"/>
+                <field name="received_by_id"/>
+                <filter name="received" string="Received" domain="[('state','=','received')]"/>
+                <filter name="notified" string="Notified" domain="[('state','=','notified')]"/>
+                <filter name="collected" string="Collected" domain="[('state','=','collected')]"/>
+                <filter name="returned" string="Returned" domain="[('state','=','returned')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_recipient" string="Recipient" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_visitor_parcel_log_graph" model="ir.ui.view">
+        <field name="name">visitor.parcel.log.graph</field>
+        <field name="model">visitor.parcel.log</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_visitor_parcel_log" model="ir.actions.act_window">
+        <field name="name">Parcel Log</field>
+        <field name="res_model">visitor.parcel.log</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Log and track incoming parcels.</p>
+        </field>
+    </record>
+
+</odoo>

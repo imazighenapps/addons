@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_sal_employee" model="hr.employee">
+        <field name="name">Demo Awardee</field>
+    </record>
+    <record id="demo_sal_1" model="staff.award.log">
+        <field name="name">SAL-DEMO-001</field>
+        <field name="employee_id" ref="demo_sal_employee"/>
+        <field name="award_type">performance</field>
+        <field name="award_date" eval="(DateTime.now() - relativedelta(days=20)).strftime('%Y-%m-%d')"/>
+        <field name="reason">Outstanding contribution to the quarterly project delivery.</field>
+        <field name="state">announced</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_sal_2" model="staff.award.log">
+        <field name="name">SAL-DEMO-002</field>
+        <field name="employee_id" ref="demo_sal_employee"/>
+        <field name="award_type">teamwork</field>
+        <field name="award_date" eval="DateTime.now().strftime('%Y-%m-%d')"/>
+        <field name="reason">Excellent collaboration across departments.</field>
+        <field name="state">draft</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

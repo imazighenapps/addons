@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_tcl_equipment" model="maintenance.equipment">
+        <field name="name">Demo Torque Wrench</field>
+        <field name="serial_no">TW-DEMO-01</field>
+    </record>
+    <record id="demo_tcl_partner" model="res.partner">
+        <field name="name">Demo Calibration Lab</field>
+        <field name="is_company">True</field>
+        <field name="supplier_rank">1</field>
+    </record>
+    <record id="demo_tcl_1" model="tool.calibration.log">
+        <field name="name">TCL-DEMO-001</field>
+        <field name="equipment_id" ref="demo_tcl_equipment"/>
+        <field name="calibration_date" eval="(DateTime.now() - relativedelta(months=6)).strftime('%Y-%m-%d')"/>
+        <field name="next_due_date" eval="(DateTime.now() + relativedelta(months=6)).strftime('%Y-%m-%d')"/>
+        <field name="partner_id" ref="demo_tcl_partner"/>
+        <field name="certificate_ref">CERT-DEM-001</field>
+        <field name="result">pass</field>
+        <field name="state">done</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_tcl_2" model="tool.calibration.log">
+        <field name="name">TCL-DEMO-002</field>
+        <field name="equipment_id" ref="demo_tcl_equipment"/>
+        <field name="calibration_date" eval="(DateTime.now() + relativedelta(days=15)).strftime('%Y-%m-%d')"/>
+        <field name="partner_id" ref="demo_tcl_partner"/>
+        <field name="state">scheduled</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
