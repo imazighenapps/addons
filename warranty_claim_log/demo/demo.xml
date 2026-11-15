@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_wcl_partner" model="res.partner">
+        <field name="name">Demo Warranty Customer</field>
+        <field name="is_company">True</field>
+        <field name="customer_rank">1</field>
+    </record>
+    <record id="demo_wcl_product" model="product.product">
+        <field name="name">Demo Warranted Product</field>
+        <field name="type">consu</field>
+        <field name="list_price">120.0</field>
+    </record>
+    <record id="demo_wcl_1" model="warranty.claim.log">
+        <field name="name">WCL-DEMO-001</field>
+        <field name="partner_id" ref="demo_wcl_partner"/>
+        <field name="product_id" ref="demo_wcl_product"/>
+        <field name="claim_date" eval="(DateTime.now() - relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+        <field name="serial_ref">SN-DEM-001</field>
+        <field name="description">Device stops powering on intermittently.</field>
+        <field name="state">review</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_wcl_2" model="warranty.claim.log">
+        <field name="name">WCL-DEMO-002</field>
+        <field name="partner_id" ref="demo_wcl_partner"/>
+        <field name="product_id" ref="demo_wcl_product"/>
+        <field name="claim_date" eval="(DateTime.now() - relativedelta(days=30)).strftime('%Y-%m-%d')"/>
+        <field name="description">Cosmetic defect reported on delivery.</field>
+        <field name="resolution">Unit replaced under warranty.</field>
+        <field name="state">resolved</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
