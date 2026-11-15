@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_ccl_1" model="cash.count.log">
+        <field name="name">CCL-DEMO-001</field>
+        <field name="count_date" eval="(DateTime.now() - relativedelta(days=1)).strftime('%Y-%m-%d')"/>
+        <field name="location">Front Desk Register</field>
+        <field name="expected_amount">500.0</field>
+        <field name="counted_amount">498.5</field>
+        <field name="note">Small shortage noted.</field>
+        <field name="state">validated</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_ccl_2" model="cash.count.log">
+        <field name="name">CCL-DEMO-002</field>
+        <field name="count_date" eval="DateTime.now().strftime('%Y-%m-%d')"/>
+        <field name="location">Front Desk Register</field>
+        <field name="expected_amount">350.0</field>
+        <field name="counted_amount">350.0</field>
+        <field name="state">draft</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

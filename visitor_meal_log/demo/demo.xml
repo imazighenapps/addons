@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_vml_employee" model="hr.employee">
+        <field name="name">Demo Meal Host</field>
+    </record>
+    <record id="demo_vml_1" model="visitor.meal.log">
+        <field name="name">VML-DEMO-001</field>
+        <field name="host_id" ref="demo_vml_employee"/>
+        <field name="visitor_name">Demo Visitors</field>
+        <field name="meal_date" eval="(DateTime.now() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+        <field name="meal_type">lunch</field>
+        <field name="meal_count">4</field>
+        <field name="location">Meeting Room A</field>
+        <field name="state">served</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_vml_2" model="visitor.meal.log">
+        <field name="name">VML-DEMO-002</field>
+        <field name="host_id" ref="demo_vml_employee"/>
+        <field name="visitor_name">Demo Guest</field>
+        <field name="meal_date" eval="(DateTime.now() + relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+        <field name="meal_type">coffee</field>
+        <field name="meal_count">2</field>
+        <field name="state">draft</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
