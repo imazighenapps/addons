@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_shift_handover_log_list" model="ir.ui.view">
+        <field name="name">shift.handover.log.list</field>
+        <field name="model">shift.handover.log</field>
+        <field name="arch" type="xml">
+            <list string="Shift Handovers" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="shift"/>
+                <field name="area"/>
+                <field name="outgoing_id"/>
+                <field name="incoming_id"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_shift_handover_log_form" model="ir.ui.view">
+        <field name="name">shift.handover.log.form</field>
+        <field name="model">shift.handover.log</field>
+        <field name="arch" type="xml">
+            <form string="Shift Handovers">
+                <header>
+                    <button name="action_submit" type="object" string="Submit" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_acknowledge" type="object" string="Acknowledge" class="btn-primary" invisible="state != 'submitted'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,acknowledged"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Handover">
+    <field name="name"/>
+    <field name="date"/>
+    <field name="shift"/>
+    <field name="area"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Responsibles">
+    <field name="outgoing_id"/>
+    <field name="incoming_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Status Summary" name="summary">
+                            <field name="summary"/>
+                        </page>
+                        <page string="Incidents / Issues" name="incidents">
+                            <field name="incidents"/>
+                        </page>
+                        <page string="Pending Tasks" name="pendingtasks">
+                            <field name="pending_tasks"/>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_shift_handover_log_search" model="ir.ui.view">
+        <field name="name">shift.handover.log.search</field>
+        <field name="model">shift.handover.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="area"/>
+                <field name="outgoing_id"/>
+                <field name="incoming_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="submitted" string="Submitted" domain="[('state','=','submitted')]"/>
+                <filter name="acknowledged" string="Acknowledged" domain="[('state','=','acknowledged')]"/>
+                <separator/>
+                <filter name="group_shift" string="Shift" context="{'group_by': 'shift'}"/>
+                <filter name="group_area" string="Area" context="{'group_by': 'area'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_shift_handover_log" model="ir.actions.act_window">
+        <field name="name">Shift Handovers</field>
+        <field name="res_model">shift.handover.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record and acknowledge shift handovers.</p>
+        </field>
+    </record>
+
+</odoo>

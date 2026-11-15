@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_fuel_card_assignment_user,fuel.card.assignment User,fuel.card.assignment,fuel_card_assignment.group_fuelcardassi_user,crud,
+access_fuel_card_assignment_manager,fuel.card.assignment Manager,fuel.card.assignment,fuel_card_assignment.group_fuelcardassi_manager,crud,
+access_fuel_card_user,fuel.card User,fuel.card,fuel_card_assignment.group_fuelcardassi_user,crud,
+access_fuel_card_manager,fuel.card Manager,fuel.card,fuel_card_assignment.group_fuelcardassi_manager,crud,
+rule_fuel_card_company,fuel.card: own company only,fuel.card,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_fuel_card_assignment_company,fuel.card.assignment: own company only,fuel.card.assignment,,crud,"[('company_id', 'in', company_ids + [False])]"

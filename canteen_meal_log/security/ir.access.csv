@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_canteen_meal_log_user,canteen.meal.log User,canteen.meal.log,canteen_meal_log.group_canteenmeall_user,crud,
+access_canteen_meal_log_manager,canteen.meal.log Manager,canteen.meal.log,canteen_meal_log.group_canteenmeall_manager,crud,
+rule_canteen_meal_log_company,canteen.meal.log: own company only,canteen.meal.log,,crud,"[('company_id', 'in', company_ids + [False])]"

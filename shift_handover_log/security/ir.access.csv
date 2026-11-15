@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_shift_handover_log_user,shift.handover.log User,shift.handover.log,shift_handover_log.group_shifthandove_user,crud,
+access_shift_handover_log_manager,shift.handover.log Manager,shift.handover.log,shift_handover_log.group_shifthandove_manager,crud,
+rule_shift_handover_log_company,shift.handover.log: own company only,shift.handover.log,,crud,"[('company_id', 'in', company_ids + [False])]"
