@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_phone_item_list" model="ir.ui.view">
+        <field name="name">phone.item.list</field>
+        <field name="model">phone.item</field>
+        <field name="arch" type="xml">
+            <list string="Phones &amp; SIMs">
+                <field name="name"/>
+                <field name="phone_number"/>
+                <field name="item_type"/>
+                <field name="active" widget="boolean"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_phone_item_form" model="ir.ui.view">
+        <field name="name">phone.item.form</field>
+        <field name="model">phone.item</field>
+        <field name="arch" type="xml">
+            <form string="Phones &amp; SIMs">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Item">
+    <field name="name"/>
+    <field name="phone_number"/>
+    <field name="item_type"/>
+    <field name="active"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_phone_item_search" model="ir.ui.view">
+        <field name="name">phone.item.search</field>
+        <field name="model">phone.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="phone_number"/>
+                <filter name="active" string="Active" domain="[('active','=',True)]"/>
+                <separator/>
+                <filter name="group_type" string="Type" context="{'group_by': 'item_type'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_phone_item" model="ir.actions.act_window">
+        <field name="name">Phones &amp; SIMs</field>
+        <field name="res_model">phone.item</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Register phones and SIM cards available for assignment.</p>
+        </field>
+    </record>
+
+</odoo>
