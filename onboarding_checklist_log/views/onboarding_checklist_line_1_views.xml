@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_onboarding_checklist_line_list" model="ir.ui.view">
+        <field name="name">onboarding.checklist.line.list</field>
+        <field name="model">onboarding.checklist.line</field>
+        <field name="arch" type="xml">
+            <list string="Onboarding Tasks">
+                <field name="checklist_id"/>
+                <field name="sequence"/>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="date_due"/>
+                <field name="done" widget="boolean"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_onboarding_checklist_line_form" model="ir.ui.view">
+        <field name="name">onboarding.checklist.line.form</field>
+        <field name="model">onboarding.checklist.line</field>
+        <field name="arch" type="xml">
+            <form string="Onboarding Tasks">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Task">
+    <field name="checklist_id"/>
+    <field name="sequence"/>
+    <field name="name"/>
+    <field name="user_id"/>
+    <field name="date_due"/>
+    <field name="done"/>
+    <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_onboarding_checklist_line_search" model="ir.ui.view">
+        <field name="name">onboarding.checklist.line.search</field>
+        <field name="model">onboarding.checklist.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="checklist_id"/>
+                <field name="name"/>
+                <field name="user_id"/>
+                <filter name="done" string="Done" domain="[('done','=',True)]"/>
+                <filter name="pending" string="Pending" domain="[('done','=',False)]"/>
+                <separator/>
+                <filter name="group_checklist" string="Checklist" context="{'group_by': 'checklist_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_onboarding_checklist_line" model="ir.actions.act_window">
+        <field name="name">Onboarding Tasks</field>
+        <field name="res_model">onboarding.checklist.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Onboarding checklist tasks.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_vehicle_incident_log_user,vehicle.incident.log User,vehicle.incident.log,vehicle_incident_log.group_vehicleincid_user,crud,
+access_vehicle_incident_log_manager,vehicle.incident.log Manager,vehicle.incident.log,vehicle_incident_log.group_vehicleincid_manager,crud,
+rule_vehicle_incident_log_company,vehicle.incident.log: own company only,vehicle.incident.log,,crud,"[('company_id', 'in', company_ids + [False])]"

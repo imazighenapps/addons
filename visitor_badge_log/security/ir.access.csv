@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_visitor_badge_issuance_user,visitor.badge.issuance User,visitor.badge.issuance,visitor_badge_log.group_visitorbadge_user,crud,
+access_visitor_badge_issuance_manager,visitor.badge.issuance Manager,visitor.badge.issuance,visitor_badge_log.group_visitorbadge_manager,crud,
+access_visitor_badge_user,visitor.badge User,visitor.badge,visitor_badge_log.group_visitorbadge_user,crud,
+access_visitor_badge_manager,visitor.badge Manager,visitor.badge,visitor_badge_log.group_visitorbadge_manager,crud,
+rule_visitor_badge_company,visitor.badge: own company only,visitor.badge,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_visitor_badge_issuance_company,visitor.badge.issuance: own company only,visitor.badge.issuance,,crud,"[('company_id', 'in', company_ids + [False])]"
