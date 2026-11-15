@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_driver_employee" model="hr.employee">
+        <field name="name">Demo Driver</field>
+    </record>
+    <record id="demo_driver_brand" model="fleet.vehicle.model.brand">
+        <field name="name">DemoFleet</field>
+    </record>
+    <record id="demo_driver_model" model="fleet.vehicle.model">
+        <field name="name">Demo Van</field>
+        <field name="brand_id" ref="demo_driver_brand"/>
+    </record>
+    <record id="demo_driver_vehicle" model="fleet.vehicle">
+        <field name="model_id" ref="demo_driver_model"/>
+        <field name="license_plate">DA-001</field>
+    </record>
+    <record id="demo_driver_assignment_1" model="driver.assignment.log">
+        <field name="vehicle_id" ref="demo_driver_vehicle"/>
+        <field name="employee_id" ref="demo_driver_employee"/>
+        <field name="date_start" eval="(DateTime.today() - relativedelta(days=30)).strftime('%Y-%m-%d')"/>
+        <field name="reason">Primary vehicle assignment</field>
+        <field name="state">active</field>
+    </record>
+    <record id="demo_driver_assignment_2" model="driver.assignment.log">
+        <field name="vehicle_id" ref="demo_driver_vehicle"/>
+        <field name="employee_id" ref="demo_driver_employee"/>
+        <field name="date_start" eval="(DateTime.today() - relativedelta(days=120)).strftime('%Y-%m-%d')"/>
+        <field name="date_end" eval="(DateTime.today() - relativedelta(days=31)).strftime('%Y-%m-%d')"/>
+        <field name="reason">Previous period</field>
+        <field name="state">ended</field>
+    </record>
+</odoo>

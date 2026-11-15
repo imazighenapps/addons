@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_equipment_inspection_log_user,equipment.inspection.log User,equipment.inspection.log,equipment_inspection_log.group_equipmentins_user,crud,
+access_equipment_inspection_log_manager,equipment.inspection.log Manager,equipment.inspection.log,equipment_inspection_log.group_equipmentins_manager,crud,
+rule_equipment_inspection_log_company,equipment.inspection.log: own company only,equipment.inspection.log,,crud,"[('company_id', 'in', company_ids + [False])]"

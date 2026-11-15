@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_driver_assignment_log_user,driver.assignment.log User,driver.assignment.log,driver_assignment_log.group_driverassign_user,crud,
+access_driver_assignment_log_manager,driver.assignment.log Manager,driver.assignment.log,driver_assignment_log.group_driverassign_manager,crud,
+rule_driver_assignment_log_company,driver.assignment.log: own company only,driver.assignment.log,,crud,"[('company_id', 'in', company_ids + [False])]"
