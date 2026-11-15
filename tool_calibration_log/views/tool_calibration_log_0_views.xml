@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_tool_calibration_log_list" model="ir.ui.view">
+        <field name="name">tool.calibration.log.list</field>
+        <field name="model">tool.calibration.log</field>
+        <field name="arch" type="xml">
+            <list string="Tool Calibrations" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="calibration_date"/>
+                <field name="next_due_date"/>
+                <field name="partner_id"/>
+                <field name="result"/>
+                <field name="state" widget="badge"/>
+                <field name="user_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tool_calibration_log_form" model="ir.ui.view">
+        <field name="name">tool.calibration.log.form</field>
+        <field name="model">tool.calibration.log</field>
+        <field name="arch" type="xml">
+            <form string="Tool Calibrations">
+                <header>
+                    <button name="action_schedule" type="object" string="Schedule" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_done" type="object" string="Mark Done" class="btn-primary" invisible="state != 'scheduled'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state in ('done', 'cancelled')"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,scheduled,done,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Calibration">
+    <field name="name"/>
+    <field name="equipment_id"/>
+    <field name="calibration_date"/>
+    <field name="next_due_date"/>
+    <field name="partner_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Result">
+    <field name="result"/>
+    <field name="certificate_ref"/>
+    <field name="user_id"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tool_calibration_log_search" model="ir.ui.view">
+        <field name="name">tool.calibration.log.search</field>
+        <field name="model">tool.calibration.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="partner_id"/>
+                <field name="certificate_ref"/>
+                <field name="user_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="scheduled" string="Scheduled" domain="[('state','=','scheduled')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_result" string="Result" context="{'group_by': 'result'}"/>
+                <filter name="group_equipment" string="Tool" context="{'group_by': 'equipment_id'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_tool_calibration_log_graph" model="ir.ui.view">
+        <field name="name">tool.calibration.log.graph</field>
+        <field name="model">tool.calibration.log</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_tool_calibration_log" model="ir.actions.act_window">
+        <field name="name">Tool Calibrations</field>
+        <field name="res_model">tool.calibration.log</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record and track tool calibrations.</p>
+        </field>
+    </record>
+
+</odoo>

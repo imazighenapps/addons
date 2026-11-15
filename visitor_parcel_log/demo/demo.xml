@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_vpl_employee" model="hr.employee">
+        <field name="name">Demo Parcel Recipient</field>
+    </record>
+    <record id="demo_vpl_1" model="visitor.parcel.log">
+        <field name="name">VPL-DEMO-001</field>
+        <field name="employee_id" ref="demo_vpl_employee"/>
+        <field name="carrier_name">Demo Express</field>
+        <field name="tracking_ref">DX-123456</field>
+        <field name="description">Office supplies box</field>
+        <field name="arrival_date" eval="(DateTime.now() - relativedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="storage_location">Reception shelf A</field>
+        <field name="state">notified</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_vpl_2" model="visitor.parcel.log">
+        <field name="name">VPL-DEMO-002</field>
+        <field name="employee_id" ref="demo_vpl_employee"/>
+        <field name="carrier_name">Demo Post</field>
+        <field name="tracking_ref">DP-789012</field>
+        <field name="description">Small envelope</field>
+        <field name="arrival_date" eval="(DateTime.now() - relativedelta(days=3)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="storage_location">Mailroom</field>
+        <field name="collected_by">Demo Parcel Recipient</field>
+        <field name="state">collected</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
