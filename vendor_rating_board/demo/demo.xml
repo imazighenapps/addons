@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_vendor_partner" model="res.partner">
+        <field name="name">Demo Supplier</field>
+        <field name="is_company">True</field>
+        <field name="supplier_rank">1</field>
+    </record>
+    <record id="demo_vendor_eval_1" model="vendor.evaluation">
+        <field name="name">VE-DEMO-001</field>
+        <field name="partner_id" ref="demo_vendor_partner"/>
+        <field name="evaluation_date" eval="(DateTime.now() - relativedelta(days=30)).strftime('%Y-%m-%d')"/>
+        <field name="period">2026-Q3</field>
+        <field name="delivery_score">4</field>
+        <field name="quality_score">5</field>
+        <field name="price_score">3</field>
+        <field name="service_score">4</field>
+        <field name="state">validated</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_vendor_eval_2" model="vendor.evaluation">
+        <field name="name">VE-DEMO-002</field>
+        <field name="partner_id" ref="demo_vendor_partner"/>
+        <field name="evaluation_date" eval="DateTime.now().strftime('%Y-%m-%d')"/>
+        <field name="period">2026-Q4</field>
+        <field name="delivery_score">3</field>
+        <field name="quality_score">4</field>
+        <field name="price_score">4</field>
+        <field name="service_score">3</field>
+        <field name="state">draft</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
