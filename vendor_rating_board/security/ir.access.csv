@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_vendor_evaluation_user,vendor.evaluation User,vendor.evaluation,vendor_rating_board.group_vendorrating_user,crud,
+access_vendor_evaluation_manager,vendor.evaluation Manager,vendor.evaluation,vendor_rating_board.group_vendorrating_manager,crud,
+rule_vendor_evaluation_company,vendor.evaluation: own company only,vendor.evaluation,,crud,"[('company_id', 'in', company_ids + [False])]"
