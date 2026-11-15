@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_tsa_employee" model="hr.employee">
+        <field name="name">Demo Timesheet Employee</field>
+    </record>
+    <record id="demo_tsa_1" model="timesheet.approval.log">
+        <field name="name">TSA-DEMO-001</field>
+        <field name="employee_id" ref="demo_tsa_employee"/>
+        <field name="date_start" eval="(DateTime.now() - relativedelta(days=14)).strftime('%Y-%m-%d')"/>
+        <field name="date_end" eval="(DateTime.now() - relativedelta(days=8)).strftime('%Y-%m-%d')"/>
+        <field name="state">approved</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_tsa_2" model="timesheet.approval.log">
+        <field name="name">TSA-DEMO-002</field>
+        <field name="employee_id" ref="demo_tsa_employee"/>
+        <field name="date_start" eval="(DateTime.now() - relativedelta(days=7)).strftime('%Y-%m-%d')"/>
+        <field name="date_end" eval="DateTime.now().strftime('%Y-%m-%d')"/>
+        <field name="state">submitted</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
