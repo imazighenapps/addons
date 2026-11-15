@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_dunning_partner" model="res.partner">
+        <field name="name">Demo Dunning Customer</field>
+        <field name="is_company">True</field>
+        <field name="customer_rank">1</field>
+    </record>
+    <record id="demo_dunning_level_1" model="dunning.letter.level">
+        <field name="name">First reminder</field>
+        <field name="sequence">10</field>
+        <field name="days_after_due">7</field>
+        <field name="subject">Friendly reminder: invoice overdue</field>
+        <field name="body">Dear customer, our records show that the invoice below is now overdue. Could you please check and settle it at your earliest convenience?</field>
+    </record>
+    <record id="demo_dunning_level_2" model="dunning.letter.level">
+        <field name="name">Second reminder</field>
+        <field name="sequence">20</field>
+        <field name="days_after_due">21</field>
+        <field name="subject">Second reminder: invoice still unpaid</field>
+        <field name="body">Dear customer, the invoice below remains unpaid. We would be grateful for a payment date or any information about a possible issue.</field>
+    </record>
+    <record id="demo_dunning_letter_1" model="dunning.letter">
+        <field name="partner_id" ref="demo_dunning_partner"/>
+        <field name="level_id" ref="demo_dunning_level_1"/>
+        <field name="due_date" eval="(DateTime.today() - relativedelta(days=15)).strftime('%Y-%m-%d')"/>
+        <field name="amount_residual">480.0</field>
+        <field name="state">sent</field>
+        <field name="sent_date" eval="(DateTime.today() - relativedelta(days=8)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="demo_dunning_letter_2" model="dunning.letter">
+        <field name="partner_id" ref="demo_dunning_partner"/>
+        <field name="level_id" ref="demo_dunning_level_2"/>
+        <field name="due_date" eval="(DateTime.today() - relativedelta(days=45)).strftime('%Y-%m-%d')"/>
+        <field name="amount_residual">1250.0</field>
+        <field name="state">draft</field>
+    </record>
+</odoo>

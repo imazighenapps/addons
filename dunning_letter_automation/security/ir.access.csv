@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+access_dunning_letter_level_user,dunning.letter.level User,dunning.letter.level,dunning_letter_automation.group_dunninglette_user,crud,
+access_dunning_letter_level_manager,dunning.letter.level Manager,dunning.letter.level,dunning_letter_automation.group_dunninglette_manager,crud,
+access_dunning_letter_user,dunning.letter User,dunning.letter,dunning_letter_automation.group_dunninglette_user,crud,
+access_dunning_letter_manager,dunning.letter Manager,dunning.letter,dunning_letter_automation.group_dunninglette_manager,crud,
+access_dunning_generate_user,dunning.generate User,dunning.generate,dunning_letter_automation.group_dunninglette_user,cr,
+access_dunning_generate_manager,dunning.generate Manager,dunning.generate,dunning_letter_automation.group_dunninglette_manager,crud,
+rule_dunning_letter_level_company,dunning.letter.level: own company only,dunning.letter.level,,crud,"[('company_id', 'in', company_ids + [False])]"
+rule_dunning_letter_company,dunning.letter: own company only,dunning.letter,,crud,"[('company_id', 'in', company_ids + [False])]"

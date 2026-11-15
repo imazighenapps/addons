@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_dunning_generate_form" model="ir.ui.view">
+        <field name="name">dunning.generate.form</field>
+        <field name="model">dunning.generate</field>
+        <field name="arch" type="xml">
+            <form string="Generate Letters">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="as_of_date" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Run">
+    <field name="as_of_date"/>
+    <field name="level_ids"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer><button name="action_generate" type="object" string="Generate" class="btn-primary"/><button string="Cancel" class="btn-secondary" special="cancel"/></footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_dunning_generate" model="ir.actions.act_window">
+        <field name="name">Generate Letters</field>
+        <field name="res_model">dunning.generate</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Build the letters for every invoice overdue by each level.</p>
+        </field>
+    </record>
+
+</odoo>
