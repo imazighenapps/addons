@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_cash_count_log_user,cash.count.log User,cash.count.log,cash_count_log.group_cashcountlog_user,crud,
+access_cash_count_log_manager,cash.count.log Manager,cash.count.log,cash_count_log.group_cashcountlog_manager,crud,
+rule_cash_count_log_company,cash.count.log: own company only,cash.count.log,,crud,"[('company_id', 'in', company_ids + [False])]"

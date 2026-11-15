@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_kil_employee" model="hr.employee">
+        <field name="name">Demo Key Holder</field>
+    </record>
+    <record id="demo_kil_1" model="key.issue.log">
+        <field name="name">KIL-DEMO-001</field>
+        <field name="key_label">Office Main Door</field>
+        <field name="employee_id" ref="demo_kil_employee"/>
+        <field name="issue_date" eval="(DateTime.now() - relativedelta(days=7)).strftime('%Y-%m-%d')"/>
+        <field name="expected_return_date" eval="(DateTime.now() + relativedelta(days=23)).strftime('%Y-%m-%d')"/>
+        <field name="state">issued</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_kil_2" model="key.issue.log">
+        <field name="name">KIL-DEMO-002</field>
+        <field name="key_label">Warehouse Gate</field>
+        <field name="employee_id" ref="demo_kil_employee"/>
+        <field name="issue_date" eval="(DateTime.now() - relativedelta(days=30)).strftime('%Y-%m-%d')"/>
+        <field name="return_date" eval="(DateTime.now() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+        <field name="condition_note">Returned in good condition.</field>
+        <field name="state">returned</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

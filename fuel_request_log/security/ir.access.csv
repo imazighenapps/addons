@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_fuel_request_log_user,fuel.request.log User,fuel.request.log,fuel_request_log.group_fuelrequestl_user,crud,
+access_fuel_request_log_manager,fuel.request.log Manager,fuel.request.log,fuel_request_log.group_fuelrequestl_manager,crud,
+rule_fuel_request_log_company,fuel.request.log: own company only,fuel.request.log,,crud,"[('company_id', 'in', company_ids + [False])]"

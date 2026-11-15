@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_key_issue_log_user,key.issue.log User,key.issue.log,key_issue_log.group_keyissuelog_user,crud,
+access_key_issue_log_manager,key.issue.log Manager,key.issue.log,key_issue_log.group_keyissuelog_manager,crud,
+rule_key_issue_log_company,key.issue.log: own company only,key.issue.log,,crud,"[('company_id', 'in', company_ids + [False])]"
