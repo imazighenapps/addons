@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_frl_brand" model="fleet.vehicle.model.brand">
+        <field name="name">DemoBrand</field>
+    </record>
+    <record id="demo_frl_model" model="fleet.vehicle.model">
+        <field name="name">DemoVan</field>
+        <field name="brand_id" ref="demo_frl_brand"/>
+        <field name="vehicle_type">car</field>
+    </record>
+    <record id="demo_frl_vehicle" model="fleet.vehicle">
+        <field name="model_id" ref="demo_frl_model"/>
+        <field name="license_plate">FRL-001</field>
+    </record>
+    <record id="demo_frl_employee" model="hr.employee">
+        <field name="name">Demo Driver</field>
+    </record>
+    <record id="demo_frl_1" model="fuel.request.log">
+        <field name="name">FRL-DEMO-001</field>
+        <field name="vehicle_id" ref="demo_frl_vehicle"/>
+        <field name="requester_id" ref="demo_frl_employee"/>
+        <field name="request_date" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="amount">60.0</field>
+        <field name="purpose">Delivery route refuel.</field>
+        <field name="state">approved</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_frl_2" model="fuel.request.log">
+        <field name="name">FRL-DEMO-002</field>
+        <field name="vehicle_id" ref="demo_frl_vehicle"/>
+        <field name="requester_id" ref="demo_frl_employee"/>
+        <field name="request_date" eval="DateTime.now().strftime('%Y-%m-%d')"/>
+        <field name="amount">40.0</field>
+        <field name="purpose">Client visit.</field>
+        <field name="state">draft</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
