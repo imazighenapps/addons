@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_gift_register_list" model="ir.ui.view">
+        <field name="name">gift.register.list</field>
+        <field name="model">gift.register</field>
+        <field name="arch" type="xml">
+            <list string="Gift Register" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="direction"/>
+                <field name="counterpart"/>
+                <field name="description"/>
+                <field name="employee_id"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_gift_register_form" model="ir.ui.view">
+        <field name="name">gift.register.form</field>
+        <field name="model">gift.register</field>
+        <field name="arch" type="xml">
+            <form string="Gift Register">
+                <header>
+                    <button name="action_declare" type="object" string="Declare" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'declared'"/>
+                    <button name="action_refuse" type="object" string="Refuse" class="btn-secondary" invisible="state != 'declared'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft" class="btn-link" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,declared,approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Gift">
+    <field name="name"/>
+    <field name="direction"/>
+    <field name="counterpart"/>
+    <field name="date"/>
+    <field name="employee_id"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                        <group string="Details">
+    <field name="description"/>
+    <field name="amount"/>
+    <field name="currency_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Purpose" name="purpose">
+                            <field name="purpose"/>
+                        </page>
+                        <page string="Notes" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_gift_register_search" model="ir.ui.view">
+        <field name="name">gift.register.search</field>
+        <field name="model">gift.register</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="counterpart"/>
+                <field name="description"/>
+                <field name="employee_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="declared" string="Declared" domain="[('state','=','declared')]"/>
+                <filter name="approved" string="Approved" domain="[('state','=','approved')]"/>
+                <filter name="refused" string="Refused" domain="[('state','=','refused')]"/>
+                <filter name="given" string="Given" domain="[('direction','=','given')]"/>
+                <filter name="received" string="Received" domain="[('direction','=','received')]"/>
+                <separator/>
+                <filter name="group_direction" string="Direction" context="{'group_by': 'direction'}"/>
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_gift_register" model="ir.actions.act_window">
+        <field name="name">Gift Register</field>
+        <field name="res_model">gift.register</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record and review business gifts and hospitality.</p>
+        </field>
+    </record>
+
+</odoo>
