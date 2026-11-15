@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_asset_transfer_log_user,asset.transfer.log User,asset.transfer.log,asset_transfer_log.group_assettransfe_user,crud,
+access_asset_transfer_log_manager,asset.transfer.log Manager,asset.transfer.log,asset_transfer_log.group_assettransfe_manager,crud,
+rule_asset_transfer_log_company,asset.transfer.log: own company only,asset.transfer.log,,crud,"[('company_id', 'in', company_ids + [False])]"

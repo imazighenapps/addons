@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_ppl_employee" model="hr.employee">
+        <field name="name">Demo Permit Holder</field>
+    </record>
+    <record id="demo_ppl_1" model="parking.permit.log">
+        <field name="name">PPL-DEMO-001</field>
+        <field name="employee_id" ref="demo_ppl_employee"/>
+        <field name="permit_type">employee</field>
+        <field name="vehicle_plate">DEMO-1234</field>
+        <field name="zone">Zone A / Spot 12</field>
+        <field name="date_start" eval="(DateTime.now() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+        <field name="date_end" eval="(DateTime.now() + relativedelta(months=5)).strftime('%Y-%m-%d')"/>
+        <field name="state">active</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_ppl_2" model="parking.permit.log">
+        <field name="name">PPL-DEMO-002</field>
+        <field name="employee_id" ref="demo_ppl_employee"/>
+        <field name="permit_type">visitor</field>
+        <field name="vehicle_plate">DEMO-5678</field>
+        <field name="zone">Visitor Zone</field>
+        <field name="date_start" eval="(DateTime.now() - relativedelta(months=3)).strftime('%Y-%m-%d')"/>
+        <field name="date_end" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="state">expired</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

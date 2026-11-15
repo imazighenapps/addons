@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_parking_permit_log_user,parking.permit.log User,parking.permit.log,parking_permit_log.group_parkingpermi_user,crud,
+access_parking_permit_log_manager,parking.permit.log Manager,parking.permit.log,parking_permit_log.group_parkingpermi_manager,crud,
+rule_parking_permit_log_company,parking.permit.log: own company only,parking.permit.log,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_warranty_claim_log_user,warranty.claim.log User,warranty.claim.log,warranty_claim_log.group_warrantyclai_user,crud,
+access_warranty_claim_log_manager,warranty.claim.log Manager,warranty.claim.log,warranty_claim_log.group_warrantyclai_manager,crud,
+rule_warranty_claim_log_company,warranty.claim.log: own company only,warranty.claim.log,,crud,"[('company_id', 'in', company_ids + [False])]"
