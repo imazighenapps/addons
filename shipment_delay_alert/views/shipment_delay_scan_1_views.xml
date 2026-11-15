@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_shipment_delay_scan_form" model="ir.ui.view">
+        <field name="name">shipment.delay.scan.form</field>
+        <field name="model">shipment.delay.scan</field>
+        <field name="arch" type="xml">
+            <form string="Check Delays">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="as_of" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Scan">
+    <field name="as_of"/>
+    <field name="company_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer><button name="action_scan" type="object" string="Scan" class="btn-primary"/><button string="Cancel" class="btn-secondary" special="cancel"/></footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_shipment_delay_scan" model="ir.actions.act_window">
+        <field name="name">Check Delays</field>
+        <field name="res_model">shipment.delay.scan</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Open an alert for every outgoing transfer past its date.</p>
+        </field>
+    </record>
+
+</odoo>
