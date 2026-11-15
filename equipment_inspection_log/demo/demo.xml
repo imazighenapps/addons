@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_inspection_employee" model="hr.employee">
+        <field name="name">Demo Inspector</field>
+    </record>
+    <record id="demo_inspection_equipment" model="maintenance.equipment">
+        <field name="name">Demo Compressor</field>
+        <field name="serial_no">CMP-001</field>
+    </record>
+    <record id="demo_equipment_inspection_1" model="equipment.inspection.log">
+        <field name="equipment_id" ref="demo_inspection_equipment"/>
+        <field name="inspector_id" ref="demo_inspection_employee"/>
+        <field name="inspection_date" eval="(DateTime.today() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="condition">good</field>
+        <field name="findings">No issues observed during routine check.</field>
+        <field name="state">done</field>
+    </record>
+    <record id="demo_equipment_inspection_2" model="equipment.inspection.log">
+        <field name="equipment_id" ref="demo_inspection_equipment"/>
+        <field name="inspector_id" ref="demo_inspection_employee"/>
+        <field name="inspection_date" eval="(DateTime.today() + relativedelta(days=7)).strftime('%Y-%m-%d')"/>
+        <field name="condition">fair</field>
+        <field name="findings">Scheduled preventive inspection.</field>
+        <field name="state">planned</field>
+    </record>
+</odoo>

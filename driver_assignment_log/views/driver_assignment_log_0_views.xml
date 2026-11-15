@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_driver_assignment_log_list" model="ir.ui.view">
+        <field name="name">driver.assignment.log.list</field>
+        <field name="model">driver.assignment.log</field>
+        <field name="arch" type="xml">
+            <list string="Driver Assignments" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="vehicle_id"/>
+                <field name="employee_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="reason"/>
+                <field name="state" widget="badge"/>
+                <field name="company_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_driver_assignment_log_form" model="ir.ui.view">
+        <field name="name">driver.assignment.log.form</field>
+        <field name="model">driver.assignment.log</field>
+        <field name="arch" type="xml">
+            <form string="Driver Assignments">
+                <header>
+                    <button name="action_end" type="object" string="End Assignment" class="btn-primary" invisible="state != 'active'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state == 'cancelled'"/>
+                    <button name="action_reactivate" type="object" string="Reactivate" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="active,ended,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Assignment">
+    <field name="name"/>
+    <field name="vehicle_id"/>
+    <field name="employee_id"/>
+    <field name="date_start"/>
+    <field name="date_end"/>
+    <field name="reason"/>
+    <field name="company_id"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Details" name="note">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_driver_assignment_log_search" model="ir.ui.view">
+        <field name="name">driver.assignment.log.search</field>
+        <field name="model">driver.assignment.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="vehicle_id"/>
+                <field name="employee_id"/>
+                <field name="reason"/>
+                <filter name="active" string="Active" domain="[('state','=','active')]"/>
+                <filter name="ended" string="Ended" domain="[('state','=','ended')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_vehicle" string="Vehicle" context="{'group_by': 'vehicle_id'}"/>
+                <filter name="group_driver" string="Driver" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_driver_assignment_log" model="ir.actions.act_window">
+        <field name="name">Driver Assignments</field>
+        <field name="res_model">driver.assignment.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Record and track vehicle driver assignments.</p>
+        </field>
+    </record>
+
+</odoo>
