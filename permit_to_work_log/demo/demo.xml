@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_ptw_partner" model="res.partner">
+        <field name="name">Demo Contractor Ltd</field>
+        <field name="is_company" eval="True"/>
+    </record>
+    <record id="demo_ptw_1" model="permit.to.work.log">
+        <field name="name">PTW-DEMO-001</field>
+        <field name="permit_type">hot_work</field>
+        <field name="location">Warehouse - Bay 3</field>
+        <field name="contractor_id" ref="demo_ptw_partner"/>
+        <field name="description">Welding repair of loading dock rail.</field>
+        <field name="safety_measures">Fire watch, extinguisher on site, area cleared.</field>
+        <field name="valid_from" eval="(DateTime.now()).strftime('%Y-%m-%d')"/>
+        <field name="valid_to" eval="(DateTime.now() + relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+        <field name="state">active</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_ptw_2" model="permit.to.work.log">
+        <field name="name">PTW-DEMO-002</field>
+        <field name="permit_type">work_at_height</field>
+        <field name="location">Main Building - Roof</field>
+        <field name="contractor_id" ref="demo_ptw_partner"/>
+        <field name="description">Inspection of rooftop ventilation units.</field>
+        <field name="safety_measures">Harness, guard rails, rescue plan.</field>
+        <field name="valid_from" eval="(DateTime.now() + relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+        <field name="valid_to" eval="(DateTime.now() + relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="state">requested</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
