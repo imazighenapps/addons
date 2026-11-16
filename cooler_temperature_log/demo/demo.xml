@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_ctl_employee" model="hr.employee">
+        <field name="name">Demo Cold Store Reader</field>
+    </record>
+    <record id="demo_ctl_1" model="cooler.temperature.log">
+        <field name="name">CTL-DEMO-001</field>
+        <field name="cooler_name">Cold Room 1</field>
+        <field name="location">Kitchen - Back Store</field>
+        <field name="reading_date" eval="(DateTime.now() - relativedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="temperature_c">3.2</field>
+        <field name="target_min_c">0.0</field>
+        <field name="target_max_c">4.0</field>
+        <field name="reader_id" ref="demo_ctl_employee"/>
+        <field name="state">recorded</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_ctl_2" model="cooler.temperature.log">
+        <field name="name">CTL-DEMO-002</field>
+        <field name="cooler_name">Display Fridge 2</field>
+        <field name="location">Shop - Front</field>
+        <field name="reading_date" eval="(DateTime.now() - relativedelta(hours=6)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="temperature_c">7.5</field>
+        <field name="target_min_c">0.0</field>
+        <field name="target_max_c">4.0</field>
+        <field name="reader_id" ref="demo_ctl_employee"/>
+        <field name="notes">Door seal worn; technician called.</field>
+        <field name="state">breach</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

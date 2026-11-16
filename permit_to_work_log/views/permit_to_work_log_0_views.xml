@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_permit_to_work_log_list" model="ir.ui.view">
+        <field name="name">permit.to.work.log.list</field>
+        <field name="model">permit.to.work.log</field>
+        <field name="arch" type="xml">
+            <list string="Permits to Work" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="permit_type"/>
+                <field name="location"/>
+                <field name="contractor_id"/>
+                <field name="valid_from"/>
+                <field name="valid_to"/>
+                <field name="state" widget="badge"/>
+                <field name="approver_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_permit_to_work_log_form" model="ir.ui.view">
+        <field name="name">permit.to.work.log.form</field>
+        <field name="model">permit.to.work.log</field>
+        <field name="arch" type="xml">
+            <form string="Permits to Work">
+                <header>
+                    <button name="action_submit" type="object" string="Request" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'requested'"/>
+                    <button name="action_activate" type="object" string="Activate" class="btn-primary" invisible="state != 'approved'"/>
+                    <button name="action_close" type="object" string="Close" class="btn-primary" invisible="state != 'active'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state in ('closed', 'cancelled')"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,requested,approved,active,closed,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Permit">
+    <field name="name"/>
+    <field name="permit_type"/>
+    <field name="location"/>
+    <field name="contractor_id"/>
+    <field name="requester_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Validity">
+    <field name="valid_from"/>
+    <field name="valid_to"/>
+    <field name="approver_id"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Work Description" name="description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Safety Measures" name="safetymeasures">
+                            <field name="safety_measures"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_permit_to_work_log_search" model="ir.ui.view">
+        <field name="name">permit.to.work.log.search</field>
+        <field name="model">permit.to.work.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="location"/>
+                <field name="contractor_id"/>
+                <field name="requester_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="requested" string="Requested" domain="[('state','=','requested')]"/>
+                <filter name="approved" string="Approved" domain="[('state','=','approved')]"/>
+                <filter name="active" string="Active" domain="[('state','=','active')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_permit_type" string="Permit Type" context="{'group_by': 'permit_type'}"/>
+                <filter name="group_location" string="Location" context="{'group_by': 'location'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_permit_to_work_log_graph" model="ir.ui.view">
+        <field name="name">permit.to.work.log.graph</field>
+        <field name="model">permit.to.work.log</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_permit_to_work_log" model="ir.actions.act_window">
+        <field name="name">Permits to Work</field>
+        <field name="res_model">permit.to.work.log</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Track high-risk work permits and their validity.</p>
+        </field>
+    </record>
+
+</odoo>

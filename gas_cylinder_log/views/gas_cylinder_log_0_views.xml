@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_gas_cylinder_log_list" model="ir.ui.view">
+        <field name="name">gas.cylinder.log.list</field>
+        <field name="model">gas.cylinder.log</field>
+        <field name="arch" type="xml">
+            <list string="Gas Cylinders" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="cylinder_ref"/>
+                <field name="gas_type"/>
+                <field name="capacity_l"/>
+                <field name="supplier_id"/>
+                <field name="next_test_date"/>
+                <field name="state" widget="badge"/>
+                <field name="location"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_gas_cylinder_log_form" model="ir.ui.view">
+        <field name="name">gas.cylinder.log.form</field>
+        <field name="model">gas.cylinder.log</field>
+        <field name="arch" type="xml">
+            <form string="Gas Cylinders">
+                <header>
+                    <button name="action_use" type="object" string="Put In Use" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_empty" type="object" string="Mark Empty" class="btn-secondary" invisible="state != 'in_use'"/>
+                    <button name="action_return" type="object" string="Return to Supplier" class="btn-primary" invisible="state not in ('in_use', 'empty')"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state in ('returned', 'cancelled')"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_use,empty,returned,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Cylinder">
+    <field name="name"/>
+    <field name="cylinder_ref"/>
+    <field name="gas_type"/>
+    <field name="capacity_l"/>
+    <field name="supplier_id"/>
+    <field name="location"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Safety">
+    <field name="last_test_date"/>
+    <field name="next_test_date"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_gas_cylinder_log_search" model="ir.ui.view">
+        <field name="name">gas.cylinder.log.search</field>
+        <field name="model">gas.cylinder.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="cylinder_ref"/>
+                <field name="supplier_id"/>
+                <field name="location"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="in_use" string="In Use" domain="[('state','=','in_use')]"/>
+                <filter name="empty" string="Empty" domain="[('state','=','empty')]"/>
+                <filter name="returned" string="Returned" domain="[('state','=','returned')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_gas_type" string="Gas Type" context="{'group_by': 'gas_type'}"/>
+                <filter name="group_supplier" string="Supplier" context="{'group_by': 'supplier_id'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_gas_cylinder_log_graph" model="ir.ui.view">
+        <field name="name">gas.cylinder.log.graph</field>
+        <field name="model">gas.cylinder.log</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_gas_cylinder_log" model="ir.actions.act_window">
+        <field name="name">Gas Cylinders</field>
+        <field name="res_model">gas.cylinder.log</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Track gas cylinders, suppliers and test dates.</p>
+        </field>
+    </record>
+
+</odoo>
