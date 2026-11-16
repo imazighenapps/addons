@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_ftl_employee" model="hr.employee">
+        <field name="name">Demo Tire Technician</field>
+    </record>
+    <record id="demo_ftl_1" model="fleet.tire.log">
+        <field name="name">FTL-DEMO-001</field>
+        <field name="vehicle_plate">TR-101-AB</field>
+        <field name="tire_brand">Michelin</field>
+        <field name="position">fl</field>
+        <field name="event_type">rotation</field>
+        <field name="event_date" eval="(DateTime.now() - relativedelta(days=20)).strftime('%Y-%m-%d')"/>
+        <field name="tread_depth_mm">6.5</field>
+        <field name="odometer">47900</field>
+        <field name="technician_id" ref="demo_ftl_employee"/>
+        <field name="state">recorded</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_ftl_2" model="fleet.tire.log">
+        <field name="name">FTL-DEMO-002</field>
+        <field name="vehicle_plate">TR-102-CD</field>
+        <field name="tire_brand">Continental</field>
+        <field name="position">rr</field>
+        <field name="event_type">replacement</field>
+        <field name="event_date" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="tread_depth_mm">9.0</field>
+        <field name="odometer">96100</field>
+        <field name="unit_cost">165.0</field>
+        <field name="technician_id" ref="demo_ftl_employee"/>
+        <field name="notes">Replaced after tread reached 1.8 mm.</field>
+        <field name="state">recorded</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

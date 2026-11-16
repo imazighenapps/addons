@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_adl_1" model="asset.disposal.log">
+        <field name="name">ADL-DEMO-001</field>
+        <field name="asset_ref">IT-LAP-014</field>
+        <field name="asset_name">Laptop Dell Latitude 5410</field>
+        <field name="asset_category">it</field>
+        <field name="disposal_method">scrap</field>
+        <field name="disposal_date" eval="(DateTime.now() - relativedelta(days=15)).strftime('%Y-%m-%d')"/>
+        <field name="acquisition_value">1200.0</field>
+        <field name="residual_value">0.0</field>
+        <field name="reason">Motherboard failure, repair not economical.</field>
+        <field name="state">disposed</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_adl_2" model="asset.disposal.log">
+        <field name="name">ADL-DEMO-002</field>
+        <field name="asset_ref">VEH-VAN-003</field>
+        <field name="asset_name">Renault Kangoo - Van 3</field>
+        <field name="asset_category">vehicle</field>
+        <field name="disposal_method">sale</field>
+        <field name="disposal_date" eval="(DateTime.now() + relativedelta(days=20)).strftime('%Y-%m-%d')"/>
+        <field name="acquisition_value">18500.0</field>
+        <field name="residual_value">4200.0</field>
+        <field name="reason">Fleet renewal; replacement van already ordered.</field>
+        <field name="state">submitted</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
