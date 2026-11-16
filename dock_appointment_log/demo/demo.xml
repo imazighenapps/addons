@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_dal_1" model="dock.appointment.log">
+        <field name="name">DAL-DEMO-001</field>
+        <field name="appointment_date" eval="(DateTime.now() + relativedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="dock_name">Dock A</field>
+        <field name="direction">in</field>
+        <field name="carrier_name">Fast Freight</field>
+        <field name="vehicle_plate">AB-123-CD</field>
+        <field name="reference">PO-2026-0042</field>
+        <field name="pallet_count">12</field>
+        <field name="state">confirmed</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_dal_2" model="dock.appointment.log">
+        <field name="name">DAL-DEMO-002</field>
+        <field name="appointment_date" eval="(DateTime.now() + relativedelta(days=2)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="dock_name">Dock B</field>
+        <field name="direction">out</field>
+        <field name="carrier_name">Regional Transport</field>
+        <field name="vehicle_plate">EF-456-GH</field>
+        <field name="reference">SO-2026-0117</field>
+        <field name="pallet_count">6</field>
+        <field name="state">draft</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

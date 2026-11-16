@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_dock_appointment_log_list" model="ir.ui.view">
+        <field name="name">dock.appointment.log.list</field>
+        <field name="model">dock.appointment.log</field>
+        <field name="arch" type="xml">
+            <list string="Dock Appointments" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="appointment_date"/>
+                <field name="dock_name"/>
+                <field name="direction"/>
+                <field name="carrier_name"/>
+                <field name="vehicle_plate"/>
+                <field name="pallet_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_dock_appointment_log_form" model="ir.ui.view">
+        <field name="name">dock.appointment.log.form</field>
+        <field name="model">dock.appointment.log</field>
+        <field name="arch" type="xml">
+            <form string="Dock Appointments">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_done" type="object" string="Mark Done" class="btn-primary" invisible="state != 'confirmed'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state in ('done', 'cancelled')"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Appointment">
+    <field name="name"/>
+    <field name="appointment_date"/>
+    <field name="dock_name"/>
+    <field name="direction"/>
+    <field name="user_id"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Carrier">
+    <field name="carrier_name"/>
+    <field name="vehicle_plate"/>
+    <field name="reference"/>
+    <field name="pallet_count"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_dock_appointment_log_search" model="ir.ui.view">
+        <field name="name">dock.appointment.log.search</field>
+        <field name="model">dock.appointment.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="dock_name"/>
+                <field name="carrier_name"/>
+                <field name="vehicle_plate"/>
+                <field name="reference"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="confirmed" string="Confirmed" domain="[('state','=','confirmed')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_dock" string="Dock" context="{'group_by': 'dock_name'}"/>
+                <filter name="group_direction" string="Direction" context="{'group_by': 'direction'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_dock_appointment_log_graph" model="ir.ui.view">
+        <field name="name">dock.appointment.log.graph</field>
+        <field name="model">dock.appointment.log</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_dock_appointment_log" model="ir.actions.act_window">
+        <field name="name">Dock Appointments</field>
+        <field name="res_model">dock.appointment.log</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Schedule and track dock appointments.</p>
+        </field>
+    </record>
+
+</odoo>
