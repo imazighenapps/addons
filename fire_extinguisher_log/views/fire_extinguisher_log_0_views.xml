@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_fire_extinguisher_log_list" model="ir.ui.view">
+        <field name="name">fire.extinguisher.log.list</field>
+        <field name="model">fire.extinguisher.log</field>
+        <field name="arch" type="xml">
+            <list string="Extinguishers" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="extinguisher_ref"/>
+                <field name="location"/>
+                <field name="extinguisher_type"/>
+                <field name="last_inspection_date"/>
+                <field name="next_inspection_date"/>
+                <field name="state" widget="badge"/>
+                <field name="inspector_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fire_extinguisher_log_form" model="ir.ui.view">
+        <field name="name">fire.extinguisher.log.form</field>
+        <field name="model">fire.extinguisher.log</field>
+        <field name="arch" type="xml">
+            <form string="Extinguishers">
+                <header>
+                    <button name="action_validate" type="object" string="Validate" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_mark_overdue" type="object" string="Mark Overdue" class="btn-secondary" invisible="state != 'validated'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state == 'cancelled'"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,validated,overdue,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Extinguisher">
+    <field name="name"/>
+    <field name="extinguisher_ref"/>
+    <field name="location"/>
+    <field name="extinguisher_type"/>
+    <field name="capacity_kg"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Inspection">
+    <field name="last_inspection_date"/>
+    <field name="next_inspection_date"/>
+    <field name="inspector_id"/>
+    <field name="pressure_ok"/>
+    <field name="seal_ok"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fire_extinguisher_log_search" model="ir.ui.view">
+        <field name="name">fire.extinguisher.log.search</field>
+        <field name="model">fire.extinguisher.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="extinguisher_ref"/>
+                <field name="location"/>
+                <field name="inspector_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="validated" string="Validated" domain="[('state','=','validated')]"/>
+                <filter name="overdue" string="Overdue" domain="[('state','=','overdue')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_location" string="Location" context="{'group_by': 'location'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_fire_extinguisher_log_graph" model="ir.ui.view">
+        <field name="name">fire.extinguisher.log.graph</field>
+        <field name="model">fire.extinguisher.log</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_fire_extinguisher_log" model="ir.actions.act_window">
+        <field name="name">Extinguishers</field>
+        <field name="res_model">fire.extinguisher.log</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Track fire extinguisher inspections and due dates.</p>
+        </field>
+    </record>
+
+</odoo>
