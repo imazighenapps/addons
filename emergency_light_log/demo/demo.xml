@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_ell_employee" model="hr.employee">
+        <field name="name">Demo Lighting Tester</field>
+    </record>
+    <record id="demo_ell_1" model="emergency.light.log">
+        <field name="name">ELL-DEMO-001</field>
+        <field name="light_ref">LGT-A-001</field>
+        <field name="location">Main Building - Stairwell A</field>
+        <field name="light_type">non_maintained</field>
+        <field name="test_date" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="next_test_date" eval="(DateTime.now() + relativedelta(days=25)).strftime('%Y-%m-%d')"/>
+        <field name="duration_minutes">5</field>
+        <field name="battery_ok" eval="True"/>
+        <field name="lamp_ok" eval="True"/>
+        <field name="tester_id" ref="demo_ell_employee"/>
+        <field name="state">tested</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_ell_2" model="emergency.light.log">
+        <field name="name">ELL-DEMO-002</field>
+        <field name="light_ref">LGT-B-004</field>
+        <field name="location">Warehouse - Exit B</field>
+        <field name="light_type">exit_sign</field>
+        <field name="test_date" eval="(DateTime.now() - relativedelta(days=20)).strftime('%Y-%m-%d')"/>
+        <field name="next_test_date" eval="(DateTime.now() + relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+        <field name="duration_minutes">0</field>
+        <field name="battery_ok" eval="False"/>
+        <field name="lamp_ok" eval="True"/>
+        <field name="tester_id" ref="demo_ell_employee"/>
+        <field name="notes">Battery does not hold charge; replacement requested.</field>
+        <field name="state">failed</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
