@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_rpl_partner" model="res.partner">
+        <field name="name">Demo Packaging Customer</field>
+        <field name="is_company" eval="True"/>
+    </record>
+    <record id="demo_rpl_1" model="returnable.package.log">
+        <field name="name">RPL-DEMO-001</field>
+        <field name="partner_id" ref="demo_rpl_partner"/>
+        <field name="package_type">pallet</field>
+        <field name="quantity">20</field>
+        <field name="movement_type">out</field>
+        <field name="movement_date" eval="(DateTime.now() - relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+        <field name="due_date" eval="(DateTime.now() + relativedelta(days=20)).strftime('%Y-%m-%d')"/>
+        <field name="deposit_amount">300.0</field>
+        <field name="state">sent</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_rpl_2" model="returnable.package.log">
+        <field name="name">RPL-DEMO-002</field>
+        <field name="partner_id" ref="demo_rpl_partner"/>
+        <field name="package_type">crate</field>
+        <field name="quantity">8</field>
+        <field name="movement_type">in</field>
+        <field name="movement_date" eval="(DateTime.now() - relativedelta(days=40)).strftime('%Y-%m-%d')"/>
+        <field name="due_date" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="return_date" eval="(DateTime.now() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+        <field name="deposit_amount">120.0</field>
+        <field name="state">returned</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_fel_employee" model="hr.employee">
+        <field name="name">Demo Fire Inspector</field>
+    </record>
+    <record id="demo_fel_1" model="fire.extinguisher.log">
+        <field name="name">FEL-DEMO-001</field>
+        <field name="extinguisher_ref">EXT-A-001</field>
+        <field name="location">Main Building - Ground Floor</field>
+        <field name="extinguisher_type">powder</field>
+        <field name="capacity_kg">6.0</field>
+        <field name="last_inspection_date" eval="(DateTime.now() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+        <field name="next_inspection_date" eval="(DateTime.now() + relativedelta(months=11)).strftime('%Y-%m-%d')"/>
+        <field name="pressure_ok" eval="True"/>
+        <field name="seal_ok" eval="True"/>
+        <field name="inspector_id" ref="demo_fel_employee"/>
+        <field name="state">validated</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_fel_2" model="fire.extinguisher.log">
+        <field name="name">FEL-DEMO-002</field>
+        <field name="extinguisher_ref">EXT-B-004</field>
+        <field name="location">Warehouse - Loading Dock</field>
+        <field name="extinguisher_type">co2</field>
+        <field name="capacity_kg">5.0</field>
+        <field name="last_inspection_date" eval="(DateTime.now() - relativedelta(years=1)).strftime('%Y-%m-%d')"/>
+        <field name="next_inspection_date" eval="(DateTime.now() - relativedelta(days=15)).strftime('%Y-%m-%d')"/>
+        <field name="pressure_ok" eval="False"/>
+        <field name="seal_ok" eval="True"/>
+        <field name="notes">Pressure below green zone; service booked.</field>
+        <field name="state">overdue</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
