@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_wtl_employee" model="hr.employee">
+        <field name="name">Demo Water Technician</field>
+    </record>
+    <record id="demo_wtl_1" model="water.temperature.log">
+        <field name="name">WTL-DEMO-001</field>
+        <field name="point_name">Kitchen - Hot Tap</field>
+        <field name="point_type">tap</field>
+        <field name="reading_date" eval="(DateTime.now() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+        <field name="temperature_c">56.0</field>
+        <field name="target_min_c">50.0</field>
+        <field name="target_max_c">65.0</field>
+        <field name="reader_id" ref="demo_wtl_employee"/>
+        <field name="state">recorded</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_wtl_2" model="water.temperature.log">
+        <field name="name">WTL-DEMO-002</field>
+        <field name="point_name">Staff Shower - Level 1</field>
+        <field name="point_type">shower</field>
+        <field name="reading_date" eval="(DateTime.now() - relativedelta(days=1)).strftime('%Y-%m-%d')"/>
+        <field name="temperature_c">43.0</field>
+        <field name="target_min_c">50.0</field>
+        <field name="target_max_c">65.0</field>
+        <field name="reader_id" ref="demo_wtl_employee"/>
+        <field name="notes">Below target; mixing valve adjustment requested.</field>
+        <field name="state">alert</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
