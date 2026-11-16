@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_returnable_package_log_user,returnable.package.log User,returnable.package.log,returnable_package_log.group_returnablepa_user,crud,
+access_returnable_package_log_manager,returnable.package.log Manager,returnable.package.log,returnable_package_log.group_returnablepa_manager,crud,
+rule_returnable_package_log_company,returnable.package.log: own company only,returnable.package.log,,crud,"[('company_id', 'in', company_ids + [False])]"

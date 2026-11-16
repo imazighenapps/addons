@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_fire_extinguisher_log_user,fire.extinguisher.log User,fire.extinguisher.log,fire_extinguisher_log.group_fireextingui_user,crud,
+access_fire_extinguisher_log_manager,fire.extinguisher.log Manager,fire.extinguisher.log,fire_extinguisher_log.group_fireextingui_manager,crud,
+rule_fire_extinguisher_log_company,fire.extinguisher.log: own company only,fire.extinguisher.log,,crud,"[('company_id', 'in', company_ids + [False])]"
