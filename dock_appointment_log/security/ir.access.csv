@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_dock_appointment_log_user,dock.appointment.log User,dock.appointment.log,dock_appointment_log.group_dockappointm_user,crud,
+access_dock_appointment_log_manager,dock.appointment.log Manager,dock.appointment.log,dock_appointment_log.group_dockappointm_manager,crud,
+rule_dock_appointment_log_company,dock.appointment.log: own company only,dock.appointment.log,,crud,"[('company_id', 'in', company_ids + [False])]"

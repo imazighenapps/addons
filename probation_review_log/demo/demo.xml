@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_prl_employee" model="hr.employee">
+        <field name="name">Demo Probation Employee</field>
+    </record>
+    <record id="demo_prl_reviewer" model="hr.employee">
+        <field name="name">Demo Probation Reviewer</field>
+    </record>
+    <record id="demo_prl_1" model="probation.review.log">
+        <field name="name">PRL-DEMO-001</field>
+        <field name="employee_id" ref="demo_prl_employee"/>
+        <field name="reviewer_id" ref="demo_prl_reviewer"/>
+        <field name="date_start" eval="(DateTime.now() - relativedelta(months=3)).strftime('%Y-%m-%d')"/>
+        <field name="date_end" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="review_date" eval="(DateTime.now() - relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+        <field name="score">82</field>
+        <field name="outcome">passed</field>
+        <field name="notes">Confirmed after a successful probation period.</field>
+        <field name="state">closed</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_prl_2" model="probation.review.log">
+        <field name="name">PRL-DEMO-002</field>
+        <field name="employee_id" ref="demo_prl_employee"/>
+        <field name="reviewer_id" ref="demo_prl_reviewer"/>
+        <field name="date_start" eval="(DateTime.now() - relativedelta(months=2)).strftime('%Y-%m-%d')"/>
+        <field name="date_end" eval="(DateTime.now() + relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+        <field name="review_date" eval="(DateTime.now() + relativedelta(days=14)).strftime('%Y-%m-%d')"/>
+        <field name="score">65</field>
+        <field name="outcome">extended</field>
+        <field name="notes">Probation extended by one month for follow-up.</field>
+        <field name="state">submitted</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
