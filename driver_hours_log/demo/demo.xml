@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_dhl_employee" model="hr.employee">
+        <field name="name">Demo Truck Driver</field>
+    </record>
+    <record id="demo_dhl_1" model="driver.hours.log">
+        <field name="name">DHL-DEMO-001</field>
+        <field name="employee_id" ref="demo_dhl_employee"/>
+        <field name="vehicle_plate">TR-101-AB</field>
+        <field name="duty_date" eval="(DateTime.now() - relativedelta(days=1)).strftime('%Y-%m-%d')"/>
+        <field name="driving_minutes">480</field>
+        <field name="break_minutes">45</field>
+        <field name="limit_minutes">540</field>
+        <field name="state">validated</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_dhl_2" model="driver.hours.log">
+        <field name="name">DHL-DEMO-002</field>
+        <field name="employee_id" ref="demo_dhl_employee"/>
+        <field name="vehicle_plate">TR-102-CD</field>
+        <field name="duty_date" eval="(DateTime.now() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+        <field name="driving_minutes">570</field>
+        <field name="break_minutes">30</field>
+        <field name="limit_minutes">540</field>
+        <field name="notes">Daily limit exceeded; rest day scheduled.</field>
+        <field name="state">alert</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

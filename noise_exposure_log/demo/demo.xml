@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_nel_employee" model="hr.employee">
+        <field name="name">Demo Noise Operator</field>
+    </record>
+    <record id="demo_nel_1" model="noise.exposure.log">
+        <field name="name">NEL-DEMO-001</field>
+        <field name="location">Assembly Workshop</field>
+        <field name="employee_id" ref="demo_nel_employee"/>
+        <field name="measurement_date" eval="(DateTime.now() - relativedelta(days=7)).strftime('%Y-%m-%d')"/>
+        <field name="measured_db">78.0</field>
+        <field name="limit_db">85.0</field>
+        <field name="exposure_minutes">480</field>
+        <field name="state">recorded</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_nel_2" model="noise.exposure.log">
+        <field name="name">NEL-DEMO-002</field>
+        <field name="location">Packaging Line</field>
+        <field name="employee_id" ref="demo_nel_employee"/>
+        <field name="measurement_date" eval="(DateTime.now() - relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+        <field name="measured_db">92.0</field>
+        <field name="limit_db">85.0</field>
+        <field name="exposure_minutes">420</field>
+        <field name="notes">Hearing protection required; enclosure quoted.</field>
+        <field name="state">action_required</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

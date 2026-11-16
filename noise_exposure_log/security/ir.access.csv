@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_noise_exposure_log_user,noise.exposure.log User,noise.exposure.log,noise_exposure_log.group_noiseexposur_user,crud,
+access_noise_exposure_log_manager,noise.exposure.log Manager,noise.exposure.log,noise_exposure_log.group_noiseexposur_manager,crud,
+rule_noise_exposure_log_company,noise.exposure.log: own company only,noise.exposure.log,,crud,"[('company_id', 'in', company_ids + [False])]"

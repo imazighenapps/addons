@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_driver_hours_log_user,driver.hours.log User,driver.hours.log,driver_hours_log.group_driverhoursl_user,crud,
+access_driver_hours_log_manager,driver.hours.log Manager,driver.hours.log,driver_hours_log.group_driverhoursl_manager,crud,
+rule_driver_hours_log_company,driver.hours.log: own company only,driver.hours.log,,crud,"[('company_id', 'in', company_ids + [False])]"
