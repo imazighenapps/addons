@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_emergency_light_log_user,emergency.light.log User,emergency.light.log,emergency_light_log.group_emergencylig_user,crud,
+access_emergency_light_log_manager,emergency.light.log Manager,emergency.light.log,emergency_light_log.group_emergencylig_manager,crud,
+rule_emergency_light_log_company,emergency.light.log: own company only,emergency.light.log,,crud,"[('company_id', 'in', company_ids + [False])]"
