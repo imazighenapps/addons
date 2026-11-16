@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_trl_employee" model="hr.employee">
+        <field name="name">Demo Traveler</field>
+    </record>
+    <record id="demo_trl_1" model="travel.request.log">
+        <field name="name">TRL-DEMO-001</field>
+        <field name="employee_id" ref="demo_trl_employee"/>
+        <field name="destination">Paris</field>
+        <field name="date_start" eval="(DateTime.now() - relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+        <field name="date_end" eval="(DateTime.now() - relativedelta(days=8)).strftime('%Y-%m-%d')"/>
+        <field name="purpose">Client meetings and site visit.</field>
+        <field name="estimated_cost">450.0</field>
+        <field name="state">completed</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_trl_2" model="travel.request.log">
+        <field name="name">TRL-DEMO-002</field>
+        <field name="employee_id" ref="demo_trl_employee"/>
+        <field name="destination">Lyon</field>
+        <field name="date_start" eval="(DateTime.now() + relativedelta(days=7)).strftime('%Y-%m-%d')"/>
+        <field name="date_end" eval="(DateTime.now() + relativedelta(days=9)).strftime('%Y-%m-%d')"/>
+        <field name="purpose">Supplier meeting.</field>
+        <field name="estimated_cost">300.0</field>
+        <field name="state">draft</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

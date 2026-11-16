@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_equipment_checkout_log_user,equipment.checkout.log User,equipment.checkout.log,equipment_checkout_log.group_equipmentche_user,crud,
+access_equipment_checkout_log_manager,equipment.checkout.log Manager,equipment.checkout.log,equipment_checkout_log.group_equipmentche_manager,crud,
+rule_equipment_checkout_log_company,equipment.checkout.log: own company only,equipment.checkout.log,,crud,"[('company_id', 'in', company_ids + [False])]"

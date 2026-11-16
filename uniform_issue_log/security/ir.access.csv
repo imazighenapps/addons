@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_uniform_issue_log_user,uniform.issue.log User,uniform.issue.log,uniform_issue_log.group_uniformissue_user,crud,
+access_uniform_issue_log_manager,uniform.issue.log Manager,uniform.issue.log,uniform_issue_log.group_uniformissue_manager,crud,
+rule_uniform_issue_log_company,uniform.issue.log: own company only,uniform.issue.log,,crud,"[('company_id', 'in', company_ids + [False])]"

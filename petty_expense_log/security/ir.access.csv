@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_petty_expense_log_user,petty.expense.log User,petty.expense.log,petty_expense_log.group_pettyexpense_user,crud,
+access_petty_expense_log_manager,petty.expense.log Manager,petty.expense.log,petty_expense_log.group_pettyexpense_manager,crud,
+rule_petty_expense_log_company,petty.expense.log: own company only,petty.expense.log,,crud,"[('company_id', 'in', company_ids + [False])]"

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_ecl_equipment" model="maintenance.equipment">
+        <field name="name">Demo Power Drill</field>
+        <field name="serial_no">DRL-DEMO-01</field>
+    </record>
+    <record id="demo_ecl_employee" model="hr.employee">
+        <field name="name">Demo Borrower</field>
+    </record>
+    <record id="demo_ecl_1" model="equipment.checkout.log">
+        <field name="name">ECL-DEMO-001</field>
+        <field name="equipment_id" ref="demo_ecl_equipment"/>
+        <field name="employee_id" ref="demo_ecl_employee"/>
+        <field name="checkout_date" eval="(DateTime.now() - relativedelta(days=4)).strftime('%Y-%m-%d')"/>
+        <field name="expected_return_date" eval="(DateTime.now() + relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+        <field name="state">out</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_ecl_2" model="equipment.checkout.log">
+        <field name="name">ECL-DEMO-002</field>
+        <field name="equipment_id" ref="demo_ecl_equipment"/>
+        <field name="employee_id" ref="demo_ecl_employee"/>
+        <field name="checkout_date" eval="(DateTime.now() - relativedelta(days=20)).strftime('%Y-%m-%d')"/>
+        <field name="return_date" eval="(DateTime.now() - relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+        <field name="condition_note">Returned in good condition.</field>
+        <field name="state">returned</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

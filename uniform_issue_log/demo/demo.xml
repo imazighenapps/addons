@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_uil_employee" model="hr.employee">
+        <field name="name">Demo Uniform Holder</field>
+    </record>
+    <record id="demo_uil_1" model="uniform.issue.log">
+        <field name="name">UIL-DEMO-001</field>
+        <field name="employee_id" ref="demo_uil_employee"/>
+        <field name="item_name">Work Jacket</field>
+        <field name="size">M</field>
+        <field name="quantity">1</field>
+        <field name="issue_date" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="expected_return_date" eval="(DateTime.now() + relativedelta(months=6)).strftime('%Y-%m-%d')"/>
+        <field name="state">issued</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_uil_2" model="uniform.issue.log">
+        <field name="name">UIL-DEMO-002</field>
+        <field name="employee_id" ref="demo_uil_employee"/>
+        <field name="item_name">Safety Boots</field>
+        <field name="size">42</field>
+        <field name="quantity">1</field>
+        <field name="issue_date" eval="(DateTime.now() - relativedelta(months=6)).strftime('%Y-%m-%d')"/>
+        <field name="return_date" eval="(DateTime.now() - relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+        <field name="condition_note">Returned, replacement issued separately.</field>
+        <field name="state">returned</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
