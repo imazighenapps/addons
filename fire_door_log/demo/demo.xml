@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_fdl_employee" model="hr.employee">
+        <field name="name">Demo Fire Door Inspector</field>
+    </record>
+    <record id="demo_fdl_1" model="fire.door.log">
+        <field name="name">FDL-DEMO-001</field>
+        <field name="door_ref">FD-A-001</field>
+        <field name="location">Main Building - Stairwell A</field>
+        <field name="door_type">double</field>
+        <field name="inspection_date" eval="(DateTime.now() - relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+        <field name="next_inspection_date" eval="(DateTime.now() + relativedelta(months=5)).strftime('%Y-%m-%d')"/>
+        <field name="hinge_ok" eval="True"/>
+        <field name="seal_ok" eval="True"/>
+        <field name="closer_ok" eval="True"/>
+        <field name="gap_ok" eval="True"/>
+        <field name="inspector_id" ref="demo_fdl_employee"/>
+        <field name="state">passed</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_fdl_2" model="fire.door.log">
+        <field name="name">FDL-DEMO-002</field>
+        <field name="door_ref">FD-B-004</field>
+        <field name="location">Warehouse - Corridor B</field>
+        <field name="door_type">single</field>
+        <field name="inspection_date" eval="(DateTime.now() - relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+        <field name="next_inspection_date" eval="(DateTime.now() + relativedelta(months=6)).strftime('%Y-%m-%d')"/>
+        <field name="hinge_ok" eval="True"/>
+        <field name="seal_ok" eval="False"/>
+        <field name="closer_ok" eval="True"/>
+        <field name="gap_ok" eval="False"/>
+        <field name="inspector_id" ref="demo_fdl_employee"/>
+        <field name="notes">Seal damaged and gap above threshold; repair requested.</field>
+        <field name="state">defect</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

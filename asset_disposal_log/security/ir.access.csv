@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_asset_disposal_log_user,asset.disposal.log User,asset.disposal.log,asset_disposal_log.group_assetdisposa_user,crud,
+access_asset_disposal_log_manager,asset.disposal.log Manager,asset.disposal.log,asset_disposal_log.group_assetdisposa_manager,crud,
+rule_asset_disposal_log_company,asset.disposal.log: own company only,asset.disposal.log,,crud,"[('company_id', 'in', company_ids + [False])]"

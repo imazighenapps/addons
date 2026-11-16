@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_fire_door_log_user,fire.door.log User,fire.door.log,fire_door_log.group_firedoorlog_user,crud,
+access_fire_door_log_manager,fire.door.log Manager,fire.door.log,fire_door_log.group_firedoorlog_manager,crud,
+rule_fire_door_log_company,fire.door.log: own company only,fire.door.log,,crud,"[('company_id', 'in', company_ids + [False])]"

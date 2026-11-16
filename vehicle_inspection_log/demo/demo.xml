@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_vil_employee" model="hr.employee">
+        <field name="name">Demo Fleet Inspector</field>
+    </record>
+    <record id="demo_vil_1" model="vehicle.inspection.log">
+        <field name="name">VIL-DEMO-001</field>
+        <field name="vehicle_plate">TR-101-AB</field>
+        <field name="vehicle_model">Ford Transit</field>
+        <field name="inspection_date" eval="(DateTime.now() - relativedelta(days=12)).strftime('%Y-%m-%d')"/>
+        <field name="odometer">48210</field>
+        <field name="brake_ok" eval="True"/>
+        <field name="tire_ok" eval="True"/>
+        <field name="light_ok" eval="True"/>
+        <field name="body_ok" eval="True"/>
+        <field name="inspector_id" ref="demo_vil_employee"/>
+        <field name="state">passed</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_vil_2" model="vehicle.inspection.log">
+        <field name="name">VIL-DEMO-002</field>
+        <field name="vehicle_plate">TR-102-CD</field>
+        <field name="vehicle_model">Renault Master</field>
+        <field name="inspection_date" eval="(DateTime.now() - relativedelta(days=4)).strftime('%Y-%m-%d')"/>
+        <field name="odometer">96340</field>
+        <field name="brake_ok" eval="False"/>
+        <field name="tire_ok" eval="True"/>
+        <field name="light_ok" eval="True"/>
+        <field name="body_ok" eval="True"/>
+        <field name="inspector_id" ref="demo_vil_employee"/>
+        <field name="notes">Front brake pads below minimum; workshop booked.</field>
+        <field name="state">defect</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

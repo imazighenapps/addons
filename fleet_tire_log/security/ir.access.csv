@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_fleet_tire_log_user,fleet.tire.log User,fleet.tire.log,fleet_tire_log.group_fleettirelog_user,crud,
+access_fleet_tire_log_manager,fleet.tire.log Manager,fleet.tire.log,fleet_tire_log.group_fleettirelog_manager,crud,
+rule_fleet_tire_log_company,fleet.tire.log: own company only,fleet.tire.log,,crud,"[('company_id', 'in', company_ids + [False])]"

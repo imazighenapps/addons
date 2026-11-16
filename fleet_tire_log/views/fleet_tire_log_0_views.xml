@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_fleet_tire_log_list" model="ir.ui.view">
+        <field name="name">fleet.tire.log.list</field>
+        <field name="model">fleet.tire.log</field>
+        <field name="arch" type="xml">
+            <list string="Fleet Tires" decoration-muted="state in ('cancelled', 'refused')" decoration-success="state in ('paid', 'done', 'approved', 'active')" decoration-warning="state in ('submitted', 'pending', 'blocked')" decoration-info="state in ('confirmed', 'sent')">
+                <field name="name"/>
+                <field name="vehicle_plate"/>
+                <field name="tire_brand"/>
+                <field name="position"/>
+                <field name="event_type"/>
+                <field name="event_date"/>
+                <field name="tread_depth_mm"/>
+                <field name="odometer"/>
+                <field name="state" widget="badge"/>
+                <field name="unit_cost"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fleet_tire_log_form" model="ir.ui.view">
+        <field name="name">fleet.tire.log.form</field>
+        <field name="model">fleet.tire.log</field>
+        <field name="arch" type="xml">
+            <form string="Fleet Tires">
+                <header>
+                    <button name="action_record" type="object" string="Record" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_mark_due" type="object" string="Mark Due" class="btn-secondary" invisible="state != 'recorded'"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state == 'cancelled'"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft" class="btn-link" invisible="state != 'cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,recorded,due,cancelled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder=""/></h1>
+                    </div>
+                    <group>
+                        <group string="Tire">
+    <field name="name"/>
+    <field name="vehicle_plate"/>
+    <field name="tire_brand"/>
+    <field name="position"/>
+    <field name="company_id"/>
+                        </group>
+                        <group string="Event">
+    <field name="event_type"/>
+    <field name="event_date"/>
+    <field name="tread_depth_mm"/>
+    <field name="odometer"/>
+    <field name="unit_cost"/>
+    <field name="technician_id"/>
+    <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fleet_tire_log_search" model="ir.ui.view">
+        <field name="name">fleet.tire.log.search</field>
+        <field name="model">fleet.tire.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="vehicle_plate"/>
+                <field name="tire_brand"/>
+                <field name="technician_id"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="recorded" string="Recorded" domain="[('state','=','recorded')]"/>
+                <filter name="due" string="Due" domain="[('state','=','due')]"/>
+                <filter name="cancelled" string="Cancelled" domain="[('state','=','cancelled')]"/>
+                <separator/>
+                <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                <filter name="group_vehicle" string="Vehicle" context="{'group_by': 'vehicle_plate'}"/>
+                <filter name="group_event_type" string="Event Type" context="{'group_by': 'event_type'}"/>
+                <filter name="group_company" string="Company" context="{'group_by': 'company_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_fleet_tire_log_graph" model="ir.ui.view">
+        <field name="name">fleet.tire.log.graph</field>
+        <field name="model">fleet.tire.log</field>
+        <field name="arch" type="xml">
+            <graph type="bar" sample="1">
+                <field name="state"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_fleet_tire_log" model="ir.actions.act_window">
+        <field name="name">Fleet Tires</field>
+        <field name="res_model">fleet.tire.log</field>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Track tire wear, rotation and replacement.</p>
+        </field>
+    </record>
+
+</odoo>
