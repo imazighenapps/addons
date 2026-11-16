@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_cooler_temperature_log_user,cooler.temperature.log User,cooler.temperature.log,cooler_temperature_log.group_coolertemper_user,crud,
+access_cooler_temperature_log_manager,cooler.temperature.log Manager,cooler.temperature.log,cooler_temperature_log.group_coolertemper_manager,crud,
+rule_cooler_temperature_log_company,cooler.temperature.log: own company only,cooler.temperature.log,,crud,"[('company_id', 'in', company_ids + [False])]"

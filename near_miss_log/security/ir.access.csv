@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_near_miss_log_user,near.miss.log User,near.miss.log,near_miss_log.group_nearmisslog_user,crud,
+access_near_miss_log_manager,near.miss.log Manager,near.miss.log,near_miss_log.group_nearmisslog_manager,crud,
+rule_near_miss_log_company,near.miss.log: own company only,near.miss.log,,crud,"[('company_id', 'in', company_ids + [False])]"

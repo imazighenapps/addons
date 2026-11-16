@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_nml_employee" model="hr.employee">
+        <field name="name">Demo Near Miss Reporter</field>
+    </record>
+    <record id="demo_nml_1" model="near.miss.log">
+        <field name="name">NML-DEMO-001</field>
+        <field name="event_date" eval="(DateTime.now() - relativedelta(days=6)).strftime('%Y-%m-%d')"/>
+        <field name="location">Warehouse - Aisle 2</field>
+        <field name="description">Pallet fell next to an operator, no injury.</field>
+        <field name="severity">high</field>
+        <field name="reporter_id" ref="demo_nml_employee"/>
+        <field name="corrective_action">Racking inspection and load strapping refresher.</field>
+        <field name="state">investigating</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_nml_2" model="near.miss.log">
+        <field name="name">NML-DEMO-002</field>
+        <field name="event_date" eval="(DateTime.now() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+        <field name="location">Main Building - Corridor</field>
+        <field name="description">Wet floor without signage after cleaning.</field>
+        <field name="severity">low</field>
+        <field name="reporter_id" ref="demo_nml_employee"/>
+        <field name="corrective_action">Signage kit placed in cleaning trolley.</field>
+        <field name="state">closed</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

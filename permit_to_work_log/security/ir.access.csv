@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_permit_to_work_log_user,permit.to.work.log User,permit.to.work.log,permit_to_work_log.group_permittowork_user,crud,
+access_permit_to_work_log_manager,permit.to.work.log Manager,permit.to.work.log,permit_to_work_log.group_permittowork_manager,crud,
+rule_permit_to_work_log_company,permit.to.work.log: own company only,permit.to.work.log,,crud,"[('company_id', 'in', company_ids + [False])]"

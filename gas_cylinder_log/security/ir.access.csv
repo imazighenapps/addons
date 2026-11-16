@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_gas_cylinder_log_user,gas.cylinder.log User,gas.cylinder.log,gas_cylinder_log.group_gascylinderl_user,crud,
+access_gas_cylinder_log_manager,gas.cylinder.log Manager,gas.cylinder.log,gas_cylinder_log.group_gascylinderl_manager,crud,
+rule_gas_cylinder_log_company,gas.cylinder.log: own company only,gas.cylinder.log,,crud,"[('company_id', 'in', company_ids + [False])]"

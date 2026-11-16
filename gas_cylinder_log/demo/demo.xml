@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="demo_gcl_partner" model="res.partner">
+        <field name="name">Demo Gas Supplier</field>
+        <field name="is_company" eval="True"/>
+    </record>
+    <record id="demo_gcl_1" model="gas.cylinder.log">
+        <field name="name">GCL-DEMO-001</field>
+        <field name="cylinder_ref">OXY-0451</field>
+        <field name="gas_type">oxygen</field>
+        <field name="capacity_l">10.0</field>
+        <field name="supplier_id" ref="demo_gcl_partner"/>
+        <field name="location">Workshop - Gas Store</field>
+        <field name="last_test_date" eval="(DateTime.now() - relativedelta(months=10)).strftime('%Y-%m-%d')"/>
+        <field name="next_test_date" eval="(DateTime.now() + relativedelta(months=50)).strftime('%Y-%m-%d')"/>
+        <field name="state">in_use</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+    <record id="demo_gcl_2" model="gas.cylinder.log">
+        <field name="name">GCL-DEMO-002</field>
+        <field name="cylinder_ref">ACE-0093</field>
+        <field name="gas_type">acetylene</field>
+        <field name="capacity_l">5.0</field>
+        <field name="supplier_id" ref="demo_gcl_partner"/>
+        <field name="location">Workshop - Gas Store</field>
+        <field name="last_test_date" eval="(DateTime.now() - relativedelta(months=58)).strftime('%Y-%m-%d')"/>
+        <field name="next_test_date" eval="(DateTime.now() + relativedelta(days=25)).strftime('%Y-%m-%d')"/>
+        <field name="notes">Test due soon; schedule supplier exchange.</field>
+        <field name="state">empty</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>
