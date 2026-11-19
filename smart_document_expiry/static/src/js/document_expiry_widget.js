@@ -2,7 +2,7 @@
 
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
-import { Component, useState, onWillStart, onMounted } from "@odoo/owl";
+import { Component, proxy, onWillStart, onMounted } from "@odoo/owl";
 import { rpc } from '@web/core/network/rpc';
 
 class DocumentExpiryDashboard extends Component {
@@ -12,7 +12,7 @@ class DocumentExpiryDashboard extends Component {
         this.rpc    = rpc;
         this.action = useService("action");
 
-        this.state = useState({
+        this.state = proxy({
             loading: true,
             // KPIs
             valid: 0, expiring: 0, expired: 0, renewed: 0,

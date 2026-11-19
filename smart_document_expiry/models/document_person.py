@@ -6,6 +6,7 @@ class DocumentPerson(models.Model):
     """Standalone person/employee model — no dependency on hr module."""
     _name = 'document.person'
     _description = 'Person'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'name'
 
     name = fields.Char(string='Full Name', required=True)

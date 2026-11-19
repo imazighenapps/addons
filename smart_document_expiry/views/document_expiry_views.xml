@@ -210,7 +210,7 @@
                                         <i class="fa fa-tag me-1"/><field name="document_type_id"/>
                                     </div>
                                     <div class="mt-1">
-                                        <span t-if="record.entity_type.raw_value == 'employee'">
+                                        <span t-if="record.entity_type.raw_value == 'person'">
                                             <i class="fa fa-user me-1 text-primary"/>
                                             <field name="person_id"/>
                                         </span>
@@ -236,17 +236,17 @@
                                     <div class="oe_kanban_bottom_right">
                                         <t t-if="record.days_until_expiry.raw_value &lt; 0">
                                             <span class="badge bg-danger">
-                                                <t t-esc="Math.abs(record.days_until_expiry.raw_value)"/> days ago
+                                                <t t-out="Math.abs(record.days_until_expiry.raw_value)"/> days ago
                                             </span>
                                         </t>
                                         <t t-elif="record.days_until_expiry.raw_value &lt;= 30">
                                             <span class="badge bg-warning text-dark">
-                                                <t t-esc="record.days_until_expiry.raw_value"/> days left
+                                                <t t-out="record.days_until_expiry.raw_value"/> days left
                                             </span>
                                         </t>
                                         <t t-else="">
                                             <span class="badge bg-success">
-                                                <t t-esc="record.days_until_expiry.raw_value"/> days left
+                                                <t t-out="record.days_until_expiry.raw_value"/> days left
                                             </span>
                                         </t>
                                         <field name="responsible_id" widget="many2one_avatar_user"/>
@@ -308,7 +308,7 @@
                 <separator/>
 
                 <!-- Entity filters -->
-                <filter name="filter_employee"  string="Employees"  domain="[('entity_type','=','employee')]"/>
+                <filter name="filter_employee"  string="Persons"    domain="[('entity_type','=','person')]"/>
                 <filter name="filter_vendor"    string="Vendors"    domain="[('entity_type','=','vendor')]"/>
                 <filter name="filter_vehicle"   string="Vehicles"   domain="[('entity_type','=','vehicle')]"/>
                 <filter name="filter_equipment" string="Equipment"  domain="[('entity_type','=','equipment')]"/>

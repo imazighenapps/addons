@@ -6,8 +6,7 @@ from odoo.http import request
 
 class DocumentExpiryController(http.Controller):
 
-    @http.route('/document_expiry/dashboard_data', type='json', auth='user')
+    @http.route('/document_expiry/dashboard_data', type='jsonrpc', auth='user')
     def dashboard_data(self):
         """Return JSON data for the OWL dashboard widget."""
-        data = request.env['document.expiry'].get_dashboard_data()
-        return data
+        return request.env['document.expiry'].sudo(False).get_dashboard_data()

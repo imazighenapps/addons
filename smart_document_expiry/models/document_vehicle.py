@@ -6,6 +6,7 @@ class DocumentVehicle(models.Model):
     """Standalone vehicle model — no dependency on fleet module."""
     _name = 'document.vehicle'
     _description = 'Vehicle'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'name'
 
     name = fields.Char(string='Vehicle Name / Plate', required=True)

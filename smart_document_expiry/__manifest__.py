@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Smart Document Expiry Tracker',
-    'version': '19.0.2.1.0',
+    'version': '20.0.1.0.0',
     'category': 'Documents',
     'summary': 'Track expiry dates for persons, vendors, vehicles & equipment — fully standalone.',
     'description': """
@@ -39,7 +39,7 @@ HR departments, Fleet managers, Procurement teams, HSE officers
     'data': [
         # Security
         'security/document_expiry_security.xml',
-        'security/ir.model.access.csv',
+        'security/ir.access.csv',
 
         # Data
         'data/document_type_data.xml',

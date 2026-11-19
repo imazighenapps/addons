@@ -177,6 +177,8 @@ class DocumentExpiry(models.Model):
         today = date.today()
         for rec in self:
             if rec.state in ('renewed', 'archived'):
+                # Preserve terminal states in stored compute
+                rec.state = rec.state
                 continue
             if not rec.expiry_date:
                 rec.state = 'valid'
@@ -211,6 +213,8 @@ class DocumentExpiry(models.Model):
             rec.renewal_count = count
 
     # ── Display name ──────────────────────────────────────────────────────
+    @api.depends('name', 'person_id.name', 'partner_id.name', 'vehicle_id.name',
+                 'equipment_id.name', 'other_entity_name')
     def _compute_display_name(self):
         for rec in self:
             entity = (

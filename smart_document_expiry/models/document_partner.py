@@ -6,6 +6,7 @@ class DocumentPartner(models.Model):
     """Standalone vendor/company model — no dependency on base res.partner extensions."""
     _name = 'document.partner'
     _description = 'Vendor / Partner'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'name'
 
     name = fields.Char(string='Company / Partner Name', required=True)
