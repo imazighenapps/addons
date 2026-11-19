@@ -171,17 +171,11 @@ Install with **Load Demo Data** enabled to get 20 realistic records across all e
 
 ---
 
-## 💬 Support
-
-For questions, bugs, or customization requests:
-- 📧 support@smartmodules.io
-- 🌐 https://www.smartmodules.io
 
 ---
 
 ## 📜 License
 
 This module is licensed under the **OPL-1 (Odoo Proprietary License v1.0)**.
-See https://www.odoo.com/documentation/user/legal/licenses.html
 
 © 2025 Smart Modules. All rights reserved.
