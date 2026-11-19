@@ -1,4 +1,4 @@
-# Smart Document Expiry Tracker — Odoo 19
+# Smart Document Expiry Tracker — Odoo 18
 
 **Automatically track, alert, and manage expiring documents across your entire organization.**
 
@@ -6,7 +6,7 @@
 
 ## 🎯 Overview
 
-Smart Document Expiry Tracker is a production-ready Odoo 19 module that gives HR managers, fleet administrators, procurement officers, and HSE teams complete visibility over every document that carries an expiry date — work permits, visas, vehicle registrations, equipment certifications, vendor licenses, insurance policies, and more.
+Smart Document Expiry Tracker is a production-ready Odoo 18 module that gives HR managers, fleet administrators, procurement officers, and HSE teams complete visibility over every document that carries an expiry date — work permits, visas, vehicle registrations, equipment certifications, vendor licenses, insurance policies, and more.
 
 Never be caught off-guard by an expired document again.
 
