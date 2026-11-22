@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mandate_lifecycle_list" model="ir.ui.view">
+        <field name="name">mandate.lifecycle.list</field>
+        <field name="model">mandate.lifecycle</field>
+        <field name="arch" type="xml">
+            <list decoration-warning="alert_expiring" decoration-danger="alert_revoked or state=='expired'">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="iban"/>
+                <field name="signature_date"/>
+                <field name="expiry_date"/>
+                <field name="state"/>
+                <field name="alert_expiring" column_invisible="1"/>
+                <field name="alert_revoked" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_mandate_lifecycle_form" model="ir.ui.view">
+        <field name="name">mandate.lifecycle.form</field>
+        <field name="model">mandate.lifecycle</field>
+        <field name="arch" type="xml">
+            <form string="Mandat (cycle de vie)">
+                <header>
+                    <button name="action_set_new" type="object" string="Nouveau"/>
+                    <button name="action_activate" type="object" string="Activer" class="btn-primary"/>
+                    <button name="action_suspend" type="object" string="Suspendre"/>
+                    <button name="action_revoke" type="object" string="Révoquer"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,active,suspended,revoked,expired"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="partner_id"/>
+                            <field name="iban"/>
+                            <field name="bic"/>
+                        </group>
+                        <group>
+                            <field name="signature_date"/>
+                            <field name="activation_date"/>
+                            <field name="expiry_date"/>
+                            <field name="revocation_date"/>
+                            <field name="alert_expiring" readonly="1"/>
+                            <field name="alert_revoked" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Pièces signées">
+                            <field name="signed_document_ids" widget="many2many_binary"/>
+                        </page>
+                        <page string="Historique RIB">
+                            <field name="rib_history_ids">
+                                <list>
+                                    <field name="change_date"/>
+                                    <field name="old_iban"/>
+                                    <field name="new_iban"/>
+                                    <field name="old_bic"/>
+                                    <field name="new_bic"/>
+                                    <field name="reason"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes"><field name="note"/></page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_mandate_lifecycle" model="ir.actions.act_window">
+        <field name="name">Cycle de vie des mandats</field>
+        <field name="res_model">mandate.lifecycle</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
