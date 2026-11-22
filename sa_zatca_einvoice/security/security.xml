@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="sa_zatca_einvoice_document_company_rule" model="ir.rule">
+      <field name="name">ZATCA Arabie Saoudite : société</field>
+      <field name="model_id" ref="model_sa_zatca_einvoice_document" />
+      <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+      <field name="perm_read">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+  </data>
+</odoo>
