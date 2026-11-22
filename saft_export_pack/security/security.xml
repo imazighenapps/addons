@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="saft_export_company_rule" model="ir.rule">
+      <field name="name">Export SAF-T : société</field>
+      <field name="model_id" ref="model_saft_export" />
+      <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+      <field name="perm_read">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+    <record id="saft_profile_company_rule" model="ir.rule">
+      <field name="name">Profil SAF-T : société</field>
+      <field name="model_id" ref="model_saft_country_profile" />
+      <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+      <field name="perm_read">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+  </data>
+</odoo>
