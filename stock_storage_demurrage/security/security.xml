@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="stock_storage_demurrage_company_rule" model="ir.access">
+  <field name="name">Démurrage Client : société</field>
+  <field name="model_id" ref="model_stock_storage_demurrage"/>
+  <field name="operation">crud</field>
+  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+</record>
+</data></odoo>
