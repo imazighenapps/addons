@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_bank_reconcile_assist_root"
+                  name="Rapprochement assisté"
+                  parent="account.menu_finance"
+                  sequence="45"/>
+
+        <record id="action_bank_reconcile_assist_wizard" model="ir.actions.act_window">
+            <field name="name">Assistant de rapprochement</field>
+            <field name="res_model">bank.reconcile.assist.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_bank_reconcile_assist_run"
+                  name="Assistant de rapprochement"
+                  parent="menu_bank_reconcile_assist_root"
+                  action="action_bank_reconcile_assist_wizard"
+                  sequence="10"/>
+
+        <record id="action_bank_reconcile_rule" model="ir.actions.act_window">
+            <field name="name">Règles de rapprochement</field>
+            <field name="res_model">bank.reconcile.rule</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_bank_reconcile_rule"
+                  name="Règles de rapprochement"
+                  parent="menu_bank_reconcile_assist_root"
+                  action="action_bank_reconcile_rule"
+                  sequence="20"
+                  groups="account.group_account_manager"/>
+    </data>
+</odoo>
