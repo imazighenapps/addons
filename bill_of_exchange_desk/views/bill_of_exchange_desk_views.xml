@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="view_bill_of_exchange_form" model="ir.ui.view">
+  <field name="name">bill.of.exchange.form</field><field name="model">bill.of.exchange</field>
+  <field name="arch" type="xml"><form string="Effet de commerce">
+    <header>
+      <button name="action_portfolio" type="object" string="Mettre en portefeuille" class="btn-primary" invisible="state!='draft'"/>
+      <button name="action_domicile" type="object" string="Domicilier" invisible="state!='portfolio'"/>
+      <button name="action_discount" type="object" string="Escompter" invisible="state not in ('portfolio','domiciled')"/>
+      <button name="action_paid" type="object" string="Encaissé" invisible="state in ('paid','rejected','draft')"/>
+      <button name="action_reject" type="object" string="Rejeter" invisible="state in ('paid','rejected','draft')"/>
+      <field name="state" widget="statusbar" statusbar_visible="draft,portfolio,domiciled,paid"/>
+    </header>
+    <sheet><div class="oe_title"><h1><field name="name"/></h1></div>
+      <group><group>
+        <field name="company_id" groups="base.group_multi_company"/>
+        <field name="invoice_id"/><field name="partner_id"/><field name="bank_name"/>
+        <field name="issue_date"/><field name="due_date"/>
+      </group><group>
+        <field name="amount"/><field name="discount_rate"/><field name="discount_amount" readonly="1"/>
+        <field name="net_amount" readonly="1"/><field name="currency_id" invisible="1"/>
+      </group></group>
+      <group string="Rejet"><field name="rejection_reason" nolabel="1"/></group>
+      <group string="Notes"><field name="notes" nolabel="1"/></group>
+    </sheet><div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+  </form></field>
+</record>
+<record id="view_bill_of_exchange_list" model="ir.ui.view">
+  <field name="name">bill.of.exchange.list</field><field name="model">bill.of.exchange</field>
+  <field name="arch" type="xml"><list decoration-success="state=='paid'" decoration-danger="state=='rejected'">
+    <field name="name"/><field name="invoice_id"/><field name="partner_id"/><field name="due_date"/>
+    <field name="amount"/><field name="net_amount"/><field name="state"/>
+  </list></field>
+</record>
+</data></odoo>
