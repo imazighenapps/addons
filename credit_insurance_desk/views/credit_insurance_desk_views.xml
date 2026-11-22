@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="view_credit_insurance_case_form" model="ir.ui.view">
+  <field name="name">credit.insurance.case.form</field><field name="model">credit.insurance.case</field>
+  <field name="arch" type="xml"><form string="Assurance-crédit">
+    <header>
+      <button name="action_declare" type="object" string="Déclarer ventes" class="btn-primary" invisible="state not in ('draft','declared')"/>
+      <button name="action_claim" type="object" string="Déclarer sinistre" invisible="state!='declared'"/>
+      <button name="action_indemnify" type="object" string="Indemniser" invisible="state!='claim'"/>
+      <button name="action_close" type="object" string="Clôturer" invisible="state not in ('declared','indemnified')"/>
+      <field name="state" widget="statusbar" statusbar_visible="draft,declared,claim,indemnified,closed"/>
+    </header>
+    <sheet><div class="oe_title"><h1><field name="name"/></h1></div>
+      <group><group>
+        <field name="company_id" groups="base.group_multi_company"/><field name="insurer_name"/><field name="partner_id"/>
+        <field name="limit_amount"/><field name="used_amount"/><field name="monthly_sales"/>
+      </group><group>
+        <field name="over_limit"/><field name="declaration_date"/><field name="claim_date"/>
+        <field name="claim_amount"/><field name="indemnity_amount"/><field name="currency_id" invisible="1"/>
+      </group></group>
+      <group string="Notes / pièces"><field name="notes" nolabel="1"/></group>
+    </sheet><div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+  </form></field>
+</record>
+<record id="view_credit_insurance_case_list" model="ir.ui.view">
+  <field name="name">credit.insurance.case.list</field><field name="model">credit.insurance.case</field>
+  <field name="arch" type="xml"><list decoration-danger="over_limit==True" decoration-success="state=='closed'">
+    <field name="name"/><field name="insurer_name"/><field name="partner_id"/><field name="limit_amount"/>
+    <field name="used_amount"/><field name="over_limit"/><field name="state"/>
+  </list></field>
+</record>
+</data></odoo>
