@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_pdf_splitter" model="ir.actions.act_window">
+  <field name="name">Découpeur de PDFs</field>
+  <field name="res_model">pdf.splitter</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_pdf_splitter_root" name="Découpeur de PDFs" parent="base.menu_custom" action="action_pdf_splitter" sequence="240"/>
+</odoo>
