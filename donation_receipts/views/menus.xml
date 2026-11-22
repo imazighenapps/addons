@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_donation_receipts" model="ir.actions.act_window">
+  <field name="name">Reçus Fiscaux de Dons</field>
+  <field name="res_model">donation.receipts</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_donation_receipts_root" name="Reçus Fiscaux de Dons" parent="base.menu_custom" action="action_donation_receipts" sequence="282"/>
+</odoo>
