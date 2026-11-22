@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="tie_export_company_rule" model="ir.rule">
+      <field name="name">Export TIE : société</field>
+      <field name="model_id" ref="model_tie_export" />
+      <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+      <field name="perm_read">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+    <record id="tie_registry_company_rule" model="ir.rule">
+      <field name="name">Mapping registres TIE : société</field>
+      <field name="model_id" ref="model_tie_registry_map" />
+      <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+      <field name="perm_read">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+  </data>
+</odoo>

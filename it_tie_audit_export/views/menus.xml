@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_tie_export" model="ir.actions.act_window">
+            <field name="name">Exports TIE Italie</field>
+            <field name="res_model">tie.export</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <record id="action_tie_registry_map" model="ir.actions.act_window">
+            <field name="name">Registres fiscaux TIE</field>
+            <field name="res_model">tie.registry.map</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <menuitem id="menu_tie_root"
+                  name="Export TIE Italie"
+                  parent="account.menu_finance_reports"
+                  action="action_tie_export"
+                  sequence="68"/>
+        <menuitem id="menu_tie_registries"
+                  name="Registres fiscaux TIE"
+                  parent="account.menu_finance_configuration"
+                  action="action_tie_registry_map"
+                  sequence="71"/>
+    </data>
+</odoo>

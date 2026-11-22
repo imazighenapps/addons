@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_payment_fee_rebill" model="ir.actions.act_window">
+  <field name="name">Refacturation des Frais de Paiement</field>
+  <field name="res_model">payment.fee.rebill</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_payment_fee_rebill_root" name="Refacturation des Frais de Paiement" parent="base.menu_custom" action="action_payment_fee_rebill" sequence="357"/>
+</odoo>

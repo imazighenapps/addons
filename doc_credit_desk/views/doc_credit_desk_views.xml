@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="view_doc_credit_desk_form" model="ir.ui.view">
+  <field name="name">doc.credit.desk.form</field><field name="model">doc.credit.desk</field>
+  <field name="arch" type="xml"><form string="Crédit documentaire">
+    <header>
+      <button name="action_open" type="object" string="Ouvrir" class="btn-primary" invisible="state!='draft'"/>
+      <button name="action_present" type="object" string="Présenter" invisible="state!='open'"/>
+      <button name="action_accept" type="object" string="Accepter" invisible="state!='presented'"/>
+      <button name="action_discrepant" type="object" string="Discrepancies" invisible="state!='presented'"/>
+      <button name="action_settle" type="object" string="Dénouer" invisible="state not in ('accepted','discrepant')"/>
+      <button name="action_cancel" type="object" string="Annuler" invisible="state in ('settled','cancelled')"/>
+      <field name="state" widget="statusbar" statusbar_visible="draft,open,presented,accepted,settled"/>
+    </header>
+    <sheet><div class="oe_title"><h1><field name="name"/></h1></div>
+      <group><group>
+        <field name="company_id" groups="base.group_multi_company"/><field name="partner_id"/><field name="lc_type"/>
+        <field name="issuing_bank"/><field name="advising_bank"/>
+      </group><group>
+        <field name="amount"/><field name="currency_id"/><field name="issue_date"/><field name="expiry_date"/>
+      </group></group>
+      <group string="Documents requis"><field name="docs_required" nolabel="1"/></group>
+      <group string="Discrepancies"><field name="discrepancies" nolabel="1"/></group>
+      <group string="Notes"><field name="notes" nolabel="1"/></group>
+    </sheet><div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+  </form></field>
+</record>
+<record id="view_doc_credit_desk_list" model="ir.ui.view">
+  <field name="name">doc.credit.desk.list</field><field name="model">doc.credit.desk</field>
+  <field name="arch" type="xml"><list decoration-success="state=='settled'" decoration-danger="state=='discrepant'">
+    <field name="name"/><field name="lc_type"/><field name="partner_id"/><field name="amount"/><field name="expiry_date"/><field name="state"/>
+  </list></field>
+</record>
+</data></odoo>

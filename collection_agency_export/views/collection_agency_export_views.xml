@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="view_collection_agency_case_form" model="ir.ui.view">
+  <field name="name">collection.agency.case.form</field><field name="model">collection.agency.case</field>
+  <field name="arch" type="xml"><form string="Agence de recouvrement">
+    <header>
+      <button name="action_send" type="object" string="Transmettre" class="btn-primary" invisible="state!='draft'"/>
+      <button name="action_register_recovery" type="object" string="Enregistrer récupération" invisible="state not in ('sent','partial')"/>
+      <button name="action_close" type="object" string="Clôturer" invisible="state not in ('recovered','partial','sent')"/>
+      <field name="state" widget="statusbar" statusbar_visible="draft,sent,recovered,closed"/>
+    </header>
+    <sheet><div class="oe_title"><h1><field name="name"/></h1></div>
+      <group><group>
+        <field name="company_id" groups="base.group_multi_company"/><field name="agency_name"/>
+        <field name="invoice_id"/><field name="partner_id"/><field name="transfer_date"/>
+      </group><group>
+        <field name="amount_due"/><field name="commission_rate"/><field name="commission_amount"/>
+        <field name="recovered_amount"/><field name="remitted_amount"/><field name="currency_id" invisible="1"/>
+        <field name="export_filename"/><field name="export_file" filename="export_filename"/>
+      </group></group>
+      <group string="Notes"><field name="notes" nolabel="1"/></group>
+    </sheet><div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+  </form></field>
+</record>
+<record id="view_collection_agency_case_list" model="ir.ui.view">
+  <field name="name">collection.agency.case.list</field><field name="model">collection.agency.case</field>
+  <field name="arch" type="xml"><list decoration-success="state=='recovered'">
+    <field name="name"/><field name="agency_name"/><field name="invoice_id"/><field name="partner_id"/>
+    <field name="amount_due"/><field name="recovered_amount"/><field name="state"/>
+  </list></field>
+</record>
+</data></odoo>
