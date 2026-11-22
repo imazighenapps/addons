@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="financial_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="mt-2" t-esc="doc.report_id.name"/>
+                        <h4>
+                            <span t-esc="doc.company_id.name"/> —
+                            du <span t-esc="doc.date_from"/> au <span t-esc="doc.date_to"/>
+                            <t t-if="doc.compare">
+                                <span> (comparaison : du </span>
+                                <span t-esc="doc.compare_from"/> au <span t-esc="doc.compare_to"/><span>)</span>
+                            </t>
+                        </h4>
+                        <t t-set="data" t-value="doc._execute()"/>
+                        <table class="table table-sm o_main_table">
+                            <thead>
+                                <tr>
+                                    <th>Libellé</th>
+                                    <th class="text-end">Montant</th>
+                                    <t t-if="data.get('compare')">
+                                        <th class="text-end">Comparaison</th>
+                                        <th class="text-end">Variation</th>
+                                    </t>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="data['rows']" t-as="row">
+                                    <tr t-att-style="row['line']['line_type'] == 'title' and 'font-weight:bold' or (row['line']['line_type'] == 'subtotal' and 'font-weight:bold;border-top:1px solid' or '')">
+                                        <td t-att-style="'padding-left:%dpx' % (row['level'] * 16)">
+                                            <span t-esc="row['line']['code']"/>
+                                            <span t-esc="row['line']['name']"/>
+                                        </td>
+                                        <td class="text-end">
+                                            <span t-esc="'%.2f' % row['amount']"/>
+                                        </td>
+                                        <t t-if="data.get('compare')">
+                                            <t t-set="crows" t-value="{r['line']['id']: r for r in data['compare']['rows']}"/>
+                                            <td class="text-end">
+                                                <span t-esc="'%.2f' % crows[row['line']['id']]['amount'] if row['line']['id'] in crows else ''"/>
+                                            </td>
+                                            <td class="text-end">
+                                                <span t-esc="'%.2f' % (row['amount'] - crows[row['line']['id']]['amount']) if row['line']['id'] in crows else ''"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                    <t t-foreach="row.get('accounts', [])" t-as="acc">
+                                        <tr>
+                                            <td style="padding-left:32px">
+                                                <span t-esc="acc['code']"/>
+                                                <span t-esc="acc['name']"/>
+                                            </td>
+                                            <td class="text-end">
+                                                <span t-esc="'%.2f' % acc['amount']"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
