@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_client_activity_report" model="ir.actions.act_window">
+  <field name="name">Rapport d'Activité Client Périodique</field>
+  <field name="res_model">client.activity.report</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_client_activity_report_root" name="Rapport d'Activité Client Périodique" parent="base.menu_custom" action="action_client_activity_report" sequence="799"/>
+</odoo>
