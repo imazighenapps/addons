@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Règle multi-sociétés -->
+        <record id="fr_report_company_rule" model="ir.rule">
+            <field name="name">État financier : société</field>
+            <field name="model_id" ref="model_fr_report"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+    </data>
+
+    <data>
+        <!-- Accès: utilisateurs comptables -->
+        <record id="fr_report_access_user" model="ir.model.access">
+            <field name="name">fr.report user</field>
+            <field name="model_id" ref="model_fr_report"/>
+            <field name="group_id" ref="account.group_account_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+        <record id="fr_report_line_access_user" model="ir.model.access">
+            <field name="name">fr.report.line user</field>
+            <field name="model_id" ref="model_fr_report_line"/>
+            <field name="group_id" ref="account.group_account_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+        <record id="fr_report_wizard_access_user" model="ir.model.access">
+            <field name="name">fr.report.wizard user</field>
+            <field name="model_id" ref="model_fr_report_wizard"/>
+            <field name="group_id" ref="account.group_account_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+        <record id="fr_report_result_access_user" model="ir.model.access">
+            <field name="name">fr.report.result user</field>
+            <field name="model_id" ref="model_fr_report_result"/>
+            <field name="group_id" ref="account.group_account_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <!-- Accès: responsables comptables -->
+        <record id="fr_report_access_manager" model="ir.model.access">
+            <field name="name">fr.report manager</field>
+            <field name="model_id" ref="model_fr_report"/>
+            <field name="group_id" ref="account.group_account_manager"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+        <record id="fr_report_line_access_manager" model="ir.model.access">
+            <field name="name">fr.report.line manager</field>
+            <field name="model_id" ref="model_fr_report_line"/>
+            <field name="group_id" ref="account.group_account_manager"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+    </data>
+</odoo>

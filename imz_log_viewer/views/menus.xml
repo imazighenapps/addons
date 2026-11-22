@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_log_viewer" model="ir.actions.act_window">
+  <field name="name">Visionneuse de Logs</field>
+  <field name="res_model">log.viewer</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_log_viewer_root" name="Visionneuse de Logs" parent="base.menu_custom" action="action_log_viewer" sequence="245"/>
+</odoo>
