@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tie_registry_form" model="ir.ui.view">
+            <field name="name">tie.registry.map.form</field>
+            <field name="model">tie.registry.map</field>
+            <field name="arch" type="xml">
+                <form string="Registre fiscal TIE">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="registry_code"/>
+                                <field name="name"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                            </group>
+                            <group>
+                                <field name="journal_ids" widget="many2many_tags"
+                                       domain="[('company_id', '=', company_id)]"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tie_registry_list" model="ir.ui.view">
+            <field name="name">tie.registry.map.list</field>
+            <field name="model">tie.registry.map</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="registry_code"/>
+                    <field name="name"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="journal_ids" widget="many2many_tags"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>

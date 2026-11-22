@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tie_export_form" model="ir.ui.view">
+            <field name="name">tie.export.form</field>
+            <field name="model">tie.export</field>
+            <field name="arch" type="xml">
+                <form string="Export TIE Italie">
+                    <header>
+                        <button name="action_check_completeness" type="object"
+                                string="Contrôles de complétude"
+                                class="btn-secondary"
+                                invisible="state != 'draft'"/>
+                        <button name="action_generate" type="object"
+                                string="Générer le fichier TIE"
+                                class="btn-primary"
+                                invisible="state != 'draft'"/>
+                        <button name="action_mark_deposited" type="object"
+                                string="Tracer le dépôt"
+                                class="btn-primary"
+                                invisible="state != 'generated'"/>
+                        <button name="action_reset" type="object"
+                                string="Réinitialiser"
+                                class="btn-secondary"
+                                invisible="state == 'deposited' and not deposited_on"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,generated,deposited"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group string="Paramètres">
+                                <field name="company_id" groups="base.group_multi_company"/>
+                                <field name="date_from"/>
+                                <field name="date_to"/>
+                                <field name="journal_ids" widget="many2many_tags"/>
+                                <field name="allow_unmapped"/>
+                            </group>
+                            <group string="Résultats">
+                                <field name="file_name" readonly="1"/>
+                                <field name="file_data" readonly="1" filename="file_name"/>
+                                <field name="record_count" readonly="1"/>
+                                <field name="total_debit" readonly="1"/>
+                                <field name="total_credit" readonly="1"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="deposited_on" readonly="1"/>
+                                <field name="deposited_by" readonly="1"/>
+                            </group>
+                        </group>
+                        <group string="Contrôles de complétude">
+                            <field name="warnings" nolabel="1" readonly="1"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tie_export_list" model="ir.ui.view">
+            <field name="name">tie.export.list</field>
+            <field name="model">tie.export</field>
+            <field name="arch" type="xml">
+                <list decoration-success="state == 'deposited'"
+                      decoration-info="state == 'generated'">
+                    <field name="name"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="record_count"/>
+                    <field name="total_debit"/>
+                    <field name="total_credit"/>
+                    <field name="deposited_on"/>
+                    <field name="state"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>

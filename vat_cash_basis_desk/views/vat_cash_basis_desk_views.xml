@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="view_vat_cash_basis_desk_form" model="ir.ui.view">
+  <field name="name">vat.cash.basis.desk.form</field><field name="model">vat.cash.basis.desk</field>
+  <field name="arch" type="xml"><form string="TVA encaissements">
+    <header>
+      <button name="action_compute" type="object" string="Calculer" class="btn-primary" invisible="state!='draft'"/>
+      <button name="action_validate" type="object" string="Valider" invisible="state!='computed'"/>
+      <field name="state" widget="statusbar" statusbar_visible="draft,computed,validated"/>
+    </header>
+    <sheet><div class="oe_title"><h1><field name="name"/></h1></div>
+      <group><group>
+        <field name="company_id" groups="base.group_multi_company"/><field name="period_start"/><field name="period_end"/>
+      </group><group>
+        <field name="collected_vat_due"/><field name="collected_vat_deductible"/><field name="unpaid_regularization"/>
+        <field name="net_vat"/><field name="currency_id" invisible="1"/>
+      </group></group>
+      <group string="Notes / conformité"><field name="notes" nolabel="1"/></group>
+    </sheet><div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+  </form></field>
+</record>
+<record id="view_vat_cash_basis_desk_list" model="ir.ui.view">
+  <field name="name">vat.cash.basis.desk.list</field><field name="model">vat.cash.basis.desk</field>
+  <field name="arch" type="xml"><list decoration-success="state=='validated'">
+    <field name="name"/><field name="period_start"/><field name="period_end"/><field name="net_vat"/><field name="state"/>
+  </list></field>
+</record>
+</data></odoo>
