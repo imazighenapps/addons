@@ -1,0 +1,18 @@
+# -*- coding: utf-8 -*-
+{
+    "name": "Qweb Report Debug",
+    "version": "20.0.1.0.0",
+    "category": "Administration/Administration",
+    "summary": "Simplify administration, access control and technical maintenance inside Odoo.",
+    "author": "ImazighenApps",
+    "license": "LGPL-3",
+    "depends": ["base", "mail"],
+    "data": [
+        "security/ir.access.csv",
+        "security/security.xml",
+        "data/ir_sequence.xml",
+        "views/qweb_report_debug_views.xml",
+        "views/menus.xml",
+    ],
+    "application": False,
+}
