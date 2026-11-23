@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="mail_queue_watch_company_rule" model="ir.access">
+  <field name="name">Surveillance de la File d'Emails : société</field>
+  <field name="model_id" ref="model_mail_queue_watch"/>
+  <field name="operation">crud</field>
+  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+</record>
+</data></odoo>
