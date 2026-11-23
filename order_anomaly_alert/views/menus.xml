@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_order_anomaly_alert" model="ir.actions.act_window">
+  <field name="name">Alerte de Commande Atypique</field>
+  <field name="res_model">order.anomaly.alert</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_order_anomaly_alert_root" name="Alerte de Commande Atypique" parent="base.menu_custom" action="action_order_anomaly_alert" sequence="422"/>
+</odoo>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="view_litigation_provision_desk_form" model="ir.ui.view">
+  <field name="name">litigation.provision.desk.form</field>
+  <field name="model">litigation.provision.desk</field>
+  <field name="arch" type="xml">
+    <form string="Provisions pour Litiges">
+      <header>
+        <button name="action_confirm" type="object" string="Confirmer" class="btn-primary" invisible="state!='draft'"/>
+        <button name="action_start" type="object" string="Démarrer" invisible="state not in ('draft','confirmed')"/>
+        <button name="action_done" type="object" string="Clôturer" class="btn-primary" invisible="state in ('done','cancelled')"/>
+        <button name="action_export" type="object" string="Exporter" invisible="state=='draft'"/>
+        <button name="action_cancel" type="object" string="Annuler" invisible="state in ('done','cancelled')"/>
+        <button name="action_reset_draft" type="object" string="Remettre en brouillon" invisible="state not in ('cancelled','done')"/>
+        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,in_progress,done"/>
+      </header>
+      <sheet>
+        <div class="oe_title"><h1><field name="name"/></h1></div>
+        <group>
+          <group>
+            <field name="company_id" groups="base.group_multi_company"/>
+            <field name="partner_id"/>
+            <field name="user_id"/>
+            <field name="priority"/>
+          </group>
+          <group>
+            <field name="date_start"/>
+            <field name="date_end"/>
+            <field name="amount"/>
+            <field name="progress"/>
+            <field name="active"/>
+          </group>
+        </group>
+        <group string="Description"><field name="description" nolabel="1"/></group>
+        <group string="Notes"><field name="note" nolabel="1"/></group>
+        <group string="Journal"><field name="log_note" nolabel="1"/></group>
+        <group>
+          <field name="export_filename"/>
+          <field name="export_file" filename="export_filename"/>
+        </group>
+      </sheet>
+      <div class="oe_chatter">
+        <field name="message_follower_ids"/>
+        <field name="activity_ids"/>
+        <field name="message_ids"/>
+      </div>
+    </form>
+  </field>
+</record>
+<record id="view_litigation_provision_desk_list" model="ir.ui.view">
+  <field name="name">litigation.provision.desk.list</field>
+  <field name="model">litigation.provision.desk</field>
+  <field name="arch" type="xml">
+    <list decoration-success="state=='done'" decoration-muted="state=='cancelled'">
+      <field name="name"/><field name="partner_id"/><field name="user_id"/>
+      <field name="date_start"/><field name="amount"/><field name="progress"/><field name="state"/>
+    </list>
+  </field>
+</record>
+</data></odoo>
