@@ -3,9 +3,9 @@
     "name": "Multi Entity Close Desk",
     "version": "18.0.1.0.0",
     "category": "Accounting/Accounting",
-    "summary": "Give finance teams a focused Odoo app for reconciliation, analysis and compliant reporting.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Track entity and period close in a dedicated Odoo workspace, from intake to reporting.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
         "security/ir.model.access.csv",
@@ -14,5 +14,11 @@
         "views/multi_entity_close_desk_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nMulti Entity Close Desk\n=======================\nTrack entity and period close in a dedicated Odoo workspace, from intake to reporting.\n\nFeatures:\n---------\n* Entity\n* Period close\n* Audit-ready entries\n* Variance tracking\n* Reconciliation workspace\n* Role-based access\n* Export-ready reports\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
