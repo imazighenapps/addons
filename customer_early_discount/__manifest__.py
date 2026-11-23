@@ -3,9 +3,9 @@
     "name": "Customer Early Discount",
     "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
-    "summary": "Give finance teams a focused Odoo app for reconciliation, analysis and compliant reporting.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Track customer follow-ups, early and discounts in a dedicated Odoo workspace, from intake to reporting.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["account", "sale", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/customer_early_discount_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nCustomer Early Discount\n=======================\nTrack customer follow-ups, early and discounts in a dedicated Odoo workspace, from intake to reporting.\n\nFeatures:\n---------\n* Customer follow-ups\n* Early\n* Discounts\n* Audit-ready entries\n* Variance tracking\n* Reconciliation workspace\n* Role-based access\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
