@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_cron_state_watchdog" model="ir.actions.act_window">
+  <field name="name">Contrôle des Actions Planifiées</field>
+  <field name="res_model">cron.state.watchdog</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_cron_state_watchdog_root" name="Contrôle des Actions Planifiées" parent="base.menu_custom" action="action_cron_state_watchdog" sequence="417"/>
+</odoo>
