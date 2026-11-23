@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="scan_indexer_company_rule" model="ir.rule">
+      <field name="name">Indexation des Scans par QR : société</field>
+      <field name="model_id" ref="model_scan_indexer" />
+      <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+      <field name="perm_read">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+  </data>
+</odoo>
