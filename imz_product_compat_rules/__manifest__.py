@@ -3,9 +3,9 @@
     "name": "Product Compat Rules",
     "version": "20.0.1.0.0",
     "category": "Sales/Sales",
-    "summary": "Manage pipelines, customer follow-ups and sales performance with real-time visibility.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Product Compat Rules gives teams a focused Odoo app for product data, compat and business rules, with real-time visibility.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["sale", "product", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/product_compat_rules_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nProduct Compat Rules\n====================\nProduct Compat Rules gives teams a focused Odoo app for product data, compat and business rules, with real-time visibility.\n\nFeatures:\n---------\n* Product data\n* Compat\n* Business rules\n* Pipeline visibility\n* Fast quotations\n* Customer follow-ups\n* Pricing control\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
