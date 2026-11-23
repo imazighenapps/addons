@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_form_spam_guard" model="ir.actions.act_window">
+  <field name="name">Garde Anti-Spam des Formulaires</field>
+  <field name="res_model">form.spam.guard</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_form_spam_guard_root" name="Garde Anti-Spam des Formulaires" parent="base.menu_custom" action="action_form_spam_guard" sequence="265"/>
+</odoo>

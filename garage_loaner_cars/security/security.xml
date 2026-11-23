@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="garage_loaner_cars_company_rule" model="ir.access">
+  <field name="name">Véhicules de Courtoisie : société</field>
+  <field name="model_id" ref="model_garage_loaner_cars"/>
+  <field name="operation">crud</field>
+  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+</record>
+</data></odoo>

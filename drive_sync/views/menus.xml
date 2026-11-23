@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_drive_sync" model="ir.actions.act_window">
+  <field name="name">Synchronisation Drive</field>
+  <field name="res_model">drive.sync</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_drive_sync_root" name="Synchronisation Drive" parent="base.menu_custom" action="action_drive_sync" sequence="215"/>
+</odoo>

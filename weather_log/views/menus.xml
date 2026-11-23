@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_weather_log" model="ir.actions.act_window">
+  <field name="name">Journal Météo des Chantiers</field>
+  <field name="res_model">weather.log</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_weather_log_root" name="Journal Météo des Chantiers" parent="base.menu_custom" action="action_weather_log" sequence="833"/>
+</odoo>

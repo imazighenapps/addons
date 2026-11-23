@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="mrp_operator_skill_plan_company_rule" model="ir.access">
+  <field name="name">Planification Sensible aux Habilitations : société</field>
+  <field name="model_id" ref="model_mrp_operator_skill_plan"/>
+  <field name="operation">crud</field>
+  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+</record>
+</data></odoo>

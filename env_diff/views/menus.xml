@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_env_diff" model="ir.actions.act_window">
+  <field name="name">Diff d'Environnements</field>
+  <field name="res_model">env.diff</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_env_diff_root" name="Diff d'Environnements" parent="base.menu_custom" action="action_env_diff" sequence="250"/>
+</odoo>

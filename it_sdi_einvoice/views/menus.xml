@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_sdi_document" model="ir.actions.act_window">
+        <field name="name">Documents SdI</field>
+        <field name="res_model">sdi.document</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_sdi_document_root"
+              name="e-Invoicing SdI"
+              parent="account.menu_finance_reports"
+              action="action_sdi_document"
+              sequence="71"/>
+</odoo>

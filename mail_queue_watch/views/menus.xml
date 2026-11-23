@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_mail_queue_watch" model="ir.actions.act_window">
+  <field name="name">Surveillance de la File d'Emails</field>
+  <field name="res_model">mail.queue.watch</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_mail_queue_watch_root" name="Surveillance de la File d'Emails" parent="base.menu_custom" action="action_mail_queue_watch" sequence="279"/>
+</odoo>

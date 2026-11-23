@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_security_event_log" model="ir.actions.act_window">
+  <field name="name">Journal des Actions Sensibles</field>
+  <field name="res_model">security.event.log</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_security_event_log_root" name="Journal des Actions Sensibles" parent="base.menu_custom" action="action_security_event_log" sequence="421"/>
+</odoo>
