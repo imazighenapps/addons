@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="fleet_cost_per_km_company_rule" model="ir.access">
+  <field name="name">Coût Kilométrique par Véhicule : société</field>
+  <field name="model_id" ref="model_fleet_cost_per_km"/>
+  <field name="operation">crud</field>
+  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+</record>
+</data></odoo>
