@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="view_dz_fiscal_declaration_form" model="ir.ui.view">
+  <field name="name">dz.fiscal.declaration.form</field><field name="model">dz.fiscal.declaration</field>
+  <field name="arch" type="xml"><form string="Pack Fiscal Algérie">
+    <header>
+      <button name="action_generate" type="object" string="Générer" class="btn-primary" invisible="state not in ('draft','rejected')"/>
+      <button name="action_mark_sent" type="object" string="Marquer envoyée" invisible="state != 'ready'"/>
+      <button name="action_mark_accepted" type="object" string="Acceptée" invisible="state != 'sent'"/>
+      <button name="action_mark_rejected" type="object" string="Refusée" invisible="state not in ('sent','ready')"/>
+      <field name="state" widget="statusbar" statusbar_visible="draft,ready,sent,accepted"/>
+    </header>
+    <sheet>
+      <div class="oe_title"><h1><field name="name"/></h1></div>
+      <group><group><field name="company_id" groups="base.group_multi_company"/><field name="period_start"/><field name="period_end"/><field name="invoice_id"/></group>
+      <group><field name="file_name"/><field name="file_data" filename="file_name"/><field name="generated_at"/><field name="external_id"/></group></group>
+      <group string="Détails"><field name="summary_note" nolabel="1" readonly="1"/></group>
+      <group string="Journal des statuts"><field name="status_note" nolabel="1" readonly="1"/></group>
+    </sheet>
+    <div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+  </form></field>
+</record>
+<record id="view_dz_fiscal_declaration_list" model="ir.ui.view">
+  <field name="name">dz.fiscal.declaration.list</field><field name="model">dz.fiscal.declaration</field>
+  <field name="arch" type="xml"><list decoration-success="state=='accepted'" decoration-danger="state=='rejected'">
+    <field name="name"/><field name="period_start"/><field name="period_end"/><field name="generated_at"/><field name="state"/>
+  </list></field>
+</record>
+</data></odoo>
