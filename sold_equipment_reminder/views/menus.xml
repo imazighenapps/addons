@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_sold_equipment_reminder" model="ir.actions.act_window">
+  <field name="name">Rappels d'Entretien Client</field>
+  <field name="res_model">sold.equipment.reminder</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_sold_equipment_reminder_root" name="Rappels d'Entretien Client" parent="base.menu_custom" action="action_sold_equipment_reminder" sequence="400"/>
+</odoo>
