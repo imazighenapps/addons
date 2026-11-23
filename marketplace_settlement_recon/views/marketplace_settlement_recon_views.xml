@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="view_marketplace_settlement_recon_form" model="ir.ui.view">
+  <field name="name">marketplace.settlement.recon.form</field><field name="model">marketplace.settlement.recon</field>
+  <field name="arch" type="xml"><form string="Settlement marketplace">
+    <header>
+      <button name="action_import" type="object" string="Importer / Valider" class="btn-primary" invisible="state!='draft'"/>
+      <button name="action_reconcile" type="object" string="Rapprocher" invisible="state!='imported'"/>
+      <button name="action_post" type="object" string="Comptabiliser" invisible="state!='reconciled'"/>
+      <field name="state" widget="statusbar" statusbar_visible="draft,imported,reconciled,posted"/>
+    </header>
+    <sheet><div class="oe_title"><h1><field name="name"/></h1></div>
+      <group><group>
+        <field name="company_id" groups="base.group_multi_company"/><field name="marketplace"/><field name="settlement_date"/>
+      </group><group>
+        <field name="sales_amount"/><field name="commissions_amount"/><field name="ads_amount"/>
+        <field name="refunds_amount"/><field name="net_amount"/><field name="currency_id" invisible="1"/>
+        <field name="export_filename"/><field name="export_file" filename="export_filename"/>
+      </group></group>
+      <group string="Notes"><field name="notes" nolabel="1"/></group>
+    </sheet><div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+  </form></field>
+</record>
+<record id="view_marketplace_settlement_recon_list" model="ir.ui.view">
+  <field name="name">marketplace.settlement.recon.list</field><field name="model">marketplace.settlement.recon</field>
+  <field name="arch" type="xml"><list decoration-success="state=='posted'">
+    <field name="name"/><field name="marketplace"/><field name="settlement_date"/><field name="sales_amount"/><field name="net_amount"/><field name="state"/>
+  </list></field>
+</record>
+</data></odoo>

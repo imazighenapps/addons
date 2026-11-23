@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="view_bank_loan_form" model="ir.ui.view">
+  <field name="name">bank.loan.form</field><field name="model">bank.loan</field>
+  <field name="arch" type="xml"><form string="Emprunt bancaire">
+    <header>
+      <button name="action_generate_schedule" type="object" string="Générer l'échéancier" class="btn-primary" invisible="state!='draft'"/>
+      <button name="action_mark_paid_next" type="object" string="Marquer prochaine échéance payée" invisible="state!='running'"/>
+      <button name="action_close" type="object" string="Clôturer" invisible="state!='running'"/>
+      <button name="action_close_early" type="object" string="Clôture anticipée" invisible="state!='running'"/>
+      <field name="state" widget="statusbar" statusbar_visible="draft,running,closed"/>
+    </header>
+    <sheet><div class="oe_title"><h1><field name="name"/></h1></div>
+      <group><group>
+        <field name="company_id" groups="base.group_multi_company"/><field name="partner_id"/>
+        <field name="principal_amount"/><field name="interest_rate"/><field name="insurance_rate"/><field name="fees_amount"/>
+      </group><group>
+        <field name="term_months"/><field name="start_date"/><field name="currency_id" invisible="1"/>
+        <field name="total_interest"/><field name="total_insurance"/><field name="remaining_capital"/><field name="accrued_interest"/>
+        <field name="early_penalty"/>
+      </group></group>
+      <notebook><page string="Échéancier">
+        <field name="line_ids"><list editable="bottom">
+          <field name="sequence"/><field name="due_date"/><field name="capital_amount"/><field name="interest_amount"/>
+          <field name="insurance_amount"/><field name="total_amount"/><field name="state"/>
+        </list></field>
+      </page><page string="Notes"><field name="notes"/></page></notebook>
+    </sheet><div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+  </form></field>
+</record>
+<record id="view_bank_loan_list" model="ir.ui.view">
+  <field name="name">bank.loan.list</field><field name="model">bank.loan</field>
+  <field name="arch" type="xml"><list decoration-success="state in ('closed','early')">
+    <field name="name"/><field name="partner_id"/><field name="principal_amount"/><field name="interest_rate"/>
+    <field name="term_months"/><field name="remaining_capital"/><field name="state"/>
+  </list></field>
+</record>
+</data></odoo>
