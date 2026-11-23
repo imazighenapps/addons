@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_email_sentiment" model="ir.actions.act_window">
+  <field name="name">Triage des Emails par Sentiment</field>
+  <field name="res_model">email.sentiment</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_email_sentiment_root" name="Triage des Emails par Sentiment" parent="base.menu_custom" action="action_email_sentiment" sequence="259"/>
+</odoo>
