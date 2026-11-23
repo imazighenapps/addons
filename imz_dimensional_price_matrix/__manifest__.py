@@ -3,9 +3,9 @@
     "name": "Dimensional Price Matrix",
     "version": "20.0.1.0.0",
     "category": "Sales/Sales",
-    "summary": "Manage pipelines, customer follow-ups and sales performance with real-time visibility.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Run dimensional, pricing and rate matrices end to end in Odoo, with structured records and audit-ready history.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["sale", "uom", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/dimensional_price_matrix_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nDimensional Price Matrix\n========================\nRun dimensional, pricing and rate matrices end to end in Odoo, with structured records and audit-ready history.\n\nFeatures:\n---------\n* Dimensional\n* Pricing\n* Rate matrices\n* Pipeline visibility\n* Fast quotations\n* Customer follow-ups\n* Pricing control\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
