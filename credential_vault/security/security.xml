@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="credential_vault_company_rule" model="ir.access">
+  <field name="name">Coffre de Credentials : société</field>
+  <field name="model_id" ref="model_credential_vault"/>
+  <field name="operation">crud</field>
+  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+</record>
+</data></odoo>
