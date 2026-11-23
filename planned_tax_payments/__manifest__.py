@@ -3,9 +3,9 @@
     "name": "Planned Tax Payments",
     "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
-    "summary": "Give finance teams a focused Odoo app for reconciliation, analysis and compliant reporting.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Give operations teams a clear Odoo workflow for planned, taxes and payments, with full traceability.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/planned_tax_payments_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 59.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nPlanned Tax Payments\n====================\nGive operations teams a clear Odoo workflow for planned, taxes and payments, with full traceability.\n\nFeatures:\n---------\n* Planned\n* Taxes\n* Payments\n* Audit-ready entries\n* Variance tracking\n* Reconciliation workspace\n* Role-based access\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
