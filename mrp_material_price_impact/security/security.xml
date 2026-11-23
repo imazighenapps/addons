@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="mrp_material_price_impact_company_rule" model="ir.rule">
+      <field name="name">Simulateur d'Impact Prix Matière : société</field>
+      <field name="model_id" ref="model_mrp_material_price_impact" />
+      <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+      <field name="perm_read">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+  </data>
+</odoo>
