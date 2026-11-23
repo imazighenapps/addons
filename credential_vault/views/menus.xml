@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_credential_vault" model="ir.actions.act_window">
+  <field name="name">Coffre de Credentials</field>
+  <field name="res_model">credential.vault</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_credential_vault_root" name="Coffre de Credentials" parent="base.menu_custom" action="action_credential_vault" sequence="425"/>
+</odoo>
