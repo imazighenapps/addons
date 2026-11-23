@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_email_signature" model="ir.actions.act_window">
+  <field name="name">Gestion des Signatures Email</field>
+  <field name="res_model">email.signature</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_email_signature_root" name="Gestion des Signatures Email" parent="base.menu_custom" action="action_email_signature" sequence="263"/>
+</odoo>

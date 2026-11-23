@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_ledger_anomaly_scan" model="ir.actions.act_window">
+  <field name="name">Détection d'Anomalies du Grand Livre</field>
+  <field name="res_model">ledger.anomaly.scan</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_ledger_anomaly_scan_root" name="Détection d'Anomalies du Grand Livre" parent="base.menu_custom" action="action_ledger_anomaly_scan" sequence="257"/>
+</odoo>
