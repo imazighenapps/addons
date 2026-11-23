@@ -20,5 +20,5 @@
     "price": 34.99,
     "currency": "EUR",
     "images": ['static/description/banner.png'],
-    "description": "\nAdr Shipment Desk\n=================\nAdr Shipment Desk: manage adr and shipments in Odoo, with clear statuses and full traceability.\n\nFeatures:\n---------\n* Adr\n* Shipments\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n* Grouped views\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    ",
+    "description": "\nAdr Shipment Desk\n=================\nAdr Shipment Desk: manage adr and shipments in Odoo, with clear statuses and full traceability.\n\nFeatures:\n---------\n* Adr\n* Shipments\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n* Grouped views\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
