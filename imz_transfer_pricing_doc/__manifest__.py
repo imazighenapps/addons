@@ -3,9 +3,9 @@
     "name": "Transfer Pricing Doc",
     "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
-    "summary": "Automate accounting controls, journal entries and financial reporting with full traceability.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Manage transfers, pricing and documents from a single Odoo screen, with filters, follow-ups and reporting.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/transfer_pricing_doc_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nTransfer Pricing Doc\n====================\nManage transfers, pricing and documents from a single Odoo screen, with filters, follow-ups and reporting.\n\nFeatures:\n---------\n* Transfers\n* Pricing\n* Documents\n* Audit-ready entries\n* Variance tracking\n* Reconciliation workspace\n* Role-based access\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
