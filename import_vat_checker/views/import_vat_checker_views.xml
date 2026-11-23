@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="view_import_vat_checker_form" model="ir.ui.view">
+  <field name="name">import.vat.checker.form</field><field name="model">import.vat.checker</field>
+  <field name="arch" type="xml"><form string="Contrôle TVA import">
+    <header>
+      <button name="action_check" type="object" string="Contrôler" class="btn-primary" invisible="state!='draft'"/>
+      <button name="action_justify" type="object" string="Justifier" invisible="state!='checked'"/>
+      <field name="state" widget="statusbar" statusbar_visible="draft,checked,justified"/>
+    </header>
+    <sheet><div class="oe_title"><h1><field name="name"/></h1></div>
+      <group><group>
+        <field name="company_id" groups="base.group_multi_company"/><field name="period_start"/><field name="period_end"/>
+      </group><group>
+        <field name="customs_vat_amount"/><field name="accounted_vat_amount"/><field name="difference"/><field name="has_gap"/>
+        <field name="currency_id" invisible="1"/>
+      </group></group>
+      <group string="Justification"><field name="justification" nolabel="1"/></group>
+      <group string="Journal de conformité"><field name="notes" nolabel="1"/></group>
+    </sheet><div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+  </form></field>
+</record>
+<record id="view_import_vat_checker_list" model="ir.ui.view">
+  <field name="name">import.vat.checker.list</field><field name="model">import.vat.checker</field>
+  <field name="arch" type="xml"><list decoration-danger="has_gap==True" decoration-success="state=='justified'">
+    <field name="name"/><field name="period_start"/><field name="period_end"/>
+    <field name="customs_vat_amount"/><field name="accounted_vat_amount"/><field name="difference"/><field name="state"/>
+  </list></field>
+</record>
+</data></odoo>
