@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_doc_summarizer" model="ir.actions.act_window">
+  <field name="name">Résumé des Documents</field>
+  <field name="res_model">doc.summarizer</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_doc_summarizer_root" name="Résumé des Documents" parent="base.menu_custom" action="action_doc_summarizer" sequence="260"/>
+</odoo>

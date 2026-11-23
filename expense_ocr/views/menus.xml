@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_expense_ocr" model="ir.actions.act_window">
+  <field name="name">OCR des Reçus</field>
+  <field name="res_model">expense.ocr</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_expense_ocr_root" name="OCR des Reçus" parent="base.menu_custom" action="action_expense_ocr" sequence="206"/>
+</odoo>
