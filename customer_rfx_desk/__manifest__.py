@@ -3,9 +3,9 @@
     "name": "Customer Rfx Desk",
     "version": "20.0.1.0.0",
     "category": "Sales/Sales",
-    "summary": "Qualify leads, accelerate quotations and close more deals from a single Odoo workspace.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Customer Rfx Desk keeps customer follow-ups and rfx under control in Odoo, with workflow statuses and exports.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["sale", "crm", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/customer_rfx_desk_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nCustomer Rfx Desk\n=================\nCustomer Rfx Desk keeps customer follow-ups and rfx under control in Odoo, with workflow statuses and exports.\n\nFeatures:\n---------\n* Customer follow-ups\n* Rfx\n* Pipeline visibility\n* Fast quotations\n* Pricing control\n* Renewal tracking\n* Full history\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
