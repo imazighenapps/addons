@@ -3,9 +3,9 @@
     "name": "Escrow Deposit Desk",
     "version": "19.0.1.0.0",
     "category": "Accounting",
-    "summary": "Give finance teams a focused Odoo app for reconciliation, analysis and compliant reporting.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Centralize escrow and deposit in one Odoo workspace, with role-based access and approvals.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
         "security/ir.model.access.csv",
@@ -14,5 +14,11 @@
         "views/escrow_deposit_desk_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nEscrow Deposit Desk\n===================\nCentralize escrow and deposit in one Odoo workspace, with role-based access and approvals.\n\nFeatures:\n---------\n* Escrow\n* Deposit\n* Audit-ready entries\n* Variance tracking\n* Reconciliation workspace\n* Role-based access\n* Export-ready reports\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
