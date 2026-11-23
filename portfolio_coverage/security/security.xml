@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="portfolio_coverage_company_rule" model="ir.rule">
+      <field name="name">Couverture de Portefeuille : société</field>
+      <field name="model_id" ref="model_portfolio_coverage" />
+      <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+      <field name="perm_read">1</field>
+      <field name="perm_write">1</field>
+      <field name="perm_create">1</field>
+      <field name="perm_unlink">1</field>
+    </record>
+  </data>
+</odoo>
