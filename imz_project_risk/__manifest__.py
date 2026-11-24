@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Project Risk",
-    "version": "20.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Project/Project",
     "summary": "Project Risk keeps projects and risk under control in Odoo, with workflow statuses and exports.",
     "author": "NORYVEX",
