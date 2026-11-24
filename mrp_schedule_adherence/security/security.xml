@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><data>
-<record id="mrp_schedule_adherence_company_rule" model="ir.access">
-  <field name="name">Conformité à l'Ordonnancement : société</field>
-  <field name="model_id" ref="model_mrp_schedule_adherence"/>
-  <field name="operation">crud</field>
-  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-</record>
-</data></odoo>
