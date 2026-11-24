@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Forklift Daily Check",
-    "version": "20.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Inventory/Inventory",
     "summary": "Forklift Daily Check gives teams a focused Odoo app for forklifts, daily operations and checks, with real-time visibility.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["stock", "maintenance", "mail"],
     "data": [
-        "security/ir.access.csv",
+        "security/ir.model.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/forklift_daily_check_views.xml",
