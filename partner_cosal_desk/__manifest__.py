@@ -3,9 +3,9 @@
     "name": "Partner Cosal Desk",
     "version": "20.0.1.0.0",
     "category": "Sales/Sales",
-    "summary": "Give sales teams a focused Odoo app to convert opportunities into recurring revenue.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Give operations teams a clear Odoo workflow for partner records and cosal, with full traceability.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["sale", "account", "crm", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/partner_cosal_desk_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nPartner Cosal Desk\n==================\nGive operations teams a clear Odoo workflow for partner records and cosal, with full traceability.\n\nFeatures:\n---------\n* Partner records\n* Cosal\n* Pipeline visibility\n* Fast quotations\n* Customer follow-ups\n* Pricing control\n* Renewal tracking\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
