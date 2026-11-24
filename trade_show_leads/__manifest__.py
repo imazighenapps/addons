@@ -3,9 +3,9 @@
     "name": "Trade Show Leads",
     "version": "18.0.1.0.0",
     "category": "Sales/Sales",
-    "summary": "Give sales teams a focused Odoo app to convert opportunities into recurring revenue.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Track trade, show operations and leads in a dedicated Odoo workspace, from intake to reporting.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["crm", "mail"],
     "data": [
         "security/ir.model.access.csv",
@@ -14,5 +14,11 @@
         "views/trade_show_leads_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nTrade Show Leads\n================\nTrack trade, show operations and leads in a dedicated Odoo workspace, from intake to reporting.\n\nFeatures:\n---------\n* Trade\n* Show operations\n* Leads\n* Pipeline visibility\n* Fast quotations\n* Customer follow-ups\n* Pricing control\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
