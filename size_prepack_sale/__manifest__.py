@@ -3,9 +3,9 @@
     "name": "Size Prepack Sale",
     "version": "19.0.1.0.0",
     "category": "Sales/Sales",
-    "summary": "Give sales teams a focused Odoo app to convert opportunities into recurring revenue.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Size Prepack Sale: manage sizing, prepack and sales in Odoo, with clear statuses and full traceability.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["sale", "product", "stock", "mail"],
     "data": [
         "security/ir.model.access.csv",
@@ -14,5 +14,11 @@
         "views/size_prepack_sale_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nSize Prepack Sale\n=================\nSize Prepack Sale: manage sizing, prepack and sales in Odoo, with clear statuses and full traceability.\n\nFeatures:\n---------\n* Sizing\n* Prepack\n* Sales\n* Pipeline visibility\n* Fast quotations\n* Customer follow-ups\n* Pricing control\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
