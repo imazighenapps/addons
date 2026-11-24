@@ -11,7 +11,7 @@ class TestStockFoodContactPackaging(TransactionCase):
         })
         self.assertEqual(rec.state, "draft")
         rec.action_confirm()
-        self.assertNotEqual(rec.name, "Nouveau")
+        self.assertNotEqual(rec.name, "New")
         self.assertEqual(rec.state, "confirmed")
         rec.action_start()
         self.assertEqual(rec.state, "in_progress")
