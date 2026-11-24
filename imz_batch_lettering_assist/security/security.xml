@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><data>
-<record id="batch_lettering_assist_company_rule" model="ir.access">
-  <field name="name">Lettrage en Masse : société</field>
-  <field name="model_id" ref="model_batch_lettering_assist"/>
-  <field name="operation">crud</field>
-  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-</record>
-</data></odoo>

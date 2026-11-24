@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><data>
-<record id="coop_delivery_settlement_company_rule" model="ir.access">
-  <field name="name">Apports Coopératifs : société</field>
-  <field name="model_id" ref="model_coop_delivery_settlement"/>
-  <field name="operation">crud</field>
-  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-</record>
-</data></odoo>

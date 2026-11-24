@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><data>
-<record id="mx_cfdi_document_company_rule" model="ir.access">
-  <field name="name">Mexique CFDI 4.0 : société</field>
-  <field name="model_id" ref="model_mx_cfdi_document"/>
-  <field name="operation">crud</field>
-  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-</record>
-</data></odoo>

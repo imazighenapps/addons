@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><data>
-<record id="api_rate_guard_company_rule" model="ir.access">
-  <field name="name">Gardien de Quota API : société</field>
-  <field name="model_id" ref="model_api_rate_guard"/>
-  <field name="operation">crud</field>
-  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-</record>
-</data></odoo>

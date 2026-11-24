@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><data>
-<record id="periodic_billing_consolidation_company_rule" model="ir.access">
-  <field name="name">Facturation Consolidée Périodique : société</field>
-  <field name="model_id" ref="model_periodic_billing_consolidation"/>
-  <field name="operation">crud</field>
-  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-</record>
-</data></odoo>

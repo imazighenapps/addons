@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><data>
-<record id="customer_consign_sale_company_rule" model="ir.access">
-  <field name="name">Vente en Consignation chez le Client : société</field>
-  <field name="model_id" ref="model_customer_consign_sale"/>
-  <field name="operation">crud</field>
-  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-</record>
-</data></odoo>
