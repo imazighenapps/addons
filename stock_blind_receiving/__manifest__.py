@@ -4,8 +4,8 @@
     "version": "19.0.1.0.0",
     "category": "Inventory/Inventory",
     "summary": "Control warehouse operations, lot traceability and inventory accuracy from one place.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["stock", "purchase", "mail"],
     "data": [
         "security/ir.model.access.csv",
@@ -14,5 +14,11 @@
         "views/stock_blind_receiving_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nStock Blind Receiving\n=====================\nControl warehouse operations, lot traceability and inventory accuracy from one place.\n\nFeatures:\n---------\n* Stock movements\n* Blind\n* Receiving\n* Real-time stock visibility\n* Structured transfers\n* Lot traceability\n* Exception alerts\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
