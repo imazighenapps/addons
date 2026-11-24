@@ -3,7 +3,7 @@ from odoo.tests.common import TransactionCase
 from odoo.tests import tagged
 
 @tagged("post_install", "-at_install")
-class TestStockEquipmentStatutoryInspections(TransactionCase):
+class TestStockEquipmentStatusoryInspections(TransactionCase):
     def test_flow(self):
         rec = self.env["stock.equipment.statutory.inspections"].create({
             "description": "Test",
@@ -11,7 +11,7 @@ class TestStockEquipmentStatutoryInspections(TransactionCase):
         })
         self.assertEqual(rec.state, "draft")
         rec.action_confirm()
-        self.assertNotEqual(rec.name, "Nouveau")
+        self.assertNotEqual(rec.name, "New")
         self.assertEqual(rec.state, "confirmed")
         rec.action_start()
         self.assertEqual(rec.state, "in_progress")
