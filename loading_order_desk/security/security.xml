@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo><data>
-<record id="loading_order_desk_company_rule" model="ir.access">
-  <field name="name">Ordres de Chargement Multi-Livraisons : société</field>
-  <field name="model_id" ref="model_loading_order_desk"/>
-  <field name="operation">crud</field>
-  <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-</record>
-</data></odoo>
