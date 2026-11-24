@@ -3,9 +3,9 @@
     "name": "Email Template Linter",
     "version": "20.0.1.0.0",
     "category": "Administration/Administration",
-    "summary": "Give technical teams a focused Odoo tool with clean configuration and auditability.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Email Template Linter gives teams a focused Odoo app for email workflows, template and linter, with real-time visibility.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/email_template_linter_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nEmail Template Linter\n=====================\nEmail Template Linter gives teams a focused Odoo app for email workflows, template and linter, with real-time visibility.\n\nFeatures:\n---------\n* Email workflows\n* Template\n* Linter\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

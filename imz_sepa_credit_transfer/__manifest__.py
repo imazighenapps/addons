@@ -1,21 +1,2 @@
 # -*- coding: utf-8 -*-
-{
-    "name": "Sepa Credit Transfer",
-    "version": "20.0.1.0.0",
-    "category": "Accounting",
-    "summary": "Automate accounting controls, journal entries and financial reporting with full traceability.",
-    "description": """Sessions de paiement SEPA multi-factures, génération pain.001,
-contrôles IBAN/BIC, identifiant unique, import des rejets pain.002 et historique.""",
-    "author": "ImazighenApps",
-    "website": "https://apps.odoo.com/",
-    "license": "LGPL-3",
-    "depends": ["account", "mail"],
-    "data": [
-        "security/security.xml",
-        "security/ir.access.csv",
-        "data/ir_sequence_data.xml",
-        "views/sct_batch_views.xml",
-        "views/menus.xml",
-    ],
-    "application": False,
-}
+{'name': 'Sepa Credit Transfer', 'version': '18.0.1.0.0', 'category': 'Accounting', 'summary': 'Sepa Credit Transfer gives teams a focused Odoo app for SEPA payments, credit control and transfers, with real-time visibility.', 'description': '\nSepa Credit Transfer\n====================\nSepa Credit Transfer gives teams a focused Odoo app for SEPA payments, credit control and transfers, with real-time visibility.\n\nFeatures:\n---------\n* SEPA payments\n* Credit control\n* Transfers\n* Audit-ready entries\n* Variance tracking\n* Reconciliation workspace\n* Role-based access\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    ', 'author': 'NORYVEX', 'website': 'imazighenapps@gmail.com', 'license': 'OPL-1', 'depends': ['account', 'mail'], 'data': ['security/security.xml', 'security/ir.model.access.csv', 'data/ir_sequence_data.xml', 'views/sct_batch_views.xml', 'views/menus.xml'], 'application': True, 'support': 'imazighenapps@gmail.com', 'price': 99.99, 'currency': 'EUR', 'images': ['static/description/banner.png']}

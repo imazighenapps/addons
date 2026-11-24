@@ -3,9 +3,9 @@
     "name": "Br Nfe Pack",
     "version": "20.0.1.0.0",
     "category": "Accounting",
-    "summary": "Automate accounting controls, journal entries and financial reporting with full traceability.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Track NF-e e-invoicing in a dedicated Odoo workspace, from intake to reporting.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/br_nfe_pack_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 99.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nBr Nfe Pack\n===========\nTrack NF-e e-invoicing in a dedicated Odoo workspace, from intake to reporting.\n\nFeatures:\n---------\n* NF-e e-invoicing\n* Audit-ready entries\n* Variance tracking\n* Reconciliation workspace\n* Role-based access\n* Export-ready reports\n* Multi-company safe\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

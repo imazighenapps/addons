@@ -1,26 +1,2 @@
 # -*- coding: utf-8 -*-
-{
-    "name": "De Xrechnung Einvoice",
-    "version": "20.0.1.0.0",
-    "category": "Accounting",
-    "summary": "Automate accounting controls, journal entries and financial reporting with full traceability.",
-    "description": """
-e-Invoicing XRechnung DE
-========================
-- Génération XML **XRechnung** (structure CIUS conforme, données facture/acheteur/vendeur/lignes)
-- Contrôles de complétude avant génération (champs obligatoires)
-- Statuts d'acceptation et journal de conformité
-- Fichier XML téléchargeable et archivé
-    """,
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
-    "depends": ["account", "mail"],
-    "data": [
-        "security/ir.access.csv",
-        "security/security.xml",
-        "data/ir_sequence.xml",
-        "views/xrechnung_document_views.xml",
-        "views/menus.xml",
-    ],
-    "application": False,
-}
+{'name': 'De Xrechnung Einvoice', 'version': '18.0.1.0.0', 'category': 'Accounting', 'summary': 'Centralize XRechnung e-invoicing in one Odoo workspace, with role-based access and approvals.', 'description': '\nDe Xrechnung Einvoice\n=====================\nCentralize XRechnung e-invoicing in one Odoo workspace, with role-based access and approvals.\n\nFeatures:\n---------\n* XRechnung e-invoicing\n* Audit-ready entries\n* Variance tracking\n* Reconciliation workspace\n* Role-based access\n* Export-ready reports\n* Multi-company safe\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    ', 'author': 'NORYVEX', 'license': 'OPL-1', 'depends': ['account', 'mail'], 'data': ['security/ir.model.access.csv', 'security/security.xml', 'data/ir_sequence.xml', 'views/xrechnung_document_views.xml', 'views/menus.xml'], 'application': True, 'support': 'imazighenapps@gmail.com', 'website': 'imazighenapps@gmail.com', 'price': 99.99, 'currency': 'EUR', 'images': ['static/description/banner.png']}

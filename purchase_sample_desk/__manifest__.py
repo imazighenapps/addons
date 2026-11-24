@@ -3,9 +3,9 @@
     "name": "Purchase Sample Desk",
     "version": "20.0.1.0.0",
     "category": "Purchase/Purchase",
-    "summary": "Automate procurement approvals and vendor follow-ups from one Odoo workspace.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Purchase Sample Desk gives teams a focused Odoo app for purchasing and sample, with real-time visibility.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["purchase", "stock", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/purchase_sample_desk_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nPurchase Sample Desk\n====================\nPurchase Sample Desk gives teams a focused Odoo app for purchasing and sample, with real-time visibility.\n\nFeatures:\n---------\n* Purchasing\n* Sample\n* Supplier records\n* Purchase approvals\n* Cost control\n* Receipt visibility\n* Vendor comparison\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

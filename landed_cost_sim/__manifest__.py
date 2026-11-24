@@ -3,9 +3,9 @@
     "name": "Landed Cost Sim",
     "version": "20.0.1.0.0",
     "category": "Purchase/Purchase",
-    "summary": "Manage suppliers, purchase orders and receipts with real-time cost control.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Landed Cost Sim keeps landed, cost tracking and SIM cards under control in Odoo, with workflow statuses and exports.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["purchase", "stock", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/landed_cost_sim_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nLanded Cost Sim\n===============\nLanded Cost Sim keeps landed, cost tracking and SIM cards under control in Odoo, with workflow statuses and exports.\n\nFeatures:\n---------\n* Landed\n* Cost tracking\n* SIM cards\n* Supplier records\n* Purchase approvals\n* Cost control\n* Receipt visibility\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

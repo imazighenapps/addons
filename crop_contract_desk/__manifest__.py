@@ -3,9 +3,9 @@
     "name": "Crop Contract Desk",
     "version": "20.0.1.0.0",
     "category": "Purchase/Purchase",
-    "summary": "Give purchasing teams full visibility over demand, prices and supplier performance.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Give operations teams a clear Odoo workflow for crop and contracts, with full traceability.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["purchase", "stock", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/crop_contract_desk_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nCrop Contract Desk\n==================\nGive operations teams a clear Odoo workflow for crop and contracts, with full traceability.\n\nFeatures:\n---------\n* Crop\n* Contracts\n* Supplier records\n* Purchase approvals\n* Cost control\n* Receipt visibility\n* Vendor comparison\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

@@ -3,9 +3,9 @@
     "name": "Crew Job Desk",
     "version": "20.0.1.0.0",
     "category": "Project/Project",
-    "summary": "Plan tasks, track time and monitor project profitability from a single Odoo workspace.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Give operations teams a clear Odoo workflow for crew and jobs, with full traceability.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["project", "hr", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/crew_job_desk_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nCrew Job Desk\n=============\nGive operations teams a clear Odoo workflow for crew and jobs, with full traceability.\n\nFeatures:\n---------\n* Crew\n* Jobs\n* Project workspace\n* Task tracking\n* Time and billing\n* Milestone planning\n* Team coordination\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

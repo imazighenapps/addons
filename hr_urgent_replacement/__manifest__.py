@@ -3,9 +3,9 @@
     "name": "Hr Urgent Replacement",
     "version": "20.0.1.0.0",
     "category": "Human Resources/Human Resources",
-    "summary": "Centralize employee records, contracts and HR workflows in one secure Odoo app.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Give operations teams a clear Odoo workflow for HR records, urgent and replacement, with full traceability.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["hr", "hr_attendance", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/hr_urgent_replacement_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nHr Urgent Replacement\n=====================\nGive operations teams a clear Odoo workflow for HR records, urgent and replacement, with full traceability.\n\nFeatures:\n---------\n* HR records\n* Urgent\n* Replacement\n* Employee records\n* Approval workflows\n* Leave and attendance\n* Talent tracking\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

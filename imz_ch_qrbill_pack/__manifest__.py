@@ -3,9 +3,9 @@
     "name": "Ch Qrbill Pack",
     "version": "20.0.1.0.0",
     "category": "Accounting",
-    "summary": "Automate accounting controls, journal entries and financial reporting with full traceability.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Ch Qrbill Pack: manage QR-bill payments in Odoo, with clear statuses and full traceability.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/ch_qrbill_pack_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 99.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nCh Qrbill Pack\n==============\nCh Qrbill Pack: manage QR-bill payments in Odoo, with clear statuses and full traceability.\n\nFeatures:\n---------\n* QR-bill payments\n* Audit-ready entries\n* Variance tracking\n* Reconciliation workspace\n* Role-based access\n* Export-ready reports\n* Multi-company safe\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

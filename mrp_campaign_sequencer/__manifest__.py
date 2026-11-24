@@ -3,9 +3,9 @@
     "name": "Mrp Campaign Sequencer",
     "version": "20.0.1.0.0",
     "category": "Manufacturing/Manufacturing",
-    "summary": "Standardize bills of materials, quality checks and shop-floor execution in Odoo.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Mrp Campaign Sequencer gives teams a focused Odoo app for production orders, campaigns and sequencer, with real-time visibility.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["mrp", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/mrp_campaign_sequencer_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nMrp Campaign Sequencer\n======================\nMrp Campaign Sequencer gives teams a focused Odoo app for production orders, campaigns and sequencer, with real-time visibility.\n\nFeatures:\n---------\n* Production orders\n* Campaigns\n* Sequencer\n* Production planning\n* Work-order control\n* BOM accuracy\n* Cost tracking\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

@@ -3,9 +3,9 @@
     "name": "Fit Access Control",
     "version": "20.0.1.0.0",
     "category": "Productivity/Productivity",
-    "summary": "Automate repetitive tasks and keep teams aligned with structured Odoo workflows.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Centralize fitting, access and controls in one Odoo workspace, with role-based access and approvals.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["sale", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/fit_access_control_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nFit Access Control\n==================\nCentralize fitting, access and controls in one Odoo workspace, with role-based access and approvals.\n\nFeatures:\n---------\n* Fitting\n* Access\n* Controls\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

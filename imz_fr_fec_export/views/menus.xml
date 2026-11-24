@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_fec_export_wizard" model="ir.actions.act_window">
+        <field name="name">Export FEC France</field>
+        <field name="res_model">fec.export.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_fec_export_root"
+              name="Export FEC France"
+              parent="account.menu_finance_reports"
+              action="action_fec_export_wizard"
+              sequence="65"/>
+</odoo>

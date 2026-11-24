@@ -1,22 +1,2 @@
 # -*- coding: utf-8 -*-
-{
-    "name": "Sepa Direct Debit",
-    "version": "20.0.1.0.0",
-    "category": "Accounting",
-    "summary": "Give finance teams a focused Odoo app for reconciliation, analysis and compliant reporting.",
-    "description": """Cycle de prélèvement SEPA : registre de mandats, génération pain.008,
-gestion des séquences et traitement des retours.""",
-    "author": "ImazighenApps",
-    "website": "https://apps.odoo.com/",
-    "license": "LGPL-3",
-    "depends": ["account", "mail"],
-    "data": [
-        "security/security.xml",
-        "security/ir.access.csv",
-        "data/ir_sequence_data.xml",
-        "views/sdd_mandate_views.xml",
-        "views/sdd_batch_views.xml",
-        "views/menus.xml",
-    ],
-    "application": False,
-}
+{'name': 'Sepa Direct Debit', 'version': '18.0.1.0.0', 'category': 'Accounting', 'summary': 'Sepa Direct Debit keeps SEPA payments and direct debits under control in Odoo, with workflow statuses and exports.', 'description': '\nSepa Direct Debit\n=================\nSepa Direct Debit keeps SEPA payments and direct debits under control in Odoo, with workflow statuses and exports.\n\nFeatures:\n---------\n* SEPA payments\n* Direct debits\n* Audit-ready entries\n* Variance tracking\n* Reconciliation workspace\n* Role-based access\n* Export-ready reports\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    ', 'author': 'NORYVEX', 'website': 'imazighenapps@gmail.com', 'license': 'OPL-1', 'depends': ['account', 'mail'], 'data': ['security/security.xml', 'security/ir.model.access.csv', 'data/ir_sequence_data.xml', 'views/sdd_mandate_views.xml', 'views/sdd_batch_views.xml', 'views/menus.xml'], 'application': True, 'support': 'imazighenapps@gmail.com', 'price': 99.99, 'currency': 'EUR', 'images': ['static/description/banner.png']}

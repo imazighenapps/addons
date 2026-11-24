@@ -3,9 +3,9 @@
     "name": "Hr Appraisal Campaign",
     "version": "20.0.1.0.0",
     "category": "Human Resources/Human Resources",
-    "summary": "Automate leave, attendance and employee lifecycle processes with full traceability.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Manage HR records, appraisal and campaigns from a single Odoo screen, with filters, follow-ups and reporting.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["hr", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/hr_appraisal_campaign_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nHr Appraisal Campaign\n=====================\nManage HR records, appraisal and campaigns from a single Odoo screen, with filters, follow-ups and reporting.\n\nFeatures:\n---------\n* HR records\n* Appraisal\n* Campaigns\n* Employee records\n* Approval workflows\n* Leave and attendance\n* Talent tracking\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

@@ -3,9 +3,9 @@
     "name": "Field Crypto",
     "version": "20.0.1.0.0",
     "category": "Productivity/Productivity",
-    "summary": "Organize daily work, approvals and documents in a focused Odoo workspace.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Centralize field operations and crypto assets in one Odoo workspace, with role-based access and approvals.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["base", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/field_crypto_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nField Crypto\n============\nCentralize field operations and crypto assets in one Odoo workspace, with role-based access and approvals.\n\nFeatures:\n---------\n* Field operations\n* Crypto assets\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n* Grouped views\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

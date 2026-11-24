@@ -3,9 +3,9 @@
     "name": "Audio Aid Registry",
     "version": "20.0.1.0.0",
     "category": "Productivity/Productivity",
-    "summary": "Organize daily work, approvals and documents in a focused Odoo workspace.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Centralize audio aid records and a central registry in one Odoo workspace, with role-based access and approvals.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["sale", "stock", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/audio_aid_registry_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nAudio Aid Registry\n==================\nCentralize audio aid records and a central registry in one Odoo workspace, with role-based access and approvals.\n\nFeatures:\n---------\n* Audio aid records\n* A central registry\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n* Grouped views\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

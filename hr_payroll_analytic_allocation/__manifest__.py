@@ -3,9 +3,9 @@
     "name": "Hr Payroll Analytic Allocation",
     "version": "20.0.1.0.0",
     "category": "Human Resources/Human Resources",
-    "summary": "Centralize employee records, contracts and HR workflows in one secure Odoo app.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Hr Payroll Analytic Allocation gives teams a focused Odoo app for HR records, payroll and analytic, with real-time visibility.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["hr", "account", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/hr_payroll_analytic_allocation_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 99.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nHr Payroll Analytic Allocation\n==============================\nHr Payroll Analytic Allocation gives teams a focused Odoo app for HR records, payroll and analytic, with real-time visibility.\n\nFeatures:\n---------\n* HR records\n* Payroll\n* Analytic\n* Employee records\n* Approval workflows\n* Leave and attendance\n* Talent tracking\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

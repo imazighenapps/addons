@@ -3,9 +3,9 @@
     "name": "Hr Electrical Certification",
     "version": "20.0.1.0.0",
     "category": "Human Resources/Human Resources",
-    "summary": "Give HR teams a focused workspace for people data, approvals and reporting.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Centralize HR records, electrical equipment and certification in one Odoo workspace, with role-based access and approvals.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["hr", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/hr_electrical_certification_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nHr Electrical Certification\n===========================\nCentralize HR records, electrical equipment and certification in one Odoo workspace, with role-based access and approvals.\n\nFeatures:\n---------\n* HR records\n* Electrical equipment\n* Certification\n* Employee records\n* Approval workflows\n* Leave and attendance\n* Talent tracking\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

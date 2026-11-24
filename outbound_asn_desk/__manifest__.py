@@ -3,9 +3,9 @@
     "name": "Outbound Asn Desk",
     "version": "20.0.1.0.0",
     "category": "Inventory/Inventory",
-    "summary": "Control warehouse operations, lot traceability and inventory accuracy from one place.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Track outbound flows and ASN receiving in a dedicated Odoo workspace, from intake to reporting.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["sale", "stock", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/outbound_asn_desk_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nOutbound Asn Desk\n=================\nTrack outbound flows and ASN receiving in a dedicated Odoo workspace, from intake to reporting.\n\nFeatures:\n---------\n* Outbound flows\n* ASN receiving\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n* Grouped views\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

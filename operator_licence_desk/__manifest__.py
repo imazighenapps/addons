@@ -3,9 +3,9 @@
     "name": "Operator Licence Desk",
     "version": "20.0.1.0.0",
     "category": "Inventory/Inventory",
-    "summary": "Control warehouse operations, lot traceability and inventory accuracy from one place.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Manage operators and licences from a single Odoo screen, with filters, follow-ups and reporting.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["fleet", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/operator_licence_desk_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nOperator Licence Desk\n=====================\nManage operators and licences from a single Odoo screen, with filters, follow-ups and reporting.\n\nFeatures:\n---------\n* Operators\n* Licences\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n* Grouped views\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
