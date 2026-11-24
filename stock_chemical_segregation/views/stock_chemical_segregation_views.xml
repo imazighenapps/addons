@@ -4,14 +4,14 @@
   <field name="name">stock.chemical.segregation.form</field>
   <field name="model">stock.chemical.segregation</field>
   <field name="arch" type="xml">
-    <form string="Ségrégation des Produits Chimiques">
+    <form string="Stock Chemical Segregation">
       <header>
-        <button name="action_confirm" type="object" string="Confirmer" class="btn-primary" invisible="state!='draft'"/>
-        <button name="action_start" type="object" string="Démarrer" invisible="state not in ('draft','confirmed')"/>
-        <button name="action_done" type="object" string="Clôturer" class="btn-primary" invisible="state in ('done','cancelled')"/>
-        <button name="action_export" type="object" string="Exporter" invisible="state=='draft'"/>
-        <button name="action_cancel" type="object" string="Annuler" invisible="state in ('done','cancelled')"/>
-        <button name="action_reset_draft" type="object" string="Remettre en brouillon" invisible="state not in ('cancelled','done')"/>
+        <button name="action_confirm" type="object" string="Confirm" class="btn-primary" invisible="state!='draft'"/>
+        <button name="action_start" type="object" string="Start" invisible="state not in ('draft','confirmed')"/>
+        <button name="action_done" type="object" string="Close" class="btn-primary" invisible="state in ('done','cancelled')"/>
+        <button name="action_export" type="object" string="Export" invisible="state=='draft'"/>
+        <button name="action_cancel" type="object" string="Cancel" invisible="state in ('done','cancelled')"/>
+        <button name="action_reset_draft" type="object" string="Reset to Draft" invisible="state not in ('cancelled','done')"/>
         <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,in_progress,done"/>
       </header>
       <sheet>
@@ -33,17 +33,13 @@
         </group>
         <group string="Description"><field name="description" nolabel="1"/></group>
         <group string="Notes"><field name="note" nolabel="1"/></group>
-        <group string="Journal"><field name="log_note" nolabel="1"/></group>
+        <group string="Log"><field name="log_note" nolabel="1"/></group>
         <group>
           <field name="export_filename"/>
           <field name="export_file" filename="export_filename"/>
         </group>
       </sheet>
-      <div class="oe_chatter">
-        <field name="message_follower_ids"/>
-        <field name="activity_ids"/>
-        <field name="message_ids"/>
-      </div>
+      <chatter/>
     </form>
   </field>
 </record>
