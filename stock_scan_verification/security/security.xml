@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo><data>
 <record id="stock_scan_verification_company_rule" model="ir.access">
-  <field name="name">Contrôle de Scan au Picking : société</field>
+  <field name="name">Stock Scan Verification : société</field>
   <field name="model_id" ref="model_stock_scan_verification"/>
   <field name="operation">crud</field>
   <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
