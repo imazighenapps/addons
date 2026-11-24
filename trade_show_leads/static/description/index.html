@@ -1,157 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Trade Show Leads — Odoo 20 | Sales &amp; CRM</title>
-<meta name="description" content="Give sales teams a focused Odoo app to convert opportunities into recurring revenue."/>
-<style>
-:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--accent:#2563eb;--soft:#f8fafc}
-*{box-sizing:border-box}
-body{margin:0;background:var(--soft);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
-.container{max-width:1080px;margin:0 auto;padding:0 22px}
-.hero{background:radial-gradient(1200px 420px at 15% 0%,#1e3a8a 0%,#0b1220 55%,#070b16 100%);color:#fff;padding:34px 0 42px}
-.banner-wrap{margin:0 0 28px}
-.banner{width:100%;height:auto;display:block;border-radius:16px;border:1px solid rgba(255,255,255,.14);box-shadow:0 24px 70px rgba(0,0,0,.35)}
-.eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#93c5fd;margin-bottom:10px}
-h1{font-size:2.45rem;line-height:1.12;margin:0 0 14px;font-weight:900;letter-spacing:-.02em}
-.lead{font-size:1.08rem;color:#cbd5e1;max-width:820px;margin:0 0 20px}
-.badges{display:flex;flex-wrap:wrap;gap:8px}
-.badge{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#e2e8f0;border-radius:999px;padding:7px 13px;font-size:12.5px;font-weight:700}
-section.block{padding:34px 0}
-h2{font-size:1.55rem;margin:0 0 8px;letter-spacing:-.01em}
-.sub{color:var(--muted);margin:0 0 20px}
-.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 1px 2px rgba(15,23,42,.04)}
-.card h3{margin:0 0 6px;font-size:1rem}
-.card p{margin:0;color:var(--muted);font-size:.94rem}
-.split{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}
-ul.features{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-ul.features li{display:flex;gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.95rem}
-.tick{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:#dcfce7;color:#166534;font-size:12px;font-weight:900;flex:0 0 20px}
-.shot{margin:0 0 18px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
-.shot figcaption{display:flex;flex-direction:column;gap:2px;margin:0 0 10px}
-.shot figcaption span{color:var(--muted);font-size:.9rem}
-.shot img{width:100%;height:auto;display:block;border-radius:9px;border:1px solid var(--line)}
-.placeholder{border:1px dashed #cbd5e1;border-radius:9px;padding:38px 16px;text-align:center;color:#94a3b8;background:#f8fafc}
-.spec{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.spec td{padding:13px 16px;border-bottom:1px solid var(--line);font-size:.94rem}
-.spec tr:last-child td{border-bottom:0}
-.spec td:first-child{color:var(--muted);font-weight:700;width:34%}
-.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:12px}
-.steps li{counter-increment:s;position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 16px 15px 54px;font-size:.95rem}
-.steps li:before{content:counter(s);position:absolute;left:15px;top:14px;width:26px;height:26px;border-radius:50%;background:#dbeafe;color:#1d4ed8;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:13px}
-.support{background:#0b1220;color:#fff;border-radius:16px;padding:32px;text-align:center;margin:12px 0 26px}
-.support h2{margin-bottom:6px}
-.support p{color:#cbd5e1;margin:0 0 12px}
-.support a{color:#93c5fd;font-weight:800;text-decoration:none}
-.langs{display:flex;flex-wrap:wrap;gap:8px}
-.langs .badge{background:#fff;color:#334155;border-color:var(--line)}
-footer{padding:22px 0 40px;color:#94a3b8;font-size:12px;text-align:center}
-@media (max-width:820px){.grid3{grid-template-columns:1fr}.split{grid-template-columns:1fr}h1{font-size:2rem}}
-</style>
+    <meta charset="UTF-8">
+    <title>Trade Show Leads</title>
 </head>
 <body>
-<div class="hero"><div class="container">
-<div class="banner-wrap"><img class="banner" src="banner.png" alt="Trade Show Leads - Odoo application banner" width="1200" height="600"/></div>
-<div class="eyebrow">Sales &amp; CRM · Odoo 20</div>
-<h1>Trade Show Leads</h1>
-<p class="lead">Give sales teams a focused Odoo app to convert opportunities into recurring revenue.</p>
-<div class="badges">
-<span class="badge">Odoo 20</span>
-<span class="badge">Community &amp; Enterprise</span>
-<span class="badge">LGPL-3</span>
-<span class="badge">7 locale files</span>
-<span class="badge">Real screenshots</span>
-</div>
-</div></div>
+<div class="bg-dark text-white" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;line-height:1.6;">
 
-<div class="container">
-<section class="block">
-<h2>Why Trade Show Leads</h2>
-<p class="sub">A focused, production-ready extension designed for sales &amp; crm teams.</p>
-<div class="grid3">
-<article class="card"><h3>Focused workspace</h3><p>Dedicated menus, list and form views keep daily work out of crowded generic screens.</p></article>
-<article class="card"><h3>Safe by design</h3><p>Access rights, clear statuses and traceable operations protect business data.</p></article>
-<article class="card"><h3>Ready to scale</h3><p>English-first content, translated locale files and a clean Odoo architecture.</p></article>
-</div>
-</section>
-
-<section class="block">
-<div class="split">
-<div>
-<h2>Key capabilities</h2>
-<p class="sub">What teams can do from day one.</p>
-<ul class="features"><li><span class="tick">✓</span><span>Give sales teams a focused Odoo app to convert opportunities into recurring revenue.</span></li><li><span class="tick">✓</span><span>Leads de Salons</span></li><li><span class="tick">✓</span><span>Focused pipeline and customer workspace</span></li><li><span class="tick">✓</span><span>Fast quotation and follow-up workflows</span></li><li><span class="tick">✓</span><span>Clear statuses, owners and next actions</span></li><li><span class="tick">✓</span><span>Role-based access for sales teams</span></li></ul>
-</div>
-<div>
-<h2>Screenshots</h2>
-<p class="sub">Captured from a live Odoo database with realistic demo data.</p>
-<figure class="shot">
-  <figcaption><strong>List view</strong><span>Search, filter and review records at a glance.</span></figcaption>
-  <img src="screenshot_list.png" alt="Trade Show Leads - List view" loading="lazy"/>
-</figure>
-<figure class="shot">
-  <figcaption><strong>Form view</strong><span>Create, edit and follow the complete workflow.</span></figcaption>
-  <img src="screenshot_form.png" alt="Trade Show Leads - Form view" loading="lazy"/>
-</figure>
-</div>
-</div>
-</section>
-
-<section class="block">
-<h2>Built for your team</h2>
-<p class="sub">Typical roles that benefit from this module.</p>
-<div class="grid3"><article class="card"><h3>Sales representatives</h3><p>Focus on the next action for every opportunity.</p></article><article class="card"><h3>Account managers</h3><p>Keep customer follow-ups and quotations in one place.</p></article><article class="card"><h3>Sales operations</h3><p>Standardize pipeline hygiene and reporting.</p></article></div>
-</section>
-
-<section class="block">
-<div class="split">
-<div>
-<h2>Installation</h2>
-<p class="sub">Standard Odoo deployment in a few minutes.</p>
-<ol class="steps">
-<li>Install the module from Odoo Apps, or upload the ZIP in the Apps menu.</li>
-<li>Update the app list and click Install.</li>
-<li>Assign the new menu and user group to the relevant team members.</li>
-<li>Configure defaults, import your records and start working.</li>
-</ol>
-</div>
-<div>
-<h2>Technical specifications</h2>
-<p class="sub">Verified metadata for this build.</p>
-<table class="spec">
-<tr><td>Compatibility</td><td><strong>Odoo 20</strong> (Community &amp; Enterprise)</td></tr>
-<tr><td>Version</td><td>20.0.1.0.0</td></tr>
-<tr><td>License</td><td>LGPL-3</td></tr>
-<tr><td>Dependencies</td><td>crm, mail</td></tr>
-<tr><td>Author</td><td>ImazighenApps</td></tr>
-<tr><td>Category</td><td>Sales &amp; CRM</td></tr>
-</table>
-</div>
-</div>
-</section>
-
-<section class="block">
-<h2>Included languages</h2>
-<p class="sub">English is the base language; translation files are included for the following locales.</p>
-<div class="langs"><span class="badge">English</span><span class="badge">French</span><span class="badge">Arabic</span><span class="badge">Spanish</span><span class="badge">German</span><span class="badge">Portuguese (Brazil)</span><span class="badge">Chinese (Simplified)</span></div>
-</section>
-
-<section class="block">
-<h2>Changelog</h2>
-<table class="spec">
-<tr><td>20.0.1.0.0</td><td>Initial release for Odoo 20: focused workspace, access rights, demo-ready views and English documentation.</td></tr>
-</table>
-</section>
-
-<div class="support">
-<h2>Professional support</h2>
-<p>Questions, customization or implementation assistance? Our team can help.</p>
-<a href="mailto:imazighenapps@gmail.com">imazighenapps@gmail.com</a>
+<!-- HERO -->
+<div class="text-white py-5 px-4" style="background:#0f172a;">
+  <div class="container" style="max-width:980px;">
+    <div class="mb-4 d-flex flex-wrap gap-2">
+      <span class="badge rounded-pill bg-secondary border border-secondary text-light px-3 py-2">Odoo 20</span>
+      <span class="badge rounded-pill bg-secondary border border-secondary text-light px-3 py-2">Community &amp; Enterprise</span>
+      <span class="badge rounded-pill bg-secondary border border-secondary text-light px-3 py-2">OPL-1</span>
+      <span class="badge rounded-pill bg-secondary border border-secondary text-light px-3 py-2">34.99 EUR</span>
+    </div>
+    <h1 class="fw-bold mb-3 text-white" style="font-size:40px;line-height:1.1;">Trade Show Leads</h1>
+    <p class="mb-4" style="font-size:17px;max-width:760px;color:#cbd5e1;">
+      Track trade, show operations and leads in a dedicated Odoo workspace, from intake to reporting.
+    </p>
+    <p class="mt-3 mb-0" style="font-size:12px;color:#94a3b8;">Version 20.0.1.0.0 &nbsp;·&nbsp; Dependencies: <code>crm, mail</code></p>
+  </div>
 </div>
 
-<footer>Trade Show Leads · ImazighenApps · Odoo 20 · LGPL-3</footer>
+<!-- OVERVIEW -->
+<div class="py-5 px-4 bg-light">
+  <div class="container" style="max-width:980px;">
+    <div class="text-center mb-4">
+      <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-2 text-uppercase" style="font-size:11px;letter-spacing:.08em;">Overview</span>
+      <h2 class="fw-bold mb-2">Trade Show Leads — Key Interfaces</h2>
+      <p class="text-secondary mx-auto mb-0" style="max-width:760px;">A focused, production-ready Odoo extension for sales &amp; crm teams: dedicated menus, list and form views, clear statuses and full traceability.</p>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-4"><div class="card h-100 border-0 shadow-sm p-4"><h3 class="h6 fw-bold mb-2">Focused workspace</h3><p class="text-secondary mb-0 small">Dedicated menus, list and form views keep daily work out of crowded generic screens.</p></div></div>
+      <div class="col-md-4"><div class="card h-100 border-0 shadow-sm p-4"><h3 class="h6 fw-bold mb-2">Safe by design</h3><p class="text-secondary mb-0 small">Access rights, clear statuses and traceable operations protect business data.</p></div></div>
+      <div class="col-md-4"><div class="card h-100 border-0 shadow-sm p-4"><h3 class="h6 fw-bold mb-2">Ready to scale</h3><p class="text-secondary mb-0 small">English-first content, translated locale files and a clean Odoo architecture.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- KEY CAPABILITIES -->
+<div class="py-5 px-4 bg-white">
+  <div class="container" style="max-width:980px;">
+    <div class="text-center mb-4">
+      <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-2 text-uppercase" style="font-size:11px;letter-spacing:.08em;">Key capabilities</span>
+      <h2 class="fw-bold mb-2">What Teams Can Do</h2>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-6"><div class="border rounded-3 p-3 small text-secondary"><strong class="text-dark">Track trade, show operations and leads in a dedicated Odoo workspace, from intake to reporting.</strong></div></div><div class="col-md-6"><div class="border rounded-3 p-3 small text-secondary"><strong class="text-dark">Leads de Salons</strong></div></div><div class="col-md-6"><div class="border rounded-3 p-3 small text-secondary"><strong class="text-dark">Focused pipeline and customer workspace</strong></div></div><div class="col-md-6"><div class="border rounded-3 p-3 small text-secondary"><strong class="text-dark">Fast quotation and follow-up workflows</strong></div></div><div class="col-md-6"><div class="border rounded-3 p-3 small text-secondary"><strong class="text-dark">Clear statuses, owners and next actions</strong></div></div><div class="col-md-6"><div class="border rounded-3 p-3 small text-secondary"><strong class="text-dark">Role-based access for sales teams</strong></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREENSHOTS -->
+<div class="py-5 px-4 bg-light">
+  <div class="container" style="max-width:980px;">
+    <div class="text-center mb-4">
+      <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-2 text-uppercase" style="font-size:11px;letter-spacing:.08em;">Screenshots</span>
+      <h2 class="fw-bold mb-2">Real Odoo Interfaces</h2>
+      <p class="text-secondary mb-0">Captured from a live Odoo database with realistic demo data.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6"><div class="card h-100 border-0 shadow-sm overflow-hidden"><div class="bg-white border-bottom px-3 py-2 fw-semibold">List view</div><img src="screenshot_list.png" alt="Trade Show Leads - List view" class="img img-responsive w-100 d-block"/><div class="p-3 text-secondary small">Search, filter and review records at a glance.</div></div></div>
+      <div class="col-lg-6"><div class="card h-100 border-0 shadow-sm overflow-hidden"><div class="bg-white border-bottom px-3 py-2 fw-semibold">Form view</div><img src="screenshot_form.png" alt="Trade Show Leads - Form view" class="img img-responsive w-100 d-block"/><div class="p-3 text-secondary small">Create, edit and follow the complete workflow.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- INSTALLATION -->
+<div class="py-5 px-4 bg-white">
+  <div class="container" style="max-width:980px;">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-2 text-uppercase" style="font-size:11px;letter-spacing:.08em;">Installation</span>
+        <h2 class="fw-bold mb-3">Quick Installation</h2>
+        <ol class="text-secondary mb-3" style="padding-left:18px;">
+          <li>Copy the <code>trade_show_leads</code> folder into your addons path.</li>
+          <li>Restart the Odoo server and update the apps list.</li>
+          <li>Install <strong>Trade Show Leads</strong> (demo data is available for quick testing).</li>
+        </ol>
+        <div class="rounded-3 p-3" style="background:#0f172a;color:#e2e8f0;font-family:monospace;font-size:12px;line-height:1.8;">
+          <div># Example (Docker / CLI)</div>
+          <div>odoo -d &lt;db_name&gt; -i trade_show_leads --stop-after-init</div>
+          <div># Add your DB/host parameters according to your environment</div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-2 text-uppercase" style="font-size:11px;letter-spacing:.08em;">Technical specifications</span>
+        <h2 class="fw-bold mb-3">Build Details</h2>
+        <table class="table table-bordered">
+          <tr><td>Compatibility</td><td><strong>Odoo 20</strong> (Community &amp; Enterprise)</td></tr>
+          <tr><td>Version</td><td>20.0.1.0.0</td></tr>
+          <tr><td>License</td><td>OPL-1</td></tr>
+          <tr><td>Price</td><td><strong>34.99 EUR</strong> (one-time, Odoo Apps)</td></tr>
+          <tr><td>Dependencies</td><td>crm, mail</td></tr>
+          <tr><td>Author</td><td>NORYVEX</td></tr>
+          <tr><td>Support</td><td>imazighenapps@gmail.com</td></tr>
+          <tr><td>Category</td><td>Sales &amp; CRM</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LANGUAGES -->
+<div class="py-5 px-4 bg-light">
+  <div class="container" style="max-width:980px;">
+    <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-2 text-uppercase" style="font-size:11px;letter-spacing:.08em;">Included languages</span>
+    <h2 class="fw-bold mb-3">Translations</h2>
+    <p class="text-secondary mb-3">English is the base language; translation files are included for the following locales.</p>
+    <div class="d-flex flex-wrap gap-2"><span class="badge rounded-pill bg-light text-dark border px-3 py-2">English</span><span class="badge rounded-pill bg-light text-dark border px-3 py-2">French</span><span class="badge rounded-pill bg-light text-dark border px-3 py-2">Arabic</span><span class="badge rounded-pill bg-light text-dark border px-3 py-2">Spanish</span><span class="badge rounded-pill bg-light text-dark border px-3 py-2">German</span><span class="badge rounded-pill bg-light text-dark border px-3 py-2">Portuguese (Brazil)</span><span class="badge rounded-pill bg-light text-dark border px-3 py-2">Chinese (Simplified)</span></div>
+  </div>
+</div>
+
+<!-- CHANGELOG -->
+<div class="py-5 px-4 bg-white">
+  <div class="container" style="max-width:980px;">
+    <span class="badge rounded-pill text-bg-primary px-3 py-2 mb-2 text-uppercase" style="font-size:11px;letter-spacing:.08em;">Changelog</span>
+    <h2 class="fw-bold mb-3">Release History</h2>
+    <table class="table table-bordered">
+      <tr><td>20.0.1.0.0</td><td>Initial release for Odoo 20: focused workspace, access rights, demo-ready views and English documentation.</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- PROFESSIONAL SUPPORT -->
+<div class="py-5 px-4 bg-white">
+  <div class="container" style="max-width:980px;">
+    <div class="text-center py-4 px-3" style="background:#0f172a;color:#fff;border-radius:16px;">
+      <h2 class="fw-bold mb-2">Professional support</h2>
+      <p class="mb-3" style="color:#cbd5e1;">Questions, customization or implementation assistance? Our team can help.</p>
+      <a href="mailto:imazighenapps@gmail.com" class="btn btn-primary" style="color:#fff;text-decoration:none;">imazighenapps@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="py-4 px-4 text-center" style="background:#0b1220;color:#94a3b8;">
+  <div class="container" style="max-width:980px;">
+    <p class="mb-1">Trade Show Leads — Odoo 20 (Community &amp; Enterprise)</p>
+    <p class="mb-0" style="font-size:12px;">License OPL-1 · Support: <a href="mailto:imazighenapps@gmail.com" style="color:#cbd5e1;text-decoration:none;">imazighenapps@gmail.com</a></p>
+  </div>
+</div>
+
 </div>
 </body>
 </html>
