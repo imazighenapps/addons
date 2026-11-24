@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Reuse Center Desk",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Productivity/Productivity",
-    "summary": "Automate repetitive tasks and keep teams aligned with structured Odoo workflows.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Run reuse and service center end to end in Odoo, with structured records and audit-ready history.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["stock", "mrp", "account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/reuse_center_desk_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nReuse Center Desk\n=================\nRun reuse and service center end to end in Odoo, with structured records and audit-ready history.\n\nFeatures:\n---------\n* Reuse\n* Service center\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n* Grouped views\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

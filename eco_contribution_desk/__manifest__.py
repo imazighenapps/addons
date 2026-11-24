@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Eco Contribution Desk",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Give operations teams a clear Odoo workflow for eco and contribution, with full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "sale", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/eco_contribution_desk_views.xml",

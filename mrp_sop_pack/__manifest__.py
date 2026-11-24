@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Mrp Sop Pack",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Manufacturing/Manufacturing",
-    "summary": "Standardize bills of materials, quality checks and shop-floor execution in Odoo.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Manage production orders and sop from a single Odoo screen, with filters, follow-ups and reporting.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["mrp", "sale", "stock", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/mrp_sop_pack_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nMrp Sop Pack\n============\nManage production orders and sop from a single Odoo screen, with filters, follow-ups and reporting.\n\nFeatures:\n---------\n* Production orders\n* Sop\n* Production planning\n* Work-order control\n* BOM accuracy\n* Cost tracking\n* Quality checks\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

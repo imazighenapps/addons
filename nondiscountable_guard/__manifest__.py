@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Nondiscountable Guard",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Nondiscountable Guard: manage nondiscountable and guardrails in Odoo, with clear statuses and full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "product", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/nondiscountable_guard_views.xml",

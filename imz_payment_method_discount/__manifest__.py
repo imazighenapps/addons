@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Payment Method Discount",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Centralize payments, method and discounts in one Odoo workspace, with role-based access and approvals.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/payment_method_discount_views.xml",

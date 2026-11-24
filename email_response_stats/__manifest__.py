@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Email Response Stats",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Productivity/Productivity",
-    "summary": "Automate repetitive tasks and keep teams aligned with structured Odoo workflows.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Centralize email workflows, response and stats in one Odoo workspace, with role-based access and approvals.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/email_response_stats_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nEmail Response Stats\n====================\nCentralize email workflows, response and stats in one Odoo workspace, with role-based access and approvals.\n\nFeatures:\n---------\n* Email workflows\n* Response\n* Stats\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

@@ -1,21 +1,2 @@
 # -*- coding: utf-8 -*-
-{
-    "name": "Partner Aging Desk",
-    "version": "19.0.1.0.0",
-    "category": "Accounting",
-    "summary": "Reconcile accounts, monitor balances and audit every financial entry from one Odoo workspace.",
-    "description": """Tableaux d'aging clients (AR) et fournisseurs (AP) par tranches,
-engagement par tranche, actions recommandées, suivi DSO/DPO et exports.""",
-    "author": "ImazighenApps",
-    "website": "https://apps.odoo.com/",
-    "license": "LGPL-3",
-    "depends": ["account"],
-    "data": [
-        "security/ir.model.access.csv",
-        "security/security.xml",
-        "views/aging_views.xml",
-        "views/menus.xml",
-        "report/aging_report.xml",
-    ],
-    "application": False,
-}
+{'name': 'Partner Aging Desk', 'version': '18.0.1.0.0', 'category': 'Accounting', 'summary': 'Run partner records and aging balances end to end in Odoo, with structured records and audit-ready history.', 'description': '\nPartner Aging Desk\n==================\nRun partner records and aging balances end to end in Odoo, with structured records and audit-ready history.\n\nFeatures:\n---------\n* Partner records\n* Aging balances\n* Audit-ready entries\n* Variance tracking\n* Reconciliation workspace\n* Role-based access\n* Export-ready reports\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    ', 'author': 'NORYVEX', 'website': 'imazighenapps@gmail.com', 'license': 'OPL-1', 'depends': ['account'], 'data': ['security/ir.model.access.csv', 'security/security.xml', 'views/aging_views.xml', 'views/menus.xml', 'report/aging_report.xml'], 'application': True, 'support': 'imazighenapps@gmail.com', 'price': 34.99, 'currency': 'EUR', 'images': ['static/description/banner.png']}

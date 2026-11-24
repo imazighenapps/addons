@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Energy Certificate Desk",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Energy Certificate Desk gives teams a focused Odoo app for energy and certificate, with real-time visibility.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "sale", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/energy_certificate_desk_views.xml",

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Multi Element Allocation",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Give operations teams a clear Odoo workflow for element and allocation, with full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "sale", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/multi_element_allocation_views.xml",

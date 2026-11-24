@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Hotel Group Blocks",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Productivity/Productivity",
-    "summary": "Give operations teams a single place to track requests, actions and results.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Give operations teams a clear Odoo workflow for hotel operations, group operations and blocks, with full traceability.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["sale", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/hotel_group_blocks_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nHotel Group Blocks\n==================\nGive operations teams a clear Odoo workflow for hotel operations, group operations and blocks, with full traceability.\n\nFeatures:\n---------\n* Hotel operations\n* Group operations\n* Blocks\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

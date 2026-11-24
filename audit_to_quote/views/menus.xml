@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="action_audit_to_quote" model="ir.actions.act_window">
+  <field name="name">Devis depuis les Constats d'Audit</field>
+  <field name="res_model">audit.to.quote</field>
+  <field name="view_mode">list,form</field>
+</record>
+<menuitem id="menu_audit_to_quote_root" name="Devis depuis les Constats d'Audit" parent="base.menu_custom" action="action_audit_to_quote" sequence="803"/>
+</odoo>

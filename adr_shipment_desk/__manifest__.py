@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Adr Shipment Desk",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Inventory/Inventory",
     "summary": "Adr Shipment Desk: manage adr and shipments in Odoo, with clear statuses and full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "stock", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/adr_shipment_desk_views.xml",

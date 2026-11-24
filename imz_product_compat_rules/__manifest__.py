@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Product Compat Rules",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Product Compat Rules gives teams a focused Odoo app for product data, compat and business rules, with real-time visibility.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "product", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/product_compat_rules_views.xml",

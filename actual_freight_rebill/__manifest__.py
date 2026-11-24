@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Actual Freight Rebill",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Actual Freight Rebill keeps actual, freight costs and rebilling under control in Odoo, with workflow statuses and exports.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "stock", "account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/actual_freight_rebill_views.xml",

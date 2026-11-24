@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Analytic Pnl Reports",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Manage analytic, pnl and financial reports from a single Odoo screen, with filters, follow-ups and reporting.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "analytic", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/analytic_pnl_reports_views.xml",

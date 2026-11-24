@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_fec_export_wizard_form" model="ir.ui.view">
+            <field name="name">fec.export.wizard.form</field>
+            <field name="model">fec.export.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Export FEC France">
+                    <group>
+                        <group string="Période">
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="journal_ids" widget="many2many_tags"/>
+                        </group>
+                        <group string="Format">
+                            <field name="encoding"/>
+                            <field name="separator"/>
+                            <field name="include_auxiliary"/>
+                            <field name="include_currency_cols"/>
+                        </group>
+                    </group>
+                    <group string="Contrôles du fichier généré" invisible="not file_data">
+                        <group>
+                            <field name="file_name" readonly="1"/>
+                            <field name="record_count" readonly="1"/>
+                            <field name="move_count" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="total_debit" readonly="1"/>
+                            <field name="total_credit" readonly="1"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_generate" type="object"
+                                string="Générer le FEC" class="btn-primary"
+                                invisible="file_data"/>
+                        <button name="action_download" type="object"
+                                string="Télécharger le fichier FEC"
+                                class="btn-primary" invisible="not file_data"/>
+                        <button string="Fermer" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

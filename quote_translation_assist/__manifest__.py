@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Quote Translation Assist",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Quote Translation Assist: manage quotations, translations and assistance in Odoo, with clear statuses and full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/quote_translation_assist_views.xml",

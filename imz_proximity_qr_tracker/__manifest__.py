@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Proximity Qr Tracker",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Proximity Qr Tracker: manage proximity and tracking in Odoo, with clear statuses and full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["website_sale", "crm", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/proximity_qr_tracker_views.xml",

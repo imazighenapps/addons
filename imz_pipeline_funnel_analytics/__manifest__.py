@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Pipeline Funnel Analytics",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Pipeline Funnel Analytics gives teams a focused Odoo app for pipeline, funnel and analytics, with real-time visibility.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["crm", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/pipeline_funnel_analytics_views.xml",

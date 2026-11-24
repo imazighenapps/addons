@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Charm Price Rounding",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Give operations teams a clear Odoo workflow for charm, pricing and rounding, with full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "product", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/charm_price_rounding_views.xml",

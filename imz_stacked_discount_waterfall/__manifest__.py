@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Stacked Discount Waterfall",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Stacked Discount Waterfall gives teams a focused Odoo app for stacked, discounts and waterfall, with real-time visibility.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "product", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/stacked_discount_waterfall_views.xml",

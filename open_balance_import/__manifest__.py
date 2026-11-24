@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Open Balance Import",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Open Balance Import gives teams a focused Odoo app for open balances and imports, with real-time visibility.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/open_balance_import_views.xml",

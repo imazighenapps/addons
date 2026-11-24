@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Fx Forward Desk",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting",
     "summary": "Fx Forward Desk: manage FX and forward in Odoo, with clear statuses and full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/fx_forward_desk_views.xml",

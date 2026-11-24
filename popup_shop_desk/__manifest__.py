@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Popup Shop Desk",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Centralize pop-up shops and shop operations in one Odoo workspace, with role-based access and approvals.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "stock", "point_of_sale", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/popup_shop_desk_views.xml",

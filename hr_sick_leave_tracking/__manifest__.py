@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Hr Sick Leave Tracking",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Human Resources/Human Resources",
-    "summary": "Centralize employee records, contracts and HR workflows in one secure Odoo app.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Track HR records, sick and leave in a dedicated Odoo workspace, from intake to reporting.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["hr", "hr_holidays", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/hr_sick_leave_tracking_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nHr Sick Leave Tracking\n======================\nTrack HR records, sick and leave in a dedicated Odoo workspace, from intake to reporting.\n\nFeatures:\n---------\n* HR records\n* Sick\n* Leave\n* Employee records\n* Approval workflows\n* Leave and attendance\n* Talent tracking\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

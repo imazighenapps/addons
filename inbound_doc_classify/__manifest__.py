@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Inbound Doc Classify",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Productivity/Productivity",
-    "summary": "Organize daily work, approvals and documents in a focused Odoo workspace.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Run inbound flows, documents and classify end to end in Odoo, with structured records and audit-ready history.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["base", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/inbound_doc_classify_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nInbound Doc Classify\n====================\nRun inbound flows, documents and classify end to end in Odoo, with structured records and audit-ready history.\n\nFeatures:\n---------\n* Inbound flows\n* Documents\n* Classify\n* Document registry\n* Version tracking\n* Secure attachments\n* Approval workflow\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

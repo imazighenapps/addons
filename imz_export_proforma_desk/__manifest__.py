@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Export Proforma Desk",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Export Proforma Desk keeps exports and proforma under control in Odoo, with workflow statuses and exports.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "stock", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/export_proforma_desk_views.xml",

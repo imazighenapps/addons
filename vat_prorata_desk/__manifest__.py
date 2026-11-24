@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Vat Prorata Desk",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Vat Prorata Desk gives teams a focused Odoo app for VAT controls and prorata, with real-time visibility.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/vat_prorata_desk_views.xml",

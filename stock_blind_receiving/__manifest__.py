@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Stock Blind Receiving",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Inventory/Inventory",
     "summary": "Control warehouse operations, lot traceability and inventory accuracy from one place.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["stock", "purchase", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/stock_blind_receiving_views.xml",

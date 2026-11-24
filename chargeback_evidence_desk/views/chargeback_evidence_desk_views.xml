@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+<record id="view_chargeback_case_form" model="ir.ui.view">
+  <field name="name">chargeback.case.form</field><field name="model">chargeback.case</field>
+  <field name="arch" type="xml"><form string="Chargeback">
+    <header>
+      <button name="action_assemble" type="object" string="Assembler le dossier" class="btn-primary" invisible="state not in ('draft','assembled')"/>
+      <button name="action_submit" type="object" string="Soumettre" invisible="state!='assembled'"/>
+      <button name="action_close" type="object" string="Clôturer" invisible="state!='submitted'"/>
+      <field name="state" widget="statusbar" statusbar_visible="draft,assembled,submitted,closed"/>
+    </header>
+    <sheet><div class="oe_title"><h1><field name="name"/></h1></div>
+      <group><group>
+        <field name="company_id" groups="base.group_multi_company"/><field name="invoice_id"/><field name="sale_order_id"/><field name="partner_id"/>
+        <field name="processor"/><field name="reason"/>
+      </group><group>
+        <field name="amount"/><field name="currency_id" invisible="1"/>
+        <field name="opened_date"/><field name="deadline_date"/><field name="outcome"/>
+        <field name="evidence_filename"/><field name="evidence_file" filename="evidence_filename"/>
+      </group></group>
+      <group string="Résumé des preuves"><field name="evidence_summary" nolabel="1" readonly="1"/></group>
+      <group string="Notes"><field name="notes" nolabel="1"/></group>
+    </sheet><div class="oe_chatter"><field name="message_follower_ids"/><field name="message_ids"/></div>
+  </form></field>
+</record>
+<record id="view_chargeback_case_list" model="ir.ui.view">
+  <field name="name">chargeback.case.list</field><field name="model">chargeback.case</field>
+  <field name="arch" type="xml"><list decoration-success="outcome=='won'" decoration-danger="outcome=='lost'">
+    <field name="name"/><field name="invoice_id"/><field name="partner_id"/><field name="amount"/>
+    <field name="deadline_date"/><field name="outcome"/><field name="state"/>
+  </list></field>
+</record>
+</data></odoo>

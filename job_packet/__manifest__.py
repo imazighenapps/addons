@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Job Packet",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Project/Project",
-    "summary": "Give service teams a focused Odoo app for planning, execution and billing.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Job Packet gives teams a focused Odoo app for jobs and packet, with real-time visibility.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["project", "stock", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/job_packet_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nJob Packet\n==========\nJob Packet gives teams a focused Odoo app for jobs and packet, with real-time visibility.\n\nFeatures:\n---------\n* Jobs\n* Packet\n* Project workspace\n* Task tracking\n* Time and billing\n* Milestone planning\n* Team coordination\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

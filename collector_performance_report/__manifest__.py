@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Collector Performance Report",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Collector Performance Report gives teams a focused Odoo app for collector, performance and reports, with real-time visibility.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/collector_performance_report_views.xml",

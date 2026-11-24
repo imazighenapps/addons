@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Exclusivity Registry",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Exclusivity Registry: manage exclusivity and a central registry in Odoo, with clear statuses and full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "crm", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/exclusivity_registry_views.xml",
