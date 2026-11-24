@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Install Fee Matrix",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Track install, fees and rate matrices in a dedicated Odoo workspace, from intake to reporting.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "product", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/install_fee_matrix_views.xml",

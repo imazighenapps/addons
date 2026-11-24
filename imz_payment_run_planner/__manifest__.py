@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Payment Run Planner",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Manage payments, run and planning from a single Odoo screen, with filters, follow-ups and reporting.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/payment_run_planner_views.xml",

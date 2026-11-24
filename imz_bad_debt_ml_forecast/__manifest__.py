@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Bad Debt Ml Forecast",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Bad Debt Ml Forecast keeps bad, debt and forecasts under control in Odoo, with workflow statuses and exports.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/bad_debt_ml_forecast_views.xml",

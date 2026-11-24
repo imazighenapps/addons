@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Customer Penalty Desk",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Inventory/Inventory",
-    "summary": "Give logistics teams a focused Odoo app for faster, error-free stock movements.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Customer Penalty Desk: manage customer follow-ups and penalties in Odoo, with clear statuses and full traceability.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["sale", "account", "stock", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/customer_penalty_desk_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nCustomer Penalty Desk\n=====================\nCustomer Penalty Desk: manage customer follow-ups and penalties in Odoo, with clear statuses and full traceability.\n\nFeatures:\n---------\n* Customer follow-ups\n* Penalties\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n* Grouped views\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

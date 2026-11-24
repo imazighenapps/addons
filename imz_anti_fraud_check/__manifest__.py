@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Anti Fraud Check",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Anti Fraud Check: manage anti, fraud and checks in Odoo, with clear statuses and full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "payment", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/anti_fraud_check_views.xml",

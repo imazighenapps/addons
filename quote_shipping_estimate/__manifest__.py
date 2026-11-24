@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Quote Shipping Estimate",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Give operations teams a clear Odoo workflow for quotations, shipping and estimates, with full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "stock", "product", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/quote_shipping_estimate_views.xml",

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Quote Option Set",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Give operations teams a clear Odoo workflow for quotations, option and set, with full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/quote_option_set_views.xml",

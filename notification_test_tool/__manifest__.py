@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Notification Test Tool",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Administration/Administration",
-    "summary": "Extend Odoo safely with a production-ready, well-documented technical module.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Notification Test Tool gives teams a focused Odoo app for notification, with real-time visibility.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/notification_test_tool_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nNotification Test Tool\n======================\nNotification Test Tool gives teams a focused Odoo app for notification, with real-time visibility.\n\nFeatures:\n---------\n* Notification\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n* Grouped views\n* Audit-ready history\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

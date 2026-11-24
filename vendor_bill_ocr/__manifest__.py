@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Vendor Bill Ocr",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Run vendor records, bills and OCR end to end in Odoo, with structured records and audit-ready history.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "purchase", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/vendor_bill_ocr_views.xml",

@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Migration Check",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Productivity/Productivity",
-    "summary": "Automate repetitive tasks and keep teams aligned with structured Odoo workflows.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Run migrations and checks end to end in Odoo, with structured records and audit-ready history.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["base", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/migration_check_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nMigration Check\n===============\nRun migrations and checks end to end in Odoo, with structured records and audit-ready history.\n\nFeatures:\n---------\n* Migrations\n* Checks\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n* Grouped views\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

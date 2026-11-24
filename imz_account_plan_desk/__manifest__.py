@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Account Plan Desk",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Account Plan Desk gives teams a focused Odoo app for accounts and planning, with real-time visibility.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["crm", "sale", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/account_plan_desk_views.xml",

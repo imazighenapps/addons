@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Quote Attachment Gate",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Quote Attachment Gate: manage quotations, attachments and approval gates in Odoo, with clear statuses and full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/quote_attachment_gate_views.xml",

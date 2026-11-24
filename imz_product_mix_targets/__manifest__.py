@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Product Mix Targets",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Run product data, mix and targets end to end in Odoo, with structured records and audit-ready history.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "crm", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/product_mix_targets_views.xml",

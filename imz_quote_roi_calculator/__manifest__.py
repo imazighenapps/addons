@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Quote Roi Calculator",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Quote Roi Calculator gives teams a focused Odoo app for quotations, ROI and calculator, with real-time visibility.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "product", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/quote_roi_calculator_views.xml",

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Price Book Audit",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Price Book Audit: manage pricing, bookings and audit trails in Odoo, with clear statuses and full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "product", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/price_book_audit_views.xml",

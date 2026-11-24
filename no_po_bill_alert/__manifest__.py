@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "No Po Bill Alert",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Give operations teams a clear Odoo workflow for purchase orders, bills and alerts, with full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "purchase", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/no_po_bill_alert_views.xml",

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Expert Accounting Pack",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Expert Accounting Pack gives teams a focused Odoo app for expert and accounting, with real-time visibility.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/expert_accounting_pack_views.xml",

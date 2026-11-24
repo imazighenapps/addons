@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Relationship Milestones",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Run relationship and milestones end to end in Odoo, with structured records and audit-ready history.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["crm", "sale", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/relationship_milestones_views.xml",

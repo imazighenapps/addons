@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Trade Show Leads",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Track trade, show operations and leads in a dedicated Odoo workspace, from intake to reporting.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["crm", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/trade_show_leads_views.xml",

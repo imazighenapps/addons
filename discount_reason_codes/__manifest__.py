@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Discount Reason Codes",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Give operations teams a clear Odoo workflow for discounts, reason and codes, with full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/discount_reason_codes_views.xml",

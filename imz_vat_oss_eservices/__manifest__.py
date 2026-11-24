@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Vat Oss Eservices",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Run VAT controls, oss and eservices end to end in Odoo, with structured records and audit-ready history.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "sale", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/vat_oss_eservices_views.xml",

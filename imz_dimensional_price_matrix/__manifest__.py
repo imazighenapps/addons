@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Dimensional Price Matrix",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Run dimensional, pricing and rate matrices end to end in Odoo, with structured records and audit-ready history.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "uom", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/dimensional_price_matrix_views.xml",

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Stale Unmatched Bank Lines",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Centralize stale, unmatched and bank reconciliation in one Odoo workspace, with role-based access and approvals.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/stale_unmatched_bank_lines_views.xml",

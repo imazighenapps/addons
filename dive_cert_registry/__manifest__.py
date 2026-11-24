@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Dive Cert Registry",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Productivity/Productivity",
-    "summary": "Organize daily work, approvals and documents in a focused Odoo workspace.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Dive Cert Registry gives teams a focused Odoo app for dive, cert and a central registry, with real-time visibility.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["sale", "stock", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/dive_cert_registry_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nDive Cert Registry\n==================\nDive Cert Registry gives teams a focused Odoo app for dive, cert and a central registry, with real-time visibility.\n\nFeatures:\n---------\n* Dive\n* Cert\n* A central registry\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

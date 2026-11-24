@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Price Band Winrate",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Sales/Sales",
     "summary": "Price Band Winrate keeps pricing, band and winrate under control in Odoo, with workflow statuses and exports.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["sale", "crm", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/price_band_winrate_views.xml",

@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Staging Clone Masker",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Administration/Administration",
-    "summary": "Extend Odoo safely with a production-ready, well-documented technical module.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Track staging environments, environment cloning and data masking in a dedicated Odoo workspace, from intake to reporting.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["base", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/staging_clone_masker_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nStaging Clone Masker\n====================\nTrack staging environments, environment cloning and data masking in a dedicated Odoo workspace, from intake to reporting.\n\nFeatures:\n---------\n* Staging environments\n* Environment cloning\n* Data masking\n* Dedicated workspace\n* Structured records\n* Workflow statuses\n* Role-based access\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

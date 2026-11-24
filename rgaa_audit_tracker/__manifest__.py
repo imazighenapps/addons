@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Rgaa Audit Tracker",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Productivity/Productivity",
-    "summary": "Give operations teams a single place to track requests, actions and results.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Rgaa Audit Tracker gives teams a focused Odoo app for rgaa, audit trails and tracking, with real-time visibility.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["project", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/rgaa_audit_tracker_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 59.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nRgaa Audit Tracker\n==================\nRgaa Audit Tracker gives teams a focused Odoo app for rgaa, audit trails and tracking, with real-time visibility.\n\nFeatures:\n---------\n* Rgaa\n* Audit trails\n* Tracking\n* Access control\n* Audit trail\n* Compliance checks\n* Role-based permissions\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

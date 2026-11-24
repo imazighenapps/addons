@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Multicurrency Lettering",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Multicurrency Lettering: manage multicurrency and lettering in Odoo, with clear statuses and full traceability.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/multicurrency_lettering_views.xml",

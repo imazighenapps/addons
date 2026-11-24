@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data>
-    <record id="sdd_mandate_company_rule" model="ir.rule">
-      <field name="name">Mandat SDD : société</field>
-      <field name="model_id" ref="model_sdd_mandate" />
-      <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-      <field name="perm_read">1</field>
-      <field name="perm_write">1</field>
-      <field name="perm_create">1</field>
-      <field name="perm_unlink">1</field>
-    </record>
-    <record id="sdd_batch_company_rule" model="ir.rule">
-      <field name="name">Lot SDD : société</field>
-      <field name="model_id" ref="model_sdd_batch" />
-      <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
-      <field name="perm_read">1</field>
-      <field name="perm_write">1</field>
-      <field name="perm_create">1</field>
-      <field name="perm_unlink">1</field>
-    </record>
-  </data>
+    <data>
+        <record id="sdd_mandate_company_rule" model="ir.access">
+            <field name="name">Mandat SDD : société</field>
+            <field name="model_id" ref="model_sdd_mandate"/>
+            <field name="operation">crud</field>
+            <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+        <record id="sdd_batch_company_rule" model="ir.access">
+            <field name="name">Lot SDD : société</field>
+            <field name="model_id" ref="model_sdd_batch"/>
+            <field name="operation">crud</field>
+            <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+    </data>
 </odoo>

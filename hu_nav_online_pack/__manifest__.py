@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Hu Nav Online Pack",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting",
-    "summary": "Give finance teams a focused Odoo app for reconciliation, analysis and compliant reporting.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Track nav and online in a dedicated Odoo workspace, from intake to reporting.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/hu_nav_online_pack_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nHu Nav Online Pack\n==================\nTrack nav and online in a dedicated Odoo workspace, from intake to reporting.\n\nFeatures:\n---------\n* Nav\n* Online\n* Audit-ready entries\n* Variance tracking\n* Reconciliation workspace\n* Role-based access\n* Export-ready reports\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }

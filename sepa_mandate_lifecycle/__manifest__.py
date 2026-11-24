@@ -1,21 +1,2 @@
 # -*- coding: utf-8 -*-
-{
-    "name": "Sepa Mandate Lifecycle",
-    "version": "18.0.1.0.0",
-    "category": "Accounting",
-    "summary": "Reconcile accounts, monitor balances and audit every financial entry from one Odoo workspace.",
-    "description": """Registre de mandats avec cycle de vie complet, historique des RIB,
-alertes d'expiration/révocation, pièce signée et piste d'audit.""",
-    "author": "ImazighenApps",
-    "website": "https://apps.odoo.com/",
-    "license": "LGPL-3",
-    "depends": ["account", "mail"],
-    "data": [
-        "security/security.xml",
-        "security/ir.model.access.csv",
-        "data/cron.xml",
-        "views/mandate_lifecycle_views.xml",
-        "views/menus.xml",
-    ],
-    "application": False,
-}
+{'name': 'Sepa Mandate Lifecycle', 'version': '18.0.1.0.0', 'category': 'Accounting', 'summary': 'Track SEPA payments, mandates and lifecycle tracking in a dedicated Odoo workspace, from intake to reporting.', 'description': '\nSepa Mandate Lifecycle\n======================\nTrack SEPA payments, mandates and lifecycle tracking in a dedicated Odoo workspace, from intake to reporting.\n\nFeatures:\n---------\n* SEPA payments\n* Mandates\n* Lifecycle tracking\n* Audit-ready entries\n* Variance tracking\n* Reconciliation workspace\n* Role-based access\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    ', 'author': 'NORYVEX', 'website': 'imazighenapps@gmail.com', 'license': 'OPL-1', 'depends': ['account', 'mail'], 'data': ['security/security.xml', 'security/ir.model.access.csv', 'data/cron.xml', 'views/mandate_lifecycle_views.xml', 'views/menus.xml'], 'application': True, 'support': 'imazighenapps@gmail.com', 'price': 99.99, 'currency': 'EUR', 'images': ['static/description/banner.png']}

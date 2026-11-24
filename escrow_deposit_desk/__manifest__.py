@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Escrow Deposit Desk",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting",
     "summary": "Centralize escrow and deposit in one Odoo workspace, with role-based access and approvals.",
     "author": "NORYVEX",
     "license": "OPL-1",
     "depends": ["account", "mail"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/security.xml",
         "data/ir_sequence.xml",
         "views/escrow_deposit_desk_views.xml",
