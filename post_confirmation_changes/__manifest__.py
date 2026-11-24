@@ -3,9 +3,9 @@
     "name": "Post Confirmation Changes",
     "version": "20.0.1.0.0",
     "category": "Sales/Sales",
-    "summary": "Give sales teams a focused Odoo app to convert opportunities into recurring revenue.",
-    "author": "ImazighenApps",
-    "license": "LGPL-3",
+    "summary": "Post Confirmation Changes keeps confirmation and changes under control in Odoo, with workflow statuses and exports.",
+    "author": "NORYVEX",
+    "license": "OPL-1",
     "depends": ["sale", "mail"],
     "data": [
         "security/ir.access.csv",
@@ -14,5 +14,11 @@
         "views/post_confirmation_changes_views.xml",
         "views/menus.xml",
     ],
-    "application": False,
+    "application": True,
+    "support": "imazighenapps@gmail.com",
+    "website": "imazighenapps@gmail.com",
+    "price": 34.99,
+    "currency": "EUR",
+    "images": ['static/description/banner.png'],
+    "description": "\nPost Confirmation Changes\n=========================\nPost Confirmation Changes keeps confirmation and changes under control in Odoo, with workflow statuses and exports.\n\nFeatures:\n---------\n* Confirmation\n* Changes\n* Pipeline visibility\n* Fast quotations\n* Customer follow-ups\n* Pricing control\n* Renewal tracking\n\nIdeal for:\n----------\nBusiness teams, managers and administrators using Odoo.\n    "
 }
