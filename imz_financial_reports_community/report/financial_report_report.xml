@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_financial" model="ir.actions.report">
+        <field name="name">Financial Report</field>
+        <field name="model">fr.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">imz_financial_reports_community.report_financial_document</field>
+        <field name="print_report_name">'Financial Report - %s' % (object.report_id.name)</field>
+    </record>
+</odoo>
