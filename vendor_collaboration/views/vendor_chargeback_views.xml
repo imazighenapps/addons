@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_vendor_chargeback_list" model="ir.ui.view">
+        <field name="name">vendor.chargeback.list</field>
+        <field name="model">vendor.chargeback</field>
+        <field name="arch" type="xml">
+            <list string="Vendor Chargebacks">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="date"/>
+                <field name="reason"/>
+                <field name="amount"/>
+                <field name="state" widget="badge" decoration-success="state=='resolved'" decoration-warning="state=='submitted'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_vendor_chargeback_form" model="ir.ui.view">
+        <field name="name">vendor.chargeback.form</field>
+        <field name="model">vendor.chargeback</field>
+        <field name="arch" type="xml">
+            <form string="Vendor Chargeback">
+                <header>
+                    <button name="action_submit" type="object" string="Submit" class="btn-primary" invisible="state!='draft'"/>
+                    <button name="action_approve" type="object" string="Approve" invisible="state!='submitted'"/>
+                    <button name="action_resolve" type="object" string="Resolve" class="btn-primary" invisible="state not in ('submitted','approved')"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state=='resolved'"/>
+                    <button name="action_reset_to_draft" type="object" string="Reset to Draft" invisible="state!='cancelled'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved,resolved"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="purchase_id"/>
+                            <field name="invoice_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="reason"/>
+                            <field name="amount"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                        <field name="resolution_note"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_vendor_chargeback" model="ir.actions.act_window">
+        <field name="name">Vendor Chargebacks</field>
+        <field name="res_model">vendor.chargeback</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

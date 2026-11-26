@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_vendor_catalog_list" model="ir.ui.view">
+        <field name="name">vendor.catalog.item.list</field>
+        <field name="model">vendor.catalog.item</field>
+        <field name="arch" type="xml">
+            <list string="Vendor Catalog">
+                <field name="partner_id"/>
+                <field name="product_id"/>
+                <field name="vendor_code"/>
+                <field name="price"/>
+                <field name="lead_time_days"/>
+                <field name="min_qty"/>
+                <field name="valid_from"/>
+                <field name="valid_to"/>
+                <field name="state" widget="badge" decoration-success="state=='active'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_vendor_catalog_form" model="ir.ui.view">
+        <field name="name">vendor.catalog.item.form</field>
+        <field name="model">vendor.catalog.item</field>
+        <field name="arch" type="xml">
+            <form string="Vendor Catalog Item">
+                <header>
+                    <button name="action_activate" type="object" string="Activate" class="btn-primary" invisible="state=='active'"/>
+                    <button name="action_archive_item" type="object" string="Archive" invisible="state=='archived'"/>
+                    <button name="action_reset_to_draft" type="object" string="Reset to Draft" invisible="state=='draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,archived"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="product_id"/>
+                            <field name="vendor_code"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="price"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="lead_time_days"/>
+                            <field name="min_qty"/>
+                            <field name="valid_from"/>
+                            <field name="valid_to"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="note"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_vendor_catalog_item" model="ir.actions.act_window">
+        <field name="name">Vendor Catalog</field>
+        <field name="res_model">vendor.catalog.item</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
