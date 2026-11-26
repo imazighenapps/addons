@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sdd_mandate_list" model="ir.ui.view">
+        <field name="name">sdd.mandate.list</field>
+        <field name="model">sdd.mandate</field>
+        <field name="arch" type="xml">
+            <list string="SEPA Mandates" decoration-muted="state in ('revoked','closed','expired')" decoration-warning="alert_expiring">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="debtor_iban"/>
+                <field name="scheme"/>
+                <field name="sequence_type"/>
+                <field name="signature_date"/>
+                <field name="expiry_date" optional="show"/>
+                <field name="last_debit_date" optional="show"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="alert_expiring" column_invisible="1"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'active'"
+                       decoration-info="state == 'draft'"
+                       decoration-warning="state == 'suspended'"
+                       decoration-danger="state in ('revoked','expired')"
+                       decoration-muted="state == 'closed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_sdd_mandate_form" model="ir.ui.view">
+        <field name="name">sdd.mandate.form</field>
+        <field name="model">sdd.mandate</field>
+        <field name="arch" type="xml">
+            <form string="SEPA Mandate">
+                <header>
+                    <button name="action_activate" type="object" string="Activate" class="btn-primary"
+                            invisible="state not in ('draft','suspended')"/>
+                    <button name="action_suspend" type="object" string="Suspend"
+                            invisible="state != 'active'"/>
+                    <button name="action_revoke" type="object" string="Revoke"
+                            invisible="state not in ('draft','active','suspended')"/>
+                    <button name="action_close" type="object" string="Close"
+                            invisible="state not in ('active','suspended','expired')"/>
+                    <button name="action_reset_to_draft" type="object" string="Reset to Draft"
+                            invisible="state not in ('suspended','revoked','expired','closed')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_batches" type="object" class="oe_stat_button" icon="fa-bank"
+                                invisible="batch_count == 0">
+                            <field name="batch_count" widget="statinfo" string="Batches"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Revoked" bg_color="text-bg-danger" invisible="state != 'revoked'"/>
+                    <widget name="web_ribbon" title="Expired" bg_color="text-bg-warning" invisible="state != 'expired'"/>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Mandate Reference"/></h1>
+                    </div>
+                    <group>
+                        <group string="Debtor">
+                            <field name="partner_id"/>
+                            <field name="partner_bank_id" context="{'default_partner_id': partner_id}"/>
+                            <field name="debtor_iban" readonly="1"/>
+                            <field name="debtor_bic" readonly="1"/>
+                        </group>
+                        <group string="Mandate Details">
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="scheme"/>
+                            <field name="sequence_type"/>
+                            <field name="signature_date"/>
+                            <field name="activation_date"/>
+                            <field name="expiry_date"/>
+                            <field name="revocation_date"/>
+                            <field name="last_debit_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Signed Documents" name="documents">
+                            <field name="signed_document_ids" widget="many2many_binary" string="Signed Documents"/>
+                        </page>
+                        <page string="Bank Account History" name="rib_history">
+                            <field name="rib_history_ids">
+                                <list editable="bottom">
+                                    <field name="change_date"/>
+                                    <field name="old_iban"/>
+                                    <field name="old_bic"/>
+                                    <field name="new_iban"/>
+                                    <field name="new_bic"/>
+                                    <field name="reason"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Collection Lines" name="batch_lines">
+                            <field name="batch_line_ids" readonly="1">
+                                <list>
+                                    <field name="batch_id"/>
+                                    <field name="name"/>
+                                    <field name="amount"/>
+                                    <field name="communication"/>
+                                    <field name="invoice_id" optional="show"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Internal notes about this mandate..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sdd_mandate_search" model="ir.ui.view">
+        <field name="name">sdd.mandate.search</field>
+        <field name="model">sdd.mandate</field>
+        <field name="arch" type="xml">
+            <search string="Search SEPA Mandates">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="debtor_iban"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <filter name="active_mandates" string="Active" domain="[('state','=','active')]"/>
+                <filter name="draft_mandates" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="expiring" string="Expiring Soon" domain="[('alert_expiring','=',True)]"/>
+                <separator/>
+                <filter name="core" string="CORE" domain="[('scheme','=','CORE')]"/>
+                <filter name="b2b" string="B2B" domain="[('scheme','=','B2B')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_partner" string="Debtor" context="{'group_by':'partner_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by':'state'}"/>
+                    <filter name="group_scheme" string="Scheme" context="{'group_by':'scheme'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_sdd_mandate" model="ir.actions.act_window">
+        <field name="name">SEPA Mandates</field>
+        <field name="res_model">sdd.mandate</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_sdd_mandate_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first SEPA mandate</p>
+            <p>Track debtor mandates, signatures, validity, and bank account history before collecting payments.</p>
+        </field>
+    </record>
+</odoo>

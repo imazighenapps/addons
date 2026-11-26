@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="base.main_company" model="res.company">
+        <field name="name">Noryvex Demo Company</field>
+    </record>
+
+    <record id="partner_sdd_acme" model="res.partner">
+        <field name="name">Acme Europe GmbH</field>
+        <field name="email">billing@acme-europe.example</field>
+        <field name="company_type">company</field>
+        <field name="street">Hauptstrasse 12</field>
+        <field name="city">Berlin</field>
+        <field name="zip">10115</field>
+        <field name="country_id" ref="base.de"/>
+    </record>
+
+    <record id="bank_sdd_acme" model="res.partner.bank">
+        <field name="acc_number">DE89370400440532013000</field>
+        <field name="partner_id" ref="partner_sdd_acme"/>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+    <record id="partner_sdd_contoso" model="res.partner">
+        <field name="name">Contoso France SAS</field>
+        <field name="email">finance@contoso-fr.example</field>
+        <field name="company_type">company</field>
+        <field name="street">10 Rue de Rivoli</field>
+        <field name="city">Paris</field>
+        <field name="zip">75004</field>
+        <field name="country_id" ref="base.fr"/>
+    </record>
+
+    <record id="bank_sdd_contoso" model="res.partner.bank">
+        <field name="acc_number">FR1420041010050500013M02606</field>
+        <field name="partner_id" ref="partner_sdd_contoso"/>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+    <record id="mandate_sdd_acme" model="sdd.mandate">
+        <field name="name">SDM-DEMO-0001</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="partner_id" ref="partner_sdd_acme"/>
+        <field name="partner_bank_id" ref="bank_sdd_acme"/>
+        <field name="scheme">CORE</field>
+        <field name="sequence_type">FRST</field>
+        <field name="signature_date" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-%d')"/>
+        <field name="state">active</field>
+        <field name="activation_date" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-%d')"/>
+    </record>
+
+    <record id="mandate_sdd_contoso" model="sdd.mandate">
+        <field name="name">SDM-DEMO-0002</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="partner_id" ref="partner_sdd_contoso"/>
+        <field name="partner_bank_id" ref="bank_sdd_contoso"/>
+        <field name="scheme">CORE</field>
+        <field name="sequence_type">RCUR</field>
+        <field name="signature_date" eval="(DateTime.today() - relativedelta(months=6)).strftime('%Y-%m-%d')"/>
+        <field name="state">active</field>
+        <field name="activation_date" eval="(DateTime.today() - relativedelta(months=6)).strftime('%Y-%m-%d')"/>
+    </record>
+</odoo>

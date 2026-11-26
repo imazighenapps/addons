@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sdd_batch_list" model="ir.ui.view">
+        <field name="name">sdd.batch.list</field>
+        <field name="model">sdd.batch</field>
+        <field name="arch" type="xml">
+            <list string="SEPA Direct Debit Batches" decoration-muted="state in ('rejected')" decoration-success="state == 'done'">
+                <field name="name"/>
+                <field name="collection_date"/>
+                <field name="journal_id"/>
+                <field name="scheme"/>
+                <field name="sequence_type"/>
+                <field name="nb_txs"/>
+                <field name="ctrl_sum"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'draft'"
+                       decoration-primary="state == 'generated'"
+                       decoration-warning="state == 'sent'"
+                       decoration-danger="state == 'rejected'"
+                       decoration-success="state == 'done'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_sdd_batch_form" model="ir.ui.view">
+        <field name="name">sdd.batch.form</field>
+        <field name="model">sdd.batch</field>
+        <field name="arch" type="xml">
+            <form string="SEPA Direct Debit Batch">
+                <header>
+                    <button name="action_generate" type="object" string="Generate pain.008" class="btn-primary"
+                            invisible="state not in ('draft','rejected')"/>
+                    <button name="action_download" type="object" string="Download File"
+                            invisible="not file_data"/>
+                    <button name="action_mark_sent" type="object" string="Mark as Sent"
+                            invisible="state != 'generated'"/>
+                    <button name="action_mark_done" type="object" string="Mark as Done"
+                            invisible="state not in ('generated','sent')"/>
+                    <button name="action_mark_rejected" type="object" string="Mark as Rejected"
+                            invisible="state not in ('generated','sent')"/>
+                    <button name="action_reset_to_draft" type="object" string="Reset to Draft"
+                            invisible="state not in ('generated','rejected')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,generated,sent,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Collection">
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="journal_id"/>
+                            <field name="collection_date"/>
+                            <field name="scheme"/>
+                            <field name="sequence_type"/>
+                            <field name="creditor_identifier" placeholder="e.g. FR12ZZZ123456"/>
+                        </group>
+                        <group string="File">
+                            <field name="nb_txs"/>
+                            <field name="ctrl_sum"/>
+                            <field name="msg_id" readonly="1"/>
+                            <field name="pmt_inf_id" readonly="1"/>
+                            <field name="file_name" readonly="1"/>
+                            <field name="file_data" filename="file_name" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Collection Lines" name="lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="mandate_id"/>
+                                    <field name="partner_id" readonly="1" optional="show"/>
+                                    <field name="invoice_id" optional="show"/>
+                                    <field name="communication"/>
+                                    <field name="amount" sum="Total"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="company_id" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Rejection / Notes" name="notes">
+                            <group>
+                                <field name="reject_reason" placeholder="Describe bank rejection reason or return details..."/>
+                                <field name="note" placeholder="Internal notes..."/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sdd_batch_search" model="ir.ui.view">
+        <field name="name">sdd.batch.search</field>
+        <field name="model">sdd.batch</field>
+        <field name="arch" type="xml">
+            <search string="Search Batches">
+                <field name="name"/>
+                <field name="journal_id"/>
+                <field name="creditor_identifier"/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="generated" string="Generated" domain="[('state','=','generated')]"/>
+                <filter name="sent" string="Sent" domain="[('state','=','sent')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="Status" context="{'group_by':'state'}"/>
+                    <filter name="group_journal" string="Journal" context="{'group_by':'journal_id'}"/>
+                    <filter name="group_scheme" string="Scheme" context="{'group_by':'scheme'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_sdd_batch" model="ir.actions.act_window">
+        <field name="name">Direct Debit Batches</field>
+        <field name="res_model">sdd.batch</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_sdd_batch_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first direct debit batch</p>
+            <p>Group active mandates into a collection batch and generate a pain.008 file for your bank.</p>
+        </field>
+    </record>
+</odoo>

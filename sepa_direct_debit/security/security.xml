@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_sepa_direct_debit" model="ir.module.category">
+        <field name="name">SEPA Direct Debit</field>
+        <field name="description">Manage SEPA mandates and direct debit batches.</field>
+        <field name="sequence">35</field>
+    </record>
+
+    <record id="group_sdd_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_category_sepa_direct_debit"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="group_sdd_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_sepa_direct_debit"/>
+        <field name="implied_ids" eval="[(4, ref('group_sdd_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="sdd_mandate_company_rule" model="ir.rule">
+        <field name="name">SEPA Mandate: multi-company</field>
+        <field name="model_id" ref="model_sdd_mandate"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="sdd_batch_company_rule" model="ir.rule">
+        <field name="name">SEPA Batch: multi-company</field>
+        <field name="model_id" ref="model_sdd_batch"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="sdd_batch_line_company_rule" model="ir.rule">
+        <field name="name">SEPA Batch Line: multi-company</field>
+        <field name="model_id" ref="model_sdd_batch_line"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>
