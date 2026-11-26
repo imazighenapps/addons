@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_financial_document">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <t t-set="data" t-value="report_data"/>
+                    <h2 t-esc="data['report']['name']"/>
+                    <p>
+                        <strong>Company:</strong> <span t-esc="data['company']"/>
+                        <br/>
+                        <strong>Period:</strong> <span t-esc="data['period_from']"/> - <span t-esc="data['period_to']"/>
+                        <t t-if="data.get('compare')">
+                            <br/><strong>Comparison:</strong>
+                            <span t-esc="data['compare']['period_from']"/> - <span t-esc="data['compare']['period_to']"/>
+                        </t>
+                    </p>
+                    <table class="table table-sm o_main_table">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Label</th>
+                                <th class="text-end">Amount</th>
+                                <t t-if="data.get('compare')"><th class="text-end">Comparison</th><th class="text-end">Delta</th></t>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="cmp_map" t-value="{r['id']: r['amount'] for r in data['compare']['rows']} if data.get('compare') else {}"/>
+                            <t t-foreach="data['rows']" t-as="row">
+                                <tr t-attf-style="font-weight: #{'700' if row['line_type'] in ('title','subtotal') else '400'};">
+                                    <td t-esc="row['code']"/>
+                                    <td><span t-attf-style="padding-left: #{row['level'] * 16}px" t-esc="row['name']"/></td>
+                                    <td class="text-end" t-esc="'%.2f' % row['amount']"/>
+                                    <t t-if="data.get('compare')">
+                                        <t t-set="cmp_amt" t-value="cmp_map.get(row['id'], 0.0)"/>
+                                        <td class="text-end" t-esc="'%.2f' % cmp_amt"/>
+                                        <td class="text-end" t-esc="'%.2f' % (row['amount'] - cmp_amt)"/>
+                                    </t>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

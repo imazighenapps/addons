@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="fr_report_demo_pl" model="fr.report">
+        <field name="name">Profit and Loss (Demo)</field>
+        <field name="report_type">pl</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="fr_report_demo_bs" model="fr.report">
+        <field name="name">Balance Sheet (Demo)</field>
+        <field name="report_type">bs</field>
+        <field name="sequence">20</field>
+    </record>
+    <record id="fr_report_demo_pl_income" model="fr.report.line">
+        <field name="report_id" ref="fr_report_demo_pl"/>
+        <field name="name">Operating Income</field>
+        <field name="line_type">line</field>
+        <field name="internal_group">income</field>
+        <field name="sign">1</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="fr_report_demo_pl_expense" model="fr.report.line">
+        <field name="report_id" ref="fr_report_demo_pl"/>
+        <field name="name">Operating Expenses</field>
+        <field name="line_type">line</field>
+        <field name="internal_group">expense</field>
+        <field name="sign">-1</field>
+        <field name="sequence">20</field>
+    </record>
+    <record id="fr_report_demo_pl_profit" model="fr.report.line">
+        <field name="report_id" ref="fr_report_demo_pl"/>
+        <field name="name">Net Profit</field>
+        <field name="line_type">subtotal</field>
+        <field name="sign">1</field>
+        <field name="sequence">30</field>
+    </record>
+    <record id="fr_report_demo_bs_assets" model="fr.report.line">
+        <field name="report_id" ref="fr_report_demo_bs"/>
+        <field name="name">Assets</field>
+        <field name="line_type">line</field>
+        <field name="internal_group">asset</field>
+        <field name="sign">1</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="fr_report_demo_bs_liab" model="fr.report.line">
+        <field name="report_id" ref="fr_report_demo_bs"/>
+        <field name="name">Liabilities</field>
+        <field name="line_type">line</field>
+        <field name="internal_group">liability</field>
+        <field name="sign">-1</field>
+        <field name="sequence">20</field>
+    </record>
+    <record id="fr_report_demo_bs_equity" model="fr.report.line">
+        <field name="report_id" ref="fr_report_demo_bs"/>
+        <field name="name">Equity</field>
+        <field name="line_type">line</field>
+        <field name="internal_group">equity</field>
+        <field name="sign">-1</field>
+        <field name="sequence">30</field>
+    </record>
+</odoo>
