@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_vendor_collab_root" name="Vendor Collaboration" sequence="46"
+              web_icon="vendor_collaboration,static/description/icon.png"/>
+    <menuitem id="menu_vendor_collab_ops" name="Operations" parent="menu_vendor_collab_root" sequence="10"/>
+    <menuitem id="menu_vendor_asn" name="ASNs" parent="menu_vendor_collab_ops" action="action_vendor_asn" sequence="10"/>
+    <menuitem id="menu_vendor_chargeback" name="Chargebacks" parent="menu_vendor_collab_ops" action="action_vendor_chargeback" sequence="20"/>
+    <menuitem id="menu_vendor_catalog" name="Catalog" parent="menu_vendor_collab_ops" action="action_vendor_catalog_item" sequence="30"/>
+</odoo>
