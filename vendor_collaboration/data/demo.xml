@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="partner_vendor_demo" model="res.partner">
+        <field name="name">Atlas Components Supplier</field>
+        <field name="supplier_rank">1</field>
+        <field name="email">supply@atlas-components.example</field>
+    </record>
+    <record id="product_vendor_demo" model="product.product">
+        <field name="name">Industrial Bearing Kit</field>
+        <field name="type">consu</field>
+        <field name="is_storable">True</field>
+    </record>
+    <record id="asn_vendor_demo" model="vendor.asn">
+        <field name="partner_id" ref="partner_vendor_demo"/>
+        <field name="expected_date" eval="(DateTime.today() + relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+        <field name="carrier_name">DHL Freight</field>
+        <field name="tracking_ref">DHL-VC-2026-001</field>
+        <field name="state">submitted</field>
+    </record>
+    <record id="asn_line_vendor_demo" model="vendor.asn.line">
+        <field name="asn_id" ref="asn_vendor_demo"/>
+        <field name="product_id" ref="product_vendor_demo"/>
+        <field name="qty_expected">50</field>
+        <field name="qty_received">0</field>
+    </record>
+    <record id="chargeback_vendor_demo" model="vendor.chargeback">
+        <field name="partner_id" ref="partner_vendor_demo"/>
+        <field name="date" eval="DateTime.today().strftime('%Y-%m-%d')"/>
+        <field name="reason">quality</field>
+        <field name="amount">250.0</field>
+        <field name="description">Damaged packaging on received pallets.</field>
+        <field name="state">submitted</field>
+    </record>
+    <record id="catalog_vendor_demo" model="vendor.catalog.item">
+        <field name="partner_id" ref="partner_vendor_demo"/>
+        <field name="product_id" ref="product_vendor_demo"/>
+        <field name="vendor_code">ATL-BEAR-01</field>
+        <field name="price">18.5</field>
+        <field name="lead_time_days">5</field>
+        <field name="min_qty">10</field>
+        <field name="state">active</field>
+    </record>
+</odoo>
