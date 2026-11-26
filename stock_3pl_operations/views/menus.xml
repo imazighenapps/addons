@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_3pl_root" name="3PL Operations" sequence="45" web_icon="stock_3pl_operations,static/description/icon.png"/>
+    <menuitem id="menu_3pl_operations" name="Operations" parent="menu_3pl_root" sequence="10"/>
+    <menuitem id="menu_3pl_contracts" name="Contracts" parent="menu_3pl_operations" action="action_stock_3pl_contract" sequence="10"/>
+    <menuitem id="menu_3pl_statements" name="Statements" parent="menu_3pl_operations" action="action_stock_3pl_statement" sequence="20"/>
+</odoo>
