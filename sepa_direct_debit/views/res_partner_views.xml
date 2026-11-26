@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_sdd_mandate" model="ir.ui.view">
+        <field name="name">res.partner.form.sdd.mandate</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_sdd_mandates" type="object" class="oe_stat_button" icon="fa-university"
+                        invisible="sdd_mandate_count == 0">
+                    <field name="sdd_mandate_count" widget="statinfo" string="SEPA Mandates"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

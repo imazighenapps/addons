@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_sdd_root" name="SEPA Direct Debit" sequence="55"
+              web_icon="sepa_direct_debit,static/description/icon.png"/>
+    <menuitem id="menu_sdd_operations" name="Operations" parent="menu_sdd_root" sequence="10"/>
+    <menuitem id="menu_sdd_configuration" name="Configuration" parent="menu_sdd_root" sequence="90"
+              groups="group_sdd_manager"/>
+    <menuitem id="menu_sdd_mandates" name="Mandates" parent="menu_sdd_operations"
+              action="action_sdd_mandate" sequence="10"/>
+    <menuitem id="menu_sdd_batches" name="Direct Debit Batches" parent="menu_sdd_operations"
+              action="action_sdd_batch" sequence="20"/>
+</odoo>
