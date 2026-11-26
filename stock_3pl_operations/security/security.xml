@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_3pl_privilege" model="res.groups.privilege"><field name="name">3PL Operations</field><field name="sequence">10</field></record>
+
+    <record id="group_3pl_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="privilege_id" ref="module_category_3pl_privilege"/>
+        <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+    </record>
+
+    <record id="group_3pl_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="privilege_id" ref="module_category_3pl_privilege"/>
+        <field name="implied_ids" eval="[(4, ref('group_3pl_user'))]"/>
+        <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="rule_3pl_contract_company" model="ir.rule">
+        <field name="name">3PL Contract multi-company</field>
+        <field name="model_id" ref="model_stock_3pl_contract"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="rule_3pl_statement_company" model="ir.rule">
+        <field name="name">3PL Statement multi-company</field>
+        <field name="model_id" ref="model_stock_3pl_statement"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

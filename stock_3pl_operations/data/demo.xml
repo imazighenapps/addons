@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="partner_3pl_demo" model="res.partner">
+        <field name="name">Acme Logistics Customer</field>
+        <field name="email">ops@acme-customer.example</field>
+    </record>
+    <record id="product_3pl_demo" model="product.product">
+        <field name="name">Palletized Goods</field>
+        <field name="type">consu</field>
+        <field name="is_storable">True</field>
+    </record>
+    <record id="contract_3pl_demo" model="stock.3pl.contract">
+        <field name="partner_id" ref="partner_3pl_demo"/>
+        <field name="warehouse_id" ref="stock.warehouse0"/>
+        <field name="date_start" eval="(DateTime.today() - relativedelta(months=1)).strftime('%Y-%m-01')"/>
+        <field name="storage_fee">12.0</field>
+        <field name="handling_fee">3.5</field>
+        <field name="inbound_fee">25.0</field>
+        <field name="outbound_fee">20.0</field>
+        <field name="state">active</field>
+    </record>
+    <record id="statement_3pl_demo" model="stock.3pl.statement">
+        <field name="contract_id" ref="contract_3pl_demo"/>
+        <field name="period_start" eval="(DateTime.today().replace(day=1)).strftime('%Y-%m-%d')"/>
+        <field name="period_end" eval="(DateTime.today()).strftime('%Y-%m-%d')"/>
+        <field name="state">confirmed</field>
+    </record>
+    <record id="statement_line_3pl_demo" model="stock.3pl.statement.line">
+        <field name="statement_id" ref="statement_3pl_demo"/>
+        <field name="product_id" ref="product_3pl_demo"/>
+        <field name="opening_qty">120</field>
+        <field name="in_qty">40</field>
+        <field name="out_qty">30</field>
+    </record>
+    <record id="billing_line_3pl_demo" model="stock.3pl.billing.line">
+        <field name="statement_id" ref="statement_3pl_demo"/>
+        <field name="service_type">storage</field>
+        <field name="description">Monthly pallet storage</field>
+        <field name="quantity">130</field>
+        <field name="price_unit">12.0</field>
+    </record>
+</odoo>

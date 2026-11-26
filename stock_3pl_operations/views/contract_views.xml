@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_3pl_contract_list" model="ir.ui.view">
+        <field name="name">stock.3pl.contract.list</field>
+        <field name="model">stock.3pl.contract</field>
+        <field name="arch" type="xml">
+            <list string="3PL Contracts">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="warehouse_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="storage_fee"/>
+                <field name="handling_fee"/>
+                <field name="state" widget="badge" decoration-success="state=='active'" decoration-info="state=='draft'" decoration-muted="state in ('expired','cancelled')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_stock_3pl_contract_form" model="ir.ui.view">
+        <field name="name">stock.3pl.contract.form</field>
+        <field name="model">stock.3pl.contract</field>
+        <field name="arch" type="xml">
+            <form string="3PL Contract">
+                <header>
+                    <button name="action_activate" type="object" string="Activate" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state not in ('draft','active')"/>
+                    <button name="action_reset_to_draft" type="object" string="Reset to Draft" invisible="state not in ('cancelled','expired')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_statements" type="object" class="oe_stat_button" icon="fa-list-alt" invisible="statement_count == 0">
+                            <field name="statement_count" widget="statinfo" string="Statements"/>
+                        </button>
+                    </div>
+                    <div class="oe_title"><h1><field name="name" readonly="1"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="warehouse_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <group string="Billing Rates">
+                        <group>
+                            <field name="storage_fee"/>
+                            <field name="handling_fee"/>
+                        </group>
+                        <group>
+                            <field name="inbound_fee"/>
+                            <field name="outbound_fee"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Terms and Notes"><field name="note"/></page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_stock_3pl_contract" model="ir.actions.act_window">
+        <field name="name">3PL Contracts</field>
+        <field name="res_model">stock.3pl.contract</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
